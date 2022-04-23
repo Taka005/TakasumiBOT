@@ -21,7 +21,7 @@ function ready(client) {
             });
             stats = 2;
           } else if (stats == 2){
-            client.user.setActivity(`ver:2.3.1`, {
+            client.user.setActivity(`ver:2.4.1`, {
               type: 'PLAYING'
             });
             stats = 0; 
@@ -42,7 +42,7 @@ function ready(client) {
           name: "help",
           description: "使い方がわかります",
         }];
-        await client.application.commands.set(help,'942268307795492864');
+        await client.application.commands.set(help);
       });
 }
 

@@ -11,14 +11,23 @@ function node(client){
           }catch{
             return message.reply("ファイル書き込み中にエラーが発生しました");
           }
+
           try{
             const run = require("./node/script.js")
             run(message)
           }catch{
             return message.reply("実行中にエラーが発生しました")
           }
+        return;
       }
     });
 }
 
 module.exports = node
+
+/**
+ * development by Taka005#1203
+ *
+ * please join the my discord server
+ * https://discord.gg/GPs3npB63m
+ */
