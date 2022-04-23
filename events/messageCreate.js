@@ -25,10 +25,9 @@ function messageCreate(client) {
         if(!message.content.startsWith(prefix)) return  
         //say  
         if(message.content.startsWith(">say")){
-          const args = message.content.split(" ").slice(1);
+          const args = message.content.slice(5);
             message.delete()     
-          if(!args[0]) return message.channel.send(`${reply}>sayの後にテキストが必要です`);
-            message.channel.send(`${args}`)
+            message.channel.send(`${args.replace("@","＠") || "NONE"}`)
           return;
         }
         //join

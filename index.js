@@ -21,6 +21,7 @@ const guildMemberRemove = require('./events/guildMemberRemove.js')
 
 const bump = require('./commands/bump');
 const note = require('./commands/note');
+const node = require('./commands/node.js');
 
 //events
 ready(client) 
@@ -37,6 +38,8 @@ guildMemberRemove(client)
 bump(client)
 
 note(client)
+
+node(client)
 
 client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.log("[${h}:${m}:${s}]CLIENT:ログインに成功しました"))

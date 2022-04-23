@@ -1,12 +1,13 @@
 function note(client){
     const fs = require('fs');
     client.on("messageCreate", (message) => {
-        var prefix = ">"
-        var reply = `<@!${message.author.id}>`
+      if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
+        const prefix = ">"
+        const reply = `<@!${message.author.id}>`
         if (message.content.startsWith("><")) {
             const text = message.content.split(" ").slice(1);
-            var filename = message.author.id;
-            var usename = message.author.tag;
+            let filename = message.author.id;
+            let usename = message.author.tag;
             message.delete()
             if (message.content === `${prefix}<help`){//help
                   message.channel.send({
