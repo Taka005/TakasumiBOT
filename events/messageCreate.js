@@ -27,7 +27,7 @@ function messageCreate(client) {
         if(message.content.startsWith(">say")){
           const args = message.content.slice(5);
             message.delete()     
-            message.channel.send(`${args.replace("@","＠") || "NONE"}`)
+            message.channel.send(`${args.replace("@","＠") || "表示するテキストがありません"}`)
           return;
         }
         //join
