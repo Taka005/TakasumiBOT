@@ -5,7 +5,6 @@
 - 鷹のすみかサーバー専用bot
 - replit対応
 # 使い方
-- ./events/ready.jsの登録スラッシュコマンドのサーバーIDを使いたいサーバーに
 - 同じディレクトリに.envファイルを作成
 - .envの中に DISCORD_BOT_TOKEN={botのtoken} を記述する
 - npm install
