@@ -1,6 +1,5 @@
 # takasumi_bot_dev
 鷹のすみかスタッフbot開発
-<<<<<<< HEAD
 # takanosumika
 - 鷹のすみかサーバー専用bot
 - replit対応
@@ -13,6 +12,3 @@
 - development by Taka005#1203
 - please join the my discord server
 - https://discord.gg/GPs3npB63m
-=======
--開発:taka005
->>>>>>> a2ff1fb0878af00b711f8df1f90e801ebe06feca
