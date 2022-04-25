@@ -7,3 +7,10 @@ const config = {
    newmemberroll:944548589777080330n, //新メンバー参加時にメンションするロールID
    log:1 //0:false 1:true ログをlog.txtとして出力するかどうか 
 }
+
+/**
+ * development by Taka005#1203
+ *
+ * please join the my discord server
+ * https://discord.gg/GPs3npB63m
+ */
