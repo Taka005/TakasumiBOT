@@ -9,6 +9,8 @@ const config = {
    "log":"1" //0:false 1:true ログをlog.txtとして出力するかどうか 
 }
 
+module.export = config
+
 /**
  * development by Taka005#1203
  *
