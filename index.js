@@ -16,32 +16,32 @@ const options = {
 const client = new Client(options);
 
 const ready = require('./events/ready.js');
-const messageCreate = require('./events/messageCreate.js')
-const interactionCreate = require('./events/interactionCreate.js')
+const messageCreate = require('./events/messageCreate.js');
+const interactionCreate = require('./events/interactionCreate.js');
 const guildMemerAdd = require('./events/guildMemberAdd');
-const guildMemberRemove = require('./events/guildMemberRemove.js')
+const guildMemberRemove = require('./events/guildMemberRemove.js');
 
 const bump = require('./commands/bump');
 const note = require('./commands/note');
 const node = require('./commands/node.js');
 
 //events
-ready(client) 
+ready(client);
 
-messageCreate(client)
+messageCreate(client);
 
-interactionCreate(client)
+interactionCreate(client);
 
-guildMemerAdd(client)
+guildMemerAdd(client);
 
-guildMemberRemove(client)
+guildMemberRemove(client);
 
 //commands
-bump(client)
+bump(client);
 
-note(client)
+note(client);
 
-node(client)
+node(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.log("[${h}:${m}:${s}]CLIENT:ログインに成功しました"))
@@ -59,7 +59,7 @@ process.on('uncaughtException', (error) => {
     })
       .then(()=>{return;})
       .catch(()=>{return;})
-})
+});
 
 //error unhandledRejection
 process.on('unhandledRejection', (error) => {
@@ -73,7 +73,7 @@ process.on('unhandledRejection', (error) => {
     })
       .then(()=>{return;})
       .catch(()=>{return;})
-})
+});
 
 /**
  * development by Taka005#1203
