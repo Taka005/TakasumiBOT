@@ -7,6 +7,8 @@ http.createServer(function(request, response)
 
 const { Client, Intents } = require('discord.js');
 require("dotenv").config();
+const config = require("./config.json")
+console.log(config)
 
 const options = {
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
@@ -44,6 +46,34 @@ node(client)
 client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.log("[${h}:${m}:${s}]CLIENT:ログインに成功しました"))
    .catch(e => console.log("[${h}:${m}:${s}]ERROR:ログインに失敗しました"))
+
+//error uncaughtException
+process.on('uncaughtException', (error) => {
+    message.channel.send({
+        embeds:[{
+          color: "RED",
+          title: `${error.name}`,
+          description: "```"+`${error.message}`+"```",
+          timestamp: new Date()
+        }]
+    })
+      .then(()=>{return;})
+      .catch(()=>{return;})
+})
+
+//error unhandledRejection
+process.on('unhandledRejection', (error) => {
+    message.channel.send({
+        embeds:[{
+          color: "RED",
+          title: `${error.name}`,
+          description: "```"+`${error.message}`+"```",
+          timestamp: new Date()
+        }]
+    })
+      .then(()=>{return;})
+      .catch(()=>{return;})
+})
 
 /**
  * development by Taka005#1203
