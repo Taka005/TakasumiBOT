@@ -1,7 +1,5 @@
 # takasumi_bot_dev
-鷹のすみかスタッフbot開発
-# takanosumika
-- 鷹のすみかサーバー専用bot
+- 鷹のすみかスタッフbot開発
 - replit対応
 # 使い方
 - 同じディレクトリに.envファイルを作成
