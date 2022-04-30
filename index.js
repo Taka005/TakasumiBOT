@@ -7,8 +7,6 @@ http.createServer(function(request, response)
 
 const { Client, Intents } = require('discord.js');
 require("dotenv").config();
-const config = require("./config.json")
-console.log(config)
 
 const options = {
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
