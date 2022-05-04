@@ -16,7 +16,11 @@ function events(client){
         var m = now.getMinutes()
         var s = now.getSeconds() 
 
+        const bump = require("./bump")
+        bump(message)
+
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
+
         //console.log
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(`+message.author.tag+`)`+`${message.content} PING[${client.ws.ping}ms]`);
         //fs.log
@@ -25,7 +29,7 @@ function events(client){
             console.log(err);
           }
         }); 
-
+        //commands
         const say = require("./commands/say");
         const join = require("./commands/join");
         const avatar = require("./commands/avater");
@@ -57,9 +61,6 @@ function events(client){
         server(message)
         note(message)
         node(message)
-
-        const bump = require("./bump");
-        bump(message)
         
         return;
     });
