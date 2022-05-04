@@ -1,3 +1,4 @@
+const antitoken = require('./antitoken');
 const node = require('./commands/node');
 
 function events(client){
@@ -15,9 +16,11 @@ function events(client){
         var h = now.getHours()
         var m = now.getMinutes()
         var s = now.getSeconds() 
-
-        const bump = require("./bump")
+        //other
+        const bump = require("./bump");
+        const antitoken = require("./antitoken");
         bump(message)
+        antitoken(message)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 
