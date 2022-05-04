@@ -8,69 +8,31 @@ http.createServer(function(request, response)
 const { Client, Intents } = require('discord.js');
 require("dotenv").config();
 
-const options = {
-    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
-};
-const client = new Client(options);
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
+});
 
-const ready = require('./events/ready.js');
-const messageCreate = require('./events/messageCreate.js');
-const interactionCreate = require('./events/interactionCreate.js');
-const guildMemerAdd = require('./events/guildMemberAdd');
-const guildMemberRemove = require('./events/guildMemberRemove.js');
+var now = new Date();
+var h = now.getHours()
+var m = now.getMinutes()
+var s = now.getSeconds() 
 
-const bump = require('./commands/bump');
-const note = require('./commands/note');
-const node = require('./commands/node.js');
+const events = require("./module/events")
 
-//events
-ready(client);
-
-messageCreate(client);
-
-interactionCreate(client);
-
-guildMemerAdd(client);
-
-guildMemberRemove(client);
-
-//commands
-bump(client);
-
-note(client);
-
-node(client);
+events(client)
 
 client.login(process.env.DISCORD_BOT_TOKEN)
-   .then(()=> console.log("[${h}:${m}:${s}]CLIENT:ログインに成功しました"))
-   .catch(e => console.log("[${h}:${m}:${s}]ERROR:ログインに失敗しました"))
+   .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
+   .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 
 //error uncaughtException
 process.on('uncaughtException', (error) => {
-    message.channel.send({
-        embeds:[{
-          color: "RED",
-          title: `${error.name}`,
-          description: "```"+`${error.message}`+"```",
-          timestamp: new Date()
-        }]
-    })
-      .then(()=>{return;})
-      .catch(()=>{return;})
+  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+error);
 });
 
 //error unhandledRejection
 process.on('unhandledRejection', (error) => {
-    message.channel.send({
-        embeds:[{
-          color: "RED",
-          title: `${error.name}`,
-          description: "```"+`${error.message}`+"```",
-          timestamp: new Date()
-        }]
-    })
-      .then(()=>{return;})
-      .catch(()=>{return;})
+  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+error);
 });
 
 /**

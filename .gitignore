@@ -105,3 +105,4 @@ dist
 cmd.exe - ショートカット.lnk
 log.txt
 commands/node/script.js
+note/script.js
