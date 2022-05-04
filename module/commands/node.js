@@ -3,7 +3,7 @@ async function node(message){
     const config = require("../../config.json");
     if(message.content.startsWith(`${config.prefix}node`)){
           if(message.author.id === `${config.admin}`){
-          const code = message.content.slice(6).replace("```", "").replace("```", "");
+          const code = message.content.slice(6)
           const script = `function script(message){\n  ${code}\n}\n\nmodule.exports = script`
           try{
             fs.writeFileSync(`./note/script.js`, `${script}`, 'utf8');
