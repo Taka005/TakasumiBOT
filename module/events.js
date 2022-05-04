@@ -1,6 +1,3 @@
-const antitoken = require('./antitoken');
-const node = require('./commands/node');
-
 function events(client){
     const fs = require('fs');
 
