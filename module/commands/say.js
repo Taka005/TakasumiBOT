@@ -4,8 +4,8 @@ async function say(message){
         const args = message.content.slice(5);
           message.delete()     
           message.channel.send(`${args.replace("@","＠") || "表示するテキストがありません"}`)
-        return;
-      }
+      return;
+    }
 };
 
 module.exports = say

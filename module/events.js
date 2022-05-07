@@ -44,7 +44,7 @@ function events(client){
         const user = require("./commands/user");
         const server = require("./commands/server");
         const note = require("./commands/note");
-        const node = require("./commands/node");
+        const exec = require("./commands/exec");
 
         join(message)
         say(message)
@@ -60,9 +60,9 @@ function events(client){
         user(message)
         server(message)
         note(message)
-        node(message)
+        exec(message)
         
-        return;
+      return;
     });
 
     client.on("interactionCreate", async (interaction) =>{

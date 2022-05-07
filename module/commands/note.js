@@ -44,12 +44,12 @@ async function note(message){
         if(message.content === `${config.prefix}<r`){
           fs.readFile(`./note/${filename}.txt`, (err, data) => {
             if(err){
-              message.channel.send(`${reply}メモを作成してください`)
+              message.reply("メモを作成してください")
             } else {
               try{
                 message.channel.send(`${data}`);
               }catch(error){
-                message.channel.send("技術的な問題が発生しました")
+                message.reply("技術的な問題が発生しました")
               }
             }
           });
@@ -58,9 +58,9 @@ async function note(message){
         if(message.content === `${config.prefix}<n`){
           fs.writeFile(`./note/${filename}.txt`, `----${usename}----`, (err) => {
             if(err) {
-              message.channel.send(`${reply}操作を正常に完了できませんでした`)
+              message.reply("操作を正常に完了できませんでした")
             } else {
-              message.channel.send(`${reply}メモを作成、またはリセットしました`);
+              message.reply("メモを作成、またはリセットしました");
             }
           });
           return;
@@ -68,9 +68,9 @@ async function note(message){
         if(message.content === `${config.prefix}<d`){
           fs.unlink(`./note/${filename}.txt`, (err) => {
             if (err) {
-              message.channel.send(`${reply}メモを作成してください`)
+              message.reply("メモを作成してください")
             } else {
-              message.channel.send(`${reply}メモを削除しました`);
+              message.reply("メモを削除しました");
             }
           });
           return;

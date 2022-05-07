@@ -11,8 +11,8 @@ async function cpu(message){
               description: `${cpu}`
             }]
           });
-        return;
-      }
+      return;
+    }
 }
 
 module.exports = cpu

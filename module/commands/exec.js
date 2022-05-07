@@ -1,8 +1,8 @@
 async function node(message){
     const fs = require('fs');
     const config = require("../../config.json");
-    if(message.content.startsWith(`${config.prefix}node`)){
-          if(message.author.id === `${config.admin}`){
+    if(message.content.startsWith(`${config.prefix}exec`)){
+      if(message.author.id === `${config.admin}`){
           const code = message.content.slice(6)
           const script = `function script(message){\n  ${code}\n}\n\nmodule.exports = script`
           try{

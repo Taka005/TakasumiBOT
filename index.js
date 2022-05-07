@@ -25,19 +25,10 @@ client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
    .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 
-//error uncaughtException
 process.on('uncaughtException', (error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+error);
 });
 
-//error unhandledRejection
 process.on('unhandledRejection', (error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+error);
 });
-
-/**
- * development by Taka005#1203
- *
- * please join the my discord server
- * https://discord.gg/GPs3npB63m
- */

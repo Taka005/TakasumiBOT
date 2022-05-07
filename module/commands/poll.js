@@ -1,8 +1,7 @@
 async function poll(message){
     const config = require("../../config.json")
     const reply = `<@!${message.author.id}>`
-    var usertag = message.author.tag;
-    var [command, ...args] = message.content.slice(config.prefix.length).split(' ')
+    let [command, ...args] = message.content.slice(config.prefix.length).split(' ')
     if (command === 'poll') {
       const [title, ...choices] = args
         if (!title) return message.channel.send(`${reply}タイトルと選択肢を指定してください`)
@@ -17,13 +16,13 @@ async function poll(message){
                       description: choices.map((c, i) => `${emojis[i]} ${c}`).join('\n'),
                       timestamp: new Date(),
                       footer: {
-                        text: `${usertag}によって送信`
+                        text: `${message.author.tag}によって送信`
                       }
                     }]
         });
       emojis.slice(0, choices.length).forEach(emoji => poll.react(emoji))
       return;
-  } 
+    } 
 }
 
 module.exports = poll

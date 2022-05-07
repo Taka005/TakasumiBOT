@@ -9,8 +9,8 @@ async function timer(message){
             setTimeout(() => {
               message.reply(`${time}秒経ちました`)
             },time * 1000) 
-        return;
-      }
+      return;
+    }
 }
 
 module.exports = timer

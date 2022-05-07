@@ -7,8 +7,8 @@ async function url(message){
         if (!attachment[0]) return message.channel.send(`${reply}ファイルのURLが必要です`);
           message.channel.send({ files: attachment })
             .catch(()=>message.channel.send(`${reply}無効なURLまたはファイルではありません`))
-        return;
-      }
+      return;
+    }
 }
 
 module.exports = url

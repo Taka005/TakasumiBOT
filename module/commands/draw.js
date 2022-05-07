@@ -11,8 +11,8 @@ async function draw(message){
               description: `${result}`
             }]
           });
-        return;
-      }
+      return;
+    }
 }
 
 module.exports = draw

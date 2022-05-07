@@ -29,8 +29,8 @@ async function server(message){
             ]
           }]
         })
-        return;
-      }
+      return;
+    }
 }
 
 module.exports = server

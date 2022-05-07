@@ -2,8 +2,8 @@ async function user(message,client){
     const config = require("../../config.json")
     if(message.content.startsWith(`${config.prefix}user`)){
         if(message.content === `${config.prefix}user`){
-          message.reply(
-            {embeds:[{
+          message.reply({
+            embeds:[{
               title: "ユーザー情報",
               color: 7506394,
               timestamp: new Date(),
@@ -34,9 +34,9 @@ async function user(message,client){
         }
         try{
           const args = message.content.split(" ").slice(1);
-          var user = await client.users.fetch(args[0])
-          message.reply(
-            {embeds:[{
+          let user = await client.users.fetch(args[0])
+          message.reply({
+            embeds:[{
               title: "ユーザー情報",
               color: 7506394,
               timestamp: new Date(),
@@ -64,12 +64,11 @@ async function user(message,client){
             }]
           })
           .catch(()=> message.reply("ユーザーの取得中にエラーが発生しました"))
-          return;
         }catch{
           message.reply("ユーザーを取得出来ませんでした")
-          return;
         } 
-      }
+      return;
+    }
 }
 
 module.exports = user
