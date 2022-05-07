@@ -2,5 +2,24 @@
   "dependencies": {
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0"
-  }
+  },
+  "name": "takasumi_bot_dev",
+  "description": "鷹のすみかスタッフbot開発 https://discord.gg/GPs3npB63m",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Taka005/takasumi_bot_dev.git"
+  },
+  "keywords": [],
+  "author": "Taka05#1203",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Taka005/takasumi_bot_dev/issues"
+  },
+  "homepage": "https://github.com/Taka005/takasumi_bot_dev#readme"
 }
