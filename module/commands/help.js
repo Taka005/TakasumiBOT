@@ -2,7 +2,7 @@ async function help(interaction){
     if (!interaction.isCommand()) return;
     if (interaction.commandName === 'help') {
       await interaction.reply({
-        embeds:[ {//埋め込み
+        embeds:[{
           title: "BOTのHELP",
           description: "製作者:Taka005#1203\n" +
                       "プレフィックスは`>`または`/`です",

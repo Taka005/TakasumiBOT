@@ -2,11 +2,10 @@ async function note(message){
     const fs = require('fs');
     const config = require("../../config.json")
     const reply = `<@!${message.author.id}>`
-    if (message.content.startsWith("><")) {
+      if(message.content.startsWith(`${config.prefix}`)){
         const text = message.content.split(" ").slice(1);
         let filename = message.author.id;
         let usename = message.author.tag;
-        message.delete()
         if (message.content === `${config.prefix}<help`){
               message.channel.send({
                 embeds:[{
@@ -40,7 +39,9 @@ async function note(message){
                   ]
                 }]
             })
-        }else if(message.content === `${config.prefix}<r`){
+          return;
+        }
+        if(message.content === `${config.prefix}<r`){
           fs.readFile(`./note/${filename}.txt`, (err, data) => {
             if(err){
               message.channel.send(`${reply}メモを作成してください`)
@@ -52,7 +53,9 @@ async function note(message){
               }
             }
           });
-        }else if(message.content === `${config.prefix}<n`){
+          return;
+        }
+        if(message.content === `${config.prefix}<n`){
           fs.writeFile(`./note/${filename}.txt`, `----${usename}----`, (err) => {
             if(err) {
               message.channel.send(`${reply}操作を正常に完了できませんでした`)
@@ -60,7 +63,9 @@ async function note(message){
               message.channel.send(`${reply}メモを作成、またはリセットしました`);
             }
           });
-        }else if(message.content === `${config.prefix}<d`){
+          return;
+        }
+        if(message.content === `${config.prefix}<d`){
           fs.unlink(`./note/${filename}.txt`, (err) => {
             if (err) {
               message.channel.send(`${reply}メモを作成してください`)
@@ -68,8 +73,11 @@ async function note(message){
               message.channel.send(`${reply}メモを削除しました`);
             }
           });
-        }else if (message.content.startsWith(`${config.prefix}<w`)){
+          return;
+        }
+        if (message.content.startsWith(`${config.prefix}<w`)){
           if (!text[0]) return message.reply("メモの内容が必要です");
+            message.delete()
             fs.appendFile(`./note/${filename}.txt`, `\n${text}`, (err) => {
               if(err) {
                 message.channel.send(`${reply}操作を正常に完了できませんでした`)
@@ -77,6 +85,7 @@ async function note(message){
                 message.channel.send(`${reply}記入しました`)
               }
             }); 
+          return;
         }
       }
 }

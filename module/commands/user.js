@@ -1,6 +1,5 @@
 async function user(message,client){
     const config = require("../../config.json")
-    const reply = `<@!${message.author.id}>`
     if(message.content.startsWith(`${config.prefix}user`)){
         if(message.content === `${config.prefix}user`){
           message.reply(
@@ -64,10 +63,10 @@ async function user(message,client){
               ]
             }]
           })
-          .catch(()=> message.channel.send(`${reply}ユーザーの取得中にエラーが発生しました`))
+          .catch(()=> message.reply("ユーザーの取得中にエラーが発生しました"))
           return;
         }catch{
-          message.channel.send(`${reply}ユーザーを取得出来ませんでした`)
+          message.reply("ユーザーを取得出来ませんでした")
           return;
         } 
       }
