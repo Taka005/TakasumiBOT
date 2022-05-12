@@ -1,8 +1,8 @@
 async function server(message){
     const config = require("../../config.json");
     if(message.content === `${config.prefix}server`){
-        message.reply(
-          {embeds:[{
+        message.reply({
+          embeds:[{
             title: "サーバー情報",
             color: 7506394,
             timestamp: new Date(),

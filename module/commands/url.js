@@ -1,7 +1,7 @@
 async function url(message){
     const config = require("../../config.json")
     const reply = `<@!${message.author.id}>`
-    if (message.content.startsWith(`${config.prefix}url`)) {
+    if(message.content.startsWith(`${config.prefix}url`)) {
         const attachment = message.content.split(" ").slice(1);
         message.delete()
         if (!attachment[0]) return message.channel.send(`${reply}ファイルのURLが必要です`);

@@ -14,7 +14,7 @@ async function status(message,client){
       var timeup = os.uptime()
       var timeuphours = Math.round(timeup / 60);
       message.channel.send({
-        embeds:[ {//埋め込み
+        embeds:[{
           title: "ステータス",
           color: "BLUE",
           timestamp: new Date(),

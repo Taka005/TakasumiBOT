@@ -1,6 +1,6 @@
 async function help(interaction){
-    if (!interaction.isCommand()) return;
-    if (interaction.commandName === 'help') {
+    if(!interaction.isCommand()) return;
+    if(interaction.commandName === 'help'){
       await interaction.reply({
         embeds:[{
           title: "BOTのHELP",

@@ -10,7 +10,6 @@ async function node(message){
           }catch{
             return message.reply("ファイル書き込み中にエラーが発生しました");
           }
-
           try{
             const run = require("../../note/script")
             run(message)

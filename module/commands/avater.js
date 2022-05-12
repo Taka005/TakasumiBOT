@@ -1,6 +1,6 @@
 async function avatar(message,client){
     const config = require("../../config.json")
-    if (message.content.startsWith(`${config.prefix}avatar`)) {
+    if(message.content.startsWith(`${config.prefix}avatar`)) {
         if(message.content === `${config.prefix}avatar`){
             message.reply(message.author.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png");
             return;

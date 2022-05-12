@@ -6,7 +6,7 @@ async function note(message){
         const text = message.content.split(" ").slice(1);
         let filename = message.author.id;
         let usename = message.author.tag;
-        if (message.content === `${config.prefix}<help`){
+        if(message.content === `${config.prefix}<help`){
               message.channel.send({
                 embeds:[{
                   title: "メモ機能のHELP",
@@ -45,7 +45,7 @@ async function note(message){
           fs.readFile(`./note/${filename}.txt`, (err, data) => {
             if(err){
               message.reply("メモを作成してください")
-            } else {
+            }else{
               try{
                 message.channel.send(`${data}`);
               }catch(error){
@@ -57,9 +57,9 @@ async function note(message){
         }
         if(message.content === `${config.prefix}<n`){
           fs.writeFile(`./note/${filename}.txt`, `----${usename}----`, (err) => {
-            if(err) {
+            if(err){
               message.reply("操作を正常に完了できませんでした")
-            } else {
+            }else{
               message.reply("メモを作成、またはリセットしました");
             }
           });
@@ -67,21 +67,21 @@ async function note(message){
         }
         if(message.content === `${config.prefix}<d`){
           fs.unlink(`./note/${filename}.txt`, (err) => {
-            if (err) {
+            if(err){
               message.reply("メモを作成してください")
-            } else {
+            }else{
               message.reply("メモを削除しました");
             }
           });
           return;
         }
-        if (message.content.startsWith(`${config.prefix}<w`)){
-          if (!text[0]) return message.reply("メモの内容が必要です");
+        if(message.content.startsWith(`${config.prefix}<w`)){
+          if(!text[0]) return message.reply("メモの内容が必要です");
             message.delete()
             fs.appendFile(`./note/${filename}.txt`, `\n${text}`, (err) => {
-              if(err) {
+              if(err){
                 message.channel.send(`${reply}操作を正常に完了できませんでした`)
-              } else{
+              }else{
                 message.channel.send(`${reply}記入しました`)
               }
             }); 
