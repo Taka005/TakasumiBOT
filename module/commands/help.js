@@ -72,7 +72,7 @@ async function help(interaction){
             value: ">dell [number]でメッセージを削除できます\n**※二週間以上前のメッセージは削除できません。**"
           },
           {
-            name: "**>node**",
+            name: "**>exec**",
             value: "制作者専用です"
           }
         ]
