@@ -36,10 +36,6 @@ async function help(interaction){
             value: "メモ機能のHELPを表示する"
           },
           {
-            name: "**>bans**",
-            value: "サーバーからBANされた人を表示します"
-          },
-          {
             name: "**>avatar**",
             value: "自分のアイコン又は、引数にユーザーIDを入れることでアイコンを取得します"
             },
