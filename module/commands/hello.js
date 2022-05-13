@@ -25,8 +25,8 @@ async function hello(message){
             ]
           }]
         })
-        return;
-      }
+      return;
+    }
 }
 
 module.exports = hello
