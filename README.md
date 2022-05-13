@@ -5,7 +5,7 @@
 - 同じディレクトリに.envファイルを作成
 - .envの中に DISCORD_BOT_TOKEN={botのtoken} を記述する
 - npm install を実行
-- node index.js を実行
+- npm start を実行
 # configについて
 - admin:自分のユーザーID
 - prefix:コマンドの先頭になる文字
