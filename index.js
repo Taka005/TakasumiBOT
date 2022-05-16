@@ -27,8 +27,28 @@ client.login(process.env.DISCORD_BOT_TOKEN)
 
 process.on('uncaughtException', (error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+error);
+
+  member.guild.channels.cache.get(`${config.member_channel}`).send({
+    embeds:[{
+      color: "RED",
+      title: `${error.name}`,
+      description: "```"+`${error.message}`+"```",
+      timestamp: new Date()
+    }]
+  })
+
 });
 
-process.on('unhandledRejection', (error) => {
-  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+error);
+process.on('unhandledRejection', (reason, promise) => {
+  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+`promise[${promise}] reason[${reason.message}]`);
+
+  member.guild.channels.cache.get(`${config.member_channel}`).send({
+    embeds:[{
+      color: "RED",
+      title: `${promise}`,
+      description: "```"+`${reason.message}`+"```",
+      timestamp: new Date()
+    }]
+  })
+
 });
