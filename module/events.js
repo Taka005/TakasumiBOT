@@ -1,3 +1,5 @@
+const antilink = require('./antilinks');
+
 function events(client){
     const fs = require('fs');
 
@@ -16,8 +18,10 @@ function events(client){
         //other
         const bump = require("./bump");
         const antitoken = require("./antitoken");
+        const antilinks = require("./antilinks");
         bump(message)
         antitoken(message)
+        antilinks(message,client)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 

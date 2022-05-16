@@ -7,15 +7,16 @@ http.createServer(function(request, response)
 
 const { Client, Intents } = require('discord.js');
 require("dotenv").config();
+const cnf = require("./config.json")
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
 });
 
-var now = new Date();
-var h = now.getHours()
-var m = now.getMinutes()
-var s = now.getSeconds() 
+let now = new Date();
+let h = now.getHours();
+let m = now.getMinutes();
+let s = now.getSeconds();
 
 const events = require("./module/events")
 
@@ -26,9 +27,11 @@ client.login(process.env.DISCORD_BOT_TOKEN)
    .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 
 process.on('uncaughtException', (error) => {
-  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+error);
 
-  member.guild.channels.cache.get(`${config.member_channel}`).send({
+
+  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+error);
+
+  client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "RED",
       title: `${error.name}`,
@@ -36,13 +39,13 @@ process.on('uncaughtException', (error) => {
       timestamp: new Date()
     }]
   })
-
+  return;
 });
 
 process.on('unhandledRejection', (reason, promise) => {
-  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:`+`promise[${promise}] reason[${reason.message}]`);
+  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+`promise[${promise}] reason[${reason.message}]`);
 
-  member.guild.channels.cache.get(`${config.member_channel}`).send({
+  client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "RED",
       title: `${promise}`,
@@ -50,5 +53,5 @@ process.on('unhandledRejection', (reason, promise) => {
       timestamp: new Date()
     }]
   })
-
+  return;
 });
