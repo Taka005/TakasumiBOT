@@ -1,3 +1,4 @@
+const { MessageActionRow } = require('discord.js');
 const antilink = require('./antilinks');
 
 function events(client){
@@ -49,6 +50,7 @@ function events(client){
         const server = require("./commands/server");
         const note = require("./commands/note");
         const exec = require("./commands/exec");
+        const soccer = require("./commands/soccer");
 
         join(message)
         say(message)
@@ -65,6 +67,7 @@ function events(client){
         server(message)
         note(message)
         exec(message)
+        soccer(message)
         
       return;
     });

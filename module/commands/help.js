@@ -38,10 +38,14 @@ async function help(interaction){
           {
             name: "**>avatar**",
             value: "自分のアイコン又は、引数にユーザーIDを入れることでアイコンを取得します"
-            },
+          },
           {
             name: "**>join**",
             value: "自分がサーバーに参加している日数を表示します"
+          },
+          {
+            name: "**>soccer**",
+            value: "サッカーをします"
           },
           {
             name: "**>user**",
