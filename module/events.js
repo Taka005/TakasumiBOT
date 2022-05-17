@@ -69,7 +69,7 @@ function events(client){
         note(message)
         exec(message)
         soccer(message)
-        restart(message)
+        restart(message,client)
         
       return;
     });
