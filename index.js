@@ -28,7 +28,6 @@ client.login(process.env.DISCORD_BOT_TOKEN)
 
 process.on('uncaughtException', (error) => {
 
-
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+error);
 
   client.channels.cache.get(cnf.log_channel).send({
