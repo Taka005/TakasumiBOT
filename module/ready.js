@@ -9,17 +9,17 @@ async function ready(client){
       
       var stats = 0; 
       setInterval(() => {
-        if (stats == 0){
+        if(stats == 0){
           client.user.setActivity('Created by Taka005#1203', {
             type: 'PLAYING'
           });      
           stats = 1;
-        } else if (stats == 1){
+        }else if(stats == 1){
           client.user.setActivity(`/help || ping:${client.ws.ping}ms`, {
             type: 'PLAYING'
           });
           stats = 2;
-        } else if (stats == 2){
+        }else if(stats == 2){
           client.user.setActivity(`ver:${config.version}`, {
             type: 'PLAYING'
           });

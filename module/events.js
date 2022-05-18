@@ -17,7 +17,7 @@ function events(client){
         const bump = require("./bump");
         const antitoken = require("./antitoken");
         const antilinks = require("./antilinks");
-        const openmessage = require("./openmessage")
+        const openmessage = require("./openmessage");
         bump(message)
         antitoken(message)
         antilinks(message,client)
@@ -29,7 +29,7 @@ function events(client){
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(`+message.author.tag+`)`+`${message.content} PING[${client.ws.ping}ms]`);
         //fs.log
         fs.appendFileSync('./log.txt', `\n[${h}:${m}:${s}]LOG:(${message.author.tag})${message.content} PING[${client.ws.ping}ms]`, (err) => {
-          if(err) {
+          if(err){
             console.log(err);
           }
         }); 
@@ -72,7 +72,7 @@ function events(client){
     });
 
     client.on("interactionCreate", async (interaction) =>{
-        const help = require("./commands/help")
+        const help = require("./commands/help");
 
         help(interaction);
         return;
@@ -86,7 +86,7 @@ function events(client){
       
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)
         fs.appendFileSync('./log.txt', `\n[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`, (err) => {
-          if(err) {
+          if(err){
             console.log(err);
           }
         });
@@ -105,7 +105,7 @@ function events(client){
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)  
       
         fs.appendFileSync('./log.txt', `\n[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`, (err) => {
-          if(err) {
+          if(err){
             console.log(err);
           }
         }); 
