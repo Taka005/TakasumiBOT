@@ -18,13 +18,11 @@ let h = now.getHours();
 let m = now.getMinutes();
 let s = now.getSeconds();
 
-const token = process.env.DISCORD_BOT_TOKEN
-
 const events = require("./module/events")
 
-events(client,token)
+events(client)
 
-client.login(token)
+client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
    .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 

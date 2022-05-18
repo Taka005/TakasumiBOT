@@ -1,4 +1,4 @@
-function events(client,token){
+function events(client){
     const fs = require('fs');
 
     client.once("ready", async (client) =>{
@@ -7,7 +7,7 @@ function events(client,token){
        ready(client)
     });
 
-    client.on('messageCreate', async (message,token) =>{
+    client.on('messageCreate', async (message) =>{
         //時間
         var now = new Date();
         var h = now.getHours()
@@ -17,9 +17,11 @@ function events(client,token){
         const bump = require("./bump");
         const antitoken = require("./antitoken");
         const antilinks = require("./antilinks");
+        const openmessage = require("./openmessage")
         bump(message)
         antitoken(message)
         antilinks(message,client)
+        openmessage(message,client)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 
@@ -48,7 +50,6 @@ function events(client,token){
         const note = require("./commands/note");
         const exec = require("./commands/exec");
         const soccer = require("./commands/soccer");
-        const restart = require("./commands/restart");
 
         join(message)
         say(message)
@@ -66,7 +67,6 @@ function events(client,token){
         note(message)
         exec(message)
         soccer(message)
-        restart(message,client,token)
         
       return;
     });
