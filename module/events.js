@@ -1,7 +1,4 @@
-const { MessageActionRow } = require('discord.js');
-const antilink = require('./antilinks');
-
-function events(client){
+function events(client,token){
     const fs = require('fs');
 
     client.once("ready", async (client) =>{
@@ -10,7 +7,7 @@ function events(client){
        ready(client)
     });
 
-    client.on('messageCreate', async (message) =>{
+    client.on('messageCreate', async (message,token) =>{
         //時間
         var now = new Date();
         var h = now.getHours()
@@ -69,7 +66,7 @@ function events(client){
         note(message)
         exec(message)
         soccer(message)
-        restart(message,client)
+        restart(message,client,token)
         
       return;
     });
