@@ -3,6 +3,7 @@ async function openmessage(message,client){
   if(message.content.match("https://discordapp.com/channels/")){
     const url = message.content.match(/\d{18}/g);
     const channel = await client.channels.cache.get(url[1]);
+    if(!channel) return;
     const msg = await channel.messages.fetch(url[2]);
     if(!url.length==3) return;
     if(!msg.attachments.first()){
@@ -19,7 +20,7 @@ async function openmessage(message,client){
           },
           timestamp: msg.createdAt
         }]
-      });
+      })
     }else{
       const attachment = msg.attachments.map(attachment => attachment.url)
       message.channel.send({
@@ -38,7 +39,7 @@ async function openmessage(message,client){
           },
           timestamp: msg.createdAt
         }]
-      });
+      })
     }
     return;
   }
