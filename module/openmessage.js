@@ -1,27 +1,46 @@
 async function openmessage(message,client){
   if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
-  if(message.content.match("https://discord.com/channels/"+/\d{18}/+"/"+/\d{18}/+"/"+/\d{18}/)){
+  if(message.content.match("https://discordapp.com/channels/")){
     const url = message.content.match(/\d{18}/g);
     const channel = await client.channels.cache.get(url[1]);
     const msg = await channel.messages.fetch(url[2]);
-
     if(!url.length==3) return;
-    if(msg.attachments.first()){
+    if(!msg.attachments.first()){
       message.channel.send({
         embeds:[{
-          color: "WHITLE",
+          color: "RED",
           author: {
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: msg.content || "メッセージ内容がありません",
           footer: {
-            text: msg.channel.name
+            text: `#${msg.channel.name}`
+          },
+          timestamp: msg.createdAt
+        }]
+      });
+    }else{
+      const attachment = msg.attachments.map(attachment => attachment.url)
+      message.channel.send({
+        embeds:[{
+          color: "RED",
+          author: {
+            name: msg.author.tag,
+            icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+          },
+          description: msg.content || "メッセージ内容がありません",
+          image: {
+            url: attachment[0]
+          },
+          footer: {
+            text: `#${msg.channel.name}`
           },
           timestamp: msg.createdAt
         }]
       });
     }
+    return;
   }
 }
 
