@@ -3,8 +3,7 @@ async function openmessage(message,client){
   if(message.content.match("https://discordapp.com/channels/")||message.content.match("https://discord.com/channels/")||message.content.match("https://ptb.discord.com/channels/")||message.content.match("https://canary.discord.com/channels/")){
     const url = message.content.match(/\d{18}/g);
     const channel = await client.channels.cache.get(url[1]);
-    if(!channel) return;
-    if(!url.length==3) return;
+    if(!channel||!url.lenght == 3) return;
     const msg = await channel.messages.fetch(url[2]);
     if(!msg.attachments.first()){
       message.channel.send({
