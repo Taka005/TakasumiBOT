@@ -1,6 +1,6 @@
 async function openmessage(message,client){
   if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
-  if(message.content.match("https://discordapp.com/channels/")){
+  if(message.content.match("https://discordapp.com/channels/")||message.content.match("https://discord.com/channels/")){
     const url = message.content.match(/\d{18}/g);
     const channel = await client.channels.cache.get(url[1]);
     if(!channel) return;
