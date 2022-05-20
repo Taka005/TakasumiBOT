@@ -45,7 +45,7 @@ process.on('unhandledRejection', (reason, promise) => {
 
   client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
-      color: "RED",
+      color: "ORANGE",
       title: `${promise}`,
       description: "```"+`${reason.message}`+"```",
       timestamp: new Date()

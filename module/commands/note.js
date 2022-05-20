@@ -39,7 +39,7 @@ async function note(message){
             ]
           }]
         });
-          return;
+        return;
       }
       if(message.content === `${config.prefix}<r`){
         fs.readFile(`./note/${filename}.txt`, (err, data) => {

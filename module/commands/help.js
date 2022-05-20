@@ -76,7 +76,7 @@ async function help(interaction){
           }
       ]}]
     });
-      return;
+    return;
   }
 };
 
