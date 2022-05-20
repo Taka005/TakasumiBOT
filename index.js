@@ -2,7 +2,7 @@ const http = require('http');
 http.createServer(function(request, response)
 {
 	response.writeHead(200, {'Content-Type': 'text/plain'});
-	response.end('ping:'+`${client.ws.ping}ms`);
+	response.end(`ping:${client.ws.ping}ms`);
 }).listen(3000);
 
 const { Client, Intents } = require('discord.js');

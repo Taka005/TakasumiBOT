@@ -1,16 +1,15 @@
 async function help(interaction){
-    if(!interaction.isCommand()) return;
-    if(interaction.commandName === 'help'){
-      await interaction.reply({
-        embeds:[{
-          title: "BOTのHELP",
-          description: "製作者:Taka005#1203\n" +
-                      "プレフィックスは`>`または`/`です",
-          color: "RED",
-          footer: {
-            text: "サポートサーバー\n  https://discord.gg/GPs3npB63m"
-          },
-          fields: [
+  if(!interaction.isCommand()) return;
+  if(interaction.commandName === 'help'){
+    await interaction.reply({
+      embeds:[{
+        title: "BOTのHELP",
+        description: "製作者:Taka005#1203\nプレフィックスは`>`または`/`です",
+        color: "RED",
+        footer: {
+          text: "サポートサーバー\n  https://discord.gg/GPs3npB63m"
+        },
+        fields: [
           {
             name: "**>status**",
             value: "BOTのステータスを表示します"
@@ -75,9 +74,8 @@ async function help(interaction){
             name: "**>exec**",
             value: "制作者専用です"
           }
-        ]
-        }]}
-      );
+      ]}]
+    });
       return;
   }
 };
