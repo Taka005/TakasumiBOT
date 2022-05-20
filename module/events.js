@@ -50,6 +50,7 @@ function events(client){
         const note = require("./commands/note");
         const exec = require("./commands/exec");
         const soccer = require("./commands/soccer");
+        const echo = require("./commands/echo")
 
         join(message)
         say(message)
@@ -67,6 +68,7 @@ function events(client){
         note(message)
         exec(message)
         soccer(message)
+        echo(message,client)
         
       return;
     });
