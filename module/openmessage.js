@@ -21,9 +21,9 @@ async function openmessage(message,client){
           timestamp: msg.createdAt
         }]
       });
-    }else{
+    }else if(!msg.attachments.first().height && !msg.attachments.first().width){
       const attachment = msg.attachments.map(attachment => attachment.url)
-      message.channel.send({//添付ファイルあり
+      message.channel.send({//添付ファイルあり(画像)
         embeds:[{
           color: "WHITE",
           author: {
@@ -37,6 +37,28 @@ async function openmessage(message,client){
           footer: {
             text: `#${msg.channel.name}`
           },
+          timestamp: msg.createdAt
+        }]
+      });
+    }else{
+      const attachment = msg.attachments.map(attachment => attachment.url)
+      message.channel.send({//添付ファイルあり(画像以外)
+        embeds:[{
+          color: "WHITE",
+          author: {
+            name: msg.author.tag,
+            icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+          },
+          description: msg.content || "メッセージ内容がありません",
+          footer: {
+            text: `#${msg.channel.name}`
+          },
+          fields: [
+            {
+              name: "添付ファイル",
+              value: `${attachment[0]}`
+            }
+          ],
           timestamp: msg.createdAt
         }]
       });
