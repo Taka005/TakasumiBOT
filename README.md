@@ -16,9 +16,9 @@
 - hello_message:ようこそメッセージ
 - enter_channel:ようこそメッセージが送信されるチャンネルID
 - member_channel:みんなに参加をしらせるチャンネルID
+- ad_channel:サーバーの宣伝チャンネルのID
 - member_mention:みんなに参加をしらせるロールID
 - version:botのバージョン
-- log:log.txtとしてログを保存するか(これは現在機能していません)
 # development
 - development by Taka005#1203
 - language is javascript(node.js)
