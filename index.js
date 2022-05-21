@@ -1,11 +1,7 @@
-const http = require('http');
-http.createServer(function(request, response)
-{
-	response.writeHead(200, {'Content-Type': 'text/plain'});
-	response.end(`ping:${client.ws.ping}ms`);
-}).listen(3000);
-
 const { Client, Intents } = require('discord.js');
+const express = require('express');
+const app = express();
+const os = require("os")
 require("dotenv").config();
 const cnf = require("./config.json")
 
@@ -19,13 +15,13 @@ let m = now.getMinutes();
 let s = now.getSeconds();
 
 const events = require("./module/events")
-
 events(client)
 
 client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
    .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 
+//エラー回避
 process.on('uncaughtException', (error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+error);
 
@@ -52,4 +48,29 @@ process.on('unhandledRejection', (reason, promise) => {
     }]
   })
   return;
+});
+
+//api
+app.listen(80);
+
+app.get('/api', (req, res) =>{
+
+  let ramuse = os.totalmem - os.freemem;
+
+  res.json({
+    client:{
+      user:client.user.tag,
+      ping:client.ws.ping,
+      uptime:client.uptime()
+    },
+    system:{
+      uptime:os.uptime(),
+      ram:{
+        total:os.totalmem(),
+        free:os.freemem(),
+        use:os.totalmem() - os.freemem()
+      }
+    } 
+  });
+
 });
