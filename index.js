@@ -52,7 +52,9 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 //api
-app.listen(80);
+app.listen(80)
+  .then(()=>console.info(`\x1b[34m[${h}:${m}:${s}]INFO:apiサーバーが起動しました`))
+  .cache(()=>console.error(`\x1b[31m[${h}:${m}:${s}]INFO:apiサーバーの起動に失敗しました`))
 
 app.get('/api', (req, res) =>{
 
