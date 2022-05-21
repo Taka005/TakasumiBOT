@@ -1,7 +1,8 @@
 const { Client, Intents } = require('discord.js');
 const express = require('express');
 const app = express();
-const os = require("os")
+const os = require("os");
+const osutils = require('os-utils');
 require("dotenv").config();
 const cnf = require("./config.json")
 
@@ -55,7 +56,7 @@ app.listen(80);
 
 app.get('/api', (req, res) =>{
 
-  let ramuse = os.totalmem - os.freemem;
+  let time = new Date();
 
   res.json({
     client:{
@@ -64,13 +65,19 @@ app.get('/api', (req, res) =>{
       uptime:client.uptime()
     },
     system:{
-      uptime:os.uptime(),
-      ram:{
+      cpu:osutils.cpuUsage(),
+      ram:{   
         total:os.totalmem(),
         free:os.freemem(),
         use:os.totalmem() - os.freemem()
-      }
-    } 
+      },
+      uptime:os.uptime()
+    },
+    time:{
+      hour:time.getHours(),
+      minute:time.getMinutes(),
+      second:time.getSeconds()
+    }
   });
 
 });
