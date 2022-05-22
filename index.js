@@ -2,7 +2,6 @@ const { Client, Intents } = require('discord.js');
 const express = require('express');
 const app = express();
 const os = require("os");
-const osutils = require('os-utils');
 require("dotenv").config();
 const cnf = require("./config.json")
 
@@ -53,8 +52,8 @@ process.on('unhandledRejection', (reason, promise) => {
 
 //api
 app.listen(80)
-  .then(()=>console.info(`\x1b[34m[${h}:${m}:${s}]INFO: APIサーバーが起動しました`))
-  .cache(()=>console.error(`\x1b[31m[${h}:${m}:${s}]INFO: APIサーバーの起動に失敗しました`))
+ // .then(()=>console.info(`\x1b[34m[${h}:${m}:${s}]INFO: APIサーバーが起動しました`))
+ // .cache(()=>console.error(`\x1b[31m[${h}:${m}:${s}]INFO: APIサーバーの起動に失敗しました`))
 
 app.get('/api', (req, res) =>{
 
@@ -63,11 +62,9 @@ app.get('/api', (req, res) =>{
   res.json({
     client:{
       user:client.user.tag,
-      ping:client.ws.ping,
-      uptime:client.uptime()
+      ping:client.ws.ping
     },
     system:{
-      cpu:osutils.cpuUsage(),
       ram:{   
         total:os.totalmem(),
         free:os.freemem(),
