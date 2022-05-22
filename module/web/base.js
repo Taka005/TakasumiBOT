@@ -1,6 +1,4 @@
-function base(client){
-  const express = require('express');
-  const app = express();
+function base(client,express,app){
 
   let time = new Date(); 
 
@@ -9,7 +7,7 @@ function base(client){
   app.use(`/`, express.static("./module/web/assets"));
     
   app.get('/',(req,res) =>{
-    let time = new.Date();
+    let time = new Date();
     res.sendStatus(200);
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
   });

@@ -1,4 +1,6 @@
 const { Client, Intents } = require('discord.js');
+const express = require('express');
+const app = express();
 require("dotenv").config();
 const cnf = require("./config.json")
 
@@ -12,9 +14,9 @@ let m = now.getMinutes();
 let s = now.getSeconds();
 
 const events = require("./module/events")
-const api = require("./module/api/base")
+const web = require("./module/web/base")
 events(client)
-api(client)
+web(client,express,app)
 
 client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
