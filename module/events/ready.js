@@ -1,5 +1,5 @@
 async function ready(client){
-  const config = require("../config.json")
+  const config = require("../../config.json")
   const fs = require("fs");
     //時間
     let now = new Date();

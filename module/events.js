@@ -14,10 +14,10 @@ function events(client){
         var m = now.getMinutes()
         var s = now.getSeconds() 
         //other
-        const bump = require("./bump");
-        const antitoken = require("./antitoken");
-        const antilinks = require("./antilinks");
-        const openmessage = require("./openmessage");
+        const bump = require("./events/bump");
+        const antitoken = require("./events/antitoken");
+        const antilinks = require("./events/antilinks");
+        const openmessage = require("./events/openmessage");
         bump(message)
         antitoken(message)
         antilinks(message,client)
@@ -93,7 +93,7 @@ function events(client){
           }
         });
 
-      const join = require("./join")
+      const join = require("./events/join")
        
       join(member,client)
     });
@@ -112,7 +112,7 @@ function events(client){
           }
         }); 
 
-        const leave = require("./leave")
+        const leave = require("./events/leave")
 
         leave(member)
     });

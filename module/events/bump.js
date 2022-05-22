@@ -1,5 +1,5 @@
 function bump(message){
-  const config = require("../config.json");
+  const config = require("../../config.json");
 
   function sleep(waitSec, callback) {
     setTimeout(callback, waitSec);

@@ -1,5 +1,5 @@
 function join(member){
-  const config = require("../config.json");
+  const config = require("../../config.json");
 
   if(member.guild.id !== `${config.serverid}`) return;
   member.guild.channels.cache.get(`${config.enter_channel}`).send(`${member.user}${config.hello_message}`);
