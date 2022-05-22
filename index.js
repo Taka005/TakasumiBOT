@@ -51,11 +51,9 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 //api
-app.listen(80)
- // .then(()=>console.info(`\x1b[34m[${h}:${m}:${s}]INFO: APIサーバーが起動しました`))
- // .cache(()=>console.error(`\x1b[31m[${h}:${m}:${s}]INFO: APIサーバーの起動に失敗しました`))
+app.listen(3000, () => console.info(`\x1b[34m[${h}:${m}:${s}]INFO: APIサーバーが起動しました`));
 
-app.get('/api', (req, res) =>{
+app.get('/api/status', (req, res) =>{
 
   let time = new Date();
 
@@ -78,6 +76,8 @@ app.get('/api', (req, res) =>{
       second:time.getSeconds()
     }
   });
+
+  res.sendStatus(200);
 
   console.info(`\x1b[34m[${h}:${m}:${s}]INFO: [${req.ip}]からAPIにリクエストがありました`)
 
