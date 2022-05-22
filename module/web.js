@@ -1,8 +1,21 @@
-function status(client,express,app){
-  const os = require("os");
+function web(client){
+  const express = require("express");
+  const app = express();
+  let time = new Date(); 
+  
+  app.listen(3000, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
+  
+  app.use(`/`, express.static("./module/assets"));
+      
+  app.get('/',(req,res) =>{
+    let time = new Date();
+    res.sendStatus(200);
+    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
+  });
+
   app.get('/api/status', (req, res) =>{
     let time = new Date();
-    
+        
     res.json({
       client:{
         user:client.user.tag,
@@ -22,12 +35,11 @@ function status(client,express,app){
         second:time.getSeconds()
       }
     });
-
+    
     res.sendStatus(200);
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
-      
   });
-      
+          
 }
-
-module.export = status
+  
+module.export = web
