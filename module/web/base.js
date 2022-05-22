@@ -6,7 +6,7 @@ function base(client){
 
   app.listen(3000, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
 
-  app.use(`/`, express.static("./module/api/assets"));
+  app.use(`/`, express.static("./module/web/assets"));
     
   app.get('/',(req,res) =>{
     let time = new.Date();

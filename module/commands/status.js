@@ -25,7 +25,7 @@ async function status(message,client){
           },
           {
             name: "**システム情報**",
-            value: `取得できませんでした`
+            value: `Celeron G540\nubuntu server`
           },
           {
           name: "**システム使用率**",
