@@ -2,7 +2,7 @@ function events(client){
     const fs = require('fs');
 
     client.once("ready", async (client) =>{
-       const ready = require("./ready");
+       const ready = require("./events/ready");
 
        ready(client)
     });
