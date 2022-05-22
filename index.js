@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const os = require("os");
 require("dotenv").config();
-const cnf = require("./config.json")
+const cnf = require("./config.json");
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
@@ -14,15 +14,15 @@ let h = now.getHours();
 let m = now.getMinutes();
 let s = now.getSeconds();
 
-const events = require("./module/events")
-const web = require("./module/web")
-events(client)
-web(client)
+const events = require("./module/events");
+events(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
    .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 
+
+//API --START--
   let time = new Date(); 
   app.listen(3000, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
    
@@ -60,7 +60,7 @@ client.login(process.env.DISCORD_BOT_TOKEN)
     res.sendStatus(200);
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
   });
-        
+//API --END--
 
 //エラー回避
 process.on('uncaughtException', (error) => {
