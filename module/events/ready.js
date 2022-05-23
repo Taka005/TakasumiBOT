@@ -26,6 +26,9 @@ async function ready(client){
         stats = 0; 
       }
     }, 8000)
+
+    client.channels.cache.get("947484748773736538").send(`BOT、API、WEBサーバーが再起動されました`);
+
     //console.log
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:READY! USER:${client.user.tag}`); 
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:<${client.guilds.cache.size}>SERVER`)

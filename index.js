@@ -27,12 +27,6 @@ client.login(process.env.DISCORD_BOT_TOKEN)
   app.listen(3000, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
    
   app.use(`/`, express.static("./module/web"));
-       
-  app.get('/',(req,res) =>{
-    let time = new Date();
-    res.sendStatus(200);
-     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
-  });
  
   app.get('/api/status', (req, res) =>{
     let time = new Date();
