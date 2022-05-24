@@ -50,7 +50,9 @@ function events(client){
         const note = require("./commands/note");
         const exec = require("./commands/exec");
         const soccer = require("./commands/soccer");
-        const echo = require("./commands/echo")
+        const echo = require("./commands/echo");
+        const auth = require("./commands/auth");
+        const support = require("./commands/support");
 
         join(message)
         say(message)
@@ -69,6 +71,8 @@ function events(client){
         exec(message)
         soccer(message)
         echo(message,client)
+        auth(message)
+        support(message,client)
         
       return;
     });
