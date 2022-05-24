@@ -75,8 +75,10 @@ function events(client){
 
     client.on("interactionCreate", async (interaction) =>{
         const help = require("./commands/help");
+        const auth = require("./events/auth");
 
         help(interaction);
+        auth(interaction);
         return;
     });
 
