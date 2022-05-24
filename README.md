@@ -1,5 +1,6 @@
 # takasumi_bot_dev
 - 鷹のすみかスタッフbot開発
+- これはオープンソース版です
 # 使い方
 - 同じディレクトリに.envファイルを作成
 - .envの中に DISCORD_BOT_TOKEN={botのtoken} を記述する
@@ -20,5 +21,5 @@
 # development
 - development by Taka005#1203
 - language is javascript(node.js)
-- please join the my discord server
+- Discordサーバーにも是非参加してください
 - https://discord.gg/GPs3npB63m
