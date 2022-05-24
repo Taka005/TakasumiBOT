@@ -13,6 +13,7 @@ async function auth(message){
               }],
               components: [new MessageActionRow().addComponents(auth_button)]
           });
+    return;
   }  
 }
 
