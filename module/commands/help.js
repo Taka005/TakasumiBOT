@@ -19,6 +19,10 @@ async function help(interaction){
             value: ">say [text]でBOTにメッセージを表示させます\n※稀に自分の送信したメッセージが消えないことがありますが他の人には見えていないので大丈夫です"
           },
           {
+            name:"**>auth**",
+            value:">auth [メンションかロールID]で認証機能が使えます"
+          },
+          {
             name: "**>timer**",
             value: ">timer [second]で時間を秒単位で測れます\n※あまりに長い時間は設定しないでください"
           },
