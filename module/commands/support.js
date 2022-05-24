@@ -74,7 +74,7 @@ function support(message,client){
     const args = message.content.split(" ").slice(1);
     if(!args[0]&&!args[1]) return message.reply(`${config.prefix}back [userID] [TEXT]と指定してください`);  
     if(!args[0].match(/\d{18}/)) return message.reply("ユーザーIDは数字です")
-    client.users.cache.get(args[0]).send(`先日の報告誠にありがとうございます。\n${args[1]}\nサポートサーバー:https://discord.gg/GPs3npB63m`)
+    client.users.cache.get(args[0]).send(`先日の報告、誠にありがとうございます。\n\n${args[1]}\n\nサポートサーバー:https://discord.gg/GPs3npB63m`)
       .catch(()=>message.reply("ユーザーのDMが有効になっていませんでした..."))
     return;
   }
