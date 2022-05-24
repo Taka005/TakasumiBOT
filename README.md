@@ -10,8 +10,7 @@
 - prefix:コマンドの先頭になる文字
 - servername:使うサーバーの名前
 - serverid:使うサーバーのID
-- bump_1:bumpした時のメッセージ
-- bump_2:bumpの時間になった時のメッセージ
+- bump:bumpの時間になった時のメッセージ
 - hello_message:ようこそメッセージ
 - enter_channel:ようこそメッセージが送信されるチャンネルID
 - member_channel:みんなに参加をしらせるチャンネルID

@@ -6,7 +6,7 @@
   },
   "name": "takasumi_bot_dev",
   "description": "鷹のすみかスタッフbot開発 https://discord.gg/GPs3npB63m",
-  "version": "2.5.6",
+  "version": "2.5.7",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"

@@ -8,13 +8,14 @@ function bump(message){
     if(message.embeds[0].description.match(/表示順をアップしたよ/) ||message.embeds[0].description.match(/Bump done/)){
       message.channel.send({
         embeds:[{
-          color: "RANDOM",
-          title:`${config.bump_1}`,
-        }]
+          color: "WHITE",
+          title:"BUMP通知",
+          description:"UPを受信しました\n2時間後に通知します"
+        }]  
       });
 
       sleep(60000 * 120, function () {
-        message.channel.send(`${config.bump_2}`);
+        message.channel.send(`${config.bump}`);
       });
     }
   }
