@@ -1,10 +1,10 @@
 function support(message,client){
   const config = require("../../config.json");
   if(message.content.startsWith(`${config.prefix}support`)){
-    const args = message.content.slice(9);
+    const text = message.content.slice(9);
     if(message.content === `${config.prefix}support`) return message.reply("報告内容を記入してください");
-    client.users.cache.get(message.author.id).send(`${args}についてサポートサーバーに報告しました。\n後日DMにて回答をお送りいたします\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m`)
-      .catch(()=>message.reply(`${args}について報告しました。\n後日DMにて回答をお送りいたしますので、DMでメッセージを送信可能にしてください\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m`))
+    client.users.cache.get(message.author.id).send(`${text}についてサポートサーバーに報告しました。\n後日DMにて回答をお送りいたします\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m`)
+      .catch(()=>message.reply(`${text}について報告しました。\n後日DMにて回答をお送りいたしますので、DMでメッセージを送信可能にしてください\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m`))
     //サポートサーバーへ送信
     if(!message.attachments.first()){
       client.channels.cache.get("947484748773736538").send({//添付ファイルなし
@@ -14,7 +14,7 @@ function support(message,client){
             name: `${message.author.tag}:${message.author.id}`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: args || "メッセージ内容がありません",
+          description: text || "メッセージ内容がありません",
           footer: {
             icon_url: message.guild.iconURL(),
             text: message.guild.name
@@ -31,7 +31,7 @@ function support(message,client){
             name: `${message.author.tag}:${message.author.id}`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: args || "メッセージ内容がありません",
+          description: text || "メッセージ内容がありません",
           image: {
             url: attachment[0]
           },
@@ -51,7 +51,7 @@ function support(message,client){
             name: `${message.author.tag}:${message.author.id}`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: args || "メッセージ内容がありません",
+          description: text || "メッセージ内容がありません",
           footer: {
             icon_url: message.guild.iconURL(),
             text: message.guild.name
@@ -75,6 +75,7 @@ function support(message,client){
     if(!args[0]&&!args[1]) return message.reply(`${config.prefix}back [userID] [TEXT]と指定してください`);  
     if(!args[0].match(/\d{18}/)) return message.reply("ユーザーIDは数字です")
     client.users.cache.get(args[0]).send(`先日の報告、誠にありがとうございます。\n\n${args[1]}\n\nサポートサーバー:https://discord.gg/GPs3npB63m`)
+      .then(()=>message.reply(`${args[0]}に回答を送信しました`))
       .catch(()=>message.reply("ユーザーのDMが有効になっていませんでした..."))
     return;
   }
