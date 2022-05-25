@@ -1,5 +1,4 @@
 async function auth(message){
-  console.log("A")
   const {MessageButton, MessageActionRow} = require("discord.js");
   const reply = `<@!${message.author.id}>`;
   const config = require("../../config.json");
