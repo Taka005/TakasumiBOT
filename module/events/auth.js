@@ -5,10 +5,9 @@ async function auth(interaction){
     const role = interaction.member.roles.cache(role_id);
     await interaction.member.roles.add(role)
       .then(()=> await interaction.reply({content: "認証しました",ephemeral: true}))
-      .catch(()=>await interaction.reply({content: "認証に失敗しました...\nbotの権限、またはロールがしっかりと設定されてることを確認してください\n原因が解決できない場合はサポートサーバーまでよろしくお願いします\nhttps://discord.gg/GPs3npB63m",ephemeral: true
-    }))
+      .catch(()=>await interaction.reply({content: "認証に失敗しました...\nbotの権限、またはロールがしっかりと設定されてることを確認してください\n原因が解決できない場合はサポートサーバーまでよろしくお願いします\nhttps://discord.gg/GPs3npB63m",ephemeral: true}))
     return;
   }
 }
 
-module.export = auth
+module.exports = auth
