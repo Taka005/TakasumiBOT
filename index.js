@@ -1,9 +1,9 @@
-const { Client, Intents, MessageActionRow,MessageButton} = require('discord.js');
+const { Client, Intents } = require('discord.js');
 const express = require('express');
 const app = express();
 const os = require("os");
 require("dotenv").config();
-const cnf = require("./config.json");
+const cnf = require("./config.json"); 
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES],
