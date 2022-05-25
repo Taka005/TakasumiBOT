@@ -19,4 +19,4 @@ async function auth(message){
   }  
 }
 
-module.export = auth
+module.exports = auth

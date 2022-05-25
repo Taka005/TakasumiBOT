@@ -7,7 +7,7 @@ function events(client){
        ready(client)
     });
 
-    client.on('messageCreate', async (message,client) =>{
+    client.on('messageCreate', async (message) =>{
         //時間
         var now = new Date();
         var h = now.getHours()

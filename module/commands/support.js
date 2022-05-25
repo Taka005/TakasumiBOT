@@ -83,4 +83,4 @@ function support(message,client){
   }
 }
 
-module.export = support
+module.exports = support
