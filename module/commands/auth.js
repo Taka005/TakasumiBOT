@@ -3,6 +3,7 @@ async function auth(message){
   const reply = `<@!${message.author.id}>`;
   const config = require("../../config.json");
   if(message.content.startsWith(`${config.prefix}auth`)){
+    console.log("a")
     if (!message.member.permissions.has("MANAGE_ROLES")) return message.channel.send(`${reply}${config.prefix}authを使うには「ロールの管理」の権限が必要です`);         
       if(!message.content.match(/\d{18}/)) return message.channel.send(`${reply}引数に付与したいロールIDまたは、メンションしてください`);
         const role = message.content.match(/\d{18}/);
