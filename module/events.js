@@ -71,7 +71,8 @@ function events(client){
         exec(message)
         soccer(message)
         echo(message,client)
-       // auth(message)
+        const auth = require("./commands/auth");
+        auth(message)
         support(message,client)
         
       return;
