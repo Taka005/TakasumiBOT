@@ -7,7 +7,7 @@ function events(client){
        ready(client)
     });
 
-    client.on('messageCreate', async (message) =>{
+    client.on('messageCreate', async (message,client) =>{
         //時間
         var now = new Date();
         var h = now.getHours()
@@ -51,7 +51,7 @@ function events(client){
         const exec = require("./commands/exec");
         const soccer = require("./commands/soccer");
         const echo = require("./commands/echo");
-    //    const auth = require("./commands/auth");
+        const auth = require("./commands/auth");
         const support = require("./commands/support");
 
         join(message)
@@ -71,7 +71,6 @@ function events(client){
         exec(message)
         soccer(message)
         echo(message,client)
-        const auth = require("./commands/auth");
         auth(message)
         support(message,client)
         
