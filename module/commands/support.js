@@ -6,7 +6,8 @@ function support(message,client){
     message.delete();
     if(message.content === `${config.prefix}support`) return message.channel.send(`${reply}報告内容を記入してください`);
     client.users.cache.get(message.author.id).send(`${text}についてサポートサーバーに報告しました。\n後日DMにて回答をお送りいたします\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m`)
-      .catch(()=>message.reply(`${reply}\n${text}について報告しました。\n後日DMにて回答をお送りいたしますので、DMでメッセージを送信可能にしてください\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m`))
+      .them(()=>message.channel.send(`${reply}サポートサーバーに報告しました`))
+      .catch(()=>message.channel.send(`${reply}\n${text}について報告しました。\n後日DMにて回答をお送りいたしますので、DMでメッセージを送信可能にしてください\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m`))
     //サポートサーバーへ送信
     if(!message.attachments.first()){
       client.channels.cache.get("947484748773736538").send({//添付ファイルなし
