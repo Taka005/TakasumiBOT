@@ -6,7 +6,7 @@ async function cpu(message){
     let cpu = cpus[random];
       message.reply({
         embeds:[{
-          color: "GRAY",
+          color: "RANDOM",
           description: `${cpu}`
         }]
       });

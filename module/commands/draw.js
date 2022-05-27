@@ -6,7 +6,7 @@ async function draw(message){
     let result = arr[random];
       message.reply({
         embeds:[{
-          color: "GRAY",
+          color: "RANDOM",
           description: `${result}`
         }]
       });

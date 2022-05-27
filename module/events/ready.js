@@ -10,7 +10,7 @@ async function ready(client){
     let stats = 0; 
     setInterval(() => {
       if(stats == 0){
-        client.user.setActivity('Created by Taka005#1203', {
+        client.user.setActivity(`Created by Taka005#1203`, {
           type: 'PLAYING'
         });      
         stats = 1;
@@ -23,8 +23,13 @@ async function ready(client){
         client.user.setActivity(`ver:${config.version}`, {
           type: 'PLAYING'
         });
-        stats = 0; 
+        stats = 3; 
+      }else if(stats == 3){
+        client.user.setActivity(`${client.guilds.cache.size}サーバーを`,{
+          type: 'PLAYING'
+        });
       }
+      stats = 0;
     }, 8000)
 
     client.channels.cache.get("947484748773736538").send(`BOT、API、WEBサーバーが再起動されました`);
