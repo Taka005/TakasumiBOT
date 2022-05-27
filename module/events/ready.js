@@ -28,8 +28,8 @@ async function ready(client){
         client.user.setActivity(`${client.guilds.cache.size}サーバーを`,{
           type: 'PLAYING'
         });
+        stats = 0;
       }
-      stats = 0;
     }, 8000)
 
     client.channels.cache.get("947484748773736538").send(`BOT、API、WEBサーバーが再起動されました`);
