@@ -1,7 +1,7 @@
 async function auth(interaction){
   if(interaction.customId.startsWith("auth_")){
     const role = interaction.customId.match(/\d{18}/);
-    if(!interaction.member.roles.cache.has(role)) return await interaction.reply({content: "既に役職を付与済みです",ephemeral: true});
+    if(interaction.member.roles.cache.has(role)) return await interaction.reply({content: "既に役職を付与済みです",ephemeral: true});
     if(interaction.member.roles.cache.get(role)) return await interaction.reply({content: "設定されたロールが無効です",ephemeral: true});
     await interaction.member.roles.add(role)
       .then(()=>{interaction.reply({content: "認証しました",ephemeral: true})})
