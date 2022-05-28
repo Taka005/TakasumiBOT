@@ -18,10 +18,12 @@ function events(client){
         const antitoken = require("./events/antitoken");
         const antilinks = require("./events/antilinks");
         const openmessage = require("./events/openmessage");
+        const ngword = require("./events/ngword");
         bump(message)
         antitoken(message)
         antilinks(message,client)
         openmessage(message,client)
+        ngword(message,client)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 
