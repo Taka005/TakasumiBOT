@@ -4,7 +4,7 @@ async function base(client){
   const os = require("os");
 
   let time = new Date(); 
-  app.listen(3000, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
+  app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
    
   app.use(`/`, express.static("./module/web/assets"));
  
