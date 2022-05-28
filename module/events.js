@@ -70,7 +70,7 @@ function events(client){
         user(message)
         server(message)
         note(message)
-        exec(message)
+        exec(message,client)
         soccer(message)
         echo(message,client)
         auth(message)
