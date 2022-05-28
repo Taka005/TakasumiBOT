@@ -38,7 +38,7 @@ async function ready(client){
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:READY! USER:${client.user.tag}`); 
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:<${client.guilds.cache.size}>SERVER`)
     //fs.log
-    fs.appendFileSync('../../log.txt', `\n[${h}:${m}:${s}]INFO:READY! USER:${client.user.tag}`, (err) => {
+    fs.appendFileSync('./log.txt', `\n[${h}:${m}:${s}]INFO:READY! USER:${client.user.tag}`, (err) => {
       if(err){
         console.log(err);
       }
