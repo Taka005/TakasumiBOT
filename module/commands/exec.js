@@ -1,4 +1,4 @@
-async function node(message){
+async function node(message,client){
   const fs = require('fs');
   const config = require("../../config.json");
   if(message.content.startsWith(`${config.prefix}exec`)){
@@ -13,7 +13,7 @@ async function node(message){
       }
       try{
         const run = require("../../note/script");
-        run(message);
+        run(message,client);
       }catch(error){
         return message.reply(`実行中にエラーが発生しました[${error.message}]`);
       }finally{
