@@ -34,10 +34,21 @@ async function base(client){
     
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
   });
+
+  app.get('/api/', (req, res) =>{
+
+  });
   //------API------//
 
   //------ERROR処理------//
-  
+  app.use((req, res, next)=>{
+    res.status(404).send(`<h1>NOT FOUND</h1><br>[${req.path}]`);
+  });
+
+  app.use(function(err, req, res, next){
+    res.status(500).send(`<h1>ERROR</h1><br>[${err}]`);
+  });
+  //------ERROR------
 }
 
 module.exports = base
