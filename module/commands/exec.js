@@ -9,7 +9,7 @@ async function node(message,client){
       try{
         fs.writeFileSync(`./note/script.js`, `${script}`, 'utf8');
       }catch(error){
-        return message.reply(`ファイル書き込み中にエラーが発生しました[${error.message}]`);
+        return message.reply(`ファイル書き込み中にエラーが発生しました\n[${error.message}]`);
       }
       try{
         const run = require("../../note/script");

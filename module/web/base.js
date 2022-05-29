@@ -8,6 +8,7 @@ async function base(client){
    
   app.use(`/`, express.static("./module/web/assets"));
  
+  //------API------//
   app.get('/api/status', (req, res) =>{
     let time = new Date();
          
@@ -30,9 +31,13 @@ async function base(client){
         second:time.getSeconds()
       }
     });
-     
+    
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
   });
+  //------API------//
+
+  //------ERROR処理------//
+  
 }
 
 module.exports = base
