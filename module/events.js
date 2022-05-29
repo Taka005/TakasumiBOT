@@ -67,7 +67,7 @@ function events(client){
         hello(message)
         poll(message)
         status(message,client)
-        user(message)
+        user(message,client)
         server(message)
         note(message)
         exec(message,client)
