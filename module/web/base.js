@@ -35,9 +35,6 @@ async function base(client){
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエストがありました`)
   });
 
-  app.get('/api/', (req, res) =>{
-
-  });
   //------API------//
 
   //------ERROR処理------//
