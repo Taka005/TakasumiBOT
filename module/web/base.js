@@ -39,11 +39,11 @@ async function base(client){
 
   //------ERROR処理------//
   app.use((req, res, next)=>{
-    res.status(404).send(`<h1>NOT FOUND</h1><br>[${req.path}]`);
+    res.status(404).send(`<h1>404 NOT FOUND</h1><br>[${req.path}]`);
   });
 
   app.use(function(err, req, res, next){
-    res.status(500).send(`<h1>ERROR</h1><br>[${err}]`);
+    res.status(500).send(`<h1>500 SERVER ERROR</h1><br>[${err}]`);
   });
   //------ERROR------
 }
