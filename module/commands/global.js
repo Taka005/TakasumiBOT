@@ -2,6 +2,7 @@ async function global(message,client){
   const config = require("../../config.json")
 
   if(message.content === `${config.prefix}global`){
+    if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.reply(`${config.prefix}globalを使うには「チャンネル管理」の権限が必要です`);
     if(message.channel.topic.match("GLOBAL")){
       message.channel.setTopic("再度、グローバルチャットをご利用いただくには、\n`>global`と入力して下さい")
         .then(()=>message.channel.send("正常にグローバルチャットから切断されました...\n再度接続するには`>global`と入力して下さい"))
