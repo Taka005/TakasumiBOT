@@ -1,5 +1,5 @@
 async function global(message,client){
-  if(message.author.bot || message.channel.topic !== "==GLOBAL==")
+  if(message.author.bot || message.channel.topic !== "==GLOBAL==") return;
   client.channels.cache.filter(channel => channel.topic == "global")
     .forEach((channel) =>{
       if(!message.attachments.first()){
