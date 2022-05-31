@@ -55,6 +55,7 @@ function events(client){
         const echo = require("./commands/echo");
         const auth = require("./commands/auth");
         const support = require("./commands/support");
+        const global = require("./commands/global")
 
         join(message)
         say(message)
@@ -75,6 +76,7 @@ function events(client){
         echo(message,client)
         auth(message)
         support(message,client)
+        global(message,client)
         
       return;
     });
