@@ -29,6 +29,7 @@ async function server(message){
         ]
       }]
     })
+      .catch(()=>message.reply("エラーが発生しました。\nサーバー内のロールの数が多すぎたのかもしれません...."))
     return;
   }
 }
