@@ -1,9 +1,9 @@
 async function global(message,client){
   if(message.author.bot || message.channel.topic !== "==GLOBAL==") return;
-  client.channels.cache.filter(channel => channel.topic == "global")
+  client.channels.cache.filter(channel => channel.topic == "==GLOBAL==")
     .forEach((channel) =>{
       if(!message.attachments.first()){
-        message.channel.send({//添付ファイルなし
+        channel.send({//添付ファイルなし
           embeds:[{
             color: "WHITE",
             author: {
@@ -21,7 +21,7 @@ async function global(message,client){
         return;
       }else if(message.attachments.first().height && message.attachments.first().width){
         const attachment = message.attachments.map(attachment => attachment.url)
-        message.channel.send({//添付ファイルあり(画像)
+        channel.send({//添付ファイルあり(画像)
           embeds:[{
             color: "WHITE",
             author: {
@@ -42,7 +42,7 @@ async function global(message,client){
         return;
       }else{
         const attachment = message.attachments.map(attachment => attachment.url)
-        message.channel.send({//添付ファイルあり(画像以外)
+        channel.send({//添付ファイルあり(画像以外)
           embeds:[{
             color: "WHITE",
             author: {
