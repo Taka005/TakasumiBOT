@@ -27,6 +27,7 @@ async function global(message,client){
         .catch(()=>message.channel.send("グローバルチャットへの接続に失敗しました...\nBOTの権限等を確認してください\nサポートサーバー:https://discord.gg/GPs3npB63m"))
     }
   }
+  return;
 }
 
 module.exports = global
