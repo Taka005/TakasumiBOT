@@ -25,6 +25,10 @@ function events(client){
         openmessage(message,client)
         ngword(message,client)
 
+        //globalchat
+        const global_base = require("./global/global");
+        global_base(message,client)
+
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 
         //console.log
