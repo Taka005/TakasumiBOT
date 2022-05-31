@@ -1,11 +1,10 @@
 async function global(message,client){
   if(message.author.bot || message.channel.topic !== "==GLOBAL==") return;
-  client.channels.cache.filter(channel => channel.topic == "==GLOBAL==")
-    .forEach((channel) =>{
-      if(!message.attachments.first()){
+    if(!message.attachments.first()){
+      client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
         channel.send({//添付ファイルなし
           embeds:[{
-            color: "WHITE",
+            color: message.member.displayHexColor,
             author: {
               name: message.author.tag,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -18,12 +17,15 @@ async function global(message,client){
             timestamp: new Date()
           }]}
         );
-        return;
-      }else if(message.attachments.first().height && message.attachments.first().width){
+      });
+      message.delete()
+      return;
+    }else if(message.attachments.first().height && message.attachments.first().width){
+      client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
         const attachment = message.attachments.map(attachment => attachment.url)
         channel.send({//添付ファイルあり(画像)
           embeds:[{
-            color: "WHITE",
+            color: message.member.displayHexColor,
             author: {
               name: message.author.tag,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -39,12 +41,15 @@ async function global(message,client){
             timestamp: new Date()
           }]}
         );
-        return;
-      }else{
+      });
+      message.delete()
+      return;
+    }else{
+      client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
         const attachment = message.attachments.map(attachment => attachment.url)
         channel.send({//添付ファイルあり(画像以外)
           embeds:[{
-            color: "WHITE",
+            color: message.member.displayHexColor,
             author: {
               name: message.author.tag,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -63,9 +68,10 @@ async function global(message,client){
             timestamp: new Date()
           }]}
         );
-        return;
-      }
-    });
+      });
+      message.delete()
+      return;
+    }
 }
 
 module.exports = global

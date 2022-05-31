@@ -9,7 +9,7 @@ async function openmessage(message,client){
     if(!msg.attachments.first()){
       message.channel.send({//添付ファイルなし
         embeds:[{
-          color: "WHITE",
+          color: msg.member.displayHexColor,
           author: {
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -25,7 +25,7 @@ async function openmessage(message,client){
       const attachment = msg.attachments.map(attachment => attachment.url)
       message.channel.send({//添付ファイルあり(画像)
         embeds:[{
-          color: "WHITE",
+          color: msg.member.displayHexColor,
           author: {
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -44,7 +44,7 @@ async function openmessage(message,client){
       const attachment = msg.attachments.map(attachment => attachment.url)
       message.channel.send({//添付ファイルあり(画像以外)
         embeds:[{
-          color: "WHITE",
+          color: msg.member.displayHexColor,
           author: {
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
