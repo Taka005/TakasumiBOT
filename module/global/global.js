@@ -2,7 +2,7 @@ async function global(message,client){
   if(message.author.bot || !message.channel.topic === "==GLOBAL==") return;
   client.channels.cache.filter(channel => channel.topic == "global")
     .forEach((channel) =>{
-      if(!msg.attachments.first()){
+      if(!message.attachments.first()){
         message.channel.send({//添付ファイルなし
           embeds:[{
             color: "WHITE",
@@ -18,8 +18,8 @@ async function global(message,client){
             timestamp: new Date()
           }]}
         );
-      }else if(msg.attachments.first().height && msg.attachments.first().width){
-        const attachment = msg.attachments.map(attachment => attachment.url)
+      }else if(message.attachments.first().height && message.attachments.first().width){
+        const attachment = message.attachments.map(attachment => attachment.url)
         message.channel.send({//添付ファイルあり(画像)
           embeds:[{
             color: "WHITE",
@@ -39,7 +39,7 @@ async function global(message,client){
           }]}
         );
       }else{
-        const attachment = msg.attachments.map(attachment => attachment.url)
+        const attachment = message.attachments.map(attachment => attachment.url)
         message.channel.send({//添付ファイルあり(画像以外)
           embeds:[{
             color: "WHITE",
