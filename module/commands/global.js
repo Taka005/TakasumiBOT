@@ -18,7 +18,7 @@ async function global(message,client){
                             name: message.guild.name,
                             icon_url: message.guild.iconURL()
                           },
-                          description: `グローバルチャットに新しいサーバーが参加しました！\n みんなで挨拶してみましょう！\n\n※チャットを利用した場合、[利用規約](http://takabot.f5.si/terms.html)に同意されたことになります。必ずご確認ください`,
+                          description: `グローバルチャットに新しいサーバーが参加しました！\n みんなで挨拶してみましょう！\n\n※チャットを利用した場合、[利用規約](http://takabot.f5.si/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
                           timestamp: new Date()
                         }]}
                       );
