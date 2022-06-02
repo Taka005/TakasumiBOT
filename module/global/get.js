@@ -9,12 +9,12 @@ function get(message,client){
         embeds:[{
           color: "WHITE",
           author: {
-            name: msg.author.username + msg.author.discriminator,
+            name: `${msg.author.username}${msg.author.discriminator}`,
             icon_url: msg.author.avatarURL ||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: msg.message.content,
           footer: {
-            text: msg.guild.name,
+            text: `${msg.guild.name}<${message.author.username}>`,
             icon_url:msg.guild.iconURL ||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
           timestamp: new Date()
@@ -34,7 +34,7 @@ function get(message,client){
           },
           description:msg.message.content,
           image: {
-            url: msg.attachments[0].url
+            url: msg.attachments[0].attachment.url
           },
           footer: {
             text: msg.guild.name,
@@ -63,7 +63,7 @@ function get(message,client){
           fields: [
             {
               name: "**添付ファイル**",
-              value: msg.attachments[0].url
+              value: msg.attachments[0].attachment.url
             }
           ],
           timestamp: new Date()
