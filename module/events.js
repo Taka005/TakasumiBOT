@@ -26,8 +26,10 @@ function events(client){
         //globalchat
         const global_base = require("./global/global");
         const connect = require("./global/connect");
+        const get = require("./global/get");
         global_base(message,client)
         connect(message,client)
+        get(message,client)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 

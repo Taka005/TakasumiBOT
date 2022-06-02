@@ -8,7 +8,7 @@ function connect(message,client){
       file.content_type = attachment.contentType;
       attachment_list.push(file);
   });
-    client.channels.cache.get("951753514021949441").send({
+    client.channels.cache.get("949862388969119755").send({
       embeds: [{
         description: new Buffer.from(
           JSON.stringify(
