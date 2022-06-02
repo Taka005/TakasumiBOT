@@ -4,11 +4,9 @@ function get(message,client){
   message.react("🔁")
 
   client.channels.cache.get("949900405012324372").send({//解読コード
-    "embeds": [
-        {
-            "description": JSON.stringify(msg,null,"　")
-        }
-    ]
+    embeds: [{
+      description: JSON.stringify(msg,null,"　")
+    }]
   });
 
   if(!msg.message.attachments){
