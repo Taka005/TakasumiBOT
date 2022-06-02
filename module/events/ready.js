@@ -25,7 +25,7 @@ async function ready(client){
         });
         stats = 3; 
       }else if(stats == 3){
-        client.user.setActivity(`${client.guilds.cache.size}サーバーを`,{
+        client.user.setActivity(`${client.guilds.cache.size}サーバー`,{
           type: 'PLAYING'
         });
         stats = 0;
