@@ -11,7 +11,7 @@ function get(message,client){
     ]
   });
 
-  if(!msg.attachments){
+  if(!msg.message.attachments){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
@@ -31,7 +31,7 @@ function get(message,client){
     });
     message.react("✅")
     return;
-  }else if(msg.attachments[0].height && msg.attachments[0].width){
+  }else if(msg.message.attachments[0].height && msg.message.attachments[0].width){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルあり(画像)
         embeds:[{
@@ -42,7 +42,7 @@ function get(message,client){
           },
           description:msg.message.content,
           image: {
-            url: msg.attachments[0].url
+            url: msg.message.attachments[0].url
           },
           footer: {
             text: `${msg.guild.name} <${message.author.username}>`,
@@ -71,7 +71,7 @@ function get(message,client){
           fields: [
             {
               name: "**添付ファイル**",
-              value: msg.attachments[0].url
+              value: msg.message.attachments[0].url
             }
           ],
           timestamp: new Date()
