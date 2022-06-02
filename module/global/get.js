@@ -11,7 +11,7 @@ function get(message,client){
     ]
   });
 
-  if(!msg.attachments[0]){
+  if(!msg.attachments){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
