@@ -6,7 +6,7 @@ function get(message,client){
   client.channels.cache.get("949900405012324372").send({//解読コード
     "embeds": [
         {
-            "description": JSON.stringify(message,null,"　")
+            "description": JSON.stringify(msg,null,"　")
         }
     ]
   });
