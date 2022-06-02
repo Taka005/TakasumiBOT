@@ -42,7 +42,7 @@ function get(message,client){
           },
           description:msg.message.content,
           image: {
-            url: msg.attachments.url
+            url: msg.attachments[0].url
           },
           footer: {
             text: `${msg.guild.name} <${message.author.username}>`,
@@ -71,7 +71,7 @@ function get(message,client){
           fields: [
             {
               name: "**添付ファイル**",
-              value: msg.attachments.url
+              value: msg.attachments[0].url
             }
           ],
           timestamp: new Date()
