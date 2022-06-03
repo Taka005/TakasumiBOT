@@ -1,6 +1,6 @@
 function get(message,client){
   if(message.channel.id != "949862388969119755" || message.author.id == client.user.id || !message.embeds[0].description) return;
-  var msg = JSON.parse(new Buffer.from(message.embeds[0].description, "base64"));
+  let msg = JSON.parse(new Buffer.from(message.embeds[0].description, "base64"));
   message.react("🔁")
 
   client.channels.cache.get("949900405012324372").send({//解読コード
