@@ -8,6 +8,7 @@ async function gif(message){
     const gif_data = await gif_response.json();
     message.reply(gif_data.results[0].media[0].gif.url)
       .catch(()=>message.reply("GIFの取得に失敗しました..."))
+    return;
   }
 }
 
