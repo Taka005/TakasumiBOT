@@ -2,6 +2,7 @@ async function base(client){
   const express = require('express');
   const app = express();
   const os = require("os");
+  const url = require("../../url.json");
 
   let time = new Date(); 
   app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
@@ -52,8 +53,10 @@ async function base(client){
   //------API------//
 
   //------短縮URL------//
-  app.get('/url/pcyoutubech', (req, res) =>{//PC用
-    res.redirect("https://www.youtube.com/channel/UCPiWEuAcaUxP30wqeplg-iA");
+  app.get('/url/:name', (req, res) =>{
+    let name = req.params.name
+    if(!name) return;
+    res.redirect(url[name]);
   });
   //------短縮URL------//
 
