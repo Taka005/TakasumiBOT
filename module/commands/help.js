@@ -31,6 +31,10 @@ async function help(interaction){
             value: ">timer [second]で時間を秒単位で測れます\n※あまりに長い時間は設定しないでください"
           },
           {
+            name: "**>gif**",
+            value: ">gif [文字]でGIF画像を検索します"
+          },
+          {
             name: "**>poll**",
             value: ">poll [title] [A] [B] ...と入力してアンケートが作れます"
           },
