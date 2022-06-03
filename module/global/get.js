@@ -9,7 +9,7 @@ function get(message,client){
     }]
   });
 
-  if(!msg.message.attachments){
+  if(!msg.hasOwn(msg, "attachments")){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
@@ -29,11 +29,11 @@ function get(message,client){
     });
     message.react("✅")
     return;
-  }else if(msg.message.attachments[0].height && msg.message.attachments[0].width){
+  }else if(msg.hasOwn(msg, "hight") && msg.hasOwn(msg, "width")){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルあり(画像)
         embeds:[{
-          color: WHITE,
+          color: "WHITE",
           author: {
             name: `${msg.author.username}${msg.author.discriminator}`,
             icon_url: msg.author.avatarURL ||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -56,7 +56,7 @@ function get(message,client){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルあり(画像以外)
         embeds:[{
-          color: WHITE,
+          color: "WHITE",
           author: {
             name: `${msg.author.username}${msg.author.discriminator}`,
             icon_url: msg.author.avatarURL ||"https://cdn.discordapp.com/embed/avatars/0.png",
