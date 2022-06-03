@@ -31,7 +31,7 @@ function get(message,client){
     return;
   }else{
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
-      channel.send({//添付ファイルあり(画像以外)
+      channel.send({//添付ファイルあり
         embeds:[{
           color: "WHITE",
           author: {
