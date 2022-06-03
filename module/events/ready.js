@@ -25,7 +25,7 @@ async function ready(client){
         });
         stats = 3; 
       }else if(stats == 3){
-        client.user.setActivity(`${client.guilds.cache.size}サーバー`,{
+        client.user.setActivity(`${client.guilds.cache.size}SERVER || ${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}USER`,{
           type: 'PLAYING'
         });
         stats = 0;

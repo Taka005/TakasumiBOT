@@ -2,17 +2,13 @@ async function status(message,client){
     const os 	= require('os');
     const config = require("../../config.json");
     if(message.content === `${config.prefix}status`){
-      //CPU
-      
+
       //memory
       let ramfree = Math.round(os.freemem / 1000000);
       let ramtotal = Math.round(os.totalmem / 1000000);
       let ramuse = ramtotal - ramfree
       let rampercent = Math.round(ramuse / ramtotal * 100)
 
-      //起動時間
-      let timeup = os.uptime()
-      let timeuphours = Math.round(timeup / 60);
       message.channel.send({
         embeds:[{
           title: "ステータス",
@@ -33,7 +29,7 @@ async function status(message,client){
           },
           {
           name: "**起動時間**",
-          value: `${timeuphours}分`
+          value: `PROCESS:${Math.round(process.uptime() / 60)}分\nSERVER:${Math.round(os.uptime() / 60)}分`
           }
         ]
         }]}
