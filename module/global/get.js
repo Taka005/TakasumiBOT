@@ -29,29 +29,6 @@ function get(message,client){
     });
     message.react("✅")
     return;
-  }else if(Object.hasOwnProperty.call(msg.message.attachments[0], "hight") && Object.hasOwnProperty.call(msg.message.attachments[0], "width")){
-    client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
-      channel.send({//添付ファイルあり(画像)
-        embeds:[{
-          color: "WHITE",
-          author: {
-            name: `${msg.author.username}${msg.author.discriminator}`,
-            icon_url: msg.author.avatarURL ||"https://cdn.discordapp.com/embed/avatars/0.png",
-          },
-          description:msg.message.content,
-          image: {
-            url: msg.message.attachments[0].url
-          },
-          footer: {
-            text: `${msg.guild.name} <${message.author.username}>`,
-            icon_url:msg.guild.iconURL ||"https://cdn.discordapp.com/embed/avatars/0.png"
-          },
-          timestamp: new Date()
-        }]
-      });
-    });
-    message.react("✅")
-    return;
   }else{
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルあり(画像以外)
@@ -61,17 +38,11 @@ function get(message,client){
             name: `${msg.author.username}${msg.author.discriminator}`,
             icon_url: msg.author.avatarURL ||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description:msg.message.content,
+          description:`${msg.message.content}\n[添付ファイル](${msg.message.attachments[0].url})`,
           footer: {
             text: `${msg.guild.name} <${message.author.username}>`,
             icon_url:msg.guild.iconURL ||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
-          fields: [
-            {
-              name: "**添付ファイル**",
-              value: msg.message.attachments[0].url
-            }
-          ],
           timestamp: new Date()
         }]
       });
