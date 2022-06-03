@@ -51,6 +51,12 @@ async function base(client){
 
   //------API------//
 
+  //------短縮URL------//
+  app.get('/url/pcyoutubech', (req, res) =>{//PC用
+    res.redirect("https://www.youtube.com/channel/UCPiWEuAcaUxP30wqeplg-iA");
+  });
+  //------短縮URL------//
+
   //------ERROR処理------//
   app.use((req, res, next)=>{
     res.status(404).send(`<h1>404 NOT FOUND</h1><br>[${req.path}]`);
