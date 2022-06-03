@@ -9,7 +9,7 @@ function get(message,client){
     }]
   });
 
-  if(!msg.hasOwn(msg, "attachments")){
+  if(!Object.hasOwnProperty.call(msg.message, "attachments")){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
@@ -29,7 +29,7 @@ function get(message,client){
     });
     message.react("✅")
     return;
-  }else if(msg.hasOwn(msg, "hight") && msg.hasOwn(msg, "width")){
+  }else if(Object.hasOwnProperty.call(msg.message.attachments[0], "hight") && Object.hasOwnProperty.call(msg.message.attachments[0], "width")){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルあり(画像)
         embeds:[{
