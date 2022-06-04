@@ -9,7 +9,7 @@ function get(message,client){
     }]
   });
 
-  if(!Object.hasOwnProperty.call(msg.message, "attachments")){
+  if(!msg.message.attachments.length){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
