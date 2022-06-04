@@ -60,6 +60,7 @@ function events(client){
         const soccer = require("./commands/soccer");
         const echo = require("./commands/echo");
         const auth = require("./commands/auth");
+        const panel = require("./commands/panel");
         const support = require("./commands/support");
         const global = require("./commands/global");
         const gif = require("./commands/gif");
@@ -82,6 +83,7 @@ function events(client){
         soccer(message)
         echo(message,client)
         auth(message)
+        panel(message)
         support(message,client)
         global(message,client)
         gif(message)
@@ -92,9 +94,13 @@ function events(client){
     client.on("interactionCreate", async (interaction) =>{
         const help = require("./commands/help");
         const auth = require("./events/auth");
+        const panel = require("./events/panel");
+        const check = require("./events/check");
 
         help(interaction);
         auth(interaction);
+        panel(interaction);
+        check(interaction)
         return;
     });
 
