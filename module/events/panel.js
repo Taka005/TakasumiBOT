@@ -3,14 +3,16 @@ async function panel(interaction){
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("panel_")){
     const role = interaction.customId.match(/\d{18}/);
-    if(interaction.member.roles.cache.get(role)) return await interaction.reply({content: "設定されたロールが無効です",ephemeral: true});
+    const count_1 = Math.floor(Math.random() * 15) + 1;
+    const count_2 = Math.floor(Math.random() * 15) + 1;
+    const total = count_1 + count_2
       const check = new Modal()
-        .setCustomId(`check_${role}`)
+        .setCustomId(`check_${role}_${total}`)
         .setTitle('認証');
 
       const code = new TextInputComponent()
-        .setCustomId('code')
-        .setLabel("8+13の答えを入力してください")
+        .setCustomId(`code`)
+        .setLabel(`${count_1}+${count_2}の答えを入力してください`)
         .setStyle('SHORT');
       check.addComponents(new MessageActionRow().addComponents(code));
 
