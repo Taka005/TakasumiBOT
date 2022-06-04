@@ -54,7 +54,7 @@ async function base(client){
 
   //------短縮URL------//
   app.get('/url/:name', (req, res) =>{
-    if(!url[req.params.name]) return res.end("<h1>Not registered</h1>")
+    if(!url[req.params.name]) return res.send("<h1>Not registered</h1>")
     res.redirect(url[req.params.name]);
   });
   //------短縮URL------//
