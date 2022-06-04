@@ -23,6 +23,10 @@ async function help(interaction){
             value:">auth [メンションかロールID]で認証機能が使えます"
           },
           {
+            name:"**>panel**",
+            value:">panel [メンションかロールID]で>authよりも強力な認証機能が使えます"
+          },
+          {
             name:"**>global**",
             value:"グローバルチャットに接続します。\n切断したい時はもう一回実行してください\n※他のグローバルチャットと競合する可能性があります"
           },
