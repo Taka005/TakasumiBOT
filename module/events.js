@@ -16,11 +16,11 @@ function events(client){
         //other
         const bump = require("./events/bump");
         const antitoken = require("./events/antitoken");
-        const openmessage = require("./events/openmessage");
+        const reference = require("./events/reference");
         const ngword = require("./events/ngword");
         bump(message)
         antitoken(message)
-        openmessage(message,client)
+        reference(message,client)
         ngword(message,client)
 
         //globalchat
