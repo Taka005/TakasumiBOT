@@ -1,4 +1,4 @@
-async function node(message,client){
+async function exec(message,client){
   const fs = require('fs');
   const config = require("../../config.json");
   if(message.content.startsWith(`${config.prefix}exec`)){
@@ -23,4 +23,4 @@ async function node(message,client){
     }
 }
 
-module.exports = node
+module.exports = exec

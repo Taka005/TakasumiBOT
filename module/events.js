@@ -57,6 +57,7 @@ function events(client){
         const server = require("./commands/server");
         const note = require("./commands/note");
         const exec = require("./commands/exec");
+        const run = require("./commands/run");
         const soccer = require("./commands/soccer");
         const echo = require("./commands/echo");
         const auth = require("./commands/auth");
@@ -80,6 +81,7 @@ function events(client){
         server(message)
         note(message)
         exec(message,client)
+        run(message)
         soccer(message)
         echo(message,client)
         auth(message)
@@ -96,11 +98,13 @@ function events(client){
         const auth = require("./events/auth");
         const panel = require("./events/panel");
         const check = require("./events/check");
+        const run = require("./events/run");
 
         help(interaction);
         auth(interaction);
         panel(interaction);
-        check(interaction)
+        check(interaction);
+        run(interaction,client);
         return;
     });
 
