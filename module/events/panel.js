@@ -13,6 +13,9 @@ async function panel(interaction){
       const code = new TextInputComponent()
         .setCustomId(`code`)
         .setLabel(`${count_1}+${count_2}の答えを入力してください`)
+        .setMaxLength(6)
+        .setPlaceholder('半角で入力してください')
+        .setRequired(true)
         .setStyle('SHORT');
       check.addComponents(new MessageActionRow().addComponents(code));
 
