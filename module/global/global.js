@@ -10,6 +10,15 @@ async function global(message,client){
     })
   }
 
+  if(message.content.match("@everyone") ||message.content.match("@here")){
+    return message.reply({
+      embeds:[{
+        color: "RED",
+        description: "申し訳御座いませんが、グローバルチャットで\nメンションをを送信することは控えてください",
+      }]
+    })
+  }
+
   if(!message.attachments.first()){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルなし
