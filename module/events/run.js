@@ -1,4 +1,5 @@
 async function run(interaction,client){
+  const fs = require("fs");
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("program")){
     const node = interaction.fields.getTextInputValue('node');
