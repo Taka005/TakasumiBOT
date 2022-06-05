@@ -13,7 +13,7 @@ async function run(message){
       .setStyle('PARAGRAPH');
     program.addComponents(new MessageActionRow().addComponents(node));
 
-    await interaction.showModal(program);
+    await message.showModal(program);
     return;
   } 
 }
