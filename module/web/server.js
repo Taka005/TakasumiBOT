@@ -62,7 +62,7 @@ async function server(client){
     if(req.query.key !== process.env.URL_KEY) return res.json({url:"mistake key"});
     if(fs.statSync(`./url/${req.query.name}.json`)) return res.json({url:"url is used"});
       try{
-        fs.writeFileSync(`./url/${req.query.name}.json`, `{url:${req.query.url}}`, 'utf8');
+        fs.writeFileSync(`./url/${req.query.name}.json`, `{"url":${req.query.url}}`, 'utf8');
       }catch{
         return res.json({url:"server error"});
       }
