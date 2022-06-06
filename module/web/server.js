@@ -60,7 +60,12 @@ async function server(client){
 
     if(!req.query.url||!req.query.name||!req.query.key) return res.json({url:"lack of properties"});
     if(req.query.key !== process.env.URL_KEY) return res.json({url:"mistake key"});
-    if(fs.statSync(`./url/${req.query.name}.json`)) return res.json({url:"url is used"});
+      try{
+        const file = fs.statSync(`./url/${req.query.name}.json`);
+      }catch{
+        return res.json({url:"server error"});
+      }
+    if(file) return res.json({url:"url is used"});
       try{
         fs.writeFileSync(`./url/${req.query.name}.json`, `{"url":${req.query.url}}`, 'utf8');
       }catch{
@@ -73,9 +78,14 @@ async function server(client){
 
   //------短縮URL------//
   app.get('/url/:name', (req, res) =>{
-    const file = require(`../../url/${req.params.name}.json`);
+    try{
+      const file = fs.statSync(`./url/${req.params.name}.json`);
+    }catch{
+      return res.json({url:"server error"});
+    }
     if(!file) return res.send(`<h1>NOT REGISTERED</h1>`);
-    res.redirect(file.url);
+    const url = require(`../../url/${req.params.name}.json`);
+    res.redirect(url.url);
     res.end()
   });
   //------短縮URL------//
