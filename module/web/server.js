@@ -2,8 +2,7 @@ async function server(client){
   const express = require('express');
   const app = express();
   const os = require("os");
-  const fs = require("fs");
-  require("dotenv").config();
+  const url = require("../../url.json");
 
   let time = new Date(); 
   app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
@@ -54,38 +53,12 @@ async function server(client){
     res.end()
   });
 
-  app.get('/api/url', (req, res) =>{
-    let time = new Date();
-    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
-
-    if(!req.query.url||!req.query.name||!req.query.key) return res.json({url:"lack of properties"});
-    if(req.query.key !== process.env.URL_KEY) return res.json({url:"mistake key"});
-      try{
-        const file = fs.statSync(`./url/${req.query.name}.json`);
-      }catch{
-        return res.json({url:"server error"});
-      }
-    if(file) return res.json({url:"url is used"});
-      try{
-        fs.writeFileSync(`./url/${req.query.name}.json`, `{"url":${req.query.url}}`, 'utf8');
-      }catch{
-        return res.json({url:"server error"});
-      }
-      res.json({url:`http://takabot.f5.si/url/${req.query.name}`})
-    res.end()
-  });
   //------API------//
 
   //------短縮URL------//
   app.get('/url/:name', (req, res) =>{
-    try{
-      const file = fs.statSync(`./url/${req.params.name}.json`);
-    }catch{
-      return res.json({url:"server error"});
-    }
-    if(!file) return res.send(`<h1>NOT REGISTERED</h1>`);
-    const url = require(`../../url/${req.params.name}.json`);
-    res.redirect(url.url);
+    if(!url[req.params.name]) return res.send(`<h1>NOT REGISTERED</h1>`);
+    res.redirect(url[req.params.name]);
     res.end()
   });
   //------短縮URL------//
