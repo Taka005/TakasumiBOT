@@ -18,10 +18,12 @@ function events(client){
         const antitoken = require("./events/antitoken");
         const reference = require("./events/reference");
         const ngword = require("./events/ngword");
+        const urlsecure = require("./events/urlsecure");
         bump(message)
         antitoken(message)
         reference(message,client)
         ngword(message,client)
+        urlsecure(message)
 
         //globalchat
         const global_base = require("./global/global");
