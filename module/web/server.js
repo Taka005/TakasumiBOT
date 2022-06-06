@@ -1,4 +1,4 @@
-async function base(client){
+async function server(client){
   const express = require('express');
   const app = express();
   const os = require("os");
@@ -70,4 +70,4 @@ async function base(client){
   //------ERROR------
 }
 
-module.exports = base
+module.exports = server

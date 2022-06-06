@@ -12,9 +12,9 @@ let m = now.getMinutes();
 let s = now.getSeconds();
 
 const events = require("./module/events");
-const web = require("./module/web/base")
+const server = require("./module/web/server")
 events(client);
-web(client);
+server(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
    .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
