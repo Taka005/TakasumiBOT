@@ -1,5 +1,4 @@
 function events(client){
-    const fs = require('fs');
 
     client.once("ready", async (client) =>{
        const ready = require("./events/ready");
@@ -37,12 +36,7 @@ function events(client){
 
         //console.log
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(`+message.author.tag+`)`+`${message.content} PING[${client.ws.ping}ms]`);
-        //fs.log
-        fs.appendFileSync('./log.txt', `\n[${h}:${m}:${s}]LOG:(${message.author.tag})${message.content} PING[${client.ws.ping}ms]`, (err) => {
-          if(err){
-            console.log(err);
-          }
-        }); 
+ 
         //commands
         const say = require("./commands/say");
         const join = require("./commands/join");
@@ -113,15 +107,10 @@ function events(client){
         var s = now.getSeconds() 
       
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)
-        fs.appendFileSync('./log.txt', `\n[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`, (err) => {
-          if(err){
-            console.log(err);
-          }
-        });
 
-      const join = require("./events/join")
+      const join = require("./events/join");
        
-      join(member,client)
+      join(member,client);
     });
 
     client.on('guildMemberRemove', member =>{
@@ -131,16 +120,10 @@ function events(client){
         var m = now.getMinutes()
         var s = now.getSeconds() 
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)  
-      
-        fs.appendFileSync('./log.txt', `\n[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`, (err) => {
-          if(err){
-            console.log(err);
-          }
-        }); 
 
-        const leave = require("./events/leave")
+        const leave = require("./events/leave");
 
-        leave(member)
+        leave(member);
     });
 }
 
