@@ -60,6 +60,7 @@ function events(client){
         const support = require("./commands/support");
         const global = require("./commands/global");
         const gif = require("./commands/gif");
+        const ticket = require("./commands/ticket");
 
         join(message)
         say(message)
@@ -83,6 +84,7 @@ function events(client){
         support(message,client)
         global(message,client)
         gif(message)
+        ticket(message)
         
       return;
     });
@@ -92,11 +94,13 @@ function events(client){
         const auth = require("./events/auth");
         const panel = require("./events/panel");
         const check = require("./events/check");
+        const ticket = require("./events/ticket");
 
         help(interaction);
         auth(interaction);
         panel(interaction);
         check(interaction);
+        ticket(interaction);
         return;
     });
 

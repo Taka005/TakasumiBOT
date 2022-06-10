@@ -31,6 +31,10 @@ async function help(interaction){
             value:"グローバルチャットに接続します。\n切断したい時はもう一回実行してください\n※他のグローバルチャットと競合する可能性があります"
           },
           {
+            name:"**>ticket**",
+            value:"簡単なチケット機能を使えます"
+          },
+          {
             name: "**>timer**",
             value: ">timer [second]で時間を秒単位で測れます\n※あまりに長い時間は設定しないでください"
           },
