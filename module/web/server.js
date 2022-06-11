@@ -2,7 +2,7 @@ async function server(client){
   const express = require('express');
   const app = express();
   const os = require("os");
-  const url = require("../../url.json");
+  const url = require("../../data/url.json");
 
   let time = new Date(); 
   app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
