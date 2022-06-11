@@ -1,21 +1,20 @@
 async function quote(message){
-  const fs = requie("fs");
   const config = require("../../config.json");
-  const canvas = require("canvas");
+  const Canvas = require("canvas");
+  const { MessageAttachment } = require("discord.js")
 
   if(message.content === `${config.prefix}quote`){
-    if(!message.type === `REPLY`) return message.reply("メッセージを返信してください");
     const reply = await message.fetchReference();
     if(!reply.content) return message.reply("メッセージの内容がありません");
-      const msg = message.channel.send("生成中...")
-
+      message.channel.send("生成中...")
+      const canvas = Canvas.createCanvas(1200, 630);
       const context = canvas.getContext('2d');
-      const background = await Canvas.loadImage('../../quote.jpg');
+      const background = await Canvas.loadImage('./quote.jpg');
       context.drawImage(background, 0, 0, canvas.width, canvas.height);
-      context.strokeRect(0, 0, canvas.width, canvas.height);
+     // context.strokeRect(0, 0, canvas.width, canvas.height);
       //アバター
       const avatar = await Canvas.loadImage(reply.author.avatarURL({format: 'jpg'}));
-      context.drawImage(avatar, 25, 25, 200, 200);
+      context.drawImage(avatar, 25, 25, 560, 560);
       context.beginPath();
       context.arc(125, 125, 100, 0, Math.PI * 2, true);
       context.closePath();
@@ -39,11 +38,10 @@ async function quote(message){
       }
       context.putImageData(mono, 0, 0);
 
-
       const attachment = new MessageAttachment(canvas.toBuffer(), `quote-${reply.author.username}-TakasumiBOT.png`);
 
-      msg.edit({ files: [attachment] })
-       .catch(()=>message.edit("画像生成に失敗しました..."))
+      message.reply({ files: [attachment] })
+       .catch(()=>message.reply("画像生成に失敗しました..."))
   }
 }
 
