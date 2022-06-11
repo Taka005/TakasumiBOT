@@ -53,6 +53,31 @@ async function server(client){
     res.end()
   });
 
+  app.get('/api/user', (req, res) =>{
+    let time = new Date();
+    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
+
+    if(!req.query.id) return res.json({user:error});
+      const user = await client.users.fetch(`${req.query.id}`);
+      if(!user) return res.json({user:error});
+      res.json({
+        user:{
+          name:user.username,
+          discriminator:user.discriminator,
+          tag:user.tag,
+          id:user.id,
+          avatar:user.avatarURL({format: 'png'}),
+          bannar:user.bannerURL({format: 'png'}),
+          time:new Date(user.createdTimestamp).toLocaleDateString(),
+          bot:user.bot,
+          partial:user.partial,
+          sysytem:user.system,
+          color:user.hexAccentColor
+        }
+      });
+    res.end()
+  });
+
   //------API------//
 
   //------短縮URL------//
