@@ -57,9 +57,9 @@ async function server(client){
     let time = new Date();
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
 
-    if(!req.query.id) return res.json({user:error});
+    if(!req.query.id) return res.json({user:"error"});
       const user = await client.users.fetch(`${req.query.id}`);
-      if(!user) return res.json({user:error});
+      if(!user) return res.json({user:"error"});
       res.json({
         user:{
           name:user.username,
