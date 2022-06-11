@@ -53,7 +53,7 @@ async function server(client){
     res.end()
   });
 
-  app.get('/api/user', (req, res) =>{
+  app.get('/api/user', async (req, res) =>{
     let time = new Date();
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
 
