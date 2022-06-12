@@ -13,7 +13,8 @@ async function server(client){
   const server = https.createServer(options,app);
 
   let time = new Date(); 
-  server.listen(443, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
+  server.listen(443, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(https)サーバーが正常に起動しました`));
+  app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(http)サーバーが正常に起動しました`));
    
   app.use(`/`, express.static("./module/web/assets"));
   
