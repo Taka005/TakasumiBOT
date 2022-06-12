@@ -80,7 +80,7 @@ async function server(client){
           time:new Date(user.createdTimestamp).toLocaleDateString(),
           bot:user.bot,
           partial:user.partial,
-          sysytem:user.system,
+          system:user.system,
           color:user.hexAccentColor
         }
       });
