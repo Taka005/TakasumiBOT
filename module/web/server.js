@@ -2,10 +2,18 @@ async function server(client){
   const express = require('express');
   const app = express();
   const os = require("os");
+  const fs = require("fs");
+  const https = require("https");
   const url = require("../../data/url.json");
 
+  const options = {
+    key: fs.readFileSync( "/home/taka/discordbot/server.key" ),
+    cert: fs.readFileSync( "/home/taka/discordbot/server.crt" )
+  };
+  const server = https.createServer(options,app);
+
   let time = new Date(); 
-  app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
+  server.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: APIサーバーが起動しました`));
    
   app.use(`/`, express.static("./module/web/assets"));
   
