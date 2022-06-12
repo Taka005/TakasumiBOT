@@ -5,6 +5,7 @@ async function server(client){
   const fs = require("fs");
   const https = require("https");
   const url = require("../../data/url.json");
+  const ip = require("../../data/block_ip.json");
 
   const options = {
     key: fs.readFileSync( "/home/taka/discordbot/server.key" ),

@@ -1,5 +1,7 @@
 async function global(message,client){
-  if(message.author.bot || message.channel.topic !== "==GLOBAL==") return;
+  const mute_user = require("../../data/block_user.json");
+  const mute_server = require("../../data/block_server.json");
+  if(!message.channel.type === "GUILD_TEXT" ||message.author.bot || message.channel.topic !== "==GLOBAL==") return;
 
   if(message.content.match("discord.com/invite") ||message.content.match("discord.gg")){
     return message.reply({
