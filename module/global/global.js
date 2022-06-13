@@ -46,7 +46,7 @@ async function global(message,client){
       const attachment = message.attachments.map(attachment => attachment.url)
       channel.send({//添付ファイルあり(画像)
         embeds:[{
-          color: message.author.hexAccentColor,
+          color: message.member.displayHexColor,
           author: {
             name: message.author.tag,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -70,7 +70,7 @@ async function global(message,client){
       const attachment = message.attachments.map(attachment => attachment.url)
       channel.send({//添付ファイルあり(画像以外)
         embeds:[{
-          color: message.author.hexAccentColor,
+          color: message.member.displayHexColor,
           author: {
             name: message.author.tag,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
