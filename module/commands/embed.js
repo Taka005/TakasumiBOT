@@ -1,4 +1,5 @@
 async function embed(interaction){
+  const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === 'embed'){
     const embed = new Modal()
