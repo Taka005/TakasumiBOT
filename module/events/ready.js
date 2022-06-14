@@ -47,6 +47,10 @@ async function ready(client){
       {
         name: "support",
         description: "バグの報告、質問などの報告をします",
+      },
+      {
+        name:"embed",
+        description:"埋め込みメッセージを簡単に作成できます"
       }
     ];
     await client.application.commands.set(commands);

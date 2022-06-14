@@ -99,6 +99,8 @@ function events(client){
         const ticket = require("./events/ticket");
         const support_1 = require("./commands/suppport");
         const support_2 = require("./events/support");
+        const embed_1 = require("./commands/embed");
+        const embed_2 = require("./events/embed");
 
         help(interaction);
         auth(interaction);
@@ -107,6 +109,8 @@ function events(client){
         ticket(interaction);
         support_1(interaction);
         support_2(interaction);
+        embed_1(interaction);
+        embed_2(interaction);
         return;
     });
 
