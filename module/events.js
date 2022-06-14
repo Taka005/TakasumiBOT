@@ -57,7 +57,7 @@ function events(client){
         const echo = require("./commands/echo");
         const auth = require("./commands/auth");
         const panel = require("./commands/panel");
-        const support = require("./commands/support");
+        const dm = require("./commands/dm");
         const global = require("./commands/global");
         const gif = require("./commands/gif");
         const ticket = require("./commands/ticket");
@@ -82,7 +82,7 @@ function events(client){
         echo(message,client)
         auth(message)
         panel(message)
-        support(message,client)
+        dm(message,client)
         global(message,client)
         gif(message)
         ticket(message)
@@ -97,12 +97,16 @@ function events(client){
         const panel = require("./events/panel");
         const check = require("./events/check");
         const ticket = require("./events/ticket");
+        const support_1 = require("./commands/suppport");
+        const support_2 = require("./events/support");
 
         help(interaction);
         auth(interaction);
         panel(interaction);
         check(interaction);
         ticket(interaction);
+        support_1(interaction);
+        support_2(interaction);
         return;
     });
 

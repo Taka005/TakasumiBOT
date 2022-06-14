@@ -43,6 +43,10 @@ async function ready(client){
       {
         name: "help",
         description: "使い方がわかります",
+      },
+      {
+        name: "support",
+        description: "バグの報告、質問などの報告をします",
       }
     ];
     await client.application.commands.set(commands);
