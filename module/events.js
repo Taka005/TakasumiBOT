@@ -97,7 +97,7 @@ function events(client){
         const panel = require("./events/panel");
         const check = require("./events/check");
         const ticket = require("./events/ticket");
-        const support_1 = require("./commands/suppport");
+        const support_1 = require("./commands/support");
         const support_2 = require("./events/support");
         const embed_1 = require("./commands/embed");
         const embed_2 = require("./events/embed");
