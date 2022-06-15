@@ -6,21 +6,19 @@ async function embed(interaction){
       const description = interaction.fields.getTextInputValue('description');
       const image = interaction.fields.getTextInputValue('image');
       if(!author && !title && !description && !image) return await interaction.reply({content: "埋め込みの要素を全て空にはできません...",ephemeral: true})
-      await interaction.channel.send({
+      await interaction.reply({
         embeds:[{
           color: interaction.member.displayHexColor,
           author: {
-            name: `${author || null}`
+            name: `${author}`
           },
-          title:`${title || null}`,
-          description: `${description || null}`,
+          title:`${title}`,
+          description: `${description}`,
           image: {
-            url: `${image || null}`
+            url: `${image}`
           }
         }]
       })
-      .then(()=>interaction.rely({content:"正常に埋め込みを表示しました",ephemeral:true}))
-      .catch(()=>interaction.reply({content: "埋め込みを正常に送信できませんでした...",ephemeral: true}))
       return;
     }
 }
