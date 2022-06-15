@@ -1,10 +1,10 @@
 async function embed(interaction){
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId === `embed`){
-      const author = interaction.fields.getTextInputValue('author')|| null
-      const title = interaction.fields.getTextInputValue('title')|| null
-      const description = interaction.fields.getTextInputValue('description')|| null
-      const image = interaction.fields.getTextInputValue('image')|| null
+      const author = interaction.fields.getTextInputValue('author');
+      const title = interaction.fields.getTextInputValue('title');
+      const description = interaction.fields.getTextInputValue('description');
+      const image = interaction.fields.getTextInputValue('image');
       if(!author && !title && !description && !image) return await interaction.reply({content: "埋め込みの要素を全て空にはできません...",ephemeral: true})
       await interaction.channel.send({
         embeds:[{
