@@ -8,7 +8,7 @@ async function embed(interaction){
       if(!author && !title && !description && !image) return await interaction.reply({content: "埋め込みの要素を全て空にはできません...",ephemeral: true})
       await interaction.channel.send({
         embeds:[{
-          color: message.member.displayHexColor,
+          color: interaction.member.displayHexColor,
           author: {
             name: `${author}`
           },
