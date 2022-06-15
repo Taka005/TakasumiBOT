@@ -10,12 +10,12 @@ async function embed(interaction){
         embeds:[{
           color: interaction.member.displayHexColor,
           author: {
-            name: `${author}`
+            name: `${author || null}`
           },
-          title:`${title}`,
-          description: `${description}`,
+          title:`${title || null}`,
+          description: `${description || null}`,
           image: {
-            url: `${image}`
+            url: `${image || null}`
           }
         }]
       })
