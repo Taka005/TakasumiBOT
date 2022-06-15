@@ -1,3 +1,5 @@
+const embed_commands = require("./commands/embed");
+
 function events(client){
 
     client.once("ready", async (client) =>{
@@ -99,8 +101,8 @@ function events(client){
         const ticket = require("./events/ticket");
         const support = require("./commands/support");
         const support_receive = require("./events/support_receive");
-        const embed_1 = require("./commands/embed");
-        const embed_2 = require("./events/embed");
+        const embed_command = require("./commands/embed_command");
+        const embed = require("./events/embed");
 
         help(interaction);
         auth(interaction);
@@ -109,8 +111,8 @@ function events(client){
         ticket(interaction);
         support(interaction);
         support_receive(interaction,client);
-        embed_1(interaction);
-        embed_2(interaction);
+        embed_command(interaction);
+        embed(interaction);
         return;
     });
 
