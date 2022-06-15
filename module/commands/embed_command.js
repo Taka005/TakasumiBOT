@@ -30,7 +30,7 @@ async function embed_command(interaction){
       .setPlaceholder('埋め込みに表示される画像のURL')
       .setMaxLength(80)
       .setStyle('SHORT');
-    support.addComponents(new MessageActionRow().addComponents(author),new MessageActionRow().addComponents(title),new MessageActionRow().addComponents(description),new MessageActionRow().addComponents(image));
+    embed.addComponents(new MessageActionRow().addComponents(author),new MessageActionRow().addComponents(title),new MessageActionRow().addComponents(description),new MessageActionRow().addComponents(image));
     
     await interaction.showModal(embed);
     return;
