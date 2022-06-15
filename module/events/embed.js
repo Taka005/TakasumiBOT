@@ -4,7 +4,7 @@ async function embed(interaction){
       const author = interaction.fields.getTextInputValue('author');
       const title = interaction.fields.getTextInputValue('title');
       const description = interaction.fields.getTextInputValue('description');
-      const image = interaction.fields.getTextInputValue('imaga');
+      const image = interaction.fields.getTextInputValue('image');
       if(!author && !title && !description && !image) return await interaction.reply({content: "埋め込みの要素を全て空にはできません...",ephemeral: true})
       await interaction.channel.send({
         embeds:[{
