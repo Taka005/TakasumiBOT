@@ -10,13 +10,13 @@ async function embed_command(interaction){
       .setCustomId("author")
       .setLabel("著者")
       .setPlaceholder('埋め込みに表示される著者名')
-      .setMaxLength(20)
+      .setMaxLength(50)
       .setStyle('SHORT');
     const title = new TextInputComponent()
       .setCustomId("title")
       .setLabel("タイトル")
       .setPlaceholder('埋め込みに表示されるタイトル')
-      .setMaxLength(50)
+      .setMaxLength(80)
       .setStyle('SHORT');
     const description = new TextInputComponent()
       .setCustomId(`description`)
@@ -28,7 +28,7 @@ async function embed_command(interaction){
       .setCustomId(`image`)
       .setLabel(`画像`)
       .setPlaceholder('埋め込みに表示される画像のURL')
-      .setMaxLength(80)
+      .setMaxLength(120)
       .setStyle('SHORT');
     embed.addComponents(new MessageActionRow().addComponents(author),new MessageActionRow().addComponents(title),new MessageActionRow().addComponents(description),new MessageActionRow().addComponents(image));
     
