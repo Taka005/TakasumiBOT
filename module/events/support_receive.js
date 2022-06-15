@@ -10,7 +10,7 @@ async function support_receive(interaction,client){
         embeds:[{
           color: "WHITE",
           author: {
-            name: `${interaction.member.author.id}`
+            name: `${interaction.member.id}`
            },
           description: content,
           timestamp: new Date()
