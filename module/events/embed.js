@@ -19,6 +19,7 @@ async function embed(interaction){
           }
         }]
       })
+      .then(()=>interaction.rely({content:"正常に埋め込みを表示しました",ephemeral:true}))
       .catch(()=>interaction.reply({content: "埋め込みを正常に送信できませんでした...",ephemeral: true}))
       return;
     }
