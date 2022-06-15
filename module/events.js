@@ -1,5 +1,3 @@
-const embed_commands = require("./commands/embed");
-
 function events(client){
 
     client.once("ready", async (client) =>{
