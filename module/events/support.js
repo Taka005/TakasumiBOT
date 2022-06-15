@@ -10,13 +10,13 @@ async function support(interaction,client){
         embeds:[{
           color: "WHITE",
           author: {
-            name: `${interaction.member.tag}<${interaction.member.id}>`
+            name: `${interaction.member.author.tag}<${interaction.member.author.id}>`
            },
           description: content,
           timestamp: new Date()
         }]
       });
-      await interaction.reply("正常にサポートサーバーに送信されました\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m")
+      await interaction.reply({content: "正常にサポートサーバーに送信されました\nご報告ありがとうございました\nサポートサーバー:https://discord.gg/GPs3npB63m",ephemeral: true})
     }else{
       await interaction.reply({content: `入力したコードが間違っています\nもう一度、入力してください`,ephemeral: true})
     }
