@@ -7,11 +7,11 @@ async function embed(interaction){
       const image = interaction.fields.getTextInputValue('image');
       if(!author && !title && !description && !image) return await interaction.reply({content: "埋め込みの要素を全て空にはできません...",ephemeral: true})
       if(image){
-        if(!image.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)) return await interaction.reply({content: "画像のURLは`http://`又は`https://`で始まっている必要があります...",ephemeral: true})
+        if(!image.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)) return await interaction.reply({content: "画像のURLは`http://`又は`https://`で始まっているURLにする必要があります...",ephemeral: true})
       }
       await interaction.reply({
         embeds:[{
-          color: interaction.member.displayHexColor,
+          color: "RANDOM",
           author: {
             name: `${author}`
           },
