@@ -1,4 +1,4 @@
-async function support(interaction){
+async function support(interaction,client){
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("support_")){
     const list = interaction.customId.split("_");

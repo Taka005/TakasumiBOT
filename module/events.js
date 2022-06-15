@@ -108,7 +108,7 @@ function events(client){
         check(interaction);
         ticket(interaction);
         support_1(interaction);
-        support_2(interaction);
+        support_2(interaction,client);
         embed_1(interaction);
         embed_2(interaction);
         return;
