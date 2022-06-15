@@ -97,8 +97,8 @@ function events(client){
         const panel = require("./events/panel");
         const check = require("./events/check");
         const ticket = require("./events/ticket");
-        const support_1 = require("./commands/support");
-        const support_2 = require("./events/support");
+        const support = require("./commands/support");
+        const support_receive = require("./events/support_receive");
         const embed_1 = require("./commands/embed");
         const embed_2 = require("./events/embed");
 
@@ -107,8 +107,8 @@ function events(client){
         panel(interaction);
         check(interaction);
         ticket(interaction);
-        support_1(interaction);
-        support_2(interaction,client);
+        support(interaction);
+        support_receive(interaction,client);
         embed_1(interaction);
         embed_2(interaction);
         return;
