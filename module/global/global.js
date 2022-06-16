@@ -43,7 +43,7 @@ async function global(message,client){
           },
           description: message.content,
           footer: {
-            text: message.guild.name,
+            text:`${message.guild.name}<${message.guild.id}>`,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
           timestamp: new Date()
@@ -67,7 +67,7 @@ async function global(message,client){
             url: attachment[0]
           },
           footer: {
-            text: message.guild.name,
+            text: `${message.guild.name}<${message.guild.id}>`,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
           timestamp: new Date()
@@ -88,7 +88,7 @@ async function global(message,client){
           },
           description: message.content,
           footer: {
-            text: message.guild.name,
+            text:`${message.guild.name}<${message.guild.id}>` ,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
           fields: [
