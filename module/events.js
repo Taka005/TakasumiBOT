@@ -40,7 +40,7 @@ function events(client){
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 
         //console.log
-        console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(`+message.author.tag+`)`+`${message.content} PING[${client.ws.ping}ms]`);
+        console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
  
         //commands
         const say = require("./commands/say");
