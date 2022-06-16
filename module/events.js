@@ -1,4 +1,6 @@
 function events(client){
+  const mute_user = require("../../data/block_user.json");
+  const mute_server = require("../../data/block_server.json");
 
     client.once("ready", async (client) =>{
        const ready = require("./events/ready");
@@ -12,6 +14,13 @@ function events(client){
         var h = now.getHours()
         var m = now.getMinutes()
         var s = now.getSeconds() 
+        //globalchat
+        const global_base = require("./global/global");
+        const connect = require("./global/connect");
+        const get = require("./global/get");
+        global_base(message,client)
+        connect(message,client)
+        get(message,client)
         //other
         const bump = require("./events/bump");
         const antitoken = require("./events/antitoken");
@@ -23,14 +32,6 @@ function events(client){
         reference(message,client)
         ngword(message,client)
         urlsecure(message)
-
-        //globalchat
-        const global_base = require("./global/global");
-        const connect = require("./global/connect");
-        const get = require("./global/get");
-        global_base(message,client)
-        connect(message,client)
-        get(message,client)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 

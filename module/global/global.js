@@ -2,6 +2,17 @@ async function global(message,client){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   if(!message.channel.type === "GUILD_TEXT" ||message.author.bot || message.channel.topic !== "==GLOBAL==") return;
+  if(mute_server[`${message.guild.id}`]){
+    message.channel.delete()
+      .catch(()=>{message.reply({
+          embeds:[{
+            color: "RED",
+            description: "申し訳御座いませんが、このサーバーは\nブラックリストに登録されているため、送信できません",
+          }]
+        })
+      })
+    return;
+  }
 
   if(message.content.match("discord.com/invite") ||message.content.match("discord.gg")){
     return message.reply({
