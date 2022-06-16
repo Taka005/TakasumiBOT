@@ -21,6 +21,10 @@ function events(client){
         global_base(message,client)
         connect(message,client)
         get(message,client)
+        
+      if(mute_server[`${message.guild.id}`]||mute_user[`${message.author.id}`]){
+        return;
+      }
         //other
         const bump = require("./events/bump");
         const antitoken = require("./events/antitoken");

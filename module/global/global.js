@@ -14,6 +14,15 @@ async function global(message,client){
     return;
   }
 
+  if(mute_user[`${message.author.id}`]){
+    return message.reply({
+      embeds:[{
+        color: "RED",
+        description: "申し訳御座いませんが、あなたは\nブラックリストに登録されているため、送信できません",
+      }]
+    })
+  }
+
   if(message.content.match("discord.com/invite") ||message.content.match("discord.gg")){
     return message.reply({
       embeds:[{
