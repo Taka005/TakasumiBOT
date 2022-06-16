@@ -1,6 +1,6 @@
 function events(client){
-  const mute_user = require("../../data/block_user.json");
-  const mute_server = require("../../data/block_server.json");
+  const mute_user = require("../data/block_user.json");
+  const mute_server = require("../data/block_server.json");
 
     client.once("ready", async (client) =>{
        const ready = require("./events/ready");
