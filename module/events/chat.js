@@ -4,39 +4,39 @@ if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;
    message.channel.send("ぺポーイ");
    return;
  }
- if(message.content.match(/はー||ひー||ふー||へー||ほー/)){
+ if(message.content.match(/(はー||ひー||ふー||へー||ほー)/)){
     message.channel.send("ほはーい");
     return;
  }
- if(message.content.match(/うぇ/)){
+ if(message.content.match(/(うぇ)/)){
     message.channel.send("うう..");
     return;
  }
- if(message.content.match(/草/)){
+ if(message.content.match(/(草)/)){
     message.channel.send("HAHAH");
     return;
  }
- if(message.content.match(/あー||いー/)){
+ if(message.content.match(/(あー||いー)/)){
    message.channel.sned("あーい");
    return;
  }
- if(message.content.match(/www/)){
+ if(message.content.match(/(www)/)){
     message.channel.send("ワールド..ワイドウェブ?");
     return;
  }
- if(message.content.match(/ぺぺ||ぽ？||ぴ？||ぺ？/)){
+ if(message.content.match(/(ぺぺ||ぽ？||ぴ？||ぺ？)/)){
     message.channel.send("ペポ？");
     return;
  }
- if(message.content.match(/なあー||なあ〜||あー||あ〜/)){
+ if(message.content.match(/(なあー||なあ〜||あー||あ〜)/)){
     message.channel.send("そーい");
     return;
  }
- if(message.content.match(/行く||いく/)){
+ if(message.content.match(/(行く||いく)/)){
     message.channel.send("どこいくペポ？");
     return;
  }
- if(message.content.match(/酔う||酔った/)){
+ if(message.content.match(/(酔う||酔った)/)){
    message.channel.send("まーまー");
    return;
  }
