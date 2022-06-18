@@ -1,7 +1,7 @@
 function connect(message,client){
   const buffer = require('buffer');
   if(message.author.bot || message.channel.topic !== "==GLOBAL==") return;
-
+return; //無効化
   let attachment_list = [];
   message.attachments.forEach((attachment) => {
       let file = attachment.toJSON();

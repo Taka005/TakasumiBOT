@@ -9,7 +9,7 @@ async function server(client){
 
   const options = {
     key: fs.readFileSync( "/home/taka/discordbot/ssl/server.key" ),
-    cert: fs.readFileSync( "/home/taka/discordbot/ssl/server.crt" )
+    cert: fs.readFileSync( "/home/taka/discordbot/ssl/server.pem" )
   };
   const server = https.createServer(options,app);
 

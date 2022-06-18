@@ -2,6 +2,7 @@ async function global(message,client){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   if(!message.channel.type === "GUILD_TEXT" ||message.author.bot || message.channel.topic !== "==GLOBAL==") return;
+  return; //無効化
   if(mute_server[`${message.guild.id}`]){
     message.channel.delete()
       .catch(()=>{message.reply({
