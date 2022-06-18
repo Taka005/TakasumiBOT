@@ -4,13 +4,11 @@ async function server(client){
   const os = require("os");
   const fs = require("fs");
   const https = require("https");
-  require("dotenv").config();
   const url = require("../../data/url.json");
   const ip = require("../../data/block_ip.json");
 
   let time =new Date();
-
-  if(process.env.SSL){
+  try{
     const options = {
       key: fs.readFileSync( "/home/taka/discordbot/ssl/server.key" ),
       cert: fs.readFileSync( "/home/taka/discordbot/ssl/server.pem" )
@@ -18,6 +16,8 @@ async function server(client){
     const server = https.createServer(options,app);
 
     server.listen(443, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(https)サーバーが正常に起動しました`));
+  }catch{
+    console.log("sslを使用せずに起動しました")
   }
 
   app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(http)サーバーが正常に起動しました`));
