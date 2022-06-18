@@ -2,6 +2,11 @@ async function urlsecure(message){
   const fetch = require("node-fetch");
   if(message.content.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)){
     const url = message.content.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g);
+
+    if(url.match("taka.ml") || url.match("takabot.ml")){
+      return; //URL回避
+    }
+
     try{
       fetch(`https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`).then(res => res.text()).then(norton => {
         if(norton.indexOf("［注意］") != -1){
