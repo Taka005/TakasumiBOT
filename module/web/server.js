@@ -8,8 +8,8 @@ async function server(client){
   const ip = require("../../data/block_ip.json");
 
   const options = {
-    key: fs.readFileSync( "/home/taka/discordbot/ssl/server.key" )||"000000000",
-    cert: fs.readFileSync( "/home/taka/discordbot/ssl/server.pem" )||"000000000"
+    key: fs.readFileSync( "/home/taka/discordbot/ssl/server.key" ).catch(()=>{console.log("NO SSL")}),
+    cert: fs.readFileSync( "/home/taka/discordbot/ssl/server.pem" ).catch(()=>{console.log("NO SSL")})
   };
   const server = https.createServer(options,app);
 
