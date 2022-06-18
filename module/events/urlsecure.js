@@ -3,7 +3,7 @@ async function urlsecure(message){
   if(message.content.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)){
     const url = message.content.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g);
 
-    if(url.match("taka.ml") || url.match("takabot.ml")){
+    if(url.match("taka.ml")){
       return; //URL回避
     }
 
