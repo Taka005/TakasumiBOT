@@ -1,6 +1,6 @@
 async function chat(message){
 if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
- if(message.content.match(/パー||ピー||プー||ペー||ポー||/)){
+ if(message.content.match(/パー||ピー||プー||ペー||ポー/)){
    message.channel.send("ぺポーイ");
    return;
  }
