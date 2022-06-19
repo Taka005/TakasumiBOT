@@ -9,7 +9,7 @@ async function global(message,client){
         .catch(()=>message.channel.send("グローバルチャットからの切断が失敗しました...\nBOTの権限等を確認してください\nサポートサーバー:https://discord.gg/GPs3npB63m"))
     }else{
       message.channel.setTopic("##GLOBAL##")
-        .then(()=>client.channels.cache.filter(channel => channel.topic == "==GLOBAL==")
+        .then(()=>client.channels.cache.filter(channel => channel.topic == "##GLOBAL##")
                     .forEach((channel) => {
                       channel.send({
                         embeds:[{
