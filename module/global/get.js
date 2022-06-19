@@ -2,13 +2,13 @@ function get(message,client){
   if(message.channel.id != "949862388969119755" || message.author.id == client.user.id || !message.embeds[0].description) return;
   let msg = JSON.parse(new Buffer.from(message.embeds[0].description, "base64"));
   message.react("🔁")
-return; //無効化
+
   client.channels.cache.get("949900405012324372").send({//解読コード
     embeds: [{
       description: JSON.stringify(msg,null,"　")
     }]
   });
-
+  let count = 0;
   if(!msg.message.attachments.length){
     client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
       channel.send({//添付ファイルなし
@@ -26,6 +26,13 @@ return; //無効化
           timestamp: new Date()
         }]
       });
+
+      count++;
+      if(count == 40){
+        setTimeout(() => {
+          count = 0;
+        }, 1000);
+      }
     });
     message.react("✅")
     return;
@@ -46,6 +53,13 @@ return; //無効化
           timestamp: new Date()
         }]
       });
+
+      count++;
+      if(count == 40){
+        setTimeout(() => {
+          count = 0;
+        }, 1000);
+      }
     });
     message.react("✅")
     return;

@@ -64,7 +64,7 @@ async function global(message,client){
       if(count == 40){
         setTimeout(() => {
           count = 0;
-        }, 5000);
+        }, 1000);
       }
     });
     message.delete()
@@ -95,7 +95,7 @@ async function global(message,client){
       if(count == 40){
         setTimeout(() => {
           count = 0;
-        }, 3000);
+        }, 1000);
       }
     });
     message.delete()
@@ -129,7 +129,7 @@ async function global(message,client){
       if(count == 40){
         setTimeout(() => {
           count = 0;
-        }, 3000);
+        }, 1000);
       }
     });
     message.delete()
