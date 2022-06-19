@@ -15,7 +15,7 @@ async function global(message,client){
                         embeds:[{
                           color: "WHITE",
                           author: {
-                            name: message.guild.name,
+                            name: `${message.guild.name}<${message.guild.id}>`,
                             icon_url: message.guild.iconURL()
                           },
                           description: `グローバルチャットに新しいサーバーが参加しました！\n みんなで挨拶してみましょう！\n\n※チャットを利用した場合、[利用規約](http://takabot.f5.si/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
