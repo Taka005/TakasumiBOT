@@ -17,7 +17,7 @@ async function server(client){
 
     server.listen(443, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(https)サーバーが正常に起動しました`));
   }catch{
-    console.log("sslを使用せずに起動しました")
+    console.warn(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]WARN:sslを使用せずに起動しました`)
   }
 
   app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(http)サーバーが正常に起動しました`));
