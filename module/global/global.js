@@ -61,10 +61,10 @@ async function global(message,client){
       });
 
       count++;
-      if(count == 40){
+      if(count == 25){
         setTimeout(() => {
           count = 0;
-        }, 1000);
+        }, 2500);
       }
     });
     message.delete()
@@ -92,10 +92,10 @@ async function global(message,client){
       });
 
       count++;
-      if(count == 40){
+      if(count == 25){
         setTimeout(() => {
           count = 0;
-        }, 1000);
+        }, 2500);
       }
     });
     message.delete()
@@ -126,10 +126,10 @@ async function global(message,client){
       });
 
       count++;
-      if(count == 40){
+      if(count == 25){
         setTimeout(() => {
           count = 0;
-        }, 1000);
+        }, 2500);
       }
     });
     message.delete()

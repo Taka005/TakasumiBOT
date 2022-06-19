@@ -28,10 +28,10 @@ function get(message,client){
       });
 
       count++;
-      if(count == 40){
+      if(count == 20){
         setTimeout(() => {
           count = 0;
-        }, 1000);
+        }, 2500);
       }
     });
     message.react("✅")
@@ -55,10 +55,10 @@ function get(message,client){
       });
 
       count++;
-      if(count == 40){
+      if(count == 20){
         setTimeout(() => {
           count = 0;
-        }, 1000);
+        }, 2500);
       }
     });
     message.react("✅")
