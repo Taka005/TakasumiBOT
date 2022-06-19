@@ -3,12 +3,12 @@ async function global(message,client){
 
   if(message.content === `${config.prefix}global`){
     if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.reply(`${config.prefix}globalを使うには「チャンネル管理」の権限が必要です`);
-    if(message.channel.topic === "$$GLOBAL$$"){
+    if(message.channel.topic === "##GLOBAL##"){
       message.channel.setTopic("")
         .then(()=>message.channel.send("正常にグローバルチャットから切断されました...\n再度接続するには`>global`と入力して下さい"))
         .catch(()=>message.channel.send("グローバルチャットからの切断が失敗しました...\nBOTの権限等を確認してください\nサポートサーバー:https://discord.gg/GPs3npB63m"))
     }else{
-      message.channel.setTopic("$$GLOBAL$$")
+      message.channel.setTopic("##GLOBAL##")
         .then(()=>client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$")
                     .forEach((channel) => {
                       channel.send({
