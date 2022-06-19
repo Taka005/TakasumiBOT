@@ -1,7 +1,7 @@
 async function global(message,client){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
-  if(!message.channel.type === "GUILD_TEXT" ||message.author.bot || message.channel.topic !== "==GLOBAL==") return;
+  if(!message.channel.type === "GUILD_TEXT" ||message.author.bot || message.channel.topic !== "##GLOBAL##") return;
 
   if(mute_server[`${message.guild.id}`]){
     message.channel.delete()
