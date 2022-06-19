@@ -2,7 +2,7 @@ function get(message,client){
   if(message.channel.id != "949862388969119755" || message.author.id == client.user.id || !message.embeds[0].description) return;
   let msg = JSON.parse(new Buffer.from(message.embeds[0].description, "base64"));
   message.react("🔁")
-
+return;
   client.channels.cache.get("949900405012324372").send({//解読コード
     embeds: [{
       description: JSON.stringify(msg,null,"　")
@@ -10,7 +10,7 @@ function get(message,client){
   });
 
   if(!msg.message.attachments.length){
-    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
           color: "WHITE",
@@ -31,7 +31,7 @@ function get(message,client){
     message.react("✅")
     return;
   }else{
-    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
       channel.send({//添付ファイルあり
         embeds:[{
           color: "WHITE",

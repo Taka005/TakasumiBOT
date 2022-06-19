@@ -41,9 +41,16 @@ async function global(message,client){
       }]
     })
   }
+  //緊急
+  return message.reply({
+    embeds:[{
+      color: "RED",
+      description: "このグローバルチャットは`のなめ(荒らし共栄圏)`によって攻撃されたため、\n現在サービスを停止中です。復旧の目処は立っていません",
+    }]
+  })
 
   if(!message.attachments.first()){
-    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
           color: message.member.displayHexColor,
@@ -64,7 +71,7 @@ async function global(message,client){
     message.delete()
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
-    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
       const attachment = message.attachments.map(attachment => attachment.url)
       channel.send({//添付ファイルあり(画像)
         embeds:[{
@@ -89,7 +96,7 @@ async function global(message,client){
     message.delete()
     return;
   }else{
-    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
       const attachment = message.attachments.map(attachment => attachment.url)
       channel.send({//添付ファイルあり(画像以外)
         embeds:[{
