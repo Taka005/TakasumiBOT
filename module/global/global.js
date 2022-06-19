@@ -41,9 +41,9 @@ async function global(message,client){
       }]
     })
   }
-  let count = 0;
+
   if(!message.attachments.first()){
-    client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
           color: message.member.displayHexColor,
@@ -60,17 +60,11 @@ async function global(message,client){
         }]
       });
 
-      count++;
-      if(count == 25){
-        setTimeout(() => {
-          count = 0;
-        }, 2500);
-      }
     });
     message.delete()
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
-    client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
       const attachment = message.attachments.map(attachment => attachment.url)
       channel.send({//添付ファイルあり(画像)
         embeds:[{
@@ -91,17 +85,11 @@ async function global(message,client){
         }]
       });
 
-      count++;
-      if(count == 25){
-        setTimeout(() => {
-          count = 0;
-        }, 2500);
-      }
     });
     message.delete()
     return;
   }else{
-    client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
       const attachment = message.attachments.map(attachment => attachment.url)
       channel.send({//添付ファイルあり(画像以外)
         embeds:[{
@@ -125,12 +113,6 @@ async function global(message,client){
         }]
       });
 
-      count++;
-      if(count == 25){
-        setTimeout(() => {
-          count = 0;
-        }, 2500);
-      }
     });
     message.delete()
     return;

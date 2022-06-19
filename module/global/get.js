@@ -8,9 +8,9 @@ function get(message,client){
       description: JSON.stringify(msg,null,"　")
     }]
   });
-  let count = 0;
+
   if(!msg.message.attachments.length){
-    client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
       channel.send({//添付ファイルなし
         embeds:[{
           color: "WHITE",
@@ -27,17 +27,11 @@ function get(message,client){
         }]
       });
 
-      count++;
-      if(count == 20){
-        setTimeout(() => {
-          count = 0;
-        }, 2500);
-      }
     });
     message.react("✅")
     return;
   }else{
-    client.channels.cache.filter(channel => channel.topic == "==GLOBAL==").forEach((channel) =>{
+    client.channels.cache.filter(channel => channel.topic == "##GLOBAL##").forEach((channel) =>{
       channel.send({//添付ファイルあり
         embeds:[{
           color: "WHITE",
@@ -54,12 +48,6 @@ function get(message,client){
         }]
       });
 
-      count++;
-      if(count == 20){
-        setTimeout(() => {
-          count = 0;
-        }, 2500);
-      }
     });
     message.react("✅")
     return;
