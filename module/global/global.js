@@ -45,7 +45,7 @@ async function global(message,client){
   return message.reply({
     embeds:[{
       color: "RED",
-      description: "このグローバルチャットは`のなめ(荒らし共栄圏)`によって攻撃されたため、\n現在サービスを停止中です。復旧の目処は立っていません",
+      description: "このグローバルチャットは`のなめ(荒らし共栄圏)`\nによって攻撃されたため、現在サービスを停止中です。復旧の目処は立っていません\n[お問い合わせ](https://taka.ml)",
     }]
   })
 
