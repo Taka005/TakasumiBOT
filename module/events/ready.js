@@ -20,7 +20,7 @@ async function ready(client){
         });
         stats = 2;
       }else if(stats == 2){
-        client.user.setActivity(`takabot.f5.si || ver:${config.version}`, {
+        client.user.setActivity(`taka.ml || ver:${config.version}`, {
           type: 'PLAYING'
         });
         stats = 3; 

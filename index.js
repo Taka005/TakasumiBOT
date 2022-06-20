@@ -12,7 +12,7 @@ let m = now.getMinutes();
 let s = now.getSeconds();
 
 const events = require("./module/events");
-const server = require("./module/web/server")
+const server = require("./module/web/server");
 events(client);
 server(client);
 
