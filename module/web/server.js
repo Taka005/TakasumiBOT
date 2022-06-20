@@ -22,8 +22,8 @@ async function server(client){
 
   app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(http)サーバーが正常に起動しました`));
    
-  app.use(`/`, express.static("./module/web/assets"),()=>console.log("test"));
-  
+  app.use(`/`, express.static("./module/web/assets"));
+ 
   //------リダイレクト------//
   app.get('/support', (req, res) =>{
     res.redirect("https://discord.gg/GPs3npB63m");
