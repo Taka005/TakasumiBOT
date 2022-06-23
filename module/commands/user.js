@@ -1,7 +1,12 @@
 async function user(message,client){
   const config = require("../../config.json")
   if(message.content.startsWith(`${config.prefix}user`)){
-    const status_data = {"online": "🟢オンライン", "offline": "⚫オフライン", "dnd": "⛔取り込み中", "idle": "🌙退席中"};
+    const status_data = {
+      "online": "🟢オンライン",
+      "offline": "⚫オフライン",
+      "dnd": "⛔取り込み中",
+      "idle": "🌙退席中"
+    };
 
     if(message.content === `${config.prefix}user`){
       message.reply({
