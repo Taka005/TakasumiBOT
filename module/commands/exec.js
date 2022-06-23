@@ -5,7 +5,7 @@ async function exec(message,client){
     if(message.author.id !== `${config.admin}`) return message.reply("このコマンドは製作者専用です");
     if(message.content === `${config.prefix}exec`) return message.reply("実行するコードが必要です");
       const code = message.content.slice(6);
-      const script = `function script(message,client){\n  ${code}\n}\n\nmodule.exports = script`;
+      const script = `async function script(message,client){\n  ${code}\n}\n\nmodule.exports = script`;
       try{
         fs.writeFileSync(`./note/script.js`, `${script}`, 'utf8');
       }catch(error){

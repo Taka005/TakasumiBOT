@@ -14,6 +14,9 @@ async function user(message,client){
         title: "ユーザー情報",
         color: "WHITE",
         timestamp: new Date(),
+        footer: {
+          text: "TakasumiBOT"
+        },
         thumbnail: {
           url: message.author.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
         },
@@ -29,7 +32,7 @@ async function user(message,client){
           },
           {
             name: "**ニックネーム**",
-            value: message.member.nickname || `設定されていません`,
+            value: message.member.nickname || `未設定`,
             inline: true
           },
           {
@@ -40,6 +43,16 @@ async function user(message,client){
           {
             name: "**作成日時**",
             value: `${new Date(message.author.createdTimestamp).toLocaleDateString()}`,
+            inline: true
+          },
+          {
+            name:"**参加日時**",
+            value: `${new Date(message.member.joinedTimestamp).toLocaleDateString()}`,
+            inline: true
+          },
+          {
+            name:"**ロール**",
+            value: `${message.member.roles.cache.map(r => r).join('')}`,
             inline: true
           },
           {

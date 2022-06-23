@@ -24,7 +24,7 @@ async function server(message){
           },
           {
             name: "**ロール**",
-            value: `${message.guild.roles.cache.map(r => r).join(' | ')}`
+            value: `${message.guild.roles.cache.map(r => r).join('')}`
           }
         ]
       }]
