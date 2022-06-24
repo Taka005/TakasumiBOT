@@ -78,57 +78,56 @@ async function user(message,client){
     });
 
     const member = await message.guild.members.fetch(id[0])
-      .catch(async()=>{
-
-        const user = await client.users.fetch(id[0])
-          .catch(()=>{
-            return message.reply({
-              embeds:[{
-                author: {
-                  name: "取得に失敗しました",
-                  icon_url: "https://taka.ml/images/error.jpg",
+      .catch(()=>{
+        try{
+          const user = await client.users.fetch(id[0])
+          message.reply({
+            embeds:[{
+              color: "WHITE",
+              timestamp: new Date(),
+              footer: {
+                text: "TakasumiBOT"
+              },
+              thumbnail: {
+                url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+              },
+              fields: [
+                {
+                  name: "**ユーザー名**",
+                  value: `${user.tag}`,
                 },
-                color: "RED",
-                description: "指定されたユーザーは存在しないか、\n間違っています"
-              }]
-            });
+                {
+                  name: "**ユーザーID**",
+                  value: `${user.id}`,
+                  inline: true
+                },
+                {
+                  name: "**アカウント作成日**",
+                  value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
+                  inline: true
+                },
+                {
+                  name: "**BOT**",
+                  value: user.bot ? "BOT" : "ユーザー",
+                  inline: true
+                }
+              ]
+            }]
           })
-
-        message.reply({
-          embeds:[{
-            color: "WHITE",
-            timestamp: new Date(),
-            footer: {
-              text: "TakasumiBOT"
-            },
-            thumbnail: {
-              url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
-            },
-            fields: [
-              {
-                name: "**ユーザー名**",
-                value: `${user.tag}`,
+          return;
+        }catch{
+          return message.reply({
+            embeds:[{
+              author: {
+                name: "取得に失敗しました",
+                icon_url: "https://taka.ml/images/error.jpg",
               },
-              {
-                name: "**ユーザーID**",
-                value: `${user.id}`,
-                inline: true
-              },
-              {
-                name: "**アカウント作成日**",
-                value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
-                inline: true
-              },
-              {
-                name: "**BOT**",
-                value: user.bot ? "BOT" : "ユーザー",
-                inline: true
-              }
-            ]
-          }]
-        }).catch(()=>{return})
-      return;
-    })
+              color: "RED",
+              description: "指定されたユーザーは存在しないか、\n間違っています"
+            }]
+          });
+        }
+      })
     message.reply({
       embeds:[{
         color: "WHITE",
