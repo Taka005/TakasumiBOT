@@ -9,7 +9,7 @@ async function quote(message){
       const msg = await message.reply("画像生成中...")
       const canvas = Canvas.createCanvas(1200, 630);
       const context = canvas.getContext('2d');
-      const background = await Canvas.loadImage('./quote.jpg');
+      const background = await Canvas.loadImage('./images/quote.jpg');
       context.drawImage(background, 0, 0, canvas.width, canvas.height);
       context.strokeRect(0, 0, canvas.width, canvas.height);
       //アバター

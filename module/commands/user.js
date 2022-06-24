@@ -66,9 +66,34 @@ async function user(message,client){
     }
 
     const id = message.content.match(/\d{18}/g);
+    if(!id) return message.reply({
+      embeds:[{
+        author: {
+          name: "取得に失敗",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "正確にIDまたは、メンションをしてください"
+      }]
+    });
+
     const member = await message.guild.members.fetch(id[0])
       .catch(async()=>{
-        const user = await client.users.fetch(id[0]).catch(()=>message.reply("ユーザーを取得出来ませんでした"))
+
+        const user = await client.users.fetch(id[0])
+          .catch(()=>{
+            return message.reply({
+              embeds:[{
+                author: {
+                  name: "取得に失敗",
+                  icon_url: "https://taka.ml/images/error.jpg",
+                },
+                color: "RED",
+                description: "指定されたユーザーは存在しないか、\n間違っています"
+              }]
+            });
+          })
+
         message.reply({
           embeds:[{
             color: "WHITE",
