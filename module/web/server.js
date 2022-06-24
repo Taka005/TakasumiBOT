@@ -72,8 +72,7 @@ async function server(client){
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
 
     if(!req.query.id) return res.json({user:"error"});
-      const user = await client.users.fetch(`${req.query.id}`);
-      if(!user) return res.json({user:"error"});
+      const user = await client.users.fetch(`${req.query.id}`).catch(()=>res.json({user:"error"}));
       res.json({
         user:{
           name:user.username,
@@ -81,7 +80,6 @@ async function server(client){
           tag:user.tag,
           id:user.id,
           avatar:user.avatarURL({format: 'png'}),
-          bannar:user.bannerURL({format: 'png'}),
           time:new Date(user.createdTimestamp).toLocaleDateString(),
           bot:user.bot,
           partial:user.partial,
