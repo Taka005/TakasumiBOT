@@ -69,7 +69,7 @@ async function user(message,client){
     if(!id) return message.reply({
       embeds:[{
         author: {
-          name: "取得に失敗",
+          name: "取得に失敗しました",
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
@@ -85,7 +85,7 @@ async function user(message,client){
             return message.reply({
               embeds:[{
                 author: {
-                  name: "取得に失敗",
+                  name: "取得に失敗しました",
                   icon_url: "https://taka.ml/images/error.jpg",
                 },
                 color: "RED",
@@ -126,7 +126,7 @@ async function user(message,client){
               }
             ]
           }]
-        });
+        }).catch(()=>{return})
       return;
     })
     message.reply({
