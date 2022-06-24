@@ -77,7 +77,7 @@ async function user(message,client){
       }]
     });
 
-    const member = message.guild.members.cache.get(id);
+    const member = message.guild.members.cache.get(id[0]);
       if(member){
         message.reply({
           embeds:[{
@@ -132,7 +132,6 @@ async function user(message,client){
             ]
           }]
         });
-        return;
       }else{
         try{
           const user = await client.users.fetch(id[0]);
@@ -181,8 +180,8 @@ async function user(message,client){
             ]
           }]
         });
-      return;
-    }
+      }
+    return
   }
 }
 
