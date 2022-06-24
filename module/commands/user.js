@@ -78,7 +78,7 @@ async function user(message,client){
     });
 
     const member = await message.guild.members.fetch(id[0])
-      .catch(()=>{
+      .catch(async()=>{
         try{
           const user = await client.users.fetch(id[0])
           message.reply({
