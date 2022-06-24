@@ -77,44 +77,65 @@ async function user(message,client){
       }]
     });
 
-    const member = await message.guild.members.fetch(id[0])
-      .catch(async()=>{
+    const member = message.guild.members.cache.get(id);
+      if(member){
+        message.reply({
+          embeds:[{
+            color: "WHITE",
+            timestamp: new Date(),
+            footer: {
+              text: "TakasumiBOT"
+            },
+            thumbnail: {
+              url: member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+            },
+            fields: [
+              {
+                name: "**ユーザー名**",
+                value: `${member.user.tag}`
+              },
+              {
+                name: "**ID**",
+                value: `${member.id}`,
+                inline: true
+              },
+              {
+                name: "**ニックネーム**",
+                value: member.nickname||"未設定",
+                inline: true
+              },
+              {
+                name: "状態",
+                value: `${status_data[member.presence?.status]||"取得不能"}`,
+                inline: true
+              },
+              {
+                name: "**作成日時**",
+                value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}`,
+                inline: true
+              },
+              {
+                name:"**参加日時**",
+                value: `${new Date(member.joinedTimestamp).toLocaleDateString()}`,
+                inline: true
+              },
+              {
+                name: "アカウントの種類",
+                value: member.user.bot ? "BOT" : "ユーザー",
+                inline: true
+              },
+              {
+                name:"**ロール**",
+                value: `${member.roles.cache.map(r => r).join('')}`,
+                inline: true
+              }
+            ]
+          }]
+        });
+        return;
+      }else{
         try{
-          const user = await client.users.fetch(id[0])
-          message.reply({
-            embeds:[{
-              color: "WHITE",
-              timestamp: new Date(),
-              footer: {
-                text: "TakasumiBOT"
-              },
-              thumbnail: {
-                url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
-              },
-              fields: [
-                {
-                  name: "**ユーザー名**",
-                  value: `${user.tag}`,
-                },
-                {
-                  name: "**ユーザーID**",
-                  value: `${user.id}`,
-                  inline: true
-                },
-                {
-                  name: "**アカウント作成日**",
-                  value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
-                  inline: true
-                },
-                {
-                  name: "**BOT**",
-                  value: user.bot ? "BOT" : "ユーザー",
-                  inline: true
-                }
-              ]
-            }]
-          })
-          return;
+          const user = await client.users.fetch(id[0]);
         }catch{
           return message.reply({
             embeds:[{
@@ -127,61 +148,41 @@ async function user(message,client){
             }]
           });
         }
-      })
-    message.reply({
-      embeds:[{
-        color: "WHITE",
-        timestamp: new Date(),
-        footer: {
-          text: "TakasumiBOT"
-        },
-        thumbnail: {
-          url: member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
-        },
-        fields: [
-          {
-            name: "**ユーザー名**",
-            value: `${member.user.tag}`
-          },
-          {
-            name: "**ID**",
-            value: `${member.id}`,
-            inline: true
-          },
-          {
-            name: "**ニックネーム**",
-            value: member.nickname||"未設定",
-            inline: true
-          },
-          {
-            name: "状態",
-            value: `${status_data[member.presence?.status]||"取得不能"}`,
-            inline: true
-          },
-          {
-            name: "**作成日時**",
-            value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}`,
-            inline: true
-          },
-          {
-            name:"**参加日時**",
-            value: `${new Date(member.joinedTimestamp).toLocaleDateString()}`,
-            inline: true
-          },
-          {
-            name: "アカウントの種類",
-            value: member.user.bot ? "BOT" : "ユーザー",
-            inline: true
-          },
-          {
-            name:"**ロール**",
-            value: `${member.roles.cache.map(r => r).join('')}`,
-            inline: true
-          }
-        ]
-      }]
-    });
-    return;
+        message.reply({
+          embeds:[{
+            color: "WHITE",
+            timestamp: new Date(),
+            footer: {
+              text: "TakasumiBOT"
+            },
+            thumbnail: {
+              url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+            },
+            fields: [
+              {
+                name: "**ユーザー名**",
+                value: `${user.tag}`,
+              },
+              {
+                name: "**ユーザーID**",
+                value: `${user.id}`,
+                inline: true
+              },
+              {
+                name: "**アカウント作成日**",
+                value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
+                inline: true
+              },
+              {
+                name: "**BOT**",
+                value: user.bot ? "BOT" : "ユーザー",
+                inline: true
+              }
+            ]
+          }]
+        });
+      return;
+    }
   }
 }
 
