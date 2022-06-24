@@ -11,7 +11,6 @@ async function user(message,client){
     if(message.content === `${config.prefix}user`){
       message.reply({
         embeds:[{
-        title: "ユーザー情報",
         color: "WHITE",
         timestamp: new Date(),
         footer: {
@@ -32,12 +31,12 @@ async function user(message,client){
           },
           {
             name: "**ニックネーム**",
-            value: message.member.nickname || `未設定`,
+            value: message.member.nickname||"未設定",
             inline: true
           },
           {
             name: "状態",
-            value: `${status_data[message.member.presence?.status]}`,
+            value: `${status_data[message.member.presence?.status]||"取得不能"}`,
             inline: true
           },
           {
@@ -51,22 +50,22 @@ async function user(message,client){
             inline: true
           },
           {
-            name:"**ロール**",
-            value: `${message.member.roles.cache.map(r => r).join('')}`,
-            inline: true
-          },
-          {
             name: "アカウントの種類",
             value: message.author.bot ? "BOT" : "ユーザー",
             inline: true
-        },
+          },
+          {
+            name:"**ロール**",
+            value: `${message.member.roles.cache.map(r => r).join('')}`,
+            inline: true
+          }
         ]}]
       });
       return;
     }
     try{
-      const args = message.content.split(" ").slice(1);
-      let user = await client.users.fetch(args[0])
+      const id = message.content.match(/\d{18}/);
+      const user = await client.users.fetch(id)
       message.reply({
         embeds:[{
         title: "ユーザー情報",
