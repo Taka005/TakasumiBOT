@@ -11,91 +11,152 @@ async function user(message,client){
     if(message.content === `${config.prefix}user`){
       message.reply({
         embeds:[{
+          color: "WHITE",
+          timestamp: new Date(),
+          footer: {
+            text: "TakasumiBOT"
+          },
+          thumbnail: {
+            url: message.author.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          fields: [
+            {
+              name: "**ユーザー名**",
+              value: `${message.author.tag}`
+            },
+            {
+              name: "**ID**",
+              value: `${message.author.id}`,
+              inline: true
+            },
+            {
+              name: "**ニックネーム**",
+              value: message.member.nickname||"未設定",
+              inline: true
+            },
+            {
+              name: "状態",
+              value: `${status_data[message.member.presence?.status]||"取得不能"}`,
+              inline: true
+            },
+            {
+              name: "**作成日時**",
+              value: `${new Date(message.author.createdTimestamp).toLocaleDateString()}`,
+              inline: true
+            },
+            {
+              name:"**参加日時**",
+              value: `${new Date(message.member.joinedTimestamp).toLocaleDateString()}`,
+              inline: true
+            },
+            {
+              name: "アカウントの種類",
+              value: message.author.bot ? "BOT" : "ユーザー",
+              inline: true
+            },
+            {
+              name:"**ロール**",
+              value: `${message.member.roles.cache.map(r => r).join('')}`,
+              inline: true
+            }
+          ]
+        }]
+      });
+      return;
+    }
+
+    const id = message.content.match(/\d{18}/g);
+    const member = await message.guild.members.fetch(id[0])
+      .catch(async()=>{
+        const user = await client.users.fetch(id[0]).catch(()=>message.reply("ユーザーを取得出来ませんでした"))
+        message.reply({
+          embeds:[{
+            color: "WHITE",
+            timestamp: new Date(),
+            footer: {
+              text: "TakasumiBOT"
+            },
+            thumbnail: {
+              url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+            },
+            fields: [
+              {
+                name: "**ユーザー名**",
+                value: `${user.tag}`,
+              },
+              {
+                name: "**ユーザーID**",
+                value: `${user.id}`,
+                inline: true
+              },
+              {
+                name: "**アカウント作成日**",
+                value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
+                inline: true
+              },
+              {
+                name: "**BOT**",
+                value: user.bot ? "BOT" : "ユーザー",
+                inline: true
+              }
+            ]
+          }]
+        });
+      return;
+    })
+    message.reply({
+      embeds:[{
         color: "WHITE",
         timestamp: new Date(),
         footer: {
           text: "TakasumiBOT"
         },
         thumbnail: {
-          url: message.author.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+          url: member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
         },
         fields: [
           {
             name: "**ユーザー名**",
-            value: `${message.author.tag}`
+            value: `${member.user.tag}`
           },
           {
             name: "**ID**",
-            value: `${message.author.id}`,
+            value: `${member.id}`,
             inline: true
           },
           {
             name: "**ニックネーム**",
-            value: message.member.nickname||"未設定",
+            value: member.nickname||"未設定",
             inline: true
           },
           {
             name: "状態",
-            value: `${status_data[message.member.presence?.status]||"取得不能"}`,
+            value: `${status_data[member.presence?.status]||"取得不能"}`,
             inline: true
           },
           {
             name: "**作成日時**",
-            value: `${new Date(message.author.createdTimestamp).toLocaleDateString()}`,
+            value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}`,
             inline: true
           },
           {
             name:"**参加日時**",
-            value: `${new Date(message.member.joinedTimestamp).toLocaleDateString()}`,
+            value: `${new Date(member.joinedTimestamp).toLocaleDateString()}`,
             inline: true
           },
           {
             name: "アカウントの種類",
-            value: message.author.bot ? "BOT" : "ユーザー",
+            value: member.user.bot ? "BOT" : "ユーザー",
             inline: true
           },
           {
             name:"**ロール**",
-            value: `${message.member.roles.cache.map(r => r).join('')}`,
+            value: `${member.roles.cache.map(r => r).join('')}`,
             inline: true
           }
-        ]}]
-      });
-      return;
-    }
-    try{
-      const id = message.content.match(/\d{18}/);
-      const user = await client.users.fetch(id)
-      message.reply({
-        embeds:[{
-        title: "ユーザー情報",
-        color: 7506394,
-        timestamp: new Date(),
-        thumbnail: {
-          url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
-        },
-        fields: [
-          {
-            name: "**ユーザー名**",
-            value: `${user.tag}`
-          },
-          {
-            name: "**ユーザーID**",
-            value: `${user.id}`
-          },
-          {
-            name: "**アカウント作成日**",
-            value: `${new Date(user.createdTimestamp).toLocaleDateString()}`
-          },
-          {
-            name: "**BOT**",
-            value: `${user.bot}`
-          }
-        ]}]
-      });
-    }catch{
-      message.reply("ユーザーを取得出来ませんでした")
-    } 
+        ]
+      }]
+    });
     return;
   }
 }
