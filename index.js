@@ -27,7 +27,6 @@ process.on('uncaughtException',async (error) => {
   client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "RED",
-      title: `${error.name}`,
       description: "```"+`${error}`+"```",
       timestamp: new Date()
     }]
@@ -41,7 +40,6 @@ process.on('unhandledRejection',async (error) => {
   client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "ORANGE",
-      title: `${error.name}`,
       description: "```"+`${error}`+"```",
       timestamp: new Date()
     }]
