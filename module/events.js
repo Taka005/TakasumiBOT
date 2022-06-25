@@ -69,6 +69,7 @@ function events(client){
         const gif = require("./commands/gif");
         const ticket = require("./commands/ticket");
         const quote = require("./commands/quote");
+        const output = require("./commands/output");
 
         join(message)
         say(message)
@@ -94,7 +95,8 @@ function events(client){
         gif(message)
         ticket(message)
         quote(message)
-        
+        output(message,client)
+
       return;
     });
 
