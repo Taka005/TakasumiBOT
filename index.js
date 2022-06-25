@@ -21,7 +21,7 @@ events(client);
 server(client);
 
 //エラー回避
-process.on('uncaughtException',async (error) => {
+process.on('uncaughtException',(error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+error);
 
   client.channels.cache.get(cnf.log_channel).send({
@@ -30,11 +30,11 @@ process.on('uncaughtException',async (error) => {
       description: "```"+`${error}`+"```",
       timestamp: new Date()
     }]
-  }).catch(()=>{return})
+  })
   return;
 });
 
-process.on('unhandledRejection',async (error) => {
+process.on('unhandledRejection',(error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+ error);
 
   client.channels.cache.get(cnf.log_channel).send({
@@ -43,6 +43,6 @@ process.on('unhandledRejection',async (error) => {
       description: "```"+`${error}`+"```",
       timestamp: new Date()
     }]
-  }).catch(()=>{return})
+  })
   return;
 });

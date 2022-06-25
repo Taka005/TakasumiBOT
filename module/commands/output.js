@@ -36,7 +36,10 @@ async function output(message,client){
    },null,"　"),"UTF-8");
  
   
-   const attachment = new MessageAttachment(data, `SERVER_JSON_FILE.json`);
+   const attachment = new MessageAttachment()
+      .setDescription("データは慎重に扱ってください") 
+      .setFile(data) 
+      .setName("SERVER_JSON_FILE")
    msg.edit({content:"JSONの生成が完了しました", files: [attachment] })
       .catch(()=>msg.edit("JSONの生成に失敗しました..."))
   }
