@@ -134,7 +134,40 @@ async function user(message,client){
         });
       }else{
         try{
-          const user = await client.users.fetch(id[0]);
+          const users = await client.users.fetch(id[0]);
+          message.reply({
+            embeds:[{
+              color: "WHITE",
+              timestamp: new Date(),
+              footer: {
+                text: "TakasumiBOT"
+              },
+              thumbnail: {
+                url: users.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+              },
+              fields: [
+                {
+                  name: "**ユーザー名**",
+                  value: `${users.tag}`,
+                },
+                {
+                  name: "**ユーザーID**",
+                  value: `${users.id}`,
+                  inline: true
+                },
+                {
+                  name: "**アカウント作成日**",
+                  value: `${new Date(users.createdTimestamp).toLocaleDateString()}`,
+                  inline: true
+                },
+                {
+                  name: "**BOT**",
+                  value: users.bot ? "BOT" : "ユーザー",
+                  inline: true
+                }
+              ]
+            }]
+          });
         }catch{
           return message.reply({
             embeds:[{
@@ -147,39 +180,6 @@ async function user(message,client){
             }]
           });
         }
-        message.reply({
-          embeds:[{
-            color: "WHITE",
-            timestamp: new Date(),
-            footer: {
-              text: "TakasumiBOT"
-            },
-            thumbnail: {
-              url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
-            },
-            fields: [
-              {
-                name: "**ユーザー名**",
-                value: `${user.tag}`,
-              },
-              {
-                name: "**ユーザーID**",
-                value: `${user.id}`,
-                inline: true
-              },
-              {
-                name: "**アカウント作成日**",
-                value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
-                inline: true
-              },
-              {
-                name: "**BOT**",
-                value: user.bot ? "BOT" : "ユーザー",
-                inline: true
-              }
-            ]
-          }]
-        });
       }
     return
   }
