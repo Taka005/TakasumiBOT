@@ -5,7 +5,7 @@ async function output(message,client){
   if(message.content === `${config.prefix}export`){
     const msg = await message.reply("JSON書き込み中....");
 
-    const data = new Buffer({
+    const data = new Buffer.from(JSON.stringify({
       "guild":{
           "name":message.guild.name,
           "id":message.guild.id,
@@ -33,7 +33,7 @@ async function output(message,client){
           "user":client.user.tag,
           "ping":client.ws.ping
        }
-    },"UTF-8");
+    }),"UTF-8");
  
   
     const attachment = new MessageAttachment(data, `${message.guild.name}_JSON_FILE.json`);
