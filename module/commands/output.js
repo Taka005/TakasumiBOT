@@ -5,7 +5,7 @@ async function output(message,client){
   if(message.content === `${config.prefix}export`){
     const msg = await message.reply("JSON書き込み中....");
 
-    const data = new Buffer.from({
+    const data = new Buffer({
       "guild":{
           "name":message.guild.name,
           "id":message.guild.id,
