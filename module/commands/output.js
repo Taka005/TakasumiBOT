@@ -36,7 +36,7 @@ async function output(message,client){
     }
  
   
-    const attachment = new MessageAttachment(data.toBuffer(), `${message.guild.name}_JSON_FILE.json`);
+    const attachment = new MessageAttachment(data, `${message.guild.name}_JSON_FILE.json`);
     msg.edit({ files: [attachment] })
       .catch(()=>msg.edit("JSONの生成に失敗しました..."))
   }
