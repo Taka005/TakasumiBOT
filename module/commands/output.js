@@ -3,7 +3,7 @@ async function output(message,client){
   const { MessageAttachment } = require("discord.js")
   
   if(message.content === `${config.prefix}export`){
-   const msg = await message.reply("JSON作成中....");
+   const msg = await message.reply("JSON形式に出力中...");
 
    const data = new Buffer.from(JSON.stringify({
       "guild":{
@@ -40,7 +40,7 @@ async function output(message,client){
       .setDescription("データは慎重に扱ってください") 
       .setFile(data) 
       .setName("SERVER_JSON_FILE.json")
-   msg.edit({content:"JSONの生成が完了しました", files: [attachment] })
+   msg.edit({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
       .catch(()=>msg.edit("JSONの生成に失敗しました..."))
   }
 }
