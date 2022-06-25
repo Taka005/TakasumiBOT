@@ -21,7 +21,7 @@ client.login(process.env.DISCORD_BOT_TOKEN)
    .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 
 //エラー回避
-process.on('uncaughtException', (error) => {
+process.on('uncaughtException',async (error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+error);
 
   await client.channels.cache.get(cnf.log_channel).send({
@@ -35,7 +35,7 @@ process.on('uncaughtException', (error) => {
   return;
 });
 
-process.on('unhandledRejection', (reason, promise) => {
+process.on('unhandledRejection',async (reason, promise) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+`promise[${promise}] reason[${reason.message}]`);
 
   await client.channels.cache.get(cnf.log_channel).send({
