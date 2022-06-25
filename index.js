@@ -31,7 +31,7 @@ process.on('uncaughtException',async (error) => {
       description: "```"+`${error}`+"```",
       timestamp: new Date()
     }]
-  })
+  }).catch(()=>{return})
   return;
 });
 
@@ -45,6 +45,6 @@ process.on('unhandledRejection',async (reason, promise) => {
       description: "```"+`${reason}`+"```",
       timestamp: new Date()
     }]
-  })
+  }).catch(()=>{return})
   return;
 });
