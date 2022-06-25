@@ -3,7 +3,7 @@ async function output(message,client){
   const { MessageAttachment } = require("discord.js")
   
   if(message.content === `${config.prefix}export`){
-    const msg = await message.reply("JSON書き込み中....");
+    const msg = await message.reply("JSON作成中....");
 
     const data = new Buffer.from(JSON.stringify({
       "guild":{
@@ -33,11 +33,11 @@ async function output(message,client){
           "user":client.user.tag,
           "ping":client.ws.ping
        }
-    }),"UTF-8");
+    },null,"　"),"UTF-8");
  
   
     const attachment = new MessageAttachment(data, `${message.guild.name}_JSON_FILE.json`);
-    msg.edit({ files: [attachment] })
+    msg.edit({content:"JSONの生成が完了しました", files: [attachment] })
       .catch(()=>msg.edit("JSONの生成に失敗しました..."))
   }
 }
