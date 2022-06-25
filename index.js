@@ -24,11 +24,11 @@ client.login(process.env.DISCORD_BOT_TOKEN)
 process.on('uncaughtException', (error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+error);
 
-  client.channels.cache.get(cnf.log_channel).send({
+  await client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "RED",
       title: `${error.name}`,
-      description: "```"+`${error.message}`+"```",
+      description: "```"+`${error}`+"```",
       timestamp: new Date()
     }]
   })
@@ -38,11 +38,11 @@ process.on('uncaughtException', (error) => {
 process.on('unhandledRejection', (reason, promise) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+`promise[${promise}] reason[${reason.message}]`);
 
-  client.channels.cache.get(cnf.log_channel).send({
+  await client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "ORANGE",
       title: `${promise}`,
-      description: "```"+`${reason.message}`+"```",
+      description: "```"+`${reason}`+"```",
       timestamp: new Date()
     }]
   })
