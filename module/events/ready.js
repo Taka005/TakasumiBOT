@@ -1,7 +1,7 @@
 async function ready(client){
   const config = require("../../config.json");
-  const fs = require("fs");
-    //時間
+  const { SlashCommandBuilder } = require('@discordjs/builders');
+    
     let now = new Date();
     let h = now.getHours()
     let m = now.getMinutes()
@@ -34,26 +34,22 @@ async function ready(client){
 
     client.channels.cache.get("947484748773736538").send(`BOT、API、WEBサーバーが再起動されました`);
 
-    //console.log
+    //console
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:READY! USER:${client.user.tag}`); 
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:<${client.guilds.cache.size}>SERVER`)
 
-    //スラッシュコマンドコマンド
-    const commands = [
-      {
-        name: "help",
-        description: "使い方がわかります",
-      },
-      {
-        name: "support",
-        description: "バグの報告、質問などの報告をします",
-      },
-      {
-        name:"embed",
-        description:"埋め込みメッセージを簡単に作成できます"
-      }
-    ];
-    await client.application.commands.set(commands);
+    //スラッシュコマンド
+    new SlashCommandBuilder()
+      .setName("help")
+      .setDescription("使い方がわかります")
+
+    new SlashCommandBuilder()
+      .setName("support")
+      .setDescription("バグの報告、質問などの報告をします")
+
+    new SlashCommandBuilder()
+      .setName("embed")
+      .setDescription("バグの報告、質問などの報告をします")
 }
 
 module.exports = ready
