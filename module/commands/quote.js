@@ -12,7 +12,7 @@ async function quote(message){
       const applyText = (canvas, text) => {
           const context = canvas.getContext('2d');
           do {
-              context.font = `${fontSize / 2}px serif`;
+              context.font = `${fontSize / 2}px Arial`;
           } while (context.measureText(text).width > canvas.width - 300);
           return context.font;
       };
@@ -22,7 +22,7 @@ async function quote(message){
       context.drawImage(background, 0, 0, canvas.width, canvas.height);
       context.strokeStyle = '#0099ff';
       context.strokeRect(0, 0, canvas.width, canvas.height);
-      context.font = `${fontSize}px serif`;
+      context.font = `${fontSize}px Arial`;
       context.fillStyle = '#ffffff';
       context.fillText(reply.content, canvas.width / 2.5, canvas.height / 1.8);
       context.font = applyText(canvas, reply.author.tag);
@@ -36,7 +36,7 @@ async function quote(message){
       context.drawImage(avatar, 25, 25, 200, 200);
       context.drawImage(avatar, 25, 0, 200, canvas.height);
 
-      const attachment = new MessageAttachment(canvas.toBuffer(), `quote-${reply.author.username}-TakasumiBOT.png`);
+      const attachment = new MessageAttachment(canvas.toBuffer(), `${reply.author.username}_TakasumiBOT.png`);
       msg.edit({ files: [attachment] })
        .catch(()=>msg.edit("画像生成に失敗しました..."))
   }
