@@ -1,6 +1,6 @@
 async function chat(message){
   if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
-    if(message.content.match(/パー|ピー|プー|ペー|ポー/)){
+    if(message.content.match(/ぽーい|ポーイ|テーい|てーい/)){
       message.channel.send("ぺポーイ");
       return;
     }
@@ -12,20 +12,20 @@ async function chat(message){
       message.channel.send("よろ〜");
       return;
     }
-    if(message.content.match(/はー|ひー|ふー|へー|ほー/)){
-      message.channel.send("ほはーい");
+    if(message.content.match(/そうですか|ソウデスカ/)){
+      message.channel.send("fmfm");
       return;
     }
     if(message.content.match(/うぇ/)){
       message.channel.send("うう..");
       return;
     }
-    if(message.content.match(/草/)){
+    if(message.content.match(/草|kusa|くさ/)){
       message.channel.send("HAHAH");
       return;
     }
-    if(message.content.match(/あー|いー/)){
-      message.channel.send("あーい");
+    if(message.content.match(/あるんかな|なんかな/)){
+      message.channel.send("hou");
       return;
     }
     if(message.content.match(/www/)){
@@ -46,6 +46,14 @@ async function chat(message){
     }
     if(message.content.match(/確かに|たし蟹|たしかに/)){
       message.channel.send("うんうん");
+      return;
+    }
+    if(message.content.match(/わーい|ワーイ/)){
+      message.channel.send("わーい");
+      return;
+    }
+    if(message.content.match(/ありがと|あんがと|アリガト|アンガト/)){
+      message.channel.send("どもども");
       return;
     }
 }

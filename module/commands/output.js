@@ -5,16 +5,22 @@ async function output(message,client){
   if(message.content === `${config.prefix}export`){
    const msg = await message.reply("JSON形式に出力中...");
 
+   const invites = await message.guild.invites.fetch(); 
+
    const data = new Buffer.from(JSON.stringify({
       "guild":{
          "name":message.guild.name,
          "id":message.guild.id,
          "count":message.guild.memberCount,
          "icon":message.guild.iconURL(),
-         "invite":message.guild.invites.cache.map(invite => invite.url),
+         "invite":{
+            "url":invites.map(invite => invite.url),
+            "code":invites.map(invite => invite.code)
+         },
          "channels":{
             "name":message.guild.channels.cache.map(channel => channel.name),
             "id":message.guild.channels.cache.map(channel => channel.id),
+            "topic":message.guild.channels.cache.map(channel => channel.topic),
             "type":message.guild.channels.cache.map(channel => channel.type),
             "count":message.guild.channels.cache.size
          },
