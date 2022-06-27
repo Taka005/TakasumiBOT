@@ -1,7 +1,6 @@
-async function auth(interaction){
+async function auth_event(interaction){
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("auth_")){
-    if(Date.now() - interaction.member.createdTimestamp < 1000*60*60*24*10) return interaction.reply({content: "認証するにはアカウントが作成されてから、\n10日が経っている必要があります",ephemeral: true});
     const role = interaction.customId.match(/\d{18}/);
     await interaction.member.roles.add(role)
       .then(()=>{interaction.reply({content: "認証しました",ephemeral: true})})
@@ -10,4 +9,4 @@ async function auth(interaction){
   }
 }
 
-module.exports = auth
+module.exports = auth_event

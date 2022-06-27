@@ -1,4 +1,4 @@
-async function urlsecure(message){
+async function urlcheck(message){
   const fetch = require("node-fetch");
   if(message.content.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)){
     const url = message.content.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g);
@@ -37,4 +37,4 @@ async function urlsecure(message){
   }
 }
 
-module.exports = urlsecure
+module.exports = urlcheck

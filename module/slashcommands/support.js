@@ -1,7 +1,7 @@
 async function support(interaction){
   const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === 'support'){
+  if(interaction.commandName === "support"){
     const count_1 = Math.floor(Math.random() * 15) + 1;
     const count_2 = Math.floor(Math.random() * 15) + 1;
     const total = count_1 + count_2

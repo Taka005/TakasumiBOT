@@ -30,13 +30,13 @@ function events(client){
         const antitoken = require("./events/antitoken");
         const reference = require("./events/reference");
         const ngword = require("./events/ngword");
-        const urlsecure = require("./events/urlsecure");
+        const urlcheck = require("./events/urlcheck");
         const chat = require("./events/chat");
         bump(message)
         antitoken(message)
         reference(message,client)
         ngword(message,client)
-        urlsecure(message)
+        urlcheck(message)
         chat(message)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
@@ -101,33 +101,41 @@ function events(client){
     });
 
     client.on("interactionCreate", async (interaction) =>{
-        const help = require("./commands/help");
-        const auth = require("./events/auth");
+        const auth_event = require("./events/auth_event");
         const panel = require("./events/panel");
         const check = require("./events/check");
         const ticket = require("./events/ticket");
-        const support = require("./commands/support");
-        const support_receive = require("./events/support_receive");
-        const embed_command = require("./commands/embed_command");
-        const embed = require("./events/embed");
+        const embed_event = require("./events/embed_event");
+        const support_event = require("./events/support_event");
 
-        help(interaction);
-        auth(interaction);
+        auth_event(interaction);
         panel(interaction);
         check(interaction);
+        embed_event(interaction);
         ticket(interaction);
+        support_event(interaction,client);
+        //スラッシュコマンド
+        const support = require("./slashcommands/support");
+        const embed = require("./slashcommands/embed");
+        const help = require("./slashcommands/help");
+        const auth = require("./slashcommands/auth");
+        const gif = require("./slashcommands/gif");
+        const say = require("./slashcommands/say");
+
+        help(interaction);
         support(interaction);
-        support_receive(interaction,client);
-        embed_command(interaction);
         embed(interaction);
+        auth(interaction);
+        gif(interaction);
+        say(interaction);
         return;
     });
 
     client.on("guildMemberAdd", member=>{
-        var now = new Date();
-        var h = now.getHours()
-        var m = now.getMinutes()
-        var s = now.getSeconds() 
+        let now = new Date();
+        let h = now.getHours()
+        let m = now.getMinutes()
+        let s = now.getSeconds() 
       
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)
 
@@ -138,11 +146,11 @@ function events(client){
 
     client.on('guildMemberRemove', member =>{
         //時間
-        var now = new Date();
-        var h = now.getHours()
-        var m = now.getMinutes()
-        var s = now.getSeconds() 
-        console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)  
+      let now = new Date();
+      let h = now.getHours()
+      let m = now.getMinutes()
+      let s = now.getSeconds() 
+      console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)  
 
         const leave = require("./events/leave");
 

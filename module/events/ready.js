@@ -50,6 +50,33 @@ async function ready(client){
     new SlashCommandBuilder()
       .setName("embed")
       .setDescription("バグの報告、質問などの報告をします")
+
+    new SlashCommandBuilder()
+      .setName("auth")
+      .setDescription("簡易的なロール認証機能です")
+      .addRoleOption(option =>
+        option
+          .setName("role")
+          .setDescription("認証成功時に付与するロール")
+          .setRequired(true))
+
+    new SlashCommandBuilder()
+      .setName("gif")
+      .setDescription("GIF画像を検索して、表示します")
+      .addStringOption(option =>
+        option
+          .setName("name")
+          .setDescription("検索ワード")
+          .setRequired(true))
+
+    new SlashCommandBuilder()
+      .setName("say")
+      .setDescription("BOTにテキストメッセージを表示させます")
+      .addStringOption(option =>
+        option
+          .setName("text")
+          .setDescription("")
+          .setRequired(true))
 }
 
 module.exports = ready

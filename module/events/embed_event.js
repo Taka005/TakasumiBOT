@@ -1,4 +1,4 @@
-async function embed(interaction){
+async function embed_event(interaction){
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId === `embed`){
       const author = interaction.fields.getTextInputValue('author');
@@ -26,4 +26,4 @@ async function embed(interaction){
     }
 }
   
-module.exports = embed
+module.exports = embed_event

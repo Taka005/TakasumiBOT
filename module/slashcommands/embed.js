@@ -1,7 +1,7 @@
-async function embed_command(interaction){
+async function embed(interaction){
   const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === 'embed'){
+  if(interaction.commandName === "embed"){
     const embed = new Modal()
       .setCustomId(`embed`)
       .setTitle('埋め込み作成');
@@ -37,4 +37,4 @@ async function embed_command(interaction){
   }
 }
 
-module.exports = embed_command
+module.exports = embed
