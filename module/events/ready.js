@@ -75,7 +75,7 @@ async function ready(client){
       .addStringOption(option =>
         option
           .setName("text")
-          .setDescription("")
+          .setDescription("発言内容")
           .setRequired(true))
 }
 
