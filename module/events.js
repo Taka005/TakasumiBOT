@@ -31,13 +31,11 @@ function events(client){
         const reference = require("./events/reference");
         const ngword = require("./events/ngword");
         const urlcheck = require("./events/urlcheck");
-        const chat = require("./events/chat");
         bump(message)
         antitoken(message)
         reference(message,client)
         ngword(message,client)
         urlcheck(message)
-        chat(message)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 
