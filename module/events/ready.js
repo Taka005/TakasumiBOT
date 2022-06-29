@@ -1,7 +1,7 @@
 async function ready(client){
   const config = require("../../config.json");
   require("dotenv").config();
-  const { SlashCommandBuilder } = require('@discordjs/builders');
+  const { SlashCommandBuilder } = require("@discordjs/builders");
   const { REST } = require("@discordjs/rest");
   const { Routes } = require("discord-api-types/v10");
     
