@@ -99,6 +99,7 @@ function events(client){
     });
 
     client.on("interactionCreate", async (interaction) =>{
+        //イベント
         const auth_event = require("./events/auth_event");
         const panel = require("./events/panel");
         const check = require("./events/check");
@@ -112,6 +113,7 @@ function events(client){
         embed_event(interaction);
         ticket(interaction);
         support_event(interaction,client);
+
         //スラッシュコマンド
         const support = require("./slashcommands/support");
         const embed = require("./slashcommands/embed");
@@ -119,6 +121,7 @@ function events(client){
         const auth = require("./slashcommands/auth");
         const gif = require("./slashcommands/gif");
         const say = require("./slashcommands/say");
+        const del = require("./slashcommands/del");
 
         help(interaction);
         support(interaction);
@@ -126,6 +129,7 @@ function events(client){
         auth(interaction);
         gif(interaction);
         say(interaction);
+        del(interaction);
         return;
     });
 

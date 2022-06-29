@@ -4,7 +4,6 @@ async function check(interaction){
     const list = interaction.customId.split("_");
     const code = interaction.fields.getTextInputValue('code');
     if(isNaN(code)) return interaction.reply({content: `入力欄は空白、又は数字以外には出来ません`,ephemeral: true})
-    if(Date.now() - interaction.member.createdTimestamp < 1000*60*60*24*10) return interaction.reply({content: "認証するにはアカウントが作成されてから、\n10日が経っている必要があります",ephemeral: true});
     if(code == list[2]){
       await interaction.member.roles.add(list[1])
         .then(()=>{interaction.reply({content: "認証しました",ephemeral: true})})

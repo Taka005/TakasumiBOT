@@ -83,6 +83,15 @@ async function ready(client){
           .setDescription("発言内容")
           .setRequired(true))
 
+    const del = new SlashCommandBuilder()
+      .setName("del")
+      .setDescription("メッセージを一括で削除します")
+      .addIntegerOption(option =>
+        option
+          .setName("number")
+          .setDescription("削除数")
+          .setRequired(true))
+
     await rest.put(
       Routes.applicationCommands(client.application.id),
         { 
@@ -92,7 +101,8 @@ async function ready(client){
             embed,
             auth,
             gif,
-            say
+            say,
+            del
           ]
         },
     );
