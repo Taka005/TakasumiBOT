@@ -54,7 +54,7 @@ async function ready(client){
 
     const embed = new SlashCommandBuilder()
       .setName("embed")
-      .setDescription("バグの報告、質問などの報告をします")
+      .setDescription("簡単に埋め込みメッセージを作成します")
 
     const auth = new SlashCommandBuilder()
       .setName("auth")
