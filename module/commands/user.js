@@ -41,12 +41,12 @@ async function user(message,client){
             },
             {
               name: "**作成日時**",
-              value: `${new Date(message.author.createdTimestamp).toLocaleDateString()}`,
+              value: `${new Date(message.author.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - message.member.createdAt) / 86400000)}日前)`,
               inline: true
             },
             {
               name:"**参加日時**",
-              value: `${new Date(message.member.joinedTimestamp).toLocaleDateString()}`,
+              value: `${new Date(message.member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - message.member.joinedAt) / 86400000)}日前)`,
               inline: true
             },
             {
@@ -111,12 +111,12 @@ async function user(message,client){
               },
               {
                 name: "**作成日時**",
-                value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}`,
+                value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.createdAt) / 86400000)}日前)`,
                 inline: true
               },
               {
                 name:"**参加日時**",
-                value: `${new Date(member.joinedTimestamp).toLocaleDateString()}`,
+                value: `${new Date(member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.joinedAt) / 86400000)}日前)`,
                 inline: true
               },
               {

@@ -12,7 +12,9 @@ async function auth(interaction){
               }],
               components: [new MessageActionRow().addComponents(auth_button)]
           })
-          .then(()=>interaction.reply({ content:"認証機能を作成しました", ephemeral: true }))
+          .then(()=>interaction.deferReply()
+            .then(()=>interaction.deleteReply())
+          )
           .catch(()=>interaction.reply({ 
             embeds:[{
               author: {

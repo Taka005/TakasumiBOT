@@ -15,12 +15,12 @@ async function help(interaction){
             value: "BOTのステータスを表示します"
           },
           {
-            name: "**>say**",
-            value: ">say [text]でBOTにメッセージを表示させます\n※稀に自分の送信したメッセージが消えないことがありますが他の人には見えていないので大丈夫です"
+            name: "**/say**",
+            value: "/say [text]でBOTにメッセージを表示させます\n※稀に自分の送信したメッセージが消えないことがありますが他の人には見えていないので大丈夫です"
           },
           {
-            name:"**>auth**",
-            value:">auth [メンションかロールID]で認証機能が使えます"
+            name:"**/auth**",
+            value:"/auth [メンションかロールID]で認証機能が使えます"
           },
           {
             name:"**>panel**",
@@ -39,8 +39,8 @@ async function help(interaction){
             value: ">timer [second]で時間を秒単位で測れます\n※あまりに長い時間は設定しないでください"
           },
           {
-            name: "**>gif**",
-            value: ">gif [文字]でGIF画像を検索します"
+            name: "**/gif**",
+            value: "/gif [文字]でGIF画像を検索します"
           },
           {
             name: "**>poll**",
