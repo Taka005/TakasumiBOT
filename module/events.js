@@ -44,9 +44,8 @@ function events(client){
         //console.log
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
  
-        //commands
+        //コマンド
         const say = require("./commands/say");
-        const join = require("./commands/join");
         const avatar = require("./commands/avater");
         const timer = require("./commands/timer");
         const del = require("./commands/del");
@@ -71,7 +70,6 @@ function events(client){
         const quote = require("./commands/quote");
         const output = require("./commands/output");
 
-        join(message)
         say(message)
         avatar(message,client)
         timer(message)
