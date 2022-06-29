@@ -1,7 +1,12 @@
 async function ready(client){
   const config = require("../../config.json");
+  require("dotenv").config();
   const { SlashCommandBuilder } = require('@discordjs/builders');
+  const { REST } = require("@discordjs/rest");
+  const { Routes } = require("discord-api-types/v10");
     
+  const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_BOT_TOKEN);
+
     let now = new Date();
     let h = now.getHours()
     let m = now.getMinutes()
@@ -39,19 +44,19 @@ async function ready(client){
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:<${client.guilds.cache.size}>SERVER`)
 
     //スラッシュコマンド
-    new SlashCommandBuilder()
+    const help = new SlashCommandBuilder()
       .setName("help")
       .setDescription("使い方がわかります")
 
-    new SlashCommandBuilder()
+    const support = new SlashCommandBuilder()
       .setName("support")
       .setDescription("バグの報告、質問などの報告をします")
 
-    new SlashCommandBuilder()
+    const embed = new SlashCommandBuilder()
       .setName("embed")
       .setDescription("バグの報告、質問などの報告をします")
 
-    new SlashCommandBuilder()
+    const auth = new SlashCommandBuilder()
       .setName("auth")
       .setDescription("簡易的なロール認証機能です")
       .addRoleOption(option =>
@@ -60,7 +65,7 @@ async function ready(client){
           .setDescription("認証成功時に付与するロール")
           .setRequired(true))
 
-    new SlashCommandBuilder()
+    const gif = new SlashCommandBuilder()
       .setName("gif")
       .setDescription("GIF画像を検索して、表示します")
       .addStringOption(option =>
@@ -69,7 +74,7 @@ async function ready(client){
           .setDescription("検索ワード")
           .setRequired(true))
 
-    new SlashCommandBuilder()
+    const say = new SlashCommandBuilder()
       .setName("say")
       .setDescription("BOTにテキストメッセージを表示させます")
       .addStringOption(option =>
@@ -77,6 +82,20 @@ async function ready(client){
           .setName("text")
           .setDescription("発言内容")
           .setRequired(true))
+
+    await rest.put(
+      Routes.applicationCommands(client.application.id),
+        { 
+          body: [
+            help,
+            support,
+            embed,
+            auth,
+            gif,
+            say
+          ]
+        },
+    );
 }
 
 module.exports = ready
