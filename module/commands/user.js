@@ -41,7 +41,7 @@ async function user(message,client){
             },
             {
               name: "**作成日時**",
-              value: `${new Date(message.author.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - message.member.createdAt) / 86400000)}日前)`,
+              value: `${new Date(message.author.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - message.author.createdAt) / 86400000)}日前)`,
               inline: true
             },
             {
@@ -111,7 +111,7 @@ async function user(message,client){
               },
               {
                 name: "**作成日時**",
-                value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.createdAt) / 86400000)}日前)`,
+                value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.user.createdAt) / 86400000)}日前)`,
                 inline: true
               },
               {
