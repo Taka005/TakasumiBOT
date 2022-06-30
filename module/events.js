@@ -117,7 +117,7 @@ function events(client){
         const embed = require("./slashcommands/embed");
         const help = require("./slashcommands/help");
         const auth = require("./slashcommands/auth");
-        const pane = require("./slashcommands/panel");
+        const panel = require("./slashcommands/panel");
         const gif = require("./slashcommands/gif");
         const say = require("./slashcommands/say");
         const del = require("./slashcommands/del");
