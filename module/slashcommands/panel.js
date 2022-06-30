@@ -11,7 +11,21 @@ async function panel(interaction){
               description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
             }],
             components: [new MessageActionRow().addComponents(auth_button)]
-        });
+        })
+        .then(()=>interaction.deferReply()
+          .then(()=>interaction.deleteReply())
+        )
+        .catch(()=>interaction.reply({ 
+          embeds:[{
+            author: {
+              name: "認証機能の作成に失敗しました",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: "BOTの権限等を確認し、もう一度やってください\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+          }], 
+          ephemeral: true 
+        }))
   return;
   }
 }

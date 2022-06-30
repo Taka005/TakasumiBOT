@@ -99,14 +99,14 @@ function events(client){
     client.on("interactionCreate", async (interaction) =>{
         //イベント
         const auth_event = require("./events/auth_event");
-        const panel = require("./events/panel");
+        const panel_event = require("./events/panel_event");
         const check = require("./events/check");
         const ticket = require("./events/ticket");
         const embed_event = require("./events/embed_event");
         const support_event = require("./events/support_event");
 
         auth_event(interaction);
-        panel(interaction);
+        panel_event(interaction);
         check(interaction);
         embed_event(interaction);
         ticket(interaction);
