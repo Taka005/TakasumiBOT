@@ -52,6 +52,10 @@ async function ready(client){
       .setName("support")
       .setDescription("バグの報告、質問などの報告をします")
 
+    const invite = new SlashCommandBuilder()
+      .setName("invite")
+      .setDescription("BOTの招待や、情報を表示します")
+
     const embed = new SlashCommandBuilder()
       .setName("embed")
       .setDescription("簡単に埋め込みメッセージを作成します")
@@ -112,7 +116,8 @@ async function ready(client){
             panel,
             gif,
             say,
-            del
+            del,
+            invite
           ]
         },
     );

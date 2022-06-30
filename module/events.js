@@ -119,6 +119,7 @@ function events(client){
         const gif = require("./slashcommands/gif");
         const say = require("./slashcommands/say");
         const del = require("./slashcommands/del");
+        const invite = require("./slashcommands/invite");
 
         help(interaction);
         support(interaction);
@@ -128,6 +129,7 @@ function events(client){
         gif(interaction);
         say(interaction);
         del(interaction);
+        invite(interaction);
         return;
     });
 
