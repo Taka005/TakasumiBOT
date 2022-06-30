@@ -65,6 +65,15 @@ async function ready(client){
           .setDescription("認証成功時に付与するロール")
           .setRequired(true))
 
+    const panel = new SlashCommandBuilder()
+      .setName("panel")
+      .setDescription("より強力なロール認証機能です")
+      .addRoleOption(option =>
+        option
+          .setName("role")
+          .setDescription("認証成功時に付与するロール")
+          .setRequired(true))
+
     const gif = new SlashCommandBuilder()
       .setName("gif")
       .setDescription("GIF画像を検索して、表示します")
@@ -100,6 +109,7 @@ async function ready(client){
             support,
             embed,
             auth,
+            panel,
             gif,
             say,
             del
