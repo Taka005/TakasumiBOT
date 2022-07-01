@@ -135,7 +135,39 @@ async function ready(client){
         option
           .setName("select_3")
           .setDescription("選択3"))
-
+      .addStringOption(option =>
+        option
+          .setName("select_4")
+          .setDescription("選択4"))
+      .addStringOption(option =>
+        option
+          .setName("select_5")
+          .setDescription("選択5"))
+      .addStringOption(option =>
+        option
+          .setName("select_6")
+          .setDescription("選択6"))
+      .addStringOption(option =>
+        option
+          .setName("select_7")
+          .setDescription("選択7"))
+      .addStringOption(option =>
+        option
+          .setName("select_8")
+          .setDescription("選択8"))
+      .addStringOption(option =>
+        option
+          .setName("select_9")
+          .setDescription("選択10"))
+      .addStringOption(option =>
+        option
+          .setName("select_11")
+          .setDescription("選択11"))
+      .addStringOption(option =>
+        option
+          .setName("select_12")
+          .setDescription("選択12"))
+    
     await rest.put(
       Routes.applicationCommands(client.application.id),
         { 
