@@ -81,7 +81,7 @@ async function user(interaction){
   
       const member = interaction.guild.members.cache.get(id[0]);
         if(member){
-          message.reply({
+          interaction.reply({
             embeds:[{
               color: "WHITE",
               timestamp: new Date(),
