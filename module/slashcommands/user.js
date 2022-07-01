@@ -1,6 +1,6 @@
 async function user(interaction){
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "del"){
+  if(interaction.commandName === "user"){
     const user_id = interaction.options.getString("id");
     const status_data = {
         "online": "🟢オンライン",
