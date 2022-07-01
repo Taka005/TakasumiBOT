@@ -3,7 +3,7 @@ async function auth(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "auth"){
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return interaction.reply({ content:"authを使うには「ロールの管理」の権限が必要です",ephemeral: true });         
-      const role =  interaction.options.getRole("role");
+      const role =  await interaction.options.getRole("role");
         const auth_button = new MessageButton()
           .setCustomId(`auth_${role.id}`)
           .setStyle("PRIMARY")

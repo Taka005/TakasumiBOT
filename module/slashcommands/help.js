@@ -23,8 +23,8 @@ async function help(interaction){
             value:"/auth [メンションかロールID]で認証機能が使えます"
           },
           {
-            name:"**>panel**",
-            value:">panel [メンションかロールID]で>authよりも強力な認証機能が使えます"
+            name:"**/panel**",
+            value:"/panel [メンションかロールID]で>authよりも強力な認証機能が使えます"
           },
           {
             name:"**>global**",
@@ -67,7 +67,7 @@ async function help(interaction){
             value: "サッカーをします"
           },
           {
-            name: "**>user**",
+            name: "**/user**",
             value: "自分のアカウント又は、引数にユーザーIDを入れることでアカウントを取得します"
           },
           {
@@ -87,8 +87,8 @@ async function help(interaction){
             value:"※使用には注意してください"
           },
           {
-            name: "**>del**",
-            value: ">dell [number]でメッセージを削除できます\n**※二週間以上前のメッセージは削除できません。**"
+            name: "**/del**",
+            value: "/dell [number]でメッセージを削除できます\n**※二週間以上前のメッセージは削除できません。**"
           },
           {
             name: "**>exec**",

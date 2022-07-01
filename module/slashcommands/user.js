@@ -1,7 +1,7 @@
 async function user(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
-    const user_id = interaction.options.getString("id");
+    const user_id = await interaction.options.getString("id");
     const status_data = {
         "online": "🟢オンライン",
         "offline": "⚫オフライン",
@@ -10,7 +10,7 @@ async function user(interaction){
       };
 
       if(!user_id){
-        interaction.reply({
+        await interaction.reply({
           embeds:[{
             color: "WHITE",
             timestamp: new Date(),
@@ -67,7 +67,7 @@ async function user(interaction){
       }
   
       const id = user_id.match(/\d{18}/g);
-      if(!id) return interaction.reply({
+      if(!id) return await interaction.reply({
         embeds:[{
           author: {
             name: "取得に失敗しました",
@@ -79,9 +79,9 @@ async function user(interaction){
         ephemeral:true
       });
   
-      const member = interaction.guild.members.cache.get(id[0]);
+      const member = await interaction.guild.members.cache.get(id[0]);
         if(member){
-          interaction.reply({
+          await interaction.reply({
             embeds:[{
               color: "WHITE",
               timestamp: new Date(),
@@ -137,7 +137,7 @@ async function user(interaction){
         }else{
           try{
             const users = await client.users.fetch(id[0]);
-            interaction.reply({
+            await interaction.reply({
               embeds:[{
                 color: "WHITE",
                 timestamp: new Date(),
@@ -171,7 +171,7 @@ async function user(interaction){
               }]
             });
           }catch{
-            return interaction.reply({
+            return await interaction.reply({
               embeds:[{
                 author: {
                   name: "取得に失敗しました",
