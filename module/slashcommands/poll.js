@@ -6,12 +6,12 @@ async function poll(interaction){
     const select_2 = await interaction.options.getString("select_2");
     const select_3 = await interaction.options.getString("select_3");
     const emojis = ['🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯','🇰','🇱','🇲','🇳','🇴','🇵','🇶','🇷','🇸','🇹'];
-    const selects = [select_1,select_2,select_3].filter(select=>typeof select!=="undefined")
+    const selects = [select_1,select_2,select_3].filter(select=>typeof select!=="null")
     const msg = await interaction.channel.send({
                 embeds:[{
                   title: title,
                   color: "RANDOM",
-                  description: selects.map((c,i) => `${emojis[i]} ${c}`).join('\n'),
+                  description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
                   timestamp: new Date(),
                   footer: {
                     text: `${interaction.member.user.tag}によって送信`
@@ -19,6 +19,7 @@ async function poll(interaction){
                 }]
     })
     .then(()=>interaction.deferReply()
+      .then(()=>emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji)))
       .then(()=>interaction.deleteReply())
     )
     .catch(()=>{
@@ -34,7 +35,6 @@ async function poll(interaction){
         ephemeral: true 
       })
     });
-    emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
     return;
   }
 }
