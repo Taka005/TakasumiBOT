@@ -126,10 +126,11 @@ async function ready(client){
           .setName("select_1")
           .setDescription("選択1")
           .setRequired(true))
-          .addStringOption(option =>
+      .addStringOption(option =>
         option
           .setName("select_2")
-          .setDescription("選択2"))
+          .setDescription("選択2")
+          .require(true))
       .addStringOption(option =>
         option
           .setName("select_3")

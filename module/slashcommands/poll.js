@@ -6,7 +6,7 @@ async function poll(interaction){
     const select_2 = await interaction.options.getString("select_2");
     const select_3 = await interaction.options.getString("select_3");
     const emojis = ['🇦','🇧','🇨','🇩','🇪','🇫','🇬','🇭','🇮','🇯','🇰','🇱','🇲','🇳','🇴','🇵','🇶','🇷','🇸','🇹'];
-    const selects = [select_1,select_2,select_3].filter(select=>typeof select!=="null")
+    const selects = [select_1,select_2,select_3].filter(select=>select!==null)
     const msg = await interaction.channel.send({
                 embeds:[{
                   title: title,
@@ -19,7 +19,6 @@ async function poll(interaction){
                 }]
     })
     .then(()=>interaction.deferReply()
-      .then(()=>emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji)))
       .then(()=>interaction.deleteReply())
     )
     .catch(()=>{
@@ -35,6 +34,7 @@ async function poll(interaction){
         ephemeral: true 
       })
     });
+    emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
     return;
   }
 }
