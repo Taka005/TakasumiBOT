@@ -42,12 +42,12 @@ async function user(interaction){
               },
               {
                 name: "**作成日時**",
-                value: `${new Date(interaction.member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - message.author.createdAt) / 86400000)}日前)`,
+                value: `${new Date(interaction.member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.member.user.createdAt) / 86400000)}日前)`,
                 inline: true
               },
               {
                 name:"**参加日時**",
-                value: `${new Date(interaction.member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - message.member.joinedAt) / 86400000)}日前)`,
+                value: `${new Date(interaction.member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.member.joinedAt) / 86400000)}日前)`,
                 inline: true
               },
               {
