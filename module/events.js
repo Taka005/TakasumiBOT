@@ -120,7 +120,8 @@ function events(client){
         const say = require("./slashcommands/say");
         const del = require("./slashcommands/del");
         const invite = require("./slashcommands/invite");
-        const user = require("./slashcommands/user")
+        const user = require("./slashcommands/user");
+        const poll = require("./slashcommands/poll");
 
         help(interaction);
         support(interaction);
@@ -132,6 +133,7 @@ function events(client){
         del(interaction);
         invite(interaction);
         user(interaction);
+        poll(interaction);
         return;
     });
 

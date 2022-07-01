@@ -113,6 +113,28 @@ async function ready(client){
           .setName("id")
           .setDescription("ユーザーID又はメンション"))
 
+    const poll = new SlashCommandBuilder()
+      .setName("poll")
+      .setDescription("アンケート機能です")
+      .addStringOption(option =>
+        option
+          .setName("title")
+          .setDescription("タイトル")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("select_1")
+          .setDescription("選択1"))
+      .addStringOption(option =>
+        option
+          .setName("select_2")
+          .setDescription("選択2")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("select_3")
+          .setDescription("選択3"))
+
     await rest.put(
       Routes.applicationCommands(client.application.id),
         { 
@@ -126,7 +148,8 @@ async function ready(client){
             say,
             del,
             invite,
-            user
+            user,
+            poll
           ]
         },
     );
