@@ -18,9 +18,6 @@ async function poll(interaction){
                   }
                 }]
     })
-    .then(()=>interaction.deferReply()
-      .then(()=>interaction.deleteReply())
-    )
     .catch(()=>{
       return interaction.reply({ 
         embeds:[{
@@ -35,6 +32,8 @@ async function poll(interaction){
       })
     });
     emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
+    interaction.deferReply()
+      .then(()=>interaction.deleteReply())
     return;
   }
 }
