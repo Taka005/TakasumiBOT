@@ -105,6 +105,14 @@ async function ready(client){
           .setDescription("削除数")
           .setRequired(true))
 
+    const user = new SlashCommandBuilder()
+      .setName("user")
+      .setDescription("ユーザー情報を表示します")
+      addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("ユーザーID又はメンション"))
+
     await rest.put(
       Routes.applicationCommands(client.application.id),
         { 
@@ -117,7 +125,8 @@ async function ready(client){
             gif,
             say,
             del,
-            invite
+            invite,
+            user
           ]
         },
     );
