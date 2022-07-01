@@ -108,7 +108,7 @@ async function ready(client){
     const user = new SlashCommandBuilder()
       .setName("user")
       .setDescription("ユーザー情報を表示します")
-      addStringOption(option =>
+      .addStringOption(option =>
         option
           .setName("id")
           .setDescription("ユーザーID又はメンション"))
