@@ -35,21 +35,21 @@ async function server(interaction){
           },
           {
             name: "**ロール**",
-            value: `${interaction.guild.roles.cache.map(r => r).join('')}`
+            value: `${interaction.guild.roles.cache.size}個`
           }
         ]
       }]
-    }).catch(()=>interaction.reply({
+    }).catch((error)=>interaction.reply({
         embeds:[{
           author: {
-            name: "情報の表示に失敗しました",
+            name: "原因不明のエラーが発生しました",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: "サーバーで設定されているロールが多すぎたため\n表示できませんでした"
+          description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
         }],
         ephemeral:true
-      }))
+      }));
     return;
   }
 }

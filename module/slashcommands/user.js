@@ -59,15 +59,20 @@ async function user(interaction){
                 name:"**ロール**",
                 value: `${interaction.member.roles.cache.map(r => r).join('')}`,
                 inline: true
-              },
-              {
-                name:"**権限**",
-                value: `${permissions.join("|")}`,
-                inline: true
               }
             ]
           }]
-        });
+        }).catch((error)=>interaction.reply({
+          embeds:[{
+            author: {
+              name: "正常に送信できませんでした",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+          }],
+          ephemeral:true
+        }));
         return;
       }
   
@@ -138,7 +143,18 @@ async function user(interaction){
                 }
               ]
             }]
-          });
+          }).catch((error)=>interaction.reply({
+            embeds:[{
+              author: {
+                name: "正常に送信できませんでした",
+                icon_url: "https://taka.ml/images/error.jpg",
+              },
+              color: "RED",
+              description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+            }],
+            ephemeral:true
+          }));
+          
         }else{
           try{
             const users = await client.users.fetch(id[0]);

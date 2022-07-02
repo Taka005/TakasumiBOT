@@ -7,7 +7,17 @@ async function del(interaction){
         const messages = await interaction.channel.messages.fetch({ limit: del })         
         interaction.channel.bulkDelete(messages)
           .then(()=> interaction.reply(`${interaction.member}${del}個のメッセージを削除しました`))
-          .catch(()=> interaction.reply({ content:"削除できないメッセージが含まれているため、削除できませんでした",ephemeral:true })) 
+          .catch(()=>interaction.reply({
+            embeds:[{
+              author: {
+                name: "メッセージが削除できませんでした",
+                icon_url: "https://taka.ml/images/error.jpg",
+              },
+              color: "RED",
+              description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`
+            }],
+            ephemeral:true
+          }));
         return;
   }
 }

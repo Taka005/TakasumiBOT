@@ -42,7 +42,17 @@ async function status(interaction,client){
         }
       ]
       }]}
-    )
+    ).catch((error)=>interaction.reply({
+      embeds:[{
+        author: {
+          name: "正常に送信できませんでした",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+      }],
+      ephemeral:true
+    }));
     return;
   }
 }
