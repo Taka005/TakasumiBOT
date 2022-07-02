@@ -2,7 +2,7 @@ async function output(interaction,client){
   const { MessageAttachment } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "export"){
-    const msg = await interaction.reply("JSON形式に出力中...");
+    await interaction.reply("JSON形式に出力中...");
 
     const invites = await interaction.guild.invites.fetch(); 
  
@@ -45,8 +45,8 @@ async function output(interaction,client){
        .setDescription("データは慎重に扱ってください") 
        .setFile(data) 
        .setName("SERVER_JSON_FILE.json")
-    msg.edit({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
-       .catch(()=>msg.edit("JSONの生成に失敗しました..."))
+    interaction.update({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
+       .catch(()=>interaction.update("JSONの生成に失敗しました..."))
     return;
   }
 };
