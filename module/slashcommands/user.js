@@ -10,7 +10,7 @@ async function user(interaction){
       };
 
       if(!user_id){
-        const permissions = interaction.member.permissions.map(permission=>{
+        const permissions = interaction.member.permissions.cache.map(permission=>{
           if( permission === "CREATE_INSTANT_INVITE") return "招待を作成";
           if( permission === "KICK_MEMBERS") return "メンバーをキック";
           if( permission === "BAN_MEMBERS") return "メンバーをBAN";
