@@ -11,7 +11,7 @@ async function help(interaction){
         },
         fields: [
           {
-            name: "**>status**",
+            name: "**/status**",
             value: "BOTのステータスを表示します"
           },
           {
@@ -31,7 +31,7 @@ async function help(interaction){
             value:"グローバルチャットに接続します。\n切断したい時はもう一回実行してください\n※他のグローバルチャットと競合する可能性があります"
           },
           {
-            name:"**>ticket**",
+            name:"**/ticket**",
             value:"簡単なチケット機能を使えます"
           },
           {
@@ -43,8 +43,8 @@ async function help(interaction){
             value: "/gif [文字]でGIF画像を検索します"
           },
           {
-            name: "**>poll**",
-            value: ">poll [title] [A] [B] ...と入力してアンケートが作れます"
+            name: "**/poll**",
+            value: "/poll [title] [A] [B] ...と入力してアンケートが作れます"
           },
           {
             name: "**>draw**",
@@ -59,10 +59,6 @@ async function help(interaction){
             value: "自分のアイコン又は、引数にユーザーIDを入れることでアイコンを取得します"
           },
           {
-            name: "**>join**",
-            value: "自分がサーバーに参加している日数を表示します"
-          },
-          {
             name: "**>soccer**",
             value: "サッカーをします"
           },
@@ -71,7 +67,7 @@ async function help(interaction){
             value: "自分のアカウント又は、引数にユーザーIDを入れることでアカウントを取得します"
           },
           {
-            name: "**>server**",
+            name: "**/server**",
             value: "サーバーの情報を取得します"
           },
           {

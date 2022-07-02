@@ -28,11 +28,11 @@ function events(client){
         //other
         const bump = require("./events/bump");
         const antitoken = require("./events/antitoken");
-        const reference = require("./events/reference");
+        const deployment = require("./events/deployment");
         const urlcheck = require("./events/urlcheck");
         bump(message)
         antitoken(message)
-        reference(message,client)
+        deployment(message,client)
         urlcheck(message)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
@@ -99,7 +99,7 @@ function events(client){
         const auth_event = require("./events/auth_event");
         const panel_event = require("./events/panel_event");
         const check = require("./events/check");
-        const ticket = require("./events/ticket");
+        const ticket_event = require("./events/ticket_event");
         const embed_event = require("./events/embed_event");
         const support_event = require("./events/support_event");
 
@@ -107,7 +107,7 @@ function events(client){
         panel_event(interaction);
         check(interaction);
         embed_event(interaction);
-        ticket(interaction);
+        ticket_event(interaction);
         support_event(interaction,client);
 
         //スラッシュコマンド
@@ -124,6 +124,7 @@ function events(client){
         const invite = require("./slashcommands/invite");
         const user = require("./slashcommands/user");
         const poll = require("./slashcommands/poll");
+        const ticket = require("./slashcommands/ticket");
 
         help(interaction);
         support(interaction);
@@ -138,6 +139,7 @@ function events(client){
         invite(interaction);
         user(interaction);
         poll(interaction);
+        ticket(interaction)
         return;
     });
 

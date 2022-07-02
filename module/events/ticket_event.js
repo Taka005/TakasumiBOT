@@ -1,4 +1,4 @@
-async function ticket(interaction){
+async function ticket_event(interaction){
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isButton()) return;
   if(interaction.customId === "ticket"){
@@ -19,6 +19,7 @@ async function ticket(interaction){
           const ticket_button = new MessageButton().setCustomId("close").setStyle("PRIMARY").setLabel("閉じる");
           channels.send({
             embeds: [{
+              color:"WHITE",
               description: "お問い合わせへようこそ！\nお問い合わせ内容などをご記入ください。\n\n※ 注意 不必要なチケットの作成はおやめ下さい"
             }],
             components: [new MessageActionRow().addComponents(ticket_button)]
@@ -33,4 +34,4 @@ async function ticket(interaction){
   }
 }
   
-module.exports = ticket
+module.exports = ticket_event

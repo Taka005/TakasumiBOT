@@ -1,4 +1,4 @@
-async function reference(message,client){
+async function deployment(message,client){
   if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
   if(message.content.match("https://discordapp.com/channels/")||message.content.match("https://discord.com/channels/")||message.content.match("https://ptb.discord.com/channels/")||message.content.match("https://canary.discord.com/channels/")){
     const url = message.content.match(/\d{18}/g);
@@ -67,4 +67,4 @@ async function reference(message,client){
   }
 }
 
-module.exports = reference
+module.exports = deployment
