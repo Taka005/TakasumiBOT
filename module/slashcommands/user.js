@@ -1,4 +1,4 @@
-async function user(interaction){
+async function user(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
     const user_id = await interaction.options.getString("id");

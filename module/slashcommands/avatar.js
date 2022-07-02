@@ -1,4 +1,4 @@
-async function avatar(interaction){
+async function avatar(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "avatar"){
     const user_id = await interaction.options.getString("id");

@@ -140,11 +140,11 @@ function events(client){
         say(interaction);
         del(interaction);
         invite(interaction);
-        user(interaction);
+        user(interaction,client);
         poll(interaction);
         ticket(interaction);
         channel(interaction,client);
-        avatar(interaction);
+        avatar(interaction,client);
         output(interaction,client);
         return;
     });

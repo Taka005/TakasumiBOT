@@ -1,4 +1,5 @@
 async function output(interaction,client){
+  const { MessageAttachment } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "export"){
     const msg = await interaction.reply("JSON形式に出力中...");
