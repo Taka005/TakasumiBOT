@@ -60,6 +60,10 @@ async function ready(client){
       .setName("embed")
       .setDescription("簡単に埋め込みメッセージを作成します")
 
+    const server = new SlashCommandBuilder()
+      .setName("server")
+      .setDescription("サーバーに関する情報を表示します")
+
     const auth = new SlashCommandBuilder()
       .setName("auth")
       .setDescription("簡易的なロール認証機能です")
@@ -175,6 +179,7 @@ async function ready(client){
             help,
             support,
             embed,
+            server,
             auth,
             panel,
             gif,

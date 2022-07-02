@@ -5,7 +5,7 @@ async function support(interaction){
     const count_1 = Math.floor(Math.random() * 15) + 1;
     const count_2 = Math.floor(Math.random() * 15) + 1;
     const total = count_1 + count_2
-    const support = new Modal()
+    const support_modal = new Modal()
     .setCustomId(`support_${total}`)
     .setTitle('サポート');
 
@@ -23,9 +23,15 @@ async function support(interaction){
       .setPlaceholder('半角で入力してください')
       .setRequired(true)
       .setStyle('SHORT');
-    support.addComponents(new MessageActionRow().addComponents(code),new MessageActionRow().addComponents(content));
+
+    support_modal.addComponents(
+      new MessageActionRow()
+        .addComponents(content),
+      new MessageActionRow()
+        .addComponents(code),
+    );
     
-    await interaction.showModal(support);
+    await interaction.showModal(support_modal);
     return;
   }
 }

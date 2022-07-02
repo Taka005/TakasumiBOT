@@ -1,4 +1,4 @@
 #!/bin/sh
-cd /home/taka/discordbot/takasumi_bot_dev
+cd /home/taka/discordbot/takasumi
 git pull
-sudo nodo index.js
+nodo index.js

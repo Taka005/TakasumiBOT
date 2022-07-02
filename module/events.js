@@ -113,6 +113,7 @@ function events(client){
         //スラッシュコマンド
         const support = require("./slashcommands/support");
         const embed = require("./slashcommands/embed");
+        const server = require("./slashcommands/server");
         const help = require("./slashcommands/help");
         const auth = require("./slashcommands/auth");
         const panel = require("./slashcommands/panel");
@@ -126,6 +127,7 @@ function events(client){
         help(interaction);
         support(interaction);
         embed(interaction);
+        server(interaction)
         auth(interaction);
         panel(interaction);
         gif(interaction);
