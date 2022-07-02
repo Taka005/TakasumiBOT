@@ -25,8 +25,7 @@ async function server(interaction){
           },
           {
             name: "**ロール**",
-            value: `${interaction.guild.roles.cache.map(r => r).join('')}`,
-            inline: true
+            value: `${interaction.guild.roles.cache.map(r => r).join('')}`
           }
         ]
       }]
