@@ -14,13 +14,28 @@ async function server(interaction){
             value: `${interaction.guild.name}`
           },
           {
-            name: "サーバーID",
+            name: "ID",
             value: `${interaction.guild.id}`,
             inline: true
           },
           {
-            name: "**サーバーの人数**",
-            value: `${interaction.guild.memberCount}人`,
+            name: "所有者",
+            value: `${interaction.guild.owner}`,
+            inline:true
+          },
+          {
+            name: "**人数**",
+            value: `${interaction.guild.members.filter(member => member.presence.status === "online"||"dnd"||"idle")}人/${interaction.guild.memberCount}人`,
+            inline: true
+          },
+          {
+            name: "**チャンネル数**",
+            value: `${interaction.guild.channels.cache.size}`,
+            inline: true
+          },
+          {
+            name: "**作成日時**",
+            value: `${new Date(interaction.guild.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.guild.createdAt) / 86400000)}日前)`,
             inline: true
           },
           {

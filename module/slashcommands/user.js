@@ -153,17 +153,17 @@ async function user(interaction){
                     value: `${users.tag}`,
                   },
                   {
-                    name: "**ユーザーID**",
+                    name: "**ID**",
                     value: `${users.id}`,
                     inline: true
                   },
                   {
-                    name: "**アカウント作成日**",
+                    name: "**作成日時**",
                     value: `${new Date(users.createdTimestamp).toLocaleDateString()}`,
                     inline: true
                   },
                   {
-                    name: "**BOT**",
+                    name: "**アカウントの種類**",
                     value: users.bot ? "BOT" : "ユーザー",
                     inline: true
                   }
