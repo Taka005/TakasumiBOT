@@ -115,6 +115,7 @@ function events(client){
         const embed = require("./slashcommands/embed");
         const server = require("./slashcommands/server");
         const help = require("./slashcommands/help");
+        const status = require("./slashcommands/status");
         const auth = require("./slashcommands/auth");
         const panel = require("./slashcommands/panel");
         const gif = require("./slashcommands/gif");
@@ -128,6 +129,7 @@ function events(client){
         support(interaction);
         embed(interaction);
         server(interaction)
+        status(interaction,client)
         auth(interaction);
         panel(interaction);
         gif(interaction);

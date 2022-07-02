@@ -64,6 +64,10 @@ async function ready(client){
       .setName("server")
       .setDescription("サーバーに関する情報を表示します")
 
+    const status = new SlashCommandBuilder()
+      .setName("status")
+      .setDescription("BOTの状態を表示します")
+
     const auth = new SlashCommandBuilder()
       .setName("auth")
       .setDescription("簡易的なロール認証機能です")
@@ -180,6 +184,7 @@ async function ready(client){
             support,
             embed,
             server,
+            status,
             auth,
             panel,
             gif,
