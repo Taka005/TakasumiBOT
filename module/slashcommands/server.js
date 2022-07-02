@@ -35,7 +35,8 @@ async function server(interaction){
           },
           {
             name: "**ロール**",
-            value: `${interaction.guild.roles.cache.size}個`
+            value: `${interaction.guild.roles.cache.size}個`,
+            inline: true
           }
         ]
       }]
