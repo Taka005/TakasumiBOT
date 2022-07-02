@@ -68,6 +68,10 @@ async function ready(client){
       .setName("status")
       .setDescription("BOTの状態を表示します")
 
+    const draw = new SlashCommandBuilder()
+      .setName("draw")
+      .setDescription("おみくじを引きます")
+
     const output = new SlashCommandBuilder()
       .setName("export")
       .setDescription("サーバーの情報をJSON形式に出力します")
@@ -215,6 +219,7 @@ async function ready(client){
             embed,
             server,
             status,
+            draw,
             auth,
             ticket,
             panel,

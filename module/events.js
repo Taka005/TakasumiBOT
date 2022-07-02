@@ -128,11 +128,12 @@ function events(client){
         const channel = require("./slashcommands/channel");
         const avatar = require("./slashcommands/avatar");
         const output = require("./slashcommands/output");
+        const draw = require("./slashcommands/draw");
 
         help(interaction);
         support(interaction);
         embed(interaction);
-        server(interaction)
+        server(interaction);
         status(interaction,client)
         auth(interaction);
         panel(interaction);
@@ -146,6 +147,7 @@ function events(client){
         channel(interaction,client);
         avatar(interaction,client);
         output(interaction,client);
+        draw(interaction);
         return;
     });
 
