@@ -25,7 +25,7 @@ async function server(interaction){
           },
           {
             name: "**人数**",
-            value: `${interaction.guild.members.cache.filter(member => member.presence.status === "online"||"dnd"||"idle")}人/${interaction.guild.memberCount}人`,
+            value: `${interaction.guild.members.cache.filter(member => member.presence?.status === "online"||"dnd"||"idle")}人/${interaction.guild.memberCount}人`,
             inline: true
           },
           {
