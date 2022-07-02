@@ -16,8 +16,7 @@ async function status(interaction,client){
         }
         cpu += (1 - (system.times["idle"] / total))* 100;
     });
-    use = 100 - Math.round(cpu)
-
+    
     interaction.reply({
       embeds:[{
         title: "ステータス",
@@ -34,7 +33,7 @@ async function status(interaction,client){
         },
         {
         name: "**システム使用率**",
-        value: `**CPU**\n${use}％\n**メモリー**\n${ramuse}MB / ${ramtotal}MB ${rampercent}％\n`
+        value: `**CPU**\n${Math.round(cpu)}％\n**メモリー**\n${ramuse}MB / ${ramtotal}MB ${rampercent}％\n`
         },
         {
         name: "**起動時間**",

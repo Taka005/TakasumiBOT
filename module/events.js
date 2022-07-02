@@ -126,6 +126,8 @@ function events(client){
         const poll = require("./slashcommands/poll");
         const ticket = require("./slashcommands/ticket");
         const channel = require("./slashcommands/channel");
+        const avatar = require("./slashcommands/avatar");
+        const output = require("./slashcommands/output");
 
         help(interaction);
         support(interaction);
@@ -142,6 +144,8 @@ function events(client){
         poll(interaction);
         ticket(interaction);
         channel(interaction,client);
+        avatar(interaction);
+        output(interaction,client);
         return;
     });
 

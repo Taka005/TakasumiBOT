@@ -68,6 +68,10 @@ async function ready(client){
       .setName("status")
       .setDescription("BOTの状態を表示します")
 
+    const output = new SlashCommandBuilder()
+      .setName("export")
+      .setDescription("サーバーの情報をJSON形式に出力します")
+
     const ticket = new SlashCommandBuilder()
       .setName("ticket")
       .setDescription("簡易的なお問い合わせ機能です")
@@ -134,6 +138,14 @@ async function ready(client){
     const user = new SlashCommandBuilder()
       .setName("user")
       .setDescription("ユーザー情報を表示します")
+      .addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("ユーザーID又はメンション"))
+
+    const avatar = new SlashCommandBuilder()
+      .setName("avatar")
+      .setDescription("ユーザーのアバターを表示します")
       .addStringOption(option =>
         option
           .setName("id")
@@ -210,8 +222,10 @@ async function ready(client){
             say,
             channel,
             del,
+            output,
             invite,
             user,
+            avatar,
             poll
           ]
         },
