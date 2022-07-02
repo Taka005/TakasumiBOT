@@ -16,15 +16,15 @@ async function help(interaction){
           },
           {
             name: "**/say**",
-            value: "/say [text]でBOTにメッセージを表示させます\n※稀に自分の送信したメッセージが消えないことがありますが他の人には見えていないので大丈夫です"
+            value: "BOTにメッセージを表示させます\n※稀に自分の送信したメッセージが消えないことがありますが他の人には見えていないので大丈夫です"
           },
           {
             name:"**/auth**",
-            value:"/auth [メンションかロールID]で認証機能が使えます"
+            value:"簡易的な認証機能が使えます"
           },
           {
             name:"**/panel**",
-            value:"/panel [メンションかロールID]で>authよりも強力な認証機能が使えます"
+            value:"/authよりも強力な認証機能が使えます"
           },
           {
             name:"**>global**",
@@ -40,11 +40,11 @@ async function help(interaction){
           },
           {
             name: "**/gif**",
-            value: "/gif [文字]でGIF画像を検索します"
+            value: "GIF画像を検索します"
           },
           {
             name: "**/poll**",
-            value: "/poll [title] [A] [B] ...と入力してアンケートが作れます"
+            value: "アンケート機能です"
           },
           {
             name: "**>draw**",
@@ -64,7 +64,7 @@ async function help(interaction){
           },
           {
             name: "**/user**",
-            value: "自分のアカウント又は、引数にユーザーIDを入れることでアカウントを取得します"
+            value: "自分のアカウント又は、指定したユーザーを取得します"
           },
           {
             name: "**/server**",
@@ -79,12 +79,12 @@ async function help(interaction){
             value: ">url [ファイルURL]でBOTにファイルを送信させます"
           },
           {
-            name: "**ここからは管理者専用です**",
-            value:"※使用には注意してください"
+            name: "**/channel**",
+            value: "指定したチャンネルにメッセージを送信できます**"
           },
           {
             name: "**/del**",
-            value: "/dell [number]でメッセージを削除できます\n**※二週間以上前のメッセージは削除できません。**"
+            value: "メッセージを一括で削除できます\n**※二週間以上前のメッセージは削除できません。**"
           },
           {
             name: "**>exec**",

@@ -101,11 +101,25 @@ async function ready(client){
 
     const say = new SlashCommandBuilder()
       .setName("say")
-      .setDescription("BOTにテキストメッセージを表示させます")
+      .setDescription("BOTにメッセージを表示させます")
       .addStringOption(option =>
         option
           .setName("text")
           .setDescription("発言内容")
+          .setRequired(true))
+    
+    const channel = new SlashCommandBuilder()
+      .setName("channel")
+      .setDescription("指定したチャンネルにメッセージを表示させます")
+      .addStringOption(option =>
+        option
+          .setName("text")
+          .setDescription("発言内容")
+          .setRequired(true))
+      .addChannelOption(option =>
+        option
+          .setName("channel")
+          .setDescription("送信するチャンネル")
           .setRequired(true))
 
     const del = new SlashCommandBuilder()
@@ -194,6 +208,7 @@ async function ready(client){
             panel,
             gif,
             say,
+            channel,
             del,
             invite,
             user,
