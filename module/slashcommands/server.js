@@ -19,13 +19,8 @@ async function server(interaction){
             inline: true
           },
           {
-            name: "所有者",
-            value: `${interaction.guild.owner}`,
-            inline:true
-          },
-          {
             name: "**人数**",
-            value: `${interaction.guild.members.cache.filter(member => member.presence?.status === "online"||"dnd"||"idle")}人/${interaction.guild.memberCount}人`,
+            value: `${interaction.guild.memberCount}人`,
             inline: true
           },
           {
