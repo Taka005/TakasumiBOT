@@ -10,48 +10,6 @@ async function user(interaction){
       };
 
       if(!user_id){
-        const permissions = interaction.member.permissions.cache.map(permission=>{
-          if( permission === "CREATE_INSTANT_INVITE") return "招待を作成";
-          if( permission === "KICK_MEMBERS") return "メンバーをキック";
-          if( permission === "BAN_MEMBERS") return "メンバーをBAN";
-          if( permission === "ADMINISTRATOR") return "管理者";
-          if( permission === "MANAGE_CHANNELS") return "チャンネルの管理";
-          if( permission === "MANAGE_GUILD") return "サーバーの管理";
-          if( permission === "ADD_REACTIONS") return "リアクションの追加";
-          if( permission === "VIEW_AUDIT_LOG") return "監査ログを表示";
-          if( permission === "PRIORITY_SPEAKER") return "優先スピーカー";
-          if( permission === "STREAM") return"WEBカメラ";
-          if( permission === "VIEW_CHANNEL") return "チャンネルを見る";
-          if( permission === "SEND_MESSAGES") return "メッセージを送信";
-          if( permission === "SEND_TTS_MESSAGES") return "TTSメッセージを送信";
-          if( permission === "MANAGE_MESSAGES") return "メッセージの管理";
-          if( permission === "EMBED_LINKS") return "埋め込みリンク";
-          if( permission === "ATTACH_FILES") return "ファイルを添付";
-          if( permission === "READ_MESSAGE_HISTORY") return "メッセージ履歴を見る";
-          if( permission === "MENTION_EVERYONE") return "@everyone、@here、全てのロールにメンション";
-          if( permission === "USE_EXTERNAL_EMOJIS") return "外部の絵文字を使用";
-          if( permission === "VIEW_GUILD_INSIGHTS") return "サーバーインサイトを見る";
-          if( permission === "CONNECT") return "接続";
-          if( permission === "SPEAK") return "発言";
-          if( permission === "MUTE_MEMBERS") return "メンバーをミュート";
-          if( permission === "DEAFEN_MEMBERS") return "メンバーのスピーカーをミュート";
-          if( permission === "MOVE_MEMBERS") return "メンバーを移動";
-          if( permission === "USE_VAD") return "音声検出を使用";
-          if( permission === "CHANGE_NICKNAME") return "ニックネームを変更";
-          if( permission === "MANAGE_NICKNAMES") return "ニックネームの管理";
-          if( permission === "MANAGE_ROLES") return "ロールの管理";
-          if( permission === "MANAGE_WEBHOOKS") return "ウェブフックの管理";
-          if( permission === "MANAGE_EMOJIS_AND_STICKERS") return "絵文字とステッカーの管理";
-          if( permission === "USE_APPLICATION_COMMANDS") return "アプリケーションコマンドの使用";
-          if( permission === "REQUEST_TO_SPEAK") return "スピーカー参加をリクエスト";
-          if( permission === "MANAGE_THREADS") return "スレッドの管理";
-          if( permission === "CREATE_PUBLIC_THREADS") return "公開スレッドの作成";
-          if( permission === "CREATE_PRIVATE_THREADS") return "プライベートスレッドの作成";
-          if( permission === "USE_EXTERNAL_STICKERS") return "外部のステッカーの使用";
-          if( permission === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
-          if( permission === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
-        });
-
         await interaction.reply({
           embeds:[{
             color: "WHITE",
