@@ -43,7 +43,7 @@ async function server(interaction){
     }).catch((error)=>interaction.reply({
         embeds:[{
           author: {
-            name: "原因不明のエラーが発生しました",
+            name: "エラーが発生しました",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",

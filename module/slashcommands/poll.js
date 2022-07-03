@@ -34,7 +34,7 @@ async function poll(interaction){
       return interaction.reply({ 
         embeds:[{
           author: {
-            name: "アンケートが正常に作成できません",
+            name: "正常に作成できませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",

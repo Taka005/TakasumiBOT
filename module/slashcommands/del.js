@@ -10,7 +10,7 @@ async function del(interaction){
           .catch(()=>interaction.reply({
             embeds:[{
               author: {
-                name: "メッセージが削除できませんでした",
+                name: "削除できませんでした",
                 icon_url: "https://taka.ml/images/error.jpg",
               },
               color: "RED",

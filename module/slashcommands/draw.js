@@ -16,7 +16,7 @@ async function draw(interaction){
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: `BOTの権限を変更する必要があります`
+            description: `BOTの権限を変更し、もう一度実行してください`
           }],
           ephemeral:true
         }));
