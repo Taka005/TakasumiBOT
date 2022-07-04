@@ -14,7 +14,7 @@ async function kick(interaction){
       }],
       ephemeral:true
     });
-    member.kick({ reason: reasons })
+    member.kick({ reason: reason })
       .then(()=>interaction.reply({
         embeds:[{
           author: {
