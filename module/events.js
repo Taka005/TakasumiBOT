@@ -131,6 +131,7 @@ function events(client){
         const draw = require("./slashcommands/draw");
         const kick = require("./slashcommands/kick");
         const ban = require("./slashcommands/ban");
+        const unban = require("./slashcommands/unban");
 
         help(interaction);
         support(interaction);
@@ -152,6 +153,7 @@ function events(client){
         draw(interaction);
         kick(interaction);
         ban(interaction);
+        unban(interaction);
         return;
     });
 

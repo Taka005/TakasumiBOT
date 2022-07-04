@@ -152,7 +152,7 @@ async function ready(client){
       .setDescription("メンバーをサーバーからKICKします")
       .addStringOption(option =>
         option
-          .setName("id")
+          .setName("user")
           .setDescription("ユーザーID又はメンション")
           .setRequired(true))
       .addStringOption(option =>
@@ -165,7 +165,7 @@ async function ready(client){
       .setDescription("ユーザーをサーバーからBANします")
       .addStringOption(option =>
         option
-          .setName("id")
+          .setName("user")
           .setDescription("ユーザーID又はメンション")
           .setRequired(true))
       .addStringOption(option =>
@@ -182,7 +182,7 @@ async function ready(client){
       .setDescription("ユーザーのBANを解除します")
       .addStringOption(option =>
         option
-          .setName("id")
+          .setName("user")
           .setDescription("ユーザーID又はメンション")
           .setRequired(true))
     
