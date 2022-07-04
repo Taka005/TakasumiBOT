@@ -130,6 +130,7 @@ function events(client){
         const output = require("./slashcommands/output");
         const draw = require("./slashcommands/draw");
         const kick = require("./slashcommands/kick");
+        const ban = require("./slashcommands/ban");
 
         help(interaction);
         support(interaction);
@@ -150,6 +151,7 @@ function events(client){
         output(interaction,client);
         draw(interaction);
         kick(interaction);
+        ban(interaction);
         return;
     });
 

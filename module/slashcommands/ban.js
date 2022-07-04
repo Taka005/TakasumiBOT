@@ -1,16 +1,16 @@
-async function kick(interaction){
+async function ban(interaction){
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "kick"){
+  if(interaction.commandName === "ban"){
     const user = await interaction.options.getString("id");
-    const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってKICKしました`;
-    if(!interaction.member.permissions.has("KICK_MEMBERS")) return interaction.reply({
+    const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってBANしました`;
+    if(!interaction.member.permissions.has("BAN_MEMBERS")) return interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをKICK`の権限を持っている必要があります"
+        description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをBAN`の権限を持っている必要があります"
       }],
       ephemeral:true
     });
@@ -34,7 +34,7 @@ async function kick(interaction){
         content:`${interaction.member}`,
         embeds:[{
           author: {
-            name: `${member.user.tag}をサーバーからKICKしました`,
+            name: `${member.user.tag}をサーバーからBANしました`,
             icon_url: "https://taka.ml/images/success.png",
           },
           color: "GREEN"
@@ -43,7 +43,7 @@ async function kick(interaction){
       .catch(()=>interaction.reply({
         embeds:[{
           author: {
-            name: "メンバーをKICKできませんでした",
+            name: "メンバーをBANできませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "GREEN",
@@ -55,4 +55,4 @@ async function kick(interaction){
   }
 }
   
-module.exports = kick
+module.exports = ban
