@@ -29,7 +29,7 @@ async function ban(interaction){
     });
 
     const member = await interaction.guild.members.cache.get(id[0]);
-    member.kick(reason)
+    member.ban(reason)
       .then(()=>interaction.reply({
         content:`${interaction.member}`,
         embeds:[{
