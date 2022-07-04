@@ -30,6 +30,18 @@ async function ban(interaction){
     });
 
     const member = await interaction.guild.members.cache.get(id[0]);
+    if(!member) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "取得に失敗しました",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "このメンバーは存在していません"
+      }],
+      ephemeral:true
+    });
+
     if(days){
       member.ban({reason:`${reason}`,deleteMessageDays: `${days}`})
         .then(()=>interaction.reply({
