@@ -172,6 +172,10 @@ async function ready(client){
         option
           .setName("reason")
           .setDescription("BANした理由"))
+      .addIntegerOption(option =>
+        option
+          .setName("days")
+          .setDescription("メッセージを削除する日数"))
     
     const unban = new SlashCommandBuilder()
       .setName("unban")

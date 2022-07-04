@@ -29,7 +29,7 @@ async function kick(interaction){
     });
 
     const member = await interaction.guild.members.cache.get(id[0]);
-    member.kick(reason)
+    member.kick({reason:`${reason}`})
       .then(()=>interaction.reply({
         content:`${interaction.member}`,
         embeds:[{
@@ -46,7 +46,7 @@ async function kick(interaction){
             name: "メンバーをKICKできませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
-          color: "GREEN",
+          color: "RED",
           description: "BOTの権限が不足しているか、メンバーが正しく指定されていません"
         }],
         ephemeral:true
