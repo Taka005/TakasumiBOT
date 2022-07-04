@@ -150,10 +150,10 @@ async function ready(client){
     const kick = new SlashCommandBuilder()
       .setName("kick")
       .setDescription("メンバーをサーバーからKICKします")
-      .addUserOption(option =>
+      .addStringOption(option =>
         option
-          .setName("member")
-          .setDescription("KICK対象のメンバー")
+          .setName("id")
+          .setDescription("ユーザーID又はメンション")
           .setRequired(true))
       .addStringOption(option =>
         option
