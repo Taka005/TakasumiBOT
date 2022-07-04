@@ -147,6 +147,41 @@ async function ready(client){
           .setName("id")
           .setDescription("ユーザーID又はメンション"))
 
+    const kick = new SlashCommandBuilder()
+      .setName("kick")
+      .setDescription("メンバーをサーバーからKICKします")
+      .addUserOption(option =>
+        option
+          .setName("member")
+          .setDescription("KICK対象のメンバー")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("reason")
+          .setDescription("KCIKした理由"))
+
+    const ban = new SlashCommandBuilder()
+      .setName("ban")
+      .setDescription("ユーザーをサーバーからBANします")
+      .addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("ユーザーID又はメンション")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("reason")
+          .setDescription("BANした理由"))
+    
+    const unban = new SlashCommandBuilder()
+      .setName("unban")
+      .setDescription("ユーザーのBANを解除します")
+      .addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("ユーザーID又はメンション")
+          .setRequired(true))
+    
     const avatar = new SlashCommandBuilder()
       .setName("avatar")
       .setDescription("ユーザーのアバターを表示します")
@@ -230,6 +265,9 @@ async function ready(client){
             output,
             invite,
             user,
+            kick,
+            ban,
+            unban,
             avatar,
             poll
           ]

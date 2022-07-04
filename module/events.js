@@ -129,12 +129,13 @@ function events(client){
         const avatar = require("./slashcommands/avatar");
         const output = require("./slashcommands/output");
         const draw = require("./slashcommands/draw");
+        const kick = require("./slashcommands/kick");
 
         help(interaction);
         support(interaction);
         embed(interaction);
         server(interaction);
-        status(interaction,client)
+        status(interaction,client);
         auth(interaction);
         panel(interaction);
         gif(interaction);
@@ -148,6 +149,7 @@ function events(client){
         avatar(interaction,client);
         output(interaction,client);
         draw(interaction);
+        kick(interaction);
         return;
     });
 
