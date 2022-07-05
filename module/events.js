@@ -102,6 +102,7 @@ function events(client){
         const ticket_event = require("./events/ticket_event");
         const embed_event = require("./events/embed_event");
         const support_event = require("./events/support_event");
+        const help_event = require("./events/help_event");
 
         auth_event(interaction);
         panel_event(interaction);
@@ -109,6 +110,7 @@ function events(client){
         embed_event(interaction);
         ticket_event(interaction);
         support_event(interaction,client);
+        help_event(interaction);
 
         //スラッシュコマンド
         const support = require("./slashcommands/support");
