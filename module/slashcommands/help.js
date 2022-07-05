@@ -10,7 +10,7 @@ async function help(interaction){
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setEmoji(":arrow_forward:")
-      .setID("next")
+      .setCustomId("next")
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -108,7 +108,14 @@ async function help(interaction){
             value: "制作者専用です"
           }
       ]}],
-      components: [new MessageActionRow().addComponents(before),new MessageActionRow().addComponents(page),new MessageActionRow().addComponents(next)]
+      components: [
+        new MessageActionRow()
+          .addComponents(before),
+        new MessageActionRow()
+          .addComponents(page),
+        new MessageActionRow()
+          .addComponents(next)
+      ]
     });
     return;
   }
