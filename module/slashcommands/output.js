@@ -44,7 +44,7 @@ async function output(interaction,client){
        .setFile(data) 
        .setName("SERVER_JSON_FILE.json")
 
-     interaction.reply({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
+     await interaction.reply({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
        .catch(()=>interaction.reply("JSONの生成に失敗しました..."));
    }catch{
      interaction.reply({ 
