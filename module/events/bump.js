@@ -15,7 +15,6 @@ function bump(message){
       });
 
       sleep(60000 * 120, function () {
-        message.channel.send(`${config.bump}`);
         message.channel.send({
           content: `||${config.bump}||`,
           embeds:[{
