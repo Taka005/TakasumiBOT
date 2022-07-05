@@ -6,6 +6,7 @@ async function help_event(interaction){
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
+    .setCustomId("page_0")
     .setDisabled(true)
 
   const next = new MessageButton()
@@ -16,6 +17,7 @@ async function help_event(interaction){
   const page = new MessageButton()
     .setStyle("SECONDARY")
     .setLabel("2ページ")
+    .setCustomId("page")
     .setDisabled(true)
 
     interaction.message.edit({
@@ -75,6 +77,7 @@ async function help_event(interaction){
   const page = new MessageButton()
     .setStyle("SECONDARY")
     .setLabel("2ページ")
+    .setCustomId("page")
     .setDisabled(true)
 
     interaction.message.edit({
@@ -134,6 +137,7 @@ async function help_event(interaction){
   const page = new MessageButton()
     .setStyle("SECONDARY")
     .setLabel("3ページ")
+    .setCustomId("page")
     .setDisabled(true)
 
     interaction.message.edit({
@@ -184,11 +188,13 @@ async function help_event(interaction){
   const next = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("次")
+    .setCustomId("page_5")
     .setDisabled(true)
 
   const page = new MessageButton()
     .setStyle("SECONDARY")
     .setLabel("4ページ")
+    .setCustomId("page")
     .setDisabled(true)
 
     interaction.message.edit({

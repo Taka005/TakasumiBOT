@@ -16,6 +16,7 @@ async function help(interaction){
     const page = new MessageButton()
       .setStyle("SECONDARY")
       .setLabel("1ページ")
+      .setCustomId("page_0")
       .setDisabled(true)
 
     await interaction.reply({
