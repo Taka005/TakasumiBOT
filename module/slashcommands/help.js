@@ -6,6 +6,7 @@ async function help(interaction){
     const before = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("前")
+      .setCustomId("page_0")
       .setDisabled(true)
 
     const next = new MessageButton()
@@ -16,7 +17,7 @@ async function help(interaction){
     const page = new MessageButton()
       .setStyle("SECONDARY")
       .setLabel("1ページ")
-      .setCustomId("page_0")
+      .setCustomId("page")
       .setDisabled(true)
 
     await interaction.reply({
