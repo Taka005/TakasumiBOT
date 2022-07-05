@@ -1,7 +1,7 @@
 async function ban(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
-    const member = await interaction.options.getString("user");
+    const member = await interaction.options.getUser("user");
     const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってBANしました(TakasumiBOT)`;
     const days = await interaction.options.getInteger("days");
     if(!interaction.member.permissions.has("BAN_MEMBERS")) return interaction.reply({

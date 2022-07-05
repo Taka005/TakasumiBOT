@@ -14,6 +14,7 @@ async function user(interaction,client){
           embeds:[{
             color: "GREEN",
             author: {
+              name:`${interaction.member.user.tag}の検索結果`,
               icon_url: "https://taka.ml/images/success.png"
             },
             timestamp: new Date(),
@@ -24,10 +25,6 @@ async function user(interaction,client){
               url: interaction.member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
             },
             fields: [
-              {
-                name: "**ユーザー名**",
-                value: `${interaction.user.tag}`
-              },
               {
                 name: "**ID**",
                 value: `${interaction.member.user.id}`,
@@ -98,6 +95,7 @@ async function user(interaction,client){
             embeds:[{
               color: "GREEN",
               author: {
+                name:`${member.user.tag}の検索結果`,
                 icon_url: "https://taka.ml/images/success.png"
               },
               timestamp: new Date(),
@@ -108,10 +106,6 @@ async function user(interaction,client){
                 url: member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
               },
               fields: [
-                {
-                  name: "**ユーザー名**",
-                  value: `${member.user.tag}`
-                },
                 {
                   name: "**ID**",
                   value: `${member.id}`,
@@ -168,6 +162,7 @@ async function user(interaction,client){
               embeds:[{
                 color: "GREEN",
                 author: {
+                  name:`${users.tag}の検索結果`,
                   icon_url: "https://taka.ml/images/success.png"
                 },
                 timestamp: new Date(),
@@ -178,10 +173,6 @@ async function user(interaction,client){
                   url: users.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
                 },
                 fields: [
-                  {
-                    name: "**ユーザー名**",
-                    value: `${users.tag}`,
-                  },
                   {
                     name: "**ID**",
                     value: `${users.id}`,
