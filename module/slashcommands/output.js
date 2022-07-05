@@ -37,7 +37,18 @@ async function output(interaction,client){
          "user":client.user.tag,
          "ping":client.ws.ping
       }
-   },null,"　 "),"UTF-8");
+   },null,"　 "),"UTF-8")
+     .catch(()=>interaction.reply({ 
+       embeds:[{
+         author: {
+           name: "出力に失敗しました",
+           icon_url: "https://taka.ml/images/error.jpg",
+         },
+         color: "RED",
+         description: "BOTの権限が不足しているため正しく出力できません\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+       }], 
+       ephemeral: true 
+     }))
   
    
     const attachment = new MessageAttachment()
