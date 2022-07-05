@@ -37,7 +37,15 @@ async function output(interaction,client){
            "user":client.user.tag,
            "ping":client.ws.ping
         }
-     },null,"　 "),"UTF-8")
+     },null,"　 "),"UTF-8");
+
+     const attachment = new MessageAttachment()
+       .setDescription("データは慎重に扱ってください") 
+       .setFile(data) 
+       .setName("SERVER_JSON_FILE.json")
+
+     interaction.reply({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
+       .catch(()=>interaction.reply("JSONの生成に失敗しました..."));
    }catch{
      interaction.reply({ 
        embeds:[{
@@ -52,12 +60,6 @@ async function output(interaction,client){
      })
    }
    
-    const attachment = new MessageAttachment()
-       .setDescription("データは慎重に扱ってください") 
-       .setFile(data) 
-       .setName("SERVER_JSON_FILE.json")
-    interaction.reply({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
-       .catch(()=>interaction.reply("JSONの生成に失敗しました..."))
     return;
   }
 };
