@@ -18,7 +18,7 @@ async function help(interaction){
       .setCustomId("page")
       .setDisabled(true)
 
-    await interaction.deferReply({
+    await interaction.reply({
       embeds:[{
         title: "BOTのHELP",
         description: "製作者:Taka005#1203\nプレフィックスは`>`または`/`です",
