@@ -24,7 +24,7 @@ async function help(interaction){
       embeds:[{
         title: "HELP 便利系",
         description: "※ただいま移行中のため、スラッシュコマンドのみ表示しています",
-        color: "RED",
+        color: "GREEN",
         fields: [
           {
             name: "**/poll**",

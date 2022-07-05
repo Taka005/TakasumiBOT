@@ -24,7 +24,7 @@ async function help_event(interaction){
         embeds:[{
           title: "HELP 便利系",
           description: "※ただいま移行中のため、スラッシュコマンドのみ表示しています",
-          color: "RED",
+          color: "GREEN",
           fields: [
             {
               name: "**/poll**",
@@ -80,7 +80,7 @@ async function help_event(interaction){
     interaction.message.edit({
         embeds:[{
           title: "HELP 認証・情報系",
-          color: "RED",
+          color: "GREEN",
           fields: [
             {
               name: "**/auth**",
@@ -136,7 +136,7 @@ async function help_event(interaction){
     interaction.message.edit({
         embeds:[{
           title: "HELP サーバー管理系",
-          color: "RED",
+          color: "GREEN",
           fields: [
             {
               name: "**/ban**",
@@ -189,7 +189,7 @@ async function help_event(interaction){
     interaction.message.edit({
         embeds:[{
           title: "HELP エンタメ・BOT系",
-          color: "RED",
+          color: "GREEN",
           fields: [
             {
               name: "**/draw**",
