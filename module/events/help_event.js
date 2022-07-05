@@ -206,7 +206,11 @@ async function help_event(interaction){
             {
               name: "**/support**",
               value: "サポートサーバーに直接お問合せができます\n※スパムや、悪質なものはおやめください"
-            }
+            },
+            {
+              name: "**/export**",
+              value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
+            },
         ]}],
         components: [
           new MessageActionRow()
