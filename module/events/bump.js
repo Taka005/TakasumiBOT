@@ -16,6 +16,14 @@ function bump(message){
 
       sleep(60000 * 120, function () {
         message.channel.send(`${config.bump}`);
+        message.channel.send({
+          content: `||${config.bump}||`,
+          embeds:[{
+            color: "WHITE",
+            title:"BUMP通知",
+            description:"BUMPの時間です\n`/bump`でサーバーの表示順位を上げよう！"
+          }]  
+        });
       });
     }
   }
