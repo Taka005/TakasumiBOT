@@ -22,12 +22,9 @@ async function help(interaction){
 
     await interaction.reply({
       embeds:[{
-        title: "1ページ目",
-        description: "HELP 便利系\n※ただいま移行中のため、スラッシュコマンドのみ表示しています",
+        title: "HELP 便利系",
+        description: "※ただいま移行中のため、スラッシュコマンドのみ表示しています",
         color: "RED",
-        footer: {
-          text: "サポートサーバー\n  https://discord.gg/GPs3npB63m"
-        },
         fields: [
           {
             name: "**/poll**",

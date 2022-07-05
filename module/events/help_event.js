@@ -22,12 +22,9 @@ async function help_event(interaction){
 
     interaction.message.edit({
         embeds:[{
-          title: "1ページ目",
-          description: "HELP 便利系\n※ただいま移行中のため、スラッシュコマンドのみ表示しています",
+          title: "HELP 便利系",
+          description: "※ただいま移行中のため、スラッシュコマンドのみ表示しています",
           color: "RED",
-          footer: {
-            text: "サポートサーバー\n  https://discord.gg/GPs3npB63m"
-          },
           fields: [
             {
               name: "**/poll**",
@@ -82,12 +79,8 @@ async function help_event(interaction){
 
     interaction.message.edit({
         embeds:[{
-          title: "2ページ目",
-          description: "HELP 認証・情報系",
+          title: "HELP 認証・情報系",
           color: "RED",
-          footer: {
-            text: "サポートサーバー\n  https://discord.gg/GPs3npB63m"
-          },
           fields: [
             {
               name: "**/auth**",
@@ -142,12 +135,8 @@ async function help_event(interaction){
 
     interaction.message.edit({
         embeds:[{
-          title: "3ページ目",
-          description: "HELP サーバー管理系",
+          title: "HELP サーバー管理系",
           color: "RED",
-          footer: {
-            text: "サポートサーバー\n  https://discord.gg/GPs3npB63m"
-          },
           fields: [
             {
               name: "**/ban**",
@@ -199,12 +188,8 @@ async function help_event(interaction){
 
     interaction.message.edit({
         embeds:[{
-          title: "4ページ目",
-          description: "HELP エンタメ・BOT系",
+          title: "HELP エンタメ・BOT系",
           color: "RED",
-          footer: {
-            text: "サポートサーバー\n  https://discord.gg/GPs3npB63m"
-          },
           fields: [
             {
               name: "**/draw**",
