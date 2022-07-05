@@ -1,6 +1,23 @@
 async function help(interaction){
+  const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "help"){
+    const before = new MessageButton()
+      .setStyle("PRIMARY")
+      .setEmoji(":arrow_backward:")
+      .setID("before")
+
+    const next = new MessageButton()
+      .setStyle("PRIMARY")
+      .setEmoji(":arrow_forward:")
+      .setID("next")
+
+    const page = new MessageButton()
+      .setStyle("SECONDARY")
+      .setLabel("1ページ")
+      .setID("page")
+      .setDisabled(true)
+
     await interaction.reply({
       embeds:[{
         title: "BOTのHELP",
@@ -47,7 +64,7 @@ async function help(interaction){
             value: "アンケート機能です"
           },
           {
-            name: "**>draw**",
+            name: "**/draw**",
             value: "おみくじを引くことができます。運勢を確かめよう！"
           },
           {
@@ -55,7 +72,7 @@ async function help(interaction){
             value: "メモ機能のHELPを表示する"
           },
           {
-            name: "**>avatar**",
+            name: "**/avatar**",
             value: "自分のアイコン又は、引数にユーザーIDを入れることでアイコンを取得します"
           },
           {
@@ -90,7 +107,8 @@ async function help(interaction){
             name: "**>exec**",
             value: "制作者専用です"
           }
-      ]}]
+      ]}],
+      components: [new MessageActionRow().addComponents(before),new MessageActionRow().addComponents(page),new MessageActionRow().addComponents(next)]
     });
     return;
   }
