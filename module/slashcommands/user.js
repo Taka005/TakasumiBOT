@@ -12,7 +12,10 @@ async function user(interaction,client){
       if(!user_id){
         await interaction.reply({
           embeds:[{
-            color: "WHITE",
+            color: "GREEN",
+            author: {
+              icon_url: "https://taka.ml/images/success.png"
+            },
             timestamp: new Date(),
             footer: {
               text: "TakasumiBOT"
@@ -93,7 +96,10 @@ async function user(interaction,client){
         if(member){
           await interaction.reply({
             embeds:[{
-              color: "WHITE",
+              color: "GREEN",
+              author: {
+                icon_url: "https://taka.ml/images/success.png"
+              },
               timestamp: new Date(),
               footer: {
                 text: "TakasumiBOT"
@@ -160,7 +166,10 @@ async function user(interaction,client){
             const users = await client.users.fetch(id[0]);
             await interaction.reply({
               embeds:[{
-                color: "WHITE",
+                color: "GREEN",
+                author: {
+                  icon_url: "https://taka.ml/images/success.png"
+                },
                 timestamp: new Date(),
                 footer: {
                   text: "TakasumiBOT"

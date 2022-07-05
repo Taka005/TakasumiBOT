@@ -150,10 +150,10 @@ async function ready(client){
     const kick = new SlashCommandBuilder()
       .setName("kick")
       .setDescription("メンバーをサーバーからKICKします")
-      .addStringOption(option =>
+      .addUserOption(option =>
         option
           .setName("user")
-          .setDescription("ユーザーID又はメンション")
+          .setDescription("KICK対象のメンバー")
           .setRequired(true))
       .addStringOption(option =>
         option
@@ -163,10 +163,10 @@ async function ready(client){
     const ban = new SlashCommandBuilder()
       .setName("ban")
       .setDescription("ユーザーをサーバーからBANします")
-      .addStringOption(option =>
+      .addUserOption(option =>
         option
           .setName("user")
-          .setDescription("ユーザーID又はメンション")
+          .setDescription("BAN対象のメンバー")
           .setRequired(true))
       .addStringOption(option =>
         option
@@ -176,15 +176,6 @@ async function ready(client){
         option
           .setName("days")
           .setDescription("メッセージを削除する日数"))
-    
-    const unban = new SlashCommandBuilder()
-      .setName("unban")
-      .setDescription("ユーザーのBANを解除します")
-      .addStringOption(option =>
-        option
-          .setName("user")
-          .setDescription("ユーザーID又はメンション")
-          .setRequired(true))
     
     const avatar = new SlashCommandBuilder()
       .setName("avatar")
@@ -271,7 +262,6 @@ async function ready(client){
             user,
             kick,
             ban,
-            unban,
             avatar,
             poll
           ]
