@@ -4,12 +4,12 @@ async function help(interaction){
   if(interaction.commandName === "help"){
     const before = new MessageButton()
       .setStyle("PRIMARY")
-      .setEmoji(":arrow_backward:")
+      .setLabel("前")
       .setCustomId("before")
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
-      .setEmoji(":arrow_forward:")
+      .setLabel("次")
       .setCustomId("next")
 
     const page = new MessageButton()
