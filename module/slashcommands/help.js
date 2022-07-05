@@ -110,10 +110,8 @@ async function help(interaction){
       ]}],
       components: [
         new MessageActionRow()
-          .addComponents(before),
-        new MessageActionRow()
-          .addComponents(page),
-        new MessageActionRow()
+          .addComponents(before)
+          .addComponents(page)
           .addComponents(next)
       ]
     });
