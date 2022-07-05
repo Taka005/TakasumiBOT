@@ -5,7 +5,7 @@ async function help(interaction){
     const before = new MessageButton()
       .setStyle("PRIMARY")
       .setEmoji(":arrow_backward:")
-      .setID("before")
+      .setCustomId("before")
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
@@ -15,7 +15,7 @@ async function help(interaction){
     const page = new MessageButton()
       .setStyle("SECONDARY")
       .setLabel("1ページ")
-      .setID("page")
+      .setCustomId("page")
       .setDisabled(true)
 
     await interaction.reply({
