@@ -1,7 +1,7 @@
 async function ban(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
-    const member = await interaction.options.getUser("user");
+    const user = await interaction.options.getUser("user");
     const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってBANしました(TakasumiBOT)`;
     const days = await interaction.options.getInteger("days");
     if(!interaction.member.permissions.has("BAN_MEMBERS")) return interaction.reply({
@@ -12,6 +12,18 @@ async function ban(interaction){
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをBAN`の権限を持っている必要があります"
+      }],
+      ephemeral:true
+    });
+    const member = await interaction.guild.members.cache.get(user.id);
+    if(!member) return interaction.reply({
+      embeds:[{
+        author: {
+          name: "取得に失敗しました",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "ユーザーが取得できないためBANできませんでした"
       }],
       ephemeral:true
     });
