@@ -47,6 +47,9 @@ async function global(interaction){
           });
         })
         .catch(()=>{
+          delete main[interaction.channel.id];
+
+          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           interaction.reply({
             embeds:[{
               author: {
