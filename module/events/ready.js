@@ -185,6 +185,10 @@ async function ready(client){
           .setName("id")
           .setDescription("ユーザーID又はメンション"))
 
+    const global = new SlashCommandBuilder()
+      .setName("global")
+      .setDescription("グローバルチャットの切り替え")
+
     const poll = new SlashCommandBuilder()
       .setName("poll")
       .setDescription("アンケート機能です")
@@ -263,6 +267,7 @@ async function ready(client){
             kick,
             ban,
             avatar,
+            global,
             poll
           ]
         },
