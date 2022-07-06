@@ -62,13 +62,12 @@ async function global(interaction){
       return delete require.cache[require.resolve("../../data/global/main.json")];
     }
 
-    await interaction.channel.createWebhook("グローバルチャットマネージャー")
+    await interaction.channel.createWebhook("グローバルチャット")
       .then(webhook =>{
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
 
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
         Object.keys(main).forEach(channels => {
-          if(channels == interaction.channel.id) return;
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           webhooks.send({
             embeds:[{
@@ -82,6 +81,9 @@ async function global(interaction){
             }]
           })
         });
+        
+        interaction.deferReply()
+        .then(()=>interaction.deleteReply());
       })
       .catch(()=>{
         interaction.reply({
