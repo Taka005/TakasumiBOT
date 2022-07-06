@@ -45,11 +45,11 @@ async function global(message){
   }
 
   if(!message.attachments.first()){
-    Object.keys(main).forEach(channels => {
+    Object.keys(main).forEach(async (channels) => {
       if(channels == message.channel.id) return;
 
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
-      webhooks.send({//添付ファイルなし
+      await webhooks.send({//添付ファイルなし
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -62,19 +62,19 @@ async function global(message){
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
           timestamp: new Date()
-        }]
-      });
+        }]      
+      }).catch(()=>{})
 
     });
     message.react("✅");
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
     const attachment = message.attachments.map(attachment => attachment.url);
-    Object.keys(main).forEach(channels => {
+    Object.keys(main).forEach(async (channels) => {
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
 
-      webhooks.send({//添付ファイルあり(画像)
+      await webhooks.send({//添付ファイルあり(画像)
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -91,17 +91,17 @@ async function global(message){
           },
           timestamp: new Date()
         }]
-      });
+      }).catch(()=>{})
 
     });
     message.react("✅");
     return;
   }else{
     const attachment = message.attachments.map(attachment => attachment.url);
-    Object.keys(main).forEach(channels => {
+    Object.keys(main).forEach(async (channels) => {
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
-      webhooks.send({//添付ファイルあり(画像以外)
+      await webhooks.send({//添付ファイルあり(画像以外)
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -121,7 +121,7 @@ async function global(message){
           ],
           timestamp: new Date()
         }]
-      });
+      }).catch(()=>{})
 
     });
     message.react("✅");
