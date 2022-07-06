@@ -34,7 +34,7 @@ async function global(interaction){
         .then(()=>{
           delete main[interaction.channel.id];
 
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main,null,"　"), "utf8");
+          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
@@ -66,7 +66,7 @@ async function global(interaction){
       .then(webhook =>{
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
 
-        fs.writeFileSync("./data/global/main.json", JSON.stringify(main,null,"　"), "utf8");
+        fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
         Object.keys(main).forEach(channels => {
           if(channels == interaction.channel.id) return;
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
