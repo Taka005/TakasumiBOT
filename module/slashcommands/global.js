@@ -28,6 +28,8 @@ async function global(interaction){
       ephemeral:true
     });
 
+    interaction.deferReply()
+
     if(main[interaction.channel.id]){
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
@@ -86,8 +88,7 @@ async function global(interaction){
           }).catch(()=>{})
         });
         
-        interaction.deferReply()
-          .then(()=>interaction.deleteReply());
+        interaction.deleteReply()
       })
       .catch(()=>{
         interaction.reply({
