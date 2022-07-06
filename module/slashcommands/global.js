@@ -28,8 +28,6 @@ async function global(interaction){
       ephemeral:true
     });
 
-    interaction.deferReply()
-
     if(main[interaction.channel.id]){
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
@@ -65,7 +63,8 @@ async function global(interaction){
         });
       return delete require.cache[require.resolve("../../data/global/main.json")];
     }
-
+    
+    interaction.deferReply()
     await interaction.channel.createWebhook("TakasumiBOT",{
       avatar: "https://taka.ml/images/bot.png",
     })
