@@ -15,10 +15,10 @@ function events(client){
         var m = now.getMinutes()
         var s = now.getSeconds() 
         //globalchat
-        const global_base = require("./global/global");
+        const global = require("./global/global");
         const connect = require("./global/connect");
         const get = require("./global/get");
-        global_base(message,client)
+        global(message)
         connect(message,client)
         get(message,client)
         
@@ -60,7 +60,6 @@ function events(client){
         const auth = require("./commands/auth");
         const panel = require("./commands/panel");
         const dm = require("./commands/dm");
-        const global = require("./commands/global");
         const gif = require("./commands/gif");
         const ticket = require("./commands/ticket");
         const quote = require("./commands/quote");
@@ -85,7 +84,6 @@ function events(client){
         auth(message)
         panel(message)
         dm(message,client)
-        global(message,client)
         gif(message)
         ticket(message)
         quote(message)
