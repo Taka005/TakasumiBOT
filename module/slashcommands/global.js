@@ -57,7 +57,7 @@ async function global(interaction){
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
 
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-        Object.keys(main).forEach(channels => {
+        Object.keys(main).forEach(async (channels) => {
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
             embeds:[{
