@@ -62,7 +62,9 @@ async function global(interaction){
       return delete require.cache[require.resolve("../../data/global/main.json")];
     }
 
-    await interaction.channel.createWebhook("グローバルチャット")
+    await interaction.channel.createWebhook("TakasumiBOT",{
+      avatar: "https://taka.ml/images/bot.png",
+    })
       .then(webhook =>{
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
 
