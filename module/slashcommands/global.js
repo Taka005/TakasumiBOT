@@ -46,7 +46,18 @@ async function global(interaction){
             }]
           });
         })
-        .catch(()=>{});
+        .catch(()=>{
+          interaction.reply({
+            embeds:[{
+              author: {
+                name: "既に削除済みです",
+                icon_url: "https://taka.ml/images/error.jpg",
+              },
+              color: "RED"
+            }],
+            ephemeral:true
+          })
+        });
       return delete require.cache[require.resolve("../../data/global/main.json")];
     }
 
