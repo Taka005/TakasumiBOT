@@ -59,7 +59,7 @@ async function global(interaction){
             ephemeral:true
           })
         });
-      return delete require.cache[require.resolve("../../data/global/main.json")];
+      return delete require.cache[require.resolve("./data/global/main.json")];
     }
 
     await interaction.channel.createWebhook("グローバルチャットマネージャー")
@@ -96,7 +96,7 @@ async function global(interaction){
           ephemeral:true
         })
       });
-      delete require.cache[require.resolve("../../data/global/main.json")];
+      delete require.cache[require.resolve("./data/global/main.json")];
 
     return;
   }
