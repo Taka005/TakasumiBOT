@@ -16,7 +16,7 @@ async function global(interaction){
         ephemeral:true
       });
 
-    if (!interaction.channel.permissionsFor(message.guild.me).has("MANAGE_WEBHOOKS")) return await interaction.reply({
+    if (!interaction.channel.permissionsFor(interaction.guild.me).has("MANAGE_WEBHOOKS")) return await interaction.reply({
       embeds:[{
         author: {
           name: "BOTに権限がありません",
