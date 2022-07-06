@@ -32,7 +32,7 @@ async function del(interaction){
         content:`${interaction.member}`,
         embeds:[{
           author: {
-            name: `\`${del}\`個のメッセージを削除しました`,
+            name: `${del}個のメッセージを削除しました`,
             icon_url: "https://taka.ml/images/success.png",
           },
           color: "GREEN"

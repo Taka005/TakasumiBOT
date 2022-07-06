@@ -85,7 +85,7 @@ async function global(interaction){
         });
         
         interaction.deferReply()
-        .then(()=>interaction.deleteReply());
+          .then(()=>interaction.deleteReply());
       })
       .catch(()=>{
         interaction.reply({

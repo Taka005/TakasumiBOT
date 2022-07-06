@@ -1,7 +1,9 @@
 async function global(message,client){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
-  if(!message.channel.type === "GUILD_TEXT" ||message.author.bot || message.channel.topic !== "##GLOBAL##") return;
+  const main = require("../../data/global/main.json");
+  const { WebhookClient } = require('discord.js');
+  if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id]) return;
 
   if(mute_server[`${message.guild.id}`]){
     message.channel.delete()
@@ -41,17 +43,13 @@ async function global(message,client){
       }]
     })
   }
-  //緊急
-  return message.reply({
-    embeds:[{
-      color: "RED",
-      description: "このグローバルチャットは`のなめ(荒らし共栄圏)`\nによって攻撃されたため、現在サービスを停止中です。新システム開発のため、しばらくお待ちください\n[お問い合わせ](https://taka.ml)",
-    }]
-  })
 
   if(!message.attachments.first()){
-    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
-      channel.send({//添付ファイルなし
+    Object.keys(main).forEach(channels => {
+      if(channels == message.channel.id) return;
+
+      const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+      webhooks.send({//添付ファイルなし
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -68,12 +66,15 @@ async function global(message,client){
       });
 
     });
-    message.delete()
+    message.react("✅");
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
-    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
-      const attachment = message.attachments.map(attachment => attachment.url)
-      channel.send({//添付ファイルあり(画像)
+    const attachment = message.attachments.map(attachment => attachment.url);
+    Object.keys(main).forEach(channels => {
+      if(channels == message.channel.id) return;
+      const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+
+      webhooks.send({//添付ファイルあり(画像)
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -93,12 +94,14 @@ async function global(message,client){
       });
 
     });
-    message.delete()
+    message.react("✅");
     return;
   }else{
-    client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
-      const attachment = message.attachments.map(attachment => attachment.url)
-      channel.send({//添付ファイルあり(画像以外)
+    const attachment = message.attachments.map(attachment => attachment.url);
+    Object.keys(main).forEach(channels => {
+      if(channels == message.channel.id) return;
+      const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+      webhooks.send({//添付ファイルあり(画像以外)
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -121,7 +124,7 @@ async function global(message,client){
       });
 
     });
-    message.delete()
+    message.react("✅");
     return;
   }
 }
