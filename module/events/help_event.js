@@ -31,6 +31,10 @@ async function help_event(interaction){
               value: "アンケートを作成することができます\n最大で選択肢は12個までです"
             },
             {
+              name: "**/global**",
+              value: "色々なサーバーと繋がるグローバルチャットを有効、無効にします\n[利用規約](https://taka.ml/bot/takasumi.html)を読んでから使用してください"
+            },
+            {
               name: "**/gif**",
               value: "GIF画像を検索し、表示します"
             },
