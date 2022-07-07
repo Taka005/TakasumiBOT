@@ -66,7 +66,7 @@ async function global(message){
         }]      
       }).catch(()=>{
         delete main[channels];
-        const guild = Object.keys(sub).filter((key)=> obj[key] == channels);
+        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
         delete sub[guild];
 
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -103,7 +103,7 @@ async function global(message){
         }]
       }).catch(()=>{
         delete main[channels];
-        const guild = Object.keys(sub).filter((key)=> obj[key] == channels);
+        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
         delete sub[guild];
 
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -142,7 +142,7 @@ async function global(message){
         }]
       }).catch(()=>{
         delete main[channels];
-        const guild = Object.keys(sub).filter((key)=> obj[key] == channels);
+        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
         delete sub[guild];
 
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
