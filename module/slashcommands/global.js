@@ -1,20 +1,21 @@
 async function global(interaction){
   const main = require("../../data/global/main.json");
+  const sub = require("../../data/global/sub.json");
   const fs = require("fs");
   const { WebhookClient } = require('discord.js');
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
-      if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "権限がありません",
-            icon_url: "https://taka.ml/images/error.jpg",
-          },
-          color: "RED",
-          description: "このコマンドを実行するには、あなたがこのサーバーの\n`チャンネルを管理`の権限を持っている必要があります"
-        }],
-        ephemeral:true
-      });
+    if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "権限がありません",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "このコマンドを実行するには、あなたがこのサーバーの\n`チャンネルを管理`の権限を持っている必要があります"
+      }],
+      ephemeral:true
+    });
 
     if (!interaction.channel.permissionsFor(interaction.guild.me).has("MANAGE_WEBHOOKS")) return await interaction.reply({
       embeds:[{
@@ -28,13 +29,28 @@ async function global(interaction){
       ephemeral:true
     });
 
+    if (!main[interaction.channel.id] && sub[interaction.guild.id]) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "既に登録済みです",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "グローバルチャットは、一つのサーバーに付き\nひとつまでしか設定出来ません"
+      }],
+      ephemeral:true
+    });
+
     if(main[interaction.channel.id]){
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
         .then(()=>{
           delete main[interaction.channel.id];
+          delete sub[interaction.guild.id];
 
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+
           interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
@@ -48,19 +64,25 @@ async function global(interaction){
         })
         .catch(()=>{
           delete main[interaction.channel.id];
+          delete sub[interaction.guild.id];
 
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+
           interaction.reply({
+            content:`${interaction.member}`,
             embeds:[{
               author: {
-                name: "既に削除済みです",
-                icon_url: "https://taka.ml/images/error.jpg",
+                name: "登録の削除が完了しました",
+                icon_url: "https://taka.ml/images/success.png",
               },
-              color: "RED"
-            }],
-            ephemeral:true
+              description: "※webhookは既に削除済みのため、\n登録情報のみ削除しました",
+              color: "GREEN"
+            }]
           })
         });
+
+      delete require.cache[require.resolve("../../data/global/sub.json")];
       return delete require.cache[require.resolve("../../data/global/main.json")];
     }
     
@@ -70,8 +92,11 @@ async function global(interaction){
     })
       .then(async (webhook) =>{
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
+        sub[interaction.guild.id] = interaction.channel.id;
 
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+        fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+
         Object.keys(main).forEach(async (channels) => {
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
@@ -103,6 +128,7 @@ async function global(interaction){
         })
       });
       delete require.cache[require.resolve("../../data/global/main.json")];
+      delete require.cache[require.resolve("../../data/global/sub.json")];
 
     return;
   }
