@@ -4,6 +4,7 @@ async function global(message){
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require('discord.js');
+  const fs = require("fs");
   if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id]) return;
 
   if(mute_server[`${message.guild.id}`]){
