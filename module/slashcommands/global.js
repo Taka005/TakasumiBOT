@@ -17,7 +17,7 @@ async function global(interaction){
       ephemeral:true
     });
 
-    if (!interaction.channel.permissionsFor(interaction.guild.me).has("MANAGE_WEBHOOKS")) return await interaction.reply({
+    if(!interaction.channel.permissionsFor(interaction.guild.me).has("MANAGE_WEBHOOKS")) return await interaction.reply({
       embeds:[{
         author: {
           name: "BOTに権限がありません",
@@ -29,7 +29,7 @@ async function global(interaction){
       ephemeral:true
     });
 
-    if (!main[interaction.channel.id] && sub[interaction.guild.id]) return await interaction.reply({
+    if(!main[interaction.channel.id] && sub[interaction.guild.id]) return await interaction.reply({
       embeds:[{
         author: {
           name: "既に登録済みです",
@@ -41,7 +41,7 @@ async function global(interaction){
       ephemeral:true
     });
 
-    if(main[interaction.channel.id]){
+    if(main[interaction.channel.id]){//登録済み
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
         .then(()=>{
@@ -83,9 +83,11 @@ async function global(interaction){
         });
 
       delete require.cache[require.resolve("../../data/global/sub.json")];
-      return delete require.cache[require.resolve("../../data/global/main.json")];
+      delete require.cache[require.resolve("../../data/global/main.json")];
+      return;
     }
     
+    //登録なし
     interaction.deferReply()
     await interaction.channel.createWebhook("TakasumiBOT",{
       avatar: "https://taka.ml/images/bot.png",
@@ -97,7 +99,7 @@ async function global(interaction){
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
-        Object.keys(main).forEach(async (channels) => {
+        Object.keys(main).forEach(async (channels)=>{
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
             embeds:[{
@@ -109,7 +111,16 @@ async function global(interaction){
               description: `グローバルチャットに新しいサーバーが参加しました！\n みんなで挨拶してみましょう！\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
               timestamp: new Date()
             }]
-          }).catch(()=>{})
+          }).catch(()=>{
+            delete main[channels];
+            const guild = Object.keys(sub).filter((key)=> obj[key] == channels);
+            delete sub[guild];
+
+            fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+            fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+            delete require.cache[require.resolve("../../data/global/sub.json")];
+            delete require.cache[require.resolve("../../data/global/main.json")];
+          })
         });
         
         interaction.deleteReply()
@@ -127,9 +138,9 @@ async function global(interaction){
           ephemeral:true
         })
       });
+
       delete require.cache[require.resolve("../../data/global/main.json")];
       delete require.cache[require.resolve("../../data/global/sub.json")];
-
     return;
   }
 }

@@ -2,6 +2,7 @@ async function global(message){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
+  const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require('discord.js');
   if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id]) return;
 
@@ -63,7 +64,16 @@ async function global(message){
           },
           timestamp: new Date()
         }]      
-      }).catch(()=>{})
+      }).catch(()=>{
+        delete main[channels];
+        const guild = Object.keys(sub).filter((key)=> obj[key] == channels);
+        delete sub[guild];
+
+        fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+        fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+        delete require.cache[require.resolve("../../data/global/sub.json")];
+        delete require.cache[require.resolve("../../data/global/main.json")];
+      })
 
     });
     message.react("✅");
@@ -91,7 +101,16 @@ async function global(message){
           },
           timestamp: new Date()
         }]
-      }).catch(()=>{})
+      }).catch(()=>{
+        delete main[channels];
+        const guild = Object.keys(sub).filter((key)=> obj[key] == channels);
+        delete sub[guild];
+
+        fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+        fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+        delete require.cache[require.resolve("../../data/global/sub.json")];
+        delete require.cache[require.resolve("../../data/global/main.json")];
+      })
 
     });
     message.react("✅");
@@ -121,7 +140,16 @@ async function global(message){
           ],
           timestamp: new Date()
         }]
-      }).catch(()=>{})
+      }).catch(()=>{
+        delete main[channels];
+        const guild = Object.keys(sub).filter((key)=> obj[key] == channels);
+        delete sub[guild];
+
+        fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+        fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+        delete require.cache[require.resolve("../../data/global/sub.json")];
+        delete require.cache[require.resolve("../../data/global/main.json")];
+      })
 
     });
     message.react("✅");
