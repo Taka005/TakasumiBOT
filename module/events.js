@@ -131,7 +131,9 @@ function events(client){
         const draw = require("./slashcommands/draw");
         const kick = require("./slashcommands/kick");
         const ban = require("./slashcommands/ban");
+
         const global = require("./slashcommands/global");
+        const mute_user = requrie("./slashcommands/mute_user");
 
         help(interaction);
         support(interaction);
@@ -154,6 +156,7 @@ function events(client){
         kick(interaction);
         ban(interaction);
         global(interaction);
+        mute_user(interaction);
         return;
     });
 

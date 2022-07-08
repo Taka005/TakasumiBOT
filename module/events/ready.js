@@ -188,6 +188,15 @@ async function ready(client){
     const global = new SlashCommandBuilder()
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
+      .addSubcommand(subcommand =>
+        subcommand
+          .setName("mute_user")
+          .setDescription("指定されたユーザーをミュートします")
+          .addIntegerOption(option =>
+            option
+              .setName("id")
+              .setDescription("ミュート対象のユーザーID")
+              .setRequired(true)))
 
     const poll = new SlashCommandBuilder()
       .setName("poll")
