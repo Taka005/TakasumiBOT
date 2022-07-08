@@ -188,9 +188,7 @@ async function ready(client){
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
 
-    const mute = new SlashCommandBuilder()
-      .setName("mute")
-    
+ 
           
     const poll = new SlashCommandBuilder()
       .setName("poll")
@@ -271,7 +269,6 @@ async function ready(client){
             ban,
             avatar,
             global,
-            mute,
             poll
           ]
         },
