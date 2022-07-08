@@ -203,20 +203,6 @@ async function ready(client){
               .setName("reason")
               .setDescription("ミュートした理由")
               .setRequired(true)))
-      .addSubcommand(subcommand =>
-        subcommand
-          .setName("server")
-          .setDescription("サーバーをミュートします")
-          .addStringOption(option =>
-            option
-              .setName("id")
-              .setDescription("対象のユーザーID")
-              .setRequired(true))
-          .addStringOption(option =>
-            option
-              .setName("reason")
-              .setDescription("ミュートした理由")
-              .setRequired(true)))
 
     const poll = new SlashCommandBuilder()
       .setName("poll")
