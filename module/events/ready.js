@@ -193,11 +193,24 @@ async function ready(client){
 
     const mute = new SlashCommandBuilder()
       .setName("mute")
-      .setDescription("ミュートします")
       .addSubcommand(subcommand =>
         subcommand
           .setName("user")
           .setDescription("ユーザーをミュートします")
+          .addStringOption(option =>
+            option
+              .setName("id")
+              .setDescription("対象のユーザーID")
+              .setRequired(true))
+          .addStringOption(option =>
+            option
+              .setName("reason")
+              .setDescription("ミュートした理由")
+              .setRequired(true)))
+      .addSubcommand(subcommand =>
+        subcommand
+          .setName("server")
+          .setDescription("サーバーをミュートします")
           .addStringOption(option =>
             option
               .setName("id")

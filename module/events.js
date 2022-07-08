@@ -133,7 +133,7 @@ function events(client){
         const ban = require("./slashcommands/ban");
 
         const global = require("./slashcommands/global");
-        const mute_user = require("./slashcommands/mute_user");
+        const mute = require("./slashcommands/mute");
 
         help(interaction);
         support(interaction);
@@ -156,7 +156,7 @@ function events(client){
         kick(interaction);
         ban(interaction);
         global(interaction);
-        mute_user(interaction);
+        mute(interaction);
         return;
     });
 
