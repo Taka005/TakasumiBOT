@@ -2,7 +2,7 @@ async function mute_user(interaction){
   const config = require("../../config.json");
   const block_user = require("../../data/block_user.json");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "mute_user"){
+  if(interaction.commandName === "mute user"){
     const user = await interaction.options.getString("id");
     const reason = await interaction.options.getString("reason");
     if(!interaction.member.user.id == config.admin) return interaction.reply({
