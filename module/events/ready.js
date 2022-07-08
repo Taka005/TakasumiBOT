@@ -190,7 +190,6 @@ async function ready(client){
 
     const mute = new SlashCommandBuilder()
       .setName("mute")
-      .setDescription("ミュートします")
       .addSubcommand(subcommand =>
         subcommand
           .setName("user")
