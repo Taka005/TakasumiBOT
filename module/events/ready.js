@@ -141,6 +141,7 @@ async function ready(client){
 
     const user = new SlashCommandBuilder()
       .setName("user")
+      .setDescription("指定したユーザーの情報を表示します")
       .addStringOption(option =>
         option
           .setName("id")
@@ -188,7 +189,34 @@ async function ready(client){
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
 
- 
+    const mute = new SlashCommandBuilder()
+      .setName("mute")
+      .addSubcommand(subcommand =>
+        subcommand
+          .setName("user")
+          .setDescription("指定されたユーザーをミュートします")
+          .addStringOption(option =>
+            option
+              .setName("id")
+              .setDescription("対象のユーザーID")
+              .setRequired(true))
+          .addStringOption(option =>
+            option
+              .setName("reason")
+              .setDescription("ミュートした理由")))
+      .addSubcommand(subcommand =>
+        subcommand
+          .setName("server")
+          .setDescription("指定されたサーバーをミュートします")
+          .addStringOption(option =>
+            option
+              .setName("id")
+              .setDescription("対象のサーバーID")
+              .setRequired(true))
+          .addStringOption(option =>
+            option
+              .setName("reason")
+              .setDescription("ミュートした理由")))
           
     const poll = new SlashCommandBuilder()
       .setName("poll")
@@ -269,6 +297,7 @@ async function ready(client){
             ban,
             avatar,
             global,
+            mute,
             poll
           ]
         },
