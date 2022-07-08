@@ -1,5 +1,3 @@
-const mute_user = require("../slashcommands/mute_user");
-
 async function ready(client){
   const config = require("../../config.json");
   require("dotenv").config();
@@ -143,7 +141,6 @@ async function ready(client){
 
     const user = new SlashCommandBuilder()
       .setName("user")
-      .setDescription("ユーザー情報を表示します")
       .addStringOption(option =>
         option
           .setName("id")
