@@ -28,7 +28,7 @@ async function status(interaction,client){
         fields: [
         {
         name: "**Discord**",
-        value: `${client.ws.ping}ミリ秒\n\nグローバルチャット登録数\n${Object.keys(global).length} / ${client.guilds.cache.size} (${chat}%)`
+        value: `応答速度\n${client.ws.ping}ミリ秒\n\nグローバルチャット登録数\n${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)`
         },
         {
           name: "**システム情報**",
