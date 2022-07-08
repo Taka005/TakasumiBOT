@@ -1,3 +1,5 @@
+const mute_user = require("../slashcommands/mute_user");
+
 async function ready(client){
   const config = require("../../config.json");
   require("dotenv").config();
@@ -188,15 +190,20 @@ async function ready(client){
     const global = new SlashCommandBuilder()
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
-      .addSubcommand(subcommand =>
-        subcommand
-          .setName("mute_user")
-          .setDescription("指定されたユーザーをミュートします")
-          .addIntegerOption(option =>
-            option
-              .setName("id")
-              .setDescription("ミュート対象のユーザーID")
-              .setRequired(true)))
+
+    const mute = new SlashCommandBuilder()
+      .setName("mute_user")
+      .setDescription("ユーザーをミュートします")
+      .addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("対象のユーザーID")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("reason")
+          .setDescription("ミュートした理由")
+          .setRequired(true))
 
     const poll = new SlashCommandBuilder()
       .setName("poll")
@@ -277,6 +284,7 @@ async function ready(client){
             ban,
             avatar,
             global,
+            mute_user,
             poll
           ]
         },

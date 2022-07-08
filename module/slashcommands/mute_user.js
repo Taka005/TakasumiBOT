@@ -2,8 +2,9 @@ async function mute_user(interaction){
   const config = require("../../config.json");
   const block_user = require("../../data/block_user.json");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "global mute_user"){
-    const user = await interaction.options.getInteger("id");
+  if(interaction.commandName === "mute_user"){
+    const user = await interaction.options.getString("id");
+    const reason = await interaction.options.getString("reason");
     if(!interaction.member.user.id == config.admin) return interaction.reply({
       embeds:[{
         author: {
@@ -47,7 +48,7 @@ async function mute_user(interaction){
     }
     
     //登録なし
-    block_user[id] = id;
+    block_user[id] = reason;
     fs.writeFileSync("./data/block_user.json", JSON.stringify(block_user), "utf8");
     delete require.cache[require.resolve("../../data/block_user.json")];
 

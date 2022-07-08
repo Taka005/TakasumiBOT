@@ -133,7 +133,7 @@ function events(client){
         const ban = require("./slashcommands/ban");
 
         const global = require("./slashcommands/global");
-        const mute_user = requrie("./slashcommands/mute_user");
+        const mute_user = require("./slashcommands/mute_user");
 
         help(interaction);
         support(interaction);
