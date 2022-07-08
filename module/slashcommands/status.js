@@ -1,5 +1,6 @@
 async function status(interaction,client){
   const os = require('os');
+  const global = require("../../data/global/main.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "status"){
     const ramfree = Math.round(os.freemem / 1000000);
@@ -17,6 +18,8 @@ async function status(interaction,client){
         cpu += (1 - (system.times["idle"] / total))* 100;
     });
     
+    const chat = Object.keys(global).length/client.guilds.cache.size*100
+
     interaction.reply({
       embeds:[{
         title: "ステータス",
@@ -25,7 +28,7 @@ async function status(interaction,client){
         fields: [
         {
         name: "**Discord**",
-        value: `${client.ws.ping}ミリ秒`
+        value: `${client.ws.ping}ミリ秒\n\nグローバルチャット登録数\n${Object.keys(global).length} / ${client.guilds.cache.size} (${chat}%)`
         },
         {
           name: "**システム情報**",
