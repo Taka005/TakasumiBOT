@@ -7,9 +7,10 @@ async function global(message){
   const fs = require("fs");
   if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id]) return;
 
-  if(mute_server[`${message.guild.id}`]){
+  if(mute_server[message.guild.id]){
     message.channel.delete()
-      .catch(()=>{message.reply({
+      .catch(()=>{
+        message.reply({
           embeds:[{
             color: "RED",
             description: "申し訳御座いませんが、このサーバーは\nブラックリストに登録されているため、送信できません",
@@ -19,7 +20,7 @@ async function global(message){
     return;
   }
 
-  if(mute_user[`${message.author.id}`]){
+  if(mute_user[message.author.id]){
     return message.reply({
       embeds:[{
         color: "RED",
@@ -37,7 +38,7 @@ async function global(message){
     })
   }
 
-  if(message.content.match("@everyone") ||message.content.match("@here")){
+  if(message.content.match("@everyone") || message.content.match("@here")){
     return message.reply({
       embeds:[{
         color: "RED",
@@ -47,7 +48,7 @@ async function global(message){
   }
 
   if(!message.attachments.first()){
-    Object.keys(main).forEach(async (channels) => {
+    Object.keys(main).forEach(async (channels)=>{
       if(channels == message.channel.id) return;
 
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
@@ -81,7 +82,7 @@ async function global(message){
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
     const attachment = message.attachments.map(attachment => attachment.url);
-    Object.keys(main).forEach(async (channels) => {
+    Object.keys(main).forEach(async (channels)=>{
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
 
@@ -118,7 +119,7 @@ async function global(message){
     return;
   }else{
     const attachment = message.attachments.map(attachment => attachment.url);
-    Object.keys(main).forEach(async (channels) => {
+    Object.keys(main).forEach(async (channels)=>{
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({//添付ファイルあり(画像以外)

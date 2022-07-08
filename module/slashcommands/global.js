@@ -17,7 +17,7 @@ async function global(interaction){
       ephemeral:true
     });
 
-    if(!interaction.channel.permissionsFor(interaction.guild.me).has("MANAGE_WEBHOOKS")) return await interaction.reply({
+    if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_WEBHOOKS")) return await interaction.reply({
       embeds:[{
         author: {
           name: "BOTに権限がありません",
@@ -47,7 +47,6 @@ async function global(interaction){
         .then(()=>{
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
-
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
@@ -65,7 +64,6 @@ async function global(interaction){
         .catch(()=>{
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
-
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
@@ -95,7 +93,6 @@ async function global(interaction){
       .then(async (webhook) =>{
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
         sub[interaction.guild.id] = interaction.channel.id;
-
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
