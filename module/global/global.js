@@ -56,7 +56,7 @@ async function global(message){
         embeds:[{
           color: message.member.displayHexColor,
           author: {
-            name: message.author.tag,
+            name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: message.content,
@@ -90,7 +90,7 @@ async function global(message){
         embeds:[{
           color: message.member.displayHexColor,
           author: {
-            name: message.author.tag,
+            name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: message.content,
@@ -126,7 +126,7 @@ async function global(message){
         embeds:[{
           color: message.member.displayHexColor,
           author: {
-            name: message.author.tag,
+            name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: message.content,

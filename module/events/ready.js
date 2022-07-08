@@ -193,6 +193,7 @@ async function ready(client){
       .addSubcommand(subcommand =>
         subcommand
           .setName("user")
+          .setDescription("指定されたユーザをミュートする")
           .addStringOption(option =>
             option
               .setName("id")
@@ -203,7 +204,21 @@ async function ready(client){
               .setName("reason")
               .setDescription("ミュートした理由")
               .setRequired(true)))
-
+      .addSubcommand(subcommand =>
+        subcommand
+          .setName("server")
+          .setDescription("指定されたサーバーをミュートする")
+          .addStringOption(option =>
+            option
+              .setName("id")
+              .setDescription("対象のサーバーID")
+              .setRequired(true))
+          .addStringOption(option =>
+            option
+              .setName("reason")
+              .setDescription("ミュートした理由")
+              .setRequired(true)))
+          
     const poll = new SlashCommandBuilder()
       .setName("poll")
       .setDescription("アンケート機能です")
