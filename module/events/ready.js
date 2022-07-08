@@ -190,11 +190,10 @@ async function ready(client){
 
     const mute = new SlashCommandBuilder()
       .setName("mute")
-      .setDescription("ミュートの管理をします")
       .addSubcommand(subcommand =>
         subcommand
           .setName("user")
-          .setDescription("指定されたユーザをミュートする")
+          .setDescription("指定されたユーザーをミュートします")
           .addStringOption(option =>
             option
               .setName("id")
@@ -208,7 +207,7 @@ async function ready(client){
       .addSubcommand(subcommand =>
         subcommand
           .setName("server")
-          .setDescription("指定されたサーバーをミュートする")
+          .setDescription("指定されたサーバーをミュートします")
           .addStringOption(option =>
             option
               .setName("id")

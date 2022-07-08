@@ -8,34 +8,30 @@ async function global(message){
   if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id]) return;
 
   if(mute_server[message.guild.id]){
-    message.channel.delete()
-      .catch(()=>{
-        message.reply({
-          embeds:[{
-            color: "RED",
-            description: "申し訳御座いませんが、このサーバーは\nブラックリストに登録されているため、送信できません",
-          }]
-        })
-      })
-    return;
+    return message.reply({
+      embeds:[{
+        color: "RED",
+        description: `申し訳御座いませんが、このサーバーはブラックリストに\n登録されているため、送信できません[理由:${mute_server[message.guild.id]}]`,
+      }]
+    });
   }
 
   if(mute_user[message.author.id]){
     return message.reply({
       embeds:[{
         color: "RED",
-        description: "申し訳御座いませんが、あなたは\nブラックリストに登録されているため、送信できません",
+        description: `申し訳御座いませんが、あなたはブラックリストに\n登録されているため、送信できません[理由:${mute_user[message.author.id]}]`,
       }]
-    })
+    });
   }
 
-  if(message.content.match("discord.com/invite") ||message.content.match("discord.gg")){
+  if(message.content.match("discord.com/invite") || message.content.match("discord.gg")){
     return message.reply({
       embeds:[{
         color: "RED",
         description: "申し訳御座いませんが、グローバルチャットで\n招待リンクを送信することは禁止されています",
       }]
-    })
+    });
   }
 
   if(message.content.match("@everyone") || message.content.match("@here")){
