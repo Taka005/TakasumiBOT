@@ -6,7 +6,7 @@ async function mute(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "mute"){
     const user = await interaction.options.getString("id");
-    const reason = await interaction.options.getString("reason");
+    const reason = await interaction.options.getString("reason") || "なし"
     if(!interaction.member.user.id == config.admin) return interaction.reply({
       embeds:[{
         author: {

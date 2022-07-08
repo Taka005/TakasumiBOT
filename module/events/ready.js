@@ -190,34 +190,7 @@ async function ready(client){
 
     const mute = new SlashCommandBuilder()
       .setName("mute")
-      .addSubcommand(subcommand =>
-        subcommand
-          .setName("user")
-          .setDescription("指定されたユーザーをミュートします")
-          .addStringOption(option =>
-            option
-              .setName("id")
-              .setDescription("対象のユーザーID")
-              .setRequired(true))
-          .addStringOption(option =>
-            option
-              .setName("reason")
-              .setDescription("ミュートした理由")
-              .setRequired(true)))
-      .addSubcommand(subcommand =>
-        subcommand
-          .setName("server")
-          .setDescription("指定されたサーバーをミュートします")
-          .addStringOption(option =>
-            option
-              .setName("id")
-              .setDescription("対象のサーバーID")
-              .setRequired(true))
-          .addStringOption(option =>
-            option
-              .setName("reason")
-              .setDescription("ミュートした理由")
-              .setRequired(true)))
+    
           
     const poll = new SlashCommandBuilder()
       .setName("poll")
