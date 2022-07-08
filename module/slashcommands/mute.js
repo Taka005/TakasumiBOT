@@ -2,6 +2,7 @@ async function mute(interaction){
   const config = require("../../config.json");
   const block_user = require("../../data/block_user.json");
   const block_server = require("../../data/block_server.json");
+  const fs = require("fs");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "mute"){
     const user = await interaction.options.getString("id");
