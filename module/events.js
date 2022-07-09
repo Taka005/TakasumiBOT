@@ -41,53 +41,25 @@ function events(client){
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
  
         //コマンド
-        const say = require("./commands/say");
-        const avatar = require("./commands/avater");
         const timer = require("./commands/timer");
-        const del = require("./commands/del");
-        const draw = require("./commands/draw");
         const cpu = require("./commands/cpu");
         const url = require("./commands/url");
         const hello = require("./commands/hello");
-        const poll = require("./commands/poll");
-        const status = require("./commands/status");
-        const user = require("./commands/user");
-        const server = require("./commands/server");
         const note = require("./commands/note");
         const exec = require("./commands/exec");
         const soccer = require("./commands/soccer");
-        const echo = require("./commands/echo");
-        const auth = require("./commands/auth");
-        const panel = require("./commands/panel");
         const dm = require("./commands/dm");
-        const gif = require("./commands/gif");
-        const ticket = require("./commands/ticket");
         const quote = require("./commands/quote");
-        const output = require("./commands/output");
 
-        say(message)
-        avatar(message,client)
         timer(message)
-        del(message)
-        draw(message)
         cpu(message)
         url(message)
         hello(message)
-        poll(message)
-        status(message,client)
-        user(message,client)
-        server(message)
         note(message)
         exec(message,client)
         soccer(message)
-        echo(message,client)
-        auth(message)
-        panel(message)
         dm(message,client)
-        gif(message)
-        ticket(message)
         quote(message)
-        output(message,client)
 
       return;
     });
