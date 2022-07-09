@@ -45,8 +45,6 @@ async function global(interaction){
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
         .then(async()=>{
-          interaction.channel.setTopic("")
-            .catch(()=>{})
 
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
@@ -65,8 +63,6 @@ async function global(interaction){
           });
         })
         .catch(async()=>{
-          interaction.channel.setTopic("")
-            .catch(()=>{})
 
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
@@ -85,6 +81,9 @@ async function global(interaction){
             }]
           })
         });
+
+      interaction.channel.setTopic("")
+        .catch(()=>{})
 
       delete require.cache[require.resolve("../../data/global/sub.json")];
       delete require.cache[require.resolve("../../data/global/main.json")];
@@ -143,7 +142,7 @@ async function global(interaction){
         })
       })
       .catch(async()=>{
-        await interaction.forEach({
+        await interaction.followUp({
           embeds:[{
             author: {
               name: "作成に失敗しました",
