@@ -29,10 +29,7 @@ async function global(message,client){
     .replace(/@everyone|@here/g,"[[メンション]](https://taka.ml/bot/takasumi.html)")
     .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンチ|死んどけ/g,"[[NG]](https://taka.ml/bot/takasumi.html)")
     .replace(/(https?:\/\/)?(www.)?(discord.(gg|io|me|li)|discordapp.com\/invite)\/.+\w/g,"[[招待リンク]](https://taka.ml/support)")
-
-  const user = await client.users.fetch(`${message.author.id}`)
-    .catch(()=>{})
-
+    
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
       if(channels == message.channel.id) return;

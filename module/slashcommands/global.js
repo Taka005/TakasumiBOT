@@ -61,13 +61,13 @@ async function global(interaction){
             }]
           });
         })
-        .catch(()=>{
+        .catch(async()=>{
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
-          interaction.reply({
+          await interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
               author: {
@@ -123,25 +123,25 @@ async function global(interaction){
 
         await interaction.followUp({
           embeds:[{
-            color: "WHITE",
+            color: "GREEN",
             author: {
               name: `${interaction.guild.name}`,
-              icon_url: interaction.guild.iconURL()
+              icon_url: "https://taka.ml/images/success.png"
             },
             description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
             timestamp: new Date()
           }]
         })
       })
-      .catch(async(error)=>{
-        await interaction.followUp({
+      .catch(async()=>{
+        await interaction.editReply({
           embeds:[{
             author: {
               name: "作成に失敗しました",
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: `BOTの権限が不足しているか\n既にwebhookの作成回数が上限に達しています\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+            description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
           }],
           ephemeral:true
         })
