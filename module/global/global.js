@@ -34,14 +34,9 @@ async function global(message){
     });
   }
 
-  if(message.content.match("@everyone") || message.content.match("@here")){
-    return message.reply({
-      embeds:[{
-        color: "RED",
-        description: "申し訳御座いませんが、グローバルチャットで\nメンションをを送信することは控えてください",
-      }]
-    })
-  }
+  const content = message.content
+    .replace(/@eveyone|@here/g,"[メンション](https://taka.ml/bot/takasumi.html)")
+    .replace(/死ね|カス|クズ|ゴミ|黙れ|消えろ|うんち|ウンチ|死んどけ/g,"[NG](https://taka.ml/bot/takasumi.html)")
 
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
@@ -55,7 +50,7 @@ async function global(message){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: message.content,
+          description: content,
           footer: {
             text:`${message.guild.name}<${message.guild.id}>`,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -74,7 +69,8 @@ async function global(message){
       })
 
     });
-    message.react("✅");
+    message.react("✅")
+      .catch(()=>{});
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
     const attachment = message.attachments.map(attachment => attachment.url);
@@ -89,7 +85,7 @@ async function global(message){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: message.content,
+          description: content,
           image: {
             url: attachment[0]
           },
@@ -111,7 +107,8 @@ async function global(message){
       })
 
     });
-    message.react("✅");
+    message.react("✅")
+      .catch(()=>{});
     return;
   }else{
     const attachment = message.attachments.map(attachment => attachment.url);
@@ -125,7 +122,7 @@ async function global(message){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: message.content,
+          description: content,
           footer: {
             text:`${message.guild.name}<${message.guild.id}>` ,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -150,7 +147,8 @@ async function global(message){
       })
 
     });
-    message.react("✅");
+    message.react("✅")
+      .catch(()=>{});
     return;
   }
 }
