@@ -44,11 +44,11 @@ async function global(message){
   }
 
   if(!message.attachments.first()){
-    Object.keys(main).forEach(async (channels)=>{
+    Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
       if(channels == message.channel.id) return;
 
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
-      await webhooks.send({//添付ファイルなし
+      await webhooks.send({
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -78,11 +78,11 @@ async function global(message){
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
     const attachment = message.attachments.map(attachment => attachment.url);
-    Object.keys(main).forEach(async (channels)=>{
+    Object.keys(main).forEach(async (channels)=>{//添付ファイルあり(画像)
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
 
-      await webhooks.send({//添付ファイルあり(画像)
+      await webhooks.send({
         embeds:[{
           color: message.member.displayHexColor,
           author: {
@@ -115,10 +115,10 @@ async function global(message){
     return;
   }else{
     const attachment = message.attachments.map(attachment => attachment.url);
-    Object.keys(main).forEach(async (channels)=>{
+    Object.keys(main).forEach(async (channels)=>{//添付ファイルあり(画像以外)
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
-      await webhooks.send({//添付ファイルあり(画像以外)
+      await webhooks.send({
         embeds:[{
           color: message.member.displayHexColor,
           author: {

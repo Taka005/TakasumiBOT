@@ -103,5 +103,4 @@ dist
 # TernJS port file
 .tern-port
 cmd.exe - ショートカット.lnk
-log.txt
 note/script.js

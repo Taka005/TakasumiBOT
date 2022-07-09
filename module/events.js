@@ -48,7 +48,6 @@ function events(client){
         const note = require("./commands/note");
         const exec = require("./commands/exec");
         const soccer = require("./commands/soccer");
-        const dm = require("./commands/dm");
         const quote = require("./commands/quote");
 
         timer(message)
@@ -58,7 +57,6 @@ function events(client){
         note(message)
         exec(message,client)
         soccer(message)
-        dm(message,client)
         quote(message)
 
       return;
@@ -103,6 +101,7 @@ function events(client){
         const draw = require("./slashcommands/draw");
         const kick = require("./slashcommands/kick");
         const ban = require("./slashcommands/ban");
+        const dm = require("./slashcommands/dm");
 
         const global = require("./slashcommands/global");
         const mute = require("./slashcommands/mute");
@@ -129,6 +128,7 @@ function events(client){
         ban(interaction);
         global(interaction);
         mute(interaction);
+        dm(interaction,client);
         return;
     });
 

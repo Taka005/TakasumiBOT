@@ -185,6 +185,20 @@ async function ready(client){
           .setName("id")
           .setDescription("ユーザーID又はメンション"))
 
+    const dm = new SlashCommandBuilder()
+      .setName("dm")
+      .setDescription("ユーザーにDMを送信します")
+      .addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("ユーザーID又はメンション")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("text")
+          .setDescription("送信するメッセージ")
+          .setRequired(true))
+
     const global = new SlashCommandBuilder()
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
@@ -297,6 +311,7 @@ async function ready(client){
             kick,
             ban,
             avatar,
+            dm,
             global,
             mute,
             poll
