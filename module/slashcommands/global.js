@@ -96,7 +96,7 @@ async function global(interaction){
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
-        Object.keys(main).forEach(async (channels)=>{
+        Object.keys(main).forEach(async(channels)=>{
           if(channels == interaction.channel.id) return;
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
@@ -121,7 +121,7 @@ async function global(interaction){
           })
         });
 
-        await interaction.editReply({
+        await interaction.followUp({
           embeds:[{
             color: "WHITE",
             author: {
@@ -134,14 +134,14 @@ async function global(interaction){
         })
       })
       .catch(async(error)=>{
-        await interaction.reply({
+        await interaction.followUp({
           embeds:[{
             author: {
               name: "作成に失敗しました",
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+            description: `BOTの権限が不足しているか\n既にwebhookの作成回数が上限に達しています\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
           }],
           ephemeral:true
         })
