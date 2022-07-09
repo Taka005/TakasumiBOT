@@ -122,7 +122,7 @@ async function global(interaction){
         
         interaction.deleteReply()
       })
-      .catch(()=>{
+      .catch((error)=>{
         interaction.reply({
           embeds:[{
             author: {
