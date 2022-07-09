@@ -44,13 +44,13 @@ async function global(interaction){
     if(main[interaction.channel.id]){//登録済み
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
-        .then(()=>{
+        .then(async()=>{
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
-          interaction.reply({
+          await interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
               author: {
@@ -86,7 +86,7 @@ async function global(interaction){
     }
     
     //登録なし
-    interaction.deferReply()
+    await interaction.deferReply()
     await interaction.channel.createWebhook("TakasumiBOT",{
       avatar: "https://taka.ml/images/bot.png",
     })
@@ -106,7 +106,7 @@ async function global(interaction){
                 name: `${interaction.guild.name}<${interaction.guild.id}>`,
                 icon_url: interaction.guild.iconURL()
               },
-              description: `グローバルチャットに新しいサーバーが参加しました！\n みんなで挨拶してみましょう！\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
+              description: `グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
               timestamp: new Date()
             }]
           }).catch(()=>{
@@ -121,21 +121,20 @@ async function global(interaction){
           })
         });
 
-        interaction.followUp({
+        await interaction.editReply({
           embeds:[{
             color: "WHITE",
             author: {
               name: `${interaction.guild.name}`,
               icon_url: interaction.guild.iconURL()
             },
-            description: `グローバルチャットに新しいサーバーが参加しました！\n みんなで挨拶してみましょう！\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
+            description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
             timestamp: new Date()
           }]
         })
-        
       })
-      .catch((error)=>{
-        interaction.reply({
+      .catch(async(error)=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "作成に失敗しました",
