@@ -97,7 +97,7 @@ async function global(interaction){
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
         Object.keys(main).forEach(async (channels)=>{
-          if(channels == message.channel.id) return;
+          if(channels == interaction.channel.id) return;
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
             embeds:[{
@@ -125,7 +125,7 @@ async function global(interaction){
           embeds:[{
             color: "WHITE",
             author: {
-              name: `${interaction.guild.name}<${interaction.guild.id}>`,
+              name: `${interaction.guild.name}`,
               icon_url: interaction.guild.iconURL()
             },
             description: `グローバルチャットに新しいサーバーが参加しました！\n みんなで挨拶してみましょう！\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
