@@ -35,8 +35,8 @@ async function global(message){
   }
 
   const content = message.content
-    .replace(/@eveyone|@here/g,"[メンション](https://taka.ml/bot/takasumi.html)")
-    .replace(/死ね|カス|クズ|ゴミ|黙れ|消えろ|うんち|ウンチ|死んどけ/g,"[NG](https://taka.ml/bot/takasumi.html)")
+    .replace(/@eveyone|@here/g,"[[メンション](https://taka.ml/bot/takasumi.html)]")
+    .replace(/死ね|カス|クズ|ゴミ|黙れ|消えろ|うんち|ウンチ|死んどけ/g,"[[NG](https://taka.ml/bot/takasumi.html)]")
 
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
