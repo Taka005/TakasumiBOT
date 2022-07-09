@@ -1,4 +1,4 @@
-async function global(message){
+async function global(message,client){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
@@ -30,6 +30,9 @@ async function global(message){
     .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンチ|死んどけ/g,"[[NG]](https://taka.ml/bot/takasumi.html)")
     .replace(/(https?:\/\/)?(www.)?(discord.(gg|io|me|li)|discordapp.com\/invite)\/.+\w/g,"[[招待リンク]](https://taka.ml/support)")
 
+  const user = await client.users.fetch(`${message.author.id}`)
+    .catch(()=>{})
+
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
       if(channels == message.channel.id) return;
@@ -37,7 +40,7 @@ async function global(message){
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
         embeds:[{
-          color: message.member.displayHexColor,
+          color: user.accentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -72,7 +75,7 @@ async function global(message){
 
       await webhooks.send({
         embeds:[{
-          color: message.member.displayHexColor,
+          color: user.accentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -109,7 +112,7 @@ async function global(message){
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
         embeds:[{
-          color: message.member.displayHexColor,
+          color: user.accentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
