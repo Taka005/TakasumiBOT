@@ -7,7 +7,7 @@ async function mute(interaction){
   if(interaction.commandName === "mute"){
     const user = await interaction.options.getString("id");
     const reason = await interaction.options.getString("reason") || "なし"
-    if(!interaction.member.user.id == config.admin) return interaction.reply({
+    if(interaction.member.user.id !== config.admin) return interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
