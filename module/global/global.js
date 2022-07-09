@@ -27,7 +27,7 @@ async function global(message,client){
 
   const content = message.content
     .replace(/@everyone|@here/g,"[[メンション]](https://taka.ml/bot/takasumi.html)")
-    .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンチ|死んどけ/g,"[[NG]](https://taka.ml/bot/takasumi.html)")
+    .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ/g,"[[NG]](https://taka.ml/bot/takasumi.html)")
     .replace(/(https?:\/\/)?(www.)?(discord.(gg|io|me|li)|discordapp.com\/invite)\/.+\w/g,"[[招待リンク]](https://taka.ml/support)")
     
   if(!message.attachments.first()){
