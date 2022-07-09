@@ -45,6 +45,9 @@ async function global(interaction){
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
         .then(async()=>{
+          interaction.channel.setTopic("")
+            .catch(()=>{})
+
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -62,6 +65,9 @@ async function global(interaction){
           });
         })
         .catch(async()=>{
+          interaction.channel.setTopic("")
+            .catch(()=>{})
+
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -91,6 +97,9 @@ async function global(interaction){
       avatar: "https://taka.ml/images/bot.png",
     })
       .then(async (webhook) =>{
+        interaction.channel.setTopic("ここはTakasumiグローバルチャットです\n\nチャットを利用する前に\nhttps://taka.ml/bot/takasumi.html をご確認ください")
+            .catch(()=>{})
+
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
         sub[interaction.guild.id] = interaction.channel.id;
         fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -134,16 +143,15 @@ async function global(interaction){
         })
       })
       .catch(async()=>{
-        await interaction.editReply({
+        await interaction.forEach({
           embeds:[{
             author: {
               name: "作成に失敗しました",
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
-          }],
-          ephemeral:true
+            description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`
+          }]
         })
       });
 
