@@ -40,7 +40,7 @@ async function global(message,client){
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
         embeds:[{
-          color: user.accentColor,
+          color: user.hexAccentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -75,7 +75,7 @@ async function global(message,client){
 
       await webhooks.send({
         embeds:[{
-          color: user.accentColor,
+          color: user.hexAccentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -112,7 +112,7 @@ async function global(message,client){
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
         embeds:[{
-          color: user.accentColor,
+          color: user.hexAccentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
