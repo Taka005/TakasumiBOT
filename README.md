@@ -7,15 +7,14 @@
 - npm install を実行
 - npm start を実行
 # configについて
-- admin:自分のユーザーID
+- admin:ユーザーID
 - prefix:コマンドの先頭になる文字
 - servername:使うサーバーの名前
 - serverid:使うサーバーのID
-- bump:bumpの時間になった時のメッセージ
+- bump:bumpの時間になった時のメンション
 - hello_message:ようこそメッセージ
 - enter_channel:ようこそメッセージが送信されるチャンネルID
 - member_channel:みんなに参加をしらせるチャンネルID
-- ad_channel:サーバーの宣伝チャンネルのID
 - member_mention:みんなに参加をしらせるロールID
 - version:botのバージョン
 # development
