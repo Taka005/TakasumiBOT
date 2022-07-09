@@ -25,15 +25,6 @@ async function global(message){
     });
   }
 
-  if(message.content.match("discord.com/invite") || message.content.match("discord.gg")){
-    return message.reply({
-      embeds:[{
-        color: "RED",
-        description: "申し訳御座いませんが、グローバルチャットで\n招待リンクを送信することは禁止されています",
-      }]
-    });
-  }
-
   const content = message.content
     .replace(/@everyone|@here/g,"[[メンション]](https://taka.ml/bot/takasumi.html)")
     .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンチ|死んどけ/g,"[[NG]](https://taka.ml/bot/takasumi.html)")
