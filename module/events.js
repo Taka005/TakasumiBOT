@@ -18,7 +18,7 @@ function events(client){
         const global = require("./global/global");
         const connect = require("./global/connect");
         const get = require("./global/get");
-        global(message)
+        global(message,client)
         connect(message,client)
         get(message,client)
         

@@ -2,7 +2,7 @@ async function global(interaction){
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const fs = require("fs");
-  const { WebhookClient } = require('discord.js');
+  const { WebhookClient } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
     if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
