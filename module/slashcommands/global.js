@@ -119,8 +119,6 @@ async function global(interaction){
             delete require.cache[require.resolve("../../data/global/main.json")];
           })
         });
-        
-        interaction.deleteReply()
       })
       .catch((error)=>{
         interaction.reply({
@@ -138,6 +136,7 @@ async function global(interaction){
 
       delete require.cache[require.resolve("../../data/global/main.json")];
       delete require.cache[require.resolve("../../data/global/sub.json")];
+      interaction.deleteReply()
     return;
   }
 }
