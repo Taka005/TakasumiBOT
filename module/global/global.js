@@ -7,7 +7,7 @@ async function global(message,client){
   const fs = require("fs");
   if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id]) return;
 
-  if(mute_server[message.guild.id]|| mute_user[message.author.id] || message.content.length > 150){
+  if(mute_server[message.guild.id]|| mute_user[message.author.id] || message.content.length > 300){
     return message.react("❌")
       .catch(()=>{}) 
   }
