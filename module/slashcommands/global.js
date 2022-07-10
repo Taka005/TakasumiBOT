@@ -8,13 +8,13 @@ async function global(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
 
-    if(mute_server[interaction.guild.id]|| mute_user[interaction.member.user.id] && !sub[interaction.guild.id]) return await interaction.reply({
+    if(mute_server[interaction.guild.id] && !sub[interaction.guild.id] || mute_user[interaction.member.user.id] && !sub[interaction.guild.id]) return await interaction.reply({
       embeds:[{
         author: {
           name: "登録のできません",
-          icon_url: "https://taka.ml/images/error.png",
+          icon_url: "https://taka.ml/images/error.jpg",
         },
-        description: "このサーバーもしくは、あなたはブラックリストに登録されているため\nグローバルチャットの登録、利用はできません",
+        description: "このサーバーもしくは、あなたはブラックリストに登録されているため、登録、利用はできません",
         color: "RED"
       }],
       ephemeral:true
