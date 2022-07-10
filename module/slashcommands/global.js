@@ -1,10 +1,25 @@
 async function global(interaction){
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
+  const mute_user = require("../../data/block_user.json");
+  const mute_server = require("../../data/block_server.json");
   const fs = require("fs");
   const { WebhookClient } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
+
+    if(mute_server[interaction.guild.id]|| mute_user[interaction.member.user.id]) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "登録のできません",
+          icon_url: "https://taka.ml/images/error.png",
+        },
+        description: "このサーバーもしくは、あなたはブラックリストに登録されているため\nグローバルチャットの登録、利用はできません",
+        color: "RED"
+      }],
+      ephemeral:true
+    });
+
     if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
       embeds:[{
         author: {
