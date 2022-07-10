@@ -31,7 +31,7 @@ async function global(message,client){
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
     
 
-  if(!message.reference?.webhookId){
+  if(!(await message.fetchReference())?.webhookId){
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
         if(channels == message.channel.id) return;
@@ -145,7 +145,7 @@ async function global(message,client){
       return;
     }
   }else{//返信モード
-    const id = message.reference.webhookId
+    const id = (await message.fetchReference())?.webhookId
     const reply = await webhookClient.fetchMessage(`${id}`);
 
     if(!message.attachments.first()){
