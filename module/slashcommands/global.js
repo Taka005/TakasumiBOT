@@ -8,7 +8,7 @@ async function global(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
 
-    if(mute_server[interaction.guild.id]|| mute_user[interaction.member.user.id]) return await interaction.reply({
+    if(mute_server[interaction.guild.id]|| mute_user[interaction.member.user.id] && !sub[interaction.guild.id]) return await interaction.reply({
       embeds:[{
         author: {
           name: "登録のできません",
