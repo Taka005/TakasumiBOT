@@ -145,8 +145,9 @@ async function global(message,client){
       return;
     }
   }else{//返信モード
+    const wh = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
     const id = (await message.fetchReference()).webhookId
-    const reply = await message.channel.fetchWebhooks(`${id}`);
+    const reply = await wh.fetchMessage(`${id}`);
 
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
