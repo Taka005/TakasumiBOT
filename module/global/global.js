@@ -46,14 +46,8 @@ async function global(message,client){
         delete require.cache[require.resolve("../../data/global/main.json")];
       })
     })
-    .then(()=>{
-      message.react("✅")
-        .catch(()=>{});
-    })
-    .catch(()=>{
-      message.react("❌")
-        .catch(()=>{});      
-    })
+    message.react("✅")
+      .catch(()=>{});
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){//添付ファイルあり(画像)
     const attachment = message.attachments.map(attachment => attachment);
@@ -93,14 +87,8 @@ async function global(message,client){
         delete require.cache[require.resolve("../../data/global/main.json")];
       })
     })
-    .then(()=>{
-      message.react("✅")
-        .catch(()=>{});
-    })
-    .catch(()=>{
-      message.react("❌")
-        .catch(()=>{});      
-    })
+    message.react("✅")
+      .catch(()=>{});
     return;
   }else{//添付ファイルあり(画像以外)
     const attachment = message.attachments.map(attachment => attachment);
@@ -138,14 +126,8 @@ async function global(message,client){
         delete require.cache[require.resolve("../../data/global/main.json")];
       })
     })
-    .then(()=>{
-      message.react("✅")
-        .catch(()=>{});
-    })
-    .catch(()=>{
-      message.react("❌")
-        .catch(()=>{});      
-    })
+    message.react("✅")
+      .catch(()=>{});
     return;
   }
 }
