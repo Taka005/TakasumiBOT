@@ -4,7 +4,7 @@ async function news(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "news"){
     const news_response = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.NEWS_KEY}`);
-    const news_data = await gif_response.json();
+    const news_data = await news_response.json();
     interaction.reply({
       embeds:[{
         author: {
