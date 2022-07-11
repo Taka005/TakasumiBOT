@@ -8,22 +8,22 @@ async function news(interaction){
     const news_data = await news_response.json();
 
     for(let i=0;i<news_data.totalResults;i++){
-      setTimeout(async()=>{
+      await setTimeout(async()=>{
         await interaction.editReply({
           embeds:[{
-            title: news_data.articles[i].title || null,
-            url: news_data.articles[i].url || null,
+            title: news_data.articles[i].title,
+            url: news_data.articles[i].url,
             color: "WHITE",
-            description: news_data.articles[i].description || null,
+            description: news_data.articles[i].description ,
             image: {
-              url: news_data.articles[i].urlToImage || null
+              url: news_data.articles[i].urlToImage
             },
             footer: {
-              text: `${news_data.articles[i].publishedAt || null} | ${news_data.articles[i].source.name || null}`
+              text: `${news_data.articles[i].publishedAt} | ${news_data.articles[i].source.name}`
             },
           }]
-        });
-      },5000);
+        }).catch(()=>{})
+      },50000);
     }
     return;
   }
