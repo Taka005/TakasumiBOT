@@ -75,7 +75,7 @@ async function global(message,client){
             timestamp: new Date()
           },
           {
-            title: argument[0].name,
+            title: attachment[0].name,
             image: {
               url: attachment[0].url
             }
