@@ -8,22 +8,24 @@ async function news(interaction){
     const news_data = await news_response.json();
 
     for(let i=0;i<news_data.totalResults;i++){
+      await interaction.editReply({
+        embeds:[{
+          title: news_data.articles[i].title,
+          url: news_data.articles[i].url,
+          color: "WHITE",
+          description: news_data.articles[i].description ,
+          image: {
+            url: news_data.articles[i].urlToImage
+          },
+          footer: {
+            text: `${news_data.articles[i].publishedAt} | ${news_data.articles[i].source.name}`
+          },
+        }]
+      }).catch(()=>{})
+
       await setTimeout(async()=>{
-        await interaction.editReply({
-          embeds:[{
-            title: news_data.articles[i].title,
-            url: news_data.articles[i].url,
-            color: "WHITE",
-            description: news_data.articles[i].description ,
-            image: {
-              url: news_data.articles[i].urlToImage
-            },
-            footer: {
-              text: `${news_data.articles[i].publishedAt} | ${news_data.articles[i].source.name}`
-            },
-          }]
-        }).catch(()=>{})
-      },50000);
+        return
+      },4000);
     }
     return;
   }
