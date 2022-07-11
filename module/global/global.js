@@ -51,28 +51,36 @@ async function global(message,client){
       .catch(()=>{});
     return;
   }else if(message.attachments.first().height && message.attachments.first().width){
-    const attachment = message.attachments.map(attachment => attachment.url);
+    const attachment = message.attachments.map(attachment => attachment);
     Object.keys(main).forEach(async (channels)=>{//添付ファイルあり(画像)
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
 
       await webhooks.send({
-        embeds:[{
-          color: message.member.displayHexColor,
-          author: {
-            name: `${message.author.tag}(${message.author.id})`,
-            icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+        embeds:[
+          {
+            color: message.member.displayHexColor,
+            author: {
+              name: `${message.author.tag}(${message.author.id})`,
+              icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+            },
+            description: content,
+            image: {
+              url: attachment[0]
+            },
+            footer: {
+              text: `${message.guild.name}<${message.guild.id}>`,
+              icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+            },
+            timestamp: new Date()
           },
-          description: content,
-          image: {
-            url: attachment[0]
-          },
-          footer: {
-            text: `${message.guild.name}<${message.guild.id}>`,
-            icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
-          },
-          timestamp: new Date()
-        }]
+          {
+            title: argument[0].name,
+            image: {
+              url: attachment[0].url
+            }
+          }
+        ]
       }).catch(()=>{
         delete main[channels];
         const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
