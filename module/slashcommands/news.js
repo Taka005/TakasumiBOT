@@ -23,7 +23,7 @@ async function news(interaction){
         }]
       }).catch(()=>{})
 
-      await setTimeout(async()=>{
+      await setTimeout(()=>{
         return
       },4000);
     }
