@@ -8,23 +8,27 @@ async function news(interaction){
     const news_response = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.NEWS_KEY}`);
     const news_data = await news_response.json();
 
-    for(let i=0;i<news_data.totalResults+1;i++){
-      await interaction.editReply({
-        embeds:[{
-          title: news_data.articles[i].title,
-          url: news_data.articles[i].url,
-          color: "WHITE",
-          description: news_data.articles[i].description ,
-          image: {
-            url: news_data.articles[i].urlToImage
-          },
-          footer: {
-            text: `${news_data.articles[i].publishedAt} | ${news_data.articles[i].source.name}`
-          },
-        }]
-      }).catch(()=>{})
+    try{
+      for(let i=0;i<news_data.totalResults;i++){
+        await interaction.editReply({
+          embeds:[{
+            title: news_data.articles[i].title,
+            url: news_data.articles[i].url,
+            color: "WHITE",
+            description: news_data.articles[i].description,
+            image: {
+              url: news_data.articles[i].urlToImage
+            },
+            footer: {
+              text: `${news_data.articles[i].publishedAt} | ${news_data.articles[i].source.name}`
+            },
+          }]
+        }).catch(()=>{})
 
-      await setTimeout(3000);
+        await setTimeout(3000);
+      }
+    }catch{
+      return;
     }
     return;
   }
