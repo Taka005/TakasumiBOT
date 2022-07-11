@@ -1,4 +1,5 @@
 async function news(interaction){
+  const { setTimeout } = require('node:timers/promises');
   const fetch = require("node-fetch");
   require("dotenv").config();
   if(!interaction.isCommand()) return;
@@ -7,7 +8,7 @@ async function news(interaction){
     const news_response = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.NEWS_KEY}`);
     const news_data = await news_response.json();
 
-    for(let i=0;i<=news_data.totalResults;i++){
+    for(let i=0;i<news_data.totalResults;i++){
       await interaction.editReply({
         embeds:[{
           title: news_data.articles[i].title,
@@ -23,9 +24,7 @@ async function news(interaction){
         }]
       }).catch(()=>{})
 
-      await setTimeout(()=>{
-        return
-      },4000);
+      await setTimeout(4000);
     }
     return;
   }
