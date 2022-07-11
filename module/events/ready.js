@@ -80,6 +80,10 @@ async function ready(client){
       .setName("ticket")
       .setDescription("簡易的なお問い合わせ機能です")
 
+    const news = new SlashCommandBuilder()
+      .setName("news")
+      .setDescription("最近のニュースを表示します")
+
     const auth = new SlashCommandBuilder()
       .setName("auth")
       .setDescription("簡易的なロール認証機能です")
@@ -298,6 +302,7 @@ async function ready(client){
             server,
             status,
             draw,
+            news,
             auth,
             ticket,
             panel,

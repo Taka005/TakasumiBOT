@@ -102,6 +102,7 @@ function events(client){
         const kick = require("./slashcommands/kick");
         const ban = require("./slashcommands/ban");
         const dm = require("./slashcommands/dm");
+        const news = require("./slashcommands/news");
 
         const global = require("./slashcommands/global");
         const mute = require("./slashcommands/mute");
@@ -129,6 +130,7 @@ function events(client){
         global(interaction);
         mute(interaction);
         dm(interaction,client);
+        news(interaction);
         return;
     });
 
