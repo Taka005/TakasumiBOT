@@ -12,13 +12,9 @@ async function news(interaction){
 
     await interaction.deferReply()
     for(let i=0;i<news_data.totalResults;i++){
-      sleep(5000,async function () {
+      sleep(8000,async function () {
         await interaction.editReply({
           embeds:[{
-            author: {
-              name: news_data.articles[i].author,
-              icon_url: "https://taka.ml/images/success.png",
-            },
             title: news_data.articles[i].title,
             url: news_data.articles[i].url,
             color: "WHITE",
