@@ -66,7 +66,7 @@ async function global(message,client){
             },
             description: content,
             image: {
-              url: attachment[0]
+              url: attachment[0].url
             },
             footer: {
               text: `${message.guild.name}<${message.guild.id}>`,
