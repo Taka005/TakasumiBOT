@@ -9,7 +9,7 @@
     "express": "^4.18.1",
     "node-fetch": "^2.6.5"
   },
-  "name": "takasumi_bot_dev",
+  "name": "takasumi_bot",
   "description": "鷹のすみかスタッフbot開発 https://discord.gg/GPs3npB63m",
   "version": "2.6.2",
   "main": "index.js",
@@ -18,13 +18,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Taka005/takasumi_bot_dev.git"
+    "url": "git+https://github.com/Taka005/takasumi_bot.git"
   },
   "keywords": [],
   "author": "Taka05#1203",
   "license": "Apache2.0",
   "bugs": {
-    "url": "https://github.com/Taka005/takasumi_bot_dev/issues"
+    "url": "https://github.com/Taka005/takasumi_bot/issues"
   },
-  "homepage": "https://github.com/Taka005/takasumi_bot_dev#readme"
+  "homepage": "https://github.com/Taka005/takasumi_bot#readme"
 }

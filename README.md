@@ -1,4 +1,4 @@
-# takasumi_bot_dev
+# takasumi_bot
 - 鷹のすみかスタッフbot開発
 - これはオープンソース版です
 # 使い方
