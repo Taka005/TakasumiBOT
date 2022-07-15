@@ -4,9 +4,10 @@ function antitoken(message){
     const member = message.guild.members.cache.get(message.author.id);
     member.timeout(5000000,"TOKENの送信")
       .then(()=>message.channel.send(`${reply}TOKENの送信は禁止されてます`))
-      .catch(()=>{return});
+      .catch(()=>{});
     message.delete()
-      .catch(()=>{return});
+      .catch(()=>{});
+    return;
   }
 }
 

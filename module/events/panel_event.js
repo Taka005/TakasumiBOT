@@ -2,7 +2,7 @@ async function panel_event(interaction){
   const { MessageActionRow, Modal, TextInputComponent } = require('discord.js');
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("panel_")){
-    const role = interaction.customId.match(/\d{18}/);
+    const role = await interaction.customId.match(/\d{18}/);
     const count_1 = Math.floor(Math.random() * 15) + 1;
     const count_2 = Math.floor(Math.random() * 15) + 1;
     const total = count_1 + count_2
@@ -11,12 +11,12 @@ async function panel_event(interaction){
         .setTitle('認証');
 
       const code = new TextInputComponent()
-        .setCustomId(`code`)
+        .setCustomId("code")
         .setLabel(`${count_1}+${count_2}の答えを入力してください`)
         .setMaxLength(6)
-        .setPlaceholder('半角で入力してください')
+        .setPlaceholder("半角で入力してください")
         .setRequired(true)
-        .setStyle('SHORT');
+        .setStyle("SHORT");
       check.addComponents(new MessageActionRow().addComponents(code));
 
       await interaction.showModal(check);
