@@ -12,18 +12,21 @@ async function embed(interaction){
       .setPlaceholder("埋め込みに表示される著者名")
       .setMaxLength(50)
       .setStyle("SHORT");
+
     const title = new TextInputComponent()
       .setCustomId("title")
       .setLabel("タイトル")
       .setPlaceholder("埋め込みに表示されるタイトル")
       .setMaxLength(80)
       .setStyle("SHORT");
+
     const description = new TextInputComponent()
       .setCustomId("description")
       .setLabel("説明")
       .setMaxLength(500)
       .setPlaceholder("埋め込みに表示される説明欄")
-      .setStyle("SHORT");
+      .setStyle("PARAGRAPH");
+      
     const image = new TextInputComponent()
       .setCustomId("image")
       .setLabel("画像")
