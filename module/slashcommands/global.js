@@ -111,7 +111,7 @@ async function global(interaction){
       avatar: "https://taka.ml/images/bot.png",
     })
       .then(async (webhook) =>{
-        interaction.channel.setTopic("ここはTakasumiグローバルチャットです\n\nチャットを利用する前に\nhttps://taka.ml/bot/takasumi.html をご確認ください")
+        interaction.channel.setTopic("ここはTakasumiグローバルチャットです\nこのチャンネルに入力された内容は、登録チャンネル全部に送信されます\n\nチャットを利用する前に\nhttps://taka.ml/bot/takasumi.html をご確認ください")
             .catch(()=>{})
 
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
@@ -151,7 +151,7 @@ async function global(interaction){
               name: `${interaction.guild.name}`,
               icon_url: "https://taka.ml/images/success.png"
             },
-            description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
+            description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\nこのチャンネルに入力された内容は、登録チャンネル全てに送信されます\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
             timestamp: new Date()
           }]
         })
