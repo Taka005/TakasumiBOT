@@ -30,7 +30,7 @@ async function ready(client){
         });
         stats = 0;
       }
-    },8000)
+    },6000)
 
     client.channels.cache.get("947484748773736538").send(`BOT、API、WEBサーバーが再起動されました`);
 
