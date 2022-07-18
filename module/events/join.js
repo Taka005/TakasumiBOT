@@ -33,10 +33,10 @@ if(member.guild.id !== "948938383122645002") return;
     ctx.font = 'bold 60px Genta';
     ctx.fillStyle = '#f2f2f2';
     ctx.fillText(textString4, 750, canvas.height / 2 + 125);
-    let textString4 = `${member.guild.name}`;
+    let textString5 = `${member.guild.name}`;
     ctx.font = 'bold 60px Genta';
     ctx.fillStyle = '#f2f2f2';
-    ctx.fillText(textString4, 700, canvas.height / 2 - 150);
+    ctx.fillText(textString5, 700, canvas.height / 2 - 150);
 
     ctx.beginPath();
     ctx.arc(315, canvas.height / 2, 250, 0, Math.PI * 2, true);
