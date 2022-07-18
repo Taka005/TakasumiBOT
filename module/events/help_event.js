@@ -16,7 +16,7 @@ async function help_event(interaction){
 
   const page = new MessageButton()
     .setStyle("SECONDARY")
-    .setLabel("2ページ")
+    .setLabel("1ページ")
     .setCustomId("page")
     .setDisabled(true)
 
@@ -100,6 +100,10 @@ async function help_event(interaction){
             {
               name: "**/server**",
               value: "実行したサーバーの情報を表示します"
+            },
+            {
+              name: "**/news**",
+              value: "最近のニュースを表示します"
             },
             {
               name: "**/avatar**",
