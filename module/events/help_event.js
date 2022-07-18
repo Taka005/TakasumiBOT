@@ -59,8 +59,7 @@ async function help_event(interaction){
         ]
       })
 
-    interaction.deferReply()
-      .then(()=>interaction.deleteReply());
+      interaction.update();
     return;
   }
   //2ページ目
@@ -115,8 +114,7 @@ async function help_event(interaction){
         ]
       })
 
-    interaction.deferReply()
-      .then(()=>interaction.deleteReply());
+      interaction.update();
     return;
   }
   //3ページ目
@@ -167,8 +165,7 @@ async function help_event(interaction){
         ]
       })
 
-    interaction.deferReply()
-      .then(()=>interaction.deleteReply());
+      interaction.update() 
     return;
   }
   //4ページ目
@@ -224,8 +221,7 @@ async function help_event(interaction){
         ]
       })
 
-    interaction.deferReply()
-      .then(()=>interaction.deleteReply());
+      interaction.update();
     return;
   }
 

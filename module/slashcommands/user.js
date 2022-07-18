@@ -2,12 +2,6 @@ async function user(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
     const user_id = await interaction.options.getString("id");
-    const status_data = {
-        "online": "🟢オンライン",
-        "offline": "⚫オフライン",
-        "dnd": "⛔取り込み中",
-        "idle": "🌙退席中"
-      };
 
       if(!user_id){
         await interaction.reply({
@@ -33,11 +27,6 @@ async function user(interaction,client){
               {
                 name: "**ニックネーム**",
                 value: interaction.member.nickname||"未設定",
-                inline: true
-              },
-              {
-                name: "状態",
-                value: `${status_data[interaction.member.presence?.status]||"取得不能"}`,
                 inline: true
               },
               {
@@ -114,11 +103,6 @@ async function user(interaction,client){
                 {
                   name: "**ニックネーム**",
                   value: member.nickname||"未設定",
-                  inline: true
-                },
-                {
-                  name: "状態",
-                  value: `${status_data[member.presence?.status]||"取得不能"}`,
                   inline: true
                 },
                 {
