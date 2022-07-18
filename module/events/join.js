@@ -8,7 +8,7 @@ if(member.guild.id !== "948938383122645002") return;
 
   const canvas = Canvas.createCanvas(1772, 633);
   const ctx = canvas.getContext("2d");
-  const background = await Canvas.loadImage(`../../images/welcome.png`);
+  const background = await Canvas.loadImage(`./images/welcome.png`);
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = '#f2f2f2';
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
