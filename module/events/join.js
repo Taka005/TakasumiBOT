@@ -1,4 +1,4 @@
-function join(member){
+async function join(member){
   const config = require("../../config.json");
   const Canvas = require("canvas");
   const { MessageAttachment } = require("discord.js");
