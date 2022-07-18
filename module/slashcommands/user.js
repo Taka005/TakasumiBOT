@@ -46,8 +46,7 @@ async function user(interaction,client){
               },
               {
                 name:"**ロール**",
-                value: `${interaction.member.roles.cache.map(r => r).join('')}`,
-                inline: true
+                value: `${interaction.member.roles.cache.map(r => r).join('')}`
               }
             ]
           }]
@@ -122,8 +121,7 @@ async function user(interaction,client){
                 },
                 {
                   name:"**ロール**",
-                  value: `${member.roles.cache.map(r => r).join('')}`,
-                  inline: true
+                  value: `${member.roles.cache.map(r => r).join('')}`
                 }
               ]
             }]
