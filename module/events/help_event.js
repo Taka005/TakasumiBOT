@@ -59,7 +59,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.update({});
+      interaction.deferUpdate({});
     return;
   }
   //2ページ目
@@ -114,7 +114,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.update({});
+      interaction.deferUpdate({});
     return;
   }
   //3ページ目
@@ -165,7 +165,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.update({}) 
+      interaction.deferUpdate({}) 
     return;
   }
   //4ページ目
@@ -221,7 +221,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.update({});
+      interaction.deferUpdate({});
     return;
   }
 
