@@ -19,7 +19,7 @@ async function global(message,client){
     
   const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
   const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
-  const author = msg.embeds[0].author.name.slice(-1).split("(");
+  const author = msg.embeds[0].author.name.slice(0,-1).split("(");
 
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
