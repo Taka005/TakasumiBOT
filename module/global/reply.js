@@ -36,8 +36,8 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: `返信`,
-                value: `<@${author[1]}>${msg.embeds[0].description}`
+                name: "返信",
+                value: `<@${author[1]}>${msg.embeds[0].description || "なし"}`
               }
             ],
             footer: {
@@ -76,8 +76,8 @@ async function global(message,client){
               description: `${content}`,
               fields: [
                 {
-                  name: `返信`,
-                  value: `<@${author[1]}>${msg.embeds[0].description}`
+                  name: "返信",
+                  value: `<@${author[1]}>${msg.embeds[0].description || "なし"}`
                 }
               ],
               footer: {
@@ -122,8 +122,8 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: `返信`,
-                value: `<@${author[1]}>${msg.embeds[0].description}`
+                name: "返信",
+                value: `<@${author[1]}>${msg.embeds[0].description || "なし"}`
               }
             ],
             footer: {
@@ -152,7 +152,7 @@ async function global(message,client){
         .catch(()=>{});
       return;
     }
-  }catch{
+  }catch{//同じサーバーでの返信
     const msg = await message.channel.messages.fetch(message.reference.messageId)
       .catch(()=>{});
 
@@ -170,8 +170,8 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: `返信<@${msg.author.id}>`,
-                value: `${msg.content}`
+                name: "返信",
+                value: `<@${msg.author.id}>${msg.content || "なし"}`
               }
             ],
             footer: {
@@ -210,8 +210,8 @@ async function global(message,client){
               description: `${content}`,
               fields: [
                 {
-                  name: `返信<@${msg.author.id}>`,
-                  value: `${msg.content}`
+                  name: "返信",
+                  value: `<@${msg.author.id}>${msg.content || "なし"}`
                 }
               ],
               footer: {
@@ -256,8 +256,8 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: `返信<@${msg.author.id}>`,
-                value: `${msg.content}`
+                name: "返信",
+                value: `<@${msg.author.id}>${msg.content || "なし"}`
               }
             ],
             footer: {
