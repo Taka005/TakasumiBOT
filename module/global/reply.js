@@ -17,12 +17,12 @@ async function global(message,client){
     .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ/g,"[[NG]](https://taka.ml/bot/takasumi.html)")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
     
-  if(!message.attachments.first()){
-    const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
-    const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
-    if(!msg) return message.react("❌")
-      .catch(()=>{}) 
+  const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
+  const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
+  if(!msg) return message.react("❌")
+    .catch(()=>{}) 
 
+  if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
       if(channels == message.channel.id) return;
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
@@ -33,7 +33,7 @@ async function global(message,client){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: `${JSON.stringify(msg)}${content}`,
+          description: `<@${msg.author.id}>${content}`,
           footer: {
             text:`${message.guild.name}<${message.guild.id}>`,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -67,7 +67,7 @@ async function global(message,client){
               name: `${message.author.tag}(${message.author.id})`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
-            description: content,
+            description: `<@${msg.author.id}>${content}`,
             footer: {
               text: `${message.guild.name}<${message.guild.id}>`,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -107,7 +107,7 @@ async function global(message,client){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: content,
+          description: `<@${msg.author.id}>${content}`,
           footer: {
             text:`${message.guild.name}<${message.guild.id}>` ,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
