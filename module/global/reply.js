@@ -5,7 +5,7 @@ async function global(message,client){
   const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
   const fs = require("fs");
-  if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id] || !message.reference) return;
+  if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id] ||message.reference) return;
 
   if(mute_server[message.guild.id]|| mute_user[message.author.id] || message.content.length > 300){
     return message.react("❌")
@@ -18,9 +18,13 @@ async function global(message,client){
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
     
   if(!message.attachments.first()){
+    const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
+    const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
+    if(!msg) return message.react("❌")
+      .catch(()=>{}) 
+
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
       if(channels == message.channel.id) return;
-
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
         embeds:[{
@@ -29,7 +33,7 @@ async function global(message,client){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: content,
+          description: `${msg.author}${content}`,
           footer: {
             text:`${message.guild.name}<${message.guild.id}>`,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
