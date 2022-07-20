@@ -16,9 +16,11 @@ function events(client){
         var s = now.getSeconds() 
         //globalchat
         const global = require("./global/global");
+        const reply = require("./global/reply");
         const connect = require("./global/connect");
         const get = require("./global/get");
         global(message,client)
+        reply(message,client)
         connect(message,client)
         get(message,client)
         
