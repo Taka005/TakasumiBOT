@@ -33,7 +33,13 @@ async function global(message,client){
               name: `${message.author.tag}(${message.author.id})`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
-            description: `<@${author[1]}>${content}`,
+            description: `${content}`,
+            fields: [
+              {
+                name: `返信<@${author[1]}>`,
+                value: `${msg.embed[0].description}`
+              }
+            ],
             footer: {
               text:`${message.guild.name}<${message.guild.id}>`,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -67,7 +73,13 @@ async function global(message,client){
                 name: `${message.author.tag}(${message.author.id})`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
-              description: `<@${msg.author.id}>${content}`,
+              description: `${content}`,
+              fields: [
+                {
+                  name: `返信<@${author[1]}>`,
+                  value: `${msg.embed[0].description}`
+                }
+              ],
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -107,7 +119,13 @@ async function global(message,client){
               name: `${message.author.tag}(${message.author.id})`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
-            description: `<@${msg.author.id}>${content}`,
+            description: `${content}`,
+            fields: [
+              {
+                name: `返信<@${author[1]}>`,
+                value: `${msg.embed[0].description}`
+              }
+            ],
             footer: {
               text:`${message.guild.name}<${message.guild.id}>` ,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -135,7 +153,8 @@ async function global(message,client){
       return;
     }
   }catch{
-    const msg = await message.channel.messages.fetch(message.reference.messageId);
+    const msg = await message.channel.messages.fetch(message.reference.messageId)
+      .catch(()=>{});
 
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
@@ -148,7 +167,13 @@ async function global(message,client){
               name: `${message.author.tag}(${message.author.id})`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
-            description: `<@${msg.author.id}>${content}`,
+            description: `${content}`,
+            fields: [
+              {
+                name: `返信<@${msg.author.id}>`,
+                value: `${msg.content}`
+              }
+            ],
             footer: {
               text:`${message.guild.name}<${message.guild.id}>`,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -182,7 +207,13 @@ async function global(message,client){
                 name: `${message.author.tag}(${message.author.id})`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
-              description: `<@${msg.author.id}>${content}`,
+              description: `${content}`,
+              fields: [
+                {
+                  name: `返信<@${msg.author.id}>`,
+                  value: `${msg.content}`
+                }
+              ],
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
@@ -222,7 +253,13 @@ async function global(message,client){
               name: `${message.author.tag}(${message.author.id})`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
-            description: `<@${msg.author.id}>${content}`,
+            description: `${content}`,
+            fields: [
+              {
+                name: `返信<@${msg.author.id}>`,
+                value: `${msg.content}`
+              }
+            ],
             footer: {
               text:`${message.guild.name}<${message.guild.id}>` ,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
