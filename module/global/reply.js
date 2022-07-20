@@ -33,7 +33,7 @@ async function global(message,client){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: `${msg.author}${content}`,
+          description: `${JSON.stringify(msg)}${content}`,
           footer: {
             text:`${message.guild.name}<${message.guild.id}>`,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
