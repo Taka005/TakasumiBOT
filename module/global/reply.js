@@ -36,8 +36,8 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: `返信<@${author[1]}>`,
-                value: `${msg.embed[0].description}`
+                name: `返信`,
+                value: `<@${author[1]}>${msg.embeds[0].description}`
               }
             ],
             footer: {
@@ -76,8 +76,8 @@ async function global(message,client){
               description: `${content}`,
               fields: [
                 {
-                  name: `返信<@${author[1]}>`,
-                  value: `${msg.embed[0].description}`
+                  name: `返信`,
+                  value: `<@${author[1]}>${msg.embeds[0].description}`
                 }
               ],
               footer: {
@@ -122,8 +122,8 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: `返信<@${author[1]}>`,
-                value: `${msg.embed[0].description}`
+                name: `返信`,
+                value: `<@${author[1]}>${msg.embeds[0].description}`
               }
             ],
             footer: {
