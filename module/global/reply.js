@@ -19,8 +19,7 @@ async function global(message,client){
     
   const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
   const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
-  if(!msg) return message.react("❌")
-    .catch(()=>{}) 
+  const author = msg.embeds[0].author.name.split("(");
 
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
@@ -33,7 +32,7 @@ async function global(message,client){
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
-          description: `<@${msg.author.id}>${content}`,
+          description: `<@${author[1]}>${content}`,
           footer: {
             text:`${message.guild.name}<${message.guild.id}>`,
             icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
