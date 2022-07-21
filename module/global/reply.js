@@ -120,20 +120,18 @@ async function global(message,client){
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
             description: `${content}`,
-            fields: [
-              {
-                name: "\u200b",
-                value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
-              }
-            ],
             footer: {
               text:`${message.guild.name}<${message.guild.id}>` ,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
             },
             fields: [
               {
-                name: "**添付ファイル**",
-                value: `[${attachment[0].name}](${attachment[0].url})`
+                name: "\u200b",
+                value: `添付[${attachment[0].name}](${attachment[0].url})`
+              },
+              {
+                name: "\u200b",
+                value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
               }
             ],
             timestamp: new Date()
