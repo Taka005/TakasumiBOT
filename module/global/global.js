@@ -110,8 +110,8 @@ async function global(message,client){
           },
           fields: [
             {
-              name: "**添付ファイル**",
-              value: `[${attachment[0].name}](${attachment[0].url})`
+              name: "\u200b",
+              value: `添付[${attachment[0].name}](${attachment[0].url})`
             }
           ],
           timestamp: new Date()
