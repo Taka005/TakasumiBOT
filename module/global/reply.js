@@ -5,16 +5,16 @@ async function global(message,client){
   const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
   const fs = require("fs");
-  if(!message.channel.type === "GUILD_TEXT" || message.author.bot || !main[message.channel.id] || !message.reference?.messageId) return;
+  if(!message.channel.type === "GUILD_TEXT"||message.author.bot||!main[message.channel.id]||!message.reference?.messageId) return;
 
-  if(mute_server[message.guild.id]|| mute_user[message.author.id] || message.content.length > 300){
+  if(mute_server[message.guild.id]||mute_user[message.author.id]||message.content.length > 300){
     return message.react("❌")
       .catch(()=>{}) 
   }
 
   const content = message.content
-    .replace(/@everyone|@here/g,"[[メンション]](https://taka.ml/bot/takasumi.html)")
-    .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ/g,"[[NG]](https://taka.ml/bot/takasumi.html)")
+    .replace(/@everyone|@here/g,"[メンション]")
+    .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ/g,"[NG]")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
     
   try{
