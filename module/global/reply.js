@@ -36,7 +36,7 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: "返信",
+                name: "\u200b",
                 value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
               }
             ],
@@ -76,7 +76,7 @@ async function global(message,client){
               description: `${content}`,
               fields: [
                 {
-                  name: "返信",
+                  name: "\u200b",
                   value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
                 }
               ],
@@ -122,7 +122,7 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: "返信",
+                name: "\u200b",
                 value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
               }
             ],
@@ -170,7 +170,7 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: "返信",
+                name: "\u200b",
                 value: `**${msg.author.username}>>** ${msg.content || "なし"}`
               }
             ],
@@ -210,7 +210,7 @@ async function global(message,client){
               description: `${content}`,
               fields: [
                 {
-                  name: "返信",
+                  name: "\u200b",
                   value: `**${msg.author.username}>>** ${msg.content || "なし"}`
                 }
               ],
@@ -256,7 +256,7 @@ async function global(message,client){
             description: `${content}`,
             fields: [
               {
-                name: "返信",
+                name: "\u200b",
                 value: `**${msg.author.username}>>** ${msg.content || "なし"}`
               }
             ],
