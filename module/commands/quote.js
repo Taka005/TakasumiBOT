@@ -12,7 +12,7 @@ async function quote(message){
       const applyText = (canvas, text) => {
           const context = canvas.getContext('2d');
           do {
-              context.font = `${fontSize / 2}px Noto Sans JP`;
+              context.font = `${fontSize / 2}px monospace`;
           } while (context.measureText(text).width > canvas.width - 300);
           return context.font;
       };
@@ -22,7 +22,7 @@ async function quote(message){
       context.drawImage(background, 0, 0, canvas.width, canvas.height);
       context.strokeStyle = '#0099ff';
       context.strokeRect(0, 0, canvas.width, canvas.height);
-      context.font = `${fontSize}px Noto Sans JP`;
+      context.font = `${fontSize}px monospace`;
       context.fillStyle = '#ffffff';
       context.fillText(reply.content, canvas.width / 2.5, canvas.height / 1.8);
       context.font = applyText(canvas, reply.author.tag);
