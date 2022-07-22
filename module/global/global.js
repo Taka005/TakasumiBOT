@@ -17,6 +17,8 @@ async function global(message,client){
     .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ/g,"[NG]")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
     
+  const user = await message.author.fetch();
+
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
       if(channels == message.channel.id) return;
@@ -24,7 +26,7 @@ async function global(message,client){
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
         embeds:[{
-          color: message.member.displayHexColor,
+          color: user.hexAccentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -58,7 +60,7 @@ async function global(message,client){
       await webhooks.send({
         embeds:[
           {
-            color: message.member.displayHexColor,
+            color: user.hexAccentColor,
             author: {
               name: `${message.author.tag}(${message.author.id})`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -98,7 +100,7 @@ async function global(message,client){
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
         embeds:[{
-          color: message.member.displayHexColor,
+          color: user.hexAccentColor,
           author: {
             name: `${message.author.tag}(${message.author.id})`,
             icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
