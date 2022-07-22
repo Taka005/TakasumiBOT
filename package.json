@@ -2,12 +2,12 @@
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
-    "canvas": "^2.9.1",
+    "canvas": "^2.9.3",
     "discord-api-types": "^0.35.0",
-    "discord.js": "^13.8.0",
+    "discord.js": "^13.9.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "node-fetch": "^2.6.5"
+    "node-fetch": "^2.6.7"
   },
   "name": "takasumi_bot",
   "description": "鷹のすみかスタッフbot開発 https://discord.gg/GPs3npB63m",
