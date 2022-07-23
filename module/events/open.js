@@ -1,6 +1,6 @@
 async function open(message,client){
   if(message.author.bot) return;  
-  if(message.content.match(/https:\/\/discordapp.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/ptb.discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/canary.discord.com\/channels\/\d{18}\/\d{18}\//g)){
+  if(message.content.match(/(?:https?:\/\/)?(?:ptb.|canary.)?(?:discord|discordapp)\.com\/channels\/\d{18}\/\d{18}\/\d{18,19}/g)){
     const url = message.content.split("/");
 
     const channel = client.channels.cache.get(url[5]);
