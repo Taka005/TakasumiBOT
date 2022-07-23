@@ -56,7 +56,7 @@ async function open(message,client){
           },
           fields: [
             {
-              name: "**添付ファイル**",
+              name: "添付ファイル",
               value: `${attachment[0]||"エラー"}`
             }
           ],
