@@ -3,16 +3,15 @@ async function open(message,client){
   if(message.content.match(/https:\/\/discordapp.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/ptb.discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/canary.discord.com\/channels\/\d{18}\/\d{18}\//g)){
     const url = message.content.match(/\d{18}/g);
 
-    try{
-      var channel = await client.channels.cache.get(url[1]);
-      var msg = await channel.messages.fetch(url[2]);
-    }catch{
-      var channel = await client.channels.cache.get(url[1]);
-      var id = message.content.match(/\d{19}/);
-      var msg = await channel.messages.fetch(id);
-    }
+    const channel = await client.channels.cache.get(url[1])
+      .catch(()=>{return})
+    const msg = await channel.messages.fetch(url[2])
+      .catch(()=>{
+        const id = message.content.match(/\d{19}/g);
+        const msg = await channel.messages.fetch(id[0])
+      });
 
-    if(!msg.attachments?.first()){
+    if(!msg.attachments.first()){
       message.channel.send({//添付ファイルなし
         embeds:[{
           color: msg.member.displayHexColor,
@@ -27,7 +26,7 @@ async function open(message,client){
           timestamp: msg.createdAt
         }]
       });
-    }else if(msg.attachments?.first()?.height && msg.attachments?.first()?.width){
+    }else if(msg.attachments.first().height && msg.attachments.first().width){
       const attachment = msg.attachments.map(attachment => attachment.url)
       message.channel.send({//添付ファイルあり(画像)
         embeds:[{
