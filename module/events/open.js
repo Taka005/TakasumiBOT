@@ -1,15 +1,10 @@
 async function open(message,client){
   if(message.author.bot) return;  
   if(message.content.match(/https:\/\/discordapp.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/ptb.discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/canary.discord.com\/channels\/\d{18}\/\d{18}\//g)){
-    const url = message.content.match(/\d{18}/g);
+    const url = message.content.split("/");
 
-    const channel = client.channels.cache.get(url[1])
-      .catch(()=>{return})
-    const msg = channel.messages.fetch(url[2])
-      .catch(async()=>{
-        const id = message.content.match(/\d{19}/g);
-        const msg = await channel.messages.fetch(id[0])
-      });
+    const channel = await client.channels.cache.get(url[4])
+    const msg = await channel.messages.fetch(url[5])
 
     if(!msg.attachments.first()){
       message.channel.send({//添付ファイルなし
