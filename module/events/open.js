@@ -1,9 +1,9 @@
 async function open(message,client){
   if(message.author.bot) return;  
   if(message.content.match(/https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/\d{18,19}\/\d{18,19}\/\d{18,19}/g)){
-    const url = message.content.match(/https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/\d{18,19}\/\d{18,19}\/\d{18,19}/);
+    const url = message.content.match(/(https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/)(\d{18,19}\/\d{18,19}\/\d{18,19})/);
 
-    const id = url.split("/");
+    const id = url[1].split("/");
     const channel = client.channels.cache.get(id[5]);
     if(!channel) return;
     const msg = await channel.messages.fetch(id[6])
