@@ -12,7 +12,7 @@ async function open(message,client){
       var msg = await channel.messages.fetch(id);
     }
 
-    if(!msg.attachments.first()){
+    if(!msg.attachments?.first()){
       message.channel.send({//添付ファイルなし
         embeds:[{
           color: msg.member.displayHexColor,
@@ -27,7 +27,7 @@ async function open(message,client){
           timestamp: msg.createdAt
         }]
       });
-    }else if(msg.attachments.first().height && msg.attachments.first().width){
+    }else if(msg.attachments?.first()?.height && msg.attachments?.first()?.width){
       const attachment = msg.attachments.map(attachment => attachment.url)
       message.channel.send({//添付ファイルあり(画像)
         embeds:[{
