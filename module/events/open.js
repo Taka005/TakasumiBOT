@@ -3,7 +3,7 @@ async function open(message,client){
   if(message.content.match(/https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/\d{18,19}\/\d{18,19}\/\d{18,19}/g)){
     const url = message.content.match(/(https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/)(\d{18,19}\/\d{18,19}\/\d{18,19})/);
 
-    const id = url[1].split("/");
+    const id = url[2].split("/");
     const channel = client.channels.cache.get(id[1]);
     if(!channel) return;
     const msg = await channel.messages.fetch(id[2])
