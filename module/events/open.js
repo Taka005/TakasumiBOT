@@ -6,7 +6,7 @@ async function open(message,client){
     const channel = await client.channels.cache.get(url[1])
       .catch(()=>{return})
     const msg = await channel.messages.fetch(url[2])
-      .catch(()=>{
+      .catch(async()=>{
         const id = message.content.match(/\d{19}/g);
         const msg = await channel.messages.fetch(id[0])
       });
