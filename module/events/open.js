@@ -4,12 +4,12 @@ async function open(message,client){
     const url = message.content.match(/\d{18}/g);
 
     try{
-      const channel = await client.channels.cache.get(url[1]);
-      const msg = await channel.messages.fetch(url[2]);
+      var channel = await client.channels.cache.get(url[1]);
+      var msg = await channel.messages.fetch(url[2]);
     }catch{
-      const channel = await client.channels.cache.get(url[1]);
-      const id = message.content.match(/\d{19}/);
-      const msg = await channel.messages.fetch(id);
+      var channel = await client.channels.cache.get(url[1]);
+      var id = message.content.match(/\d{19}/);
+      var msg = await channel.messages.fetch(id);
     }
 
     if(!msg.attachments.first()){
