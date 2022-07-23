@@ -30,11 +30,11 @@ function events(client){
         //other
         const bump = require("./events/bump");
         const antitoken = require("./events/antitoken");
-        const deployment = require("./events/deployment");
+        const open = require("./events/open");
         const urlcheck = require("./events/urlcheck");
         bump(message)
         antitoken(message)
-        deployment(message,client)
+        open(message,client)
         urlcheck(message)
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  

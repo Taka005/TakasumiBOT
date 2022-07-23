@@ -1,14 +1,15 @@
-async function deployment(message,client){
+async function open(message,client){
   if(message.author.bot) return;  
   if(message.content.match(/https:\/\/discordapp.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/ptb.discord.com\/channels\/\d{18}\/\d{18}\//g)||message.content.match(/https:\/\/canary.discord.com\/channels\/\d{18}\/\d{18}\//g)){
     const url = message.content.match(/\d{18}/g);
 
     try{
       const channel = await client.channels.cache.get(url[1]);
-      let msg = await channel.messages.fetch(url[2]);
+      const msg = await channel.messages.fetch(url[2]);
     }catch{
+      const channel = await client.channels.cache.get(url[1]);
       const id = message.content.match(/\d{19}/);
-      let msg = await channel.messages.fetch(id);
+      const msg = await channel.messages.fetch(id);
     }
 
     if(!msg.attachments.first()){
@@ -72,4 +73,4 @@ async function deployment(message,client){
   }
 }
 
-module.exports = deployment
+module.exports = open
