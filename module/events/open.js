@@ -4,9 +4,9 @@ async function open(message,client){
     const url = message.content.match(/(https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/)(\d{18,19}\/\d{18,19}\/\d{18,19})/);
 
     const id = url[1].split("/");
-    const channel = client.channels.cache.get(id[5]);
+    const channel = client.channels.cache.get(id[1]);
     if(!channel) return;
-    const msg = await channel.messages.fetch(id[6])
+    const msg = await channel.messages.fetch(id[2])
       .catch(()=>{return})
 
     if(!msg.attachments?.first()){
