@@ -7,10 +7,10 @@ async function open(message,client){
     if(!channel) return;
     const msg = await channel.messages.fetch(url[6]);
 
-    if(!msg.attachments.first()){
+    if(!msg.attachments?.first()){
       message.channel.send({//添付ファイルなし
         embeds:[{
-          color: msg.member.displayHexColor,
+          color: msg.member?.displayHexColor||"WHITE",
           author: {
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -22,11 +22,11 @@ async function open(message,client){
           timestamp: msg.createdAt
         }]
       });
-    }else if(msg.attachments.first().height && msg.attachments.first().width){
+    }else if(msg.attachments?.first().height && msg.attachments?.first().width){
       const attachment = msg.attachments.map(attachment => attachment.url)
       message.channel.send({//添付ファイルあり(画像)
         embeds:[{
-          color: msg.member.displayHexColor,
+          color: msg.member?.displayHexColor||"WHITE",
           author: {
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -42,10 +42,10 @@ async function open(message,client){
         }]
       });
     }else{
-      const attachment = msg.attachments.map(attachment => attachment.url)
+      const attachment = msg.attachments.map(attachment => attachment?.url)
       message.channel.send({//添付ファイルあり(画像以外)
         embeds:[{
-          color: msg.member.displayHexColor,
+          color: msg.member?.displayHexColor||"WHITE",
           author: {
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
@@ -57,7 +57,7 @@ async function open(message,client){
           fields: [
             {
               name: "**添付ファイル**",
-              value: `${attachment[0]}`
+              value: `${attachment[0]||"エラー"}`
             }
           ],
           timestamp: msg.createdAt
