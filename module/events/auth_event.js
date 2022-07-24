@@ -1,13 +1,13 @@
 async function auth_event(interaction){
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("auth_")){
-    const role = interaction.customId.match(/\d{18}/);
-    await interaction.member.roles.add(role)
+    const role = interaction.customId.split("_");
+    await interaction.member.roles.add(role[1])
       .then(()=>{
         interaction.reply({
           embeds:[{
             author: {
-              name: `認証しました`,
+              name: "認証しました",
               icon_url: "https://taka.ml/images/success.png",
             },
             color: "GREEN"

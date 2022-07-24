@@ -19,7 +19,7 @@ async function avatar(interaction,client){
         return;
       }
   
-    const id = user_id.match(/\d{18}/g);
+    const id = user_id.match(/\d{18,19}/g);
     if(!id) return await interaction.reply({
       embeds:[{
         author: {

@@ -16,7 +16,7 @@ async function user(interaction,client){
               text: "TakasumiBOT"
             },
             thumbnail: {
-              url: interaction.member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+              url: interaction.member.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
             },
             fields: [
               {
@@ -64,7 +64,7 @@ async function user(interaction,client){
         return;
       }
   
-      const id = user_id.match(/\d{18}/g);
+      const id = user_id.match(/\d{18,19}/g);
       if(!id) return await interaction.reply({
         embeds:[{
           author: {
