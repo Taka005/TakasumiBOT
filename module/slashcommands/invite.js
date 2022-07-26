@@ -21,7 +21,7 @@ async function invite(interaction){
       embeds: [{
         color:"WHITE",
         title:"ご利用いただきありがとうございます",
-        description: "制作:Taka005#1203\nスラッシュコマンド又は`>`でコマンドが使用可能です\nBOT導入、サポートサーバーに参加よろしくお願いします"
+        description: "制作:Taka005#6668\nスラッシュコマンド又は`>`でコマンドが使用可能です\nBOT導入、サポートサーバーに参加よろしくお願いします"
       }],
       components: [
         new MessageActionRow()
