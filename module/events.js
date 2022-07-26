@@ -29,13 +29,15 @@ function events(client){
       }
         //other
         const bump = require("./events/bump");
+        const dissoku = require("./events/dissoku");
         const antitoken = require("./events/antitoken");
         const open = require("./events/open");
         const urlcheck = require("./events/urlcheck");
-        bump(message)
-        antitoken(message)
-        open(message,client)
-        urlcheck(message)
+        bump(message);
+        dissoku(message);
+        antitoken(message);
+        open(message,client);
+        urlcheck(message);
 
         if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
 
