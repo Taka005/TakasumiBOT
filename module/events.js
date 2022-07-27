@@ -29,12 +29,10 @@ function events(client){
       }
         //other
         const bump = require("./events/bump");
-        const dissoku = require("./events/dissoku");
         const antitoken = require("./events/antitoken");
         const open = require("./events/open");
         const urlcheck = require("./events/urlcheck");
         bump(message);
-        dissoku(message);
         antitoken(message);
         open(message,client);
         urlcheck(message);
@@ -64,6 +62,12 @@ function events(client){
         quote(message)
 
       return;
+    });
+
+    client.on('messageUpdate', async (oldMessage,newMessage) =>{
+      const dissoku = require("./events/dissoku");
+
+      dissoku(oldMessage,newMessage);
     });
 
     client.on("interactionCreate", async (interaction) =>{
