@@ -3,7 +3,19 @@ async function say(interaction){
   if(interaction.commandName === "say"){
     const text = await interaction.options.getString("text");
 
-    interaction.channel.send(`${text.replace("@","＠")}`)
+    if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return interaction.reply({
+      embeds:[{
+        author: {
+          name: "権限がありません",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
+      }],
+      ephemeral:true
+    });
+
+    interaction.channel.send(`${text}`)
       .catch(()=>interaction.reply({
         embeds:[{
           author: {
