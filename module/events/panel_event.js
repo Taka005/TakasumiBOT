@@ -6,22 +6,23 @@ async function panel_event(interaction){
     const count_1 = Math.floor(Math.random() * 15) + 1;
     const count_2 = Math.floor(Math.random() * 15) + 1;
     const total = count_1 + count_2
-      const check = new Modal()
-        .setCustomId(`check_${role[1]}_${total}`)
-        .setTitle("認証");
 
-      const code = new TextInputComponent()
-        .setCustomId("code")
-        .setLabel(`${count_1}+${count_2}の答えを入力してください`)
-        .setMaxLength(6)
-        .setPlaceholder("半角で入力してください")
-        .setRequired(true)
-        .setStyle("SHORT");
-      check.addComponents(new MessageActionRow().addComponents(code));
+    const check = new Modal()
+      .setCustomId(`check_${role[1]}_${total}`)
+      .setTitle("認証");
 
-      await interaction.showModal(check);
-      return;
-    }
+    const code = new TextInputComponent()
+      .setCustomId("code")
+      .setLabel(`${count_1}+${count_2}の答えを入力してください`)
+      .setMaxLength(6)
+      .setPlaceholder("半角で入力してください")
+      .setRequired(true)
+      .setStyle("SHORT");
+    check.addComponents(new MessageActionRow().addComponents(code));
+
+    await interaction.showModal(check);
+    return;
+  }
 }
   
 module.exports = panel_event

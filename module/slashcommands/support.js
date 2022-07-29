@@ -18,7 +18,7 @@ async function support(interaction){
       .setStyle('PARAGRAPH');
     const code = new TextInputComponent()
       .setCustomId(`code`)
-      .setLabel(`認証:${count_1}+${count_2}の答えを入力してください`)
+      .setLabel(`確認:${count_1}+${count_2}の答えを入力してください`)
       .setMaxLength(6)
       .setPlaceholder('半角で入力してください')
       .setRequired(true)

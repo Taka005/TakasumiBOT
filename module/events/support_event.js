@@ -8,11 +8,11 @@ async function support_event(interaction,client){
     if(isNaN(code)) return await interaction.reply({
       embeds:[{
         author: {
-          name: "認証コードが間違っています",
+          name: "確認コードが間違っています",
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "認証コードは、数字を半角で入力してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+        description: "確認コードは、数字を半角で入力してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
       }],
       ephemeral:true
     });
@@ -22,7 +22,8 @@ async function support_event(interaction,client){
         embeds:[{
           color: "WHITE",
           author: {
-            name: `${interaction.member.id}`
+            name: `${interaction.member.user.id}`,
+            icon_url: interaction.member.user.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
            },
           description: content,
           timestamp: new Date()
@@ -44,11 +45,11 @@ async function support_event(interaction,client){
       await interaction.reply({
         embeds:[{
           author: {
-            name: "認証コードが間違っています",
+            name: "確認コードが間違っています",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: "認証時に表示される画面のテキストボックスの\n上に表記されている通りに認証してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+          description: "コマンド実行時に表示される画面のテキストボックスの\n上に表記されている通りに操作してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
         }],
         ephemeral:true
       });
