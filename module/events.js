@@ -1,4 +1,4 @@
-function events(client){
+async function events(client){
   const mute_user = require("../data/block_user.json");
   const mute_server = require("../data/block_server.json");
 
@@ -23,17 +23,12 @@ function events(client){
         reply(message,client)
         connect(message,client)
         get(message,client)
-        
-      if(mute_server[`${message.guild.id}`]||mute_user[`${message.author.id}`]){
-        return;
-      }
+
         //other
         const bump = require("./events/bump");
-        const antitoken = require("./events/antitoken");
         const open = require("./events/open");
         const urlcheck = require("./events/urlcheck");
         bump(message);
-        antitoken(message);
         open(message,client);
         urlcheck(message);
 
