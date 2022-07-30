@@ -13,6 +13,9 @@ async function wiki(interaction){
           url: wiki_data.content_urls.desktop.page,
           color: "WHITE",
           description: wiki_data.extract,
+          footer: {
+            text: "TakasumiBOT"
+          }
         }]
       });
     }catch{
