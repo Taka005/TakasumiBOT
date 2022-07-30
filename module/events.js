@@ -66,75 +66,88 @@ async function events(client){
     });
 
     client.on("interactionCreate", async (interaction) =>{
-        //イベント
-        const auth_event = require("./events/auth_event");
-        const panel_event = require("./events/panel_event");
-        const check = require("./events/check");
-        const ticket_event = require("./events/ticket_event");
-        const embed_event = require("./events/embed_event");
-        const support_event = require("./events/support_event");
-        const help_event = require("./events/help_event");
 
-        auth_event(interaction);
-        panel_event(interaction);
-        check(interaction);
-        embed_event(interaction);
-        ticket_event(interaction);
-        support_event(interaction,client);
-        help_event(interaction);
+      if(!interaction.guild) return interaction.reply({ 
+        embeds:[{
+          author: {
+            name: "コマンドが実行できません",
+            icon_url: "https://taka.ml/images/error.jpg",
+          },
+          color: "RED",
+          description: "BOTの操作はDMで実行することができません\nサーバー内で実行してください"
+        }], 
+        ephemeral: true 
+      });
 
-        //スラッシュコマンド
-        const support = require("./slashcommands/support");
-        const embed = require("./slashcommands/embed");
-        const server = require("./slashcommands/server");
-        const help = require("./slashcommands/help");
-        const status = require("./slashcommands/status");
-        const auth = require("./slashcommands/auth");
-        const panel = require("./slashcommands/panel");
-        const gif = require("./slashcommands/gif");
-        const say = require("./slashcommands/say");
-        const del = require("./slashcommands/del");
-        const invite = require("./slashcommands/invite");
-        const user = require("./slashcommands/user");
-        const poll = require("./slashcommands/poll");
-        const ticket = require("./slashcommands/ticket");
-        const channel = require("./slashcommands/channel");
-        const avatar = require("./slashcommands/avatar");
-        const output = require("./slashcommands/output");
-        const draw = require("./slashcommands/draw");
-        const kick = require("./slashcommands/kick");
-        const ban = require("./slashcommands/ban");
-        const dm = require("./slashcommands/dm");
-        const news = require("./slashcommands/news");
+      //イベント
+      const auth_event = require("./events/auth_event");
+      const panel_event = require("./events/panel_event");
+      const check = require("./events/check");
+      const ticket_event = require("./events/ticket_event");
+      const embed_event = require("./events/embed_event");
+      const support_event = require("./events/support_event");
+      const help_event = require("./events/help_event");
 
-        const global = require("./slashcommands/global");
-        const mute = require("./slashcommands/mute");
+      auth_event(interaction);
+      panel_event(interaction);
+      check(interaction);
+      embed_event(interaction);
+      ticket_event(interaction);
+      support_event(interaction,client);
+      help_event(interaction);
 
-        help(interaction);
-        support(interaction);
-        embed(interaction);
-        server(interaction);
-        status(interaction,client);
-        auth(interaction);
-        panel(interaction);
-        gif(interaction);
-        say(interaction);
-        del(interaction);
-        invite(interaction);
-        user(interaction,client);
-        poll(interaction);
-        ticket(interaction);
-        channel(interaction,client);
-        avatar(interaction,client);
-        output(interaction,client);
-        draw(interaction);
-        kick(interaction);
-        ban(interaction);
-        global(interaction);
-        mute(interaction);
-        dm(interaction,client);
-        news(interaction);
-        return;
+      //スラッシュコマンド
+      const support = require("./slashcommands/support");
+      const embed = require("./slashcommands/embed");
+      const server = require("./slashcommands/server");
+      const help = require("./slashcommands/help");
+      const status = require("./slashcommands/status");
+      const auth = require("./slashcommands/auth");
+      const panel = require("./slashcommands/panel");
+      const gif = require("./slashcommands/gif");
+      const say = require("./slashcommands/say");
+      const del = require("./slashcommands/del");
+      const invite = require("./slashcommands/invite");
+      const user = require("./slashcommands/user");
+      const poll = require("./slashcommands/poll");
+      const ticket = require("./slashcommands/ticket");
+      const channel = require("./slashcommands/channel");
+      const avatar = require("./slashcommands/avatar");
+      const output = require("./slashcommands/output");
+      const draw = require("./slashcommands/draw");
+      const kick = require("./slashcommands/kick");
+      const ban = require("./slashcommands/ban");
+      const dm = require("./slashcommands/dm");
+      const news = require("./slashcommands/news");
+
+      const global = require("./slashcommands/global");
+      const mute = require("./slashcommands/mute");
+
+      help(interaction);
+      support(interaction);
+      embed(interaction);
+      server(interaction);
+      status(interaction,client);
+      auth(interaction);
+      panel(interaction);
+      gif(interaction);
+      say(interaction);
+      del(interaction);
+      invite(interaction);
+      user(interaction,client);
+      poll(interaction);
+      ticket(interaction);
+      channel(interaction,client);
+      avatar(interaction,client);
+      output(interaction,client);
+      draw(interaction);
+      kick(interaction);
+      ban(interaction);
+      global(interaction);
+      mute(interaction);
+      dm(interaction,client);
+      news(interaction);
+      return;
     });
 
     client.on("guildMemberAdd", member=>{
