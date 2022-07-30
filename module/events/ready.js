@@ -114,6 +114,15 @@ async function ready(client){
           .setName("text")
           .setDescription("発言内容")
           .setRequired(true))
+
+    const npm = new SlashCommandBuilder()
+      .setName("npm")
+      .setDescription("NPMパッケージを検索します")
+      .addStringOption(option =>
+        option
+          .setName("name")
+          .setDescription("検索ワード")
+          .setRequired(true))
     
     const channel = new SlashCommandBuilder()
       .setName("channel")
@@ -303,6 +312,7 @@ async function ready(client){
             panel,
             gif,
             say,
+            npm,
             channel,
             del,
             output,

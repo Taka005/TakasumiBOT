@@ -119,6 +119,7 @@ async function events(client){
       const ban = require("./slashcommands/ban");
       const dm = require("./slashcommands/dm");
       const news = require("./slashcommands/news");
+      const npm = require("./slashcommands/npm");
 
       const global = require("./slashcommands/global");
       const mute = require("./slashcommands/mute");
@@ -147,6 +148,7 @@ async function events(client){
       mute(interaction);
       dm(interaction,client);
       news(interaction);
+      npm(interaction);
       return;
     });
 
