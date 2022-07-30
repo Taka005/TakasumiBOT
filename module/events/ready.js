@@ -124,6 +124,15 @@ async function ready(client){
           .setDescription("検索ワード")
           .setRequired(true))
     
+    const wiki = new SlashCommandBuilder()
+      .setName("wiki")
+      .setDescription("wikipediaで検索して、表示します")
+      .addStringOption(option =>
+        option
+          .setName("name")
+          .setDescription("検索ワード")
+          .setRequired(true))
+    
     const channel = new SlashCommandBuilder()
       .setName("channel")
       .setDescription("指定したチャンネルにメッセージを表示させます")
@@ -313,6 +322,7 @@ async function ready(client){
             gif,
             say,
             npm,
+            wiki,
             channel,
             del,
             output,
