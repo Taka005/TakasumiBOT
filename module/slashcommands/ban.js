@@ -29,68 +29,52 @@ async function ban(interaction,client){
       ephemeral:true
     });
 
-    try{
-      const users = await client.users.fetch(id)
-
-      if(days){
-        interaction.guild.bans.create(id,{ reason: reason, days: days })
-          .then(()=>interaction.reply({
-            content:`${interaction.member}`,
-            embeds:[{
-              author: {
-                name: `${users.tag}をサーバーからBANしました`,
-                icon_url: "https://taka.ml/images/success.png",
-              },
-              color: "GREEN"
-            }]
-          }))
-          .catch(()=>interaction.reply({
-            embeds:[{
-              author: {
-                name: "メンバーをBANできませんでした",
-                icon_url: "https://taka.ml/images/error.jpg",
-              },
-              color: "RED",
-              description: "BOTの権限が不足しているか、メンバーが正しく指定されていません\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
-            }],
-            ephemeral:true
-          }))
-      }else{
-        interaction.guild.bans.create(id,{ reason: reason, days: days })
-          .then(()=>interaction.reply({
-            content:`${interaction.member}`,
-            embeds:[{
-              author: {
-                name: `${users.tag}をサーバーからBANしました`,
-                icon_url: "https://taka.ml/images/success.png",
-              },
-              color: "GREEN"
-            }]
-          }))
-          .catch(()=>interaction.reply({
-            embeds:[{
-              author: {
-                name: "メンバーをBANできませんでした",
-                icon_url: "https://taka.ml/images/error.jpg",
-              },
-              color: "RED",
-              description: "BOTの権限が不足しているか、メンバーが正しく指定されていません\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
-            }],
-            ephemeral:true
-          }))
-      }
-    }catch{
-      interaction.reply({
-        embeds:[{
-          author: {
-            name: "メンバーをBANできませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
-          },
-          color: "RED",
-          description: "指定したユーザーが存在しません"
-        }],
-        ephemeral:true
-      })
+    if(days){
+      await interaction.guild.bans.create(id,{ reason: reason, days: days })
+        .then(()=>interaction.reply({
+          content:`${interaction.member}`,
+          embeds:[{
+            author: {
+              name: `サーバーからBANしました`,
+              icon_url: "https://taka.ml/images/success.png",
+            },
+            color: "GREEN"
+          }]
+        }))
+        .catch(()=>interaction.reply({
+          embeds:[{
+            author: {
+              name: "メンバーをBANできませんでした",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: "BOTの権限が不足しているか、メンバーが正しく指定されていません\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+          }],
+          ephemeral:true
+        }))
+    }else{
+      await interaction.guild.bans.create(id,{ reason: reason, days: days })
+        .then(()=>interaction.reply({
+          content:`${interaction.member}`,
+          embeds:[{
+            author: {
+              name: `サーバーからBANしました`,
+              icon_url: "https://taka.ml/images/success.png",
+            },
+            color: "GREEN"
+          }]
+        }))
+        .catch(()=>interaction.reply({
+          embeds:[{
+            author: {
+              name: "メンバーをBANできませんでした",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: "BOTの権限が不足しているか、メンバーが正しく指定されていません\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+          }],
+          ephemeral:true
+        }))
     }
     return;
   }
