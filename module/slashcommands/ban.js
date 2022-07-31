@@ -31,7 +31,7 @@ async function ban(interaction,client){
 
     const users = await client.users.fetch(id)
       .catch(()=>{
-        interaction.reply({
+        return interaction.reply({
           embeds:[{
             author: {
               name: "取得に失敗しました",
