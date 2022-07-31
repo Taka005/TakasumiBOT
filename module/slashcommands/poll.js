@@ -30,7 +30,7 @@ async function poll(interaction){
     try{
       await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
     }catch{
-      interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author: {
             name: "BOTに権限がありません",
@@ -38,8 +38,7 @@ async function poll(interaction){
           },
           color: "RED",
           description: "BOTにリアクションをつける権限がないため、コマンドが正常に完了できませんでした"
-        }],
-        ephemeral:true
+        }]
       });
     }
     return;
