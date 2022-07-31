@@ -53,7 +53,7 @@ async function ban(interaction,client){
           ephemeral:true
         }))
     }else{
-      await interaction.guild.bans.create(id,{ reason: reason, days: days })
+      await interaction.guild.bans.create(id,{ reason: reason })
         .then(()=>interaction.reply({
           content:`${interaction.member}`,
           embeds:[{
