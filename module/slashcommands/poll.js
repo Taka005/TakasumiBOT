@@ -27,20 +27,20 @@ async function poll(interaction){
                   timestamp: new Date()
                 }]
     })
-    try{
+    //try{
       await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
-    }catch{
-      await interaction.editReply({
-        embeds:[{
-          author: {
-            name: "BOTに権限がありません",
-            icon_url: "https://taka.ml/images/error.jpg",
-          },
-          color: "RED",
-          description: "BOTにリアクションをつける権限がないため、コマンドが正常に完了できませんでした"
-        }]
-      });
-    }
+    //}catch{
+      //await interaction.editReply({
+        //embeds:[{
+         // author: {
+            //name: "BOTに権限がありません",
+            //icon_url: "https://taka.ml/images/error.jpg",
+          //},
+         // color: "RED",
+         // description: "BOTにリアクションをつける権限がないため、コマンドが正常に完了できませんでした"
+       // }]
+     // });
+   // }
     return;
   }
 }
