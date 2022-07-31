@@ -23,7 +23,6 @@ async function help(interaction){
     await interaction.reply({
       embeds:[{
         title: "HELP 便利系",
-        description: "※ただいま移行中のため、スラッシュコマンドのみ表示しています",
         color: "GREEN",
         fields: [
           {
@@ -44,11 +43,11 @@ async function help(interaction){
           },
           {
             name: "**/embed**",
-            value: "埋め込みを簡単に作成し、表示できます\n※この機能は今のままでも十分使えますが、\nまだ開発中のため機能が増える可能性があります"
+            value: "埋め込みを簡単に作成し、表示できます"
           },
           {
-            name: "**/say**",
-            value: "BOTに好きな発言をさせることが可能です\n※メンション等は発言できません\nまた、この機能によっての発言内容については、運営は責任を負いません"
+            name: "**/wiki**",
+            value: "Wikipediaの検索をします"
           }
       ]}],
       components: [

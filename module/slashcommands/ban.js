@@ -1,7 +1,7 @@
 async function ban(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
-    const user = await interaction.options.getUser("user");
+    const user = await interaction.options.getString("user");
     const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってBANしました(TakasumiBOT)`;
     const days = await interaction.options.getInteger("days");
     if(!interaction.member.permissions.has("BAN_MEMBERS")) return interaction.reply({
@@ -15,26 +15,42 @@ async function ban(interaction){
       }],
       ephemeral:true
     });
-    const member = await interaction.guild.members.cache.get(user.id);
-    if(!member) return interaction.reply({
+
+    const id = user.match(/\d{18,19}/);
+    if(!id) return await interaction.reply({
       embeds:[{
         author: {
           name: "取得に失敗しました",
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "ユーザーが取得できないためBANできませんでした"
+        description: "正確にIDまたは、メンションをしてください"
       }],
       ephemeral:true
     });
 
+    const users = await client.users.fetch(id)
+      .catch(()=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "取得に失敗しました",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: "ユーザーが取得できないためBANできませんでした"
+          }],
+          ephemeral:true
+        });
+      })
+
     if(days){
-      member.ban({reason:`${reason}`,deleteMessageDays: `${days}`})
+      interaction.guild.bans.create(users.id, { reason: reason, days: days })
         .then(()=>interaction.reply({
           content:`${interaction.member}`,
           embeds:[{
             author: {
-              name: `${member.user.tag}をサーバーからBANしました`,
+              name: `${users.tag}をサーバーからBANしました`,
               icon_url: "https://taka.ml/images/success.png",
             },
             color: "GREEN"
@@ -52,12 +68,12 @@ async function ban(interaction){
           ephemeral:true
         }))
     }else{
-      member.ban({reason:`${reason}`})
+      interaction.guild.bans.create(users.id, { reason: reason, days: days })
         .then(()=>interaction.reply({
           content:`${interaction.member}`,
           embeds:[{
             author: {
-              name: `${member.user.tag}をサーバーからBANしました`,
+              name: `${users.tag}をサーバーからBANしました`,
               icon_url: "https://taka.ml/images/success.png",
             },
             color: "GREEN"

@@ -19,33 +19,29 @@ async function poll(interaction){
     const selects = [select_1,select_2,select_3,select_4,select_5,select_6,select_7,select_8,select_9,select_10,select_11,select_12]
       .filter(select=>select!==null)
 
-    const msg = await interaction.channel.send({
+    const msg = await interaction.reply({
                 embeds:[{
                   title: title,
                   color: interaction.member.displayHexColor,
                   description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
-                  timestamp: new Date(),
-                  footer: {
-                    text: `${interaction.member.user.tag}によって送信`
-                  }
+                  timestamp: new Date()
                 }]
     })
-    .catch(()=>{
-      return interaction.reply({ 
+    try{
+      await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
+    }catch{
+      interaction.reply({
         embeds:[{
           author: {
-            name: "正常に作成できませんでした",
+            name: "BOTに権限がありません",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: "BOTの権限等を確認し、もう一度やってください\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
-        }], 
-        ephemeral: true 
-      })
-    });
-    emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
-    interaction.deferReply()
-      .then(()=>interaction.deleteReply())
+          description: "BOTにリアクションをつける権限がないため、コマンドが正常に完了できませんでした"
+        }],
+        ephemeral:true
+      });
+    }
     return;
   }
 }

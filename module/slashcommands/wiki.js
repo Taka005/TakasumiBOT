@@ -22,7 +22,7 @@ async function wiki(interaction){
       await interaction.reply({
         embeds:[{
           author: {
-            name: "検索内容が取得できませんでした",
+            name: "検索内容を取得できませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",

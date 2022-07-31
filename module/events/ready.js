@@ -180,10 +180,10 @@ async function ready(client){
     const ban = new SlashCommandBuilder()
       .setName("ban")
       .setDescription("ユーザーをサーバーからBANします")
-      .addUserOption(option =>
+      .addStringOption(option =>
         option
           .setName("user")
-          .setDescription("BAN対象のメンバー")
+          .setDescription("ユーザーID又はメンション")
           .setRequired(true))
       .addStringOption(option =>
         option
