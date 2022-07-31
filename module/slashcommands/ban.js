@@ -30,8 +30,8 @@ async function ban(interaction,client){
     });
 
     const users = await client.users.fetch(id)
-      .catch(()=>{
-        return interaction.reply({
+      .catch(async()=>{
+        return await interaction.reply({
           embeds:[{
             author: {
               name: "取得に失敗しました",
@@ -45,7 +45,7 @@ async function ban(interaction,client){
       })
 
     if(days){
-      interaction.guild.bans.create(users.id, { reason: reason, days: days })
+      interaction.guild.bans.create(id,{ reason: reason, days: days })
         .then(()=>interaction.reply({
           content:`${interaction.member}`,
           embeds:[{
@@ -68,7 +68,7 @@ async function ban(interaction,client){
           ephemeral:true
         }))
     }else{
-      interaction.guild.bans.create(users.id, { reason: reason, days: days })
+      interaction.guild.bans.create(id,{ reason: reason, days: days })
         .then(()=>interaction.reply({
           content:`${interaction.member}`,
           embeds:[{
