@@ -1,4 +1,4 @@
-async function ban(interaction){
+async function ban(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
     const user = await interaction.options.getString("user");

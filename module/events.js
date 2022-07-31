@@ -144,7 +144,7 @@ async function events(client){
       output(interaction,client);
       draw(interaction);
       kick(interaction);
-      ban(interaction);
+      ban(interaction,client);
       global(interaction);
       mute(interaction);
       dm(interaction,client);
