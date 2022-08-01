@@ -41,6 +41,7 @@ async function ban(interaction,client){
             color: "GREEN"
           }]
         }))
+        /** 
         .catch(()=>interaction.reply({
           embeds:[{
             author: {
@@ -52,6 +53,7 @@ async function ban(interaction,client){
           }],
           ephemeral:true
         }))
+        */
     }else{
       await interaction.guild.bans.create(id,{ reason: reason })
         .then(()=>interaction.reply({
