@@ -19,28 +19,31 @@ async function poll(interaction){
     const selects = [select_1,select_2,select_3,select_4,select_5,select_6,select_7,select_8,select_9,select_10,select_11,select_12]
       .filter(select=>select!==null)
 
-    const msg = await interaction.reply({
+    const msg = await interaction.channel.send({
                 embeds:[{
                   title: title,
                   color: interaction.member.displayHexColor,
                   description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
+                  footer: {
+                    text: `${interaction.member.user.tag}によって送信`
+                  },
                   timestamp: new Date()
                 }]
     })
-    //try{
+    try{
       await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
-    //}catch{
-      //await interaction.editReply({
-        //embeds:[{
-         // author: {
-            //name: "BOTに権限がありません",
-            //icon_url: "https://taka.ml/images/error.jpg",
-          //},
-         // color: "RED",
-         // description: "BOTにリアクションをつける権限がないため、コマンドが正常に完了できませんでした"
-       // }]
-     // });
-   // }
+    }catch{
+      await interaction.reply({
+        embeds:[{
+          author: {
+            name: "BOTに権限がありません",
+            icon_url: "https://taka.ml/images/error.jpg",
+          },
+          color: "RED",
+          description: "BOTにリアクションをつける権限がないため、コマンドが正常に完了できませんでした"
+        }]
+      });
+    }
     return;
   }
 }

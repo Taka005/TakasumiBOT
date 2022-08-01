@@ -1,6 +1,7 @@
 # takasumi_botについて
 - これはオープンソース版です
 - このBOTは、他に人が確実に動かせるように開発されていません
+- (このプロジェクトのforkを起動できた人は未だにいません)
 - 質問等は受け付けますが、それでも動かない可能性があります
 - LICENSEを遵守し利用してください
 # 使い方
@@ -22,7 +23,7 @@
 - member_mention:みんなに参加をしらせるロールID
 - version:botのバージョン
 # development
-- development by Taka005#1203
+- development by Taka005#6668
 - language is javascript(node.js)
 - Discordサーバーにも是非参加してください
 - https://discord.gg/GPs3npB63m
