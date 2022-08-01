@@ -19,6 +19,7 @@ async function poll(interaction){
     const selects = [select_1,select_2,select_3,select_4,select_5,select_6,select_7,select_8,select_9,select_10,select_11,select_12]
       .filter(select=>select!==null)
 
+    await interaction.deferReply();
     const msg = await interaction.channel.send({
                 embeds:[{
                   title: title,
@@ -44,6 +45,7 @@ async function poll(interaction){
         }]
       });
     }
+    interaction.deleteReply();
     return;
   }
 }
