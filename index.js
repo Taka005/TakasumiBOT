@@ -53,3 +53,11 @@ process.on('unhandledRejection',async(error) => {
   })
   return;
 });
+
+/**
+ * 開発・協力
+ * Taka005#6668(開発)
+ * れのらり#0719(協力)
+ * 
+ * これらの人々に敬意を表します
+ */
