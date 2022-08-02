@@ -120,7 +120,10 @@ async function global(interaction){
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
         Object.keys(main).forEach(async(channels)=>{
-          if(channels == interaction.channel.id) return;
+          
+          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+          if(channels == interaction.channel.id||mute_server[guild]) return;
+
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
             embeds:[{
@@ -130,6 +133,9 @@ async function global(interaction){
                 url: interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
               },
               description: "グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!",
+              footer: {
+                Text: `登録数:${Object.keys(global).length}`
+              },
               timestamp: new Date()
             }]
           }).catch(()=>{
