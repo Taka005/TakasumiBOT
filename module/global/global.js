@@ -21,7 +21,9 @@ async function global(message,client){
 
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
-      if(channels == message.channel.id||mute_server[channels]) return;
+
+      const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+      if(channels == message.channel.id||mute_server[guild]) return;
 
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
