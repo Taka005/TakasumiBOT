@@ -134,7 +134,7 @@ async function global(interaction){
               },
               description: "グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!",
               footer: {
-                Text: `登録数:${Object.keys(global).length}`
+                text: `登録数:${Object.keys(main).length}`
               },
               timestamp: new Date()
             }]
