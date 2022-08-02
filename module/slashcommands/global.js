@@ -124,10 +124,10 @@ async function global(interaction){
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
             embeds:[{
-              color: "WHITE",
-              author: {
-                name: `${interaction.guild.name}<${interaction.guild.id}>`,
-                icon_url: interaction.guild.iconURL()
+              color: "GREEN",
+              title: `${interaction.guild.name}<${interaction.guild.id}>`,
+              thumbnail: {
+                url: interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
               },
               description: "グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!",
               timestamp: new Date()
