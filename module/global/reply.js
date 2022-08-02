@@ -26,7 +26,7 @@ async function global(message,client){
 
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
-        if(channels == message.channel.id) return;
+        if(channels == message.channel.id||mute_server[channels]) return;
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
           embeds:[{
@@ -64,7 +64,7 @@ async function global(message,client){
     }else if(message.attachments.first().height && message.attachments.first().width){//添付ファイルあり(画像)
       const attachment = message.attachments.map(attachment => attachment);
       Object.keys(main).forEach(async (channels)=>{
-        if(channels == message.channel.id) return;
+        if(channels == message.channel.id||mute_server[channels]) return;
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
 
         await webhooks.send({
@@ -112,7 +112,7 @@ async function global(message,client){
       const attachment = message.attachments.map(attachment => attachment);
 
       Object.keys(main).forEach(async (channels)=>{
-        if(channels == message.channel.id) return;
+        if(channels == message.channel.id||mute_server[channels]) return;
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
           embeds:[{
@@ -158,7 +158,7 @@ async function global(message,client){
 
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
-        if(channels == message.channel.id) return;
+        if(channels == message.channel.id||mute_server[channels]) return;
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
           embeds:[{
@@ -196,7 +196,7 @@ async function global(message,client){
     }else if(message.attachments.first().height && message.attachments.first().width){//添付ファイルあり(画像)
       const attachment = message.attachments.map(attachment => attachment);
       Object.keys(main).forEach(async (channels)=>{
-        if(channels == message.channel.id) return;
+        if(channels == message.channel.id||mute_server[channels]) return;
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
 
         await webhooks.send({
@@ -244,7 +244,7 @@ async function global(message,client){
       const attachment = message.attachments.map(attachment => attachment);
 
       Object.keys(main).forEach(async (channels)=>{
-        if(channels == message.channel.id) return;
+        if(channels == message.channel.id||mute_server[channels]) return;
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
           embeds:[{
