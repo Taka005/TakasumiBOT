@@ -54,7 +54,10 @@ async function server(client){
           free:os.freemem(),
           use:os.totalmem() - os.freemem()
         },
-        uptime:os.uptime()
+        uptime:{
+          os:os.uptime(),
+          process:process.uptime()
+        },
       },
       time:{
         hour:time.getHours(),

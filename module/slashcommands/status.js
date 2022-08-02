@@ -32,7 +32,7 @@ async function status(interaction,client){
         },
         {
           name: "**システム情報**",
-          value: `${system[0].model}\n${os.type()} ${os.arch()}`
+          value: `${os.type()} ${os.arch()}`
         },
         {
         name: "**システム使用率**",
