@@ -126,7 +126,7 @@ async function events(client){
       const mute = require("./slashcommands/mute");
 
       //ContextMenu
-      const memebr = require("./contextmenu/member");
+      const member = require("./contextmenu/member");
 
       help(interaction);
       support(interaction);
