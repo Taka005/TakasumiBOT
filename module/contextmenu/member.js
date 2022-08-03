@@ -1,7 +1,7 @@
 async function member(interaction){
-  if(!interaction.isUserContextMenuCommand()) return;
+  if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
-    const info = interaction.targetMember;
+    const info = interaction.options.getMember("user");
 
     await interaction.reply({
       embeds:[{
