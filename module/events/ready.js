@@ -1,11 +1,12 @@
 async function ready(client){
   const config = require("../../config.json");
   require("dotenv").config();
-  const { SlashCommandBuilder } = require("@discordjs/builders");
+  const { SlashCommandBuilder, ContextMenuCommandBuilder } = require("@discordjs/builders");
   const { REST } = require("@discordjs/rest");
   const { Routes } = require("discord-api-types/v10");
     
-  const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_BOT_TOKEN);
+  const rest = new REST({ version: "10" })
+    .setToken(process.env.DISCORD_BOT_TOKEN);
 
     let now = new Date();
     let h = now.getHours()
@@ -305,6 +306,11 @@ async function ready(client){
           .setName("select_12")
           .setDescription("選択12"))
     
+    //ContextMenu
+    const member = new ContextMenuCommandBuilder()
+      .setName("メンバーの情報を表示します")
+      .setType("USER")
+          
     await rest.put(
       Routes.applicationCommands(client.application.id),
         { 
@@ -334,7 +340,9 @@ async function ready(client){
             dm,
             global,
             mute,
-            poll
+            poll,
+            //ContextMenu
+            member
           ]
         },
     );
