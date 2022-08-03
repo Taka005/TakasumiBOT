@@ -3,7 +3,7 @@ async function ready(client){
   require("dotenv").config();
   const { SlashCommandBuilder, ContextMenuCommandBuilder } = require("@discordjs/builders");
   const { REST } = require("@discordjs/rest");
-  const { Routes } = require("discord-api-types/v10");
+  const { Routes, ApplicationCommandType } = require("discord-api-types/v10");
     
   const rest = new REST({ version: "10" })
     .setToken(process.env.DISCORD_BOT_TOKEN);
@@ -309,7 +309,7 @@ async function ready(client){
     //ContextMenu
     const member = new ContextMenuCommandBuilder()
       .setName("メンバーの情報を表示します")
-      .setType("USER")
+      .setType(ApplicationCommandType.User)
           
     await rest.put(
       Routes.applicationCommands(client.application.id),
