@@ -1,6 +1,6 @@
 async function member(interaction){
-  if(!interaction.isUserContextMenuCommand()) return;
-  const member = interaction.targetMember
+  if(!interaction.isContextMenu()) return;
+  const member = interaction.options.getMember("user");
 
   await interaction.reply({
     embeds:[{

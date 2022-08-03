@@ -308,7 +308,7 @@ async function ready(client){
     
     //ContextMenu
     const member = new ContextMenuCommandBuilder()
-      .setName("メンバーの情報を表示します")
+      .setName("メンバー情報を表示")
       .setType(ApplicationCommandType.User)
           
     await rest.put(
