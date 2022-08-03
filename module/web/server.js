@@ -82,7 +82,7 @@ async function server(client){
           discriminator:user.discriminator,
           tag:user.tag,
           id:user.id,
-          avatar:user.avatarURL({format: 'png'}),
+          avatar:user.avatarURL({"dynamic": true,"format": "png", "size": 512}),
           time:new Date(user.createdTimestamp).toLocaleDateString(),
           bot:user.bot,
           partial:user.partial,
