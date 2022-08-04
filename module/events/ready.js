@@ -217,6 +217,24 @@ async function ready(client){
           .setDescription("送信するメッセージ")
           .setRequired(true))
 
+    const mc = new SlashCommandBuilder()
+      .setName("mc")
+      .setDescription("マインクラフトサーバーの情報を検索します")
+      .addStringOption(option =>
+        option
+          .setName("edition")
+          .setDescription("エディション")
+          .setRequired(true)
+          .addChoices(
+            { name: "Java版", value: "je" },
+            { name: "統合版", value: "be" }
+          ))
+      .addStringOption(option =>
+        option
+          .setName("ip")
+          .setDescription("検索するサーバーのアドレス")
+          .setRequired(true))
+
     const global = new SlashCommandBuilder()
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
@@ -338,6 +356,7 @@ async function ready(client){
             ban,
             avatar,
             dm,
+            mc,
             global,
             mute,
             poll,

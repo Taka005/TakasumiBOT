@@ -24,7 +24,7 @@ async function npm(interaction){
               inline: true
             },
             {
-              name: "バージョン",
+              name: "**バージョン**",
               value: pkg.version,
               inline: true
             },
