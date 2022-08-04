@@ -5,11 +5,12 @@ async function mc(interaction){
     const ip = await interaction.options.getString("ip");
     const edition = await interaction.options.getString("edition");
 
+    await interaction.deferReply();
     if(edition === "je"){
       const server = await fetch(`https://api.mcsrvstat.us/2/${encodeURIComponent(ip)}`)
         .then(res => res.json())
 
-      if(!server.debug.ping && !server.online) return await interaction.reply({
+      if(!server.debug.ping && !server.online) return await interaction.editReply({
         embeds:[{
           author: {
             name: "取得できませんでした",
@@ -23,7 +24,7 @@ async function mc(interaction){
 
       try{
         if(server.online){
-          await interaction.reply({
+          await interaction.editReply({
             embeds:[{
               title: ip,
               url: `https://mcsrvstat.us/server/${ip}`,
@@ -34,22 +35,22 @@ async function mc(interaction){
               description: ":green_circle: オンライン",
               fields: [
                 {
-                  name: "**MOTD**",
+                  name: "MOTD",
                   value: (server.motd) ? server.motd.clean.join("\n") : "なし",
                   inline: true
                 },
                 {
-                  name: "**プレイヤー**",
+                  name: "プレイヤー",
                   value: `${server.players.online}/${server.players.max}`,
                   inline: true
                 },
                 {
-                  name: "**バージョン**",
+                  name: "バージョン",
                   value: server.version,
                   inline: true
                 },
                 {
-                  name: "**IPアドレス**",
+                  name: "IPアドレス",
                   value: `${server.ip}:${server.port}`,
                   inline: true
                 }
@@ -61,7 +62,7 @@ async function mc(interaction){
             }]
           });
         }else{
-          await interaction.reply({
+          await interaction.editReply({
             embeds:[{
               title: ip,
               url: `https://mcsrvstat.us/server/${ip}`,
@@ -78,7 +79,7 @@ async function mc(interaction){
           });
         }
       }catch{
-        await interaction.reply({
+        await interaction.editReply({
           embeds:[{
             author: {
               name: "検索内容を取得できませんでした",
@@ -94,7 +95,7 @@ async function mc(interaction){
       const server = await fetch(`https://api.mcsrvstat.us/bedrock/2/${encodeURIComponent(ip)}`)
         .then(res => res.json())
 
-      if(!server.debug.ping && !server.online) return await interaction.reply({
+      if(!server.debug.ping && !server.online) return await interaction.editReply({
         embeds:[{
           author: {
             name: "取得できませんでした",
@@ -108,7 +109,7 @@ async function mc(interaction){
 
       try{
         if(server.online){
-          await interaction.reply({
+          await interaction.editReply({
             embeds:[{
               title: ip,
               url: `https://mcsrvstat.us/bedrock/${ip}`,
@@ -151,7 +152,7 @@ async function mc(interaction){
             }]
           });
         }else{
-          await interaction.reply({
+          await interaction.editReply({
             embeds:[{
               title: ip,
               url: `https://mcsrvstat.us/server/${ip}`,
@@ -168,7 +169,7 @@ async function mc(interaction){
           });
         }
       }catch{
-        await interaction.reply({
+        await interaction.editReply({
           embeds:[{
             author: {
               name: "検索内容を取得できませんでした",
