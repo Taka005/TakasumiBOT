@@ -19,22 +19,22 @@ async function member(interaction){
         },
         fields: [
           {
-            name: "**ID**",
+            name: "ID",
             value: `${info.user.id}`,
             inline: true
           },
           {
-            name: "**ニックネーム**",
+            name: "ニックネーム",
             value: member.nickname||"未設定",
             inline: true
           },
           {
-            name: "**作成日時**",
+            name: "作成日時",
             value: `${new Date(info.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - info.user.createdAt) / 86400000)}日前)`,
             inline: true
           },
           {
-            name:"**参加日時**",
+            name:"参加日時",
             value: `${new Date(info.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - info.joinedAt) / 86400000)}日前)`,
             inline: true
           },
@@ -44,7 +44,7 @@ async function member(interaction){
             inline: true
           },
           {
-            name:"**ロール**",
+            name:"ロール",
             value: `${info.roles.cache.map(r => r).join('')}`
           }
         ]

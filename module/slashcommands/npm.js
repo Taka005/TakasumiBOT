@@ -19,27 +19,27 @@ async function npm(interaction){
           },
           fields: [
             {
-              name: "**作者**",
+              name: "作者",
               value: pkg.author ? pkg.author.name : "なし",
               inline: true
             },
             {
-              name: "**バージョン**",
+              name: "バージョン",
               value: pkg.version,
               inline: true
             },
             {
-              name: "**リポジトリ**",
+              name: "リポジトリ",
               value: pkg.links.repository ? pkg.links.repository : "なし",
               inline: true
             },
             {
-              name: "**パッケージ保有者**",
+              name: "パッケージ保有者",
               value: pkg.maintainers ? pkg.maintainers.map(e => e.username).join(', ') : "なし",
               inline: true
             },
             {
-              name: "**キーワード**",
+              name: "キーワード",
               value: pkg.keywords ? pkg.keywords.join(', ') : "なし",
               inline: true
             }

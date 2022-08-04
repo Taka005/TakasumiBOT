@@ -10,7 +10,7 @@ async function server(interaction){
         },
         fields: [
           {
-            name: "**サーバー名**",
+            name: "サーバー名",
             value: `${interaction.guild.name}`
           },
           {
@@ -19,22 +19,22 @@ async function server(interaction){
             inline: true
           },
           {
-            name: "**人数**",
+            name: "人数",
             value: `${interaction.guild.memberCount}人`,
             inline: true
           },
           {
-            name: "**チャンネル数**",
+            name: "チャンネル数",
             value: `${interaction.guild.channels.cache.size}`,
             inline: true
           },
           {
-            name: "**作成日時**",
+            name: "作成日時",
             value: `${new Date(interaction.guild.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.guild.createdAt) / 86400000)}日前)`,
             inline: true
           },
           {
-            name: "**ロール**",
+            name: "ロール",
             value: `${interaction.guild.roles.cache.size}個`,
             inline: true
           }

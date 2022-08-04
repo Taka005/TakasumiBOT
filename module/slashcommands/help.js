@@ -26,27 +26,27 @@ async function help(interaction){
         color: "GREEN",
         fields: [
           {
-            name: "**/poll**",
+            name: "/poll",
             value: "アンケートを作成することができます\n最大で選択肢は12個までです"
           },
           {
-            name: "**/global**",
+            name: "/global",
             value: "色々なサーバーと繋がるグローバルチャットを有効、無効にします\n[利用規約](https://taka.ml/bot/takasumi.html)を読んでから使用してください"
           },
           {
-            name: "**/gif**",
+            name: "/gif",
             value: "GIF画像を検索し、表示します"
           },
           {
-            name: "**/del**",
+            name: "/del",
             value: "指定された数だけ、メッセージを一括で削除します\n ※二週間前のメッセージは削除できません、\nまたこれを実行するには、`メッセージを管理`の権限が必要です"
           },
           {
-            name: "**/embed**",
+            name: "/embed",
             value: "埋め込みを簡単に作成し、表示できます"
           },
           {
-            name: "**/wiki**",
+            name: "/wiki",
             value: "Wikipediaの検索をします"
           }
       ]}],

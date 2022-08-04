@@ -20,22 +20,22 @@ async function user(interaction,client){
             },
             fields: [
               {
-                name: "**ID**",
+                name: "ID",
                 value: `${interaction.member.user.id}`,
                 inline: true
               },
               {
-                name: "**ニックネーム**",
+                name: "ニックネーム",
                 value: interaction.member.nickname||"未設定",
                 inline: true
               },
               {
-                name: "**作成日時**",
+                name: "作成日時",
                 value: `${new Date(interaction.member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.member.user.createdAt) / 86400000)}日前)`,
                 inline: true
               },
               {
-                name:"**参加日時**",
+                name:"参加日時",
                 value: `${new Date(interaction.member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.member.joinedAt) / 86400000)}日前)`,
                 inline: true
               },
@@ -45,7 +45,7 @@ async function user(interaction,client){
                 inline: true
               },
               {
-                name:"**ロール**",
+                name:"ロール",
                 value: `${interaction.member.roles.cache.map(r => r).join('')}`
               }
             ]
@@ -95,22 +95,22 @@ async function user(interaction,client){
               },
               fields: [
                 {
-                  name: "**ID**",
-                  value: `${member.id}`,
+                  name: "ID",
+                  value: `${member.user.id}`,
                   inline: true
                 },
                 {
-                  name: "**ニックネーム**",
+                  name: "ニックネーム",
                   value: member.nickname||"未設定",
                   inline: true
                 },
                 {
-                  name: "**作成日時**",
+                  name: "作成日時",
                   value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.user.createdAt) / 86400000)}日前)`,
                   inline: true
                 },
                 {
-                  name:"**参加日時**",
+                  name:"参加日時",
                   value: `${new Date(member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.joinedAt) / 86400000)}日前)`,
                   inline: true
                 },
@@ -120,7 +120,7 @@ async function user(interaction,client){
                   inline: true
                 },
                 {
-                  name:"**ロール**",
+                  name:"ロール",
                   value: `${member.roles.cache.map(r => r).join('')}`
                 }
               ]
@@ -156,17 +156,17 @@ async function user(interaction,client){
                 },
                 fields: [
                   {
-                    name: "**ID**",
+                    name: "ID",
                     value: `${users.id}`,
                     inline: true
                   },
                   {
-                    name: "**作成日時**",
+                    name: "作成日時",
                     value: `${new Date(users.createdTimestamp).toLocaleDateString()}`,
                     inline: true
                   },
                   {
-                    name: "**アカウントの種類**",
+                    name: "アカウントの種類",
                     value: users.bot ? "BOT" : "ユーザー",
                     inline: true
                   }

@@ -18,8 +18,7 @@ async function mc(interaction){
           },
           color: "RED",
           description: "無効なホスト名です"
-        }],
-        ephemeral:true
+        }]
       });
 
       try{
@@ -87,8 +86,7 @@ async function mc(interaction){
             },
             color: "RED",
             description: "指定したアドレスが間違っている可能性があります"
-          }],
-          ephemeral:true
+          }]
         });
       }
     }else{
@@ -103,8 +101,7 @@ async function mc(interaction){
           },
           color: "RED",
           description: "無効なホスト名です"
-        }],
-        ephemeral:true
+        }]
       });
 
       try{
@@ -120,27 +117,27 @@ async function mc(interaction){
               description: ":green_circle: オンライン",
               fields: [
                 {
-                  name: "**MOTD**",
+                  name: "MOTD",
                   value: (server.motd) ? server.motd.clean.join("\n") : "なし",
                   inline: true
                 },
                 {
-                  name: "**プレイヤー**",
+                  name: "プレイヤー",
                   value: `${server.players.online}/${server.players.max}`,
                   inline: true
                 },
                 {
-                  name: "**バージョン**",
+                  name: "バージョン",
                   value: server.version,
                   inline: true
                 },
                 {
-                  name: "**IPアドレス**",
+                  name: "IPアドレス",
                   value: `${server.ip}:${server.port}`,
                   inline: true
                 },
                 {
-                  name: "**ソフトウェア**",
+                  name: "ソフトウェア",
                   value: server.software,
                   inline: true
                 }
@@ -177,8 +174,7 @@ async function mc(interaction){
             },
             color: "RED",
             description: "指定したアドレスが間違っている可能性があります"
-          }],
-          ephemeral:true
+          }]
         });
       }
     }

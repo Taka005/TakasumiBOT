@@ -26,27 +26,27 @@ async function help_event(interaction){
           color: "GREEN",
           fields: [
             {
-              name: "**/poll**",
+              name: "/poll",
               value: "アンケートを作成することができます\n最大で選択肢は12個までです"
             },
             {
-              name: "**/global**",
+              name: "/global",
               value: "色々なサーバーと繋がるグローバルチャットを有効、無効にします\n[利用規約](https://taka.ml/bot/takasumi.html)を読んでから使用してください"
             },
             {
-              name: "**/gif**",
+              name: "/gif",
               value: "GIF画像を検索し、表示します"
             },
             {
-              name: "**/del**",
+              name: "/del",
               value: "指定された数だけ、メッセージを一括で削除します\n ※二週間前のメッセージは削除できません、\nまたこれを実行するには、`メッセージを管理`の権限が必要です"
             },
             {
-              name: "**/embed**",
+              name: "/embed",
               value: "埋め込みを簡単に作成し、表示できます"
             },
             {
-              name: "**/wiki**",
+              name: "/wiki",
               value: "Wikipediaの検索をします"
             }
         ]}],
@@ -85,31 +85,31 @@ async function help_event(interaction){
           color: "GREEN",
           fields: [
             {
-              name: "**/auth**",
+              name: "/auth",
               value: "簡易的な、メンバー認証機能です\nボタンを押すことで認証ができます"
             },
             {
-              name: "**/panel**",
+              name: "/panel",
               value: "強力なメンバー認証機能です\nボタンを押したら簡単な足し算を行うことで認証ができます"
             },
             {
-              name: "**/user**",
+              name: "/user",
               value: "指定されたユーザーを検索して、表示します\n検索対象がサーバー内にいる場合は、詳しい情報まで取得可能です"
             },
             {
-              name: "**/server**",
+              name: "/server",
               value: "実行したサーバーの情報を表示します"
             },
             {
-              name: "**/news**",
+              name: "/news",
               value: "最近のニュースを表示します"
             },
             {
-              name: "**/npm**",
+              name: "/npm",
               value: "NPMパッケージを検索、表示します"
             },
             {
-              name: "**/avatar**",
+              name: "/avatar",
               value: "指定されたユーザーのアイコンを表示します\n使い方は`/user`と同じです"
             },
         ]}],
@@ -148,19 +148,19 @@ async function help_event(interaction){
           color: "GREEN",
           fields: [
             {
-              name: "**/ban**",
+              name: "/ban",
               value: "指定されたメンバーをサーバーからBANすることができます\n ※これを実行するには、`メンバーをBAN`の権限が必要です"
             },
             {
-              name: "**/kick**",
+              name: "/kick",
               value: "指定されたメンバーをサーバーからKICKすることができます\n ※これを実行するには、`メンバーをKICK`の権限が必要です"
             },
             {
-              name: "**/channel**",
+              name: "/channel",
               value: "指定されたチャンネルにメッセージを送信します\n ※これを実行するには、`メッセージを管理`の権限が必要です"
             },
             {
-              name: "**/ticket**",
+              name: "/ticket",
               value: "簡易的なお問合せ(チケット)機能が使えます\n ※これを実行するには、`管理者`の権限が必要です"
             }
         ]}],
@@ -200,23 +200,23 @@ async function help_event(interaction){
           color: "GREEN",
           fields: [
             {
-              name: "**/draw**",
+              name: "/draw",
               value: "大吉や、凶、吉などのおみくじが引けます"
             },
             {
-              name: "**/status**",
+              name: "/status",
               value: "BOTのサーバーの状態を表示します\n※異常かもと思った場合は、早急に報告してください"
             },
             {
-              name: "**/invite**",
+              name: "/invite",
               value: "BOTの招待リンク、サポートなどの情報を表示します"
             },
             {
-              name: "**/support**",
+              name: "/support",
               value: "サポートサーバーに直接お問合せができます\n※スパムや、悪質なものはおやめください"
             },
             {
-              name: "**/export**",
+              name: "/export",
               value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
             },
         ]}],
