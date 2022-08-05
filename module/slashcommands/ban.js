@@ -28,6 +28,19 @@ async function ban(interaction,client){
       }],
       ephemeral:true
     });
+
+    if(id == interaction.member.user.id) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "メンバーをBANできませんでした",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "自分自身をBANすることはできません"
+      }],
+      ephemeral:true
+    });
+
     const users = await client.users.fetch(id[0])
       .catch(()=>{
         interaction.reply({

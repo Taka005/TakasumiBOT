@@ -28,6 +28,18 @@ async function kick(interaction){
       ephemeral:true
     });
 
+    if(member.user.id == interaction.member.user.id) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "メンバーをKICKできませんでした",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "自分自身をKICKすることはできません"
+      }],
+      ephemeral:true
+    });
+
     member.kick({reason:`${reason}`})
       .then(()=>interaction.reply({
         content:`${interaction.member}`,
