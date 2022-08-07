@@ -1,7 +1,10 @@
 async function member(interaction){
+  const point = require("../../data/point.json");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
     const info = interaction.options.getMember("user");
+
+    const point_user = point[info.user.id];
 
     await interaction.reply({
       embeds:[{
@@ -26,6 +29,11 @@ async function member(interaction){
           {
             name: "ニックネーム",
             value: member.nickname||"未設定",
+            inline: true
+          },
+          {
+            name: "評価",
+            value: point_user||"10.0",
             inline: true
           },
           {
