@@ -1,9 +1,12 @@
 async function user(interaction,client){
+  const point = require("../../data/point.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
     const user_id = await interaction.options.getString("id");
 
       if(!user_id){
+        const point_user = point[interaction.author.id];
+
         await interaction.reply({
           embeds:[{
             color: "GREEN",
@@ -27,6 +30,11 @@ async function user(interaction,client){
               {
                 name: "ニックネーム",
                 value: interaction.member.nickname||"未設定",
+                inline: true
+              },
+              {
+                name: "評価",
+                value: point_user||"10.0",
                 inline: true
               },
               {
@@ -79,6 +87,8 @@ async function user(interaction,client){
   
       const member = await interaction.guild.members.cache.get(id[0]);
         if(member){
+          const point_user = point[member.user.id];
+
           await interaction.reply({
             embeds:[{
               color: "GREEN",
@@ -102,6 +112,11 @@ async function user(interaction,client){
                 {
                   name: "ニックネーム",
                   value: member.nickname||"未設定",
+                  inline: true
+                },
+                {
+                  name: "評価",
+                  value: point_user||"10.0",
                   inline: true
                 },
                 {
@@ -140,6 +155,8 @@ async function user(interaction,client){
         }else{
           try{
             const users = await client.users.fetch(id[0]);
+            const point_user = point[users.id];
+
             await interaction.reply({
               embeds:[{
                 color: "GREEN",
@@ -163,6 +180,11 @@ async function user(interaction,client){
                   {
                     name: "作成日時",
                     value: `${new Date(users.createdTimestamp).toLocaleDateString()}`,
+                    inline: true
+                  },
+                  {
+                    name: "評価",
+                    value: point_user||"10.0",
                     inline: true
                   },
                   {

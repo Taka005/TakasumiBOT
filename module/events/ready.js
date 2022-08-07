@@ -194,6 +194,20 @@ async function ready(client){
         option
           .setName("days")
           .setDescription("メッセージを削除する日数"))
+
+    const point = new SlashCommandBuilder()
+      .setName("point")
+      .setDescription("ユーザーの評価値を操作します")
+      .addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("ユーザーID又はメンション")
+          .setRequired(true))
+      .addIntegerOption(option =>
+        option
+          .setName("points")
+          .setDescription("付与するポイント(0.0〜10.0)")
+          .setRequired(true))
     
     const avatar = new SlashCommandBuilder()
       .setName("avatar")
@@ -354,6 +368,7 @@ async function ready(client){
             user,
             kick,
             ban,
+            point,
             avatar,
             dm,
             mc,

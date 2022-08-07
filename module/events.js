@@ -117,6 +117,7 @@ async function events(client){
       const draw = require("./slashcommands/draw");
       const kick = require("./slashcommands/kick");
       const ban = require("./slashcommands/ban");
+      const point = require("./slashcommands/point");
       const dm = require("./slashcommands/dm");
       const news = require("./slashcommands/news");
       const npm = require("./slashcommands/npm");
@@ -149,6 +150,7 @@ async function events(client){
       draw(interaction);
       kick(interaction);
       ban(interaction,client);
+      point(interaction,client)
       global(interaction);
       mute(interaction);
       dm(interaction,client);
