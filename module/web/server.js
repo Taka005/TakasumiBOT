@@ -24,15 +24,22 @@ async function server(client){
   app.use(`/`, express.static("./module/web/assets"));
  
   //------リダイレクト------//
-  app.get('/support', (req, res) =>{
+  app.get("support", (req, res) =>{
     res.redirect("https://discord.gg/GPs3npB63m");
     let time = new Date();
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からsupportにリダイレクト`);
     res.end()
   });
 
-  app.get('/invite', (req, res) =>{
+  app.get("/invite", (req, res) =>{
     res.redirect("https://discord.com/api/oauth2/authorize?client_id=981314695543783484&permissions=1644971949559&scope=bot%20applications.commands");
+    let time = new Date();
+    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からinviteにリダイレクト`);
+    res.end()
+  });
+
+  app.get("/feedback", (req, res) =>{
+    res.redirect("https://forms.gle/kkWYKMPKFKWugNfL8");
     let time = new Date();
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からinviteにリダイレクト`);
     res.end()
