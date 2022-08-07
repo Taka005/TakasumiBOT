@@ -1,6 +1,6 @@
 @echo off
-@echo インストーラーを開始します.....
+@echo Installing....
 
 npm install
 
-@echo 正常に完了しました
+@echo done
