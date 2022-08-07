@@ -217,6 +217,15 @@ async function ready(client){
           .setName("id")
           .setDescription("ユーザーID又はメンション"))
 
+    const short = new SlashCommandBuilder()
+      .setName("short")
+      .setDescription("短縮URLを作成します")
+      .addStringOption(option =>
+        option
+          .setName("url")
+          .setDescription("短縮するURL")
+          .setRequired(true))
+
     const dm = new SlashCommandBuilder()
       .setName("dm")
       .setDescription("ユーザーにDMを送信します")
@@ -370,6 +379,7 @@ async function ready(client){
             ban,
             point,
             avatar,
+            short,
             dm,
             mc,
             global,

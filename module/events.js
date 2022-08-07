@@ -113,6 +113,7 @@ async function events(client){
       const ticket = require("./slashcommands/ticket");
       const channel = require("./slashcommands/channel");
       const avatar = require("./slashcommands/avatar");
+      const short = require("./slashcommands/short");
       const output = require("./slashcommands/output");
       const draw = require("./slashcommands/draw");
       const kick = require("./slashcommands/kick");
@@ -146,6 +147,7 @@ async function events(client){
       ticket(interaction);
       channel(interaction,client);
       avatar(interaction,client);
+      short(interaction);
       output(interaction,client);
       draw(interaction);
       kick(interaction);
