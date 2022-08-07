@@ -17,6 +17,11 @@ async function invite(interaction){
       .setURL("https://taka.ml/")
       .setStyle("LINK")
 
+    const feedback = new MessageButton()
+      .setLabel("フィードバック")
+      .setURL("https://taka.ml/feedback/")
+      .setStyle("LINK")
+
     await interaction.reply({
       embeds: [{
         color:"WHITE",
@@ -28,6 +33,7 @@ async function invite(interaction){
           .addComponents(bot)
           .addComponents(support)
           .addComponents(site)
+          .addComponents(feedback)
       ]
     })
     return;

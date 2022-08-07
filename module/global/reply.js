@@ -14,7 +14,7 @@ async function global(message,client){
 
   const content = message.content
     .replace(/@everyone|@here/g,"[メンション]")
-    .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ/g,"[NG]")
+    .replace(/死ね|カス|クズ|ゴミ|ごみ|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ|ちんちん|ちんこ|チンコ/g,"[NG]")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
     
   const user = await message.author.fetch();
@@ -36,6 +36,7 @@ async function global(message,client){
             color: user.hexAccentColor,
             author: {
               name: `${message.author.tag}(${message.author.id})`,
+              url: `https://discord.com/users/${message.author.id}`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
             description: `${content}`,
@@ -78,6 +79,7 @@ async function global(message,client){
               color: user.hexAccentColor,
               author: {
                 name: `${message.author.tag}(${message.author.id})`,
+                url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
@@ -127,6 +129,7 @@ async function global(message,client){
             color: user.hexAccentColor,
             author: {
               name: `${message.author.tag}(${message.author.id})`,
+              url: `https://discord.com/users/${message.author.id}`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
             description: `${content}`,
@@ -176,6 +179,7 @@ async function global(message,client){
             color: user.hexAccentColor,
             author: {
               name: `${message.author.tag}(${message.author.id})`,
+              url: `https://discord.com/users/${message.author.id}`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
             description: `${content}`,
@@ -218,6 +222,7 @@ async function global(message,client){
               color: user.hexAccentColor,
               author: {
                 name: `${message.author.tag}(${message.author.id})`,
+                url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
@@ -267,6 +272,7 @@ async function global(message,client){
             color: user.hexAccentColor,
             author: {
               name: `${message.author.tag}(${message.author.id})`,
+              url: `https://discord.com/users/${message.author.id}`,
               icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
             },
             description: `${content}`,
