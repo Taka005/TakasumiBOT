@@ -22,7 +22,7 @@ async function global(message,client){
   try{
     const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
     const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
-    const author = msg.embeds[0].author.name.split("#");
+    const author = msg.embeds[0].author.name
 
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
@@ -43,7 +43,7 @@ async function global(message,client){
             fields: [
               {
                 name: "\u200b",
-                value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
+                value: `**${author}>>** ${msg.embeds[0].description || "なし"}`
               }
             ],
             footer: {
@@ -86,7 +86,7 @@ async function global(message,client){
               fields: [
                 {
                   name: "\u200b",
-                  value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
+                  value: `**${author}>>** ${msg.embeds[0].description || "なし"}`
                 }
               ],
               footer: {
@@ -144,7 +144,7 @@ async function global(message,client){
               },
               {
                 name: "\u200b",
-                value: `**${author[0]}>>** ${msg.embeds[0].description || "なし"}`
+                value: `**${author}>>** ${msg.embeds[0].description || "なし"}`
               }
             ],
             timestamp: new Date()
@@ -186,7 +186,7 @@ async function global(message,client){
             fields: [
               {
                 name: "\u200b",
-                value: `**${msg.author.username}>>** ${msg.content || "なし"}`
+                value: `**${msg.author.tag}>>** ${msg.content || "なし"}`
               }
             ],
             footer: {
@@ -229,7 +229,7 @@ async function global(message,client){
               fields: [
                 {
                   name: "\u200b",
-                  value: `**${msg.author.username}>>** ${msg.content || "なし"}`
+                  value: `**${msg.author.tag}>>** ${msg.content || "なし"}`
                 }
               ],
               footer: {
@@ -287,7 +287,7 @@ async function global(message,client){
               },
               {
                 name: "\u200b",
-                value: `**${msg.author.username}>>** ${msg.content || "なし"}`
+                value: `**${msg.author.tag}>>** ${msg.content || "なし"}`
               }
             ],
             timestamp: new Date()
