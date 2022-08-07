@@ -203,7 +203,7 @@ async function ready(client){
           .setName("id")
           .setDescription("ユーザーID又はメンション")
           .setRequired(true))
-      .addIntegerOption(option =>
+      .addStringOption(option =>
         option
           .setName("points")
           .setDescription("付与するポイント(0.0〜10.0)")

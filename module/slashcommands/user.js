@@ -5,7 +5,7 @@ async function user(interaction,client){
     const user_id = await interaction.options.getString("id");
 
       if(!user_id){
-        const point_user = point[interaction.author.id];
+        const point_user = point[interaction.member.user.id];
 
         await interaction.reply({
           embeds:[{
@@ -116,7 +116,7 @@ async function user(interaction,client){
                 },
                 {
                   name: "評価",
-                  value: point_user||"10.0",
+                  value: `${point_user}`||"10.0",
                   inline: true
                 },
                 {

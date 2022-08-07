@@ -5,7 +5,7 @@ async function point(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "point"){
     const user = await interaction.options.getString("id");
-    const points = await interaction.options.getInteger("points");
+    const points = await interaction.options.getString("points");
     if(interaction.member.user.id !== config.admin) return interaction.reply({
       embeds:[{
         author: {
@@ -52,7 +52,7 @@ async function point(interaction,client){
     return interaction.reply({
       embeds:[{
         author: {
-          name: `${users}の評価を${points}にしました`,
+          name: `${users.tag}の評価を${points}にしました`,
           icon_url: "https://taka.ml/images/success.png",
         },
         color: "GREEN"
