@@ -5,7 +5,7 @@ async function point(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "point"){
     const user = await interaction.options.getString("id");
-    const points = await interaction.options.getString("points");
+    const points = await interaction.options.getInteger("points");
     if(interaction.member.user.id !== config.admin) return interaction.reply({
       embeds:[{
         author: {
