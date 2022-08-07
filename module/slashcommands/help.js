@@ -48,6 +48,10 @@ async function help(interaction){
           {
             name: "/wiki",
             value: "Wikipediaの検索をします"
+          },
+          {
+            name: "/short",
+            value: "短縮URLを作成します"
           }
       ]}],
       components: [
