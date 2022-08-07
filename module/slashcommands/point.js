@@ -33,7 +33,7 @@ async function point(interaction,client){
     
     const users = await client.users.fetch(id[0])
       .catch(()=>{
-        interaction.reply({
+        return interaction.reply({
           embeds:[{
             author: {
               name: "指定したユーザーが存在しません",
