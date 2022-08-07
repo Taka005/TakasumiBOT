@@ -13,7 +13,8 @@ async function short(interaction){
         },
         color: "RED",
         description: "URLを指定する必要があります"
-      }]
+      }],
+      ephemeral:true
     });
 
     const short_response = await fetch(`https://is.gd/create.php?format=simple&url=${url}`);

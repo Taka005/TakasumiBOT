@@ -17,23 +17,17 @@ async function invite(interaction){
       .setURL("https://taka.ml/")
       .setStyle("LINK")
 
-    const feedback = new MessageButton()
-      .setLabel("フィードバック")
-      .setURL("https://taka.ml/feedback/")
-      .setStyle("LINK")
-
     await interaction.reply({
       embeds: [{
         color:"WHITE",
         title:"ご利用いただきありがとうございます",
-        description: "制作:Taka005#6668\nスラッシュコマンド又は`>`でコマンドが使用可能です\nBOT導入、サポートサーバーに参加よろしくお願いします"
+        description: "制作:Taka005#6668\nスラッシュコマンド又は`>`でコマンドが使用可能です\nBOT導入、サポートサーバーに参加よろしくお願いします\n\n[フィードバック](https://taka.ml/feedback/)"
       }],
       components: [
         new MessageActionRow()
           .addComponents(bot)
           .addComponents(support)
           .addComponents(site)
-          .addComponents(feedback)
       ]
     })
     return;
