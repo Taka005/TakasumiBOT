@@ -18,7 +18,7 @@ async function short(interaction){
     });
 
     const short_response = await fetch(`https://is.gd/create.php?format=simple&url=${url}`);
-    await interaction.reply(short_response);
+    await interaction.reply(`${short_response}`);
     return;
   }
 }
