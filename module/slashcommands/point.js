@@ -34,8 +34,8 @@ async function point(interaction,client){
     try{
       const users = await client.users.fetch(id[0]);
       point_user[id] = points;
-      fs.writeFileSync("./data/point_user.json", JSON.stringify(point_user), "utf8");
-      delete require.cache[require.resolve("../../data/point_user.json")];
+      fs.writeFileSync("./data/point.json", JSON.stringify(point_user), "utf8");
+      delete require.cache[require.resolve("../../data/point.json")];
 
       await interaction.reply({
         embeds:[{
