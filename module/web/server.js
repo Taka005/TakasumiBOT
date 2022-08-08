@@ -24,7 +24,7 @@ async function server(client){
   app.use(`/`, express.static("./module/web/assets"));
  
   //------リダイレクト------//
-  app.get("support", (req, res) =>{
+  app.get("/support", (req, res) =>{
     res.redirect("https://discord.gg/GPs3npB63m");
     let time = new Date();
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からsupportにリダイレクト`);
