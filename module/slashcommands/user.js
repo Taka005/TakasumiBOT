@@ -116,7 +116,7 @@ async function user(interaction,client){
                 },
                 {
                   name: "評価",
-                  value: `${point_user}`||"10.0",
+                  value: point_user||"10.0",
                   inline: true
                 },
                 {
