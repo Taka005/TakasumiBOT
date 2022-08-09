@@ -33,20 +33,22 @@ async function mute(interaction,client){
     });
 
     if(interaction.options.getSubcommand() === "user"){
-      const users = await client.users.fetch(id[0])
-        .catch(()=>{
-          interaction.reply({
-            embeds:[{
-              author: {
-                name: "ユーザーをミュートできませんでした",
-                icon_url: "https://taka.ml/images/error.jpg",
-              },
-              color: "RED",
-              description: "指定したユーザーが存在しません"
-            }],
-            ephemeral:true
-          })
+      const users
+      try{
+        users = await client.users.fetch(id[0])
+      }catch{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "ユーザーをミュートできませんでした",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: "指定したユーザーが存在しません"
+          }],
+          ephemeral:true
         });
+      }
 
       if(block_user[id[0]]){//登録済み
         delete block_user[id[0]];
