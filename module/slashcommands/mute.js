@@ -37,7 +37,7 @@ async function mute(interaction,client){
       try{
         users = await client.users.fetch(id[0]);
       }catch{
-        interaction.reply({
+        return interaction.reply({
           embeds:[{
             author: {
               name: "ユーザーをミュートできませんでした",
