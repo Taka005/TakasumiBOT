@@ -53,7 +53,9 @@ async function server(client){
     res.json({
       client:{
         user:client.user.tag,
-        ping:client.ws.ping
+        ping:client.ws.ping,
+        guild:client.guilds.cache.size,
+        user:client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)
       },
       system:{
         ram:{   
