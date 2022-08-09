@@ -33,9 +33,9 @@ async function mute(interaction,client){
     });
 
     if(interaction.options.getSubcommand() === "user"){
-      const users
+      let users
       try{
-        users = await client.users.fetch(id[0])
+        users = await client.users.fetch(id[0]);
       }catch{
         interaction.reply({
           embeds:[{
