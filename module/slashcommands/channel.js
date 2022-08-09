@@ -15,10 +15,20 @@ async function channel(interaction,client){
       }],
       ephemeral:true
     });
-
     try{
       await client.channels.cache.get(channel.id).send(`${text}`)
-        .then(()=>interaction.reply({ content:`正常に送信しました`,ephemeral:true }))
+        .then(()=>{
+          interaction.reply({
+            embeds:[{
+              author: {
+                name: `${channel.name}に${text}を送信しました`,
+                icon_url: "https://taka.ml/images/success.png",
+              },
+              color: "GREEN"
+            }],
+            ephemeral:true
+          })
+        })
     }catch{
       interaction.reply({
         embeds:[{
