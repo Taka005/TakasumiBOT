@@ -1,4 +1,4 @@
-async function mute(interaction){
+async function mute(interaction,client){
   const config = require("../../config.json");
   const block_user = require("../../data/block_user.json");
   const block_server = require("../../data/block_server.json");
@@ -33,70 +33,97 @@ async function mute(interaction){
     });
 
     if(interaction.options.getSubcommand() === "user"){
-      if(block_user[id]){//登録済み
-        delete block_user[id];
+      const users = await client.users.fetch(id[0])
+        .catch(()=>{
+          interaction.reply({
+            embeds:[{
+              author: {
+                name: "ユーザーをミュートできませんでした",
+                icon_url: "https://taka.ml/images/error.jpg",
+              },
+              color: "RED",
+              description: "指定したユーザーが存在しません"
+            }],
+            ephemeral:true
+          })
+        });
+
+      if(block_user[id[0]]){//登録済み
+        delete block_user[id[0]];
         fs.writeFileSync("./data/block_user.json", JSON.stringify(block_user), "utf8");
         delete require.cache[require.resolve("../../data/block_user.json")];
 
         return interaction.reply({
-          content:`${interaction.member}`,
           embeds:[{
             author: {
-              name: "ミュートユーザーを削除しました",
+              name: `${users.tag} をミュートしました`,
               icon_url: "https://taka.ml/images/success.png",
             },
             color: "GREEN"
-          }]
+          }],
+          ephemeral:true
         });
       }
     
       //登録なし
-      block_user[id] = reason;
+      block_user[id[0]] = reason;
       fs.writeFileSync("./data/block_user.json", JSON.stringify(block_user), "utf8");
       delete require.cache[require.resolve("../../data/block_user.json")];
 
       return interaction.reply({
-        content:`${interaction.member}`,
         embeds:[{
           author: {
-            name: "ミュートユーザーを追加しました",
+            name: `${users.tag} のミュートを解除しました`,
             icon_url: "https://taka.ml/images/success.png",
           },
           color: "GREEN"
         }]
       });
     }else if(interaction.options.getSubcommand() === "server"){
-      if(block_server[id]){//登録済み
-        delete block_server[id];
+      const guild = client.guilds.cache.get(id[0]);
+      if(!guild) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "サーバーをミュートできませんでした",
+            icon_url: "https://taka.ml/images/error.jpg",
+          },
+          color: "RED",
+          description: "指定したサーバーが存在しません"
+        }],
+        ephemeral:true
+      });
+
+      if(block_server[id[0]]){//登録済み
+        delete block_server[id[0]];
         fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
         delete require.cache[require.resolve("../../data/block_server.json")];
 
         return interaction.reply({
-          content:`${interaction.member}`,
           embeds:[{
             author: {
-              name: "ミュートサーバーを削除しました",
+              name: `${guild.name} のミュートを解除しました`,
               icon_url: "https://taka.ml/images/success.png",
             },
             color: "GREEN"
-          }]
+          }],
+          ephemeral:true
         });
       }
-    
+
       //登録なし
-      block_server[id] = reason;
+      block_server[id[0]] = reason;
       fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
       delete require.cache[require.resolve("../../data/block_server.json")];
 
       return interaction.reply({
-        content:`${interaction.member}`,
         embeds:[{
           author: {
-            name: "ミュートサーバーを追加しました",
+            name: `${guild.name} をミュートしました`,
             icon_url: "https://taka.ml/images/success.png",
           },
           color: "GREEN"
-        }]
+        }],
+        ephemeral:true
       });
     }
   }

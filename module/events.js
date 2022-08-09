@@ -154,7 +154,7 @@ async function events(client){
       ban(interaction,client);
       point(interaction,client)
       global(interaction);
-      mute(interaction);
+      mute(interaction,client);
       dm(interaction,client);
       news(interaction);
       npm(interaction);
