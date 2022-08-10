@@ -1,12 +1,29 @@
 function connect(message,client){
-  const buffer = require('buffer');
-  if(message.author.bot || message.channel.topic !== "$$GLOBAL$$") return;
-return;
+  const fetch = require("node-fetch");
+  const mute_user = require("../../data/block_user.json");
+  const mute_server = require("../../data/block_server.json");
+  const main = require("../../data/global/main.json");
+  require("dotenv").config();
+  if(!message.channel.type === "GUILD_TEXT"||message.author.bot||!main[message.channel.id]) return;
+
+  if(mute_server[message.guild.id]||mute_user[message.author.id]||message.content.length > 300){
+    return message.react("❌")
+      .catch(()=>{}) 
+  };
+
   let attachment_list = [];
   message.attachments.forEach((attachment) => {
       let file = attachment.toJSON();
       file.content_type = attachment.contentType;
       attachment_list.push(file);
+  });
+
+
+  await fetch("https://ugc.renorari.net/api/v1/channels", {
+    "method": "GET",
+    "headers": {
+        "Authorization": `Bearer ${token}`
+    }
   });
 
   client.channels.cache.get("949862388969119755").send({

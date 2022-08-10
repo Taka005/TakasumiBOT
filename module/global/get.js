@@ -3,11 +3,6 @@ function get(message,client){
   let msg = JSON.parse(new Buffer.from(message.embeds[0].description, "base64"));
   message.react("🔁")
 return;
-  client.channels.cache.get("949900405012324372").send({//解読コード
-    embeds: [{
-      description: JSON.stringify(msg,null,"　")
-    }]
-  });
 
   if(!msg.message.attachments.length){
     client.channels.cache.filter(channel => channel.topic == "$$GLOBAL$$").forEach((channel) =>{
