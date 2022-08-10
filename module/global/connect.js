@@ -3,7 +3,7 @@ async function connect(msg){
   const main = require("../../data/global/main.json");
   const { WebhookClient } = require("discord.js");
 
-  Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
+  Object.keys(main).forEach(async (channels)=>{
 
     const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
     if(mute_server[guild]) return;
@@ -13,14 +13,17 @@ async function connect(msg){
       embeds:[{
         color: "WHITE",
         author: {
-          name: `${msg.author.username}#${msg.author.discriminator}<${msg.author.id}>`,
+          name: `${msg.author.username}#${msg.author.discriminator}`,
           url: `https://discord.com/users/${msg.author.id}`,
           icon_url: msg.author.avatarURL||"https://cdn.discordapp.com/embed/avatars/0.png",
         },
         description: msg.message.content,
+        image: {
+          url: (msg.message.attachments.length) ? msg.message.attachments[0].url : null
+        },
         footer: {
           text: `${msg.guild.name}<${msg.guild.id}>`,
-          icon_url: msg.guild.iconURL ||"https://cdn.discordapp.com/embed/avatars/0.png"
+          icon_url: msg.guild.iconURL||"https://cdn.discordapp.com/embed/avatars/0.png"
         },
         timestamp: new Date()
       }]      
