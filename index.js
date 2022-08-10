@@ -20,8 +20,10 @@ let s = now.getSeconds();
 
 const events = require("./module/events");
 const server = require("./module/web/server");
+const gateway = require("./module/global/gateway");
 events(client);
 server(client);
+gateway();
 
 client.login(process.env.DISCORD_BOT_TOKEN)
   .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))

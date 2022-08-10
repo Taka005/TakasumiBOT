@@ -17,12 +17,10 @@ async function events(client){
         //globalchat
         const global = require("./global/global");
         const reply = require("./global/reply");
-        const connect = require("./global/connect");
-        const get = require("./global/get");
-        global(message,client)
-        reply(message,client)
-        connect(message,client)
-        get(message,client)
+        const send = require("./global/send");
+        global(message,client);
+        reply(message,client);
+        send(message);
 
         //other
         const bump = require("./events/bump");
