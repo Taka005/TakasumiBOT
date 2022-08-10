@@ -10,7 +10,7 @@ async function send(message){
     return message.react("❌")
       .catch(()=>{}) 
   }
-
+  console.info(`\x1b[31m[${h}:${m}:${s}]UGC:MESSAGE SEND ${msg}`); 
   await fetch("https://ugc.renorari.net/api/v1/channels",{
     "method": "POST",
     "headers": {
