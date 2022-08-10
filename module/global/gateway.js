@@ -30,7 +30,7 @@ async function gateway(){
     let s = now.getSeconds() 
 
     zlib.inflate(rawData, (err, _data) => {
-      if(err) return;
+      if(err) console.log(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`)
       let data = JSON.parse(_data);
 
       if(data.type == "hello"){
