@@ -1,9 +1,10 @@
-function connect(message,client){
+async function connect(message,client){
   const fetch = require("node-fetch");
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
   require("dotenv").config();
+  return
   if(!message.channel.type === "GUILD_TEXT"||message.author.bot||!main[message.channel.id]) return;
 
   if(mute_server[message.guild.id]||mute_user[message.author.id]||message.content.length > 300){
@@ -19,10 +20,10 @@ function connect(message,client){
   });
 
 
-  await fetch("https://ugc.renorari.net/api/v1/channels", {
+  await fetch("https://ugc.renorari.net/api/v1/channels",{
     "method": "GET",
     "headers": {
-        "Authorization": `Bearer ${token}`
+        "Authorization": `Bearer ${process.env.UGC_KEY}`
     }
   });
 
