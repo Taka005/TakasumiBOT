@@ -32,7 +32,6 @@ async function gateway(){
     zlib.inflate(rawData, (err, _data) => {
       if(err) return console.log(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`);
       let data = JSON.parse(_data);
-
       if(data.type == "hello"){
         websocket.send(zlib.deflateSync(JSON.stringify({
           "type": "identify",
@@ -40,14 +39,13 @@ async function gateway(){
             "token": process.env.UGC_KEY
           }
           }),(err)=>{
-            if(err) console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`); 
+            if(err) return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`); 
           }
         ));
         return;
       }else if(data.type == "message"){
-        const msg  = data.data
-        connect(msg);
-        return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:MESSAGE ${msg}`); 
+        const msg  = data.data.data
+        return connect(msg);
 
       }else if(data.type == "identify"){
         if(!data.success) return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR No Ready`); 
