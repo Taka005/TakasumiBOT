@@ -12,7 +12,7 @@
   },
   "name": "takasumi_bot",
   "description": "TakasumiBOT開発 https://taka.ml/",
-  "version": "2.6.4",
+  "version": "2.6.5",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
