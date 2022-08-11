@@ -30,7 +30,7 @@ async function gateway(){
     let s = now.getSeconds() 
 
     zlib.inflate(rawData, (err, _data) => {
-      if(err) console.log(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`)
+      if(err) return console.log(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`);
       let data = JSON.parse(_data);
 
       if(data.type == "hello"){
@@ -50,6 +50,7 @@ async function gateway(){
         return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:MESSAGE ${msg}`); 
 
       }else if(data.type == "identify"){
+        if(!data.success) return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR No Ready`); 
         return console.info(`\x1b[34m[${h}:${m}:${s}]UGC:READY!`); 
 
       }else if(data.type == "heartbeat"){
