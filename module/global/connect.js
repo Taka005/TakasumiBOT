@@ -4,6 +4,7 @@ async function connect(msg){
   const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
 
+  if(main[msg.channel.id]) return;
   Object.keys(main).forEach(async (channels)=>{
 
     const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
