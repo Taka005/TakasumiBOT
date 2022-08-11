@@ -32,7 +32,7 @@ async function gateway(){
     zlib.inflate(rawData, (err, _data) => {
       if(err) return console.log(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`);
       let data = JSON.parse(_data);
-
+      console.log(data)
       if(data.type == "hello"){
         websocket.send(zlib.deflateSync(JSON.stringify({
           "type": "identify",
