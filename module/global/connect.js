@@ -1,6 +1,7 @@
 async function connect(msg){
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
+  const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
 
   Object.keys(main).forEach(async (channels)=>{

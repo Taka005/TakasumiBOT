@@ -7,7 +7,7 @@ async function send(message){
   if(!message.channel.type === "GUILD_TEXT"||message.author.bot||!main[message.channel.id]) return;
   if(mute_server[message.guild.id]||mute_user[message.author.id]||message.content.length > 300) return;
   
-  const msg = await fetch("https://ugc.renorari.net/api/v1/messages",{
+  const messages = await fetch("https://ugc.renorari.net/api/v1/messages",{
     "method": "POST",
     "headers": {
         "Authorization": `Bearer ${process.env.UGC_KEY}`,
@@ -53,7 +53,7 @@ async function send(message){
     )
   }).then((res) => res.json());
 
-  console.log(msg)
+  if(!messages.success) return console.log(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR No Messages`);
   return;
 }
 

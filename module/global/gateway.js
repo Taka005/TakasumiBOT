@@ -40,14 +40,13 @@ async function gateway(){
             "token": process.env.UGC_KEY
           }
           }),(err)=>{
-            if(err) console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`); 
+            if(err) return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${err}`); 
           }
         ));
         return;
       }else if(data.type == "message"){
         const msg  = data.data
-        connect(msg);
-        return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:MESSAGE ${msg}`); 
+        return connect(msg);
 
       }else if(data.type == "identify"){
         if(!data.success) return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR No Ready`); 
