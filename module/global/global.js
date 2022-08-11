@@ -14,7 +14,6 @@ async function global(message,client){
 
   const content = message.content
     .replace(/@everyone|@here/g,"[メンション]")
-    .replace(/死ね|黙れ|消えろ|うんち|ウンコ|ウンチ|死んどけ|ちんちん|ちんこ|チンコ/g,"[NG]")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://discord.gg/GPs3npB63m)")
 
   const user = await message.author.fetch();
