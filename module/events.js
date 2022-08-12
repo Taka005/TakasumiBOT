@@ -39,7 +39,6 @@ async function events(client){
         const timer = require("./commands/timer");
         const cpu = require("./commands/cpu");
         const url = require("./commands/url");
-        const hello = require("./commands/hello");
         const note = require("./commands/note");
         const exec = require("./commands/exec");
         const soccer = require("./commands/soccer");
@@ -48,7 +47,6 @@ async function events(client){
         timer(message)
         cpu(message)
         url(message)
-        hello(message)
         note(message)
         exec(message,client)
         soccer(message)
