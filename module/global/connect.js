@@ -3,6 +3,7 @@ async function connect(msg){
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
+  const fs = require("fs");
 
   if(main[msg.channel.id]) return;
   Object.keys(main).forEach(async (channels)=>{
