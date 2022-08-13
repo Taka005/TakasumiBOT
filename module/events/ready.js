@@ -37,7 +37,7 @@ async function ready(client){
 
     //console
     console.info(`\x1b[34m[${h}:${m}:${s}]INFO:READY! USER:${client.user.tag}`); 
-    console.info(`\x1b[34m[${h}:${m}:${s}]INFO:<${client.guilds.cache.size}>SERVER`)
+    console.info(`\x1b[34m[${h}:${m}:${s}]INFO:<${client.guilds.cache.size}>SERVER <${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}>USER`)
 
     //スラッシュコマンド
     const help = new SlashCommandBuilder()

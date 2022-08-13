@@ -36,20 +36,12 @@ async function events(client){
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
  
         //コマンド
-        const timer = require("./commands/timer");
         const cpu = require("./commands/cpu");
-        const url = require("./commands/url");
-        const note = require("./commands/note");
         const exec = require("./commands/exec");
-        const soccer = require("./commands/soccer");
         const quote = require("./commands/quote");
 
-        timer(message)
         cpu(message)
-        url(message)
-        note(message)
         exec(message,client)
-        soccer(message)
         quote(message)
 
       return;
