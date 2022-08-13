@@ -39,7 +39,7 @@ async function server(client){
   });
 
   app.get("/feedback", (req, res) =>{
-    res.redirect("https://forms.gle/kkWYKMPKFKWugNfL8");
+    res.redirect("https://forms.gle/qe17jt8XnURTv5Pe8");
     let time = new Date();
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からinviteにリダイレクト`);
     res.end()
