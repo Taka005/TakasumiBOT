@@ -12,22 +12,16 @@ async function invite(interaction){
       .setURL("https://discord.gg/GPs3npB63m")
       .setStyle("LINK")
 
-    const site = new MessageButton()
-      .setLabel("サイト")
-      .setURL("https://taka.ml/")
-      .setStyle("LINK")
-
     await interaction.reply({
       embeds: [{
         color:"WHITE",
         title:"ご利用いただきありがとうございます",
-        description: "制作:Taka005#6668\nスラッシュコマンド又は`>`でコマンドが使用可能です\nBOT導入、サポートサーバーに参加よろしくお願いします\n\n[フィードバック](https://taka.ml/feedback/)"
+        description: "制作:Taka005#6668\nスラッシュコマンドでコマンドが使用可能です\nBOT導入、サポートサーバーに参加よろしくお願いします\n\n[フィードバック](https://taka.ml/feedback/)"
       }],
       components: [
         new MessageActionRow()
           .addComponents(bot)
           .addComponents(support)
-          .addComponents(site)
       ]
     })
     return;

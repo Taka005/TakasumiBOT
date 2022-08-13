@@ -30,7 +30,7 @@ async function events(client){
         open(message,client);
         urlcheck(message);
 
-        if(!message.channel.type === 'GUILD_TEXT' || message.author.bot) return;  
+        if(!message.channel.type === "GUILD_TEXT" || message.author.bot) return;  
 
         //console.log
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
@@ -59,6 +59,12 @@ async function events(client){
       const dissoku = require("./events/dissoku");
 
       dissoku(oldMessage,newMessage);
+    });
+
+    client.on("guildCreate", guild =>{
+      const invite = require("./events/invite");
+
+      invite(guild);
     });
 
     client.on("interactionCreate", async (interaction) =>{
