@@ -4,8 +4,14 @@ async function send(message){
   const main = require("../../data/global/main.json");
   const fetch = require("node-fetch");
   require("dotenv").config();
-  if(!message.channel.type === "GUILD_TEXT"||message.author.bot||!main[message.channel.id]) return;
-  if(mute_server[message.guild.id]||mute_user[message.author.id]||message.content.length > 300) return;
+  if(
+    !message.channel.type === "GUILD_TEXT"||
+    message.author.bot||
+    message.content.length > 300||
+    !main[message.channel.id]||
+    mute_server[message.guild.id]||
+    mute_user[message.author.id]
+  ) return;
   
   const messages = await fetch("https://ugc.renorari.net/api/v1/messages",{
     "method": "POST",

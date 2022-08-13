@@ -44,7 +44,7 @@ async function gateway(){
         ));
         return;
       }else if(data.type == "message"){
-        const msg  = data.data.data
+        const msg = data.data.data
         return connect(msg);
 
       }else if(data.type == "identify"){
