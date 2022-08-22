@@ -19,22 +19,19 @@ async function poll(interaction){
     const selects = [select_1,select_2,select_3,select_4,select_5,select_6,select_7,select_8,select_9,select_10,select_11,select_12]
       .filter(select=>select!==null)
 
-    await interaction.deferReply();
-    const msg = await interaction.channel.send({
+    const msg = await interaction.reply({
                 embeds:[{
                   title: title,
                   color: interaction.member.displayHexColor,
                   description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
-                  footer: {
-                    text: `${interaction.member.user.tag}によって送信`
-                  },
                   timestamp: new Date()
-                }]
+                }],
+                fetchReply: true
     })
     try{
       await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
     }catch{
-      await interaction.reply({
+      await msg.edit({
         embeds:[{
           author: {
             name: "BOTに権限がありません",
@@ -45,7 +42,7 @@ async function poll(interaction){
         }]
       });
     }
-    interaction.deleteReply();
+
     return;
   }
 }
