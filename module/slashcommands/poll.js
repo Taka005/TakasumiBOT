@@ -22,10 +22,6 @@ async function poll(interaction){
     const msg = await interaction.reply({
                 embeds:[{
                   title: title,          
-                  author: {
-                    name: interaction.member.user.tag,
-                    icon_url: interaction.member.user.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
-                  },
                   color: interaction.member.displayHexColor,
                   description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
                   timestamp: new Date()
