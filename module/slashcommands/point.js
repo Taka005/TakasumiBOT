@@ -18,7 +18,7 @@ async function point(interaction,client){
       ephemeral:true
     });
 
-    const id = user.match(/\d{18}/g);
+    const id = user.match(/\d{18,19}/g);
     if(!id) return await interaction.reply({
       embeds:[{
         author: {
