@@ -4,6 +4,7 @@ async function send(message){
   const main = require("../../data/global/main.json");
   const fetch = require("node-fetch");
   require("dotenv").config();
+  
   if(
     !message.channel.type === "GUILD_TEXT"||
     message.author.bot||
