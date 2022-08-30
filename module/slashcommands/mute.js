@@ -62,8 +62,7 @@ async function mute(interaction,client){
               icon_url: "https://taka.ml/images/success.png",
             },
             color: "GREEN"
-          }],
-          ephemeral:true
+          }]
         });
       }
     
@@ -124,8 +123,7 @@ async function mute(interaction,client){
             icon_url: "https://taka.ml/images/success.png",
           },
           color: "GREEN"
-        }],
-        ephemeral:true
+        }]
       });
     }
   }
