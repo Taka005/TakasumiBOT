@@ -4,7 +4,7 @@ async function globalreact(reaction,user){
     reaction.message.reply({
       embeds: [{
         color:"GREEN",
-        description: "正常にメッセージが送信された場合は✅が付きますが、\nサーバーやユーザーがブラックリストに登録されている又は、正常に送信が完了できなかった場合のみ❌が付きます\n詳しくは利用規約をお読みください[利用規約](https://taka.ml/bot/takasumi.html)"
+        description: "正常にメッセージが送信された場合は✅が付きますが、\nサーバーやユーザーがブラックリストに登録されている又は、正常に送信が完了できなかった場合のみ❌が付きます\n詳しくは[利用規約](https://taka.ml/bot/takasumi.html)をお読みください"
       }]
     })
   }
