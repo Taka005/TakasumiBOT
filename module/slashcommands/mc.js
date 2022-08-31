@@ -35,7 +35,7 @@ async function mc(interaction){
               fields: [
                 {
                   name: "MOTD",
-                  value: (server.motd) ? server.motd.clean.join("\n") : "なし",
+                  value: `\`\`\`${(server.motd) ? server.motd.clean.join("\n") : "なし"}\`\`\``,
                   inline: true
                 },
                 {
@@ -118,7 +118,7 @@ async function mc(interaction){
               fields: [
                 {
                   name: "MOTD",
-                  value: (server.motd) ? server.motd.clean.join("\n") : "なし",
+                  value: `\`\`\`${(server.motd) ? server.motd.clean.join("\n") : "なし"}\`\`\``,
                   inline: true
                 },
                 {

@@ -53,6 +53,12 @@ async function events(client){
       dissoku(oldMessage,newMessage);
     });
 
+    client.on('messageReactionAdd', async (reaction, user) =>{
+      const globalreact = require("./event/globalreact");
+
+      globalreact(reaction,user);
+    });
+
     client.on("guildCreate", guild =>{
       const invite = require("./events/invite");
 
@@ -61,7 +67,7 @@ async function events(client){
 
     client.on("interactionCreate", async (interaction) =>{
 
-      if(!interaction.guild) return interaction.reply({ 
+      if(!interaction.guild) return await interaction.reply({ 
         embeds:[{
           author: {
             name: "コマンドが実行できません",
