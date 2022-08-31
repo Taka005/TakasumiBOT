@@ -54,7 +54,7 @@ async function events(client){
     });
 
     client.on('messageReactionAdd', async (reaction, user) =>{
-      const globalreact = require("./event/globalreact");
+      const globalreact = require("./events/globalreact");
 
       globalreact(reaction,user);
     });
