@@ -54,6 +54,8 @@ async function events(client){
     });
 
     client.on('messageReactionAdd', async (reaction, user) =>{
+      if(!reaction.message.channel.type === "GUILD_TEXT" || reaction.message.author.bot) return;  
+
       const globalreact = require("./events/globalreact");
 
       globalreact(reaction,user);
