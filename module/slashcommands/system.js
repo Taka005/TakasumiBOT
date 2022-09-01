@@ -3,6 +3,9 @@ async function system(interaction,client){
   const point_user = require("../../data/point.json");
   const block_user = require("../../data/block_user.json");
   const block_server = require("../../data/block_server.json");
+  const main = require("../../data/global/main.json");
+  const sub = require("../../data/global/sub.json");
+  const { WebhookClient } = require("discord.js");
   const fs = require("fs");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "system"){
