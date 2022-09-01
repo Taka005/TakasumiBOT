@@ -110,7 +110,7 @@ async function system(interaction,client){
       await webhooks.delete()
         .then(async ()=>{
           delete main[channel];
-          delete sub[channel];
+          delete sub[id_data];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
   
@@ -126,7 +126,7 @@ async function system(interaction,client){
           })
         .catch(async ()=>{
           delete main[channel];
-          delete sub[channel];
+          delete sub[id_data];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
   
@@ -218,7 +218,7 @@ async function system(interaction,client){
         return interaction.reply({
           embeds:[{
             author: {
-              name: `${user.tag} をブロックしました`,
+              name: `${user.tag} のブロックを解除しました`,
               icon_url: "https://taka.ml/images/success.png",
             },
             color: "GREEN"
@@ -234,7 +234,7 @@ async function system(interaction,client){
       interaction.reply({
         embeds:[{
           author: {
-            name: `${user.tag} のブロックを解除しました`,
+            name: `${user.tag} のブロックしました`,
             icon_url: "https://taka.ml/images/success.png",
           },
           color: "GREEN"
