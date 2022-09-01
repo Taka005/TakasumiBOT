@@ -23,7 +23,7 @@ async function system(interaction){
     });
 
     const id_data = id.match(/\d{18,19}/g);
-    if(!id_data) return await interaction.reply({
+    if(!id_data[0]) return await interaction.reply({
       embeds:[{
         author: {
           name: "引数が無効です",
