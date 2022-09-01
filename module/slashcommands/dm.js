@@ -30,28 +30,32 @@ async function dm(interaction,client){
     });
 
     client.users.cache.get(`${id}`).send(`${text}`)
-      .then(()=>interaction.reply({
-        embeds:[{
-          author: {
-            name: `${id}にDMを送信しました`,
-            icon_url: "https://taka.ml/images/success.png",
-          },
-          color: "GREEN",
-          description: `内容:${text}`
-        }],
-        ephemeral:true
-      }))
-      .catch(()=>interaction.reply({
-        embeds:[{
-          author: {
-            name: "送信に失敗しました",
-            icon_url: "https://taka.ml/images/error.jpg",
-          },
-          color: "RED",
-          description: "ユーザーがDMを有効にしていません"
-        }],
-        ephemeral:true
-      }))
+      .then(async ()=>{
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: `${id}にDMを送信しました`,
+              icon_url: "https://taka.ml/images/success.png",
+            },
+            color: "GREEN",
+            description: `内容:${text}`
+          }],
+          ephemeral:true
+        })
+      })
+      .catch(async ()=>{
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "送信に失敗しました",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: "ユーザーがDMを有効にしていません"
+          }],
+          ephemeral:true
+        })
+      })
   }
 }
   

@@ -41,27 +41,31 @@ async function kick(interaction){
     });
 
     member.kick({reason:`${reason}`})
-      .then(()=>interaction.reply({
-        content:`${interaction.member}`,
-        embeds:[{
-          author: {
-            name: `${member.user.tag}をサーバーからKICKしました`,
-            icon_url: "https://taka.ml/images/success.png",
-          },
-          color: "GREEN"
-        }]
-      }))
-      .catch(()=>interaction.reply({
-        embeds:[{
-          author: {
-            name: "メンバーをKICKできませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
-          },
-          color: "RED",
-          description: "BOTの権限が不足しているか、メンバーが正しく指定されていません"
-        }],
-        ephemeral:true
-      }))
+      .then(()=>{
+        interaction.reply({
+          content:`${interaction.member}`,
+          embeds:[{
+            author: {
+              name: `${member.user.tag}をサーバーからKICKしました`,
+              icon_url: "https://taka.ml/images/success.png",
+            },
+            color: "GREEN"
+          }]
+        })
+      })
+      .catch(()=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "メンバーをKICKできませんでした",
+              icon_url: "https://taka.ml/images/error.jpg",
+            },
+            color: "RED",
+            description: "BOTの権限が不足しているか、メンバーが正しく指定されていません"
+          }],
+          ephemeral:true
+        })
+      })
     return;
   }
 }

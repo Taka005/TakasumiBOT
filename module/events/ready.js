@@ -258,6 +258,32 @@ async function ready(client){
           .setDescription("検索するサーバーのアドレス")
           .setRequired(true))
 
+    const system = new SlashCommandBuilder()
+      .setName("system")
+      .setDescription("BOTの管理をします")
+      .addStringOption(option =>
+        option
+          .setName("functions")
+          .setDescription("操作")
+          .setRequired(true)
+          .addChoices(
+            { name: "脱退", value: "leave" },
+            { name: "削除", value: "delete" },
+            { name: "ブロック(サーバー)", value: "block_server" },
+            { name: "ブロック(ユーザー)", value: "block_user" },
+            { name: "DM", value: "dm" },
+            { name: "評価", value: "point" }
+          ))
+      .addStringOption(option =>
+        option
+          .setName("id")
+          .setDescription("操作する対象のID")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("message")
+          .setDescription("メッセージ、理由、評価値(10.0~0.0)"))
+
     const global = new SlashCommandBuilder()
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
@@ -383,6 +409,7 @@ async function ready(client){
             dm,
             mc,
             global,
+            system,
             mute,
             poll,
             //ContextMenu

@@ -58,8 +58,8 @@ async function ban(interaction,client){
     
     if(days){
       await interaction.guild.bans.create(id[0],{ reason: reason, days: days })
-        .then(()=>{
-          interaction.reply({
+        .then(async ()=>{
+          await interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
               author: {
@@ -70,8 +70,8 @@ async function ban(interaction,client){
             }]
           })
         })
-        .catch(()=>{
-          interaction.reply({
+        .catch(async ()=>{
+          await interaction.reply({
             embeds:[{
               author: {
                 name: "メンバーをBANできませんでした",
@@ -85,8 +85,8 @@ async function ban(interaction,client){
         })
     }else{
       await interaction.guild.bans.create(id[0],{ reason: reason })
-        .then(()=>{
-          interaction.reply({
+        .then(async ()=>{
+          await interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
               author: {
@@ -97,8 +97,8 @@ async function ban(interaction,client){
             }]
           })
         })
-        .catch(()=>{
-          interaction.reply({
+        .catch(async ()=>{
+          await interaction.reply({
             embeds:[{
               author: {
                 name: "メンバーをBANできませんでした",

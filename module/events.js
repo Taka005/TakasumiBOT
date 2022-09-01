@@ -126,6 +126,7 @@ async function events(client){
       const npm = require("./slashcommands/npm");
       const wiki = require("./slashcommands/wiki");
       const mc = require("./slashcommands/mc");
+      const system = require("./slashcommands/system");
 
       const global = require("./slashcommands/global");
       const mute = require("./slashcommands/mute");
@@ -162,6 +163,7 @@ async function events(client){
       npm(interaction);
       wiki(interaction);
       mc(interaction);
+      system(interaction);
 
       //ContextMenu
       member(interaction);
