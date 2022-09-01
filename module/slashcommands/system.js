@@ -1,4 +1,4 @@
-async function system(interaction){
+async function system(interaction,client){
   const config = require("../../config.json");
   const point_user = require("../../data/point.json");
   const block_user = require("../../data/block_user.json");

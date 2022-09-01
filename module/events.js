@@ -163,7 +163,7 @@ async function events(client){
       npm(interaction);
       wiki(interaction);
       mc(interaction);
-      system(interaction);
+      system(interaction,client);
 
       //ContextMenu
       member(interaction);
