@@ -1,4 +1,4 @@
-# takasumi_botについて
+# Takasumi_botについて
 - これはオープンソース版です
 - このBOTは、他に人が確実に動かせるように開発されていません
 - (このプロジェクトのforkを起動できた人は未だにいません)
@@ -12,16 +12,15 @@
 - npm install を実行
 - npm start を実行
 # configについて
-- admin:ユーザーID
-- prefix:コマンドの先頭になる文字
-- servername:使うサーバーの名前
-- serverid:使うサーバーのID
-- bump:bumpの時間になった時のメンション
+- admin:管理者のユーザーID
+- prefix:コマンドの先頭になる文字(一部のみに有効)
+- servername:メインサーバーの名前
+- serverid:メインサーバーID
+- bump:bump時のメンション
 - hello_message:ようこそメッセージ
 - enter_channel:ようこそメッセージが送信されるチャンネルID
-- member_channel:みんなに参加をしらせるチャンネルID
-- member_mention:みんなに参加をしらせるロールID
-- version:botのバージョン
+- member_channel:メンバーに参加をしらせるチャンネルID
+- member_mention:メンバーに参加をしらせるロールID
 # development
 - development by Taka005#6668
 - language is javascript(node.js)
