@@ -3,16 +3,16 @@ async function server(interaction){
   if(interaction.commandName === "server"){
     await interaction.reply({
       embeds:[{
-        color: "WHITE",
+        color: "GREEN",
+        author: {
+          name: `${interaction.guild.name}の情報`,
+          icon_url: "https://taka.ml/images/success.png",
+        },
         timestamp: new Date(),
         thumbnail: {
           url: `${interaction.guild.iconURL()}`
         },
         fields: [
-          {
-            name: "サーバー名",
-            value: `${interaction.guild.name}`
-          },
           {
             name: "ID",
             value: `${interaction.guild.id}`,
