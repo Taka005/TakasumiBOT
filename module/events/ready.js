@@ -346,14 +346,11 @@ async function ready(client){
             user,
             kick,
             ban,
-            point,
             avatar,
             short,
-            dm,
             mc,
             global,
             system,
-            mute,
             poll,
             //ContextMenu
             member
