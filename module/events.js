@@ -120,7 +120,6 @@ async function events(client){
       const draw = require("./slashcommands/draw");
       const kick = require("./slashcommands/kick");
       const ban = require("./slashcommands/ban");
-      const point = require("./slashcommands/point");
       const news = require("./slashcommands/news");
       const npm = require("./slashcommands/npm");
       const wiki = require("./slashcommands/wiki");
