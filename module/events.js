@@ -121,7 +121,6 @@ async function events(client){
       const kick = require("./slashcommands/kick");
       const ban = require("./slashcommands/ban");
       const point = require("./slashcommands/point");
-      const dm = require("./slashcommands/dm");
       const news = require("./slashcommands/news");
       const npm = require("./slashcommands/npm");
       const wiki = require("./slashcommands/wiki");
@@ -129,7 +128,6 @@ async function events(client){
       const system = require("./slashcommands/system");
 
       const global = require("./slashcommands/global");
-      const mute = require("./slashcommands/mute");
 
       //ContextMenu
       const member = require("./contextmenu/member");
@@ -155,10 +153,7 @@ async function events(client){
       draw(interaction);
       kick(interaction);
       ban(interaction,client);
-      point(interaction,client)
       global(interaction);
-      mute(interaction,client);
-      dm(interaction,client);
       news(interaction);
       npm(interaction);
       wiki(interaction);

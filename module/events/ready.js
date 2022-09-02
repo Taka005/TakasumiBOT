@@ -195,20 +195,6 @@ async function ready(client){
         option
           .setName("days")
           .setDescription("メッセージを削除する日数"))
-
-    const point = new SlashCommandBuilder()
-      .setName("point")
-      .setDescription("ユーザーの評価値を操作します")
-      .addStringOption(option =>
-        option
-          .setName("id")
-          .setDescription("ユーザーID又はメンション")
-          .setRequired(true))
-      .addStringOption(option =>
-        option
-          .setName("points")
-          .setDescription("付与するポイント(0.0〜10.0)")
-          .setRequired(true))
     
     const avatar = new SlashCommandBuilder()
       .setName("avatar")
@@ -225,20 +211,6 @@ async function ready(client){
         option
           .setName("url")
           .setDescription("短縮するURL")
-          .setRequired(true))
-
-    const dm = new SlashCommandBuilder()
-      .setName("dm")
-      .setDescription("ユーザーにDMを送信します")
-      .addStringOption(option =>
-        option
-          .setName("id")
-          .setDescription("ユーザーID又はメンション")
-          .setRequired(true))
-      .addStringOption(option =>
-        option
-          .setName("text")
-          .setDescription("送信するメッセージ")
           .setRequired(true))
 
     const mc = new SlashCommandBuilder()
@@ -288,36 +260,6 @@ async function ready(client){
     const global = new SlashCommandBuilder()
       .setName("global")
       .setDescription("グローバルチャットの切り替え")
-
-    const mute = new SlashCommandBuilder()
-      .setName("mute")
-      .setDescription("ミュートの管理をします")
-      .addSubcommand(subcommand =>
-        subcommand
-          .setName("user")
-          .setDescription("指定されたユーザーをミュートします")
-          .addStringOption(option =>
-            option
-              .setName("id")
-              .setDescription("対象のユーザーID")
-              .setRequired(true))
-          .addStringOption(option =>
-            option
-              .setName("reason")
-              .setDescription("ミュートした理由")))
-      .addSubcommand(subcommand =>
-        subcommand
-          .setName("server")
-          .setDescription("指定されたサーバーをミュートします")
-          .addStringOption(option =>
-            option
-              .setName("id")
-              .setDescription("対象のサーバーID")
-              .setRequired(true))
-          .addStringOption(option =>
-            option
-              .setName("reason")
-              .setDescription("ミュートした理由")))
           
     const poll = new SlashCommandBuilder()
       .setName("poll")
