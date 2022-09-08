@@ -11,6 +11,7 @@ async function member(interaction){
         color: "GREEN",
         author: {
           name:`${info.user.tag}の検索結果`,
+          url: `https://discord.com/users/${info.user.id}`,
           icon_url: "https://taka.ml/images/success.png"
         },
         timestamp: new Date(),

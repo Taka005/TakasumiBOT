@@ -12,6 +12,7 @@ async function user(interaction,client){
             color: "GREEN",
             author: {
               name:`${interaction.member.user.tag}の検索結果`,
+              url: `https://discord.com/users/${interaction.member.user.id}`,
               icon_url: "https://taka.ml/images/success.png"
             },
             timestamp: new Date(),
@@ -94,6 +95,7 @@ async function user(interaction,client){
               color: "GREEN",
               author: {
                 name:`${member.user.tag}の検索結果`,
+                url: `https://discord.com/users/${member.user.id}`,
                 icon_url: "https://taka.ml/images/success.png"
               },
               timestamp: new Date(),
@@ -162,6 +164,7 @@ async function user(interaction,client){
                 color: "GREEN",
                 author: {
                   name:`${users.tag}の検索結果`,
+                  url: `https://discord.com/users/${users.id}`,
                   icon_url: "https://taka.ml/images/success.png"
                 },
                 timestamp: new Date(),
