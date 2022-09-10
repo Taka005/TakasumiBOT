@@ -1,6 +1,6 @@
 async function globalreact(reaction,user){
   const global = require("../../data/global/main.json");
-  if(reaction.emoji.name === "❌"||reaction.emoji.name === "✅"&&global[reaction.message.channel.id]){
+  if(reaction.emoji.name === "❌"&&global[reaction.message.channel.id]||reaction.emoji.name === "✅"&&global[reaction.message.channel.id]){
     reaction.message.reply({
       embeds: [{
         color:"GREEN",
