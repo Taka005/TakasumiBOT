@@ -32,14 +32,31 @@ async function global(interaction){
       ephemeral:true
     });
 
-    if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_WEBHOOKS")) return await interaction.reply({
+    if(
+      !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_WEBHOOKS")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("ADD_REACTIONS")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "BOTに権限がありません",
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "このコマンドは、BOTに`webhookの管理`の権限が必要です\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        description: "グローバルチャットは、BOTに以下の権限が必要です\n\`\`\`リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\`\`\`\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+      }],
+      ephemeral:true
+    });
+
+    if(interaction.guild.memberCount < 30) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "参加条件を満たしていません",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "グローバルチャットは、少なくとも30人以上参加しているサーバーでしか登録できません"
       }],
       ephemeral:true
     });
