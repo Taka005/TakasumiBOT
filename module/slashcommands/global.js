@@ -49,14 +49,17 @@ async function global(interaction){
       ephemeral:true
     });
 
-    if(interaction.guild.memberCount < 30) return await interaction.reply({
+    if(
+      interaction.guild.memberCount < 30||
+      (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 10
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "参加条件を満たしていません",
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "グローバルチャットは、少なくとも30人以上参加しているサーバーでしか登録できません"
+        description: "グローバルチャットを利用するには、以下の条件を満たしている必要があります\`\`\`30人以上のメンバー\n10人以上のユーザー\`\`\`"
       }],
       ephemeral:true
     });
