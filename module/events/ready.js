@@ -213,6 +213,15 @@ async function ready(client){
           .setDescription("短縮するURL")
           .setRequired(true))
 
+    const safeweb = new SlashCommandBuilder()
+      .setName("safeweb")
+      .setDescription("Webサイトの安全性を評価します")
+      .addStringOption(option =>
+        option
+          .setName("url")
+              .setDescription("対象のURL")
+              .setRequired(true))
+
     const mc = new SlashCommandBuilder()
       .setName("mc")
       .setDescription("マインクラフトサーバーの情報を検索します")
@@ -348,6 +357,7 @@ async function ready(client){
             ban,
             avatar,
             short,
+            safeweb,
             mc,
             global,
             system,

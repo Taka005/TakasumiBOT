@@ -25,10 +25,8 @@ async function events(client){
         //other
         const bump = require("./events/bump");
         const open = require("./events/open");
-        const urlcheck = require("./events/urlcheck");
         bump(message);
         open(message,client);
-        urlcheck(message);
 
         if(!message.channel.type === "GUILD_TEXT" || message.author.bot) return;  
 
@@ -116,6 +114,7 @@ async function events(client){
       const channel = require("./slashcommands/channel");
       const avatar = require("./slashcommands/avatar");
       const short = require("./slashcommands/short");
+      const safeweb = require("./slashcommnads/safeweb");
       const output = require("./slashcommands/output");
       const draw = require("./slashcommands/draw");
       const kick = require("./slashcommands/kick");
@@ -148,6 +147,7 @@ async function events(client){
       channel(interaction,client);
       avatar(interaction,client);
       short(interaction);
+      safeweb(interaction);
       output(interaction,client);
       draw(interaction);
       kick(interaction);
