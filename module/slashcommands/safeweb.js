@@ -16,17 +16,18 @@ async function safeweb(interaction){
       ephemeral:true
     });
 
+    await interaction.deferReply();
     try{
       fetch(`https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`)
         .then(res => res.text())
         .then(norton =>{
 
         if(norton.indexOf("［注意］") != -1){
-          interaction.reply({
+          interaction.followUp({
             embeds:[{
-              title: "注意が必要なURLを検出しました",
+              title: "このサイトは注意が必要です",
               url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
-              description: `［注意］の評価を受けた Web サイトは少数の脅威または迷惑を伴いますが、\n赤色の［警告］に相当するほど危険とは見なされません。サイトにアクセスする場合には注意が必要です。`,
+              description: `［注意］の評価を受けた Web サイトは少数の脅威または迷惑を伴いますが、\n赤色の［警告］に相当するほど危険とは見なされません。サイトにアクセスする場合には注意が必要です。\n\n※注意の評価は、誤判定の可能性があります`,
               footer: {
                 text: "Powered by Norton Safeweb"
               },
@@ -34,9 +35,9 @@ async function safeweb(interaction){
             }]
           });
         }else if(norton.indexOf("警告") != -1){
-          interaction.reply({
+          interaction.followUp({
             embeds:[{
-              title: "危険なURLを検出しました",
+              title: "このサイトは危険です",
               url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
               description: `これは既知の危険な Web サイトです。\nこのページを表示**しない**ことを推奨します。`,
               footer: {
@@ -46,7 +47,7 @@ async function safeweb(interaction){
             }]
           })
         }else{
-          interaction.reply({
+          interaction.followUp({
             embeds:[{
               title: "このサイトは安全です",
               url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
@@ -60,7 +61,7 @@ async function safeweb(interaction){
         }
       });
     }catch{
-      interaction.reply({
+      interaction.followUp({
         embeds:[{
           author: {
             name: "安全性を評価できませんでした",
@@ -68,8 +69,7 @@ async function safeweb(interaction){
           },
           color: "RED",
           description: "サイトの取得に失敗しました"
-        }],
-        ephemeral:true
+        }]
       });
     }
     return;
