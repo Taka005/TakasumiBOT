@@ -114,7 +114,7 @@ async function events(client){
       const channel = require("./slashcommands/channel");
       const avatar = require("./slashcommands/avatar");
       const short = require("./slashcommands/short");
-      const safeweb = require("./slashcommnads/safeweb");
+      const safeweb = require("./slashcommands/safeweb");
       const output = require("./slashcommands/output");
       const draw = require("./slashcommands/draw");
       const kick = require("./slashcommands/kick");
