@@ -105,10 +105,6 @@ async function help_event(interaction){
               value: "実行したサーバーの情報を表示します"
             },
             {
-              name: "/news",
-              value: "最近のニュースを表示します"
-            },
-            {
               name: "/npm",
               value: "NPMパッケージを検索、表示します"
             },
@@ -166,6 +162,10 @@ async function help_event(interaction){
             {
               name: "/ticket",
               value: "簡易的なお問合せ(チケット)機能が使えます\n ※これを実行するには、`管理者`の権限が必要です"
+            },
+            {
+              name: "/export",
+              value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
             }
         ]}],
         components: [
@@ -204,6 +204,10 @@ async function help_event(interaction){
           color: "GREEN",
           fields: [
             {
+              name: "/mc",
+              value: "指定したMinecarftサーバーの情報を表示します"
+            },
+            {
               name: "/draw",
               value: "大吉や、凶、吉などのおみくじが引けます"
             },
@@ -217,12 +221,12 @@ async function help_event(interaction){
             },
             {
               name: "/support",
-              value: "サポートサーバーに直接お問合せができます\n※スパムや、悪質なものはおやめください"
+              value: "サポートサーバーにバグや要望等を報告します\n※スパムや、悪質なものはおやめください"
             },
             {
-              name: "/export",
-              value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
-            },
+              name: "/news",
+              value: "最近のニュースを表示します"
+            }
         ]}],
         components: [
           new MessageActionRow()

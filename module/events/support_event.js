@@ -20,7 +20,7 @@ async function support_event(interaction,client){
     if(code == list[1]){
       await client.channels.cache.get("986249483098673222").send({
         embeds:[{
-          color: "WHITE",
+          color: "GREEN",
           author: {
             name: `${interaction.member.user.id}`,
             icon_url: interaction.member.user.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png"

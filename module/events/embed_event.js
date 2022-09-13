@@ -1,7 +1,6 @@
 async function embed_event(interaction){
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId === "embed"){
-      const author = interaction.fields.getTextInputValue("author");
       const title = interaction.fields.getTextInputValue("title");
       const description = interaction.fields.getTextInputValue("description");
       const image = interaction.fields.getTextInputValue("image");
@@ -33,9 +32,6 @@ async function embed_event(interaction){
       await interaction.reply({
         embeds:[{
           color: "RANDOM",
-          author: {
-            name: `${author}`
-          },
           title:`${title}`,
           description: `${description}`,
           image: {

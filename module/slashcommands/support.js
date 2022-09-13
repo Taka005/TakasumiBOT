@@ -11,8 +11,8 @@ async function support(interaction){
 
     const content = new TextInputComponent()
       .setCustomId("content")
-      .setLabel("バグ、質問等をご記入ください")
-      .setPlaceholder('内容は、サポートサーバーに送信されます')
+      .setLabel("バグ、要望等をご記入ください")
+      .setPlaceholder('内容はサポートサーバーに送信されます')
       .setRequired(true)
       .setMaxLength(300)
       .setStyle('PARAGRAPH');
