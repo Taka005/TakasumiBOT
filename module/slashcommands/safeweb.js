@@ -46,6 +46,18 @@ async function safeweb(interaction){
               color: "RED"
             }]
           })
+        }else if(norton.indexOf("未評価") != -1){
+          interaction.followUp({
+            embeds:[{
+              title: "このサイトは評価されていません",
+              url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
+              description: `サイトは未評価のため、接続には注意が必要な可能性があります`,
+              footer: {
+                text: "Powered by Norton Safeweb"
+              },
+              color: "GRAY"
+            }]
+          })
         }else{
           interaction.followUp({
             embeds:[{
