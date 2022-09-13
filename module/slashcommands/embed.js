@@ -16,7 +16,7 @@ async function embed(interaction){
     const description = new TextInputComponent()
       .setCustomId("description")
       .setLabel("説明")
-      .setMaxLength(500)
+      .setMaxLength(800)
       .setPlaceholder("埋め込みに表示される説明欄")
       .setStyle("PARAGRAPH");
       

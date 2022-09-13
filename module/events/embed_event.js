@@ -4,7 +4,7 @@ async function embed_event(interaction){
       const title = interaction.fields.getTextInputValue("title");
       const description = interaction.fields.getTextInputValue("description");
       const image = interaction.fields.getTextInputValue("image");
-      if(!author && !title && !description && !image) return await interaction.reply({
+      if(!title && !description && !image) return await interaction.reply({
         embeds:[{
           author: {
             name: "入力箇所が不足しています",
