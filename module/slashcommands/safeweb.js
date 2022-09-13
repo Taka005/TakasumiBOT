@@ -55,7 +55,7 @@ async function safeweb(interaction){
               footer: {
                 text: "Powered by Norton Safeweb"
               },
-              color: "GRAY"
+              color: "GREY"
             }]
           })
         }else{
