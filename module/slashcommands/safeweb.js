@@ -27,7 +27,7 @@ async function safeweb(interaction){
             embeds:[{
               title: "このサイトは注意が必要です",
               url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
-              description: `［注意］の評価を受けた Web サイトは少数の脅威または迷惑を伴いますが、\n赤色の［警告］に相当するほど危険とは見なされません。サイトにアクセスする場合には注意が必要です。\n\n※注意の評価は、誤判定の可能性があります`,
+              description: `注意の評価を受けた Web サイトは少数の脅威または迷惑を伴いますが、\n警告に相当するほど危険とは見なされません。サイトにアクセスする場合には注意が必要です。\n\n※注意の評価は、誤判定の可能性があります`,
               footer: {
                 text: "Powered by Norton Safeweb"
               },
