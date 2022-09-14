@@ -17,7 +17,7 @@ async function status(interaction,client){
         fields: [
         {
           name: "Status",
-          value: `OS: ${os.version()}(${os.type()}-${os.platform()}) ${os.arch()}\nCPU(${os.cpus()[0].model}): ${cpuusage}%\nMemory: ${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}%\n`
+          value: `OS: ${os.version()}(${os.type()}) ${os.arch()}\nCPU(${os.cpus()[0].model}): ${Math.floor(cpuusage * 100)}%\nMemory: ${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}%\n`
         },
         {
         name: "Discord",
