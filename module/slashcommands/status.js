@@ -21,7 +21,7 @@ async function status(interaction,client){
         },
         {
         name: "Discord",
-        value: `Ping:${client.ws.ping}㍉秒\nGC登録数:${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nServer Uptime: ${String(toHHMMSS(os.uptime()))}(BOT: ${String(toHHMMSS(process.uptime()))})`
+        value: `Ping:${client.ws.ping}㍉秒\nGC登録数:${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
         }
       ]
       }]}
