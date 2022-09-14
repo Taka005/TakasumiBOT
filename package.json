@@ -8,6 +8,7 @@
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "node-fetch": "^2.6.7",
+    "os-utils": "^0.0.14",
     "ws": "^8.8.1"
   },
   "name": "takasumi_bot",
