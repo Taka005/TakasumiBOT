@@ -3,44 +3,25 @@ async function status(interaction,client){
   const global = require("../../data/global/main.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "status"){
-    const ramfree = Math.round(os.freemem / 1000000);
-    const ramtotal = Math.round(os.totalmem / 1000000);
-    const ramuse = ramtotal - ramfree
-    const rampercent = Math.round(ramuse / ramtotal * 100)
 
-    const system = os.cpus()
-    let cpu = 0;
-    system.forEach(system => {
-        let total = 0;
-        for(let type in system.times){
-            total += system.times[type];
-        }
-        cpu += (1 - (system.times["idle"] / total))* 100;
-    });
+    const cpuusage = await new Promise((resolve) =>
+      require("os-utils").cpuUsage(resolve)
+    );
     
     const chat = Object.keys(global).length/client.guilds.cache.size*100
 
     interaction.reply({
       embeds:[{
-        title: "ステータス",
         color: "BLUE",
         timestamp: new Date(),
         fields: [
         {
-        name: "**Discord**",
-        value: `応答速度\n${client.ws.ping}ミリ秒\n\nグローバルチャット登録数\n${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)`
+          name: "Status",
+          value: `OS: ${os.version()}(${os.type()}-${os.platform()}) ${os.arch()}\nCPU(${os.cpu()[0].model}): ${Math.floor(cpuusage * 100)}%\nMemory: ${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}\n`
         },
         {
-          name: "**システム情報**",
-          value: `${os.type()} ${os.arch()}`
-        },
-        {
-        name: "**システム使用率**",
-        value: `**CPU**\n${Math.round(cpu)}％\n**メモリー**\n${ramuse}MB / ${ramtotal}MB ${rampercent}％\n`
-        },
-        {
-        name: "**起動時間**",
-        value: `プロセス:${Math.round(process.uptime() / 60)}分\nサーバー:${Math.round(os.uptime() / 60)}分`
+        name: "Discord",
+        value: `Ping:${client.ws.ping}㍉秒\nGC登録数:${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nServer Uptime: ${String(toHHMMSS(os.uptime()))}(BOT: ${String(toHHMMSS(process.uptime()))})`
         }
       ]
       }]}
