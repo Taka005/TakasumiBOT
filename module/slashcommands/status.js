@@ -5,6 +5,15 @@ async function status(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "status"){
 
+    await interaction.deferReply();
+    await interaction.editReply({
+      embeds:[{
+        color: "BLUE",
+        title: "計測中...",
+        timestamp: new Date(),
+      }]
+    });
+
     const cpuusage = await new Promise((resolve) =>
       require("os-utils").cpuUsage(resolve)
     );
@@ -12,11 +21,11 @@ async function status(interaction,client){
     const chat = Object.keys(global).length/client.guilds.cache.size*100
 
     const start = performance.now(); 
-    await fetch("https://taka.ml")
+    await fetch("https://taka.ml/api/status")
       .catch(()=>{})
     const end = performance.now(); 
 
-    interaction.reply({
+    interaction.editReply({
       embeds:[{
         color: "BLUE",
         title: "ステータス",

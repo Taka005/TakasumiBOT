@@ -36,7 +36,8 @@ async function global(interaction){
       !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_WEBHOOKS")||
       !interaction.guild.me.permissionsIn(interaction.channel).has("ADD_REACTIONS")||
       !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_CHANNELS")
     ) return await interaction.reply({
       embeds:[{
         author: {
@@ -44,7 +45,7 @@ async function global(interaction){
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "グローバルチャットは、BOTに以下の権限が必要です\n\`\`\`リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\`\`\`\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        description: "グローバルチャットは、BOTに以下の権限が必要です\n\`\`\`リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理\`\`\`\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
       }],
       ephemeral:true
     });

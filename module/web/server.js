@@ -49,6 +49,7 @@ async function server(client){
   //------API------//
   app.get('/api/status', (req, res) =>{
     let time = new Date();
+    res.setHeader("Access-Control-Allow-Origin", "*")
          
     res.json({
       client:{
