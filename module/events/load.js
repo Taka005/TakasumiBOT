@@ -12,19 +12,20 @@ async function load(client){
       api.gc.shift();
       api.cpu.shift();  
       api.ram.shift();
-    }
-    const cpuusage = await new Promise((resolve) =>
-      require("os-utils").cpuUsage(resolve)
-    );
-    const time = new Date();
+    }else{
+      const cpuusage = await new Promise((resolve) =>
+        require("os-utils").cpuUsage(resolve)
+      );
+      const time = new Date();
 
-    api.time.push(`${time.getHours()}:${time.getMinutes()}`)
-    api.ping.push(`${client.ws.ping}`)
-    api.user.push(`${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}`)
-    api.guild.push(`${client.guilds.cache.size}`)
-    api.gc.push(`${Object.keys(global).length}`)
-    api.cpu.push(`${(cpuusage * 100).toFixed(2)}`)
-    api.ram.push(`${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}`)
+      api.time.push(`${time.getHours()}:${time.getMinutes()}`)
+      api.ping.push(`${client.ws.ping}`)
+      api.user.push(`${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}`)
+      api.guild.push(`${client.guilds.cache.size}`)
+      api.gc.push(`${Object.keys(global).length}`)
+      api.cpu.push(`${(cpuusage * 100).toFixed(2)}`)
+      api.ram.push(`${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}`)
+    }
     
     fs.writeFileSync("./data/api.json", JSON.stringify(api), "utf8");
     delete require.cache[require.resolve("../../data/api.json")];
