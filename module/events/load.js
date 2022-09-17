@@ -24,7 +24,7 @@ async function load(client){
 
       api.time.push(`${time.getHours()}:${time.getMinutes()}`)
       api.ping.push(`${client.ws.ping}`)
-      api.ping.push(`${Math.floor(end - start)}`)
+      api.web.push(`${Math.floor(end - start)}`)
       api.user.push(`${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}`)
       api.guild.push(`${client.guilds.cache.size}`)
       api.gc.push(`${Object.keys(global).length}`)
