@@ -1,5 +1,5 @@
 async function status(interaction,client){
-  const os = require('os');
+  const os = require("os");
   const fetch = require("node-fetch");
   const global = require("../../data/global/main.json");
   if(!interaction.isCommand()) return;
@@ -37,7 +37,7 @@ async function status(interaction,client){
           },
           {
             name: "システム",
-            value: `OS: ${os.version()}(${os.type()}) ${os.arch()}\nCPU(${os.cpus()[0].model}): ${Math.floor(cpuusage * 100)}%\nMemory: ${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}%`
+            value: `OS: ${os.version()}(${os.type()}) ${os.arch()}\nCPU(${os.cpus()[0].model}): ${(cpuusage * 100).toFixed(2)}%\nMemory: ${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}%`
           },
           {
             name: "Discord",

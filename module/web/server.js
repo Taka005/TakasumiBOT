@@ -5,6 +5,7 @@ async function server(client){
   const fs = require("fs");
   const https = require("https");
   const url = require("../../data/url.json");
+  const date = require("../../data/api.json");
 
   let time =new Date();
   try{
@@ -76,6 +77,15 @@ async function server(client){
       }
     });
     
+    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`)
+    res.end()
+  });
+
+  app.get('/api/date', (req, res) =>{
+    let time = new Date();
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.json(date);
+
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`)
     res.end()
   });
