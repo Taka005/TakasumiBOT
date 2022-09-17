@@ -8,7 +8,7 @@ async function events(client){
        ready(client)
     });
 
-    client.on('messageCreate', async (message) =>{
+    client.on("messageCreate", async (message) =>{
         //時間
         var now = new Date();
         var h = now.getHours()
@@ -45,13 +45,13 @@ async function events(client){
       return;
     });
 
-    client.on('messageUpdate', async (oldMessage,newMessage) =>{
+    client.on("messageUpdate", async (oldMessage,newMessage) =>{
       const dissoku = require("./events/dissoku");
 
       dissoku(oldMessage,newMessage);
     });
 
-    client.on('messageReactionAdd', async (reaction, user) =>{
+    client.on("messageReactionAdd", async (reaction, user) =>{
       if(!reaction.message.channel.type === "GUILD_TEXT" || user.bot) return;  
 
       const globalreact = require("./events/globalreact");
@@ -177,7 +177,7 @@ async function events(client){
       join(member,client);
     });
 
-    client.on('guildMemberRemove', member =>{
+    client.on("guildMemberRemove", member =>{
         //時間
       let now = new Date();
       let h = now.getHours()
