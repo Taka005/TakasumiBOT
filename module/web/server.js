@@ -48,7 +48,7 @@ async function server(client){
   //------リダイレクト------//
 
   //------API------//
-  app.get('/api/status', (req, res) =>{
+  app.get("/api/status", (req, res) =>{
     let time = new Date();
     res.setHeader("Access-Control-Allow-Origin", "*")
          
@@ -81,7 +81,7 @@ async function server(client){
     res.end()
   });
 
-  app.get('/api/date', (req, res) =>{
+  app.get("/api/date", (req, res) =>{
     let time = new Date();
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.json(date);
@@ -90,34 +90,38 @@ async function server(client){
     res.end()
   });
 
-  app.get('/api/user', async (req, res) =>{
+  app.get("/api/user", async (req, res) =>{
     let time = new Date();
     res.setHeader("Access-Control-Allow-Origin", "*")
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
 
     if(!req.query.id) return res.json({user:"error"});
-      const user = await client.users.fetch(`${req.query.id}`).catch(()=>res.json({user:"error"}));
-      res.json({
-        user:{
-          name:user.username,
-          discriminator:user.discriminator,
-          tag:user.tag,
-          id:user.id,
-          avatar:user.avatarURL({"dynamic": true,"format": "png", "size": 512}),
-          time:new Date(user.createdTimestamp).toLocaleDateString(),
-          bot:user.bot,
-          partial:user.partial,
-          system:user.system,
-          color:user.hexAccentColor
-        }
-      });
+      try{
+        const user = await client.users.fetch(`${req.query.id}`);
+        res.json({
+          user:{
+            name:user.username,
+            discriminator:user.discriminator,
+            tag:user.tag,
+            id:user.id,
+            avatar:user.avatarURL({"dynamic": true,"format": "png", "size": 512}),
+            time:new Date(user.createdTimestamp).toLocaleDateString(),
+            bot:user.bot,
+            partial:user.partial,
+            system:user.system,
+            color:user.hexAccentColor
+          }
+        });
+      }catch(error){
+        res.json({user:`ERROR:${error}`})
+      }
     res.end()
   });
 
   //------API------//
 
   //------短縮URL------//
-  app.get('/url/:name', (req, res) =>{
+  app.get("/url/:name", (req, res) =>{
     if(!url[req.params.name]) return res.send(`<h1>NOT REGISTERED</h1>`);
     res.redirect(url[req.params.name]);
     res.end()
