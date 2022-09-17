@@ -7,9 +7,14 @@ async function load(client){
 
   setInterval(async()=>{
     if(api.time.length > 100){
-      Object.keys(api).forEach(async (type)=>{
-        type.shift();
-      });
+      api.time.shift();
+      api.ping.shift();
+      api.web.shift();
+      api.user.shift();
+      api.guild.shift();
+      api.gc.shift();  
+      api.cpu.shift();
+      api.ram.shift();
     }else{
       const cpuusage = await new Promise((resolve) =>
         require("os-utils").cpuUsage(resolve)
