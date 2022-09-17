@@ -92,6 +92,7 @@ async function server(client){
 
   app.get('/api/user', async (req, res) =>{
     let time = new Date();
+    res.setHeader("Access-Control-Allow-Origin", "*")
     console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
 
     if(!req.query.id) return res.json({user:"error"});
@@ -125,11 +126,13 @@ async function server(client){
 
   //------ERROR処理------//
   app.use((req, res, next)=>{
+    res.setHeader("Access-Control-Allow-Origin", "*")
     res.status(404).send(`<h1>404 NOT FOUND</h1><br>[${req.path}]`);
     res.end()
   });
 
   app.use(function(err, req, res, next){
+    res.setHeader("Access-Control-Allow-Origin", "*")
     res.status(500).send(`<h1>500 SERVER ERROR</h1><br>[${err}]`);
     res.end()
   });
