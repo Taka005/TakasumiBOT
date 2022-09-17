@@ -19,7 +19,7 @@ async function member(interaction){
           text: "TakasumiBOT"
         },
         thumbnail: {
-          url: info.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+          url: info.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
         },
         fields: [
           {
