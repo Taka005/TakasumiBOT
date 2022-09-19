@@ -9,7 +9,7 @@ async function qrgen(interaction){
       .then(res =>res.arrayBuffer()) 
       .catch(()=>{})
 
-    await interaction.reply({files:[new MessageAttachment(qr_response.toBuffer(), `QR ${text}`)]});
+    await interaction.reply({files:[new MessageAttachment(Buffer.from(qr_response), `QR ${text}.png`)]});
       return;
   }
 }
