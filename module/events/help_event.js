@@ -109,6 +109,10 @@ async function help_event(interaction){
               value: "NPMパッケージを検索、表示します"
             },
             {
+              name: "/qrgen",
+              value: "QRコードを生成します"
+            },
+            {
               name: "/avatar",
               value: "指定されたユーザーのアイコンを表示します\n使い方は`/user`と同じです"
             },
