@@ -20,7 +20,7 @@ async function global(message,client){
   const content = message.content
     .replace(/@everyone|@here/g,"[メンション]")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
-    .replace(/(?:https?:\/\/)?(?:discord|discordapp)\.com\/api\/oauth2\/authorize?\/([\w\W]+)/g,"[[OAuth2認証リンク]](https://taka.ml/invite/)")
+    .replace(/(?:https?:\/\/)?(?:discord|discordapp)\.com\/api\/oauth2\/authorize?\/(\w+)/g,"[[OAuth2認証リンク]](https://taka.ml/invite/)")
     
   const user = await message.author.fetch();
 
