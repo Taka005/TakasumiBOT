@@ -219,8 +219,17 @@ async function ready(client){
       .addStringOption(option =>
         option
           .setName("url")
-              .setDescription("対象のURL")
-              .setRequired(true))
+          .setDescription("対象のURL")
+          .setRequired(true))
+
+    const qrgen = new SlashCommandBuilder()
+      .setName("qrgen")
+      .setDescription("QRコードを生成します")
+      .addStringOption(option =>
+        option
+          .setName("text")
+          .setDescription("生成する文字列")
+          .setRequired(true))
 
     const mc = new SlashCommandBuilder()
       .setName("mc")
@@ -358,6 +367,7 @@ async function ready(client){
             avatar,
             short,
             safeweb,
+            qrgen,
             mc,
             global,
             system,
