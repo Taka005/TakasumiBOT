@@ -31,7 +31,7 @@ async function global(message,client){
       await webhooks.send({
         embeds:[
           {
-            color: (await message.author.fetch()).hexAccentColor || "RAMDOM",
+            color: (await message.author.fetch()).hexAccentColor || "RANDOM",
             author: {
               name: `${message.author.tag}`,
               url: `https://discord.com/users/${message.author.id}`,
@@ -69,7 +69,7 @@ async function global(message,client){
       await webhooks.send({
         embeds:[
           {
-            color: (await message.author.fetch()).hexAccentColor || "RAMDOM",
+            color: (await message.author.fetch()).hexAccentColor || "RANDOM",
             author: {
               name: `${message.author.tag}`,
               url: `https://discord.com/users/${message.author.id}`,
@@ -114,7 +114,7 @@ async function global(message,client){
       await webhooks.send({
         embeds:[
           {
-            color: (await message.author.fetch()).hexAccentColor || "RAMDOM",
+            color: (await message.author.fetch()).hexAccentColor || "RANDOM",
             author: {
               name: `${message.author.tag}`,
               url: `https://discord.com/users/${message.author.id}`,

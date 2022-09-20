@@ -14,7 +14,7 @@ async function connect(msg){
     const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
     await webhooks.send({
       embeds:[{
-        color: "RAMDOM",
+        color: "RANDOM",
         author: {
           name: `${msg.author.username}#${msg.author.discriminator}`,
           url: `https://discord.com/users/${msg.author.id}`,
