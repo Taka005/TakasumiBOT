@@ -9,7 +9,7 @@
 - .example.envを.envに貼り付ける
 - .envの中に DISCORD_BOT_TOKEN=(botのtoken) を記述する
 - .envのその他の設定は、質問等でなんとかしてください
-- npm install を実行
+- install.bat(npm install) を実行
 - npm start を実行
 # configについて
 - admin:管理者のユーザーID
@@ -21,6 +21,9 @@
 - enter_channel:ようこそメッセージが送信されるチャンネルID
 - member_channel:メンバーに参加をしらせるチャンネルID
 - member_mention:メンバーに参加をしらせるロールID
+# プルリクエストについて
+- プルリクエストの内容はtakasumi_bot/module内のものしか受け付けておりません
+- 気をつけて行なってください
 # development
 - development by Taka005#6668
 - language is javascript(node.js)
