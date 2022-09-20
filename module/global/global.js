@@ -21,8 +21,6 @@ async function global(message,client){
     .replace(/@everyone|@here/g,"[メンション]")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://discord.gg/GPs3npB63m)")
 
-  const user = await message.author.fetch();
-
   if(!message.attachments.first()){
     Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
 
@@ -31,20 +29,22 @@ async function global(message,client){
 
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
-        embeds:[{
-          color: user.hexAccentColor,
-          author: {
-            name: `${message.author.tag}`,
-            url: `https://discord.com/users/${message.author.id}`,
-            icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
-          },
-          description: content,
-          footer: {
-            text:`${message.guild.name}<${message.guild.id}>`,
-            icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
-          },
-          timestamp: new Date()
-        }]      
+        embeds:[
+          {
+            color: (await message.author.fetch()).hexAccentColor || "RAMDOM",
+            author: {
+              name: `${message.author.tag}`,
+              url: `https://discord.com/users/${message.author.id}`,
+              icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+            },
+            description: content,
+            footer: {
+              text:`${message.guild.name}<${message.guild.id}>`,
+              icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+            },
+            timestamp: new Date()
+          }
+        ]      
       }).catch(()=>{
         delete main[channels];
         const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
@@ -53,8 +53,8 @@ async function global(message,client){
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
         delete require.cache[require.resolve("../../data/global/sub.json")];
         delete require.cache[require.resolve("../../data/global/main.json")];
-      })
-    })
+      });
+    });
     message.react("✅")
       .catch(()=>{});
     return;
@@ -69,7 +69,7 @@ async function global(message,client){
       await webhooks.send({
         embeds:[
           {
-            color: user.hexAccentColor,
+            color: (await message.author.fetch()).hexAccentColor || "RAMDOM",
             author: {
               name: `${message.author.tag}`,
               url: `https://discord.com/users/${message.author.id}`,
@@ -97,8 +97,8 @@ async function global(message,client){
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
         delete require.cache[require.resolve("../../data/global/sub.json")];
         delete require.cache[require.resolve("../../data/global/main.json")];
-      })
-    })
+      });
+    });
     message.react("✅")
       .catch(()=>{});
     return;
@@ -112,26 +112,28 @@ async function global(message,client){
 
       const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
       await webhooks.send({
-        embeds:[{
-          color: user.hexAccentColor,
-          author: {
-            name: `${message.author.tag}`,
-            url: `https://discord.com/users/${message.author.id}`,
-            icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
-          },
-          description: content,
-          footer: {
-            text:`${message.guild.name}<${message.guild.id}>` ,
-            icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
-          },
-          fields: [
-            {
-              name: "添付ファイル",
-              value: `[${attachment[0].name}](${attachment[0].url})`
-            }
-          ],
-          timestamp: new Date()
-        }]
+        embeds:[
+          {
+            color: (await message.author.fetch()).hexAccentColor || "RAMDOM",
+            author: {
+              name: `${message.author.tag}`,
+              url: `https://discord.com/users/${message.author.id}`,
+              icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+            },
+            description: content,
+            footer: {
+              text:`${message.guild.name}<${message.guild.id}>` ,
+              icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+            },
+            fields: [
+              {
+                name: "添付ファイル",
+                value: `[${attachment[0].name}](${attachment[0].url})`
+              }
+            ],
+            timestamp: new Date()
+          }
+        ]
       }).catch(()=>{
         delete main[channels];
         const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
@@ -140,8 +142,8 @@ async function global(message,client){
         fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
         delete require.cache[require.resolve("../../data/global/sub.json")];
         delete require.cache[require.resolve("../../data/global/main.json")];
-      })
-    })
+      });
+    });
     message.react("✅")
       .catch(()=>{});
     return;

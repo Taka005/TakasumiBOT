@@ -8,12 +8,19 @@ async function load(client){
   setInterval(async()=>{
     if(api.time.length > 100){
       api.time.shift();
+    }else if(api.ping.length > 100){
       api.ping.shift();
+    }else if(api.web.length > 100){
       api.web.shift();
+    }else if(api.user.length > 100){
       api.user.shift();
+    }else if(api.guild.length > 100){
       api.guild.shift();
+    }else if(api.gc.length > 100){
       api.gc.shift();  
+    }else if(api.cpu.length > 100){
       api.cpu.shift();
+    }else if(api.ram.length > 100){
       api.ram.shift();
     }else{
       const cpuusage = await new Promise((resolve) =>
