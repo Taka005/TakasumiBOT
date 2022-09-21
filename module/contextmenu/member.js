@@ -2,7 +2,7 @@ async function member(interaction){
   const point = require("../../data/point.json");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
-    const info = interaction.options.getMember("user");
+    const info = await interaction.options.getMember("user");
 
     const point_user = point[info.user.id];
 

@@ -338,6 +338,10 @@ async function ready(client){
     const member = new ContextMenuCommandBuilder()
       .setName("メンバー情報を表示")
       .setType(ApplicationCommandType.User)
+
+    const quote = new ContextMenuCommandBuilder()
+      .setName("Make it a Quote")
+      .setType(ApplicationCommandType.Message)
           
     await rest.put(
       Routes.applicationCommands(client.application.id),
@@ -373,7 +377,8 @@ async function ready(client){
             system,
             poll,
             //ContextMenu
-            member
+            member,
+            quote
           ]
         },
     );

@@ -127,6 +127,7 @@ async function events(client){
 
       //ContextMenu
       const member = require("./contextmenu/member");
+      const quote = require("./contextmenu/quote");
 
       help(interaction);
       support(interaction);
@@ -160,6 +161,7 @@ async function events(client){
 
       //ContextMenu
       member(interaction);
+      quote(interaction);
       return;
     });
 
