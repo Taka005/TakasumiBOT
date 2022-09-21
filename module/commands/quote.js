@@ -18,7 +18,7 @@ async function quote(message){
       };
       const canvas = Canvas.createCanvas(700, 250);
       const context = canvas.getContext('2d');
-      const background = await Canvas.loadImage("./images/quote.jpg");
+      const background = await Canvas.loadImage("./file/quote.jpg");
       context.drawImage(background, 0, 0, canvas.width, canvas.height);
       context.strokeStyle = '#0099ff';
       context.strokeRect(0, 0, canvas.width, canvas.height);
