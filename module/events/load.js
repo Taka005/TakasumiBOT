@@ -34,9 +34,17 @@ async function load(client){
 
       const time = new Date();
 
+      let ping = client.ws.ping;
+      let web = Math.floor(end - start);
+      if(ping > 600){
+        ping = 600;
+      }else if(web > 600){
+        web = 600;
+      }
+
       api.time.push(`${time.getHours()}:${time.getMinutes()}`)
-      api.ping.push(`${client.ws.ping}`)
-      api.web.push(`${Math.floor(end - start)}`)
+      api.ping.push(`${ping}`)
+      api.web.push(`${web}`)
       api.user.push(`${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}`)
       api.guild.push(`${client.guilds.cache.size}`)
       api.gc.push(`${Object.keys(global).length}`)
