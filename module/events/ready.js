@@ -92,7 +92,7 @@ async function ready(client){
 
     const guideline = new SlashCommandBuilder()
       .setName("guideline")
-      .setDescription("サーバーのガイドラインを作成して同意時にロールを付与します")
+      .setDescription("サーバーのガイドラインを作成します")
       .addRoleOption(option =>
         option
           .setName("role")
