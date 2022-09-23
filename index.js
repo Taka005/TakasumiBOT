@@ -33,12 +33,12 @@ client.login(process.env.DISCORD_BOT_TOKEN)
 
 //エラー回避
 process.on('uncaughtException',async(error) => {
-  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+error);
+  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: ${error}`);
 
   client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "RED",
-      description: "```"+`${error}`+"```",
+      description: `\`\`\`${error}\`\`\``,
       timestamp: new Date()
     }]
   })
@@ -46,12 +46,12 @@ process.on('uncaughtException',async(error) => {
 });
 
 process.on('unhandledRejection',async(error) => {
-  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: `+ error);
+  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: ${error}`);
 
   client.channels.cache.get(cnf.log_channel).send({
     embeds:[{
       color: "ORANGE",
-      description: "```"+`${error}`+"```",
+      description: `\`\`\`${error}\`\`\``,
       timestamp: new Date()
     }]
   })

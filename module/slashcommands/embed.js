@@ -10,13 +10,13 @@ async function embed(interaction){
       .setCustomId("title")
       .setLabel("タイトル")
       .setPlaceholder("埋め込みに表示されるタイトル")
-      .setMaxLength(100)
+      .setMaxLength(200)
       .setStyle("SHORT");
 
     const description = new TextInputComponent()
       .setCustomId("description")
       .setLabel("説明")
-      .setMaxLength(800)
+      .setMaxLength(3000)
       .setPlaceholder("埋め込みに表示される説明欄")
       .setStyle("PARAGRAPH");
       
