@@ -8,6 +8,12 @@ async function qr(interaction){
 
     if(types == "gen"){
       await interaction.deferReply();
+      await interaction.editReply({
+        embeds:[{
+          color: "GREEN",
+          title: "生成中..."
+        }]
+      });
       const qr_response = await fetch(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURI(text)}&size=256x256&format=png`)
         .then(res =>res.arrayBuffer()) 
         .catch(()=>{})
@@ -18,7 +24,7 @@ async function qr(interaction){
             name: "QRコードを作成しました",
             icon_url: "https://taka.ml/images/success.png",
           },
-          description: `作成内容\n\`\`\`${text}\`\`\``,
+          description: `内容\n\`\`\`${text}\`\`\``,
           color: "GREEN"
         }],
         files:[new MessageAttachment(Buffer.from(qr_response), `QRCode.png`)]
@@ -38,6 +44,12 @@ async function qr(interaction){
       });
 
       await interaction.deferReply();
+      await interaction.editReply({
+        embeds:[{
+          color: "GREEN",
+          title: "読み取り中..."
+        }]
+      });
       const qr_response = await fetch(`https://api.qrserver.com/v1/read-qr-code/?fileurl=${encodeURI(text)}`)
         .then(res =>res.json()) 
         .catch(()=>{})
@@ -45,11 +57,11 @@ async function qr(interaction){
       if(qr_response[0].symbol[0].error) return await interaction.editReply({
           embeds:[{
             author: {
-              name: "入力した内容が、正しく指定されていません",
+              name: "QRコードが読み取れません",
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: "QRコードはURLかつ、読み取れる形式です"
+            description: "QRコードはURLかつ、読み取れる必要があります"
           }]
       });
 

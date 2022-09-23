@@ -11,7 +11,7 @@ async function wiki(interaction){
         embeds:[{
           title: wiki_data.title,
           url: wiki_data.content_urls.desktop.page,
-          color: "WHITE",
+          color: "GREEN",
           description: wiki_data.extract,
           footer: {
             text: "TakasumiBOT"

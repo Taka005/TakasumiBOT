@@ -31,7 +31,7 @@ async function help_event(interaction){
             },
             {
               name: "/global",
-              value: "色々なサーバーと繋がるグローバルチャットを有効、無効にします\n[利用規約](https://taka.ml/bot/takasumi.html)を読んでから使用してください"
+              value: "色々なサーバーと繋がるグローバルチャットを有効、無効にします\n[利用規約](https://gc.taka.ml/)を読んでから使用してください"
             },
             {
               name: "/gif",
@@ -109,7 +109,7 @@ async function help_event(interaction){
               value: "実行したサーバーの情報を表示します"
             },
             {
-              name: "/qrgen",
+              name: "/qr",
               value: "QRコードを生成、または読み取ります"
             },
             {

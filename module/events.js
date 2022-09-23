@@ -174,12 +174,12 @@ async function events(client){
     });
 
     client.on("guildMemberAdd", member=>{
-        let now = new Date();
-        let h = now.getHours()
-        let m = now.getMinutes()
-        let s = now.getSeconds() 
+      let now = new Date();
+      let h = now.getHours()
+      let m = now.getMinutes()
+      let s = now.getSeconds() 
       
-        console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)
+      console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)
 
       const join = require("./events/join");
        
@@ -187,16 +187,15 @@ async function events(client){
     });
 
     client.on("guildMemberRemove", member =>{
-        //時間
       let now = new Date();
       let h = now.getHours()
       let m = now.getMinutes()
       let s = now.getSeconds() 
       console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)  
 
-        const leave = require("./events/leave");
+      const leave = require("./events/leave");
 
-        leave(member);
+      leave(member);
     });
 }
 

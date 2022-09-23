@@ -3,7 +3,6 @@ async function news(interaction){
   require("dotenv").config();
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "news"){
-    await interaction.deferReply()
     const news_response = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.NEWS_KEY}`);
     const news_data = await news_response.json();
 
