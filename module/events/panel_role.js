@@ -4,6 +4,17 @@ async function panel_role(interaction){
     const list = await interaction.customId.split("_");
     const code = await interaction.fields.getTextInputValue("code");
 
+    if(await interaction.member.roles.cache.has(list[1])) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "既に認証済みです",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+      }],
+      ephemeral:true
+    });
+
     if(isNaN(code)) return await interaction.reply({
       embeds:[{
         author: {

@@ -24,7 +24,7 @@ async function guideline(interaction){
       .setCustomId("temp")
       .setLabel("テンプレートを編集してガイドラインを作成してください")
       .setMaxLength(1200)
-      .setValue("\` 1 \` **１つ目**\n\n\` 2 \` **２つ目**\n\n\` 3 \` **３つ目**\n\n\` 4 \` **４つ目**\n\n")
+      .setValue("\` 1 \` **１つ目**\n\n\` 2 \` **２つ目**\n\n\` 3 \` **３つ目**\n\n\` 4 \` **４つ目**\n")
       .setStyle("PARAGRAPH");
       
     guide.addComponents(

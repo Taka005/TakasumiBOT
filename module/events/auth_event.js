@@ -2,6 +2,18 @@ async function auth_event(interaction){
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("auth_")){
     const role = interaction.customId.split("_");
+
+    if(await interaction.member.roles.cache.has(role[1])) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "既に認証済みです",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+      }],
+      ephemeral:true
+    });
+
     await interaction.member.roles.add(role[1])
       .then(()=>{
         interaction.reply({
