@@ -97,16 +97,16 @@ async function help_event(interaction){
               value: "強力なメンバー認証機能です\nボタンを押したら簡単な足し算を行うことで認証ができます"
             },
             {
+              name: "/guideline",
+              value: "サーバーのガイドラインを作成し、同意するとロールが付与されます"
+            },
+            {
               name: "/user",
               value: "指定されたユーザーを検索して、表示します\n検索対象がサーバー内にいる場合は、詳しい情報まで取得可能です"
             },
             {
               name: "/server",
               value: "実行したサーバーの情報を表示します"
-            },
-            {
-              name: "/npm",
-              value: "NPMパッケージを検索、表示します"
             },
             {
               name: "/qrgen",
@@ -230,6 +230,10 @@ async function help_event(interaction){
             {
               name: "/news",
               value: "最近のニュースを表示します"
+            },
+            {
+              name: "/npm",
+              value: "NPMパッケージを検索、表示します"
             }
         ]}],
         components: [
