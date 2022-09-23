@@ -36,10 +36,10 @@ async function load(client){
 
       let ping = client.ws.ping;
       let web = Math.floor(end - start);
-      if(ping > 600){
-        ping = 600;
-      }else if(web > 600){
-        web = 600;
+      if(ping > 800){
+        ping = 800;
+      }else if(web > 800){
+        web = 800;
       }
 
       api.time.push(`${time.getHours()}:${time.getMinutes()}`)
