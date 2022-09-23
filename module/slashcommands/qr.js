@@ -42,7 +42,7 @@ async function qr(interaction){
         .then(res =>res.json()) 
         .catch(()=>{})
 
-      if(qr_response.symbol?.error) return await interaction.editReply({
+      if(qr_response[0].symbol[0].error) return await interaction.editReply({
           embeds:[{
             author: {
               name: "入力した内容が、正しく指定されていません",
@@ -59,7 +59,7 @@ async function qr(interaction){
             name: "QRコードを読み取りました",
             icon_url: "https://taka.ml/images/success.png",
           },
-          description: `内容\n\`\`\`${qr_response.symbol.data}\`\`\``,
+          description: `内容\n\`\`\`${qr_response[0].symbol[0].data}\`\`\``,
           color: "GREEN"
         }]
       });
