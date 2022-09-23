@@ -28,8 +28,7 @@ async function auth(interaction){
       components: [new MessageActionRow().addComponents(auth_button)]
     })
       .then(()=>{
-        interaction.deferReply()
-          .then(()=>interaction.deleteReply())
+        interaction.deferUpdate({});
       })
       .catch(()=>{
         interaction.reply({ 

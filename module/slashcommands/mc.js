@@ -9,6 +9,7 @@ async function mc(interaction){
     if(edition === "je"){
       const server = await fetch(`https://api.mcsrvstat.us/2/${encodeURIComponent(ip)}`)
         .then(res => res.json())
+        .catch(()=>{})
 
       if(!server.debug.ping && !server.online) return await interaction.editReply({
         embeds:[{

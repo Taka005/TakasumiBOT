@@ -110,7 +110,7 @@ async function help_event(interaction){
             },
             {
               name: "/qrgen",
-              value: "QRコードを生成します"
+              value: "QRコードを生成、または読み取ります"
             },
             {
               name: "/avatar",

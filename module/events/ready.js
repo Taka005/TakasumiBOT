@@ -231,13 +231,22 @@ async function ready(client){
           .setDescription("対象のURL")
           .setRequired(true))
 
-    const qrgen = new SlashCommandBuilder()
-      .setName("qrgen")
-      .setDescription("QRコードを生成します")
+    const qr = new SlashCommandBuilder()
+      .setName("qr")
+      .setDescription("QRコードを読み取り又は、生成します")
+      .addStringOption(option =>
+        option
+          .setName("types")
+          .setDescription("処理を選択します")
+          .setRequired(true)
+          .addChoices(
+            { name: "読み込む(URL)", value: "read" },
+            { name: "生成(文字列)", value: "gen" }
+          ))
       .addStringOption(option =>
         option
           .setName("text")
-          .setDescription("生成する文字列")
+          .setDescription("文字列又は、URL")
           .setRequired(true))
 
     const mc = new SlashCommandBuilder()
@@ -381,7 +390,7 @@ async function ready(client){
             avatar,
             short,
             safeweb,
-            qrgen,
+            qr,
             mc,
             global,
             system,

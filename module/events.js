@@ -128,7 +128,7 @@ async function events(client){
       const wiki = require("./slashcommands/wiki");
       const mc = require("./slashcommands/mc");
       const system = require("./slashcommands/system");
-      const qrgen = require("./slashcommands/qrgen");
+      const qr = require("./slashcommands/qr");
 
       const global = require("./slashcommands/global");
 
@@ -165,7 +165,7 @@ async function events(client){
       wiki(interaction);
       mc(interaction);
       system(interaction,client);
-      qrgen(interaction);
+      qr(interaction);
 
       //ContextMenu
       member(interaction);

@@ -10,7 +10,7 @@ async function guideline_event(interaction){
       .setStyle("PRIMARY")
       .setLabel("同意します")
 
-    await interaction.reply({
+    await interaction.channel.send({
       embeds:[{
         color: "GREEN",
         title:"このサーバーのガイドライン",
@@ -24,6 +24,22 @@ async function guideline_event(interaction){
         description: "続行するにはこのサーバーのガイドラインを守る必要があります。\n[Discord コミュニティガイドライン](https://discord.com/guidelines) も忘れないようにして下さい。"
       }],
       components: [new MessageActionRow().addComponents(guide_button)]
+    })
+    .then(()=>{
+      interaction.deferUpdate({});
+    })
+    .catch(()=>{
+      interaction.reply({ 
+        embeds:[{
+          author: {
+            name: "ガイドライン機能の作成に失敗しました",
+            icon_url: "https://taka.ml/images/error.jpg",
+          },
+          color: "RED",
+          description: "BOTの権限等を確認し、もう一度実行してください\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        }], 
+        ephemeral: true 
+        });
     })
     return;
   }
