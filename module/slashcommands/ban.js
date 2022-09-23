@@ -4,7 +4,7 @@ async function ban(interaction,client){
     const user = await interaction.options.getString("user");
     const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってBANしました(TakasumiBOT)`;
     const days = await interaction.options.getInteger("days");
-    if(!interaction.member.permissions.has("BAN_MEMBERS")) return interaction.reply({
+    if(!interaction.member.permissions.has("BAN_MEMBERS")) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",

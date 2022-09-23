@@ -34,7 +34,7 @@ async function avatar(interaction,client){
 
     try{
       const users = await client.users.fetch(id[0]);
-      await interaction.reply(users.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png")
+      await interaction.reply(users.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png")
     }catch{
       return await interaction.reply({
         embeds:[{

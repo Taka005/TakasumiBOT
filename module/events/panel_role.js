@@ -1,6 +1,6 @@
-async function check(interaction){
+async function panel_role(interaction){
   if(!interaction.isModalSubmit()) return;
-  if(interaction.customId.startsWith("check_")){
+  if(interaction.customId.startsWith("panelrole_")){
     const list = await interaction.customId.split("_");
     const code = await interaction.fields.getTextInputValue("code");
 
@@ -60,4 +60,4 @@ async function check(interaction){
   }
 }
 
-module.exports = check
+module.exports = panel_role

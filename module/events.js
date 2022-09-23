@@ -79,19 +79,25 @@ async function events(client){
       //イベント
       const auth_event = require("./events/auth_event");
       const panel_event = require("./events/panel_event");
-      const check = require("./events/check");
       const ticket_event = require("./events/ticket_event");
       const embed_event = require("./events/embed_event");
       const support_event = require("./events/support_event");
       const help_event = require("./events/help_event");
+      const guideline_event = require("./events/guideline_event");
+
+      const guideline_role = require("./events/guideline_role");
+      const panel_role = require("./events/panel_role");
 
       auth_event(interaction);
       panel_event(interaction);
-      check(interaction);
       embed_event(interaction);
       ticket_event(interaction);
       support_event(interaction,client);
       help_event(interaction);
+      guideline_event(interaction);
+
+      guideline_role(interaction);
+      panel_role(interaction);
 
       //スラッシュコマンド
       const support = require("./slashcommands/support");
@@ -100,6 +106,7 @@ async function events(client){
       const help = require("./slashcommands/help");
       const status = require("./slashcommands/status");
       const auth = require("./slashcommands/auth");
+      const guideline = require("./slashcommands/guideline");
       const panel = require("./slashcommands/panel");
       const gif = require("./slashcommands/gif");
       const say = require("./slashcommands/say");
@@ -135,6 +142,7 @@ async function events(client){
       server(interaction);
       status(interaction,client);
       auth(interaction);
+      guideline(interaction);
       panel(interaction);
       gif(interaction);
       say(interaction);

@@ -90,6 +90,15 @@ async function ready(client){
           .setDescription("認証成功時に付与するロール")
           .setRequired(true))
 
+    const guideline = new SlashCommandBuilder()
+      .setName("guideline")
+      .setDescription("サーバーのガイドラインを作成して同意時にロールを付与します")
+      .addRoleOption(option =>
+        option
+          .setName("role")
+          .setDescription("同意時に付与するロール")
+          .setRequired(true))
+
     const panel = new SlashCommandBuilder()
       .setName("panel")
       .setDescription("より強力なロール認証機能です")
@@ -355,6 +364,7 @@ async function ready(client){
             draw,
             news,
             auth,
+            guideline,
             ticket,
             panel,
             gif,

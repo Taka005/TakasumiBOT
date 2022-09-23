@@ -8,7 +8,7 @@ async function panel_event(interaction){
     const total = count_1 + count_2
 
     const check = new Modal()
-      .setCustomId(`check_${role[1]}_${total}`)
+      .setCustomId(`panelrole_${role[1]}_${total}`)
       .setTitle("認証");
 
     const code = new TextInputComponent()
