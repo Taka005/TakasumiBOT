@@ -28,7 +28,8 @@ async function panel(interaction){
         components: [new MessageActionRow().addComponents(auth_button)]
     })
       .then(async()=>{
-        await interaction.deferUpdate({});
+        interaction.deferReply()
+           .then(()=>interaction.deleteReply())
       })
       .catch(async()=>{
         await interaction.reply({ 

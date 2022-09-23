@@ -28,7 +28,8 @@ async function say(interaction){
         ephemeral:true
       }));
 
-    await interaction.deferUpdate({});
+    interaction.deferReply()
+      .then(()=>interaction.deleteReply())
     return;
   }
 };
