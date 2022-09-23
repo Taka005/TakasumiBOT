@@ -6,14 +6,13 @@ async function qr(interaction){
     const text = await interaction.options.getString("text");
     const types = await interaction.options.getString("types");
 
-    await interaction.deferReply();
     if(types == "gen"){
+      await interaction.deferReply();
       const qr_response = await fetch(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURI(text)}&size=256x256&format=png`)
         .then(res =>res.arrayBuffer()) 
         .catch(()=>{})
 
       await interaction.editReply({
-        files:[new MessageAttachment(Buffer.from(qr_response), `QRCode.png`)],
         embeds:[{
           author: {
             name: "QRコードを作成しました",
@@ -21,11 +20,12 @@ async function qr(interaction){
           },
           description: `作成内容\n\`\`\`${text}\`\`\``,
           color: "GREEN"
-        }]
+        }],
+        files:[new MessageAttachment(Buffer.from(qr_response), `QRCode.png`)]
       });
 
     }else if(types == "read"){
-      if(!text.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)) return await interaction.editReply({
+      if(!text.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)) return await interaction.reply({
         embeds:[{
           author: {
             name: "入力されたテキストが無効です",
@@ -37,11 +37,12 @@ async function qr(interaction){
         ephemeral:true
       });
 
+      await interaction.deferReply();
       const qr_response = await fetch(`https://api.qrserver.com/v1/read-qr-code/?fileurl=${encodeURI(text)}`)
         .then(res =>res.json()) 
         .catch(()=>{})
 
-      if(qr_response.symbol.error) return await interaction.editReply({
+      if(qr_response.symbol?.error) return await interaction.editReply({
           embeds:[{
             author: {
               name: "入力した内容が、正しく指定されていません",
@@ -49,8 +50,7 @@ async function qr(interaction){
             },
             color: "RED",
             description: "QRコードはURLかつ、読み取れる形式です"
-          }],
-          ephemeral:true
+          }]
       });
 
       await interaction.editReply({
