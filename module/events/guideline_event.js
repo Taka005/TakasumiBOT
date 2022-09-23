@@ -17,7 +17,7 @@ async function guideline_event(interaction){
         description: `${temp}`,
         thumbnail: {
           url: "https://taka.ml/images/guideline.png"
-        },
+        }
       },
       {
         color:"GREEN",
