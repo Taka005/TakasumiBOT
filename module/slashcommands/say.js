@@ -3,7 +3,7 @@ async function say(interaction){
   if(interaction.commandName === "say"){
     const text = await interaction.options.getString("text");
 
-    if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return interaction.reply({
+    if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
@@ -15,7 +15,7 @@ async function say(interaction){
       ephemeral:true
     });
 
-    interaction.channel.send(`${text}`)
+    await interaction.channel.send(`${text}`)
       .catch(()=>interaction.reply({
         embeds:[{
           author: {
@@ -28,7 +28,7 @@ async function say(interaction){
         ephemeral:true
       }));
 
-    interaction.deferUpdate({});
+    await interaction.deferUpdate({});
     return;
   }
 };

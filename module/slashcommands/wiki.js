@@ -5,6 +5,7 @@ async function wiki(interaction){
     const wiki_name = await interaction.options.getString("name");
     const wiki_data = await fetch(`https://ja.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wiki_name)}`)
       .then(res => res.json())
+      .catch(()=>{})
 
     try{
       await interaction.reply({

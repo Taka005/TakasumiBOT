@@ -27,11 +27,11 @@ async function auth(interaction){
       }],
       components: [new MessageActionRow().addComponents(auth_button)]
     })
-      .then(()=>{
-        interaction.deferUpdate({});
+      .then(async()=>{
+        await interaction.deferUpdate({});
       })
-      .catch(()=>{
-        interaction.reply({ 
+      .catch(async()=>{
+        await interaction.reply({ 
           embeds:[{
             author: {
               name: "認証機能の作成に失敗しました",
@@ -43,7 +43,6 @@ async function auth(interaction){
           ephemeral: true 
           });
       })
-
     return;
   }
 }
