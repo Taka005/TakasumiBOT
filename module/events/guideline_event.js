@@ -7,7 +7,7 @@ async function guideline_event(interaction){
 
     const guide_button = new MessageButton()
       .setCustomId(`guide_${role[1]}`)
-      .setStyle("PRIMARY")
+      .setStyle("SECONDARY")
       .setLabel("同意します")
 
     await interaction.channel.send({
