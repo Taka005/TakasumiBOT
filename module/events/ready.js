@@ -1,5 +1,4 @@
 async function ready(client){
-  const config = require("../../config.json");
   const package = require("../../package.json");
   require("dotenv").config();
   const { SlashCommandBuilder, ContextMenuCommandBuilder } = require("@discordjs/builders");
