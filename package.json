@@ -9,11 +9,11 @@
     "express": "^4.18.1",
     "node-fetch": "^2.6.7",
     "os-utils": "^0.0.14",
-    "ws": "^8.8.1"
+    "ws": "^8.9.0"
   },
   "name": "takasumi_bot",
   "description": "TakasumiBOT開発 https://taka.ml/",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
