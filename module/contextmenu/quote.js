@@ -34,56 +34,14 @@ async function quote(interaction){
     context.putImageData(dst, 0, 0);
 
     const msg = message.content.replace(/(.{14})/g, "$1\n")
-    //文字
-    if(msg.length >= 16){
-      context.font = "25px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(msg, 330, 180);
-      
-      context.font = "20px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(`-${message.author.tag}`, 400, 215);
-    }else if(msg.length <= 17 && msg.length >= 32){
-      context.font = "25px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(msg, 330, 160);
 
-      context.font = "20px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(`-${message.author.tag}`, 400, 225);
-    }else if(msg.length <= 33 && msg.length >= 48){
-      context.font = "25px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(msg, 330, 140);
+    context.font = "25px nijimi";
+    context.fillStyle = '#ffffff';
+    context.fillText(msg, 330, 100);
 
-      context.font = "20px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(`-${message.author.tag}`, 400, 240);
-    }else if(msg.length <= 49 && msg.length >= 64){
-      context.font = "25px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(msg, 330, 120);
-
-      context.font = "20px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(`-${message.author.tag}`, 400, 250);
-    }else if(msg.length <= 65 && msg.length >= 80){
-      context.font = "25px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(msg, 330, 100);
-
-      context.font = "20px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(`-${message.author.tag}`, 400, 260);
-    }else{
-      context.font = "25px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(msg, 330, 100);
-
-      context.font = "20px nijimi";
-      context.fillStyle = '#ffffff';
-      context.fillText(`-${message.author.tag}`, 400, 370);
-    }
+    context.font = "20px nijimi";
+    context.fillStyle = '#ffffff';
+    context.fillText(`-${message.author.tag}`, 400, 370);
     
     //文字 TakasumiBOT
     context.fillStyle = '#696969';
