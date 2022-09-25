@@ -265,6 +265,11 @@ async function ready(client){
           .setName("text")
           .setDescription("対象の文字")
           .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("key")
+          .setDescription("復号鍵")
+          .setRequired(true))
     
     const mc = new SlashCommandBuilder()
       .setName("mc")
