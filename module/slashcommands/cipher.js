@@ -17,7 +17,7 @@ async function cipher(interaction){
               name: "暗号を生成しました",
               icon_url: "https://taka.ml/images/success.png",
             },
-          description: `暗号: \`\`\`${cipher.final("hex")}\`\`\`\n復号鍵: ||\`\`\`${key}\`\`\`||`,
+          description: `暗号: \`\`\`${cipher.final("hex")}\`\`\`\n復号鍵: ||\`${key}\`||`,
             color: "GREEN"
           }]
         });
@@ -44,7 +44,7 @@ async function cipher(interaction){
               name: "暗号を復号しました",
               icon_url: "https://taka.ml/images/success.png",
             },
-          description: `復号: \`\`\`${decipher.final("utf8")}\`\`\`\n復号鍵: ||\`\`\`${key}\`\`\`||`,
+          description: `復号: \`\`\`${decipher.final("utf8")}\`\`\`\n復号鍵: ||\`${key}\`||`,
             color: "GREEN"
           }]
         });
