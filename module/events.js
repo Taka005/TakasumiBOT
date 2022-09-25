@@ -129,6 +129,7 @@ async function events(client){
       const mc = require("./slashcommands/mc");
       const system = require("./slashcommands/system");
       const qr = require("./slashcommands/qr");
+      const cipher = require("./slashcommands/cipher");
 
       const global = require("./slashcommands/global");
 
@@ -166,6 +167,7 @@ async function events(client){
       mc(interaction);
       system(interaction,client);
       qr(interaction);
+      cipher(interaction);
 
       //ContextMenu
       member(interaction);

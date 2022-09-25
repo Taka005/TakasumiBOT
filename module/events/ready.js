@@ -248,6 +248,24 @@ async function ready(client){
           .setDescription("文字列又は、URL")
           .setRequired(true))
 
+    const cipher = new SlashCommandBuilder()
+      .setName("cipher")
+      .setDescription("暗号を生成や、復号化をします")
+      .addStringOption(option =>
+        option
+          .setName("types")
+          .setDescription("処理を選択します")
+          .setRequired(true)
+          .addChoices(
+            { name: "暗号化", value: "cipher" },
+            { name: "復号化", value: "decipher" }
+          ))
+      .addStringOption(option =>
+        option
+          .setName("text")
+          .setDescription("対象の文字")
+          .setRequired(true))
+    
     const mc = new SlashCommandBuilder()
       .setName("mc")
       .setDescription("マインクラフトサーバーの情報を検索します")
@@ -390,6 +408,7 @@ async function ready(client){
             short,
             safeweb,
             qr,
+            cipher,
             mc,
             global,
             system,
