@@ -64,3 +64,5 @@ async function cipher(interaction){
   return;
   }
 }
+
+module.exports = cipher
