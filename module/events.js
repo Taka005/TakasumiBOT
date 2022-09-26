@@ -1,12 +1,11 @@
 async function events(client){
-  const mute_user = require("../data/block_user.json");
-  const mute_server = require("../data/block_server.json");
+  const fs = require("fs");
 
-    client.once("ready", async (client) =>{
-       const ready = require("./events/ready");
+  client.once("ready", async (client) =>{
+    const ready = require("./events/ready");
 
-       ready(client)
-    });
+    ready(client)
+  });
 
     client.on("messageCreate", async (message) =>{
         //時間
@@ -34,13 +33,13 @@ async function events(client){
         console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
  
         //コマンド
-        const cpu = require("./commands/cpu");
-        const exec = require("./commands/exec");
-        const quote = require("./commands/quote");
-
-        cpu(message)
-        exec(message,client)
-        quote(message)
+        fs.readdir("./module/commands/", (err,files) =>{ 
+          files.forEach((file) =>{
+            if(!file.endsWith(`.js`)) return;
+            const event = require(`./commands/${file}`);
+            event(message,client);
+          });
+        });
 
       return;
     });
@@ -100,101 +99,31 @@ async function events(client){
       panel_role(interaction);
 
       //スラッシュコマンド
-      const support = require("./slashcommands/support");
-      const embed = require("./slashcommands/embed");
-      const server = require("./slashcommands/server");
-      const help = require("./slashcommands/help");
-      const status = require("./slashcommands/status");
-      const auth = require("./slashcommands/auth");
-      const guideline = require("./slashcommands/guideline");
-      const panel = require("./slashcommands/panel");
-      const gif = require("./slashcommands/gif");
-      const say = require("./slashcommands/say");
-      const del = require("./slashcommands/del");
-      const invite = require("./slashcommands/invite");
-      const user = require("./slashcommands/user");
-      const poll = require("./slashcommands/poll");
-      const ticket = require("./slashcommands/ticket");
-      const channel = require("./slashcommands/channel");
-      const avatar = require("./slashcommands/avatar");
-      const short = require("./slashcommands/short");
-      const safeweb = require("./slashcommands/safeweb");
-      const output = require("./slashcommands/output");
-      const draw = require("./slashcommands/draw");
-      const kick = require("./slashcommands/kick");
-      const ban = require("./slashcommands/ban");
-      const news = require("./slashcommands/news");
-      const npm = require("./slashcommands/npm");
-      const wiki = require("./slashcommands/wiki");
-      const mc = require("./slashcommands/mc");
-      const system = require("./slashcommands/system");
-      const qr = require("./slashcommands/qr");
-      const cipher = require("./slashcommands/cipher");
-
-      const global = require("./slashcommands/global");
-
+      fs.readdir("./module/slashcommands/", (err,files) =>{ 
+        files.forEach((file) =>{
+          if(!file.endsWith(`.js`)) return;
+          const event = require(`./slashcommands/${file}`);
+          event(interaction,client);
+        });
+      });
       //ContextMenu
-      const member = require("./contextmenu/member");
-      const quote = require("./contextmenu/quote");
-
-      help(interaction);
-      support(interaction);
-      embed(interaction);
-      server(interaction);
-      status(interaction,client);
-      auth(interaction);
-      guideline(interaction);
-      panel(interaction);
-      gif(interaction);
-      say(interaction);
-      del(interaction);
-      invite(interaction);
-      user(interaction,client);
-      poll(interaction);
-      ticket(interaction);
-      channel(interaction,client);
-      avatar(interaction,client);
-      short(interaction);
-      safeweb(interaction);
-      output(interaction,client);
-      draw(interaction);
-      kick(interaction);
-      ban(interaction,client);
-      global(interaction);
-      news(interaction);
-      npm(interaction);
-      wiki(interaction);
-      mc(interaction);
-      system(interaction,client);
-      qr(interaction);
-      cipher(interaction);
-
-      //ContextMenu
-      member(interaction);
-      quote(interaction);
+      fs.readdir("./module/contextmenu/", (err,files) =>{ 
+        files.forEach((file) =>{
+          if(!file.endsWith(`.js`)) return;
+          const event = require(`./contextmenu/${file}`);
+          event(interaction,client);
+        });
+      });
       return;
     });
 
     client.on("guildMemberAdd", member=>{
-      let now = new Date();
-      let h = now.getHours()
-      let m = now.getMinutes()
-      let s = now.getSeconds() 
-      
-      console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)
-
       const join = require("./events/join");
        
       join(member,client);
     });
 
     client.on("guildMemberRemove", member =>{
-      let now = new Date();
-      let h = now.getHours()
-      let m = now.getMinutes()
-      let s = now.getSeconds() 
-      console.log(`\x1b[37m[${h}:${m}:${s}]LOG:${member.user.tag} PING:${client.ws.ping}ms`)  
-
       const leave = require("./events/leave");
 
       leave(member);
