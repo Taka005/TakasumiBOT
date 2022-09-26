@@ -51,8 +51,8 @@ async function global(interaction){
     });
 
     if(
-      interaction.guild.memberCount < 20||
-      (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 8
+      interaction.guild.memberCount < 30||
+      (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 15
     ) return await interaction.reply({
       embeds:[{
         author: {
