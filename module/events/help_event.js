@@ -116,6 +116,10 @@ async function help_event(interaction){
               name: "/avatar",
               value: "指定されたユーザーのアイコンを表示します\n使い方は`/user`と同じです"
             },
+            {
+              name: "/translate",
+              value: "テキストを翻訳します"
+            }
         ]}],
         components: [
           new MessageActionRow()
@@ -210,6 +214,10 @@ async function help_event(interaction){
             {
               name: "/mc",
               value: "指定したMinecarftサーバーの情報を表示します"
+            },
+            {
+              name: "/cipher",
+              value: "文字列の暗号化、復号化します"
             },
             {
               name: "/draw",
