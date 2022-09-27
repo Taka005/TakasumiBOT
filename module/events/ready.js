@@ -289,6 +289,29 @@ async function ready(client){
           .setDescription("検索するサーバーのアドレス")
           .setRequired(true))
 
+    const translate = new SlashCommandBuilder()
+      .setName("translate")
+      .setDescription("テキストを翻訳します")
+      .addStringOption(option =>
+        option
+          .setName("text")
+          .setDescription("翻訳対象のテキスト")
+          .setRequired(true))
+          .addStringOption(option =>
+            option
+              .setName("lang")
+              .setDescription("翻訳先になる言語")
+              .setRequired(true)
+              .addChoices(
+                { name: "日本語", value: "ja" },
+                { name: "英語", value: "en" },
+                { name: "韓国語", value: "ko" },
+                { name: "中国語", value: "zh" },
+                { name: "ロシア語", value: "ru" },
+                { name: "フランス語", value: "fr" },
+                { name: "ドイツ語", value: "de" },
+              ))
+
     const system = new SlashCommandBuilder()
       .setName("system")
       .setDescription("BOTの管理をします")
@@ -415,6 +438,7 @@ async function ready(client){
             qr,
             cipher,
             mc,
+            translate,
             global,
             system,
             poll,
