@@ -405,6 +405,14 @@ async function ready(client){
     const quote = new ContextMenuCommandBuilder()
       .setName("Make it a Quote")
       .setType(ApplicationCommandType.Message)
+
+    const to_en = new ContextMenuCommandBuilder()
+      .setName("英語に翻訳")
+      .setType(ApplicationCommandType.Message)
+
+    const to_ja = new ContextMenuCommandBuilder()
+      .setName("日本語に翻訳")
+      .setType(ApplicationCommandType.Message)
           
     await rest.put(
       Routes.applicationCommands(client.application.id),
@@ -444,7 +452,9 @@ async function ready(client){
             poll,
             //ContextMenu
             member,
-            quote
+            quote,
+            to_en,
+            to_ja
           ]
         },
     );

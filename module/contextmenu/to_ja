@@ -1,10 +1,9 @@
-async function translate(interaction){
+async function to_en(interaction){
   const fetch = require("node-fetch");
-  if(!interaction.isCommand()) return;
-  if(interaction.commandName === "translate"){
-    const text = await interaction.options.getString("text");
-    const lang = await interaction.options.getString("lang");
-    if(text > 3000) return await await interaction.reply({
+  if(!interaction.isContextMenu()) return;
+  if(interaction.commandName === "日本語に翻訳"){
+    const message = await interaction.options.getMessage("message");
+    if(message.content > 3000) return await await interaction.reply({
       embeds:[{
         author: {
           name: "翻訳できませんでした",
@@ -21,11 +20,11 @@ async function translate(interaction){
       }],
       ephemeral:true
     });
-    
-    const translate_data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&dj=1&q=${encodeURIComponent(text)}`)
+      
+    const translate_data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ja&dt=t&dj=1&q=${encodeURIComponent(message.content)}`)
       .then(res => res.json())
       .catch(()=>{})
-  
+    
     try{
       await interaction.reply({
         embeds:[{
@@ -36,7 +35,7 @@ async function translate(interaction){
           },
           description: translate_data.sentences[0].trans,
           footer: {
-            text:`Google Translate [${translate_data.src}]->[${lang}]`
+            text:`Google Translate [${translate_data.src}]->[ja]`
           }
         }]
       });
@@ -62,5 +61,5 @@ async function translate(interaction){
     return;
   }
 }
-  
-module.exports = translate
+    
+module.exports = to_en
