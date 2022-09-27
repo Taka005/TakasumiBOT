@@ -15,12 +15,12 @@ async function translate(interaction){
           coslor: "BLUE",
           description: translate_data.sentences[0].trans,
           footer: {
-            text:`Google Translate [${src}]->[${lang}]`,
+            text:`Google Translate [${translate_data.src}]->[${lang}]`,
             icon_url:"https://taka.ml/images/translate.png"
           }
         }]
       });
-    }catch(error){
+    }catch{
       await interaction.reply({
         embeds:[{
           author: {
@@ -28,7 +28,7 @@ async function translate(interaction){
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: "翻訳文字を変えて、もう一度実行してください"+error,
+          description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
             text:`Google Translate`,
             icon_url:"https://taka.ml/images/translate.png"
