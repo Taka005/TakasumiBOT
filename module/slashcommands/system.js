@@ -141,7 +141,19 @@ async function system(interaction,client){
             }]
           })
         });
-  
+
+      client.channels.cache.get(channel).send({
+        embeds:[{
+          author: {
+            name: "登録情報が削除されました",
+            icon_url: "https://taka.ml/images/error.jpg",
+          },
+          color: "RED",
+          description: "グローバルチャットは、管理者によって強制的に切断されました\n再度登録するには`/global`を使用してください"
+        }]
+      })
+      .catch(()=>{})
+
       delete require.cache[require.resolve("../../data/global/sub.json")];
       delete require.cache[require.resolve("../../data/global/main.json")];
       return;
