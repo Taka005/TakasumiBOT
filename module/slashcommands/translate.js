@@ -4,7 +4,7 @@ async function translate(interaction){
   if(interaction.commandName === "translate"){
     const text = await interaction.options.getString("text");
     const lang = await interaction.options.getString("lang");
-    const translate_data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&dj=1&q=${encodeURIComponent(wiki_name)}`)
+    const translate_data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&dj=1&q=${encodeURIComponent(text)}`)
       .then(res => res.json())
       .catch(()=>{})
   
