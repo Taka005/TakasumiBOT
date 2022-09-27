@@ -12,7 +12,7 @@ async function translate(interaction){
       await interaction.reply({
         embeds:[{
           title: "翻訳結果",
-          coslor: "BLUE",
+          color: "BLUE",
           description: translate_data.sentences[0].trans,
           footer: {
             text:`Google Translate [${translate_data.src}]->[${lang}]`,
