@@ -12,11 +12,13 @@ async function translate(interaction){
       await interaction.reply({
         embeds:[{
           title: "翻訳結果",
-          color: "BLUE",
+          color: "BLUE",    
+          thumbnail: {
+            url: "https://taka.ml/images/translate.png"
+          },
           description: translate_data.sentences[0].trans,
           footer: {
-            text:`Google Translate [${translate_data.src}]->[${lang}]`,
-            icon_url:"https://taka.ml/images/translate.png"
+            text:`Google Translate [${translate_data.src}]->[${lang}]`
           }
         }]
       });
@@ -27,11 +29,13 @@ async function translate(interaction){
             name: "翻訳できませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
+          thumbnail: {
+            url: "https://taka.ml/images/translate.png"
+          },
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
-            text:`Google Translate`,
-            icon_url:"https://taka.ml/images/translate.png"
+            text:`Google Translate`
           }
         }],
         ephemeral:true
