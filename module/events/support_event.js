@@ -23,9 +23,14 @@ async function support_event(interaction,client){
           color: "GREEN",
           author: {
             name: `${interaction.member.user.id}`,
+            url: `https://discord.com/users/${interaction.member.user.id}`,
             icon_url: interaction.member.user.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
            },
           description: content,
+          footer: {
+            text:`${interaction.guild.name}<${interaction.guild.id}>`,
+            icon_url:interaction.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+          },
           timestamp: new Date()
         }]
       });
