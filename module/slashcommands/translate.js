@@ -44,7 +44,7 @@ async function translate(interaction){
           }
         }]
       });
-    }catch(error){
+    }catch{
       await interaction.reply({
         embeds:[{
           author: {
@@ -55,7 +55,7 @@ async function translate(interaction){
             url: "https://taka.ml/images/translate.png"
           },
           color: "RED",
-          description: "翻訳文字を変えて、もう一度実行してください"+error,
+          description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
             text:`Google Translate`
           }
