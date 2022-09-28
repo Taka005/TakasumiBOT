@@ -27,6 +27,10 @@ async function translate(interaction){
       .catch(()=>{})
   
     try{
+      const translated = translate_data.sentences.map((sentence)=>{
+        return sentence.trans
+      });
+
       await interaction.reply({
         embeds:[{
           title: "翻訳結果",
@@ -34,7 +38,7 @@ async function translate(interaction){
           thumbnail: {
             url: "https://taka.ml/images/translate.png"
           },
-          description: translate_data.sentences[0].trans,
+          description: translated,
           footer: {
             text:`Google Translate [${translate_data.src}]->[${lang}]`
           }
