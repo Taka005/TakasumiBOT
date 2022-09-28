@@ -58,18 +58,18 @@ async function to_ja(interaction){
           thumbnail: {
             url: "https://taka.ml/images/translate.png"
           },
-          description: translated.json(""),
+          description: translated.join(""),
           footer: {
             text:`Google Translate [${translate_data.src}]->[ja]`
           }
         }]
       });
-    }catch(error){
+    }catch{
       await interaction.reply({
         content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
         embeds:[{
           author: {
-            name: "翻訳できませんでした"+error,
+            name: "翻訳できませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           thumbnail: {
