@@ -64,7 +64,7 @@ async function to_en(interaction){
           }
         }]
       });
-    }catch(error){
+    }catch{
       await interaction.reply({
         content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
         embeds:[{
