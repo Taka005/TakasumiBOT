@@ -69,7 +69,7 @@ async function to_en(interaction){
         content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
         embeds:[{
           author: {
-            name: "翻訳できませんでした"+error,
+            name: "翻訳できませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           thumbnail: {

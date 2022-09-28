@@ -64,12 +64,12 @@ async function to_ja(interaction){
           }
         }]
       });
-    }catch{
+    }catch(error){
       await interaction.reply({
         content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
         embeds:[{
           author: {
-            name: "翻訳できませんでした",
+            name: "翻訳できませんでした"+error,
             icon_url: "https://taka.ml/images/error.jpg",
           },
           thumbnail: {
