@@ -4,7 +4,7 @@ async function to_ja(interaction){
   if(interaction.commandName === "日本語に翻訳"){
     const message = await interaction.options.getMessage("message");
     if(!message.content) return await await interaction.reply({
-      content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
+      content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{
         author: {
           name: "翻訳できませんでした",
@@ -23,7 +23,7 @@ async function to_ja(interaction){
     });
 
     if(message.content > 3000) return await await interaction.reply({
-      content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
+      content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{
         author: {
           name: "翻訳できませんでした",
@@ -51,7 +51,7 @@ async function to_ja(interaction){
       });
 
       await interaction.reply({
-        content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
+        content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
         embeds:[{
           title: "翻訳結果",
           color: "BLUE",    
@@ -66,7 +66,7 @@ async function to_ja(interaction){
       });
     }catch{
       await interaction.reply({
-        content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
+        content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
         embeds:[{
           author: {
             name: "翻訳できませんでした",
