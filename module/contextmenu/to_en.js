@@ -46,6 +46,10 @@ async function to_en(interaction){
       .catch(()=>{})
     
     try{
+      const translated = translate_data.sentences.map((sentence)=>{
+        return sentence.trans
+      });
+
       await interaction.reply({
         content:`[翻訳元](https://discord.com/channels/${interaction.guild.id}/${interaction.channel.id}/${message.id}/)`,
         embeds:[{
@@ -54,7 +58,7 @@ async function to_en(interaction){
           thumbnail: {
             url: "https://taka.ml/images/translate.png"
           },
-          description: translate_data.sentences[0].trans,
+          description: translated.join(""),
           footer: {
             text:`Google Translate [${translate_data.src}]->[en]`
           }
