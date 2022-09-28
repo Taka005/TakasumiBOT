@@ -22,7 +22,7 @@ async function to_en(interaction){
       ephemeral:true
     });
 
-    if(message.content > 3000) return await await interaction.reply({
+    if(message.content > 3000) return await interaction.reply({
       content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{
         author: {
