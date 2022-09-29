@@ -30,7 +30,7 @@ async function quote(interaction){
       dst.data[i + 1] = y;
       dst.data[i + 2] = y;
       dst.data[i + 3] = src.data[i + 3]
-    };
+    }
     context.putImageData(dst, 0, 0);
 
     const msg = message.content.replace(/(.{14})/g, "$1\n")

@@ -17,7 +17,7 @@ async function embed_event(interaction){
       });
 
       if(image){
-        if(!image.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)) return await interaction.reply({
+        if(!image.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
           embeds:[{
             author: {
               name: "入力された画像が無効です",

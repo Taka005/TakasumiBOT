@@ -32,6 +32,6 @@ async function say(interaction){
       .then(()=>interaction.deleteReply())
     return;
   }
-};
+}
 
 module.exports = say

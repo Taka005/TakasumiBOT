@@ -63,6 +63,6 @@ async function help(interaction){
     });
     return;
   }
-};
+}
 
 module.exports = help

@@ -60,7 +60,7 @@ async function send(message){
     )
   }).then((res) => res.json());
 
-  if(!messages.success) return console.log(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR No Messages`);
+  if(!messages.success) return console.log(`\x1b[31mUGC:ERROR No Messages`);
   return;
 }
 

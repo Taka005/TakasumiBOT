@@ -25,7 +25,7 @@ async function guideline(interaction){
       .setLabel("テンプレートを編集してガイドラインを作成してください")
       .setMaxLength(3000)
       .setRequired(true)
-      .setValue("\` 1 \` **１つ目のガイドライン**\n\n\` 2 \` **２つ目のガイドライン**\n\n\` 3 \` **３つ目のガイドライン**\n\n\` 4 \` **４つ目のガイドライン**\n")
+      .setValue("` 1 ` **１つ目のガイドライン**\n\n` 2 ` **２つ目のガイドライン**\n\n` 3 ` **３つ目のガイドライン**\n\n` 4 ` **４つ目のガイドライン**\n")
       .setStyle("PARAGRAPH");
       
     guide.addComponents(

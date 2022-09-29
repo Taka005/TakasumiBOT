@@ -62,6 +62,6 @@ async function output(interaction,client){
    
     return;
   }
-};
+}
   
 module.exports = output

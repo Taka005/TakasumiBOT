@@ -45,7 +45,7 @@ async function global(interaction){
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "グローバルチャットは、BOTに以下の権限が必要です\n\`\`\`リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理\`\`\`\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        description: "グローバルチャットは、BOTに以下の権限が必要です\n```リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
       }],
       ephemeral:true
     });
@@ -60,7 +60,7 @@ async function global(interaction){
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "グローバルチャットを利用するには、以下の条件を満たしている必要があります\`\`\`20人以上のメンバー\n8人以上のユーザー\`\`\`"
+        description: "グローバルチャットを利用するには、以下の条件を満たしている必要があります```20人以上のメンバー\n8人以上のユーザー```"
       }],
       ephemeral:true
     });

@@ -54,7 +54,7 @@ async function server(client){
          
     res.json({
       client:{
-        user:client.user.tag,
+        bot:client.user.tag,
         ping:client.ws.ping,
         guild:client.guilds.cache.size,
         user:client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)
@@ -129,13 +129,13 @@ async function server(client){
   //------短縮URL------//
 
   //------ERROR処理------//
-  app.use((req, res, next)=>{
+  app.use((req, res)=>{
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.status(404).send(`<h1>404 NOT FOUND</h1><br>[${req.path}]`);
     res.end()
   });
 
-  app.use(function(err, req, res, next){
+  app.use(function(err, req, res){
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.status(500).send(`<h1>500 SERVER ERROR</h1><br>[${err}]`);
     res.end()

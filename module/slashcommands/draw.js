@@ -12,6 +12,6 @@ async function draw(interaction){
       });
       return;
     }
-  };
+  }
   
   module.exports = draw

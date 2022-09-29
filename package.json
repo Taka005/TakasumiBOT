@@ -1,22 +1,11 @@
 {
-  "dependencies": {
-    "@discordjs/builders": "^0.15.0",
-    "@discordjs/rest": "^0.5.0",
-    "canvas": "^2.10.1",
-    "discord-api-types": "^0.35.0",
-    "discord.js": "^13.11.0",
-    "dotenv": "^16.0.2",
-    "express": "^4.18.1",
-    "node-fetch": "^2.6.7",
-    "os-utils": "^0.0.14",
-    "ws": "^8.9.0"
-  },
   "name": "takasumi_bot",
   "description": "TakasumiBOT開発 https://taka.ml/",
   "version": "2.7.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "./node_modules/.bin/eslint module"
   },
   "engines": {
     "node": "16.x"
@@ -31,5 +20,20 @@
   "bugs": {
     "url": "https://github.com/Taka005/takasumi_bot/issues"
   },
-  "homepage": "https://github.com/Taka005/takasumi_bot#readme"
+  "homepage": "https://github.com/Taka005/takasumi_bot#readme",
+  "dependencies": {
+    "@discordjs/builders": "^0.15.0",
+    "@discordjs/rest": "^0.5.0",
+    "canvas": "^2.10.1",
+    "discord-api-types": "^0.35.0",
+    "discord.js": "^13.11.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "node-fetch": "^2.6.7",
+    "os-utils": "^0.0.14",
+    "ws": "^8.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.24.0"
+  }
 }

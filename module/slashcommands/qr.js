@@ -31,7 +31,7 @@ async function qr(interaction){
       });
 
     }else if(types == "read"){
-      if(!text.match(/https?:\/\/[-_.!~*\'()a-zA-Z0-9;\/?:\@&=+\$,%#]+/g)) return await interaction.reply({
+      if(!text.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
         embeds:[{
           author: {
             name: "入力されたテキストが無効です",

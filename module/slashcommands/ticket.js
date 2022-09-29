@@ -36,6 +36,6 @@ async function ticket(interaction){
       .then(()=>interaction.deleteReply());
     return;
   }
-};
+}
   
 module.exports = ticket
