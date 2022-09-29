@@ -8,7 +8,7 @@ async function cipher(interaction){
 
     if(types == "cipher"){
       try{
-        const cipher = crypto.createCipheriv("aes-128-cbc", key);
+        const cipher = crypto.createCipher("aes-128-cbc", key);
         cipher.update(text, "utf8", "hex");
 
         await interaction.reply({
@@ -35,7 +35,7 @@ async function cipher(interaction){
       }
     }if(types == "decipher"){
       try{
-        const decipher = crypto.createDecipheriv("aes-128-cbc", key);
+        const decipher = crypto.createDecipher("aes-128-cbc", key);
         decipher.update(text, "hex", "utf8");
 
         await interaction.reply({
