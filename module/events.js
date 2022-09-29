@@ -9,10 +9,10 @@ async function events(client){
 
     client.on("messageCreate", async (message) =>{
         //時間
-        var now = new Date();
-        var h = now.getHours()
-        var m = now.getMinutes()
-        var s = now.getSeconds() 
+        let now = new Date();
+        let h = now.getHours()
+        let m = now.getMinutes()
+        let s = now.getSeconds() 
         //globalchat
         const global = require("./global/global");
         const reply = require("./global/reply");

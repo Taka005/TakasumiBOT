@@ -1,5 +1,5 @@
 async function exec(message,client){
-  const fs = require('fs');
+  const fs = require("fs");
   const config = require("../../config.json");
   if(message.content.startsWith(`${config.prefix}exec`)){
     if(message.author.id !== `${config.admin}`) return message.reply("このコマンドは製作者専用です");
@@ -7,7 +7,7 @@ async function exec(message,client){
       const code = message.content.slice(6);
       const script = `async function script(message,client){\n  ${code}\n}\n\nmodule.exports = script`;
       try{
-        fs.writeFileSync(`./note/script.js`, `${script}`, 'utf8');
+        fs.writeFileSync(`./note/script.js`, `${script}`, "utf8");
       }catch(error){
         return message.reply(`ファイル書き込み中にエラーが発生しました\n[${error.message}]`);
       }
