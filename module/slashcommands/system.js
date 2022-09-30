@@ -158,17 +158,38 @@ async function system(interaction,client){
 
     }else if(functions === "block_server"){//ブロックサーバーを追加する
       const guild = client.guilds.cache.get(id_data[0]);
-      if(!guild) return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "サーバーをブロックできませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
-          },
-          color: "RED",
-          description: "指定したサーバーが存在しません"
-        }],
-        ephemeral:true
-      });
+      if(!guild){
+        if(block_server[id_data[0]]){//登録済み
+          delete block_server[id_data[0]];
+          fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
+          delete require.cache[require.resolve("../../data/block_server.json")];
+    
+          return await interaction.reply({
+            embeds:[{
+              author: {
+                name: `${id_data} のブロックを解除しました`,
+                icon_url: "https://taka.ml/images/success.png",
+              },
+              color: "GREEN"
+            }]
+          });
+        }
+    
+        //登録なし
+        block_server[id_data[0]] = message;
+        fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
+        delete require.cache[require.resolve("../../data/block_server.json")];
+  
+        return await interaction.reply({
+          embeds:[{
+            author: {
+              name: `${id_data} をブロックしました`,
+              icon_url: "https://taka.ml/images/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }
   
       if(block_server[id_data[0]]){//登録済み
         delete block_server[id_data[0]];
