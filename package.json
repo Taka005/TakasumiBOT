@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "lint": "./node_modules/.bin/eslint module"
+    "lint": "./node_modules/.bin/eslint module",
+    "format": "prettier --write src"
   },
   "engines": {
     "node": "16.x"
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "eslint": "^8.24.0",
-    "eslint-plugin-node": "^11.1.0"
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^2.7.1"
   }
 }

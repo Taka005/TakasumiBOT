@@ -2,7 +2,7 @@
     "extends": ["eslint:recommended","plugin:node/recommended"],
     "plugins": ["node"],
     "parserOptions": {
-      "ecmaVersion": 2022
+      "ecmaVersion": "latest"
     },
     "env": {
       "commonjs": true,
