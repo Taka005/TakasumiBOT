@@ -42,7 +42,6 @@ process.on('uncaughtException',async(error) => {
       timestamp: new Date()
     }]
   })
-  return;
 });
 
 process.on('unhandledRejection',async(error) => {
@@ -55,7 +54,6 @@ process.on('unhandledRejection',async(error) => {
       timestamp: new Date()
     }]
   })
-  return;
 });
 
 /**
