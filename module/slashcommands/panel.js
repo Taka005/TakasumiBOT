@@ -44,7 +44,6 @@ async function panel(interaction){
           ephemeral: true 
         });
       })
-  return;
   }
 }
 

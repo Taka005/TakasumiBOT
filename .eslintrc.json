@@ -12,11 +12,23 @@
     },
     "globals": {},
     "rules": {
-      "no-var": "error",
-      "node/no-unsupported-features": "error",
-      "node/no-deprecated-api": "error",
-      "node/no-missing-require": "error",
-      "node/no-unpublished-require": "error",
+      "no-var":"error",
+      "no-undef":"error",
+      "eqeqeq":"error",
+      "no-loss-of-precision":"error",
+      "no-const-assign":"error",
+      "no-dupe-else-if":"error",
+      "no-unreachable":"error",
+      "no-useless-return":"error",
+      "no-implicit-coercion":"error",
+      "no-extra-semi":"error",
+      "no-unused-vars":"error",
+      "no-irregular-whitespace":"error",
+      "no-constant-binary-expression":"error",
+      "node/no-unsupported-features":"error",
+      "node/no-deprecated-api":"error",
+      "node/no-missing-require":"error",
+      "node/no-unpublished-require":"error",
       "node/exports-style": ["error", "module.exports"]
     }
 }

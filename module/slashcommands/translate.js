@@ -63,7 +63,6 @@ async function translate(interaction){
         ephemeral:true
       });
     }
-    return;
   }
 }
   

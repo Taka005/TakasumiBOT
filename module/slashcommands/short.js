@@ -21,7 +21,6 @@ async function short(interaction){
       .then(res => res.text())
       .catch(()=>{})
     await interaction.reply(`${short_response}`);
-    return;
   }
 }
 

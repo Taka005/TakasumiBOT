@@ -212,7 +212,6 @@ async function user(interaction,client){
             });
           }
         }
-    return;
   }
 }
     

@@ -32,7 +32,6 @@ async function wiki(interaction){
         ephemeral:true
       });
     }
-    return;
   }
 }
 

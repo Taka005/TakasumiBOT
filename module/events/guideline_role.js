@@ -41,7 +41,6 @@ async function guideline_role(interaction){
           ephemeral:true
         });
       })
-    return;
   }
 }
 

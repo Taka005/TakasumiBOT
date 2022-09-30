@@ -7,7 +7,7 @@ async function open(message,client){
     const channel = client.channels.cache.get(id[1]);
     if(!channel) return;
     const msg = await channel.messages.fetch(id[2])
-      .catch(()=>{return})
+      .catch(()=>{})
 
     if(!msg.attachments?.first()){
       message.channel.send({//添付ファイルなし
@@ -66,7 +66,6 @@ async function open(message,client){
         }]
       });
     }
-    return;
   }
 }
 

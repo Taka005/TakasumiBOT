@@ -37,7 +37,6 @@ async function embed(interaction){
     );
     
     await interaction.showModal(embed);
-    return;
   }
 }
 

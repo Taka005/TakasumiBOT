@@ -30,7 +30,6 @@ async function say(interaction){
 
     interaction.deferReply()
       .then(()=>interaction.deleteReply())
-    return;
   }
 }
 

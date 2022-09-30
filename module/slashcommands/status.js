@@ -56,7 +56,6 @@ async function status(interaction,client){
       }],
       ephemeral:true
     }));
-    return;
   }
 }
     

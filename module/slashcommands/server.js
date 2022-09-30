@@ -51,7 +51,6 @@ async function server(interaction){
         }],
         ephemeral:true
       }));
-    return;
   }
 }
     

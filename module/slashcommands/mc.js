@@ -179,7 +179,6 @@ async function mc(interaction){
         });
       }
     }
-    return;
   }
 }
 

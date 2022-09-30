@@ -8,7 +8,7 @@ async function connect(msg){
   if(main[msg.channel.id]) return;
   Object.keys(main).forEach(async (channels)=>{
 
-    const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+    const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
     if(mute_server[guild]) return;
 
     const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
@@ -32,7 +32,7 @@ async function connect(msg){
       }]      
     }).catch(()=>{
       delete main[channels];
-      const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+      const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
       delete sub[guild];
       fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
       fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");

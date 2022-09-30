@@ -27,7 +27,7 @@ async function panel_role(interaction){
       ephemeral:true
     });
 
-    if(code == list[2]){
+    if(code === list[2]){
       await interaction.member.roles.add(list[1])
         .then(()=>{
           interaction.reply({
@@ -67,7 +67,6 @@ async function panel_role(interaction){
         ephemeral:true
       })
     }
-    return;
   }
 }
 

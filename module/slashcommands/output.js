@@ -59,8 +59,6 @@ async function output(interaction,client){
        ephemeral: true 
      })
    }
-   
-    return;
   }
 }
   

@@ -34,7 +34,6 @@ async function ticket(interaction){
       }
       interaction.deferReply()
       .then(()=>interaction.deleteReply());
-    return;
   }
 }
   

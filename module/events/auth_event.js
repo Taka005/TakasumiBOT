@@ -40,7 +40,6 @@ async function auth_event(interaction){
           ephemeral:true
         })
       })
-    return;
   }
 }
 

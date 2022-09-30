@@ -6,7 +6,7 @@ async function cipher(interaction){
     const text = await interaction.options.getString("text");
     const types = await interaction.options.getString("types");
 
-    if(types == "cipher"){
+    if(types === "cipher"){
       try{
         const cipher = crypto.createCipher("aes-128-cbc", key);
         cipher.update(text, "utf8", "hex");
@@ -33,7 +33,7 @@ async function cipher(interaction){
           }]
         });
       }
-    }if(types == "decipher"){
+    }else{
       try{
         const decipher = crypto.createDecipher("aes-128-cbc", key);
         decipher.update(text, "hex", "utf8");
@@ -61,7 +61,6 @@ async function cipher(interaction){
         });
       }
     }
-  return;
   }
 }
 

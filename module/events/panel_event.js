@@ -21,7 +21,6 @@ async function panel_event(interaction){
     check.addComponents(new MessageActionRow().addComponents(code));
 
     await interaction.showModal(check);
-    return;
   }
 }
   

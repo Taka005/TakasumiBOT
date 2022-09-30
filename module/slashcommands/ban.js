@@ -29,7 +29,7 @@ async function ban(interaction,client){
       ephemeral:true
     });
 
-    if(id == interaction.member.user.id) return await interaction.reply({
+    if(id === interaction.member.user.id) return await interaction.reply({
       embeds:[{
         author: {
           name: "メンバーをBANできませんでした",
@@ -111,7 +111,6 @@ async function ban(interaction,client){
           })
         })
     }
-    return;
   }
 }
   

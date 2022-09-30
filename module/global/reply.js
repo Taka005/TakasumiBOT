@@ -29,8 +29,8 @@ async function global(message){
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
 
-        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
-        if(channels == message.channel.id||mute_server[guild]) return;
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -58,7 +58,7 @@ async function global(message){
           ]      
         }).catch(()=>{
           delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
           delete sub[guild];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
@@ -73,8 +73,8 @@ async function global(message){
       const attachment = message.attachments.map(attachment => attachment);
       Object.keys(main).forEach(async (channels)=>{
 
-        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
-        if(channels == message.channel.id||mute_server[guild]) return;
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -108,7 +108,7 @@ async function global(message){
           ]
         }).catch(()=>{
           delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
           delete sub[guild];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
@@ -124,8 +124,8 @@ async function global(message){
 
       Object.keys(main).forEach(async (channels)=>{
 
-        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
-        if(channels == message.channel.id||mute_server[guild]) return;
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -157,7 +157,7 @@ async function global(message){
           ]
         }).catch(()=>{
           delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
           delete sub[guild];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
@@ -176,8 +176,8 @@ async function global(message){
     if(!message.attachments.first()){
       Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
 
-        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
-        if(channels == message.channel.id||mute_server[guild]) return;
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -205,7 +205,7 @@ async function global(message){
           ]      
         }).catch(()=>{
           delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
           delete sub[guild];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
@@ -215,13 +215,12 @@ async function global(message){
       });
       message.react("✅")
         .catch(()=>{});
-      return;
     }else if(message.attachments.first().height && message.attachments.first().width){//添付ファイルあり(画像)
       const attachment = message.attachments.map(attachment => attachment);
       Object.keys(main).forEach(async (channels)=>{
 
-        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
-        if(channels == message.channel.id||mute_server[guild]) return;
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -255,7 +254,7 @@ async function global(message){
           ]
         }).catch(()=>{
           delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
           delete sub[guild];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
@@ -265,14 +264,13 @@ async function global(message){
       });
       message.react("✅")
         .catch(()=>{});
-      return;
     }else{//添付ファイルあり(画像以外)
       const attachment = message.attachments.map(attachment => attachment);
 
       Object.keys(main).forEach(async (channels)=>{
 
-        const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
-        if(channels == message.channel.id||mute_server[guild]) return;
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
         
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -304,7 +302,7 @@ async function global(message){
           ]
         }).catch(()=>{
           delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
           delete sub[guild];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
@@ -314,7 +312,6 @@ async function global(message){
       });
       message.react("✅")
         .catch(()=>{});
-      return;
     }
   }
 }

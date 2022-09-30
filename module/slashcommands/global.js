@@ -142,8 +142,8 @@ async function global(interaction){
 
         Object.keys(main).forEach(async(channels)=>{
           
-          const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
-          if(channels == interaction.channel.id||mute_server[guild]) return;
+          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+          if(channels === interaction.channel.id||mute_server[guild]) return;
 
           const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
           await webhooks.send({
@@ -161,7 +161,7 @@ async function global(interaction){
             }]
           }).catch(()=>{
             delete main[channels];
-            const guild = Object.keys(sub).filter((key)=> sub[key] == channels);
+            const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
             delete sub[guild];
 
             fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -198,7 +198,6 @@ async function global(interaction){
 
       delete require.cache[require.resolve("../../data/global/main.json")];
       delete require.cache[require.resolve("../../data/global/sub.json")];
-    return;
   }
 }
   

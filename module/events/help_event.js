@@ -253,7 +253,6 @@ async function help_event(interaction){
       })
 
       interaction.deferUpdate({});
-    return;
   }
 
 }

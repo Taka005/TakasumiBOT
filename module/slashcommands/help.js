@@ -61,7 +61,6 @@ async function help(interaction){
           .addComponents(next)
       ]
     });
-    return;
   }
 }
 

@@ -42,7 +42,6 @@ async function channel(interaction,client){
         ephemeral:true
       });
     }
-    return;
   }
 }
   

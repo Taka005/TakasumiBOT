@@ -6,7 +6,7 @@ async function qr(interaction){
     const text = await interaction.options.getString("text");
     const types = await interaction.options.getString("types");
 
-    if(types == "gen"){
+    if(types === "gen"){
       await interaction.deferReply();
       await interaction.editReply({
         embeds:[{
@@ -30,7 +30,7 @@ async function qr(interaction){
         files:[new MessageAttachment(Buffer.from(qr_response), `QRCode.png`)]
       });
 
-    }else if(types == "read"){
+    }else{
       if(!text.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
         embeds:[{
           author: {
@@ -76,7 +76,6 @@ async function qr(interaction){
         }]
       });
     }
-      return;
   }
 }
   

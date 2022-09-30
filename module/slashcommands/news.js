@@ -20,7 +20,6 @@ async function news(interaction){
         },
       }]
     })
-    return;
   }
 }
 

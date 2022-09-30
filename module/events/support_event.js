@@ -17,7 +17,7 @@ async function support_event(interaction,client){
       ephemeral:true
     });
 
-    if(code == list[1]){
+    if(code === list[1]){
       await client.channels.cache.get("986249483098673222").send({
         embeds:[{
           color: "GREEN",
@@ -59,7 +59,6 @@ async function support_event(interaction,client){
         ephemeral:true
       });
     }
-    return;
   }
 }
 

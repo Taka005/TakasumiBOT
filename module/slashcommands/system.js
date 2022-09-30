@@ -77,7 +77,6 @@ async function system(interaction,client){
             ephemeral:true
           });
         });
-      return;
 
     }else if(functions === "delete"){//グローバルチャットの登録情報を削除
       const guild = client.guilds.cache.get(id_data[0]);
@@ -156,7 +155,6 @@ async function system(interaction,client){
 
       delete require.cache[require.resolve("../../data/global/sub.json")];
       delete require.cache[require.resolve("../../data/global/main.json")];
-      return;
 
     }else if(functions === "block_server"){//ブロックサーバーを追加する
       const guild = client.guilds.cache.get(id_data[0]);
@@ -202,7 +200,6 @@ async function system(interaction,client){
           color: "GREEN"
         }]
       });
-      return;
 
     }else if(functions === "block_user"){//ブロックユーザーを追加する
       let user
@@ -252,7 +249,6 @@ async function system(interaction,client){
           color: "GREEN"
         }]
       });
-      return;
 
     }else if(functions === "dm"){//DMを送信する
       let user
@@ -299,7 +295,6 @@ async function system(interaction,client){
             ephemeral:true
           })
         });
-      return;
 
     }else if(functions === "point"){
       try{
@@ -331,8 +326,6 @@ async function system(interaction,client){
           ephemeral:true
         });
       }
-      return;
-
     }
   }
 }

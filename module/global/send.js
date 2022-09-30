@@ -61,7 +61,6 @@ async function send(message){
   }).then((res) => res.json());
 
   if(!messages.success) return console.log(`\x1b[31mUGC:ERROR No Messages`);
-  return;
 }
 
 module.exports = send

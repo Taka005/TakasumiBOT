@@ -16,8 +16,8 @@ async function avatar(interaction,client){
           }],
           ephemeral:true
         }));
-        return;
-      }
+      return;
+    }
   
     const id = user_id.match(/\d{18,19}/g);
     if(!id) return await interaction.reply({
@@ -48,7 +48,6 @@ async function avatar(interaction,client){
         ephemeral:true
       });
     }
-    return;
   }
 }
     

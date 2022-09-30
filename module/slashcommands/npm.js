@@ -62,7 +62,6 @@ async function npm(interaction){
         ephemeral:true
       });
     }
-    return;
   }
 }
 

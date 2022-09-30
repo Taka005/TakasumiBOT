@@ -34,7 +34,6 @@ async function guideline(interaction){
     );
   
     await interaction.showModal(guide);
-    return;
   }
 }
 

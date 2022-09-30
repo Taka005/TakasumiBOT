@@ -18,7 +18,6 @@ async function gif(interaction){
         }],
         ephemeral:true
       }));
-    return;
   }
 }
 

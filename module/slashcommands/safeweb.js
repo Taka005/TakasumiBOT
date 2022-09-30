@@ -22,7 +22,7 @@ async function safeweb(interaction){
         .then(res => res.text())
         .then(norton =>{
 
-        if(norton.indexOf("［注意］") != -1){
+        if(norton.indexOf("［注意］") !== -1){
           interaction.followUp({
             embeds:[{
               title: "このサイトは注意が必要です",
@@ -34,7 +34,7 @@ async function safeweb(interaction){
               color: "YELLOW"
             }]
           });
-        }else if(norton.indexOf("警告") != -1){
+        }else if(norton.indexOf("警告") !== -1){
           interaction.followUp({
             embeds:[{
               title: "このサイトは危険です",
@@ -46,7 +46,7 @@ async function safeweb(interaction){
               color: "RED"
             }]
           })
-        }else if(norton.indexOf("未評価") != -1){
+        }else if(norton.indexOf("未評価") !== -1){
           interaction.followUp({
             embeds:[{
               title: "このサイトは評価されていません",
@@ -84,7 +84,6 @@ async function safeweb(interaction){
         }]
       });
     }
-    return;
   }
 }
 

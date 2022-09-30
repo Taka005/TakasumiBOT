@@ -19,7 +19,6 @@ async function exec(message,client){
       }finally{
         delete require.cache[require.resolve('../../note/script')];
       }
-      return;
     }
 }
 

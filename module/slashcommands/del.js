@@ -49,7 +49,6 @@ async function del(interaction){
         }],
         ephemeral:true
       }));
-    return;
   }
 }
   

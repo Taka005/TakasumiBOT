@@ -39,7 +39,6 @@ async function embed_event(interaction){
           }
         }]
       })
-      return;
     }
 }
   

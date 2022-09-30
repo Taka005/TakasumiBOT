@@ -32,7 +32,6 @@ async function support(interaction){
     );
     
     await interaction.showModal(support_modal);
-    return;
   }
 }
   

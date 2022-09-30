@@ -84,7 +84,6 @@ async function to_ja(interaction){
         ephemeral:true
       });
     }
-    return;
   }
 }
     

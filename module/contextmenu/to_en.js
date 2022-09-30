@@ -84,7 +84,6 @@ async function to_en(interaction){
         ephemeral:true
       });
     }
-    return;
   }
 }
     

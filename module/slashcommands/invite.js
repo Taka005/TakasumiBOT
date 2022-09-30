@@ -24,7 +24,6 @@ async function invite(interaction){
           .addComponents(support)
       ]
     })
-    return;
   }
 }
     

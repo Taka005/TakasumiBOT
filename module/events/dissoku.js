@@ -3,7 +3,7 @@ async function dissoku(oldMessage,newMessage){
   function sleep(waitSec, callback){
     setTimeout(callback, waitSec);
   }
-  if(newMessage.author.id == "761562078095867916"){
+  if(newMessage.author.id === "761562078095867916"){
     if(newMessage.embeds[0]?.fields[0].name.match(/をアップしたよ/)||newMessage.embeds[0]?.fields[0].name.match(/I've bumped up/)){
       newMessage.channel.send({
         embeds:[{

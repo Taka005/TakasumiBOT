@@ -40,8 +40,6 @@ async function events(client){
             event(message,client);
           });
         });
-
-      return;
     });
 
     client.on("messageUpdate", async (oldMessage,newMessage) =>{
@@ -52,7 +50,7 @@ async function events(client){
 
     client.on("messageReactionAdd", async (reaction, user) =>{
       if(!reaction.message.channel.type === "GUILD_TEXT" || user.bot) return;  
-
+      return 0;
     });
 
     client.on("guildCreate", guild =>{
@@ -114,7 +112,6 @@ async function events(client){
           event(interaction,client);
         });
       });
-      return;
     });
 
     client.on("guildMemberAdd", member=>{

@@ -28,7 +28,7 @@ async function kick(interaction){
       ephemeral:true
     });
 
-    if(member.user.id == interaction.member.user.id) return await interaction.reply({
+    if(member.user.id === interaction.member.user.id) return await interaction.reply({
       embeds:[{
         author: {
           name: "メンバーをKICKできませんでした",
@@ -66,7 +66,6 @@ async function kick(interaction){
           ephemeral:true
         })
       })
-    return;
   }
 }
   

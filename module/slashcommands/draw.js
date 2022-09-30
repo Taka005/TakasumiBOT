@@ -10,7 +10,6 @@ async function draw(interaction){
           description: `${result}`
           }]
       });
-      return;
     }
   }
   

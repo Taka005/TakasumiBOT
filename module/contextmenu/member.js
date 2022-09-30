@@ -72,7 +72,6 @@ async function member(interaction){
         ephemeral:true
       })
     });
-    return;
   }
 }
 

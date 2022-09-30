@@ -41,7 +41,6 @@ async function guideline_event(interaction){
         ephemeral: true 
         });
     })
-    return;
   }
 }
   

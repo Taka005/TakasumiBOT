@@ -1,7 +1,7 @@
 async function invite(guild){
   let find = 0;
   guild.channels.cache.map((channel) =>{
-    if(find == 0){
+    if(find === 0){
       if(channel.type === "GUILD_TEXT"&&guild.me.permissionsIn(channel).has("VIEW_CHANNEL")&&guild.me.permissionsIn(channel).has("SEND_MESSAGES")){
         channel.send({
           embeds: [{
@@ -18,7 +18,6 @@ async function invite(guild){
       }
     }
   });
-  return;
 }
 
 module.exports = invite
