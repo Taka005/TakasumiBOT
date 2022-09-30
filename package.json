@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "lint": "./node_modules/.bin/eslint module",
-    "format": "prettier --write src"
+    "format": "prettier --write module"
   },
   "engines": {
     "node": "16.x"
