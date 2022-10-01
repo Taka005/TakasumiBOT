@@ -8,10 +8,10 @@ async function to_ja(interaction){
       embeds:[{
         author: {
           name: "翻訳できませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         thumbnail: {
-          url: "https://taka.ml/images/translate.png"
+          url: "https://cdn.taka.ml/images/translate.png"
         },
         color: "RED",
         description: "メッセージの内容が存在しません",
@@ -27,10 +27,10 @@ async function to_ja(interaction){
       embeds:[{
         author: {
           name: "翻訳できませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         thumbnail: {
-          url: "https://taka.ml/images/translate.png"
+          url: "https://cdn.taka.ml/images/translate.png"
         },
         color: "RED",
         description: "翻訳文字数は、3000文字以下です",
@@ -56,7 +56,7 @@ async function to_ja(interaction){
           title: "翻訳結果",
           color: "BLUE",    
           thumbnail: {
-            url: "https://taka.ml/images/translate.png"
+            url: "https://cdn.taka.ml/images/translate.png"
           },
           description: translated.join(""),
           footer: {
@@ -70,10 +70,10 @@ async function to_ja(interaction){
         embeds:[{
           author: {
             name: "翻訳できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           thumbnail: {
-            url: "https://taka.ml/images/translate.png"
+            url: "https://cdn.taka.ml/images/translate.png"
           },
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",

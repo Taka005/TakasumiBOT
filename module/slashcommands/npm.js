@@ -54,7 +54,7 @@ async function npm(interaction){
         embeds:[{
           author: {
             name: "パッケージが取得できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "検索ワードを変えて、もう一度実行してください"

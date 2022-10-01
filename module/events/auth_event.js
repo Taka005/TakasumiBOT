@@ -7,7 +7,7 @@ async function auth_event(interaction){
       embeds:[{
         author: {
           name: "既に認証済みです",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
       }],
@@ -20,7 +20,7 @@ async function auth_event(interaction){
           embeds:[{
             author: {
               name: "認証しました",
-              icon_url: "https://taka.ml/images/success.png",
+              icon_url: "https://cdn.taka.ml/images/success.png",
             },
             color: "GREEN"
           }],
@@ -32,7 +32,7 @@ async function auth_event(interaction){
           embeds:[{
             author: {
               name: "認証に失敗しました",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります\n[サポートサーバー](https://discord.gg/GPs3npB63m)"

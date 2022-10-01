@@ -7,7 +7,7 @@ async function kick(interaction){
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをKICK`の権限を持っている必要があります"
@@ -19,7 +19,7 @@ async function kick(interaction){
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをKICK```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
@@ -32,7 +32,7 @@ async function kick(interaction){
       embeds:[{
         author: {
           name: "取得に失敗しました",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "ユーザーが取得できないためKICKできませんでした"
@@ -44,7 +44,7 @@ async function kick(interaction){
       embeds:[{
         author: {
           name: "メンバーをKICKできませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "自分自身をKICKすることはできません"
@@ -59,7 +59,7 @@ async function kick(interaction){
           embeds:[{
             author: {
               name: `${member.user.tag}をサーバーからKICKしました`,
-              icon_url: "https://taka.ml/images/success.png",
+              icon_url: "https://cdn.taka.ml/images/success.png",
             },
             color: "GREEN"
           }]
@@ -70,7 +70,7 @@ async function kick(interaction){
           embeds:[{
             author: {
               name: "メンバーをKICKできませんでした",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",

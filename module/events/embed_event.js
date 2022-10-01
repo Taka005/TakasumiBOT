@@ -8,7 +8,7 @@ async function embed_event(interaction){
         embeds:[{
           author: {
             name: "入力箇所が不足しています",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "記入欄を全て空にはできません"
@@ -21,7 +21,7 @@ async function embed_event(interaction){
           embeds:[{
             author: {
               name: "入力された画像が無効です",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "画像はURLで指定する必要があります"

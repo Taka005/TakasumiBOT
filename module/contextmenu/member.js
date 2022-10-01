@@ -12,7 +12,7 @@ async function member(interaction){
         author: {
           name:`${info.user.tag}の検索結果`,
           url: `https://discord.com/users/${info.user.id}`,
-          icon_url: "https://taka.ml/images/success.png"
+          icon_url: "https://cdn.taka.ml/images/success.png"
         },
         timestamp: new Date(),
         footer: {
@@ -64,7 +64,7 @@ async function member(interaction){
         embeds:[{
           author: {
             name: "正常に送信できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`

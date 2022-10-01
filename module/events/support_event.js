@@ -9,7 +9,7 @@ async function support_event(interaction,client){
       embeds:[{
         author: {
           name: "確認コードが間違っています",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "確認コードは、数字を半角で入力してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
@@ -38,7 +38,7 @@ async function support_event(interaction,client){
         embeds:[{
           author: {
             name: "送信しました",
-            icon_url: "https://taka.ml/images/success.png",
+            icon_url: "https://cdn.taka.ml/images/success.png",
           },
           color: "GREEN",
           description: "ご報告ありがとうございました\n[サポートサーバー](https://discord.gg/GPs3npB63m)",
@@ -51,7 +51,7 @@ async function support_event(interaction,client){
         embeds:[{
           author: {
             name: "確認コードが間違っています",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "コマンド実行時に表示される画面のテキストボックスの\n上に表記されている通りに操作してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"

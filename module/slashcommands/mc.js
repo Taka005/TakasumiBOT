@@ -15,7 +15,7 @@ async function mc(interaction){
         embeds:[{
           author: {
             name: "取得できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "無効なホスト名です"
@@ -83,7 +83,7 @@ async function mc(interaction){
           embeds:[{
             author: {
               name: "検索内容を取得できませんでした",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "指定したアドレスが間違っている可能性があります"
@@ -98,7 +98,7 @@ async function mc(interaction){
         embeds:[{
           author: {
             name: "取得できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "無効なホスト名です"
@@ -171,7 +171,7 @@ async function mc(interaction){
           embeds:[{
             author: {
               name: "検索内容を取得できませんでした",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "指定したアドレスが間違っている可能性があります"

@@ -6,7 +6,7 @@ async function del(interaction){
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
@@ -18,7 +18,7 @@ async function del(interaction){
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```メッセージの管理```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
@@ -30,7 +30,7 @@ async function del(interaction){
       embeds:[{
         author: {
           name: "引数が無効です",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "削除するメッセージの数は`2`以上`100`以下にする必要があります"
@@ -45,7 +45,7 @@ async function del(interaction){
         embeds:[{
           author: {
             name: `${del}個のメッセージを削除しました`,
-            icon_url: "https://taka.ml/images/success.png",
+            icon_url: "https://cdn.taka.ml/images/success.png",
           },
           color: "GREEN"
         }]
@@ -54,7 +54,7 @@ async function del(interaction){
         embeds:[{
           author: {
             name: "削除できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`

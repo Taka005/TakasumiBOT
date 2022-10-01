@@ -44,7 +44,7 @@ async function server(interaction){
         embeds:[{
           author: {
             name: "エラーが発生しました",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "もう一度試してください",
