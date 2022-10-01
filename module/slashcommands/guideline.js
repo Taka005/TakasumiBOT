@@ -6,7 +6,7 @@ async function guideline(interaction){
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`ロールの管理`の権限を持っている必要があります"

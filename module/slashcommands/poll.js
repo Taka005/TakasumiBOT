@@ -23,7 +23,7 @@ async function poll(interaction){
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```リアクションの追加```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
@@ -47,7 +47,7 @@ async function poll(interaction){
         embeds:[{
           author: {
             name: "作成できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "コマンドが正常に完了できませんでした",

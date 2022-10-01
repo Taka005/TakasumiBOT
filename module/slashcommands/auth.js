@@ -6,7 +6,7 @@ async function auth(interaction){
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`ロールの管理`の権限を持っている必要があります"
@@ -36,7 +36,7 @@ async function auth(interaction){
           embeds:[{
             author: {
               name: "認証機能の作成に失敗しました",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "BOTの権限等を確認し、もう一度実行してください\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください",

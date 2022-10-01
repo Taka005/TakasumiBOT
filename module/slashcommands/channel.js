@@ -8,7 +8,7 @@ async function channel(interaction,client){
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
@@ -22,7 +22,7 @@ async function channel(interaction,client){
             embeds:[{
               author: {
                 name: `${channel.name}に${text}を送信しました`,
-                icon_url: "https://taka.ml/images/success.png",
+                icon_url: "https://cdn.taka.ml/images/success.png",
               },
               color: "GREEN"
             }],
@@ -34,7 +34,7 @@ async function channel(interaction,client){
         embeds:[{
           author: {
             name: "正常に送信できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: `テキストチャンネルが指定されていないか、\nBOTの権限が不足しています`,

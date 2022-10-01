@@ -51,7 +51,7 @@ async function output(interaction,client){
        embeds:[{
          author: {
            name: "出力に失敗しました",
-           icon_url: "https://taka.ml/images/error.jpg",
+           icon_url: "https://cdn.taka.ml/images/error.png",
          },
          color: "RED",
          description: "BOTの権限が不足しているため正しく出力できません\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください",

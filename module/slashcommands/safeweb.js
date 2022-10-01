@@ -8,7 +8,7 @@ async function safeweb(interaction){
       embeds:[{
         author: {
           name: "安全性を評価できませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "URLを指定する必要があります"
@@ -77,7 +77,7 @@ async function safeweb(interaction){
         embeds:[{
           author: {
             name: "安全性を評価できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "サイトの取得に失敗しました",

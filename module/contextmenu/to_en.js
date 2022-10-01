@@ -8,15 +8,13 @@ async function to_en(interaction){
       embeds:[{
         author: {
           name: "翻訳できませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
-        },
-        thumbnail: {
-          url: "https://taka.ml/images/translate.png"
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "メッセージの内容が存在しません",
         footer: {
-          text:`Google Translate`
+          text:`Google Translate`,
+          icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
@@ -27,15 +25,13 @@ async function to_en(interaction){
       embeds:[{
         author: {
           name: "翻訳できませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
-        },
-        thumbnail: {
-          url: "https://taka.ml/images/translate.png"
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "翻訳文字数は、3000文字以下です",
         footer: {
-          text:`Google Translate`
+          text:`Google Translate`,
+          icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
@@ -55,12 +51,10 @@ async function to_en(interaction){
         embeds:[{
           title: "翻訳結果",
           color: "BLUE",    
-          thumbnail: {
-            url: "https://taka.ml/images/translate.png"
-          },
           description: translated.join(""),
           footer: {
-            text:`Google Translate [${translate_data.src}]->[en]`
+            text:`Google Translate [${translate_data.src}]->[en]`,
+            icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]
       });
@@ -70,15 +64,13 @@ async function to_en(interaction){
         embeds:[{
           author: {
             name: "翻訳できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
-          },
-          thumbnail: {
-            url: "https://taka.ml/images/translate.png"
+            icon_url: "https://cdn.taka.ml/images/error.jpg",
           },
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
-            text:`Google Translate`
+            text:`Google Translate`,
+            icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }],
         ephemeral:true

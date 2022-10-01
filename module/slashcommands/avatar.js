@@ -9,7 +9,7 @@ async function avatar(interaction,client){
           embeds:[{
             author: {
               name: "正常に送信できませんでした",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
@@ -24,7 +24,7 @@ async function avatar(interaction,client){
       embeds:[{
         author: {
           name: "取得に失敗しました",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "正確にIDまたは、メンションをしてください"

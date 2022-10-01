@@ -49,7 +49,7 @@ async function status(interaction,client){
       embeds:[{
         author: {
           name: "正常に送信できませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "もう一度試してください",

@@ -7,7 +7,7 @@ async function say(interaction){
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
@@ -20,7 +20,7 @@ async function say(interaction){
         embeds:[{
           author: {
             name: "権限が不足しています",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: `BOTの権限をを変更し、もう一度実行してください`

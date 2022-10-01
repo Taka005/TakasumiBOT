@@ -16,7 +16,7 @@ async function guideline_event(interaction){
         title:"このサーバーのガイドライン",
         description: `${temp}`,
         thumbnail: {
-          url: "https://taka.ml/images/guideline.png"
+          url: "https://cdn.taka.ml/images/guideline.png"
         }
       },
       {
@@ -33,7 +33,7 @@ async function guideline_event(interaction){
         embeds:[{
           author: {
             name: "ガイドライン機能の作成に失敗しました",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "BOTの権限等を確認し、もう一度実行してください\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"

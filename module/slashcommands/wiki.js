@@ -24,7 +24,7 @@ async function wiki(interaction){
         embeds:[{
           author: {
             name: "検索内容を取得できませんでした",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
           description: "検索ワードを変えて、もう一度実行してください"

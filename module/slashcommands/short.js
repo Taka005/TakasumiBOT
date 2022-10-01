@@ -9,7 +9,7 @@ async function short(interaction){
       embeds:[{
         author: {
           name: "短縮URLにできませんでした",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "URLを指定する必要があります"

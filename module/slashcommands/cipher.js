@@ -15,7 +15,7 @@ async function cipher(interaction){
           embeds:[{
             author: {
               name: "暗号を生成しました",
-              icon_url: "https://taka.ml/images/success.png",
+              icon_url: "https://cdn.taka.ml/images/success.png",
             },
           description: `暗号: \`\`\`${cipher.final("hex")}\`\`\`\n復号鍵: ||\`${key}\`||`,
             color: "GREEN"
@@ -26,7 +26,7 @@ async function cipher(interaction){
           embeds:[{
             author: {
               name: "暗号が生成できませんでした",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "もう一度試してください",
@@ -48,7 +48,7 @@ async function cipher(interaction){
           embeds:[{
             author: {
               name: "暗号を復号しました",
-              icon_url: "https://taka.ml/images/success.png",
+              icon_url: "https://cdn.taka.ml/images/success.png",
             },
           description: `復号: \`\`\`${decipher.final("utf8")}\`\`\`\n復号鍵: ||\`${key}\`||`,
             color: "GREEN"
@@ -59,7 +59,7 @@ async function cipher(interaction){
           embeds:[{
             author: {
               name: "暗号が復号できませんでした",
-              icon_url: "https://taka.ml/images/error.jpg",
+              icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
             description: "復号鍵が間違っている可能性があります",
