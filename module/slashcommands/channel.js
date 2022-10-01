@@ -29,7 +29,7 @@ async function channel(interaction,client){
             ephemeral:true
           })
         })
-    }catch{
+    }catch(error){
       interaction.reply({
         embeds:[{
           author: {
@@ -37,7 +37,13 @@ async function channel(interaction,client){
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: `テキストチャンネルが指定されていないか、\nBOTの権限が不足しています`
+          description: `テキストチャンネルが指定されていないか、\nBOTの権限が不足しています`,
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }],
         ephemeral:true
       });

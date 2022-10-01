@@ -15,6 +15,18 @@ async function kick(interaction){
       ephemeral:true
     });
 
+    if(!interaction.guild.me.permissionsIn(interaction.channel).has("KICK_MEMBERS")) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "BOTに権限がありません",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをKICK```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+      }],
+      ephemeral:true
+    });
+
     const member = await interaction.guild.members.cache.get(user.id);
     if(!member) return interaction.reply({
       embeds:[{
@@ -53,15 +65,21 @@ async function kick(interaction){
           }]
         })
       })
-      .catch(()=>{
-        interaction.reply({
+      .catch(async(error)=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "メンバーをKICKできませんでした",
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: "BOTの権限が不足しているか、メンバーが正しく指定されていません"
+            description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }],
           ephemeral:true
         })

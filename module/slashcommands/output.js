@@ -46,7 +46,7 @@ async function output(interaction,client){
 
      await interaction.reply({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
        .catch(()=>interaction.reply("JSONの生成に失敗しました..."));
-   }catch{
+   }catch(error){
      interaction.reply({ 
        embeds:[{
          author: {
@@ -54,7 +54,13 @@ async function output(interaction,client){
            icon_url: "https://taka.ml/images/error.jpg",
          },
          color: "RED",
-         description: "BOTの権限が不足しているため正しく出力できません\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+         description: "BOTの権限が不足しているため正しく出力できません\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください",
+         fields: [
+          {
+            name: "エラーコード",
+            value: `\`\`\`${error}\`\`\``
+          }
+        ]
        }], 
        ephemeral: true 
      })

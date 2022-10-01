@@ -183,7 +183,7 @@ async function global(interaction){
           }]
         })
       })
-      .catch(async()=>{
+      .catch(async(error)=>{
         await interaction.followUp({
           embeds:[{
             author: {
@@ -191,7 +191,13 @@ async function global(interaction){
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`
+            description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`,
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }]
         })
       });

@@ -21,7 +21,7 @@ async function cipher(interaction){
             color: "GREEN"
           }]
         });
-      }catch{
+      }catch(error){
         await interaction.reply({
           embeds:[{
             author: {
@@ -29,7 +29,13 @@ async function cipher(interaction){
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: "もう一度試してください"
+            description: "もう一度試してください",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }]
         });
       }
@@ -48,7 +54,7 @@ async function cipher(interaction){
             color: "GREEN"
           }]
         });
-      }catch{
+      }catch(error){
         await interaction.reply({
           embeds:[{
             author: {
@@ -56,7 +62,13 @@ async function cipher(interaction){
               icon_url: "https://taka.ml/images/error.jpg",
             },
             color: "RED",
-            description: "復号鍵が間違っている可能性があります"
+            description: "復号鍵が間違っている可能性があります",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }]
         });
       }

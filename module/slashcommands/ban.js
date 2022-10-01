@@ -16,6 +16,18 @@ async function ban(interaction,client){
       ephemeral:true
     });
 
+    if(!interaction.guild.me.permissionsIn(interaction.channel).has("BAN_MEMBERS")) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "BOTに権限がありません",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをBAN```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+      }],
+      ephemeral:true
+    });
+
     const id = user.match(/\d{18,19}/g);
     if(!id) return await interaction.reply({
       embeds:[{
@@ -70,7 +82,7 @@ async function ban(interaction,client){
             }]
           })
         })
-        .catch(async ()=>{
+        .catch(async (error)=>{
           await interaction.reply({
             embeds:[{
               author: {
@@ -78,7 +90,13 @@ async function ban(interaction,client){
                 icon_url: "https://taka.ml/images/error.jpg",
               },
               color: "RED",
-              description: "BOTの権限が不足しているか、メンバーが正しく指定されていません\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+              description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
+              fields: [
+                {
+                  name: "エラーコード",
+                  value: `\`\`\`${error}\`\`\``
+                }
+              ]
             }],
             ephemeral:true
           })
@@ -97,7 +115,7 @@ async function ban(interaction,client){
             }]
           })
         })
-        .catch(async ()=>{
+        .catch(async (error)=>{
           await interaction.reply({
             embeds:[{
               author: {
@@ -105,7 +123,13 @@ async function ban(interaction,client){
                 icon_url: "https://taka.ml/images/error.jpg",
               },
               color: "RED",
-              description: "BOTの権限が不足しているか、メンバーが正しく指定されていません\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+              description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
+              fields: [
+                {
+                  name: "エラーコード",
+                  value: `\`\`\`${error}\`\`\``
+                }
+              ]
             }],
             ephemeral:true
           })

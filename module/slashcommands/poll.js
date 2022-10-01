@@ -19,6 +19,18 @@ async function poll(interaction){
     const selects = [select_1,select_2,select_3,select_4,select_5,select_6,select_7,select_8,select_9,select_10,select_11,select_12]
       .filter(select=>select!==null)
 
+    if(!interaction.guild.me.permissionsIn(interaction.channel).has("ADD_REACTIONS")) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "BOTに権限がありません",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "このコマンドは、BOTに以下の権限が必要です\n```リアクションの追加```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+      }],
+      ephemeral:true
+    });
+
     const msg = await interaction.reply({
                 embeds:[{
                   title: title,          
@@ -30,15 +42,21 @@ async function poll(interaction){
     })
     try{
       await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
-    }catch{
+    }catch(error){
       await msg.edit({
         embeds:[{
           author: {
-            name: "BOTに権限がありません",
+            name: "作成できませんでした",
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: "BOTにリアクションをつける権限がないため、コマンドが正常に完了できませんでした"
+          description: "コマンドが正常に完了できませんでした",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }]
       });
     }

@@ -14,14 +14,26 @@ async function del(interaction){
       ephemeral:true
     });
 
-    if(del < 2 || del > 80 ) return interaction.reply({
+    if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "BOTに権限がありません",
+          icon_url: "https://taka.ml/images/error.jpg",
+        },
+        color: "RED",
+        description: "このコマンドは、BOTに以下の権限が必要です\n```メッセージの管理```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+      }],
+      ephemeral:true
+    });
+
+    if(del < 2 || del > 100 ) return interaction.reply({
       embeds:[{
         author: {
           name: "引数が無効です",
           icon_url: "https://taka.ml/images/error.jpg",
         },
         color: "RED",
-        description: "削除するメッセージの数は`2`以上`80`以下にする必要があります"
+        description: "削除するメッセージの数は`2`以上`100`以下にする必要があります"
       }],
       ephemeral:true
     });

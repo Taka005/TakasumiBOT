@@ -47,7 +47,13 @@ async function server(interaction){
             icon_url: "https://taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+          description: "もう一度試してください",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }],
         ephemeral:true
       }));
