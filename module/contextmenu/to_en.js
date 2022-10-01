@@ -16,7 +16,8 @@ async function to_en(interaction){
         color: "RED",
         description: "メッセージの内容が存在しません",
         footer: {
-          text:`Google Translate`
+          text:`Google Translate`,
+          icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
@@ -35,7 +36,8 @@ async function to_en(interaction){
         color: "RED",
         description: "翻訳文字数は、3000文字以下です",
         footer: {
-          text:`Google Translate`
+          text:`Google Translate`,
+          icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
