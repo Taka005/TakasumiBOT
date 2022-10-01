@@ -10,13 +10,11 @@ async function translate(interaction){
           name: "翻訳できませんでした",
           icon_url: "https://cdn.taka.ml/images/error.png",
         },
-        thumbnail: {
-          url: "https://cdn.taka.ml/images/translate.png"
-        },
         color: "RED",
         description: "翻訳文字数は、3000文字以下です",
         footer: {
-          text:`Google Translate`
+          text:`Google Translate`,
+          icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
@@ -34,13 +32,11 @@ async function translate(interaction){
       await interaction.reply({
         embeds:[{
           title: "翻訳結果",
-          color: "BLUE",    
-          thumbnail: {
-            url: "https://cdn.taka.ml/images/translate.png"
-          },
+          color: "BLUE",
           description: translated.join(""),
           footer: {
-            text:`Google Translate [${translate_data.src}]->[${lang}]`
+            text:`Google Translate [${translate_data.src}]->[${lang}]`,
+            icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]
       });
@@ -51,13 +47,11 @@ async function translate(interaction){
             name: "翻訳できませんでした",
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
-          thumbnail: {
-            url: "https://cdn.taka.ml/images/translate.png"
-          },
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
-            text:`Google Translate`
+            text:`Google Translate`,
+            icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }],
         ephemeral:true

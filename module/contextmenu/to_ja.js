@@ -10,13 +10,11 @@ async function to_ja(interaction){
           name: "翻訳できませんでした",
           icon_url: "https://cdn.taka.ml/images/error.png",
         },
-        thumbnail: {
-          url: "https://cdn.taka.ml/images/translate.png"
-        },
         color: "RED",
         description: "メッセージの内容が存在しません",
         footer: {
-          text:`Google Translate`
+          text:`Google Translate`,
+          icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
@@ -29,13 +27,11 @@ async function to_ja(interaction){
           name: "翻訳できませんでした",
           icon_url: "https://cdn.taka.ml/images/error.png",
         },
-        thumbnail: {
-          url: "https://cdn.taka.ml/images/translate.png"
-        },
         color: "RED",
         description: "翻訳文字数は、3000文字以下です",
         footer: {
-          text:`Google Translate`
+          text:`Google Translate`,
+          icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
@@ -54,13 +50,11 @@ async function to_ja(interaction){
         content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
         embeds:[{
           title: "翻訳結果",
-          color: "BLUE",    
-          thumbnail: {
-            url: "https://cdn.taka.ml/images/translate.png"
-          },
+          color: "BLUE",
           description: translated.join(""),
           footer: {
-            text:`Google Translate [${translate_data.src}]->[ja]`
+            text:`Google Translate [${translate_data.src}]->[ja]`,
+            icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]
       });
@@ -72,13 +66,11 @@ async function to_ja(interaction){
             name: "翻訳できませんでした",
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
-          thumbnail: {
-            url: "https://cdn.taka.ml/images/translate.png"
-          },
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
-            text:`Google Translate`
+            text:`Google Translate`,
+            icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }],
         ephemeral:true
