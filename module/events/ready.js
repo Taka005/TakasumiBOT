@@ -80,6 +80,10 @@ async function ready(client){
       .setName("news")
       .setDescription("最近のニュースを表示します")
 
+    const reload = new SlashCommandBuilder()
+      .setName("reload")
+      .setDescription("BOTのリロードをします")  
+
     const auth = new SlashCommandBuilder()
       .setName("auth")
       .setDescription("簡易的なロール認証機能です")
@@ -425,6 +429,7 @@ async function ready(client){
             status,
             draw,
             news,
+            reload,
             auth,
             guideline,
             ticket,
