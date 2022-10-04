@@ -2,7 +2,7 @@ async function send(message){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
-  const spam = require("./spam");
+  const spam = require("../functions/spam");
   const fetch = require("node-fetch");
   require("dotenv").config();
   

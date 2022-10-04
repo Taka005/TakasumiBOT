@@ -3,23 +3,28 @@ async function global(message){
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
-  const spam = require("./spam");
+  const spam = require("../functions/spam");
   const { WebhookClient } = require("discord.js");
   const fs = require("fs");
 
-  if(!message.channel.type === "GUILD_TEXT"||
+  if(
+    !message.channel.type === "GUILD_TEXT"||
     message.author.bot||
     !main[message.channel.id]||
     message.reference?.messageId
   ) return;
 
-  if(mute_server[message.guild.id]||mute_user[message.author.id]||message.content.length > 300||await spam(message)){
+  if(
+    mute_server[message.guild.id]||
+    mute_user[message.author.id]||
+    message.content.length > 300||
+    await spam(message)
+  ){
     return message.react("❌")
       .catch(()=>{}) 
   }
 
   const content = message.content
-    .replace(/@everyone|@here/g,"[メンション]")
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://discord.gg/GPs3npB63m)")
 
   if(!message.attachments.first()){
