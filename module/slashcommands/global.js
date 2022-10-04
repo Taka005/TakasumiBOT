@@ -128,7 +128,7 @@ async function global(interaction){
     
     //登録なし
     await interaction.deferReply();
-    await interaction.followUp({
+    await interaction.editReply({
       embeds:[{
         color: "GREY",
         description: "登録情報を確認、登録中....",
@@ -178,7 +178,7 @@ async function global(interaction){
           })
         });
 
-        await interaction.followUp({
+        await interaction.editReply({
           embeds:[{
             color: "GREEN",
             author: {
@@ -191,7 +191,7 @@ async function global(interaction){
         })
       })
       .catch(async(error)=>{
-        await interaction.followUp({
+        await interaction.editReply({
           embeds:[{
             author: {
               name: "作成に失敗しました",
