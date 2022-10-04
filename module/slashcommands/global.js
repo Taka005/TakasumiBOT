@@ -127,7 +127,14 @@ async function global(interaction){
     }
     
     //登録なし
-    await interaction.deferReply()
+    await interaction.deferReply();
+    await interaction.followUp({
+      embeds:[{
+        color: "GREY",
+        description: "登録情報を確認、登録中....",
+      }],
+      file: ["https://cdn.taka.ml/images/load.gif"]
+    })
     await interaction.channel.createWebhook("TakasumiBOT",{
       avatar: "https://cdn.taka.ml/images/bot.png",
     })
