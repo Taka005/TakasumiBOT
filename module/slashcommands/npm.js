@@ -3,12 +3,14 @@ async function npm(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "npm"){
     const package = await interaction.options.getString("name");
+
+    await interaction.deferReply();
     const package_data = await fetch(`https://api.npms.io/v2/search?q=${package}`)
       .then(res => res.json());
 
     try{
       const pkg = package_data.results[0].package
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           title: pkg.name,
           url: pkg.links.npm,
@@ -50,7 +52,7 @@ async function npm(interaction){
         }]
       })
     }catch{
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author: {
             name: "パッケージが取得できませんでした",
