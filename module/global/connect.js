@@ -16,7 +16,7 @@ async function connect(msg){
       embeds:[{
         color: "RANDOM",
         author: {
-          name: `${msg.author.username}#${msg.author.discriminator}`,
+          name: `${msg.author.username}#${msg.author.discriminator}[UGC]`,
           url: `https://discord.com/users/${msg.author.id}`,
           icon_url: msg.author.avatarURL||"https://cdn.discordapp.com/embed/avatars/0.png",
         },

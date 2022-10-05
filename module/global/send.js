@@ -1,13 +1,13 @@
+const time = []
+
 async function send(message){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
-  const spam = require("../functions/spam");
   const fetch = require("node-fetch");
   require("dotenv").config();
   
   if(
-    await spam(message)||
     !message.channel.type === "GUILD_TEXT"||
     message.author.bot||
     message.content.length > 300||
@@ -16,6 +16,10 @@ async function send(message){
     mute_user[message.author.id]
   ) return;
   
+  if(new Date() - time[message.guild.id] <= 800){
+    return time[message.guild.id] = new Date(); 
+  }
+
   const messages = await fetch("https://ugc.renorari.net/api/v1/messages",{
     "method": "POST",
     "headers": {
