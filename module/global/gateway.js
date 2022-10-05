@@ -28,7 +28,7 @@ async function gateway(){
       return console.info(`\x1b[31m[${h}:${m}:${s}]UGC:ERROR ${error}`); 
     });
 
-    client.on("message", (rawData)=>{
+    Client.on("message", (rawData)=>{
       let now = new Date();
       let h = now.getHours()
       let m = now.getMinutes()

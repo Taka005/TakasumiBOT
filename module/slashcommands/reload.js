@@ -74,6 +74,8 @@ async function reload(interaction){
       });
 
       //その他
+      delete require.cache[require.resolve("../events.js")];
+
       delete require.cache[require.resolve("../../config.json")];
       delete require.cache[require.resolve("../../package.json")];
       delete require.cache[require.resolve("../../package-lock.json")];
