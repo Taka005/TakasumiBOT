@@ -1,7 +1,7 @@
-async function role_event(intaraction){
-  if(intaraction.isSelectMenu()) return;
+async function role_event(interaction){
+  if(interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
-    intaraction.reply(`${intaraction}`)
+    
   }
     
 }
