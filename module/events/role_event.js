@@ -1,7 +1,6 @@
 async function role_event(interaction){
-  if(interaction.isSelectMenu()) return;
+  if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
-
     try{
       const roles = interaction.values.map(role =>{
         if(await interaction.member.roles.cache.has(role)){
@@ -14,12 +13,12 @@ async function role_event(interaction){
       });
 
       const add = roles.map((c,i)=>{
-        if(!c[1]) return
+        if(!c[1]) return;
          return `<@&${c[0]}>`
       });
 
       const remove = roles.map((c,i)=>{
-        if(!c[1]) return
+        if(!c[1]) return;
          return `<@&${c[0]}>`
       });
 
