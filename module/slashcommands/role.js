@@ -48,19 +48,16 @@ async function role(interaction){
       ephemeral:true
     });
 
-    const roles = MessageActionRow()
-      .addComponents(
-        new MessageSelectMenu()
-          .setCustomId("role")
-          .setPlaceholder("ロールが選択されていません")
-          .setMinValues(0)
-          .setMaxValues(selects.length)
-          .addOptions(
-            selects.map((c,i) =>({
-              label: `${emojis[i]}<@&${c.id}>`,
-              value: c.id
-            }))
-          )
+    const roles = new MessageSelectMenu()
+      .setCustomId("role")
+      .setPlaceholder("ロールが選択されていません")
+      .setMinValues(0)
+      .setMaxValues(selects.length)
+      .addOptions(
+        selects.map((c,i) =>({
+          label: `${emojis[i]}<@&${c.id}>`,
+          value: c.id
+        }))
       )
 
     try{
@@ -70,7 +67,10 @@ async function role(interaction){
                     color: interaction.member.displayHexColor,
                     description: selects.map((c,i)=>`${emojis[i]}<@&${c.id}>`).join("\n")
                   }],
-                  components: [roles]
+                  components: [     
+                    new MessageActionRow()
+                      .addComponents(roles)
+                  ]
       })
     }catch(error){
       await msg.edit({
