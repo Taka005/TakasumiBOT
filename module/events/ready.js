@@ -400,6 +400,55 @@ async function ready(client){
         option
           .setName("select_12")
           .setDescription("選択12"))
+
+    const role = new SlashCommandBuilder()
+      .setName("role")
+      .setDescription("役職パネルを作成します")
+      .addRoleOption(option =>
+        option
+          .setName("select_1")
+          .setDescription("選択1")
+          .setRequired(true))
+      .addRoleOption(option =>
+        option
+          .setName("select_2")
+          .setDescription("選択2"))
+      .addRoleOption(option =>
+        option
+          .setName("select_3")
+          .setDescription("選択3"))
+      .addRoleOption(option =>
+        option
+          .setName("select_4")
+          .setDescription("選択4"))
+      .addRoleOption(option =>
+        option
+          .setName("select_5")
+          .setDescription("選択5"))
+      .addRoleOption(option =>
+        option
+          .setName("select_6")
+          .setDescription("選択6"))
+      .addRoleOption(option =>
+        option
+          .setName("select_7")
+          .setDescription("選択7"))
+      .addRoleOption(option =>
+        option
+          .setName("select_8")
+          .setDescription("選択8"))
+      .addRoleOption(option =>
+        option
+          .setName("select_9")
+          .setDescription("選択10"))
+      .addRoleOption(option =>
+        option
+          .setName("select_11")
+          .setDescription("選択11"))
+      .addRoleOption(option =>
+        option
+          .setName("select_12")
+          .setDescription("選択12"))
     
     //ContextMenu
     const member = new ContextMenuCommandBuilder()
@@ -455,6 +504,7 @@ async function ready(client){
             global,
             system,
             poll,
+            role,
             //ContextMenu
             member,
             quote,
