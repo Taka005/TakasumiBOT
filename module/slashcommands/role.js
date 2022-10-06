@@ -51,12 +51,15 @@ async function role(interaction){
     const roles = new MessageSelectMenu()
       .setCustomId("role")
       .setPlaceholder("ロールが選択されていません")
-      .setMinValues(0)
+      .setMinValues(1)
       .setMaxValues(selects.length)
       .addOptions(
         selects.map((c,i) =>({
-          label: `${emojis[i]}<@&${c.id}>`,
-          value: c.id
+          label: `@${c.name}`,
+          value: c.id,
+          emoji:{
+            name: emojis[i]
+          }
         }))
       )
 
@@ -90,6 +93,8 @@ async function role(interaction){
         }]
       });
     }
+    interaction.deferReply()
+      .then(()=>interaction.deleteReply())
   }
 }
     

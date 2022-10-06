@@ -81,6 +81,7 @@ async function events(client){
       const support_event = require("./events/support_event");
       const help_event = require("./events/help_event");
       const guideline_event = require("./events/guideline_event");
+      const role_event = require("./events/role_event");
 
       const guideline_role = require("./events/guideline_role");
       const panel_role = require("./events/panel_role");
@@ -92,6 +93,7 @@ async function events(client){
       support_event(interaction,client);
       help_event(interaction);
       guideline_event(interaction);
+      role_event(interaction);
 
       guideline_role(interaction);
       panel_role(interaction);
