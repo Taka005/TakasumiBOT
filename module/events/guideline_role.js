@@ -2,7 +2,7 @@ async function guideline_role(interaction){
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("guide_")){
     const role = interaction.customId.split("_");
-    if(await interaction.member.roles.cache.has(role[1])) return await interaction.reply({
+    if(interaction.member.roles.cache.has(role[1])) return await interaction.reply({
       embeds:[{
         author: {
           name: "既に同意済みです",

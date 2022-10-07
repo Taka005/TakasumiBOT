@@ -3,10 +3,9 @@ async function role_event(interaction){
   if(interaction.customId === "role"){
     
     try{
-      const add = await interaction.values.filter(async (role)=>await interaction.member.roles.cache.has(role))
-      const remove = await interaction.values.filter((role,i)=>add[i]!==role)
-console.log(add)
-console.log(remove)
+      const add = await interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
+      const remove = await interaction.values.filter((role)=>!add.includes(role));
+
       add.forEach(async(role)=>{
         await interaction.member.roles.add(role)
       });
@@ -30,7 +29,7 @@ console.log(remove)
       interaction.reply({
         embeds:[{
           author: {
-            name: "ロールの付与に失敗しました"+error,
+            name: "ロールの付与に失敗しました",
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",

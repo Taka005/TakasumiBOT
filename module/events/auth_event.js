@@ -3,7 +3,7 @@ async function auth_event(interaction){
   if(interaction.customId.startsWith("auth_")){
     const role = interaction.customId.split("_");
 
-    if(await interaction.member.roles.cache.has(role[1])) return await interaction.reply({
+    if(interaction.member.roles.cache.has(role[1])) return await interaction.reply({
       embeds:[{
         author: {
           name: "既に認証済みです",
