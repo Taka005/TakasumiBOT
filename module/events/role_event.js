@@ -25,7 +25,7 @@ async function role_event(interaction){
         }],
         ephemeral: true
       });
-    }catch(error){
+    }catch{
       interaction.reply({
         embeds:[{
           author: {

@@ -56,6 +56,7 @@ async function role(interaction){
         selects.map((c,i) =>({
           label: `@${c.name}`,
           value: c.id,
+          default: false,
           emoji:{
             name: emojis[i]
           }
