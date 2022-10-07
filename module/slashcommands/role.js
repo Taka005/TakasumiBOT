@@ -1,6 +1,5 @@
 async function role(interaction){
   const {MessageActionRow, MessageSelectMenu} = require("discord.js");
-
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "role"){
     const select_1 = await interaction.options.getRole("select_1");
@@ -67,7 +66,7 @@ async function role(interaction){
       const msg = await interaction.channel.send({
                   embeds:[{
                     title: "役職パネル",          
-                    color: interaction.member.displayHexColor,
+                    color: "GREEN",
                     description: selects.map((c,i)=>`${emojis[i]}<@&${c.id}>`).join("\n")
                   }],
                   components: [     

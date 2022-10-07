@@ -5,21 +5,21 @@ async function role_event(interaction){
       const roles = interaction.values.map(role =>{
         if(await interaction.member.roles.cache.has(role)){
           await interaction.member.roles.remove(role)
-          return [role,false]
+          return [role,false];
         }else{
           await interaction.member.roles.add(role)
-          return [role,true]
+          return [role,true];
         }
       });
 
       const add = roles.map((c,i)=>{
         if(!c[1]) return;
-         return `<@&${c[0]}>`
+         return `<@&${c[0]}>`|| null;
       });
 
       const remove = roles.map((c,i)=>{
-        if(!c[1]) return;
-         return `<@&${c[0]}>`
+        if(c[1]) return;
+         return `<@&${c[0]}>`|| null;
       });
 
       interaction.reply({
@@ -28,7 +28,7 @@ async function role_event(interaction){
             name: "ロールを付与しました",
             icon_url: "https://cdn.taka.ml/images/success.png",
           },
-          description: `**付与したロール**\n${add.join("\n")}\n**削除したロール**\n${remove.join("\n")}`,
+          description: `**付与したロール**\n${add.join("\n")||"なし"}\n**削除したロール**\n${remove.join("\n")||"なし"}`,
           color: "GREEN"
         }],
         ephemeral: true
