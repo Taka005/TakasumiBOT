@@ -1,43 +1,36 @@
 async function role_event(interaction){
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
+    
     try{
-      const roles = interaction.values.map(role =>{
-        if(await interaction.member.roles.cache.has(role)){
-          await interaction.member.roles.remove(role)
-          return [role,false];
-        }else{
-          await interaction.member.roles.add(role)
-          return [role,true];
-        }
+      const add = await interaction.values.filter(async (role)=>await interaction.member.roles.cache.has(role))
+      const remove = await interaction.values.filter((role,i)=>add[i]!==role)
+console.log(add)
+console.log(remove)
+      add.forEach(async(role)=>{
+        await interaction.member.roles.add(role)
       });
 
-      const add = roles.map((c,i)=>{
-        if(!c[1]) return;
-         return `<@&${c[0]}>`|| null;
-      });
-
-      const remove = roles.map((c,i)=>{
-        if(c[1]) return;
-         return `<@&${c[0]}>`|| null;
+      remove.forEach(async(role)=>{
+        await interaction.member.roles.remove(role)
       });
 
       interaction.reply({
         embeds:[{
           author: {
-            name: "ロールを付与しました",
+            name: "ロールを変更しました",
             icon_url: "https://cdn.taka.ml/images/success.png",
           },
-          description: `**付与したロール**\n${add.join("\n")||"なし"}\n**削除したロール**\n${remove.join("\n")||"なし"}`,
+          description: `**付与したロール**\n${add.map(role=>`<@&${role}>`).join("\n")||"なし"}\n**削除したロール**\n${remove.map(role=>`<@&${role}>`).join("\n")||"なし"}`,
           color: "GREEN"
         }],
         ephemeral: true
       });
-    }catch{
+    }catch(error){
       interaction.reply({
         embeds:[{
           author: {
-            name: "ロールの付与に失敗しました",
+            name: "ロールの付与に失敗しました"+error,
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
