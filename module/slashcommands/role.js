@@ -50,13 +50,12 @@ async function role(interaction){
     const roles = new MessageSelectMenu()
       .setCustomId("role")
       .setPlaceholder("ロールが選択されていません")
-      .setMinValues(1)
+      .setMinValues(0)
       .setMaxValues(selects.length)
       .addOptions(
         selects.map((c,i) =>({
           label: `@${c.name}`,
           value: c.id,
-          default: false,
           emoji:{
             name: emojis[i]
           }
