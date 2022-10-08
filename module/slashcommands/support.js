@@ -7,22 +7,22 @@ async function support(interaction){
     const total = count_1 + count_2
     const support_modal = new Modal()
     .setCustomId(`support_${total}`)
-    .setTitle('サポート');
+    .setTitle("サポート");
 
     const content = new TextInputComponent()
       .setCustomId("content")
       .setLabel("バグ、要望等をご記入ください")
-      .setPlaceholder('内容はサポートサーバーに送信されます')
+      .setPlaceholder("内容はサポートサーバーに送信されます")
       .setRequired(true)
       .setMaxLength(300)
-      .setStyle('PARAGRAPH');
+      .setStyle("PARAGRAPH");
     const code = new TextInputComponent()
       .setCustomId(`code`)
       .setLabel(`確認:${count_1}+${count_2}の答えを入力してください`)
       .setMaxLength(6)
-      .setPlaceholder('半角で入力してください')
+      .setPlaceholder("半角で入力してください")
       .setRequired(true)
-      .setStyle('SHORT');
+      .setStyle("SHORT");
 
     support_modal.addComponents(
       new MessageActionRow()

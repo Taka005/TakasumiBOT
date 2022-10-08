@@ -13,7 +13,7 @@ async function dissoku(oldMessage,newMessage){
         }]  
       });
 
-      sleep(60000 * 60, function (){
+      sleep(60000 * 60,()=>{
         newMessage.channel.send({
           embeds:[{
             color: "BLUE",

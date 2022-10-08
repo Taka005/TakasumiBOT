@@ -8,32 +8,43 @@ async function ticket(interaction){
         .setStyle("PRIMARY")
         .setLabel("チケット");
 
-      interaction.channel.send({
+      await interaction.channel.send({
         embeds: [{
           color:"WHITE",
           title:`お問い合わせ`,
           description: `お問い合わせを開始する場合は下のボタンを押してください\n\n※ 不必要なチケットの作成はおやめ下さい`
         }],
-        components: [new MessageActionRow().addComponents(ticket_button)]
-      }).catch(()=>interaction.reply({
-        embeds:[{
-          author: {
-            name: "チケットが作成出来ませんでした",
-            icon_url: "https://cdn.taka.ml/images/error.png",
-          },
-          color: "RED",
-          description: "BOTの権限等を確認し、もう一度実行してください\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
-        }],
-        ephemeral:true
-      })) 
+        components: [
+          new MessageActionRow()
+            .addComponents(ticket_button)
+        ]
+      }).catch((error)=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "チケットが作成出来ませんでした",
+              icon_url: "https://cdn.taka.ml/images/error.png",
+            },
+            color: "RED",
+            description: "BOTの権限等を確認し、もう一度実行してください",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
+          }],
+          ephemeral:true
+        })
+      }); 
 
       if(!interaction.guild.channels.cache.find(name => name.name === "ticket")){
-        interaction.guild.channels.create('ticket',{
-          type: 'GUILD_CATEGORY'
+        interaction.guild.channels.create("ticket",{
+          type: "GUILD_CATEGORY"
         });
       }
       interaction.deferReply()
-      .then(()=>interaction.deleteReply());
+        .then(()=>interaction.deleteReply());
   }
 }
   
