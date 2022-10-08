@@ -8,7 +8,7 @@ async function quote(interaction){
     await interaction.editReply("生成中...")
 
     Canvas.registerFont('./file/nijimi.ttf',{ family: "nijimi" });
-    const canvas = Canvas.createCanvas(700, 400);
+    const canvas = Canvas.createCanvas(1200, 600);
     const context = canvas.getContext("2d"); 
 
     //バックグラウンド描画
@@ -16,7 +16,7 @@ async function quote(interaction){
     context.drawImage(background, 0, 0, canvas.width, canvas.height);
     //アバター描画
     const avatar = await Canvas.loadImage(message.author.displayAvatarURL({ format: "png" }));
-    context.drawImage(avatar, 0, 0, 400, 400);
+    context.drawImage(avatar, 0, 0, 600, 600);
     //前面描画
     const back = await Canvas.loadImage("./file/back.png");
     context.drawImage(back, 0, 0, canvas.width, canvas.height);
@@ -33,20 +33,20 @@ async function quote(interaction){
     }
     context.putImageData(dst, 0, 0);
 
-    const msg = message.content.replace(/(.{14})/g, "$1\n")
+    const msg = message.content.replace(/(.{15})/g, "$1\n")
 
-    context.font = "25px nijimi";
+    context.font = "45px nijimi";
     context.fillStyle = '#ffffff';
-    context.fillText(msg, 330, 100);
+    context.fillText(msg, 500, 180);
 
-    context.font = "20px nijimi";
+    context.font = "30px nijimi";
     context.fillStyle = '#ffffff';
-    context.fillText(`-${message.author.tag}`, 400, 370);
+    context.fillText(`-${message.author.tag}`, 650, 510);
     
     //文字 TakasumiBOT
     context.fillStyle = '#696969';
-    context.font = "11px nijimi";
-    context.fillText("TakasumiBOT#7189",585, 390);
+    context.font = "20px nijimi";
+    context.fillText("TakasumiBOT#7189",1010, 590);
      
     interaction.editReply({ 
       content: `[生成元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`,
