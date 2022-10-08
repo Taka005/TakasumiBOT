@@ -34,7 +34,8 @@ async function role(interaction){
 
     if(
       !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_ROLES")
     ) return await interaction.reply({
       embeds:[{
         author: {
@@ -42,7 +43,7 @@ async function role(interaction){
           icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信\nロールの管理```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
       }],
       ephemeral:true
     });
@@ -82,6 +83,7 @@ async function role(interaction){
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
+          description:"同じロールが選択されているか、BOTの権限が不足しています",
           fields: [
             {
               name: "エラーコード",
