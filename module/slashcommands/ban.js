@@ -2,7 +2,7 @@ async function ban(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
     const user = await interaction.options.getString("user");
-    const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってBANしました(TakasumiBOT)`;
+    const reason = await interaction.options.getString("reason")||`${interaction.member.user.tag}によってBANしました(TakasumiBOT)`;
     const days = await interaction.options.getInteger("days");
     if(!interaction.member.permissions.has("BAN_MEMBERS")) return await interaction.reply({
       embeds:[{
@@ -23,7 +23,7 @@ async function ban(interaction,client){
           icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをBAN```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをBAN```"
       }],
       ephemeral:true
     });

@@ -45,7 +45,7 @@ async function ticket_event(interaction){
 
         channels.send({
           embeds: [{
-            color:"WHITE",
+            color:"GREEN",
             description: "お問い合わせへようこそ！\nお問い合わせ内容などをご記入ください。\n\n※ 注意 不必要なチケットの作成はおやめ下さい"
           }],
           components: [

@@ -2,7 +2,7 @@ async function kick(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "kick"){
     const user = await interaction.options.getUser("user");
-    const reason = await interaction.options.getString("reason") || `${interaction.member.user.tag}によってKICKしました`;
+    const reason = await interaction.options.getString("reason")||`${interaction.member.user.tag}によってKICKしました`;
     if(!interaction.member.permissions.has("KICK_MEMBERS")) return await interaction.reply({
       embeds:[{
         author: {
@@ -22,7 +22,7 @@ async function kick(interaction){
           icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをKICK```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをKICK```"
       }],
       ephemeral:true
     });

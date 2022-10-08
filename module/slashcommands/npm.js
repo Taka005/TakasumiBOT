@@ -14,7 +14,7 @@ async function npm(interaction){
         embeds:[{
           title: pkg.name,
           url: pkg.links.npm,
-          color: "WHITE",
+          color: "GREEN",
           description: pkg.description,
           thumbnail: {
             url: "https://cdn.taka.ml/images/npm.png",

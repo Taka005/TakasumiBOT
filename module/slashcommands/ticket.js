@@ -10,7 +10,7 @@ async function ticket(interaction){
 
       await interaction.channel.send({
         embeds: [{
-          color:"WHITE",
+          color:"GREEN",
           title:`お問い合わせ`,
           description: `お問い合わせを開始する場合は下のボタンを押してください\n\n※ 不必要なチケットの作成はおやめ下さい`
         }],
