@@ -44,7 +44,7 @@ async function permission(interaction){
         if(p === "USE_EXTERNAL_STICKERS") return "外部のステッカーの使用";
         if(p === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
         if(p === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
-      }).filter(p=>p!==null)
+      });
 
       await interaction.reply({
         embeds:[{
