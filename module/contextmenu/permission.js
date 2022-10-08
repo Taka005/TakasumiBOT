@@ -4,7 +4,7 @@ async function permission(interaction){
     const member = await interaction.options.getMember("user");
 
     try{
-      const permissions = member.permissions.cache.map(p=>{
+      const permissions = member.permissions.map(p=>{
         if(p === "CREATE_INSTANT_INVITE") return "招待を作成";
         if(p === "KICK_MEMBERS") return "メンバーをキック";
         if(p === "BAN_MEMBERS") return "メンバーをBAN";
@@ -68,11 +68,10 @@ async function permission(interaction){
       await interaction.reply({
         embeds:[{
           author: {
-            name: "翻訳できませんでした",
+            name: "権限を表示できませんでした",
             icon_url: "https://cdn.taka.ml/images/error.jpg",
           },
           color: "RED",
-          description: "翻訳文字を変えて、もう一度実行してください",
           fields: [
             {
               name: "エラーコード",
