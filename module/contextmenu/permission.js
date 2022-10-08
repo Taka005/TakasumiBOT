@@ -61,7 +61,7 @@ async function permission(interaction){
           thumbnail: {
             url: member.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
           },
-          description:`\`\`\`${permissions.join("||")}\`\`\``
+          description:`\`\`\`${permissions.join("\n")}\`\`\``
         }]
       })
     }catch(error){
