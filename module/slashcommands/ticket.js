@@ -18,8 +18,8 @@ async function ticket(interaction){
           new MessageActionRow()
             .addComponents(ticket_button)
         ]
-      }).catch((error)=>{
-        interaction.reply({
+      }).catch(async(error)=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "チケットが作成出来ませんでした",
@@ -39,11 +39,11 @@ async function ticket(interaction){
       }); 
 
       if(!interaction.guild.channels.cache.find(name => name.name === "ticket")){
-        interaction.guild.channels.create("ticket",{
+        await interaction.guild.channels.create("ticket",{
           type: "GUILD_CATEGORY"
         });
       }
-      interaction.deferReply()
+      await interaction.deferReply()
         .then(()=>interaction.deleteReply());
   }
 }

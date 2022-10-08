@@ -35,7 +35,7 @@ async function ticket_event(interaction){
       }],
       parent: ch.id
     })
-      .then(channels =>{
+      .then(async(channels) =>{
         channels.permissionOverwrites.edit(interaction.user.id, {VIEW_CHANNEL: true});
 
         const ticket_button = new MessageButton()
@@ -66,8 +66,8 @@ async function ticket_event(interaction){
           ephemeral: true
         });
       })
-      .catch((error)=>{
-        interaction.reply({ 
+      .catch(async(error)=>{
+        await interaction.reply({ 
           embeds:[{
             author: {
               name: "チケットを作成できませんでした",
@@ -87,8 +87,8 @@ async function ticket_event(interaction){
       })
   }else if(interaction.customId === "close"){
     await interaction.channel.delete()
-      .catch((error)=>{
-        interaction.reply({ 
+      .catch(async(error)=>{
+        await interaction.reply({ 
           embeds:[{
             author: {
               name: "チケットを削除できませんでした",
