@@ -54,7 +54,7 @@ async function member(interaction){
           },
           {
             name:"ロール",
-            value: `${info.roles.cache.map(r => r).join('')}`
+            value: `${info.roles.cache.map(r => r).join("")}`
           }
         ]
       }]
@@ -67,7 +67,12 @@ async function member(interaction){
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }],
         ephemeral:true
       })

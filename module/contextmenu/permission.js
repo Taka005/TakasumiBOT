@@ -73,6 +73,12 @@ async function permission(interaction){
           },
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }],
         ephemeral:true
       });
