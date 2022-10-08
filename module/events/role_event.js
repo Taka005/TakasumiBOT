@@ -1,4 +1,5 @@
 async function role_event(interaction){
+  const async = require("async");
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
     
@@ -6,15 +7,16 @@ async function role_event(interaction){
       const add = await interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
       const remove = await interaction.values.filter((role)=>!add.includes(role));
 
-      add.forEach(async(role)=>{
+
+      await async.each(add,async(role)=>{
         await interaction.member.roles.add(role)
-      });
+      })
 
-      remove.forEach(async(role)=>{
+      await async.each(remove,async(role)=>{
         await interaction.member.roles.remove(role)
-      });
+      })
 
-      interaction.reply({
+      await interaction.reply({
         embeds:[{
           author: {
             name: "ロールを変更しました",
@@ -25,15 +27,21 @@ async function role_event(interaction){
         }],
         ephemeral: true
       });
-    }catch{
-      interaction.reply({
+    }catch(error){
+      await interaction.reply({
         embeds:[{
           author: {
             name: "ロールの付与に失敗しました",
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+          description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }],
         ephemeral:true
       })
