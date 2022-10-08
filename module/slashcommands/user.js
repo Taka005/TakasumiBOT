@@ -66,7 +66,12 @@ async function user(interaction,client){
               icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
-            description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }],
           ephemeral:true
         }));
@@ -149,7 +154,12 @@ async function user(interaction,client){
                 icon_url: "https://cdn.taka.ml/images/error.png",
               },
               color: "RED",
-              description: `\`\`\`${error}\`\`\`\n[サポートサーバー](https://discord.gg/GPs3npB63m)`
+              fields: [
+                {
+                  name: "エラーコード",
+                  value: `\`\`\`${error}\`\`\``
+                }
+              ]
             }],
             ephemeral:true
           }));
@@ -198,7 +208,7 @@ async function user(interaction,client){
                 ]
               }]
             });
-          }catch{
+          }catch(error){
             return await interaction.reply({
               embeds:[{
                 author: {
@@ -206,7 +216,13 @@ async function user(interaction,client){
                   icon_url: "https://cdn.taka.ml/images/error.png",
                 },
                 color: "RED",
-                description: "指定されたユーザーは存在しないか、\n間違っています"
+                description: "指定されたユーザーは存在しないか、\n間違っています",
+                fields: [
+                  {
+                    name: "エラーコード",
+                    value: `\`\`\`${error}\`\`\``
+                  }
+                ]
               }],
               ephemeral:true
             });

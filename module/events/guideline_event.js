@@ -28,7 +28,7 @@ async function guideline_event(interaction){
     .then(()=>{
       interaction.deferUpdate({});
     })
-    .catch(()=>{
+    .catch((error)=>{
       interaction.reply({ 
         embeds:[{
           author: {
@@ -36,7 +36,13 @@ async function guideline_event(interaction){
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: "BOTの権限等を確認し、もう一度実行してください\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+          description: "BOTの権限等を確認し、もう一度実行してください",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }], 
         ephemeral: true 
         });

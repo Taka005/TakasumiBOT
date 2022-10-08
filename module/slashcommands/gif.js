@@ -14,7 +14,6 @@ async function gif(interaction){
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: "もう一度試してください",
           fields: [
             {
               name: "エラーコード",

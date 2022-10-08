@@ -41,7 +41,7 @@ async function support_event(interaction,client){
             icon_url: "https://cdn.taka.ml/images/success.png",
           },
           color: "GREEN",
-          description: "ご報告ありがとうございました\n[サポートサーバー](https://discord.gg/GPs3npB63m)",
+          description: "ご報告ありがとうございました",
         }],
         ephemeral: true
       });
@@ -54,7 +54,7 @@ async function support_event(interaction,client){
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: "コマンド実行時に表示される画面のテキストボックスの\n上に表記されている通りに操作してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+          description: "コマンド実行時に表示される画面のテキストボックスの\n上に表記されている通りに操作してください"
         }],
         ephemeral:true
       });

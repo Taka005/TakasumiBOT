@@ -27,7 +27,7 @@ async function auth_event(interaction){
           ephemeral: true
         });
       })
-      .catch(()=>{
+      .catch((error)=>{
         interaction.reply({
           embeds:[{
             author: {
@@ -35,7 +35,13 @@ async function auth_event(interaction){
               icon_url: "https://cdn.taka.ml/images/error.png",
             },
             color: "RED",
-            description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+            description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }],
           ephemeral:true
         })
