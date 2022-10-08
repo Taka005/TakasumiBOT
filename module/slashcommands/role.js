@@ -62,28 +62,26 @@ async function role(interaction){
         }))
       )
 
-    let msg;
     try{
-      msg = await interaction.channel.send({
-                  embeds:[{
-                    title: "役職パネル",          
-                    color: "GREEN",
-                    description: selects.map((c,i)=>`${emojis[i]}<@&${c.id}>`).join("\n")
-                  }],
-                  components: [     
-                    new MessageActionRow()
-                      .addComponents(roles)
-                  ]
+      await interaction.channel.send({
+        embeds:[{
+          title: "役職パネル",          
+          color: "GREEN",
+          description: selects.map((c,i)=>`${emojis[i]}<@&${c.id}>`).join("\n")
+        }],
+        components: [     
+          new MessageActionRow()
+            .addComponents(roles)
+        ]
       })
     }catch(error){
-      await msg.edit({
+      await interaction.channel.send({
         embeds:[{
           author: {
             name: "作成できませんでした",
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: "コマンドが正常に完了できませんでした",
           fields: [
             {
               name: "エラーコード",
