@@ -406,48 +406,48 @@ async function ready(client){
       .setDescription("役職パネルを作成します")
       .addRoleOption(option =>
         option
-          .setName("select_1")
+          .setName("role_1")
           .setDescription("選択1")
           .setRequired(true))
       .addRoleOption(option =>
         option
-          .setName("select_2")
+          .setName("role_2")
           .setDescription("選択2"))
       .addRoleOption(option =>
         option
-          .setName("select_3")
+          .setName("role_3")
           .setDescription("選択3"))
       .addRoleOption(option =>
         option
-          .setName("select_4")
+          .setName("role_4")
           .setDescription("選択4"))
       .addRoleOption(option =>
         option
-          .setName("select_5")
+          .setName("role_5")
           .setDescription("選択5"))
       .addRoleOption(option =>
         option
-          .setName("select_6")
+          .setName("role_6")
           .setDescription("選択6"))
       .addRoleOption(option =>
         option
-          .setName("select_7")
+          .setName("role_7")
           .setDescription("選択7"))
       .addRoleOption(option =>
         option
-          .setName("select_8")
+          .setName("role_8")
           .setDescription("選択8"))
       .addRoleOption(option =>
         option
-          .setName("select_9")
+          .setName("role_9")
           .setDescription("選択10"))
       .addRoleOption(option =>
         option
-          .setName("select_11")
+          .setName("role_11")
           .setDescription("選択11"))
       .addRoleOption(option =>
         option
-          .setName("select_12")
+          .setName("role_12")
           .setDescription("選択12"))
     
     //ContextMenu

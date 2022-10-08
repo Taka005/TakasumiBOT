@@ -2,23 +2,23 @@ async function role(interaction){
   const {MessageActionRow, MessageSelectMenu} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "role"){
-    const select_1 = await interaction.options.getRole("select_1");
-    const select_2 = await interaction.options.getRole("select_2");
-    const select_3 = await interaction.options.getRole("select_3");
-    const select_4 = await interaction.options.getRole("select_4");
-    const select_5 = await interaction.options.getRole("select_5");
-    const select_6 = await interaction.options.getRole("select_6");
-    const select_7 = await interaction.options.getRole("select_7");
-    const select_8 = await interaction.options.getRole("select_8");
-    const select_9 = await interaction.options.getRole("select_9");
-    const select_10 = await interaction.options.getRole("select_10");
-    const select_11 = await interaction.options.getRole("select_11");
-    const select_12 = await interaction.options.getRole("select_12");
+    const role_1 = await interaction.options.getRole("role_1");
+    const role_2 = await interaction.options.getRole("role_2");
+    const role_3 = await interaction.options.getRole("role_3");
+    const role_4 = await interaction.options.getRole("role_4");
+    const role_5 = await interaction.options.getRole("role_5");
+    const role_6 = await interaction.options.getRole("role_6");
+    const role_7 = await interaction.options.getRole("role_7");
+    const role_8 = await interaction.options.getRole("role_8");
+    const role_9 = await interaction.options.getRole("role_9");
+    const role_10 = await interaction.options.getRole("role_10");
+    const role_11 = await interaction.options.getRole("role_11");
+    const role_12 = await interaction.options.getRole("role_12");
 
     const emojis = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯","🇰","🇱"];
 
-    const selects = [select_1,select_2,select_3,select_4,select_5,select_6,select_7,select_8,select_9,select_10,select_11,select_12]
-      .filter(select=>select!==null)
+    const selects = [role_1,role_2,role_3,role_4,role_5,role_6,role_7,role_8,role_9,role_10,role_11,role_12]
+      .filter(role=>role!==null)
 
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{
@@ -62,8 +62,9 @@ async function role(interaction){
         }))
       )
 
+    let msg;
     try{
-      const msg = await interaction.channel.send({
+      msg = await interaction.channel.send({
                   embeds:[{
                     title: "役職パネル",          
                     color: "GREEN",

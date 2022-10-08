@@ -84,7 +84,7 @@ async function safeweb(interaction){
           })
         }
       });
-    }catch(error){
+    }catch{
       interaction.followUp({
         embeds:[{
           author: {
@@ -92,13 +92,7 @@ async function safeweb(interaction){
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: "サイトの取得に失敗しました",
-          fields: [
-            {
-              name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
-            }
-          ]
+          description: "サイトの取得に失敗しました"
         }]
       });
     }

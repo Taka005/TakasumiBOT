@@ -99,7 +99,13 @@ async function reload(interaction){
       interaction.reply({
         embeds:[{
           color: "RED",
-          description: `リロードに失敗しました\n\`\`\`${error}\`\`\``,
+          description: "リロードに失敗しました",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }]
       });
     }
