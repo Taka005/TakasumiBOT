@@ -44,7 +44,7 @@ async function permission(interaction){
         if(p === "USE_EXTERNAL_STICKERS") return "外部のステッカーの使用";
         if(p === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
         if(p === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
-      });
+      }).filter(p=>p!==null)
 
       await interaction.reply({
         embeds:[{
@@ -57,9 +57,6 @@ async function permission(interaction){
           timestamp: new Date(),
           footer: {
             text: "TakasumiBOT"
-          },
-          thumbnail: {
-            url: member.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
           },
           description:`\`\`\`${permissions.join("\n")}\`\`\``
         }]
