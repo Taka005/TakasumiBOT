@@ -455,6 +455,10 @@ async function ready(client){
       .setName("メンバー情報を表示")
       .setType(ApplicationCommandType.User)
 
+    const permission = new ContextMenuCommandBuilder()
+      .setName("権限を表示")
+      .setType(ApplicationCommandType.User)
+
     const quote = new ContextMenuCommandBuilder()
       .setName("Make it a Quote")
       .setType(ApplicationCommandType.Message)
@@ -507,6 +511,7 @@ async function ready(client){
             role,
             //ContextMenu
             member,
+            permission,
             quote,
             to_en,
             to_ja
