@@ -1,9 +1,9 @@
 async function reload(interaction){
   const fs = require("fs");
-  const config = require("../../config.json");
+  const { admin } = require("../../config.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "reload"){
-    if(interaction.member.user.id !== config.admin) return await interaction.reply({
+    if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",

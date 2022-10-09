@@ -1,5 +1,3 @@
-const time = []
-
 async function send(message){
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
@@ -15,10 +13,6 @@ async function send(message){
     mute_server[message.guild.id]||
     mute_user[message.author.id]
   ) return;
-  
-  if(new Date() - time[message.guild.id] <= 800){
-    return time[message.guild.id] = new Date(); 
-  }
 
   await fetch("https://ugc.renorari.net/api/v1/messages",{
     "method": "POST",

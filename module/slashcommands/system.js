@@ -1,5 +1,5 @@
 async function system(interaction,client){
-  const config = require("../../config.json");
+  const { admin } = require("../../config.json");
   const point_user = require("../../data/point.json");
   const block_user = require("../../data/block_user.json");
   const block_server = require("../../data/block_server.json");
@@ -13,7 +13,7 @@ async function system(interaction,client){
     const functions = await interaction.options.getString("functions");
     const message = await interaction.options.getString("message") || "なし"
 
-    if(interaction.member.user.id !== config.admin) return await interaction.reply({
+    if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",

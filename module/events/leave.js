@@ -1,8 +1,8 @@
 function leave(member){
-  const config = require("../../config.json");
+  const { serverid,enter_channel } = require("../../config.json");
 
-  if(member.guild.id !== `${config.serverid}`) return; 
-  member.guild.channels.cache.get(`${config.enter_channel}`).send(`${member.user}${config.servername}から脱退しました`);
+  if(member.guild.id !== `${serverid}`) return; 
+  member.guild.channels.cache.get(`${enter_channel}`).send(`${member.user}${member.guild.name}から脱退しました`);
 }
 
 module.exports = leave
