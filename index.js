@@ -1,6 +1,6 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Intents } = require("discord.js");
 require("dotenv").config();
-const cnf = require("./config.json"); 
+const { log_channel } = require("./config.json"); 
 
 const client = new Client({
   intents: [
@@ -32,25 +32,25 @@ client.login(process.env.DISCORD_BOT_TOKEN)
   .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
 
 //エラー回避
-process.on('uncaughtException',async(error) => {
+process.on("uncaughtException",async(error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: ${error}`);
 
-  client.channels.cache.get(cnf.log_channel).send({
+  client.channels.cache.get(log_channel).send({
     embeds:[{
       color: "RED",
-      description: `\`\`\`${error}\`\`\``,
+      description: `\`\`\`${error.path}\`\`\`\n\`\`\`${error}\`\`\``,
       timestamp: new Date()
     }]
   })
 });
 
-process.on('unhandledRejection',async(error) => {
+process.on("unhandledRejection",async(error) => {
   console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: ${error}`);
 
-  client.channels.cache.get(cnf.log_channel).send({
+  client.channels.cache.get(log_channel).send({
     embeds:[{
       color: "ORANGE",
-      description: `\`\`\`${error}\`\`\``,
+      description: `\`\`\`${error.path}\`\`\`\n\`\`\`${error}\`\`\``,
       timestamp: new Date()
     }]
   })

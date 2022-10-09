@@ -4,7 +4,6 @@ async function server(client){
   const os = require("os");
   const fs = require("fs");
   const https = require("https");
-  const url = require("../../data/url.json");
   const date = require("../../data/api.json");
 
   let time =new Date();
@@ -119,14 +118,6 @@ async function server(client){
   });
 
   //------API------//
-
-  //------短縮URL------//
-  app.get("/url/:name", (req, res) =>{
-    if(!url[req.params.name]) return res.send(`<h1>NOT REGISTERED</h1>`);
-    res.redirect(url[req.params.name]);
-    res.end()
-  });
-  //------短縮URL------//
 
   //------ERROR処理------//
   app.use((req, res)=>{

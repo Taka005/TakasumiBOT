@@ -3,7 +3,7 @@ async function global(message){
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
-  const spam = require("../functions/spam");
+  const spam = require("../lib/spam");
   const { WebhookClient } = require("discord.js");
   const fs = require("fs");
   
