@@ -13,11 +13,6 @@ const client = new Client({
   ],
 });
 
-let now = new Date();
-let h = now.getHours();
-let m = now.getMinutes();
-let s = now.getSeconds();
-
 const events = require("./module/events");
 const server = require("./module/web/server");
 const gateway = require("./module/global/gateway");
@@ -28,29 +23,29 @@ gateway();
 load(client)
 
 client.login(process.env.DISCORD_BOT_TOKEN)
-  .then(()=> console.info(`\x1b[34m[${h}:${m}:${s}]INFO:ログインに成功しました`))
-  .catch(()=> console.error(`\x1b[31m[${h}:${m}:${s}]ERROR:ログインに失敗しました`))
+  .then(()=> console.info(`\x1b[34mINFO:ログインに成功しました`))
+  .catch(()=> console.error(`\x1b[31mERROR:ログインに失敗しました`))
 
 //エラー回避
-process.on("uncaughtException",async(error) => {
-  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: ${error}`);
+process.on("uncaughtException",async(error) =>{
+  console.error(`\x1b[31mERROR: ${error.stack}`);
 
   client.channels.cache.get(log_channel).send({
     embeds:[{
       color: "RED",
-      description: `\`\`\`${error.path}\`\`\`\n\`\`\`${error}\`\`\``,
+      description: `\`\`\`${error.stack}\`\`\``,
       timestamp: new Date()
     }]
   })
 });
 
-process.on("unhandledRejection",async(error) => {
-  console.error(`\x1b[31m[${h}:${m}:${s}]ERROR: ${error}`);
+process.on("unhandledRejection",async(error) =>{
+  console.error(`\x1b[31mERROR: ${error.stack}`);
 
   client.channels.cache.get(log_channel).send({
     embeds:[{
       color: "ORANGE",
-      description: `\`\`\`${error.path}\`\`\`\n\`\`\`${error}\`\`\``,
+      description: `\`\`\`${error.stack}\`\`\``,
       timestamp: new Date()
     }]
   })

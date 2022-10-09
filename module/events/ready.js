@@ -7,11 +7,6 @@ async function ready(client){
     
   const rest = new REST({ version: "10" })
     .setToken(process.env.DISCORD_BOT_TOKEN);
-
-    let now = new Date();
-    let h = now.getHours()
-    let m = now.getMinutes()
-    let s = now.getSeconds() 
       
     let stats = 0; 
     setInterval(()=>{
@@ -36,8 +31,8 @@ async function ready(client){
     client.channels.cache.get("947484748773736538").send(`BOT、API、WEBサーバーが再起動されました`);
 
     //ログ
-    console.info(`\x1b[34m[${h}:${m}:${s}]INFO:READY! USER:${client.user.tag}`); 
-    console.info(`\x1b[34m[${h}:${m}:${s}]INFO:<${client.guilds.cache.size}>SERVER <${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}>USER`)
+    console.info(`\x1b[34mINFO:READY! USER:${client.user.tag}`); 
+    console.info(`\x1b[34mINFO:<${client.guilds.cache.size}>SERVER <${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}>USER`)
 
     //スラッシュコマンド
     const help = new SlashCommandBuilder()

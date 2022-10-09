@@ -8,11 +8,6 @@ async function events(client){
   });
 
     client.on("messageCreate", async (message) =>{
-        //時間
-        let now = new Date();
-        let h = now.getHours()
-        let m = now.getMinutes()
-        let s = now.getSeconds() 
         //globalchat
         const global = require("./global/global");
         const reply = require("./global/reply");
@@ -30,7 +25,7 @@ async function events(client){
         if(!message.channel.type === "GUILD_TEXT" || message.author.bot) return;  
 
         //console.log
-        console.log(`\x1b[37m[${h}:${m}:${s}]LOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
+        console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
  
         //コマンド
         fs.readdir("./module/commands/", (err,files) =>{ 

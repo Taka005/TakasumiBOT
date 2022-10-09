@@ -6,7 +6,6 @@ async function server(client){
   const https = require("https");
   const date = require("../../data/api.json");
 
-  let time =new Date();
   try{
     const options = {
       key: fs.readFileSync( "/home/taka/discordbot/ssl/server.key" ),
@@ -14,34 +13,31 @@ async function server(client){
     };
     const server = https.createServer(options,app);
 
-    server.listen(443, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(https)サーバーが正常に起動しました`));
+    server.listen(443, () => console.info(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました`));
   }catch{
-    console.warn(`\x1b[33m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]WARN:sslを使用せずに起動しました`)
+    console.warn(`\x1b[33mWARN:sslを使用せずに起動しました`)
   }
 
-  app.listen(80, () => console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: WEB(http)サーバーが正常に起動しました`));
+  app.listen(80, () => console.info(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました`));
    
   app.use(`/`, express.static("./module/web/assets"));
  
   //------リダイレクト------//
   app.get("/support", (req, res) =>{
     res.redirect("https://discord.gg/GPs3npB63m");
-    let time = new Date();
-    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からsupportにリダイレクト`);
+    console.info(`\x1b[34mINFO: [${req.ip}]からsupportにリダイレクト`);
     res.end()
   });
 
   app.get("/invite", (req, res) =>{
     res.redirect("https://discord.com/api/oauth2/authorize?client_id=981314695543783484&permissions=1644971949559&scope=bot%20applications.commands");
-    let time = new Date();
-    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からinviteにリダイレクト`);
+    console.info(`\x1b[34mINFO: [${req.ip}]からinviteにリダイレクト`);
     res.end()
   });
 
   app.get("/feedback", (req, res) =>{
     res.redirect("https://forms.gle/qe17jt8XnURTv5Pe8");
-    let time = new Date();
-    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からinviteにリダイレクト`);
+    console.info(`\x1b[34mINFO: [${req.ip}]からinviteにリダイレクト`);
     res.end()
   });
   //------リダイレクト------//
@@ -76,23 +72,21 @@ async function server(client){
       }
     });
     
-    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`)
+    console.info(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`)
     res.end()
   });
 
   app.get("/api/date", (req, res) =>{
-    let time = new Date();
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.json(date);
 
-    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`)
+    console.info(`\x1b[34INFO: [${req.ip}]からAPIにリクエスト`)
     res.end()
   });
 
   app.get("/api/user", async (req, res) =>{
-    let time = new Date();
     res.setHeader("Access-Control-Allow-Origin", "*")
-    console.info(`\x1b[34m[${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}]INFO: [${req.ip}]からAPIにリクエスト`);
+    console.info(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`);
 
     if(!req.query.id) return res.json({user:"error"});
       try{
