@@ -20,7 +20,7 @@ async function reload(interaction){
       fs.readdir("./module/commands/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          const event = require(`../commands/${file}`);
+          require(`../commands/${file}`);
           delete require.cache[require.resolve(`../commands/${file}`)];
         });
       });
@@ -28,7 +28,7 @@ async function reload(interaction){
       fs.readdir("./module/contextmenu/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          const event = require(`../contextmenu/${file}`);
+          require(`../contextmenu/${file}`);
           delete require.cache[require.resolve(`../contextmenu/${file}`)];
         });
       });
@@ -36,23 +36,23 @@ async function reload(interaction){
       fs.readdir("./module/events/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          const event = require(`../events/${file}`);
+          require(`../events/${file}`);
           delete require.cache[require.resolve(`../events/${file}`)];
         });
       });
       //functions
-      fs.readdir("./module/functions/", (err,files) =>{ 
+      fs.readdir("./module/lib/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          const event = require(`../functions/${file}`);
-          delete require.cache[require.resolve(`../functions/${file}`)];
+          require(`../lib/${file}`);
+          delete require.cache[require.resolve(`../lib/${file}`)];
         });
       });
       //global
       fs.readdir("./module/global/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          const event = require(`../global/${file}`);
+          require(`../global/${file}`);
           delete require.cache[require.resolve(`../global/${file}`)];
         });
       });
@@ -60,7 +60,7 @@ async function reload(interaction){
       fs.readdir("./module/slashcommands/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          const event = require(`../slashcommands/${file}`);
+          require(`../slashcommands/${file}`);
           delete require.cache[require.resolve(`../slashcommands/${file}`)];
         });
       });
@@ -68,7 +68,7 @@ async function reload(interaction){
       fs.readdir("./module/web/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          const event = require(`../web/${file}`);
+          require(`../web/${file}`);
           delete require.cache[require.resolve(`../web/${file}`)];
         });
       });
@@ -84,7 +84,6 @@ async function reload(interaction){
       delete require.cache[require.resolve("../../data/block_server.json")];
       delete require.cache[require.resolve("../../data/block_user.json")];
       delete require.cache[require.resolve("../../data/point.json")];
-      delete require.cache[require.resolve("../../data/url.json")];
 
       delete require.cache[require.resolve("../../data/global/main.json")];
       delete require.cache[require.resolve("../../data/global/sub.json")];
