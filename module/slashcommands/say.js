@@ -16,20 +16,25 @@ async function say(interaction){
     });
 
     await interaction.channel.send(`${text}`)
-      .catch(()=>interaction.reply({
-        embeds:[{
-          author: {
-            name: "権限が不足しています",
-            icon_url: "https://cdn.taka.ml/images/error.png",
-          },
-          color: "RED",
-          description: `BOTの権限をを変更し、もう一度実行してください`
-        }],
-        ephemeral:true
-      }));
-
-    interaction.deferReply()
-      .then(()=>interaction.deleteReply())
+      .then(()=>{
+        interaction.deferReply()
+          .then(()=>{
+            interaction.deleteReply()
+          })
+      })
+      .catch(()=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "権限が不足しています",
+              icon_url: "https://cdn.taka.ml/images/error.png",
+            },
+            color: "RED",
+            description: `BOTの権限をを変更し、もう一度実行してください`
+          }],
+          ephemeral:true
+        })
+      });
   }
 }
 
