@@ -4,6 +4,18 @@ async function member(interaction){
   if(interaction.commandName === "メンバー情報を表示"){
     const info = await interaction.options.getMember("user");
 
+    if(!info) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "メンバーを取得できませんでした",
+          icon_url: "https://cdn.taka.ml/images/error.png",
+        },
+        color: "RED",
+        description:"指定したユーザーが存在していないか、サーバーから退出しています"
+      }],
+      ephemeral:true
+    });
+
     const point_user = point[info.user.id];
 
     await interaction.reply({
