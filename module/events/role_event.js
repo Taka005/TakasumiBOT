@@ -7,7 +7,6 @@ async function role_event(interaction){
       const add = await interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
       const remove = await interaction.values.filter((role)=>!add.includes(role));
 
-
       await async.each(add,async(role)=>{
         await interaction.member.roles.add(role)
       })

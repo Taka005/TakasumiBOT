@@ -436,14 +436,6 @@ async function ready(client){
         option
           .setName("role_9")
           .setDescription("選択10"))
-      .addRoleOption(option =>
-        option
-          .setName("role_11")
-          .setDescription("選択11"))
-      .addRoleOption(option =>
-        option
-          .setName("role_12")
-          .setDescription("選択12"))
     
     //ContextMenu
     const member = new ContextMenuCommandBuilder()
