@@ -49,7 +49,10 @@ async function to_en(interaction){
       await interaction.reply({
         content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
         embeds:[{
-          title: "翻訳結果",
+          author: {
+            name: `${message.author.tag}`,
+            icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+          },
           color: "BLUE",    
           description: translated.join(""),
           footer: {
