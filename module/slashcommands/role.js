@@ -13,7 +13,7 @@ async function role(interaction){
     const role_9 = await interaction.options.getRole("role_9");
     const role_10 = await interaction.options.getRole("role_10");
 
-    const emojis = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯","🇰","🇱"];
+    const emojis = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯"];
 
     const selects = [role_1,role_2,role_3,role_4,role_5,role_6,role_7,role_8,role_9,role_10]
       .filter(role=>role!==null)

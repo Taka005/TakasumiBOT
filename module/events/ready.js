@@ -402,40 +402,44 @@ async function ready(client){
       .addRoleOption(option =>
         option
           .setName("role_1")
-          .setDescription("選択1")
+          .setDescription("役職1")
           .setRequired(true))
       .addRoleOption(option =>
         option
           .setName("role_2")
-          .setDescription("選択2"))
+          .setDescription("役職2"))
       .addRoleOption(option =>
         option
           .setName("role_3")
-          .setDescription("選択3"))
+          .setDescription("役職3"))
       .addRoleOption(option =>
         option
           .setName("role_4")
-          .setDescription("選択4"))
+          .setDescription("役職4"))
       .addRoleOption(option =>
         option
           .setName("role_5")
-          .setDescription("選択5"))
+          .setDescription("役職5"))
       .addRoleOption(option =>
         option
           .setName("role_6")
-          .setDescription("選択6"))
+          .setDescription("役職6"))
       .addRoleOption(option =>
         option
           .setName("role_7")
-          .setDescription("選択7"))
+          .setDescription("役職7"))
       .addRoleOption(option =>
         option
           .setName("role_8")
-          .setDescription("選択8"))
+          .setDescription("役職8"))
       .addRoleOption(option =>
         option
           .setName("role_9")
-          .setDescription("選択10"))
+          .setDescription("役職9"))
+      .addRoleOption(option =>
+        option
+          .setName("role_10")
+          .setDescription("役職10"))
     
     //ContextMenu
     const member = new ContextMenuCommandBuilder()
