@@ -46,7 +46,7 @@ async function quote(interaction){
     //文字 TakasumiBOT
     context.fillStyle = '#696969';
     context.font = "20px nijimi";
-    context.fillText("TakasumiBOT#7189",1010, 590);
+    context.fillText("TakasumiBOT#7189",1005, 595);
      
     interaction.editReply({ 
       content: `[生成元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`,
