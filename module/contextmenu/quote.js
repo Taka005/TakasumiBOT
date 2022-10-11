@@ -33,7 +33,7 @@ async function quote(interaction){
     }
     context.putImageData(dst, 0, 0);
 
-    const msg = message.content.replace(/(.{15})/g, "$1\n")
+    const msg = message.cleanContent.replace(/(.{15})/g, "$1\n")
 
     context.font = "45px nijimi";
     context.fillStyle = '#ffffff';
