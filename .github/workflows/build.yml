@@ -1,4 +1,4 @@
-name: Build Code
+name: Build
 
 on:
   push:
@@ -20,4 +20,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - run: npm install -D
     - run: npm run build
