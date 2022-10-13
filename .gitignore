@@ -102,4 +102,5 @@ dist
 
 # TernJS port file
 .tern-port
+./dist/build.js
 cmd.exe - ショートカット.lnk
