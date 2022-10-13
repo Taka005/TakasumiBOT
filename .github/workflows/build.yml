@@ -22,3 +22,4 @@ jobs:
     - run: npm ci
     - run: npm install -D
     - run: npm run build
+    - run: npm test
