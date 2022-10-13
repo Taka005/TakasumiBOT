@@ -1,4 +1,4 @@
-[![Build](https://github.com/Taka005/takasumi_bot/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Taka005/takasumi_bot/actions/workflows/build.yml)
+[![Build](https://github.com/Taka005/takasumi_bot/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Taka005/takasumi_bot/actions/workflows/build.yml)[![Lint](https://github.com/Taka005/takasumi_bot/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/Taka005/takasumi_bot/actions/workflows/lint.yml)
 # Takasumi_botについて
 - これはオープンソース版です
 - このBOTは、他に人が確実に動かせるように開発されていません
