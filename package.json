@@ -7,8 +7,8 @@
     "start": "node index.js",
     "lint": "./node_modules/.bin/eslint module",
     "format": "prettier --write module",
-    "test":"node ./dist/build.js",
-    "build": "esbuild --bundle --minify --platform=node --target=es2020,node16 --outfile=./dist/build.js --keep-names=true ./index.js"
+    "build": "esbuild --bundle --minify --platform=node --target=es2020,node16 --outfile=./dist/build.js --keep-names=true ./index.js",
+    "test": "node ./dist/build.js"
   },
   "engines": {
     "node": "16.x"
@@ -30,16 +30,16 @@
     "async": "^3.2.4",
     "canvas": "^2.10.1",
     "discord-api-types": "^0.35.0",
-    "discord.js": "^13.11.0",
+    "discord.js": "^13.12.0",
     "dotenv": "^16.0.3",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "node-fetch": "^2.6.7",
     "os-utils": "^0.0.14",
     "ws": "^8.9.0"
   },
   "devDependencies": {
     "esbuild": "^0.15.10",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-plugin-node": "^11.1.0",
     "prettier": "^2.7.1"
   }
