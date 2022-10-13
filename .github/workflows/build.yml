@@ -6,12 +6,10 @@ on:
     branches: [ "main" ]
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Build
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - with:
-          node-version: 16.x
+        node-version: 16.x
       - run: npm ci && npm run build
