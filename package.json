@@ -7,7 +7,7 @@
     "start": "node index.js",
     "lint": "./node_modules/.bin/eslint module",
     "format": "prettier --write module",
-    "build": "esbuild --bundle --minify --platform=node --target=es2020,node16 --outfile=./dist/build.js --keep-names=true ./index.js",
+    "build": "esbuild --bundle --minify --sourcemap=external --format=cjs --platform=node --target=es2020,node16 --outfile=./dist/build.js --keep-names=true ./index.js",
     "test": "node ./dist/build.js"
   },
   "engines": {
