@@ -1,15 +1,1 @@
-{
-    "short_name":"TakasumiBOT",
-    "name":"トップーTakasumiBOT",
-    "icons":[
-        {
-            "src":"/assets/img/android-icon-192x192.png",
-            "type":"image/png","sizes":"192x192"
-        },
-        {
-            "src":"/assets/img/takasumibot.png",
-            "type":"image/png","sizes":"1024x1024"
-        }
-    ],"start_url":"index.html",
-    "display":"fullscreen"
-}
+{"short_name":"TakasumiBOT","name":"トップーTakasumiBOT","icons":[{"src":"https://takasumibot.taka.ml/assets/img/android-icon-192x192.png?h=85078bac2d66d1613454826667f50ece","type":"image/png","sizes":"192x192"},{"src":"https://takasumibot.taka.ml/assets/img/takasumibot.png?h=f779c1976789d734739a751cd0a963f4","type":"image/png","sizes":"1024x1024"}],"start_url":"index.html","display":"fullscreen"}
