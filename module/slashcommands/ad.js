@@ -2,7 +2,7 @@ async function ad(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ad"){
     const types = await interaction.options.getString("types");
-    const server = Math.round(client.guilds.cache.size/ 10)*10
+    const server = Math.floor(client.guilds.cache.size/10)*10
     
     if(types === "normal"){
       interaction.reply({
