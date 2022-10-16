@@ -9,18 +9,18 @@ async function help_event(interaction){
     .setCustomId("page_0")
     .setDisabled(true)
 
-  const next = new MessageButton()
-    .setStyle("PRIMARY")
-    .setLabel("次")
-    .setCustomId("page_2")
+    const next = new MessageButton()
+      .setStyle("PRIMARY")
+      .setLabel("次")
+      .setCustomId("page_2")
 
-  const page = new MessageButton()
-    .setStyle("SECONDARY")
-    .setLabel("1ページ")
-    .setCustomId("page")
-    .setDisabled(true)
+    const page = new MessageButton()
+      .setStyle("SECONDARY")
+      .setLabel("1ページ")
+      .setCustomId("page")
+      .setDisabled(true)
 
-    interaction.message.edit({
+    await interaction.message.edit({
         embeds:[{
           title: "HELP 便利系",
           color: "GREEN",
@@ -53,7 +53,8 @@ async function help_event(interaction){
               name: "/short",
               value: "短縮URLを作成します"
             }
-        ]}],
+          ]
+        }],
         components: [
           new MessageActionRow()
             .addComponents(before)
@@ -62,7 +63,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.deferUpdate({});
+      await interaction.deferUpdate({});
     return;
   }
   //2ページ目
@@ -72,18 +73,18 @@ async function help_event(interaction){
     .setLabel("前")
     .setCustomId("page_1")
 
-  const next = new MessageButton()
-    .setStyle("PRIMARY")
-    .setLabel("次")
-    .setCustomId("page_3")
+    const next = new MessageButton()
+      .setStyle("PRIMARY")
+      .setLabel("次")
+      .setCustomId("page_3")
 
-  const page = new MessageButton()
-    .setStyle("SECONDARY")
-    .setLabel("2ページ")
-    .setCustomId("page")
-    .setDisabled(true)
+    const page = new MessageButton()
+      .setStyle("SECONDARY")
+      .setLabel("2ページ")
+      .setCustomId("page")
+      .setDisabled(true)
 
-    interaction.message.edit({
+    await interaction.message.edit({
         embeds:[{
           title: "HELP 認証・情報系",
           color: "GREEN",
@@ -120,7 +121,8 @@ async function help_event(interaction){
               name: "/translate",
               value: "テキストを翻訳します"
             }
-        ]}],
+          ]
+        }],
         components: [
           new MessageActionRow()
             .addComponents(before)
@@ -129,7 +131,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.deferUpdate({});
+      await interaction.deferUpdate({});
     return;
   }
   //3ページ目
@@ -139,18 +141,18 @@ async function help_event(interaction){
     .setLabel("前")
     .setCustomId("page_2")
 
-  const next = new MessageButton()
-    .setStyle("PRIMARY")
-    .setLabel("次")
-    .setCustomId("page_4")
+    const next = new MessageButton()
+      .setStyle("PRIMARY")
+      .setLabel("次")
+      .setCustomId("page_4")
 
-  const page = new MessageButton()
-    .setStyle("SECONDARY")
-    .setLabel("3ページ")
-    .setCustomId("page")
-    .setDisabled(true)
+    const page = new MessageButton()
+      .setStyle("SECONDARY")
+      .setLabel("3ページ")
+      .setCustomId("page")
+      .setDisabled(true)
 
-    interaction.message.edit({
+    await interaction.message.edit({
         embeds:[{
           title: "HELP サーバー管理系",
           color: "GREEN",
@@ -179,7 +181,8 @@ async function help_event(interaction){
               name: "/export",
               value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
             }
-        ]}],
+          ]
+        }],
         components: [
           new MessageActionRow()
             .addComponents(before)
@@ -188,7 +191,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.deferUpdate({}) 
+      await interaction.deferUpdate({}) 
     return;
   }
   //4ページ目
@@ -198,19 +201,19 @@ async function help_event(interaction){
     .setLabel("前")
     .setCustomId("page_3")
 
-  const next = new MessageButton()
-    .setStyle("PRIMARY")
-    .setLabel("次")
-    .setCustomId("page_5")
-    .setDisabled(true)
+    const next = new MessageButton()
+      .setStyle("PRIMARY")
+      .setLabel("次")
+      .setCustomId("page_5")
+      .setDisabled(true)
 
-  const page = new MessageButton()
-    .setStyle("SECONDARY")
-    .setLabel("4ページ")
-    .setCustomId("page")
-    .setDisabled(true)
+    const page = new MessageButton()
+      .setStyle("SECONDARY")
+      .setLabel("4ページ")
+      .setCustomId("page")
+      .setDisabled(true)
 
-    interaction.message.edit({
+    await interaction.message.edit({
         embeds:[{
           title: "HELP エンタメ・BOT系",
           color: "GREEN",
@@ -218,6 +221,10 @@ async function help_event(interaction){
             {
               name: "/mc",
               value: "指定したMinecarftサーバーの情報を表示します"
+            },
+            {
+              name: "ad",
+              value: "BOTの広告文を表示します"
             },
             {
               name: "/cipher",
@@ -247,7 +254,8 @@ async function help_event(interaction){
               name: "/npm",
               value: "NPMパッケージを検索、表示します"
             }
-        ]}],
+          ]
+        }],
         components: [
           new MessageActionRow()
             .addComponents(before)
@@ -256,7 +264,7 @@ async function help_event(interaction){
         ]
       })
 
-      interaction.deferUpdate({});
+      await interaction.deferUpdate({});
   }
 
 }

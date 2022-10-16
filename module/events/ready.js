@@ -288,6 +288,19 @@ async function ready(client){
           .setDescription("検索するサーバーのアドレス")
           .setRequired(true))
 
+    const ad = new SlashCommandBuilder()
+      .setName("ad")
+      .setDescription("BOTの広告を表示します")
+      .addStringOption(option =>
+        option
+          .setName("types")
+          .setDescription("表示内容を変更します")
+          .setRequired(true)
+          .addChoices(
+            { name: "ノーマル", value: "normal" },
+            { name: "シンプル", value: "simple" }
+          ))
+    
     const translate = new SlashCommandBuilder()
       .setName("translate")
       .setDescription("テキストを翻訳します")
@@ -495,6 +508,7 @@ async function ready(client){
             qr,
             cipher,
             mc,
+            ad,
             translate,
             global,
             system,
