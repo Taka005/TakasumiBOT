@@ -33,7 +33,7 @@ process.on("uncaughtException",async(error) =>{
   client.channels.cache.get(log_channel).send({
     embeds:[{
       color: "RED",
-      description: `\`\`\`${error.stack}\`\`\``,
+      description: `\`\`\`js\n${error.stack}\`\`\``,
       timestamp: new Date()
     }]
   })
@@ -45,16 +45,8 @@ process.on("unhandledRejection",async(error) =>{
   client.channels.cache.get(log_channel).send({
     embeds:[{
       color: "ORANGE",
-      description: `\`\`\`${error.stack}\`\`\``,
+      description: `\`\`\`js\n${error.stack}\`\`\``,
       timestamp: new Date()
     }]
   })
 });
-
-/**
- * 開発・協力
- * Taka005#6668(開発)
- * れのらり#0719(協力)
- * 
- * これらの人々に敬意を表します
- */
