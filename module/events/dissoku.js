@@ -9,7 +9,7 @@ async function dissoku(oldMessage,newMessage){
         }]  
       }).catch(()=>{})
 
-      setTimeout(()=>{
+      setTimeout(async()=>{
         await newMessage.channel.send({
           embeds:[{
             color: "BLUE",
