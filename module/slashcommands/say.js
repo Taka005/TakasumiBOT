@@ -3,14 +3,18 @@ async function say(interaction){
   if(interaction.commandName === "say"){
     const text = await interaction.options.getString("text");
 
-    if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return await interaction.reply({
+    if(
+      !interaction.member.permissions.has("MANAGE_MESSAGES")||
+      !interaction.member.permissions.has("MANAGE_ROLES")||
+      !interaction.member.permissions.has("MANAGE_CHANNELS")
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
+        description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```メッセージを管理\nロールの管理\nチャンネルの管理```"
       }],
       ephemeral:true
     });
