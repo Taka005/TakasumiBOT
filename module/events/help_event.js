@@ -223,7 +223,7 @@ async function help_event(interaction){
               value: "指定したMinecarftサーバーの情報を表示します"
             },
             {
-              name: "ad",
+              name: "/ad",
               value: "BOTの広告文を表示します"
             },
             {
