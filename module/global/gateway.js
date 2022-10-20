@@ -1,4 +1,4 @@
-async function gateway(){
+async function gateway(client){
   const zlib = require("zlib");
   const ws = require("ws");
   require("dotenv").config();
@@ -35,7 +35,7 @@ async function gateway(){
           ));
         }else if(data.type === "message"){
           const msg = data.data.data
-          return connect(msg);
+          return connect(msg,client);
 
         }else if(data.type === "identify"){
           if(!data.success) return console.info(`\x1b[31mUGC:ERROR No Ready`); 

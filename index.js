@@ -19,7 +19,7 @@ const gateway = require("./module/global/gateway");
 const load = require("./module/events/load");
 events(client);
 server(client);
-gateway();
+gateway(client);
 load(client)
 
 client.login(process.env.DISCORD_BOT_TOKEN)
