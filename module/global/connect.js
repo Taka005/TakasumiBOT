@@ -30,7 +30,7 @@ async function connect(msg,client){
         },
         timestamp: new Date()
       }]      
-    }).catch(()=>{
+    }).catch((error)=>{
       delete main[channels];
       const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
       delete sub[guild];
