@@ -26,7 +26,7 @@ async function del(interaction){
       ephemeral:true
     });
 
-    if(del < 2 || del > 100 ) return interaction.reply({
+    if(del < 2 || del > 99 ) return interaction.reply({
       embeds:[{
         author: {
           name: "引数が無効です",
