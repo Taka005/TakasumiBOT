@@ -44,7 +44,7 @@ async function hiroyuki(message,client){
     let content;
 
     if(Object.keys(reply_1).filter(key=> message.content.match(key))){
-      content = Object.keys(sub).find(key=> message.content.match(key))
+      content = Object.keys(sub).filter(key=> message.content.match(key))
     }else if(message.content.match("@everyone")||message.content.match("@here")){
       content = random(["全体メンションする人って相当頭悪いんですよね…", "なんだろう、全体メンションするのやめてもらっていいですか？"])
     }else{
