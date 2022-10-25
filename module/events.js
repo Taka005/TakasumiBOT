@@ -19,8 +19,10 @@ async function events(client){
         //other
         const bump = require("./events/bump");
         const open = require("./events/open");
+        const hiroyuki = require("./events/hiroyuki");
         bump(message);
         open(message,client);
+        hiroyuki(message,client);
 
         if(!message.channel.type === "GUILD_TEXT" || message.author.bot) return;  
 
