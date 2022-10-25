@@ -58,7 +58,6 @@ async function hiroyuki(interaction){
             fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
   
             await interaction.reply({
-              content:`${interaction.member}`,
               embeds:[{
                 author: {
                   name: "ひろゆきの退出が完了しました",

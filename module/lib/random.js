@@ -1,5 +1,6 @@
-async function random(max,min){
-  return Math.floor(Math.random() * (max - min + 1) + min)
+async function random(arr){
+  const number = Math.floor(Math.random() * arr.length);
+  return arr[number];
 }
 
 module.exports = random
