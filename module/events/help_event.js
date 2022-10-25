@@ -50,6 +50,10 @@ async function help_event(interaction){
               value: "Wikipediaの検索をします"
             },
             {
+              name: "/hiroyuki",
+              value: "ひろゆきを召喚します"
+            },
+            {
               name: "/short",
               value: "短縮URLを作成します"
             }
