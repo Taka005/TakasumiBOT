@@ -53,7 +53,7 @@ async function hiroyuki(message,client){
 
     const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
     await webhooks.send({
-      content : content
+      content : `${content}`
     }).catch((error)=>{
       delete main[message.channel.id];
       const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
