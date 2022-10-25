@@ -1,7 +1,7 @@
 async function dissoku(oldMessage,newMessage){
   if(newMessage.author.id === "761562078095867916"){
     if(newMessage.embeds[0]?.fields[0].name.match(/をアップしたよ/)||newMessage.embeds[0]?.fields[0].name.match(/I've bumped up/)){
-      newMessage.channel.send({
+      await newMessage.channel.send({
         embeds:[{
           color: "BLUE",
           title:"UP通知",
@@ -9,8 +9,8 @@ async function dissoku(oldMessage,newMessage){
         }]  
       }).catch(()=>{})
 
-      setTimeout(()=>{
-        newMessage.channel.send({
+      setTimeout(async()=>{
+        await newMessage.channel.send({
           embeds:[{
             color: "BLUE",
             title:"UP通知",

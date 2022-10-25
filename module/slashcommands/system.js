@@ -227,7 +227,7 @@ async function system(interaction,client){
       try{
         user = await client.users.fetch(id_data[0]);
       }catch{
-        return interaction.reply({
+        return await interaction.reply({
           embeds:[{
             author: {
               name: "ユーザーをミュートできませんでした",
@@ -245,7 +245,7 @@ async function system(interaction,client){
         fs.writeFileSync("./data/block_user.json", JSON.stringify(block_user), "utf8");
         delete require.cache[require.resolve("../../data/block_user.json")];
   
-        return interaction.reply({
+        return await interaction.reply({
           embeds:[{
             author: {
               name: `${user.tag} のブロックを解除しました`,
@@ -261,7 +261,7 @@ async function system(interaction,client){
       fs.writeFileSync("./data/block_user.json", JSON.stringify(block_user), "utf8");
       delete require.cache[require.resolve("../../data/block_user.json")];
   
-      interaction.reply({
+      await interaction.reply({
         embeds:[{
           author: {
             name: `${user.tag} のブロックしました`,
@@ -276,7 +276,7 @@ async function system(interaction,client){
       try{
         user = await client.users.fetch(id_data[0]);
       }catch{
-        return interaction.reply({
+        return await interaction.reply({
           embeds:[{
             author: {
               name: "ユーザーにDMを送信できませんでした",
