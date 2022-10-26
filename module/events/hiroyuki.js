@@ -1,6 +1,5 @@
 async function hiroyuki(message,client){
     const main = require("../../data/hiroyuki/main.json");
-    const sub = require("../../data/hiroyuki/sub.json");
     const { random, rate } = require("../lib/random");
     const { WebhookClient } = require("discord.js");
 
