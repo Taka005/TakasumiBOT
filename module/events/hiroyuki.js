@@ -62,7 +62,7 @@ async function hiroyuki(message,client){
       "はい論破"
     ];
 
-    const legend = [
+    const koizumi = [
       "反省はしているが(反省が)見えない自分に対しても反省している",
       `今のままではいけないと思います。だからこそ${message.guild.name}は今のままではいけないと思っている`,
       `いま${message.author.username}がおっしゃる通りとお申しあげました通りでありますし、`
@@ -72,35 +72,19 @@ async function hiroyuki(message,client){
 
     if(rate(false,true,0.01)){
       return await webhooks.send({
+        content: `${random(koizumi)}`,
+        username: "小泉進次郎",
+        avatarURL: "https://cdn.taka.ml/images/koizumi.png"
+      }).catch((error)=>{
+        err(message,client,error);
+      })
+    }else if(rate(false,true,0.01)){
+      return await webhooks.send({
         content: `${random(legend)}`,
         username: "小泉進次郎",
         avatarURL: "https://cdn.taka.ml/images/koizumi.png"
       }).catch((error)=>{
-        delete main[message.channel.id];
-        const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
-        delete sub[guild];
-        fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-        fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-        delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
-        delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
-  
-        client.channels.cache.get(message.channel.id).send({
-          embeds:[{
-            author: {
-              name: "ひろゆきの体調が悪化しました",
-              icon_url: "https://cdn.taka.ml/images/error.png",
-            },
-            color: "RED",
-            description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
-            fields: [
-              {
-                name: "エラーコード",
-                value: `\`\`\`${error}\`\`\``
-              }
-            ]
-          }]
-        })
-        .catch(()=>{})
+        err(message,client,error);
       })
     }
 
@@ -118,32 +102,36 @@ async function hiroyuki(message,client){
       username: "ひろゆき",
       avatarURL: "https://cdn.taka.ml/images/hiroyuki.png"
     }).catch((error)=>{
-      delete main[message.channel.id];
-      const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
-      delete sub[guild];
-      fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-      fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-      delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
-      delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
-
-      client.channels.cache.get(message.channel.id).send({
-        embeds:[{
-          author: {
-            name: "ひろゆきの体調が悪化しました",
-            icon_url: "https://cdn.taka.ml/images/error.png",
-          },
-          color: "RED",
-          description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
-          fields: [
-            {
-              name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
-            }
-          ]
-        }]
-      })
-      .catch(()=>{})
+      err(message,client,error);
     })
+}
+
+function err(message,client,error){
+  delete main[message.channel.id];
+  const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
+  delete sub[guild];
+  fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
+  fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
+  delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
+  delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
+
+  client.channels.cache.get(message.channel.id).send({
+    embeds:[{
+      author: {
+        name: "ひろゆきの体調が悪化しました",
+        icon_url: "https://cdn.taka.ml/images/error.png",
+      },
+      color: "RED",
+      description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
+      fields: [
+        {
+          name: "エラーコード",
+          value: `\`\`\`${error}\`\`\``
+        }
+      ]
+    }]
+  })
+  .catch(()=>{})
 }
 
 module.exports = hiroyuki
