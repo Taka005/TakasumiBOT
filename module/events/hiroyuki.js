@@ -1,5 +1,3 @@
-const time;
-
 async function hiroyuki(message,client){
     const main = require("../../data/hiroyuki/main.json");
     const sub = require("../../data/hiroyuki/sub.json");
@@ -13,39 +11,6 @@ async function hiroyuki(message,client){
       !main[message.channel.id]
     ) return;
 
-    if(new Date() - time[message.author.id] <= 1000){
-      time[message.author.id] = new Date();
-      const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
-      return await webhooks.send({content : "何だろう。スパムやめてもらっていいですか？"})
-        .catch((error)=>{
-          delete main[message.channel.id];
-          const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
-          delete sub[guild];
-          fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-          delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
-          delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
-  
-          client.channels.cache.get(message.channel.id).send({
-            embeds:[{
-              author: {
-                name: "ひろゆきの体調が悪化しました",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }]
-          })
-          .catch(()=>{})
-        });
-    }
-  
     const reply_1 = {
       "嘘": random(["何だろう。噓つくのやめてもらっていいですか？", `嘘は嘘であると見抜ける人でないと(${message.guild.name}を使うのは)難しい`,"本当つまんないっすよ",]),
       "写像": "「写像」？なんすか「写像」って...",
@@ -95,21 +60,63 @@ async function hiroyuki(message,client){
       "それが偉いんですか？",
       "ダメだこりゃ（笑）",
       "はい論破"
-    ]
+    ];
+
+    const legend = [
+      "反省はしているが(反省が)見えない自分に対しても反省している",
+      `今のままではいけないと思います。だからこそ${message.guild.name}は今のままではいけないと思っている`,
+      `いま${message.author.username}がおっしゃる通りとお申しあげました通りでありますし、`
+    ];
+
+    const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
+
+    if(rate(false,true,0.01)){
+      return await webhooks.send({
+        content: `${random(legend)}`,
+        username: "小泉進次郎",
+        avatarURL: "https;//cdn.taka.ml/images/koizumi.png"
+      }).catch((error)=>{
+        delete main[message.channel.id];
+        const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
+        delete sub[guild];
+        fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
+        fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
+        delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
+        delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
+  
+        client.channels.cache.get(message.channel.id).send({
+          embeds:[{
+            author: {
+              name: "ひろゆきの体調が悪化しました",
+              icon_url: "https://cdn.taka.ml/images/error.png",
+            },
+            color: "RED",
+            description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
+          }]
+        })
+        .catch(()=>{})
+      })
+    }
 
     let content;
-
     if(Object.keys(reply_1).find(key=> message.content.match(key))){
       content = reply_1[Object.keys(reply_1).find(key=> message.content.match(key))]
     }else if(message.content.match("@everyone")||message.content.match("@here")){
       content = random(["全体メンションする人って相当頭悪いんですよね…", "なんだろう、全体メンションするのやめてもらっていいですか？"])
     }else{
-      content = random(rate(reply_2,reply_3,0.03))
+      content = random(rate(reply_2,reply_3,0.05))
     }
 
-    const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
     await webhooks.send({
-      content : `${content}`
+      content: `${content}`,
+      username: "ひろゆき",
+      avatarURL: "https;//cdn.taka.ml/images/hiroyuki.png"
     }).catch((error)=>{
       delete main[message.channel.id];
       const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
