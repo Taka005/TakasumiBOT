@@ -3,7 +3,6 @@ async function hiroyuki(message,client){
     const sub = require("../../data/hiroyuki/sub.json");
     const { random, rate } = require("../lib/random");
     const { WebhookClient } = require("discord.js");
-    const fs = require("fs");
 
     if(
       !message.channel.type === "GUILD_TEXT"||
@@ -68,6 +67,13 @@ async function hiroyuki(message,client){
       `いま${message.author.username}がおっしゃる通りとお申しあげました通りでありますし、`
     ];
 
+    const kinnikun = [
+      "やー！",
+      "パワー!!",
+      "おい！俺の筋肉！",
+      "つらいことは必ずあるが、経験することで必ず成長する。"
+    ];
+
     const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
 
     if(rate(false,true,0.01)){
@@ -80,9 +86,9 @@ async function hiroyuki(message,client){
       })
     }else if(rate(false,true,0.01)){
       return await webhooks.send({
-        content: `${random(legend)}`,
-        username: "小泉進次郎",
-        avatarURL: "https://cdn.taka.ml/images/koizumi.png"
+        content: `${random(kinnikun)}`,
+        username: "なかやまきんに君",
+        avatarURL: "https://cdn.taka.ml/images/kinnikun.png"
       }).catch((error)=>{
         err(message,client,error);
       })
@@ -94,7 +100,7 @@ async function hiroyuki(message,client){
     }else if(message.content.match("@everyone")||message.content.match("@here")){
       content = random(["全体メンションする人って相当頭悪いんですよね…", "なんだろう、全体メンションするのやめてもらっていいですか？"])
     }else{
-      content = random(rate(reply_2,reply_3,0.05))
+      content = random(rate(reply_2,reply_3,0.1))
     }
 
     await webhooks.send({
@@ -107,6 +113,10 @@ async function hiroyuki(message,client){
 }
 
 function err(message,client,error){
+  const main = require("../../data/hiroyuki/main.json");
+  const sub = require("../../data/hiroyuki/sub.json");
+  const fs = require("fs");
+  
   delete main[message.channel.id];
   const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
   delete sub[guild];
