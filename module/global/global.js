@@ -18,7 +18,7 @@ async function global(message,client){
     mute_server[message.guild.id]||
     mute_user[message.author.id]||
     message.content.length > 300||
-    await spam(message)
+    spam(message)
   ){
     return message.react("❌")
       .catch(()=>{}) 

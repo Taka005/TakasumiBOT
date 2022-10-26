@@ -1,3 +1,5 @@
+const time;
+
 async function hiroyuki(message,client){
     const main = require("../../data/hiroyuki/main.json");
     const sub = require("../../data/hiroyuki/sub.json");
@@ -10,6 +12,39 @@ async function hiroyuki(message,client){
       message.author.bot||
       !main[message.channel.id]
     ) return;
+
+    if(new Date() - time[message.author.id] <= 1000){
+      time[message.author.id] = new Date();
+      const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
+      return await webhooks.send({content : "何だろう。スパムやめてもらっていいですか？"})
+        .catch((error)=>{
+          delete main[message.channel.id];
+          const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
+          delete sub[guild];
+          fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
+          fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
+          delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
+          delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
+  
+          client.channels.cache.get(message.channel.id).send({
+            embeds:[{
+              author: {
+                name: "ひろゆきの体調が悪化しました",
+                icon_url: "https://cdn.taka.ml/images/error.png",
+              },
+              color: "RED",
+              description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
+              fields: [
+                {
+                  name: "エラーコード",
+                  value: `\`\`\`${error}\`\`\``
+                }
+              ]
+            }]
+          })
+          .catch(()=>{})
+        });
+    }
   
     const reply_1 = {
       "嘘": random(["何だろう。噓つくのやめてもらっていいですか？", `嘘は嘘であると見抜ける人でないと(${message.guild.name}を使うのは)難しい`,"本当つまんないっすよ",]),
@@ -43,7 +78,9 @@ async function hiroyuki(message,client){
       "根拠なしに話すのやめてもらえますか？",
       "そういう人って一定数いますよね",
       "それって意味がないと思うんです",
-      "なんか言いました？"
+      "なんか言いました？",
+      "そうなんですねw",
+      "反論ありますか？"
     ];
 
     const reply_3 = [
@@ -57,8 +94,7 @@ async function hiroyuki(message,client){
       "はいかいいえで答えてください。",
       "それが偉いんですか？",
       "ダメだこりゃ（笑）",
-      "はい論破",
-      "反論ありますか？"
+      "はい論破"
     ]
 
     let content;
