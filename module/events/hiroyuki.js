@@ -74,7 +74,7 @@ async function hiroyuki(message,client){
       return await webhooks.send({
         content: `${random(legend)}`,
         username: "小泉進次郎",
-        avatarURL: "https;//cdn.taka.ml/images/koizumi.png"
+        avatarURL: "https://cdn.taka.ml/images/koizumi.png"
       }).catch((error)=>{
         delete main[message.channel.id];
         const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
@@ -116,7 +116,7 @@ async function hiroyuki(message,client){
     await webhooks.send({
       content: `${content}`,
       username: "ひろゆき",
-      avatarURL: "https;//cdn.taka.ml/images/hiroyuki.png"
+      avatarURL: "https://cdn.taka.ml/images/hiroyuki.png"
     }).catch((error)=>{
       delete main[message.channel.id];
       const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
