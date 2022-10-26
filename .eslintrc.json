@@ -17,7 +17,7 @@
       "eqeqeq":"error",
       "no-loss-of-precision":"error",
       "no-const-assign":"error",
-      "no-dupe-else-if":"error",
+      "no-dupe-else-if":"warn",
       "no-unreachable":"error",
       "no-useless-return":"error",
       "no-implicit-coercion":"error",
