@@ -3,4 +3,16 @@ function random(arr){
   return arr[number];
 }
 
-module.exports = random
+function rate(op_1,op_2,number){
+  const n = Math.random();
+  if(n < number){
+    return op_2;
+  }else{
+    return op_1;
+  }
+}
+
+module.exports = {
+  random,
+  rate
+}

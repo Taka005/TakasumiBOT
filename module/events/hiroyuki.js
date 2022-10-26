@@ -1,7 +1,7 @@
 async function hiroyuki(message,client){
     const main = require("../../data/hiroyuki/main.json");
     const sub = require("../../data/hiroyuki/sub.json");
-    const random = require("../lib/random");
+    const { random, rate } = require("../lib/random");
     const { WebhookClient } = require("discord.js");
     const fs = require("fs");
 
@@ -12,12 +12,16 @@ async function hiroyuki(message,client){
     ) return;
   
     const reply_1 = {
-      "嘘": random(["何だろう。噓つくのやめてもらっていいですか？", `嘘は嘘であると見抜ける人でないと(${message.guild.name}を使うのは)難しい`]),
+      "嘘": random(["何だろう。噓つくのやめてもらっていいですか？", `嘘は嘘であると見抜ける人でないと(${message.guild.name}を使うのは)難しい`,"本当つまんないっすよ",]),
       "写像": "「写像」？なんすか「写像」って...",
-      "ごめん": "誰に謝ってんの？",
-      "すいません": random(["「すいません」？なんすか「すいません」って...", "何だろう。すみませんって言ってもらってもいいですか？"]),
-      "すみません": "誰に謝ってんの？",
-      "データ": "データなんかねえよ"
+      "ごめん": random(["誰に謝ってんの？","さっきと言ってること違いません？","それって矛盾してますよね？"]),
+      "すいません": random(["「すいません」？なんすか「すいません」って...", "何だろう。すみませんって言ってもらってもいいですか？","本当つまんないっすよ"]),
+      "すみません": random(["誰に謝ってんの？","さっきと言ってること違いません？","それって矛盾してますよね？"]),
+      "データ": "データなんかねえよ",
+      "学校":"学校でしか学べない価値ってなんだろう、、と思ってみると、「役に立たないことに異議を唱えずにやり抜くこと」 なんじゃないかと思ったわけです",
+      "時計":"正しい時間を知るには時計二つではダメなんすよね",
+      "事故物件":"事故物件っていいですよね。 事故物件でビデオと回しててワンちゃん何か撮れたら YouTubeとかですげー再生数伸びるんで",
+      "プログラミング":"目の前にわからないことがあったときに、先生に聞く能力よりも、ググって調べる能力が高くないと、プログラミングはできません"
     };
 
     const reply_2 = [
@@ -45,6 +49,7 @@ async function hiroyuki(message,client){
     const reply_3 = [
       "人間って基本死ぬまでの暇つぶしなんですよ", 
       "頭悪い人はそういう思想になりますよね",
+      "嘘は嘘であると見抜ける人でないと(TakasumiBOTを使うのは)難しい",
       "たいていのことは検索すれば答えが出てくるわけで、個人の知識として蓄える必要があるモノってなかなか無いんですよね",
       "必要なプライドなんてありません！",
       "本当つまんないっすよ",
@@ -63,7 +68,7 @@ async function hiroyuki(message,client){
     }else if(message.content.match("@everyone")||message.content.match("@here")){
       content = random(["全体メンションする人って相当頭悪いんですよね…", "なんだろう、全体メンションするのやめてもらっていいですか？"])
     }else{
-      content = random(random([reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_2,reply_3]))
+      content = random(rate(reply_2,reply_3,0.03))
     }
 
     const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
@@ -81,11 +86,11 @@ async function hiroyuki(message,client){
       client.channels.cache.get(message.channel.id).send({
         embeds:[{
           author: {
-            name: "ひろゆきの体調が悪化(エラー)しました",
+            name: "ひろゆきの体調が悪化しました",
             icon_url: "https://cdn.taka.ml/images/error.png",
           },
           color: "RED",
-          description: "ひろゆきの体調が悪化(エラー)したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
+          description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
           fields: [
             {
               name: "エラーコード",
