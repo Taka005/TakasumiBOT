@@ -26,7 +26,6 @@
       "no-irregular-whitespace":"error",
       "no-constant-binary-expression":"error",
       "node/no-unsupported-features":"error",
-      "node/no-deprecated-api":"none",
       "node/no-missing-require":"error",
       "node/no-unpublished-require":"error",
       "node/exports-style": ["error", "module.exports"]
