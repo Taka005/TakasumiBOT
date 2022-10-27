@@ -15,7 +15,7 @@ async function top(interaction){
 
     const link = new MessageButton()
       .setLabel("メッセージへ飛ぶ")
-      .setURL(`${msg.link}`)
+      .setURL(`${msg.url}`)
       .setStyle("LINK")
 
     await interaction.editReply({
