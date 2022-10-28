@@ -2,6 +2,7 @@ async function status(interaction,client){
   const os = require("os");
   const fetch = require("node-fetch");
   const global = require("../../data/global/main.json");
+  const hiroyuki = require("../../data/hiroyuki/main.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "status"){
 
@@ -9,7 +10,7 @@ async function status(interaction,client){
     await interaction.editReply({
       embeds:[{
         color: "BLUE",
-        title: "計測中...",
+        description: "計測中...",
         timestamp: new Date(),
       }]
     });
@@ -41,11 +42,11 @@ async function status(interaction,client){
           },
           {
             name: "Discord",
-            value: `Ping:${client.ws.ping}㍉秒\nGC登録数:${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
+            value: `Ping:${client.ws.ping}㍉秒\nGC登録数:${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数:${Object.keys(hiroyuki).length}\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
           }
         ]
       }]
-    }).catch((error)=>interaction.reply({
+    }).catch((error)=>interaction.editReply({
       embeds:[{
         author: {
           name: "正常に送信できませんでした",

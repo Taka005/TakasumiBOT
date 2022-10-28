@@ -88,6 +88,9 @@ async function reload(interaction){
       delete require.cache[require.resolve("../../data/global/main.json")];
       delete require.cache[require.resolve("../../data/global/sub.json")];
 
+      delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
+      delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
+
       interaction.reply({
         embeds:[{
           color: "GREEN",

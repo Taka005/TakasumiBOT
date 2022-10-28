@@ -5,7 +5,6 @@ async function global(message,client){
   const sub = require("../../data/global/sub.json");
   const spam = require("../lib/spam");
   const { WebhookClient } = require("discord.js");
-  const fs = require("fs");
   
   if(
     !message.channel.type === "GUILD_TEXT"||
@@ -18,7 +17,7 @@ async function global(message,client){
     mute_server[message.guild.id]||
     mute_user[message.author.id]||
     message.content.length > 300||
-    await spam(message)
+    spam(message)
   ){
     return message.react("❌")
       .catch(()=>{}) 
@@ -63,32 +62,7 @@ async function global(message,client){
             }
           ]      
         }).catch((error)=>{
-          delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-          delete sub[guild];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-          delete require.cache[require.resolve("../../data/global/sub.json")];
-          delete require.cache[require.resolve("../../data/global/main.json")];
-
-          client.channels.cache.get(channels).send({
-            embeds:[{
-              author: {
-                name: "グローバルチャットでエラーが発生しました",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }]
-          })
-          .catch(()=>{})
-
+          err(channels,client,error);
         });
       });
       message.react("✅")
@@ -132,32 +106,7 @@ async function global(message,client){
             }
           ]
         }).catch((error)=>{
-          delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-          delete sub[guild];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-          delete require.cache[require.resolve("../../data/global/sub.json")];
-          delete require.cache[require.resolve("../../data/global/main.json")];
-
-          client.channels.cache.get(channels).send({
-            embeds:[{
-              author: {
-                name: "グローバルチャットでエラーが発生しました",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }]
-          })
-          .catch(()=>{})
-
+          err(channels,client,error);
         });
       });
       message.react("✅")
@@ -200,32 +149,7 @@ async function global(message,client){
             }
           ]
         }).catch((error)=>{
-          delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-          delete sub[guild];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-          delete require.cache[require.resolve("../../data/global/sub.json")];
-          delete require.cache[require.resolve("../../data/global/main.json")];
-
-          client.channels.cache.get(channels).send({
-            embeds:[{
-              author: {
-                name: "グローバルチャットでエラーが発生しました",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }]
-          })
-          .catch(()=>{})
-
+          err(channels,client,error);
         });
       });
       message.react("✅")
@@ -267,32 +191,7 @@ async function global(message,client){
             }
           ]      
         }).catch((error)=>{
-          delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-          delete sub[guild];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-          delete require.cache[require.resolve("../../data/global/sub.json")];
-          delete require.cache[require.resolve("../../data/global/main.json")];
-
-          client.channels.cache.get(channels).send({
-            embeds:[{
-              author: {
-                name: "グローバルチャットでエラーが発生しました",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }]
-          })
-          .catch(()=>{})
-
+          err(channels,client,error);
         });
       });
       message.react("✅")
@@ -335,32 +234,7 @@ async function global(message,client){
             }
           ]
         }).catch((error)=>{
-          delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-          delete sub[guild];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-          delete require.cache[require.resolve("../../data/global/sub.json")];
-          delete require.cache[require.resolve("../../data/global/main.json")];
-
-          client.channels.cache.get(channels).send({
-            embeds:[{
-              author: {
-                name: "グローバルチャットでエラーが発生しました",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }]
-          })
-          .catch(()=>{})
-
+          err(channels,client,error);
         });
       });
       message.react("✅")
@@ -402,38 +276,45 @@ async function global(message,client){
             }
           ]
         }).catch((error)=>{
-          delete main[channels];
-          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-          delete sub[guild];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-          delete require.cache[require.resolve("../../data/global/sub.json")];
-          delete require.cache[require.resolve("../../data/global/main.json")];
-
-          client.channels.cache.get(channels).send({
-            embeds:[{
-              author: {
-                name: "グローバルチャットでエラーが発生しました",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }]
-          })
-          .catch(()=>{})
-          
+          err(channels,client,error);        
         });
       });
       message.react("✅")
         .catch(()=>{});
     }
   }
+}
+
+function err(channels,client,error){
+  const main = require("../../data/global/main.json");
+  const sub = require("../../data/global/sub.json");
+  const fs = require("fs");
+  
+  delete main[channels];
+  const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+  delete sub[guild];
+  fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+  fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+  delete require.cache[require.resolve("../../data/global/sub.json")];
+  delete require.cache[require.resolve("../../data/global/main.json")];
+
+  client.channels.cache.get(channels).send({
+    embeds:[{
+      author: {
+        name: "グローバルチャットでエラーが発生しました",
+        icon_url: "https://cdn.taka.ml/images/error.png",
+      },
+      color: "RED",
+      description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
+      fields: [
+        {
+          name: "エラーコード",
+          value: `\`\`\`${error}\`\`\``
+        }
+      ]
+    }]
+  })
+  .catch(()=>{})
 }
 
 module.exports = global

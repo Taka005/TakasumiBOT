@@ -79,6 +79,14 @@ async function ready(client){
       .setName("reload")
       .setDescription("BOTのリロードをします")  
 
+    const hiroyuki = new SlashCommandBuilder()
+      .setName("hiroyuki")
+      .setDescription("ひろゆきを召喚します")  
+
+    const top = new SlashCommandBuilder()
+      .setName("top")
+      .setDescription("実行したチャンネルの1番最初のメッセージのリンクを表示します")  
+
     const auth = new SlashCommandBuilder()
       .setName("auth")
       .setDescription("簡易的なロール認証機能です")
@@ -487,6 +495,8 @@ async function ready(client){
             draw,
             news,
             reload,
+            hiroyuki,
+            top,
             auth,
             guideline,
             ticket,

@@ -17,7 +17,7 @@
       "eqeqeq":"error",
       "no-loss-of-precision":"error",
       "no-const-assign":"error",
-      "no-dupe-else-if":"error",
+      "no-dupe-else-if":"off",
       "no-unreachable":"error",
       "no-useless-return":"error",
       "no-implicit-coercion":"error",
@@ -26,8 +26,8 @@
       "no-irregular-whitespace":"error",
       "no-constant-binary-expression":"error",
       "node/no-unsupported-features":"error",
-      "node/no-deprecated-api":"warn",
       "node/no-missing-require":"error",
+      "node/no-deprecated-api":"warn",
       "node/no-unpublished-require":"error",
       "node/exports-style": ["error", "module.exports"]
     }
