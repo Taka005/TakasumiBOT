@@ -29,7 +29,9 @@ async function auth(interaction){
     })
       .then(async()=>{
         interaction.deferReply()
-          .then(()=>interaction.deleteReply())
+          .then(()=>{
+            interaction.deleteReply()
+          })
       })
       .catch(async(error)=>{
         await interaction.reply({ 

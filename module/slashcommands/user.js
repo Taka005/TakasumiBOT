@@ -59,22 +59,24 @@ async function user(interaction,client){
               }
             ]
           }]
-        }).catch((error)=>interaction.reply({
-          embeds:[{
-            author: {
-              name: "正常に送信できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
-            },
-            color: "RED",
-            fields: [
-              {
-                name: "エラーコード",
-                value: `\`\`\`${error}\`\`\``
-              }
-            ]
-          }],
-          ephemeral:true
-        }));
+        }).catch((error)=>{
+          interaction.reply({
+            embeds:[{
+              author: {
+                name: "正常に送信できませんでした",
+                icon_url: "https://cdn.taka.ml/images/error.png",
+              },
+              color: "RED",
+              fields: [
+                {
+                  name: "エラーコード",
+                  value: `\`\`\`${error}\`\`\``
+                }
+              ]
+            }],
+            ephemeral:true
+          })
+        });
         return;
       }
   
@@ -147,23 +149,24 @@ async function user(interaction,client){
                 }
               ]
             }]
-          }).catch((error)=>interaction.reply({
-            embeds:[{
-              author: {
-                name: "正常に送信できませんでした",
-                icon_url: "https://cdn.taka.ml/images/error.png",
-              },
-              color: "RED",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }],
-            ephemeral:true
-          }));
-          
+          }).catch((error)=>{
+            interaction.reply({
+              embeds:[{
+                author: {
+                  name: "正常に送信できませんでした",
+                  icon_url: "https://cdn.taka.ml/images/error.png",
+                },
+                color: "RED",
+                fields: [
+                  {
+                    name: "エラーコード",
+                    value: `\`\`\`${error}\`\`\``
+                  }
+                ]
+              }],
+              ephemeral:true
+            })
+          });   
         }else{
           try{
             const users = await client.users.fetch(id[0]);
