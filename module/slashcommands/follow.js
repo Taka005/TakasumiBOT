@@ -1,4 +1,4 @@
-async function follow(interaction){
+async function follow(interaction,client){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "follow"){
 
@@ -29,7 +29,9 @@ async function follow(interaction){
       ephemeral:true
     });
 
-    await interaction.channel.addFollower("942269941430763550", "TakasumiBOTアナウンス")
+    const ch = await client.channels.cache.get("942269941430763550");
+  
+    await ch.addFollower(interaction.channel, "TakasumiBOTアナウンス")
       .then(()=>{
         interaction.reply({
           content:`${interaction.member}`,
