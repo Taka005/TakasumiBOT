@@ -30,6 +30,18 @@ async function slowmode(interaction){
       ephemeral:true
     });
 
+    if(time < 0 || time > 21600 ) return interaction.reply({
+      embeds:[{
+        author: {
+          name: "引数が無効です",
+          icon_url: "https://cdn.taka.ml/images/error.png",
+        },
+        color: "RED",
+        description: "削除するメッセージの数は0秒以上、21600秒以下にする必要があります"
+      }],
+      ephemeral:true
+    });
+
     await interaction.channel.setRateLimitPerUser(time)
       .then(()=>{
         interaction.reply({
