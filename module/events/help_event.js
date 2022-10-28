@@ -175,8 +175,8 @@ async function help_event(interaction){
             value: "簡易的なお問合せ(チケット)機能が使えます\n ※これを実行するには、`管理者`の権限が必要です"
           },
           {
-            name: "/export",
-            value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
+            name: "/slowmode",
+            value: "チャンネルに低速モードを設定します"
           }
         ]
       }],
@@ -295,6 +295,10 @@ async function help_event(interaction){
           {
             name: "/follow",
             value: "BOTのアナウンスチャンネルを追加します"
+          },
+          {
+            name: "/export",
+            value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
           }
         ]
       }],

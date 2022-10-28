@@ -60,7 +60,7 @@ async function follow(interaction,client){
               ]
             }],
             ephemeral:true
-          });
+        });
       })
   }
 }
