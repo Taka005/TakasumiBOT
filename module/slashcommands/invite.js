@@ -9,7 +9,7 @@ async function invite(interaction){
 
     const support = new MessageButton()
       .setLabel("サポート")
-      .setURL("https://discord.gg/GPs3npB63m")
+      .setURL("https://discord.taka.ml/")
       .setStyle("LINK")
 
     await interaction.reply({

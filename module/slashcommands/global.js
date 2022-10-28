@@ -99,7 +99,6 @@ async function global(interaction){
           });
         })
         .catch(async()=>{
-
           delete main[interaction.channel.id];
           delete sub[interaction.guild.id];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");

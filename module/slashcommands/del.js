@@ -50,23 +50,25 @@ async function del(interaction){
           color: "GREEN"
         }]
       }))
-      .catch((error)=>interaction.reply({
-        embeds:[{
-          author: {
-            name: "削除できませんでした",
-            icon_url: "https://cdn.taka.ml/images/error.png",
-          },
-          color: "RED",
-          description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,
-          fields: [
-            {
-              name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
-            }
-          ]
-        }],
-        ephemeral:true
-      }));
+      .catch((error)=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "削除できませんでした",
+              icon_url: "https://cdn.taka.ml/images/error.png",
+            },
+            color: "RED",
+            description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
+          }],
+          ephemeral:true
+        })
+      });
   }
 }
   

@@ -55,14 +55,14 @@ async function qr(interaction){
         .catch(()=>{})
 
       if(qr_response[0].symbol[0].error) return await interaction.editReply({
-          embeds:[{
-            author: {
-              name: "QRコードが読み取れません",
-              icon_url: "https://cdn.taka.ml/images/error.png",
-            },
-            color: "RED",
-            description: "QRコードはURLかつ、読み取れる必要があります"
-          }]
+        embeds:[{
+          author: {
+            name: "QRコードが読み取れません",
+            icon_url: "https://cdn.taka.ml/images/error.png",
+          },
+          color: "RED",
+          description: "QRコードはURLかつ、読み取れる必要があります"
+        }]
       });
 
       await interaction.editReply({

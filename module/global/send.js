@@ -17,8 +17,8 @@ async function send(message){
   await fetch("https://ugc.renorari.net/api/v1/messages",{
     "method": "POST",
     "headers": {
-        "Authorization": `Bearer ${process.env.UGC_KEY}`,
-        "Content-Type": "application/json"
+      "Authorization": `Bearer ${process.env.UGC_KEY}`,
+      "Content-Type": "application/json"
     },
     "body": JSON.stringify(
       {

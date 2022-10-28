@@ -18,12 +18,12 @@ async function safeweb(interaction){
 
     await interaction.deferReply();
     try{
-      fetch(`https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`)
+      await fetch(`https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`)
         .then(res => res.text())
-        .then(norton =>{
+        .then(async(norton) =>{
 
         if(norton.indexOf("［注意］") !== -1){
-          interaction.followUp({
+          await interaction.followUp({
             embeds:[{
               author: {
                 name: "このサイトは注意が必要です",
@@ -38,7 +38,7 @@ async function safeweb(interaction){
             }]
           });
         }else if(norton.indexOf("警告") !== -1){
-          interaction.followUp({
+          await interaction.followUp({
             embeds:[{
               author: {
                 name: "このサイトは危険です",
@@ -53,7 +53,7 @@ async function safeweb(interaction){
             }]
           })
         }else if(norton.indexOf("未評価") !== -1){
-          interaction.followUp({
+          await interaction.followUp({
             embeds:[{
               author: {
                 name: "このサイトは評価されていません",
@@ -68,7 +68,7 @@ async function safeweb(interaction){
             }]
           })
         }else{
-          interaction.followUp({
+          await interaction.followUp({
             embeds:[{
               author: {
                 name: "このサイトは安全です",
@@ -85,7 +85,7 @@ async function safeweb(interaction){
         }
       });
     }catch{
-      interaction.followUp({
+      await interaction.followUp({
         embeds:[{
           author: {
             name: "安全性を評価できませんでした",
