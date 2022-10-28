@@ -177,6 +177,15 @@ async function ready(client){
           .setDescription("削除数")
           .setRequired(true))
 
+    const slowmode = new SlashCommandBuilder()
+      .setName("slowmode")
+      .setDescription("チャンネルに低速モードを設定します")
+      .addIntegerOption(option =>
+        option
+          .setName("time")
+          .setDescription("設定する秒数")
+          .setRequired(true))
+
     const user = new SlashCommandBuilder()
       .setName("user")
       .setDescription("指定したユーザーの情報を表示します")
@@ -512,6 +521,7 @@ async function ready(client){
             wiki,
             channel,
             del,
+            slowmode,
             output,
             invite,
             user,
