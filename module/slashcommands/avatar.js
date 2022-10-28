@@ -5,22 +5,24 @@ async function avatar(interaction,client){
 
     if(!user_id){
       await interaction.reply(interaction.member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png")
-        .catch((error)=>interaction.reply({
-          embeds:[{
-            author: {
-              name: "正常に送信できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
-            },
-            color: "RED",
-            fields: [
-              {
-                name: "エラーコード",
-                value: `\`\`\`${error}\`\`\``
-              }
-            ]
-          }],
-          ephemeral:true
-        }));
+        .catch((error)=>{
+          interaction.reply({
+            embeds:[{
+              author: {
+                name: "正常に送信できませんでした",
+                icon_url: "https://cdn.taka.ml/images/error.png",
+              },
+              color: "RED",
+              fields: [
+                {
+                  name: "エラーコード",
+                  value: `\`\`\`${error}\`\`\``
+                }
+              ]
+            }],
+            ephemeral:true
+          })
+        });
       return;
     }
   

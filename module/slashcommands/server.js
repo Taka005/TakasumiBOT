@@ -40,7 +40,8 @@ async function server(interaction){
           }
         ]
       }]
-    }).catch((error)=>interaction.reply({
+    }).catch(async(error)=>{
+      await interaction.reply({
         embeds:[{
           author: {
             name: "エラーが発生しました",
@@ -56,7 +57,8 @@ async function server(interaction){
           ]
         }],
         ephemeral:true
-      }));
+      })
+    });
   }
 }
     
