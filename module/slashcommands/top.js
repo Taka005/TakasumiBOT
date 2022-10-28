@@ -21,7 +21,7 @@ async function top(interaction){
     await interaction.deferReply();
     await interaction.editReply({
       embeds: [{
-        color:"BLUE",
+        color:"GREEN",
         description: "取得中..."
       }]
     });
@@ -36,7 +36,7 @@ async function top(interaction){
 
     await interaction.editReply({
       embeds: [{
-        color:"BLUE",
+        color:"GREEN",
         title:"最初のメッセージ",
         description: "下のリンクから飛べます"
       }],
