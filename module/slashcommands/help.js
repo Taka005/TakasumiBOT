@@ -52,7 +52,8 @@ async function help(interaction){
             name: "/short",
             value: "短縮URLを作成します"
           }
-      ]}],
+        ]
+      }],
       components: [
         new MessageActionRow()
           .addComponents(before)

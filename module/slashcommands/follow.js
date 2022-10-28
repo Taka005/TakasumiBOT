@@ -34,7 +34,6 @@ async function follow(interaction,client){
     await ch.addFollower(interaction.channel, "TakasumiBOTアナウンス")
       .then(()=>{
         interaction.reply({
-          content:`${interaction.member}`,
           embeds:[{
             author: {
               name: `アナウンスチャンネルを追加しました`,
