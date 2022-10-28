@@ -291,6 +291,10 @@ async function help_event(interaction){
           {
             name: "/qr",
             value: "QRコードを生成、または読み取ります"
+          },
+          {
+            name: "/follow",
+            value: "BOTのアナウンスチャンネルを追加します"
           }
         ]
       }],

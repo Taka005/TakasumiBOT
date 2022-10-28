@@ -83,6 +83,10 @@ async function ready(client){
       .setName("hiroyuki")
       .setDescription("ひろゆきを召喚します")  
 
+    const follow = new SlashCommandBuilder()
+      .setName("follow")
+      .setDescription("BOTのアナウンスチャンネルを追加します")  
+
     const top = new SlashCommandBuilder()
       .setName("top")
       .setDescription("実行したチャンネルの1番最初のメッセージのリンクを表示します")  
@@ -496,6 +500,7 @@ async function ready(client){
             news,
             reload,
             hiroyuki,
+            follow,
             top,
             auth,
             guideline,
