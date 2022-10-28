@@ -37,16 +37,16 @@ async function help(interaction){
             value: "GIF画像を検索し、表示します"
           },
           {
-            name: "/del",
-            value: "指定された数だけ、メッセージを一括で削除します\n ※二週間前のメッセージは削除できません、\nまたこれを実行するには、`メッセージを管理`の権限が必要です"
-          },
-          {
             name: "/embed",
             value: "埋め込みを簡単に作成し、表示できます"
           },
           {
             name: "/wiki",
             value: "Wikipediaの検索をします"
+          },
+          {
+            name: "/hiroyuki",
+            value: "ひろゆきを召喚します"
           },
           {
             name: "/short",
