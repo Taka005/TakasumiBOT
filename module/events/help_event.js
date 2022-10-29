@@ -3,9 +3,8 @@ async function help_event(interaction){
   if(!interaction.isButton()) return;
   
   const id = interaction.customId.split("_");
-
   //1ページ目
-  if(interaction.customId === "page_1"){
+  if(interaction.customId.startsWith("page_1")){
     if(await check(interaction,Number(id[2]))) return;
 
     const before = new MessageButton()
@@ -70,7 +69,7 @@ async function help_event(interaction){
     await interaction.deferUpdate({});
   }
   //2ページ目
-  if(interaction.customId === "page_2"){
+  if(interaction.customId.startsWith("page_2")){
     if(await check(interaction,Number(id[2]))) return;
 
     const before = new MessageButton()
@@ -135,7 +134,7 @@ async function help_event(interaction){
     await interaction.deferUpdate({});
   }
   //3ページ目
-  if(interaction.customId === "page_3"){
+  if(interaction.customId.startsWith("page_3")){
     if(await check(interaction,Number(id[2]))) return;
 
     const before = new MessageButton()
@@ -200,7 +199,7 @@ async function help_event(interaction){
     await interaction.deferUpdate({});
   }
   //4ページ目
-  if(interaction.customId === "page_4"){
+  if(interaction.customId.startsWith("page_4")){
     if(await check(interaction,Number(id[2]))) return;
 
     const before = new MessageButton()
@@ -265,7 +264,7 @@ async function help_event(interaction){
     await interaction.deferUpdate({});
   }
 
-  if(interaction.customId === "page_5"){
+  if(interaction.customId.startsWith("page_5")){
     if(await check(interaction,Number(id[2]))) return;
 
     const before = new MessageButton()
