@@ -5,7 +5,7 @@ async function help_event(interaction){
   const id = interaction.customId.split("_");
   //1ページ目
   if(interaction.customId.startsWith("page_1")){
-    if(await check(interaction,Number(id[2]))) return;
+    if(await check(interaction,id[2])) return;
 
     const before = new MessageButton()
       .setStyle("PRIMARY")
@@ -70,7 +70,7 @@ async function help_event(interaction){
   }
   //2ページ目
   if(interaction.customId.startsWith("page_2")){
-    if(await check(interaction,Number(id[2]))) return;
+    if(await check(interaction,id[2])) return;
 
     const before = new MessageButton()
     .setStyle("PRIMARY")
@@ -135,7 +135,7 @@ async function help_event(interaction){
   }
   //3ページ目
   if(interaction.customId.startsWith("page_3")){
-    if(await check(interaction,Number(id[2]))) return;
+    if(await check(interaction,id[2])) return;
 
     const before = new MessageButton()
     .setStyle("PRIMARY")
@@ -200,7 +200,7 @@ async function help_event(interaction){
   }
   //4ページ目
   if(interaction.customId.startsWith("page_4")){
-    if(await check(interaction,Number(id[2]))) return;
+    if(await check(interaction,id[2])) return;
 
     const before = new MessageButton()
     .setStyle("PRIMARY")
@@ -265,7 +265,7 @@ async function help_event(interaction){
   }
 
   if(interaction.customId.startsWith("page_5")){
-    if(await check(interaction,Number(id[2]))) return;
+    if(await check(interaction,id[2])) return;
 
     const before = new MessageButton()
     .setStyle("PRIMARY")
@@ -327,7 +327,7 @@ async function help_event(interaction){
 }
 
 async function check(interaction,id){
-  if(id === interaction.member.user.id){
+  if(id !== interaction.member.user.id){
     await interaction.reply({
       embeds:[{
         author: {
@@ -339,9 +339,9 @@ async function check(interaction,id){
       }],
       ephemeral:true
     });
-    return false
+    return true
   }
-  return true
+  return false
 }
     
 module.exports = help_event
