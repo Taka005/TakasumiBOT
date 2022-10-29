@@ -23,27 +23,29 @@ async function news(interaction){
       .setLabel("1ページ")
       .setCustomId("news")
       .setDisabled(true)
-
-    await interaction.reply({
-      embeds:[{
-        title: data.articles[0].title,
-        url: data.articles[0].url,
-        color: "GREEN",
-        description: data.articles[0].description,
-        image: {
-          url: data.articles[0].urlToImage
-        },
-        footer: {
-          text: `${data.articles[0].publishedAt} | ${data.articles[0].source.name}`
-        },
-      }],
-      components: [
-        new MessageActionRow()
-          .addComponents(before)
-          .addComponents(page)
-          .addComponents(next)
-      ]
-    }).catch(async()=>{
+    
+    try{
+      await interaction.reply({
+        embeds:[{
+          title: data.articles[0].title,
+          url: data.articles[0].url,
+          color: "GREEN",
+          description: data.articles[0].description,
+          image: {
+            url: data.articles[0].urlToImage
+          },
+          footer: {
+            text: `${data.articles[0].publishedAt} | ${data.articles[0].source.name}`
+          },
+        }],
+        components: [
+          new MessageActionRow()
+            .addComponents(before)
+            .addComponents(page)
+            .addComponents(next)
+        ]
+      })
+    }catch{
       await interaction.reply({
         embeds:[{
           author: {
@@ -60,7 +62,7 @@ async function news(interaction){
             .addComponents(next)
         ]
       })
-    })
+    }
   }
 }
 
