@@ -1,5 +1,5 @@
 async function help_event(interaction){
-  const {MessageButton, MessageActionRow} = require("discord.js");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isButton()) return;
   
   const id = interaction.customId.split("_");
@@ -8,9 +8,9 @@ async function help_event(interaction){
     if(await check(interaction,Number(id[2]))) return;
 
     const before = new MessageButton()
-    .setStyle("PRIMARY")
-    .setLabel("前")
-    .setCustomId(`page_5_${id[2]}`)
+      .setStyle("PRIMARY")
+      .setLabel("前")
+      .setCustomId(`page_5_${id[2]}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
@@ -339,9 +339,9 @@ async function check(interaction,id){
       }],
       ephemeral:true
     });
-    return true
+    return false
   }
-  return false
+  return true
 }
     
 module.exports = help_event
