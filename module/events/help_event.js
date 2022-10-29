@@ -1,17 +1,22 @@
 async function help_event(interaction){
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isButton()) return;
+  
+  const id = interaction.customId.split("_");
+
   //1ページ目
   if(interaction.customId === "page_1"){
+    if(await check(interaction,Number(id[2]))) return;
+
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId("page_5")
+    .setCustomId(`page_5_${interaction.member.user.id}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId("page_2")
+      .setCustomId(`page_2_${interaction.member.user.id}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -66,15 +71,17 @@ async function help_event(interaction){
   }
   //2ページ目
   if(interaction.customId === "page_2"){
+    if(await check(interaction,Number(id[2]))) return;
+
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId("page_1")
+    .setCustomId(`page_1_${interaction.member.user.id}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId("page_3")
+      .setCustomId(`page_3_${interaction.member.user.id}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -129,15 +136,17 @@ async function help_event(interaction){
   }
   //3ページ目
   if(interaction.customId === "page_3"){
+    if(await check(interaction,Number(id[2]))) return;
+
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId("page_2")
+    .setCustomId(`page_2_${interaction.member.user.id}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId("page_4")
+      .setCustomId(`page_4_${interaction.member.user.id}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -192,15 +201,17 @@ async function help_event(interaction){
   }
   //4ページ目
   if(interaction.customId === "page_4"){
+    if(await check(interaction,Number(id[2]))) return;
+
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId("page_3")
+    .setCustomId(`page_3_${interaction.member.user.id}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId("page_5")
+      .setCustomId(`page_5_${interaction.member.user.id}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -255,15 +266,17 @@ async function help_event(interaction){
   }
 
   if(interaction.customId === "page_5"){
+    if(await check(interaction,Number(id[2]))) return;
+
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId("page_4")
+    .setCustomId(`page_4_${interaction.member.user.id}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId("page_1")
+      .setCustomId(`page_1_${interaction.member.user.id}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -312,6 +325,24 @@ async function help_event(interaction){
 
     await interaction.deferUpdate({});
   }
+}
+
+async function check(interaction,id){
+  if(id === interaction.member.user.id){
+    await interaction.reply({
+      embeds:[{
+        author: {
+          name: "ページを更新できませんでした",
+          icon_url: "https://cdn.taka.ml/images/error.png",
+        },
+        color: "RED",
+        description: "このコマンドは別の人が操作しています"
+      }],
+      ephemeral:true
+    });
+    return true
+  }
+  return false
 }
     
 module.exports = help_event

@@ -6,12 +6,12 @@ async function help(interaction){
     const before = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("前")
-      .setCustomId("page_5")
+      .setCustomId(`page_5_${interaction.member.user.id}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId("page_2")
+      .setCustomId(`page_2_${interaction.member.user.id}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
