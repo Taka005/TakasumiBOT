@@ -10,12 +10,12 @@ async function help_event(interaction){
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId(`page_5_${interaction.member.user.id}`)
+    .setCustomId(`page_5_${id[2]}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId(`page_2_${interaction.member.user.id}`)
+      .setCustomId(`page_2_${id[2]}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -75,12 +75,12 @@ async function help_event(interaction){
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId(`page_1_${interaction.member.user.id}`)
+    .setCustomId(`page_1_${id[2]}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId(`page_3_${interaction.member.user.id}`)
+      .setCustomId(`page_3_${id[2]}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -140,12 +140,12 @@ async function help_event(interaction){
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId(`page_2_${interaction.member.user.id}`)
+    .setCustomId(`page_2_${id[2]}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId(`page_4_${interaction.member.user.id}`)
+      .setCustomId(`page_4_${id[2]}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -205,12 +205,12 @@ async function help_event(interaction){
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId(`page_3_${interaction.member.user.id}`)
+    .setCustomId(`page_3_${id[2]}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId(`page_5_${interaction.member.user.id}`)
+      .setCustomId(`page_5_${id[2]}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
@@ -270,12 +270,12 @@ async function help_event(interaction){
     const before = new MessageButton()
     .setStyle("PRIMARY")
     .setLabel("前")
-    .setCustomId(`page_4_${interaction.member.user.id}`)
+    .setCustomId(`page_4_${id[2]}`)
 
     const next = new MessageButton()
       .setStyle("PRIMARY")
       .setLabel("次")
-      .setCustomId(`page_1_${interaction.member.user.id}`)
+      .setCustomId(`page_1_${id[2]}`)
 
     const page = new MessageButton()
       .setStyle("SECONDARY")
