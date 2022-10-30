@@ -14,9 +14,9 @@ async function about(interaction){
 
     await interaction.reply({
       embeds: [{
-        color:"WHITE",
+        color:"GREEN",
         title:"TakasumiBOTとは",
-        description: "便利で多機能BOTを目指して開発が続けられています\nグローバルチャット、認証機能など幅広い機能があります\nサポートサーバーへの参加もよろしくお願いします\n制作:[Taka005#6668](https://discord.com/users/790489873957781536)\n\n関連リンク\n[公式サイト](https://takasumibot.taka.ml/)\n[ステータス](https://status.taka.ml/)\n[グローバルチャット利用規約](https://gc.taka.ml/)"
+        description: "便利で多機能BOTを目指して開発が続けられています\nグローバルチャット、認証機能など幅広い機能があります\nサポートサーバーへの参加もよろしくお願いします\n制作:[Taka005#6668](https://discord.com/users/790489873957781536)\n\n関連リンク\n[公式サイト](https://takasumibot.taka.ml/)\n[ステータス](https://status.taka.ml/)\n[グローバルチャット利用規約](https://gc.taka.ml/)\n[個人サイト](https://taka.ml/)"
       }],
       components: [
         new MessageActionRow()
