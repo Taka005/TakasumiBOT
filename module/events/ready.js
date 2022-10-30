@@ -43,9 +43,9 @@ async function ready(client){
       .setName("support")
       .setDescription("バグの報告、質問などの報告をします")
 
-    const invite = new SlashCommandBuilder()
+    const about= new SlashCommandBuilder()
       .setName("invite")
-      .setDescription("BOTの招待や、情報を表示します")
+      .setDescription("このBOTについての情報や、関連リンクを表示します")
 
     const embed = new SlashCommandBuilder()
       .setName("embed")
@@ -523,7 +523,7 @@ async function ready(client){
             del,
             slowmode,
             output,
-            invite,
+            about,
             user,
             kick,
             ban,
