@@ -44,7 +44,7 @@ async function ready(client){
       .setDescription("バグの報告、質問などの報告をします")
 
     const about= new SlashCommandBuilder()
-      .setName("invite")
+      .setName("about")
       .setDescription("このBOTについての情報や、関連リンクを表示します")
 
     const embed = new SlashCommandBuilder()
