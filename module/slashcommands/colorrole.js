@@ -41,7 +41,7 @@ async function colorrole(interaction){
             name: "ロールを作成しました",
             icon_url: "https://cdn.taka.ml/images/success.png",
           },
-          description: `${role}`,
+          description: `作成したロール:${role}`,
           color: "GREEN"
         }]
       })
