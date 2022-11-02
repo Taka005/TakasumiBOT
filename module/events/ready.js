@@ -330,20 +330,47 @@ async function ready(client){
           .setName("text")
           .setDescription("翻訳対象のテキスト")
           .setRequired(true))
-          .addStringOption(option =>
-            option
-              .setName("lang")
-              .setDescription("翻訳先になる言語")
-              .setRequired(true)
-              .addChoices(
-                { name: "日本語", value: "ja" },
-                { name: "英語", value: "en" },
-                { name: "韓国語", value: "ko" },
-                { name: "中国語", value: "zh" },
-                { name: "ロシア語", value: "ru" },
-                { name: "フランス語", value: "fr" },
-                { name: "ドイツ語", value: "de" },
-              ))
+      .addStringOption(option =>
+        option
+          .setName("lang")
+          .setDescription("翻訳先になる言語")
+          .setRequired(true)
+          .addChoices(
+            { name: "日本語", value: "ja" },
+            { name: "英語", value: "en" },
+            { name: "韓国語", value: "ko" },
+            { name: "中国語", value: "zh" },
+            { name: "ロシア語", value: "ru" },
+            { name: "フランス語", value: "fr" },
+            { name: "ドイツ語", value: "de" }
+          ))
+
+    const colorrole = new SlashCommandBuilder()
+      .setName("colorrole")
+      .setDescription("色付きロールを簡単に作成します")
+      .addStringOption(option =>
+        option
+          .setName("name")
+          .setDescription("ロールの名前")
+          .setRequired(true))
+      .addStringOption(option =>
+        option
+          .setName("color")
+          .setDescription("作成するロールの色")
+          .setRequired(true)
+          .addChoices(
+            { name: "デフォルト", value: "Default" },
+            { name: "ランダム", value: "RANDOM" },
+            { name: "白", value: "WHITE" },
+            { name: "緑", value: "GREEN" },
+            { name: "青", value: "BLUE" },
+            { name: "黄", value: "YELLOW" },
+            { name: "紫", value: "PURPLE" },
+            { name: "金", value: "GOLD" },
+            { name: "橙", value: "ORANGE" },
+            { name: "赤", value: "RED" },
+            { name: "水", value: "AQUA" },
+          ))
 
     const system = new SlashCommandBuilder()
       .setName("system")
@@ -535,6 +562,7 @@ async function ready(client){
             mc,
             ad,
             translate,
+            colorrole,
             global,
             system,
             poll,
