@@ -244,8 +244,8 @@ async function help_event(interaction){
             value: "BOTのサーバーの状態を表示します\n※異常かもと思った場合は、早急に報告してください"
           },
           {
-            name: "/invite",
-            value: "BOTの招待リンク、サポートなどの情報を表示します"
+            name: "/about",
+            value: "このBOTについての情報や、関連リンクを表示します"
           },
           {
             name: "/support",

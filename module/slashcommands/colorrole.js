@@ -31,6 +31,7 @@ async function colorrole(interaction){
     await interaction.guild.roles.create({
       name: name,
       color: color,
+      position: interaction.guild.me.roles.highest.position -1,
       mentionable: false,
       reason: "色付きロールの作成",
     })

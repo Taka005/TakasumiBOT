@@ -359,7 +359,7 @@ async function ready(client){
           .setDescription("作成するロールの色")
           .setRequired(true)
           .addChoices(
-            { name: "デフォルト", value: "Default" },
+            { name: "デフォルト", value: "DEFAULT" },
             { name: "ランダム", value: "RANDOM" },
             { name: "白", value: "WHITE" },
             { name: "緑", value: "GREEN" },
