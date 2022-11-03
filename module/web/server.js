@@ -30,7 +30,7 @@ async function server(client){
   });
 
   app.get("/invite", (req, res) =>{
-    res.redirect("https://discord.com/api/oauth2/authorize?client_id=981314695543783484&permissions=1644971949559&scope=bot%20applications.commands");
+    res.redirect("https://discord.com/oauth2/authorize?client_id=981314695543783484&permissions=4398046511095&scope=bot%20applications.commands");
     console.info(`\x1b[34mINFO: [${req.ip}]からinviteにリダイレクト`);
     res.end()
   });
