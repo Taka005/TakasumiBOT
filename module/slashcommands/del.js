@@ -2,7 +2,7 @@ async function del(interaction){
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "del"){
     const number = await interaction.options.getInteger("number");
-    const user = await interaction.options.getInteger("user");
+    const user = await interaction.options.getUser("user");
 
     if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return await interaction.reply({
       embeds:[{
