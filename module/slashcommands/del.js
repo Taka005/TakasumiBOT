@@ -28,6 +28,18 @@ async function del(interaction){
       ephemeral:true
     });
 
+    if(number < 2 || number > 99 ) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "引数が無効です",
+          icon_url: "https://cdn.taka.ml/images/error.png",
+        },
+        color: "RED",
+        description: "削除するメッセージの数は`2`以上`100`以下にする必要があります"
+      }],
+      ephemeral:true
+    });
+    
     if(user){
       const messages = await interaction.channel.messages.fetch({ limit: number });
       const msg = await messages.filter(msg => user.id === msg.author.id);
@@ -39,18 +51,6 @@ async function del(interaction){
           },
           color: "RED",
           description: "メッセージに指定したユーザーが含まれていませんでした",
-        }],
-        ephemeral:true
-      });
-
-      if(msg.length < 2 || msg.length > 99 ) return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "引数が無効です",
-            icon_url: "https://cdn.taka.ml/images/error.png",
-          },
-          color: "RED",
-          description: "削除するメッセージの数は`2`以上`100`以下にする必要があります"
         }],
         ephemeral:true
       });
@@ -88,18 +88,6 @@ async function del(interaction){
           })
         });
     }
-
-    if(number < 2 || number > 99 ) return await interaction.reply({
-      embeds:[{
-        author: {
-          name: "引数が無効です",
-          icon_url: "https://cdn.taka.ml/images/error.png",
-        },
-        color: "RED",
-        description: "削除するメッセージの数は`2`以上`100`以下にする必要があります"
-      }],
-      ephemeral:true
-    });
 
     const messages = await interaction.channel.messages.fetch({ limit: number })         
     await interaction.channel.bulkDelete(messages)
