@@ -176,6 +176,10 @@ async function ready(client){
           .setName("number")
           .setDescription("削除数")
           .setRequired(true))
+      .addUserOption(option =>
+        option
+          .setName("user")
+          .setDescription("削除するユーザー"))
 
     const slowmode = new SlashCommandBuilder()
       .setName("slowmode")
