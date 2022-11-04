@@ -1,4 +1,4 @@
-async function support_event(interaction,client){
+module.exports = async(interaction,client)=>{
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("support_")){
     const list = await interaction.customId.split("_");
@@ -61,5 +61,3 @@ async function support_event(interaction,client){
     }
   }
 }
-
-module.exports = support_event

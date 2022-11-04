@@ -1,4 +1,4 @@
-async function global(message,client){
+module.exports = async(message,client)=>{
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
@@ -316,5 +316,3 @@ function err(channels,client,error){
   })
   .catch(()=>{})
 }
-
-module.exports = global

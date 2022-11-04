@@ -1,4 +1,4 @@
-async function events(client){
+module.exports = async(client)=>{
   const fs = require("fs");
 
   client.once("ready", async (client) =>{
@@ -127,5 +127,3 @@ async function events(client){
     leave(member);
   });
 }
-
-module.exports = events

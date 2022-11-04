@@ -1,4 +1,4 @@
-async function channel(interaction,client){
+module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "channel"){
     const text = await interaction.options.getString("text");
@@ -55,5 +55,3 @@ async function channel(interaction,client){
     }
   }
 }
-  
-module.exports = channel

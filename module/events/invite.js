@@ -1,4 +1,4 @@
-async function invite(guild){
+module.exports = async(guild)=>{
   let find = 0;
   guild.channels.cache.map((channel) =>{
     if(find === 0){
@@ -19,5 +19,3 @@ async function invite(guild){
     }
   });
 }
-
-module.exports = invite

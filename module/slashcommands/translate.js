@@ -1,10 +1,11 @@
-async function translate(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "translate"){
     const text = await interaction.options.getString("text");
     const lang = await interaction.options.getString("lang");
-    if(text > 3000) return await await interaction.reply({
+    
+    if(text > 3000) return await interaction.reply({
       embeds:[{
         author: {
           name: "翻訳できませんでした",
@@ -59,5 +60,3 @@ async function translate(interaction){
     }
   }
 }
-  
-module.exports = translate

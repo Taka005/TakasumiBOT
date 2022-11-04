@@ -1,4 +1,4 @@
-async function colorrole(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "colorrole"){
     const name = await interaction.options.getString("name");
@@ -67,5 +67,3 @@ async function colorrole(interaction){
     })
   }
 }
-
-module.exports = colorrole

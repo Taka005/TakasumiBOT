@@ -1,4 +1,4 @@
-async function gif(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   require("dotenv").config();
   if(!interaction.isCommand()) return;
@@ -27,5 +27,3 @@ async function gif(interaction){
       });
   }
 }
-
-module.exports = gif

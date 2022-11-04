@@ -1,4 +1,4 @@
-async function say(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "say"){
     const text = await interaction.options.getString("text");
@@ -41,5 +41,3 @@ async function say(interaction){
       });
   }
 }
-
-module.exports = say

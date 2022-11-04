@@ -1,4 +1,4 @@
-async function hiroyuki(message,client){
+module.exports = async(message,client)=>{
     const main = require("../../data/hiroyuki/main.json");
     const { random, rate } = require("../lib/random");
     const { WebhookClient } = require("discord.js");
@@ -162,5 +162,3 @@ function err(message,client,error){
   })
   .catch(()=>{})
 }
-
-module.exports = hiroyuki

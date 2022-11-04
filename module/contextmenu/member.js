@@ -1,10 +1,10 @@
-async function member(interaction){
+module.exports = async(interaction)=>{
   const point = require("../../data/point.json");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
-    const info = await interaction.options.getMember("user");
+    const member = await interaction.options.getMember("user");
 
-    if(!info) return await interaction.reply({
+    if(!member) return await interaction.reply({
       embeds:[{
         author: {
           name: "メンバーを取得できませんでした",
@@ -16,14 +16,14 @@ async function member(interaction){
       ephemeral:true
     });
 
-    const point_user = point[info.user.id];
+    const point_user = point[member.user.id];
 
     await interaction.reply({
       embeds:[{
         color: "GREEN",
         author: {
-          name:`${info.user.tag}の検索結果`,
-          url: `https://discord.com/users/${info.user.id}`,
+          name:`${member.user.tag}の検索結果`,
+          url: `https://discord.com/users/${member.user.id}`,
           icon_url: "https://cdn.taka.ml/images/success.png"
         },
         timestamp: new Date(),
@@ -31,12 +31,12 @@ async function member(interaction){
           text: "TakasumiBOT"
         },
         thumbnail: {
-          url: info.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+          url: member.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
         },
         fields: [
           {
             name: "ID",
-            value: `${info.user.id}`,
+            value: `${member.user.id}`,
             inline: true
           },
           {
@@ -51,22 +51,22 @@ async function member(interaction){
           },
           {
             name: "作成日時",
-            value: `${new Date(info.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - info.user.createdAt) / 86400000)}日前)`,
+            value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.user.createdAt) / 86400000)}日前)`,
             inline: true
           },
           {
             name:"参加日時",
-            value: `${new Date(info.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - info.joinedAt) / 86400000)}日前)`,
+            value: `${new Date(member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.joinedAt) / 86400000)}日前)`,
             inline: true
           },
           {
             name: "アカウントの種類",
-            value: info.user.bot ? "BOT" : "ユーザー",
+            value: member.user.bot ? "BOT" : "ユーザー",
             inline: true
           },
           {
             name:"ロール",
-            value: `${info.roles.cache.map(r => r).join("")}`
+            value: `${member.roles.cache.map(r => r).join("")}`
           }
         ]
       }]
@@ -91,5 +91,3 @@ async function member(interaction){
     });
   }
 }
-
-module.exports = member

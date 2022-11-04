@@ -1,4 +1,4 @@
-async function cipher(interaction){
+module.exports = async(interaction)=>{
   const crypto = require("crypto");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "cipher"){
@@ -75,5 +75,3 @@ async function cipher(interaction){
     }
   }
 }
-
-module.exports = cipher

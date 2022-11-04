@@ -1,4 +1,4 @@
-async function dissoku(oldMessage,newMessage){
+module.exports = async(oldMessage,newMessage)=>{
   if(newMessage.author.id === "761562078095867916"){
     if(newMessage.embeds[0]?.fields[0].name.match(/をアップしたよ/)||newMessage.embeds[0]?.fields[0].name.match(/I've bumped up/)){
       await newMessage.channel.send({
@@ -21,5 +21,3 @@ async function dissoku(oldMessage,newMessage){
     }
   }
 }
-
-module.exports = dissoku

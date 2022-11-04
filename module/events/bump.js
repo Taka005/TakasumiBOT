@@ -1,4 +1,4 @@
-async function bump(message){
+module.exports = async(message)=>{
   const config = require("../../config.json");
 
   if(message.author.id === "302050872383242240"){
@@ -24,5 +24,3 @@ async function bump(message){
     }
   }
 }
-
-module.exports = bump

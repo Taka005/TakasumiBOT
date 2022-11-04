@@ -1,4 +1,4 @@
-async function role(interaction){
+module.exports = async(interaction)=>{
   const {MessageActionRow, MessageSelectMenu} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "role"){
@@ -95,5 +95,3 @@ async function role(interaction){
       .then(()=>interaction.deleteReply())
   }
 }
-    
-module.exports = role

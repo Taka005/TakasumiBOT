@@ -1,4 +1,4 @@
-async function help_event(interaction){
+module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isButton()) return;
   
@@ -347,5 +347,3 @@ async function check(interaction,id){
   }
   return false
 }
-    
-module.exports = help_event

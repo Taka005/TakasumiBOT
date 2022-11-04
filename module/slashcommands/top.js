@@ -1,4 +1,4 @@
-async function top(interaction){
+module.exports = async(interaction)=>{
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "top"){
@@ -47,5 +47,3 @@ async function top(interaction){
     })
   }
 }
-  
-module.exports = top

@@ -1,4 +1,4 @@
-async function server(client){
+module.exports = async(client)=>{
   const express = require("express");
   const app = express();
   const os = require("os");
@@ -83,34 +83,6 @@ async function server(client){
     console.info(`\x1b[34INFO: [${req.ip}]からAPIにリクエスト`)
     res.end()
   });
-
-  app.get("/api/user", async (req, res) =>{
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    console.info(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`);
-
-    if(!req.query.id) return res.json({user:"error"});
-      try{
-        const user = await client.users.fetch(`${req.query.id}`);
-        res.json({
-          user:{
-            name:user.username,
-            discriminator:user.discriminator,
-            tag:user.tag,
-            id:user.id,
-            avatar:user.avatarURL({"dynamic": true,"format": "png", "size": 512}),
-            time:new Date(user.createdTimestamp).toLocaleDateString(),
-            bot:user.bot,
-            partial:user.partial,
-            system:user.system,
-            color:user.hexAccentColor
-          }
-        });
-      }catch(error){
-        res.json({user:`ERROR:${error}`})
-      }
-    res.end()
-  });
-
   //------API------//
 
   //------ERROR処理------//
@@ -127,5 +99,3 @@ async function server(client){
   });
   //------ERROR------
 }
-
-module.exports = server

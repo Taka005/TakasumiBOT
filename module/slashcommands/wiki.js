@@ -1,4 +1,4 @@
-async function wiki(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "wiki"){
@@ -34,5 +34,3 @@ async function wiki(interaction){
     }
   }
 }
-
-module.exports = wiki

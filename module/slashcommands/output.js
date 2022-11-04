@@ -1,4 +1,4 @@
-async function output(interaction,client){
+module.exports = async(interaction,client)=>{
   const { MessageAttachment } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "export"){
@@ -67,5 +67,3 @@ async function output(interaction,client){
     }
   }
 }
-  
-module.exports = output

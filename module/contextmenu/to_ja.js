@@ -1,4 +1,4 @@
-async function to_ja(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "日本語に翻訳"){
@@ -81,5 +81,3 @@ async function to_ja(interaction){
     }
   }
 }
-    
-module.exports = to_ja

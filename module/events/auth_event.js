@@ -1,4 +1,4 @@
-async function auth_event(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("auth_")){
     const role = interaction.customId.split("_");
@@ -48,5 +48,3 @@ async function auth_event(interaction){
       })
   }
 }
-
-module.exports = auth_event

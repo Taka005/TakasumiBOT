@@ -1,4 +1,4 @@
-async function reload(interaction){
+module.exports = async(interaction)=>{
   const fs = require("fs");
   const { admin } = require("../../config.json");
   if(!interaction.isCommand()) return;
@@ -113,5 +113,3 @@ async function reload(interaction){
     }
   }
 }
-
-module.exports = reload

@@ -1,4 +1,4 @@
-async function system(interaction,client){
+module.exports = async(interaction,client)=>{
   const { admin } = require("../../config.json");
   const point_user = require("../../data/point.json");
   const block_user = require("../../data/block_user.json");
@@ -350,5 +350,3 @@ async function system(interaction,client){
     }
   }
 }
-
-module.exports = system

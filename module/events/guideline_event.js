@@ -1,4 +1,4 @@
-async function guideline_event(interaction){
+module.exports = async(interaction)=>{
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("guideline_")){
@@ -49,5 +49,3 @@ async function guideline_event(interaction){
     })
   }
 }
-  
-module.exports = guideline_event

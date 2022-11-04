@@ -1,4 +1,4 @@
-async function permission(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "権限を表示"){
     const member = await interaction.options.getMember("user");
@@ -81,5 +81,3 @@ async function permission(interaction){
     }
   }
 }
-
-module.exports = permission

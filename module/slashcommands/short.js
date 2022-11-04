@@ -1,4 +1,4 @@
-async function short(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   require("dotenv").config();
   if(!interaction.isCommand()) return;
@@ -24,5 +24,3 @@ async function short(interaction){
     await interaction.reply(`${short_response}`);
   }
 }
-
-module.exports = short

@@ -1,4 +1,4 @@
-async function ban(interaction,client){
+module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
     const user = await interaction.options.getString("user");
@@ -138,5 +138,3 @@ async function ban(interaction,client){
     }
   }
 }
-  
-module.exports = ban

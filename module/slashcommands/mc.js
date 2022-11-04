@@ -1,4 +1,4 @@
-async function mc(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "mc"){
@@ -181,5 +181,3 @@ async function mc(interaction){
     }
   }
 }
-
-module.exports = mc

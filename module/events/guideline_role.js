@@ -1,4 +1,4 @@
-async function guideline_role(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("guide_")){
     const role = interaction.customId.split("_");
@@ -49,5 +49,3 @@ async function guideline_role(interaction){
       })
   }
 }
-
-module.exports = guideline_role

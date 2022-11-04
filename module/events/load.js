@@ -1,4 +1,4 @@
-async function load(client){
+module.exports = async(client)=>{
   const api = require("../../data/api.json");
   const global = require("../../data/global/main.json");
   const fs = require("fs");
@@ -56,5 +56,3 @@ async function load(client){
     delete require.cache[require.resolve("../../data/api.json")];
   },600000)
 }
-
-module.exports = load

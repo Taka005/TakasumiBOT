@@ -1,4 +1,4 @@
-async function auth(interaction){
+module.exports = async(interaction)=>{
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "auth"){
@@ -54,5 +54,3 @@ async function auth(interaction){
       })
   }
 }
-
-module.exports = auth

@@ -1,4 +1,4 @@
-async function hiroyuki(interaction){
+module.exports = async(interaction)=>{
     const main = require("../../data/hiroyuki/main.json");
     const sub = require("../../data/hiroyuki/sub.json");
     const fs = require("fs");
@@ -51,7 +51,6 @@ async function hiroyuki(interaction){
         const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
         await webhooks.delete()
           .then(async()=>{
-  
             delete main[interaction.channel.id];
             delete sub[interaction.guild.id];
             fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
@@ -68,7 +67,6 @@ async function hiroyuki(interaction){
             });
           })
           .catch(async()=>{
-  
             delete main[interaction.channel.id];
             delete sub[interaction.guild.id];
             fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
@@ -133,7 +131,5 @@ async function hiroyuki(interaction){
   
         delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
         delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
-    }
   }
-    
-  module.exports = hiroyuki
+}

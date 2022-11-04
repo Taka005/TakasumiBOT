@@ -1,4 +1,4 @@
-async function about(interaction){
+module.exports = async(interaction)=>{
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "about"){
@@ -26,5 +26,3 @@ async function about(interaction){
     })
   }
 }
-    
-module.exports = about

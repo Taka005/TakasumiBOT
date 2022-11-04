@@ -1,4 +1,4 @@
-async function support(interaction){
+module.exports = async(interaction)=>{
   const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "support"){
@@ -34,5 +34,3 @@ async function support(interaction){
     await interaction.showModal(support_modal);
   }
 }
-  
-  module.exports = support

@@ -1,4 +1,4 @@
-async function quote(interaction){
+module.exports = async(interaction)=>{
   const Canvas = require("canvas"); 
   const { MessageAttachment } = require("discord.js");
   if(!interaction.isContextMenu()) return;
@@ -54,5 +54,3 @@ async function quote(interaction){
     }); 
   }
 }
-
-module.exports = quote

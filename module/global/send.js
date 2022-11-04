@@ -1,4 +1,4 @@
-async function send(message){
+module.exports = async(message)=>{
   const mute_user = require("../../data/block_user.json");
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
@@ -60,5 +60,3 @@ async function send(message){
     )
   })
 }
-
-module.exports = send

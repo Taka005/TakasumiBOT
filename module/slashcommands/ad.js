@@ -1,4 +1,4 @@
-async function ad(interaction,client){
+module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ad"){
     const types = await interaction.options.getString("types");
@@ -21,5 +21,3 @@ async function ad(interaction,client){
     }
   }
 }
-
-module.exports = ad

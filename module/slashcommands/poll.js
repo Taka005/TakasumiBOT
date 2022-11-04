@@ -1,4 +1,4 @@
-async function poll(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "poll"){
     const title = await interaction.options.getString("title");
@@ -32,14 +32,14 @@ async function poll(interaction){
     });
 
     const msg = await interaction.reply({
-                embeds:[{
-                  title: title,          
-                  color: interaction.member.displayHexColor,
-                  description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
-                  timestamp: new Date()
-                }],
-                fetchReply: true
-    })
+      embeds:[{
+        title: title,          
+        color: interaction.member.displayHexColor,
+        description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
+        timestamp: new Date()
+      }],
+      fetchReply: true
+    });
     try{
       await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
     }catch(error){
@@ -62,5 +62,3 @@ async function poll(interaction){
     }
   }
 }
-    
-module.exports = poll

@@ -1,4 +1,4 @@
-async function gateway(client){
+module.exports = async(client)=>{
   const zlib = require("zlib");
   const ws = require("ws");
   require("dotenv").config();
@@ -49,5 +49,3 @@ async function gateway(client){
   }
   websocket()
 }
-
-module.exports = gateway

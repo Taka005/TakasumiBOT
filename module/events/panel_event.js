@@ -1,4 +1,4 @@
-async function panel_event(interaction){
+module.exports = async(interaction)=>{
   const { MessageActionRow, Modal, TextInputComponent } = require('discord.js');
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("panel_")){
@@ -23,5 +23,3 @@ async function panel_event(interaction){
     await interaction.showModal(check);
   }
 }
-  
-module.exports = panel_event

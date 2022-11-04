@@ -1,4 +1,4 @@
-async function embed(interaction){
+module.exports = async(interaction)=>{
   const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "embed"){
@@ -39,5 +39,3 @@ async function embed(interaction){
     await interaction.showModal(embed);
   }
 }
-
-module.exports = embed

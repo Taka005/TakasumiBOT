@@ -1,4 +1,4 @@
-async function panel(interaction){
+module.exports = async(interaction)=>{
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "panel"){
@@ -52,5 +52,3 @@ async function panel(interaction){
       })
   }
 }
-
-module.exports = panel

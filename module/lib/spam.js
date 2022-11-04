@@ -1,5 +1,5 @@
 const time = []
-function spam(message){
+module.exports = async(message)=>{
   if(new Date() - time[message.guild.id] <= 800){
     time[message.guild.id] = new Date();
     return true
@@ -8,5 +8,3 @@ function spam(message){
     return false
   }
 }
-
-module.exports = spam

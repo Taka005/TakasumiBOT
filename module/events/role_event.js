@@ -1,4 +1,4 @@
-async function role_event(interaction){
+module.exports = async(interaction)=>{
   const async = require("async");
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
@@ -48,5 +48,3 @@ async function role_event(interaction){
   }
     
 }
-
-module.exports = role_event

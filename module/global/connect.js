@@ -1,4 +1,4 @@
-async function connect(msg,client){
+module.exports = async(msg,client)=>{
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
@@ -59,5 +59,3 @@ async function connect(msg,client){
     })
   });
 }
-
-module.exports = connect

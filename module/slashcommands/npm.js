@@ -1,4 +1,4 @@
-async function npm(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "npm"){
@@ -6,7 +6,8 @@ async function npm(interaction){
 
     await interaction.deferReply();
     const package_data = await fetch(`https://api.npms.io/v2/search?q=${package}`)
-      .then(res => res.json());
+      .then(res => res.json())
+      .catch(()=>{})
 
     try{
       const pkg = package_data.results[0].package
@@ -66,5 +67,3 @@ async function npm(interaction){
     }
   }
 }
-
-module.exports = npm

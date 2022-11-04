@@ -1,4 +1,4 @@
-async function avatar(interaction,client){
+module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "avatar"){
     const user_id = await interaction.options.getString("id");
@@ -57,5 +57,3 @@ async function avatar(interaction,client){
     }
   }
 }
-    
-module.exports = avatar

@@ -1,4 +1,4 @@
-async function slowmode(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "slowmode"){
     const time = await interaction.options.getInteger("time");
@@ -75,5 +75,3 @@ async function slowmode(interaction){
       })
   }
 }
-
-module.exports = slowmode

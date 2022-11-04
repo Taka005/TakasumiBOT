@@ -1,4 +1,4 @@
-async function global(interaction){
+module.exports = async(interaction)=>{
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const mute_user = require("../../data/block_user.json");
@@ -211,5 +211,3 @@ async function global(interaction){
       delete require.cache[require.resolve("../../data/global/sub.json")];
   }
 }
-  
-module.exports = global

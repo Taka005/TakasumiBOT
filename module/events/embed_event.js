@@ -1,4 +1,4 @@
-async function embed_event(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId === "embed"){
       const title = interaction.fields.getTextInputValue("title");
@@ -41,5 +41,3 @@ async function embed_event(interaction){
       })
     }
 }
-  
-module.exports = embed_event

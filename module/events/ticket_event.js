@@ -1,4 +1,4 @@
-async function ticket_event(interaction){
+module.exports = async(interaction)=>{
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isButton()) return;
   if(interaction.customId === "ticket"){
@@ -108,5 +108,3 @@ async function ticket_event(interaction){
       })
   }
 }
-  
-module.exports = ticket_event

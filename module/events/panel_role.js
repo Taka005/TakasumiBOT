@@ -1,4 +1,4 @@
-async function panel_role(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("panelrole_")){
     const list = await interaction.customId.split("_");
@@ -75,5 +75,3 @@ async function panel_role(interaction){
     }
   }
 }
-
-module.exports = panel_role

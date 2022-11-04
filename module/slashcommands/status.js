@@ -1,4 +1,4 @@
-async function status(interaction,client){
+module.exports = async(interaction,client)=>{
   const os = require("os");
   const fetch = require("node-fetch");
   const global = require("../../data/global/main.json");
@@ -64,5 +64,3 @@ async function status(interaction,client){
     }));
   }
 }
-    
-module.exports = status

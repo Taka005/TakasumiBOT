@@ -1,4 +1,4 @@
-async function ready(client){
+module.exports = async(client)=>{
   const package = require("../../package.json");
   require("dotenv").config();
   const { SlashCommandBuilder, ContextMenuCommandBuilder } = require("@discordjs/builders");
@@ -581,5 +581,3 @@ async function ready(client){
         },
     );
 }
-
-module.exports = ready

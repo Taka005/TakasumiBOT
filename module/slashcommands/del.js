@@ -1,4 +1,4 @@
-async function del(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "del"){
     const number = await interaction.options.getInteger("number");
@@ -122,5 +122,3 @@ async function del(interaction){
       });
   }
 }
-  
-module.exports = del

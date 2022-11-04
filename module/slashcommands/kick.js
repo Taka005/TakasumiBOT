@@ -1,4 +1,4 @@
-async function kick(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "kick"){
     const user = await interaction.options.getUser("user");
@@ -87,5 +87,3 @@ async function kick(interaction){
       })
   }
 }
-  
-module.exports = kick

@@ -1,4 +1,4 @@
-async function safeweb(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "safeweb"){
@@ -98,5 +98,3 @@ async function safeweb(interaction){
     }
   }
 }
-
-module.exports = safeweb

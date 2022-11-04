@@ -1,4 +1,4 @@
-async function news(interaction){
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   const { MessageButton, MessageActionRow } = require("discord.js");
   require("dotenv").config();
@@ -65,5 +65,3 @@ async function news(interaction){
     }
   }
 }
-
-module.exports = news

@@ -1,4 +1,4 @@
-async function follow(interaction,client){
+module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "follow"){
 
@@ -64,5 +64,3 @@ async function follow(interaction,client){
       })
   }
 }
-
-module.exports = follow

@@ -1,4 +1,4 @@
-async function open(message,client){
+module.exports = async(message,client)=>{
   if(message.author.bot) return;  
   if(message.content.match(/https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/\d{18,19}\/\d{18,19}\/\d{18,19}/g)){
     const url = message.content.match(/(https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/)(\d{18,19}\/\d{18,19}\/\d{18,19})/);
@@ -68,5 +68,3 @@ async function open(message,client){
     }
   }
 }
-
-module.exports = open

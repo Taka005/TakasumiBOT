@@ -1,4 +1,4 @@
-async function qr(interaction){
+module.exports = async(interaction)=>{
   const { MessageAttachment } = require("discord.js")
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
@@ -78,5 +78,3 @@ async function qr(interaction){
     }
   }
 }
-  
-  module.exports = qr

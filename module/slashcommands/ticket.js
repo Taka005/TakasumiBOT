@@ -1,4 +1,4 @@
-async function ticket(interaction){
+module.exports = async(interaction)=>{
   const {MessageButton, MessageActionRow} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ticket"){
@@ -47,5 +47,3 @@ async function ticket(interaction){
         .then(()=>interaction.deleteReply());
   }
 }
-  
-module.exports = ticket

@@ -1,4 +1,4 @@
-async function server(interaction){
+module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "server"){
     await interaction.reply({
@@ -61,5 +61,3 @@ async function server(interaction){
     });
   }
 }
-    
-module.exports = server
