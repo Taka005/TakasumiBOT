@@ -7,18 +7,18 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
     await interaction.editReply("生成中...")
 
-    Canvas.registerFont('./file/nijimi.ttf',{ family: "nijimi" });
+    Canvas.registerFont('./file/quote/nijimi.ttf',{ family: "nijimi" });
     const canvas = Canvas.createCanvas(1200, 600);
     const context = canvas.getContext("2d"); 
 
     //バックグラウンド描画
-    const background = await Canvas.loadImage("./file/black.png");
+    const background = await Canvas.loadImage("./file/quote/black.png");
     context.drawImage(background, 0, 0, canvas.width, canvas.height);
     //アバター描画
     const avatar = await Canvas.loadImage(message.author.displayAvatarURL({ format: "png" }));
     context.drawImage(avatar, 0, 0, 600, 600);
     //前面描画
-    const back = await Canvas.loadImage("./file/back.png");
+    const back = await Canvas.loadImage("./file/quote/back.png");
     context.drawImage(back, 0, 0, canvas.width, canvas.height);
     //モノクロ処理
     const src = context.getImageData(0, 0, canvas.width, canvas.height);
