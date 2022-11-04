@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const {MessageButton, MessageActionRow} = require("discord.js");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "panel"){
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({

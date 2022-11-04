@@ -6,8 +6,8 @@ module.exports = async(interaction)=>{
     const count_2 = Math.floor(Math.random() * 15) + 1;
     const total = count_1 + count_2
     const support_modal = new Modal()
-    .setCustomId(`support_${total}`)
-    .setTitle("サポート");
+      .setCustomId(`support_${total}`)
+      .setTitle("サポート");
 
     const content = new TextInputComponent()
       .setCustomId("content")
@@ -16,6 +16,7 @@ module.exports = async(interaction)=>{
       .setRequired(true)
       .setMaxLength(300)
       .setStyle("PARAGRAPH");
+      
     const code = new TextInputComponent()
       .setCustomId(`code`)
       .setLabel(`確認:${count_1}+${count_2}の答えを入力してください`)

@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const {MessageButton, MessageActionRow} = require("discord.js");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("guideline_")){
     const role = interaction.customId.split("_");
