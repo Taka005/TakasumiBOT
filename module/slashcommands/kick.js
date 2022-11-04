@@ -3,6 +3,7 @@ async function kick(interaction){
   if(interaction.commandName === "kick"){
     const user = await interaction.options.getUser("user");
     const reason = await interaction.options.getString("reason")||`${interaction.member.user.tag}によってKICKしました`;
+    
     if(!interaction.member.permissions.has("KICK_MEMBERS")) return await interaction.reply({
       embeds:[{
         author: {
