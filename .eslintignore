@@ -1,3 +1,4 @@
 /* eslint-disable */
 /module/web/assets/**
 /dist/**
+/note/**
