@@ -68,7 +68,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "認証時に表示される画面のテキストボックスの\n上に表記されている通りに認証してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+          description: "認証時に表示される画面のテキストボックスの\n上に表記されている通りに認証してください"
         }],
         ephemeral:true
       })

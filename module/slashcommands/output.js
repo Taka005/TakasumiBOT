@@ -54,7 +54,7 @@ module.exports = async(interaction,client)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "BOTの権限が不足しているため正しく出力できません\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください",
+          description: "BOTの権限が不足しているため正しく出力できません",
           fields: [
             {
               name: "エラーコード",

@@ -264,7 +264,7 @@ module.exports = async(interaction,client)=>{
       await interaction.reply({
         embeds:[{
           author: {
-            name: `${user.tag} のブロックしました`,
+            name: `${user.tag} をブロックしました`,
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN"
