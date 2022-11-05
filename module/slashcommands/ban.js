@@ -9,7 +9,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをBAN`の権限を持っている必要があります"
@@ -21,7 +21,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをBAN```"
@@ -34,7 +34,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author: {
           name: "取得に失敗しました",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "正確にIDまたは、メンションをしてください"
@@ -46,7 +46,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author: {
           name: "メンバーをBANできませんでした",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "自分自身をBANすることはできません"
@@ -60,7 +60,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author: {
               name: "メンバーをBANできませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "指定したユーザーが存在しません"
@@ -77,7 +77,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author: {
                 name: `${users.tag} をサーバーからBANしました`,
-                icon_url: "https://cdn.taka.ml/images/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN"
             }]
@@ -88,7 +88,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author: {
                 name: "メンバーをBANできませんでした",
-                icon_url: "https://cdn.taka.ml/images/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
@@ -110,7 +110,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author: {
                 name: `${users.tag} をサーバーからBANしました`,
-                icon_url: "https://cdn.taka.ml/images/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN"
             }]
@@ -121,7 +121,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author: {
                 name: "メンバーをBANできませんでした",
-                icon_url: "https://cdn.taka.ml/images/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",

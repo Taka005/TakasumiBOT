@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```メッセージの管理```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
@@ -32,7 +32,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "引数が無効です",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "削除するメッセージの数は`2`以上`100`以下にする必要があります"
@@ -47,7 +47,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "削除できませんでした",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "メッセージに指定したユーザーが含まれていませんでした",
@@ -62,7 +62,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author: {
                 name: `${user.tag} のメッセージを${number}個削除しました`,
-                icon_url: "https://cdn.taka.ml/images/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN"
             }]
@@ -73,7 +73,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author: {
                 name: "削除できませんでした",
-                icon_url: "https://cdn.taka.ml/images/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,
@@ -96,7 +96,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: `${number}個のメッセージを削除しました`,
-            icon_url: "https://cdn.taka.ml/images/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN"
         }]
@@ -106,7 +106,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author: {
               name: "削除できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,

@@ -15,7 +15,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "取得できませんでした",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "無効なホスト名です"
@@ -83,7 +83,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author: {
               name: "検索内容を取得できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "指定したアドレスが間違っている可能性があります"
@@ -98,7 +98,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "取得できませんでした",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "無効なホスト名です"
@@ -171,7 +171,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author: {
               name: "検索内容を取得できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "指定したアドレスが間違っている可能性があります"

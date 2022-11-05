@@ -52,7 +52,7 @@ module.exports = async(interaction)=>{
           author: {
             name:`${member.user.tag}の権限`,
             url: `https://discord.com/users/${member.user.id}`,
-            icon_url: "https://cdn.taka.ml/images/success.png"
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
           footer: {
@@ -66,7 +66,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "権限を表示できませんでした",
-            icon_url: "https://cdn.taka.ml/images/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/system/error.jpg",
           },
           color: "RED",
           fields: [

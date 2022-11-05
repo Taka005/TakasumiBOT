@@ -10,7 +10,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```テキストチャンネルの閲覧\nメッセージ履歴を読む```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"

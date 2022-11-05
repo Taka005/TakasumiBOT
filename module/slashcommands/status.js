@@ -50,7 +50,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author: {
           name: "正常に送信できませんでした",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         fields: [

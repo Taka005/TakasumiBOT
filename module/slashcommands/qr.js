@@ -22,7 +22,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "QRコードを作成しました",
-            icon_url: "https://cdn.taka.ml/images/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           description: `内容\n\`\`\`${text}\`\`\``,
           color: "GREEN"
@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "入力されたテキストが無効です",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "QRコードはURLで指定する必要があります"
@@ -58,7 +58,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "QRコードが読み取れません",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "QRコードはURLかつ、読み取れる必要があります"
@@ -69,7 +69,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "QRコードを読み取りました",
-            icon_url: "https://cdn.taka.ml/images/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           description: `内容\n\`\`\`${qr_response[0].symbol[0].data}\`\`\``,
           color: "GREEN"

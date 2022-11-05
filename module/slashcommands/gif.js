@@ -12,7 +12,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author: {
               name: "GIFが取得できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             fields: [

@@ -10,7 +10,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author: {
                 name: "正常に送信できませんでした",
-                icon_url: "https://cdn.taka.ml/images/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               fields: [
@@ -31,7 +31,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author: {
           name: "取得に失敗しました",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "正確にIDまたは、メンションをしてください"
@@ -47,7 +47,7 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           author: {
             name: "取得に失敗しました",
-            icon_url: "https://taka.ml/images/error.jpg",
+            icon_url: "https://taka.ml/images/system/error.jpg",
           },
           color: "RED",
           description: "指定されたユーザーは存在しないか、間違っています"

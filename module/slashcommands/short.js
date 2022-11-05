@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "短縮URLにできませんでした",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "URLを指定する必要があります"

@@ -11,7 +11,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```メッセージを管理\nロールの管理\nチャンネルの管理```"
@@ -31,7 +31,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author: {
               name: "権限が不足しています",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: `BOTの権限をを変更し、もう一度実行してください`

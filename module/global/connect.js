@@ -43,7 +43,7 @@ module.exports = async(msg,client)=>{
         embeds:[{
           author: {
             name: "グローバルチャットでエラーが発生しました",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",

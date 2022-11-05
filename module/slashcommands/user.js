@@ -13,7 +13,7 @@ module.exports = async(interaction,client)=>{
           author: {
             name:`${interaction.member.user.tag}の検索結果`,
             url: `https://discord.com/users/${interaction.member.user.id}`,
-            icon_url: "https://cdn.taka.ml/images/success.png"
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
           footer: {
@@ -64,7 +64,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author: {
               name: "正常に送信できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             fields: [
@@ -85,7 +85,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author: {
           name: "取得に失敗しました",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "正確にIDまたは、メンションをしてください"
@@ -103,7 +103,7 @@ module.exports = async(interaction,client)=>{
           author: {
             name:`${member.user.tag}の検索結果`,
             url: `https://discord.com/users/${member.user.id}`,
-            icon_url: "https://cdn.taka.ml/images/success.png"
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
           footer: {
@@ -154,7 +154,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author: {
               name: "正常に送信できませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             fields: [
@@ -178,7 +178,7 @@ module.exports = async(interaction,client)=>{
             author: {
               name:`${users.tag}の検索結果`,
               url: `https://discord.com/users/${users.id}`,
-              icon_url: "https://cdn.taka.ml/images/success.png"
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             timestamp: new Date(),
             footer: {
@@ -216,7 +216,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author: {
               name: "取得に失敗しました",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "指定されたユーザーは存在しないか、\n間違っています",

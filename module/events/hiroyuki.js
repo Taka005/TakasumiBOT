@@ -148,7 +148,7 @@ function err(message,client,error){
     embeds:[{
       author: {
         name: "ひろゆきの体調が悪化しました",
-        icon_url: "https://cdn.taka.ml/images/error.png",
+        icon_url: "https://cdn.taka.ml/images/system/error.png",
       },
       color: "RED",
       description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",

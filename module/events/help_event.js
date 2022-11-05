@@ -336,7 +336,7 @@ async function check(interaction,id){
       embeds:[{
         author: {
           name: "ページを更新できませんでした",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは別の人が操作しています"

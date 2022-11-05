@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたが「ロールの管理」の権限を持っている必要があります"
@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```ロールの管理```"
@@ -40,7 +40,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "ロールを作成しました",
-            icon_url: "https://cdn.taka.ml/images/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           description: `作成したロール:${role}`,
           color: "GREEN"
@@ -52,7 +52,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "ロールを作成できませんでした",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           fields: [

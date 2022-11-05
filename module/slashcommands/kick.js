@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをKICK`の権限を持っている必要があります"
@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをKICK```"
@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "取得に失敗しました",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "ユーザーが取得できないためKICKできませんでした"
@@ -45,7 +45,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author: {
           name: "メンバーをKICKできませんでした",
-          icon_url: "https://cdn.taka.ml/images/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "自分自身をKICKすることはできません"
@@ -60,7 +60,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author: {
               name: `${member.user.tag}をサーバーからKICKしました`,
-              icon_url: "https://cdn.taka.ml/images/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             color: "GREEN"
           }]
@@ -71,7 +71,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author: {
               name: "メンバーをKICKできませんでした",
-              icon_url: "https://cdn.taka.ml/images/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",

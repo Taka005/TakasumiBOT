@@ -19,7 +19,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "ロールを変更しました",
-            icon_url: "https://cdn.taka.ml/images/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           description: `**付与したロール**\n${add.map(role=>`<@&${role}>`).join("\n")||"なし"}\n**削除したロール**\n${remove.map(role=>`<@&${role}>`).join("\n")||"なし"}`,
           color: "GREEN"
@@ -31,7 +31,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "ロールの付与に失敗しました",
-            icon_url: "https://cdn.taka.ml/images/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります",
