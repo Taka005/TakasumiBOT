@@ -80,9 +80,12 @@ module.exports = async(client)=>{
     const guideline_event = require("./events/guideline_event");
     const role_event = require("./events/role_event");
     const news_event = require("./events/news_event");
+    const image_event = require("./events/image_event");
+
 
     const guideline_role = require("./events/guideline_role");
     const panel_role = require("./events/panel_role");
+    const image_role = require("./events/image_role");
 
     auth_event(interaction);
     panel_event(interaction);
@@ -93,9 +96,11 @@ module.exports = async(client)=>{
     guideline_event(interaction);
     role_event(interaction);
     news_event(interaction);
+    image_event(interaction);
 
     guideline_role(interaction);
     panel_role(interaction);
+    image_role(interaction);
 
     //スラッシュコマンド
     fs.readdir("./module/slashcommands/", (err,files) =>{ 

@@ -118,6 +118,15 @@ module.exports = async(client)=>{
           .setDescription("認証成功時に付与するロール")
           .setRequired(true))
 
+    const image = new SlashCommandBuilder()
+      .setName("image")
+      .setDescription("画像で認証機能です")
+      .addRoleOption(option =>
+        option
+          .setName("role")
+          .setDescription("認証成功時に付与するロール")
+          .setRequired(true))
+
     const gif = new SlashCommandBuilder()
       .setName("gif")
       .setDescription("GIF画像を検索して、表示します")
@@ -546,6 +555,7 @@ module.exports = async(client)=>{
             guideline,
             ticket,
             panel,
+            image,
             gif,
             say,
             npm,
