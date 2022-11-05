@@ -108,7 +108,7 @@ module.exports = async(interaction)=>{
                 icon_url: "https://cdn.taka.ml/images/system/success.png"
               }
             }]
-          });
+          }).catch(()=>{})
         })
         .catch(async(error)=>{
           await interaction.editReply({
@@ -126,7 +126,7 @@ module.exports = async(interaction)=>{
                 }
               ]
             }]
-          })
+          }).catch(()=>{})
         });
   
         delete require.cache[require.resolve("../../data/hiroyuki/main.json")];

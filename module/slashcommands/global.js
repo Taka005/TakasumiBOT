@@ -186,7 +186,7 @@ module.exports = async(interaction)=>{
             description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\nこのチャンネルに入力された内容は、登録チャンネル全てに送信されます\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
             timestamp: new Date()
           }]
-        })
+        }).catch(()=>{})
       })
       .catch(async(error)=>{
         await interaction.editReply({
@@ -204,7 +204,7 @@ module.exports = async(interaction)=>{
               }
             ]
           }]
-        })
+        }).catch(()=>{})
       });
 
       delete require.cache[require.resolve("../../data/global/main.json")];
