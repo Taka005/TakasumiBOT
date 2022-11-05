@@ -1,5 +1,5 @@
 const time = []
-module.exports = async(message)=>{
+module.exports = (message)=>{
   if(new Date() - time[message.guild.id] <= 800){
     time[message.guild.id] = new Date();
     return true
