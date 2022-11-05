@@ -1,4 +1,4 @@
-module.exports = async(interaction)=>{
+module.exports = async(interaction,client)=>{
   const fs = require("fs");
   const { admin } = require("../../config.json");
   if(!interaction.isCommand()) return;
@@ -91,14 +91,18 @@ module.exports = async(interaction)=>{
       delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
       delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
 
-      interaction.reply({
+      const command = require("../events/command");
+      command(client);
+
+      await interaction.reply({
         embeds:[{
           color: "GREEN",
           description: "リロードが完了しました",
         }]
       });
+    
     }catch(error){
-      interaction.reply({
+      await interaction.reply({
         embeds:[{
           color: "RED",
           description: "リロードに失敗しました",

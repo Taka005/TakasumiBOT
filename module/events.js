@@ -2,9 +2,11 @@ module.exports = async(client)=>{
   const fs = require("fs");
 
   client.once("ready", async (client) =>{
-    const ready = require("./events/ready");
+    const status = require("./events/status");
+    const command = require("./events/command");
 
-    ready(client)
+    status(client);
+    command(client);
   });
 
   client.on("messageCreate", async (message) =>{
