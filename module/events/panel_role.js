@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
           interaction.reply({
             embeds:[{
               author: {
-                name: `認証しました`,
+                name: "認証しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN"

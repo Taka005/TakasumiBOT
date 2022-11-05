@@ -21,7 +21,7 @@ module.exports = async(interaction)=>{
           interaction.reply({
             embeds:[{
               author: {
-                name: `認証しました`,
+                name: "認証しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN"
@@ -56,7 +56,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "画像に表示される文字を正確に選択してください"
+          description: "画像に表示される文字を選択してください"
         }],
         ephemeral:true
       });

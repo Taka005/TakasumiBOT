@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const { MessageActionRow, Modal, TextInputComponent } = require('discord.js');
+  const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("panel_")){
     const role = await interaction.customId.split("_");
