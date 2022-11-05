@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  if(!interaction.isModalSubmit()) return;
+  if(!interaction.isSelectMenu()) return;
   if(interaction.customId.startsWith("imagerole_")){
     const list = await interaction.customId.split("_");
     const key = await interaction.values[0];
