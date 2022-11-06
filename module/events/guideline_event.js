@@ -26,7 +26,7 @@ module.exports = async(interaction)=>{
       components: [new MessageActionRow().addComponents(guide_button)]
     })
     .then(()=>{
-      interaction.update({});
+      interaction.deferUpdate({});
     })
     .catch((error)=>{
       interaction.reply({ 
