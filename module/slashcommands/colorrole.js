@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
     const name = await interaction.options.getString("name");
     const color = await interaction.options.getString("color");
 
-    if(!interaction.member.permissions.has("MANAGE_ROLES")) return interaction.reply({
+    if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",

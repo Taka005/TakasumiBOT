@@ -29,7 +29,6 @@ module.exports = async(interaction)=>{
         }],
         files:[new MessageAttachment(Buffer.from(qr_response), `QRCode.png`)]
       });
-
     }else{
       if(!text.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
         embeds:[{

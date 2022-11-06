@@ -26,7 +26,7 @@ module.exports = async(interaction,client)=>{
       .catch(()=>{})
     const end = performance.now(); 
 
-    interaction.editReply({
+    await interaction.editReply({
       embeds:[{
         color: "BLUE",
         title: "ステータス",
@@ -46,21 +46,23 @@ module.exports = async(interaction,client)=>{
           }
         ]
       }]
-    }).catch((error)=>interaction.editReply({
-      embeds:[{
-        author: {
-          name: "正常に送信できませんでした",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
-        },
-        color: "RED",
-        fields: [
-          {
-            name: "エラーコード",
-            value: `\`\`\`${error}\`\`\``
-          }
-        ]
-      }],
-      ephemeral:true
-    }));
+    }).catch((error)=>{
+      interaction.editReply({
+        embeds:[{
+          author: {
+            name: "正常に送信できませんでした",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
+        }],
+        ephemeral:true
+      })
+    });
   }
 }

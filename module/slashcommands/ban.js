@@ -104,7 +104,7 @@ module.exports = async(interaction,client)=>{
         })
     }else{
       await interaction.guild.bans.create(id[0],{ reason: reason })
-        .then(async ()=>{
+        .then(async()=>{
           await interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
@@ -116,7 +116,7 @@ module.exports = async(interaction,client)=>{
             }]
           })
         })
-        .catch(async (error)=>{
+        .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
               author: {

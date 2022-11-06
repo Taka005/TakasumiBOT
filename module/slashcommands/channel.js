@@ -42,7 +42,7 @@ module.exports = async(interaction,client)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: `テキストチャンネルが指定されていないか、\nBOTの権限が不足しています`,
+          description: "テキストチャンネルが指定されていないか、\nBOTの権限が不足しています",
           fields: [
             {
               name: "エラーコード",
