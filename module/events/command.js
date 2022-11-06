@@ -493,6 +493,10 @@ module.exports = async(client)=>{
     .setName("メンバー情報を表示")
     .setType(ApplicationCommandType.User)
 
+    const avatar_2 = new ContextMenuCommandBuilder()
+      .setName("メンバー情報を表示")
+      .setType(ApplicationCommandType.User)
+
   const permission = new ContextMenuCommandBuilder()
     .setName("権限を表示")
     .setType(ApplicationCommandType.User)
@@ -556,6 +560,7 @@ module.exports = async(client)=>{
           role,
           //ContextMenu
           member,
+          avatar_2,
           permission,
           quote,
           to_en,

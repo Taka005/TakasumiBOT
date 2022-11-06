@@ -3,6 +3,18 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "権限を表示"){
     const member = await interaction.options.getMember("user");
 
+    if(!member) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "メンバーを取得できませんでした",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description:"指定したユーザーが存在していないか、サーバーから退出しています"
+      }],
+      ephemeral:true
+    });
+
     try{
       const permissions = member.permissions.toArray().map(p=>{
         if(p === "CREATE_INSTANT_INVITE") return "招待を作成";
@@ -66,7 +78,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author: {
             name: "権限を表示できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           fields: [
