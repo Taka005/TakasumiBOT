@@ -17,7 +17,11 @@
     "type": "git",
     "url": "git+https://github.com/Taka005/takasumi_bot.git"
   },
-  "keywords": ["discordjs","TakasumiBOT","Taka005"],
+  "keywords": [
+    "discordjs",
+    "TakasumiBOT",
+    "Taka005"
+  ],
   "author": "Taka005",
   "license": "GPL-3.0",
   "bugs": {
