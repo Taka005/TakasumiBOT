@@ -28,7 +28,8 @@ module.exports = async(interaction)=>{
       components: [new MessageActionRow().addComponents(auth_button)]
     })
       .then(async()=>{
-        interaction.deferUpdate({});
+        interaction.deferUpdate({})
+          .catch(()=>{})
       })
       .catch(async(error)=>{
         await interaction.reply({ 
