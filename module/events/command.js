@@ -568,4 +568,6 @@ module.exports = async(client)=>{
         ]
       },
   );
+
+  client.channels.cache.get("947484748773736538").send("スラッシュコマンドをリロードしました");
 }
