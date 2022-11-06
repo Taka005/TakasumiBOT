@@ -494,7 +494,7 @@ module.exports = async(client)=>{
     .setType(ApplicationCommandType.User)
 
     const avatar_2 = new ContextMenuCommandBuilder()
-      .setName("メンバー情報を表示")
+      .setName("アバターを表示")
       .setType(ApplicationCommandType.User)
 
   const permission = new ContextMenuCommandBuilder()
