@@ -3,7 +3,7 @@ module.exports = async(message)=>{
 
   if(message.author.id === "302050872383242240"){
     if(message.embeds[0]?.description.match(/表示順をアップしたよ/)||message.embeds[0]?.description.match(/Bump done/)){
-      message.channel.send({
+      await message.channel.send({
         embeds:[{
           color: "WHITE",
           title:"BUMP通知",
@@ -11,8 +11,8 @@ module.exports = async(message)=>{
         }]  
       }).catch(()=>{})
 
-      setTimeout(()=>{
-        message.channel.send({
+      setTimeout(async()=>{
+        await message.channel.send({
           content: `||${config.bump}||`,
           embeds:[{
             color: "WHITE",

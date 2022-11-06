@@ -8,9 +8,8 @@ const client = new Client({
     Intents.FLAGS.GUILD_MEMBERS,
     Intents.FLAGS.GUILD_INVITES,
     Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.GUILD_VOICE_STATES
-  ],
+    Intents.FLAGS.GUILD_MESSAGES
+  ]
 });
 
 const events = require("./module/events");
@@ -20,7 +19,7 @@ const load = require("./module/events/load");
 events(client);
 server(client);
 gateway(client);
-load(client)
+load(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
   .then(()=> console.info(`\x1b[34mINFO:ログインに成功しました`))
