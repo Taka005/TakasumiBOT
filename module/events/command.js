@@ -93,7 +93,7 @@ module.exports = async(client)=>{
 
   const image = new SlashCommandBuilder()
     .setName("image")
-    .setDescription("画像で認証機能です")
+    .setDescription("認証に画像を使用する機能です")
     .addRoleOption(option =>
       option
         .setName("role")
