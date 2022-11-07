@@ -20,31 +20,11 @@ module.exports = async(client)=>{
 
   app.listen(80, () => console.info(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました`));
    
-  app.get("/", (req, res) =>{
+  app.get("/", (req,res) =>{
     res.redirect("https://taka.ml/");
     console.info(`\x1b[34mINFO: [${req.ip}]からtaka.mlにリダイレクト`);
     res.end()
   });
-
-  //------リダイレクト------//
-  app.get("/support", (req, res) =>{
-    res.redirect("https://discord.gg/GPs3npB63m");
-    console.info(`\x1b[34mINFO: [${req.ip}]からsupportにリダイレクト`);
-    res.end()
-  });
-
-  app.get("/invite", (req, res) =>{
-    res.redirect("https://discord.com/oauth2/authorize?client_id=981314695543783484&permissions=4398046511095&scope=bot%20applications.commands");
-    console.info(`\x1b[34mINFO: [${req.ip}]からinviteにリダイレクト`);
-    res.end()
-  });
-
-  app.get("/feedback", (req, res) =>{
-    res.redirect("https://forms.gle/qe17jt8XnURTv5Pe8");
-    console.info(`\x1b[34mINFO: [${req.ip}]からinviteにリダイレクト`);
-    res.end()
-  });
-  //------リダイレクト------//
 
   //------API------//
   app.get("/v1/status", (req, res) =>{

@@ -29,4 +29,4 @@
 - development by Taka005#6668
 - language is javascript(node.js)
 - Discordサーバーにも是非参加してください
-- https://discord.gg/GPs3npB63m
+- https://discord.taka.ml/

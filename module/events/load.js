@@ -54,5 +54,5 @@ module.exports = async(client)=>{
     
     fs.writeFileSync("./data/api.json", JSON.stringify(api), "utf8");
     delete require.cache[require.resolve("../../data/api.json")];
-  },600000)
+  },900000)
 }

@@ -45,7 +45,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "グローバルチャットは、BOTに以下の権限が必要です\n```リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理```\n何度も失敗する場合は[サポートサーバー](https://discord.gg/GPs3npB63m)まで、ご報告ください"
+        description: "グローバルチャットは、BOTに以下の権限が必要です\n```リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理```"
       }],
       ephemeral:true
     });

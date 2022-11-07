@@ -40,7 +40,7 @@ module.exports = async(interaction,client)=>{
           delete require.cache[require.resolve(`../events/${file}`)];
         });
       });
-      //functions
+      //lib
       fs.readdir("./module/lib/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;

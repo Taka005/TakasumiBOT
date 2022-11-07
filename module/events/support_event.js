@@ -12,7 +12,7 @@ module.exports = async(interaction,client)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "確認コードは、数字を半角で入力してください\n[サポートサーバー](https://discord.gg/GPs3npB63m)"
+        description: "確認コードは、数字を半角で入力してください"
       }],
       ephemeral:true
     });
