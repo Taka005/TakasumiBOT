@@ -47,7 +47,7 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           author: {
             name: "取得に失敗しました",
-            icon_url: "https://taka.ml/images/system/error.jpg",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "指定されたユーザーは存在しないか、間違っています"

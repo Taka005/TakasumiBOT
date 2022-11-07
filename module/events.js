@@ -64,7 +64,7 @@ module.exports = async(client)=>{
       embeds:[{
         author: {
           name: "コマンドが実行できません",
-          icon_url: "https://taka.ml/images/error.jpg",
+          icon_url: "https://cdn.taka.ml/images/error.png",
         },
         color: "RED",
         description: "BOTの操作はDMで実行することができません\nサーバー内で実行してください"

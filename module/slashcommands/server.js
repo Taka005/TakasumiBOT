@@ -6,7 +6,7 @@ module.exports = async(interaction)=>{
         color: "GREEN",
         author: {
           name: `${interaction.guild.name}の情報`,
-          icon_url: "https://taka.ml/images/system/success.png",
+          icon_url: "https://cdn.taka.ml/images/system/success.png",
         },
         timestamp: new Date(),
         thumbnail: {

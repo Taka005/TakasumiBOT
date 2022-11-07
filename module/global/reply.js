@@ -24,7 +24,7 @@ module.exports = async(message,client)=>{
   }
 
   const content = message.content
-    .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://taka.ml/support)")
+    .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://discord.taka.ml/)")
 
   try{
     const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});

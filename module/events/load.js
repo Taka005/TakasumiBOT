@@ -28,7 +28,7 @@ module.exports = async(client)=>{
       );
 
       const start = performance.now(); 
-      await fetch("https://taka.ml/api/status")
+      await fetch("https://api.taka.ml/v1/status")
         .catch(()=>{})
       const end = performance.now(); 
 

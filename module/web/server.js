@@ -20,8 +20,12 @@ module.exports = async(client)=>{
 
   app.listen(80, () => console.info(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました`));
    
-  app.use(`/`, express.static("./module/web/assets"));
- 
+  app.get("/", (req, res) =>{
+    res.redirect("https://taka.ml/");
+    console.info(`\x1b[34mINFO: [${req.ip}]からtaka.mlにリダイレクト`);
+    res.end()
+  });
+
   //------リダイレクト------//
   app.get("/support", (req, res) =>{
     res.redirect("https://discord.gg/GPs3npB63m");
@@ -43,7 +47,7 @@ module.exports = async(client)=>{
   //------リダイレクト------//
 
   //------API------//
-  app.get("/api/status", (req, res) =>{
+  app.get("/v1/status", (req, res) =>{
     let time = new Date();
     res.setHeader("Access-Control-Allow-Origin", "*")
          
@@ -76,7 +80,7 @@ module.exports = async(client)=>{
     res.end()
   });
 
-  app.get("/api/date", (req, res) =>{
+  app.get("/v1/date", (req, res) =>{
     res.setHeader("Access-Control-Allow-Origin", "*")
     res.json(date);
 
