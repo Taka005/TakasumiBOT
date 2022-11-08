@@ -26,6 +26,7 @@ module.exports = async(msg)=>{
     })
       .then((res)=>res.json())
       .catch(()=>{})
+      console.log(reply)
   }
 
   if(msg.message.attachments.length !== 0){
