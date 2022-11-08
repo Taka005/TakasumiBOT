@@ -1,10 +1,11 @@
 module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
+  const isUrl = require("../lib/isUrl");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "safeweb"){
     const url = await interaction.options.getString("url");
 
-    if(!url.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
+    if(!isUrl(url)) return await interaction.reply({
       embeds:[{
         author: {
           name: "安全性を評価できませんでした",

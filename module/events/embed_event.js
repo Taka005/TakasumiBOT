@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const isUrl = require("../lib/isUrl");
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId === "embed"){
       const title = interaction.fields.getTextInputValue("title");
@@ -17,7 +18,7 @@ module.exports = async(interaction)=>{
       });
 
       if(image){
-        if(!image.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
+        if(!isUrl(image)) return await interaction.reply({
           embeds:[{
             author: {
               name: "入力された画像が無効です",
