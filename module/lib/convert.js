@@ -3,13 +3,15 @@ module.exports = async(msg)=>{
   const fetch = require("node-fetch");
 
   let reply = {
-    "author": {
+    data:{
+      "author": {
       "username": null,
       "discriminator": null,
       "id": null
-    },
-    "message": {
-      "content": null
+      },
+      "message": {
+        "content": null
+      }
     }
   };
   let isReply = false;
@@ -26,7 +28,6 @@ module.exports = async(msg)=>{
     })
       .then((res)=>res.json())
       .catch(()=>{})
-      console.log(reply)
   }
 
   if(msg.message.attachments.length !== 0){
@@ -71,10 +72,10 @@ module.exports = async(msg)=>{
       "reply": {
         "isReply": isReply,
         "user":{
-          "tag": `${reply.author.username}#${reply.author.discriminator}`,
-          "id": reply.author.id
+          "tag": `${reply.data.author.username}#${reply.data.author.discriminator}`,
+          "id": reply.data.author.id
         },
-        "content": reply.message.content
+        "content": reply.data.message.content
       },
       "attachments": {
         "isAttachments": isAttachments,
