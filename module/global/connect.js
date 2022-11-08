@@ -20,7 +20,7 @@ module.exports = async(msg,client)=>{
             {
               color: "RANDOM",
               author: {
-                name: `${message.author.tag}`,
+                name: `${message.author.tag}[UGC]`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL,
               },
@@ -47,7 +47,7 @@ module.exports = async(msg,client)=>{
             {
               color: "RANDOM",
               author: {
-                name: `${message.author.tag}`,
+                name: `${message.author.tag}[UGC]`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL,
               },
@@ -80,7 +80,7 @@ module.exports = async(msg,client)=>{
             {
               color: "RANDOM",
               author: {
-                name: `${message.author.tag}`,
+                name: `${message.author.tag}[UGC]`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL,
               },
@@ -115,7 +115,7 @@ module.exports = async(msg,client)=>{
             {
               color: "RANDOM",
               author: {
-                name: `${message.author.tag}`,
+                name: `${message.author.tag}[UGC]`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL,
               },
@@ -148,7 +148,7 @@ module.exports = async(msg,client)=>{
             {
               color: "RANDOM",
               author: {
-                name: `${message.author.tag}`,
+                name: `${message.author.tag}[UGC]`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL,
               },
@@ -187,7 +187,7 @@ module.exports = async(msg,client)=>{
             {
               color: "RANDOM",
               author: {
-                name: `${message.author.tag}`,
+                name: `${message.author.tag}[UGC]`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL,
               },
