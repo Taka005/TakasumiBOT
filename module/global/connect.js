@@ -4,60 +4,247 @@ module.exports = async(msg,client)=>{
   const sub = require("../../data/global/sub.json");
   const convert = require("../lib/convert");
   const { WebhookClient } = require("discord.js");
-  const fs = require("fs");
 
   if(main[msg.channel.id]) return;
   const message = await convert(msg);
 
-  Object.keys(main).forEach(async (channels)=>{
-    const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-    if(mute_server[guild]) return;
-
-    const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
-    await webhooks.send({
-      embeds:[{
-        color: "RANDOM",
-        author: {
-          name: `${message.author.tag}[UGC]`,
-          url: `https://discord.com/users/${message.author.id}`,
-          icon_url: message.author.avatarURL,
-        },
-        description: message.content,
-        image: {
-          url: (message.attachments.length) ? message.attachments[0].url : null
-        },
-        footer: {
-          text: `${message.guild.name}<${message.guild.id}>`,
-          icon_url: message.guild.iconURL
-        },
-        timestamp: new Date()
-      }]      
-    }).catch((error)=>{
-      delete main[channels];
-      const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-      delete sub[guild];
-      fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-      fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-      delete require.cache[require.resolve("../../data/global/sub.json")];
-      delete require.cache[require.resolve("../../data/global/main.json")];
-
-      client.channels.cache.get(channels).send({
-        embeds:[{
-          author: {
-            name: "グローバルチャットでエラーが発生しました",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
-          },
-          color: "RED",
-          description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-          fields: [
+  if(!message.reply.isReply){
+    if(!message.attachments.isAttachments){
+      Object.keys(main).forEach(async(channels)=>{//添付ファイルなし
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
+  
+        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        await webhooks.send({
+          embeds:[
             {
-              name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
+              color: "RANDOM",
+              author: {
+                name: `${message.author.tag}`,
+                url: `https://discord.com/users/${message.author.id}`,
+                icon_url: message.author.avatarURL,
+              },
+              description: message.content,
+              footer: {
+                text:`${message.guild.name}<${message.guild.id}>`,
+                icon_url: message.guild.iconURL
+              },
+              timestamp: new Date()
+            }
+          ]      
+        }).catch((error)=>{
+          err(channels,client,error);
+        });
+      });
+    }else if(!message.attachments.attachment[0].isFile){//添付ファイルあり(画像)
+      Object.keys(main).forEach(async(channels)=>{
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
+  
+        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        await webhooks.send({
+          embeds:[
+            {
+              color: "RANDOM",
+              author: {
+                name: `${message.author.tag}`,
+                url: `https://discord.com/users/${message.author.id}`,
+                icon_url: message.author.avatarURL,
+              },
+              description: message.content,
+              footer: {
+                text: `${message.guild.name}<${message.guild.id}>`,
+                icon_url: message.guild.iconURL
+              },
+              timestamp: new Date()
+            },
+            {
+              title: message.attachments.attachment[0].name,
+              image: {
+                url: message.attachments.attachment[0].url
+              }
             }
           ]
-        }]
-      })
-      .catch(()=>{})
-    })
-  });
+        }).catch((error)=>{
+          err(channels,client,error);
+        });
+      });
+    }else{//添付ファイルあり(画像以外)
+      Object.keys(main).forEach(async(channels)=>{
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
+  
+        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        await webhooks.send({
+          embeds:[
+            {
+              color: "RANDOM",
+              author: {
+                name: `${message.author.tag}`,
+                url: `https://discord.com/users/${message.author.id}`,
+                icon_url: message.author.avatarURL,
+              },
+              description: message.content,
+              footer: {
+                text:`${message.guild.name}<${message.guild.id}>` ,
+                icon_url: message.guild.iconURL
+              },
+              fields: [
+                {
+                  name: "添付ファイル",
+                  value: `[${message.attachments.attachment[0].name}](${message.attachments.attachment[0].url})`
+                }
+              ],
+              timestamp: new Date()
+            }
+          ]
+        }).catch((error)=>{
+          err(channels,client,error);
+        });
+      });
+    }
+  }else{
+    if(!message.attachments.isAttachments){
+      Object.keys(main).forEach(async(channels)=>{//添付ファイルなし
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
+
+        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        await webhooks.send({
+          embeds:[
+            {
+              color: "RANDOM",
+              author: {
+                name: `${message.author.tag}`,
+                url: `https://discord.com/users/${message.author.id}`,
+                icon_url: message.author.avatarURL,
+              },
+              description: message.content,
+              fields: [
+                {
+                  name: "\u200b",
+                  value: `**${message.reply.user.tag}>>** ${message.reply.content || "なし"}`
+                }
+              ],
+              footer: {
+                text:`${message.guild.name}<${message.guild.id}>`,
+                icon_url: message.guild.iconURL
+              },
+              timestamp: new Date()
+            }
+          ]      
+        }).catch((error)=>{
+          err(channels,client,error);
+        });
+      });
+    }else if(!message.attachments[0].isFile){//添付ファイルあり(画像)
+      Object.keys(main).forEach(async (channels)=>{
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
+
+        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        await webhooks.send({
+          embeds:[
+            {
+              color: "RANDOM",
+              author: {
+                name: `${message.author.tag}`,
+                url: `https://discord.com/users/${message.author.id}`,
+                icon_url: message.author.avatarURL,
+              },
+              description: message.content,
+              fields: [
+                {
+                  name: "\u200b",
+                  value: `**${message.reply.user.tag}>>** ${message.reply.content || "なし"}`
+                }
+              ],
+              footer: {
+                text: `${message.guild.name}<${message.guild.id}>`,
+                icon_url: message.guild.iconURL
+              },
+              timestamp: new Date()
+            },
+            {
+              title: message.attachments.attachment[0].name,
+              image: {
+                url: message.attachments.attachment[0].url
+              }
+            }
+          ]
+        }).catch((error)=>{
+          err(channels,client,error);
+        });
+      });
+    }else{//添付ファイルあり(画像以外)
+      Object.keys(main).forEach(async (channels)=>{
+        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+        if(channels === message.channel.id||mute_server[guild]) return;
+
+        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        await webhooks.send({
+          embeds:[
+            {
+              color: "RANDOM",
+              author: {
+                name: `${message.author.tag}`,
+                url: `https://discord.com/users/${message.author.id}`,
+                icon_url: message.author.avatarURL,
+              },
+              description: message.content,
+              footer: {
+                text:`${message.guild.name}<${message.guild.id}>` ,
+                icon_url: message.guild.iconURL
+              },
+              fields: [
+                {
+                  name: "添付ファイル",
+                  value: `[${message.attachments.attachment[0].name}](${message.attachments.attachment[0].url})`
+                },
+                {
+                  name: "\u200b",
+                  value: `**${message.reply.user.tag}>>** ${message.reply.content || "なし"}`
+                }
+              ],
+              timestamp: new Date()
+            }
+          ]
+        }).catch((error)=>{
+          err(channels,client,error);
+        });
+      });
+    }
+  }
+}
+
+function err(channels,client,error){
+  const main = require("../../data/global/main.json");
+  const sub = require("../../data/global/sub.json");
+  const fs = require("fs");
+  
+  delete main[channels];
+  const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+  delete sub[guild];
+  fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+  fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+  delete require.cache[require.resolve("../../data/global/sub.json")];
+  delete require.cache[require.resolve("../../data/global/main.json")];
+
+  client.channels.cache.get(channels).send({
+    embeds:[{
+      author: {
+        name: "グローバルチャットでエラーが発生しました",
+        icon_url: "https://cdn.taka.ml/images/system/error.png",
+      },
+      color: "RED",
+      description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
+      fields: [
+        {
+          name: "エラーコード",
+          value: `\`\`\`${error}\`\`\``
+        }
+      ]
+    }]
+  })
+  .catch(()=>{})
 }
