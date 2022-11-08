@@ -24,7 +24,8 @@ module.exports = async(msg)=>{
           "Authorization": `Bearer ${process.env.UGC_KEY}`
       }
     })
-    console.log(reply)
+      .then((res)=>res.text())
+      .catch(()=>{})
   }
 
   if(msg.message.attachments.length !== 0){
