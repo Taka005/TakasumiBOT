@@ -24,7 +24,7 @@ module.exports = async(msg)=>{
           "Authorization": `Bearer ${process.env.UGC_KEY}`
       }
     })
-      .then((res)=>res.text())
+      .then((res)=>res.json())
       .catch(()=>{})
   }
 
