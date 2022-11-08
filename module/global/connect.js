@@ -7,7 +7,6 @@ module.exports = async(msg,client)=>{
   const fs = require("fs");
 
   if(main[msg.channel.id]) return;
-  console.log(await convert(msg))
   Object.keys(main).forEach(async (channels)=>{
 
     const guild = Object.keys(sub).filter((key)=> sub[key] === channels);

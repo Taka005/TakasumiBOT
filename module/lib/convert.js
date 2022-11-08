@@ -68,7 +68,7 @@ module.exports = async(msg)=>{
       },
       "content": msg.message.content,
       "id": msg.message.id,
-      "clean_content": msg.message.cleanContent,
+      "clean_content": msg.message.clean_content,
       "reply": {
         "isReply": isReply,
         "user":{
