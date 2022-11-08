@@ -2,10 +2,12 @@ module.exports = async(msg,client)=>{
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
+  const convert = require("../lib/convert");
   const { WebhookClient } = require("discord.js");
   const fs = require("fs");
 
   if(main[msg.channel.id]) return;
+  console.log(convert(msg))
   Object.keys(main).forEach(async (channels)=>{
 
     const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
