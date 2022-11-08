@@ -28,6 +28,21 @@ module.exports = async(msg)=>{
     })
       .then((res)=>res.json())
       .catch(()=>{})
+
+    if(!reply.data?.message){
+      reply = {
+        data:{
+          "author": {
+            "username": "UGC",
+            "discriminator": "0000",
+            "id": "000000000000000000"
+          },
+          "message": {
+            "content": "取得できませんでした"
+          }
+        }
+      };
+    }
   }
 
   if(msg.message.attachments.length !== 0){
