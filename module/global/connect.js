@@ -7,9 +7,9 @@ module.exports = async(msg,client)=>{
   const fs = require("fs");
 
   if(main[msg.channel.id]) return;
-  console.log(await convert(msg))
-  Object.keys(main).forEach(async (channels)=>{
+  const message = await convert(msg);
 
+  Object.keys(main).forEach(async (channels)=>{
     const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
     if(mute_server[guild]) return;
 
@@ -18,17 +18,17 @@ module.exports = async(msg,client)=>{
       embeds:[{
         color: "RANDOM",
         author: {
-          name: `${msg.author.username}#${msg.author.discriminator}[UGC]`,
-          url: `https://discord.com/users/${msg.author.id}`,
-          icon_url: msg.author.avatarURL||"https://cdn.discordapp.com/embed/avatars/0.png",
+          name: `${message.author.tag}[UGC]`,
+          url: `https://discord.com/users/${message.author.id}`,
+          icon_url: message.author.avatarURL,
         },
-        description: msg.message.content,
+        description: message.content,
         image: {
-          url: (msg.message.attachments.length) ? msg.message.attachments[0].url : null
+          url: (message.attachments.length) ? message.attachments[0].url : null
         },
         footer: {
-          text: `${msg.guild.name}<${msg.guild.id}>`,
-          icon_url: msg.guild.iconURL||"https://cdn.discordapp.com/embed/avatars/0.png"
+          text: `${message.guild.name}<${message.guild.id}>`,
+          icon_url: message.guild.iconURL
         },
         timestamp: new Date()
       }]      
