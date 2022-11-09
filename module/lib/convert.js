@@ -9,14 +9,14 @@ module.exports = async(msg)=>{
     "isAttachments": false
   };
 
-  if(msg.message.reference?.message_id){
-    const res = await fetch(`https://ugc.renorari.net/api/v1/messages/${msg.message.reference?.message_id}`,{
+  if(msg.message?.reference?.message_id){
+    const res = await fetch(`https://ugc.renorari.net/api/v1/messages/${msg.message.reference.message_id}`,{
       "method": "GET",
       "headers": {
         "Authorization": `Bearer ${process.env.UGC_KEY}`
       }
     })
-      .then((res)=>res.json())
+      .then(res=>res.json())
       .catch(()=>{})
   
     if(!res.data?.message){
