@@ -25,7 +25,7 @@ module.exports = async(message)=>{
     try{
       const reply_webhooks = new WebhookClient({id: main[message.reference.channelId][0], token: main[message.reference.channelId][1]});
       const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
-      reference["message_id"] = msg.embeds[0].image.url.match(/[^0-9]/g)
+      reference["message_id"] = msg.embeds[0].image.url.replace(/[^0-9]/g,"");
     }catch{
       reference["message_id"] = message.id;
     }

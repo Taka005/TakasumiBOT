@@ -24,7 +24,7 @@ module.exports = async(msg)=>{
           "tag": "UGC#0000",
           "id": "000000000000000000"
         },
-        "content": "取得できませんでした"
+        "content": "None"
       };
     }else{
       reply = {
