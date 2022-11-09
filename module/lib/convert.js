@@ -10,14 +10,15 @@ module.exports = async(msg)=>{
   };
 
   if(msg.message.reference?.message_id){
-    console.log(msg.message.reference.message_id)
     const ugc = await fetch(`https://ugc.renorari.net/api/v1/messages/${msg.message.reference.message_id}`,{
       "method": "GET",
       "headers": {
         "Authorization": `Bearer ${process.env.UGC_KEY}`
       }
-    }).then(res=>res.json())
-      console.log(ugc)
+    })
+    .then(res=>res.json())
+    .catch(()=>{})
+    
     if(!ugc.data?.message){
       reply = {
         "isReply": true,
