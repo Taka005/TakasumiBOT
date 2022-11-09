@@ -58,6 +58,9 @@ module.exports = async(message,client)=>{
                 text:`${message.guild.name}<${message.guild.id}>`,
                 icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
+              image: {
+                url: `https://${message.id}.ugc`
+              },
               timestamp: new Date()
             }
           ]      
@@ -95,6 +98,9 @@ module.exports = async(message,client)=>{
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+              },
+              image: {
+                url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
             },
@@ -144,7 +150,11 @@ module.exports = async(message,client)=>{
                   name: "\u200b",
                   value: `**${author}>>** ${msg.embeds[0].description || "なし"}`
                 }
-              ],
+              ],       
+              image: {
+                url: `https://${message.id}.ugc`
+              },
+
               timestamp: new Date()
             }
           ]
@@ -187,6 +197,9 @@ module.exports = async(message,client)=>{
                 text:`${message.guild.name}<${message.guild.id}>`,
                 icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
+              image: {
+                url: `https://${message.id}.ugc`
+              },
               timestamp: new Date()
             }
           ]      
@@ -223,6 +236,9 @@ module.exports = async(message,client)=>{
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+              },
+              image: {
+                url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
             },
@@ -272,6 +288,9 @@ module.exports = async(message,client)=>{
                   value: `**${msg.author.tag}>>** ${msg.content || "なし"}`
                 }
               ],
+              image: {
+                url: `https://${message.id}.ugc`
+              },
               timestamp: new Date()
             }
           ]

@@ -29,6 +29,9 @@ module.exports = async(msg,client)=>{
                 text:`${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL
               },
+              image: {
+                url: `https://${message.id}.ugc`
+              },
               timestamp: new Date()
             }
           ]      
@@ -55,6 +58,9 @@ module.exports = async(msg,client)=>{
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL
+              },
+              image: {
+                url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
             },
@@ -95,6 +101,9 @@ module.exports = async(msg,client)=>{
                   value: `[${message.attachments.attachment[0].name}](${message.attachments.attachment[0].url})`
                 }
               ],
+              image: {
+                url: `https://${message.id}.ugc`
+              },
               timestamp: new Date()
             }
           ]
@@ -130,6 +139,9 @@ module.exports = async(msg,client)=>{
                 text:`${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL
               },
+              image: {
+                url: `https://${message.id}.ugc`
+              },
               timestamp: new Date()
             }
           ]      
@@ -162,6 +174,9 @@ module.exports = async(msg,client)=>{
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL
+              },
+              image: {
+                url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
             },
@@ -206,6 +221,9 @@ module.exports = async(msg,client)=>{
                   value: `**${message.reply.user.tag}>>** ${message.reply.content || "なし"}`
                 }
               ],
+              image: {
+                url: `https://${message.id}.ugc`
+              },
               timestamp: new Date()
             }
           ]

@@ -3,6 +3,7 @@ module.exports = async(message)=>{
   const mute_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
   const fetch = require("node-fetch");
+  const { WebhookClient } = require("discord.js");
   require("dotenv").config();
   
   if(
@@ -13,6 +14,18 @@ module.exports = async(message)=>{
     mute_server[message.guild.id]||
     mute_user[message.author.id]
   ) return;
+
+  let reference = {
+    "channel_id": (message.reference?.channelId || null),
+    "guild_id": (message.reference?.guildId || null),
+    "message_id": (message.reference?.messageId || null)
+  };
+
+  if(message.reference?.messageId&&message.reference?.channelId){
+    const reply_webhooks = new WebhookClient({id: main[message.reference.channelId][0], token: main[message.reference.channelId][1]});
+    const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
+    reference["message_id"] = msg.embeds[0].image.url.replace(/[^0-9]/g,"")
+  }
 
   await fetch("https://ugc.renorari.net/api/v1/messages",{
     "method": "POST",
@@ -42,11 +55,7 @@ module.exports = async(message)=>{
           "content": message.content,
           "id": message.id,
           "clean_content": message.cleanContent,
-          "reference": {
-            "channel_id": (message.reference?.channelId || null),
-            "guild_id": (message.reference?.guildId || null),
-            "message_id": (message.reference?.messageId || null)
-          },
+          "reference": reference,
           "attachments": message.attachments.map((attachment) => ({
             "name": attachment.name,
             "url": attachment.url,

@@ -1,5 +1,9 @@
 module.exports = (url)=>{
-  if(typeof url !== "string") return false;
+  if(
+    typeof url !== "string"||
+    !url.startsWith("https://")||
+    !url.startsWith("http://")
+  ) return false;
   
   const protocol = /^(?:\w+:)?\/\/(\S+)$/;
   const localhost = /^localhost[:?\d]*(?:[^:?\d]\S*)?$/;

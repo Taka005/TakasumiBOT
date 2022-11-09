@@ -47,6 +47,9 @@ module.exports = async(message,client)=>{
               text:`${message.guild.name}<${message.guild.id}>`,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
             },
+            image: {
+              url: `https://${message.id}.ugc`
+            },
             timestamp: new Date()
           }
         ]      
@@ -77,6 +80,9 @@ module.exports = async(message,client)=>{
             footer: {
               text: `${message.guild.name}<${message.guild.id}>`,
               icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+            },
+            image: {
+              url: `https://${message.id}.ugc`
             },
             timestamp: new Date()
           },
@@ -122,6 +128,9 @@ module.exports = async(message,client)=>{
                 value: `[${attachment[0].name}](${attachment[0].url})`
               }
             ],
+            image: {
+              url: `https://${message.id}.ugc`
+            },
             timestamp: new Date()
           }
         ]
