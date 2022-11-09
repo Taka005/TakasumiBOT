@@ -9,8 +9,8 @@ module.exports = async(msg)=>{
     "isAttachments": false
   };
 
-  if(msg.message?.reference?.message_id){
-    const res = await fetch(`https://ugc.renorari.net/api/v1/messages/${msg.message.reference.message_id}`,{
+  if(msg.message.reference?.message_id){
+    const ugc = await fetch(`https://ugc.renorari.net/api/v1/messages/${msg.message.reference.message_id}`,{
       "method": "GET",
       "headers": {
         "Authorization": `Bearer ${process.env.UGC_KEY}`
@@ -18,8 +18,8 @@ module.exports = async(msg)=>{
     })
       .then(res=>res.json())
       .catch(()=>{})
-  
-    if(!res.data?.message){
+    console.log(ugc)
+    if(!ugc.data?.message){
       reply = {
         "isReply": true,
         "user":{
@@ -32,10 +32,10 @@ module.exports = async(msg)=>{
       reply = {
         "isReply": true,
         "user":{
-          "tag": `${res.data.author.username}#${res.data.author.discriminator}`,
-          "id": res.data.author.id
+          "tag": `${ugc.data.author.username}#${ugc.data.author.discriminator}`,
+          "id": ugc.data.author.id
         },
-        "content": res.data.message.content
+        "content": ugc.data.message.content
       };
     }
   }
