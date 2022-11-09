@@ -1,8 +1,7 @@
 module.exports = (url)=>{
   if(
     typeof url !== "string"||
-    !url.startsWith("https://")||
-    !url.startsWith("http://")
+    !url.match(/https?/)
   ) return false;
   
   const protocol = /^(?:\w+:)?\/\/(\S+)$/;
