@@ -15,9 +15,7 @@ module.exports = async(msg)=>{
       "headers": {
         "Authorization": `Bearer ${process.env.UGC_KEY}`
       }
-    })
-      .then(res=>res.json())
-      .catch(()=>{})
+    }).then(res=>res.json())
       console.log(ugc)
     if(!ugc.data?.message){
       reply = {
