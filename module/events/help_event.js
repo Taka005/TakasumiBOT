@@ -71,8 +71,6 @@ module.exports = async(interaction)=>{
     .catch(async(error)=>{
       await err(interaction,error)
     })
-
-    await interaction.deferUpdate({});
   }
   //2ページ目
   if(interaction.customId.startsWith("page_2")){
@@ -284,8 +282,6 @@ module.exports = async(interaction)=>{
     .catch(async(error)=>{
       await err(interaction,error)
     })
-
-    await interaction.deferUpdate({});
   }
 
   if(interaction.customId.startsWith("page_5")){
@@ -351,8 +347,6 @@ module.exports = async(interaction)=>{
     .catch(async(error)=>{
       await err(interaction,error)
     })
-
-    await interaction.deferUpdate({});
   }
 }
 
