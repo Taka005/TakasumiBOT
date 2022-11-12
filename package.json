@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node index.js",
     "lint": "./node_modules/.bin/eslint module",
-    "format": "prettier --write module",
     "build": "esbuild --bundle --minify --sourcemap=external --format=cjs --platform=node --target=es2020,node16 --outfile=./dist/build.js --keep-names=true ./index.js",
     "test": "node ./dist/build.js"
   },
@@ -39,12 +38,11 @@
     "express": "^4.18.2",
     "node-fetch": "^2.6.7",
     "os-utils": "^0.0.14",
-    "ws": "^8.10.0"
+    "ws": "^8.11.0"
   },
   "devDependencies": {
     "esbuild": "^0.15.13",
-    "eslint": "^8.26.0",
-    "eslint-plugin-node": "^11.1.0",
-    "prettier": "^2.7.1"
+    "eslint": "^8.27.0",
+    "eslint-plugin-node": "^11.1.0"
   }
 }
