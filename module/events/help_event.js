@@ -64,7 +64,9 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    });
+    }).cacth((error)=>{
+      err(interaction,error)
+    })
 
     await interaction.deferUpdate({});
   }
@@ -129,7 +131,9 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    });
+    }).cacth((error)=>{
+      err(interaction,error)
+    })
 
     await interaction.deferUpdate({});
   }
@@ -198,7 +202,9 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    });
+    }).cacth((error)=>{
+      err(interaction,error)
+    })
 
     await interaction.deferUpdate({});
   }
@@ -263,7 +269,9 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    });
+    }).cacth((error)=>{
+      err(interaction,error)
+    })
 
     await interaction.deferUpdate({});
   }
@@ -324,7 +332,9 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    });
+    }).cacth((error)=>{
+      err(interaction,error)
+    })
 
     await interaction.deferUpdate({});
   }
@@ -346,4 +356,24 @@ async function check(interaction,id){
     return true
   }
   return false
+}
+
+async function err(interaction,error){
+  await interaction.reply({
+    embeds:[{
+      author: {
+        name: "ページを更新できませんでした",
+        icon_url: "https://cdn.taka.ml/images/system/error.png",
+      },
+      color: "RED",
+      description: "BOTの権限が不足しています",
+      fields: [
+        {
+          name: "エラーコード",
+          value: `\`\`\`${error}\`\`\``
+        }
+      ]
+    }],
+    ephemeral:true
+  });
 }
