@@ -64,8 +64,12 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).catch((error)=>{
-      err(interaction,error)
+    })
+    .then(async()=>{
+      await interaction.deferUpdate({});
+    })
+    .catch(async(error)=>{
+      await err(interaction,error)
     })
 
     await interaction.deferUpdate({});
@@ -131,11 +135,13 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).catch((error)=>{
-      err(interaction,error)
     })
-
-    await interaction.deferUpdate({});
+    .then(async()=>{
+      await interaction.deferUpdate({});
+    })
+    .catch(async(error)=>{
+      await err(interaction,error)
+    })
   }
   //3ページ目
   if(interaction.customId.startsWith("page_3")){
@@ -202,11 +208,13 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).catch((error)=>{
-      err(interaction,error)
     })
-
-    await interaction.deferUpdate({});
+    .then(async()=>{
+      await interaction.deferUpdate({});
+    })
+    .catch(async(error)=>{
+      await err(interaction,error)
+    })
   }
   //4ページ目
   if(interaction.customId.startsWith("page_4")){
@@ -269,8 +277,12 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).catch((error)=>{
-      err(interaction,error)
+    })
+    .then(async()=>{
+      await interaction.deferUpdate({});
+    })
+    .catch(async(error)=>{
+      await err(interaction,error)
     })
 
     await interaction.deferUpdate({});
@@ -332,8 +344,12 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).catch((error)=>{
-      err(interaction,error)
+    })
+    .then(async()=>{
+      await interaction.deferUpdate({});
+    })
+    .catch(async(error)=>{
+      await err(interaction,error)
     })
 
     await interaction.deferUpdate({});
