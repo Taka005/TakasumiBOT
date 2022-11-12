@@ -7,29 +7,32 @@ module.exports = async(client)=>{
   const date = require("../../data/api.json");
 
   try{
-    const options = {
-      key: fs.readFileSync( "/home/taka/discordbot/ssl/server.key" ),
-      cert: fs.readFileSync( "/home/taka/discordbot/ssl/server.pem" )
-    };
-    const server = https.createServer(options,app);
+    const server = https.createServer({
+      key: fs.readFileSync("/home/taka/discordbot/ssl/server.key"),
+      cert: fs.readFileSync("/home/taka/discordbot/ssl/server.pem")
+    },app);
 
-    server.listen(443, () => console.info(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました`));
+    server.listen(443,()=>{
+      console.info(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました`);
+    });
   }catch{
-    console.warn(`\x1b[33mWARN:sslを使用せずに起動しました`)
+    console.warn(`\x1b[33mWARN:sslを使用せずに起動しました`);
   }
 
-  app.listen(80, () => console.info(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました`));
+  app.listen(80,()=>{
+    console.info(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました`);
+  });
    
-  app.get("/", (req,res) =>{
-    res.redirect("https://taka.ml/");
-    console.info(`\x1b[34mINFO: [${req.ip}]からtaka.mlにリダイレクト`);
+  app.get("/",(req,res)=>{
+    res.send("<h1>TakasumiBOT API Server</h1>");
+    console.info(`\x1b[34mINFO: [${req.ip}]からの接続`);
     res.end()
   });
 
   //------API------//
-  app.get("/v1/status", (req, res) =>{
-    let time = new Date();
-    res.setHeader("Access-Control-Allow-Origin", "*")
+  app.get("/v1/status",(req,res)=>{
+    const time = new Date();
+    res.setHeader("Access-Control-Allow-Origin","*")
          
     res.json({
       client:{
@@ -56,12 +59,12 @@ module.exports = async(client)=>{
       }
     });
     
-    console.info(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`)
+    console.info(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`);
     res.end()
   });
 
   app.get("/v1/date", (req, res) =>{
-    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Origin","*")
     res.json(date);
 
     console.info(`\x1b[34INFO: [${req.ip}]からAPIにリクエスト`)
@@ -70,14 +73,14 @@ module.exports = async(client)=>{
   //------API------//
 
   //------ERROR処理------//
-  app.use((req, res)=>{
-    res.setHeader("Access-Control-Allow-Origin", "*")
+  app.use((req,res)=>{
+    res.setHeader("Access-Control-Allow-Origin","*");
     res.status(404).send(`<h1>404 NOT FOUND</h1><br>[${req.path}]`);
     res.end()
   });
 
-  app.use(function(err, req, res){
-    res.setHeader("Access-Control-Allow-Origin", "*")
+  app.use((err,req,res)=>{
+    res.setHeader("Access-Control-Allow-Origin","*");
     res.status(500).send(`<h1>500 SERVER ERROR</h1><br>[${err}]`);
     res.end()
   });
