@@ -63,8 +63,10 @@ module.exports = async(interaction)=>{
             .addComponents(page)
             .addComponents(next)
         ]
-      })
+      }) 
+      .catch(()=>{})
+      
+      await interaction.deferUpdate({});
     }
-    await interaction.deferUpdate({});
   }
 }
