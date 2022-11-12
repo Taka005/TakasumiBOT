@@ -64,7 +64,7 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).cacth((error)=>{
+    }).catch((error)=>{
       err(interaction,error)
     })
 
@@ -131,7 +131,7 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).cacth((error)=>{
+    }).catch((error)=>{
       err(interaction,error)
     })
 
@@ -202,7 +202,7 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).cacth((error)=>{
+    }).catch((error)=>{
       err(interaction,error)
     })
 
@@ -269,7 +269,7 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).cacth((error)=>{
+    }).catch((error)=>{
       err(interaction,error)
     })
 
@@ -332,7 +332,7 @@ module.exports = async(interaction)=>{
           .addComponents(page)
           .addComponents(next)
       ]
-    }).cacth((error)=>{
+    }).catch((error)=>{
       err(interaction,error)
     })
 
