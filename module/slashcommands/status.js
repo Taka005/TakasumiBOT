@@ -18,6 +18,10 @@ module.exports = async(interaction,client)=>{
     const cpuusage = await new Promise((resolve) =>
       require("os-utils").cpuUsage(resolve)
     );
+
+    const members = await fetch("https://auth.taka.ml/data/user.json")
+      .then(res=>res.json())
+      .catch(()=>{})
     
     const chat = Object.keys(global).length/client.guilds.cache.size*100
 
@@ -33,7 +37,7 @@ module.exports = async(interaction,client)=>{
         timestamp: new Date(),
         fields: [
           {
-            name: "Web",
+            name: "API",
             value: `Ping:${Math.floor(end - start)}㍉秒`
           },
           {
@@ -42,7 +46,7 @@ module.exports = async(interaction,client)=>{
           },
           {
             name: "Discord",
-            value: `Ping:${client.ws.ping}㍉秒\nGC登録数:${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数:${Object.keys(hiroyuki).length}\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
+            value: `Ping:${client.ws.ping}㍉秒\nGC登録数:${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数:${Object.keys(hiroyuki).length}\nTakasumiBOT Members:${Object.keys(members).length}人\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
           }
         ]
       }]
