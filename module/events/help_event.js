@@ -106,6 +106,10 @@ module.exports = async(interaction)=>{
             value: "強力なメンバー認証機能です\nボタンを押したら簡単な足し算を行うことで認証ができます"
           },
           {
+            name: "/web",
+            value: "TakasumiBOT Membersに登録することで認証できるようになります。一度登録すると2回目は不要です"
+          },
+          {
             name: "/guideline",
             value: "サーバーのガイドラインを作成し、同意するとロールが付与されます"
           },
