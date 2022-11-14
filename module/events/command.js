@@ -73,6 +73,15 @@ module.exports = async(client)=>{
         .setDescription("認証成功時に付与するロール")
         .setRequired(true))
 
+  const web = new SlashCommandBuilder()
+    .setName("web")
+    .setDescription("TakasumiBOT Membersの登録によって認証します")
+    .addRoleOption(option =>
+      option
+        .setName("role")
+        .setDescription("認証成功時に付与するロール")
+        .setRequired(true))
+
   const guideline = new SlashCommandBuilder()
     .setName("guideline")
     .setDescription("サーバーのガイドラインを作成します")
@@ -529,6 +538,7 @@ module.exports = async(client)=>{
           follow,
           top,
           auth,
+          web,
           guideline,
           ticket,
           panel,

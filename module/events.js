@@ -74,6 +74,7 @@ module.exports = async(client)=>{
 
     //イベント
     const auth_event = require("./events/auth_event");
+    const web_event = require("./events/web_event");
     const panel_event = require("./events/panel_event");
     const ticket_event = require("./events/ticket_event");
     const embed_event = require("./events/embed_event");
@@ -90,6 +91,7 @@ module.exports = async(client)=>{
     const image_role = require("./events/image_role");
 
     auth_event(interaction);
+    web_event(interaction);
     panel_event(interaction);
     embed_event(interaction);
     ticket_event(interaction);
