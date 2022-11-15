@@ -24,6 +24,10 @@ module.exports = async(client)=>{
     .setName("embed")
     .setDescription("簡単に埋め込みメッセージを作成します")
 
+  const faq = new SlashCommandBuilder()
+    .setName("faq")
+    .setDescription("よくある質問一覧を表示します")
+
   const server = new SlashCommandBuilder()
     .setName("server")
     .setDescription("サーバーに関する情報を表示します")
@@ -529,6 +533,7 @@ module.exports = async(client)=>{
           help,
           support,
           embed,
+          faq,
           server,
           status,
           draw,
