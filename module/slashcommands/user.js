@@ -1,12 +1,15 @@
 module.exports = async(interaction,client)=>{
   const point = require("../../data/point.json");
+  const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
     const user_id = await interaction.options.getString("id");
 
-    if(!user_id){
-      const point_user = point[interaction.member.user.id];
+    const members = await fetch("https://auth.taka.ml/data/user.json")
+      .then(res=>res.json())
+      .catch(()=>{})
 
+    if(!user_id){
       await interaction.reply({
         embeds:[{
           color: "GREEN",
@@ -35,7 +38,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "評価",
-              value: point_user||"10.0",
+              value: point[interaction.member.user.id]||"10.0",
               inline: true
             },
             {
@@ -50,7 +53,12 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "アカウントの種類",
-              value: interaction.user.bot ? "BOT" : "ユーザー",
+              value: interaction.member.user.bot ? "BOT" : "ユーザー",
+              inline: true
+            },
+            {
+              name: "TakasumiBOT Membersへの加入",
+              value: members[interaction.member.user.id] ? "加入済み" : "未加入",
               inline: true
             },
             {
@@ -95,8 +103,6 @@ module.exports = async(interaction,client)=>{
 
     const member = await interaction.guild.members.cache.get(id[0]);
     if(member){
-      const point_user = point[member.user.id];
-
       await interaction.reply({
         embeds:[{
           color: "GREEN",
@@ -125,7 +131,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "評価",
-              value: point_user||"10.0",
+              value: point[member.user.id]||"10.0",
               inline: true
             },
             {
@@ -141,6 +147,11 @@ module.exports = async(interaction,client)=>{
             {
               name: "アカウントの種類",
               value: member.user.bot ? "BOT" : "ユーザー",
+              inline: true
+            },
+            {
+              name: "TakasumiBOT Membersへの加入",
+              value: members[member.user.id] ? "加入済み" : "未加入",
               inline: true
             },
             {
@@ -169,15 +180,14 @@ module.exports = async(interaction,client)=>{
       });   
     }else{
       try{
-        const users = await client.users.fetch(id[0]);
-        const point_user = point[users.id];
+        const user = await client.users.fetch(id[0]);
 
         await interaction.reply({
           embeds:[{
             color: "GREEN",
             author: {
-              name:`${users.tag}の検索結果`,
-              url: `https://discord.com/users/${users.id}`,
+              name:`${user.tag}の検索結果`,
+              url: `https://discord.com/users/${user.id}`,
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             timestamp: new Date(),
@@ -185,29 +195,34 @@ module.exports = async(interaction,client)=>{
               text: "TakasumiBOT"
             },
             thumbnail: {
-              url: users.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+              url: user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
             },
             fields: [
               {
                 name: "ID",
-                value: `${users.id}`,
+                value: `${user.id}`,
                 inline: true
               },
               {
                 name: "作成日時",
-                value: `${new Date(users.createdTimestamp).toLocaleDateString()}`,
+                value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
                 inline: true
               },
               {
                 name: "評価",
-                value: point_user||"10.0",
+                value: point[user.id]||"10.0",
                 inline: true
               },
               {
                 name: "アカウントの種類",
-                value: users.bot ? "BOT" : "ユーザー",
+                value: user.bot ? "BOT" : "ユーザー",
                 inline: true
-              }
+              },
+              {
+                name: "TakasumiBOT Membersへの加入",
+                value: members[user.id] ? "加入済み" : "未加入",
+                inline: true
+              },
             ]
           }]
         });

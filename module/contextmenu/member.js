@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
   const point = require("../../data/point.json");
+  const fetch = require("https://auth.taka.ml/data/user.json");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
     const member = await interaction.options.getMember("user");
@@ -15,6 +16,10 @@ module.exports = async(interaction)=>{
       }],
       ephemeral:true
     });
+
+    const members = await fetch("https://auth.taka.ml/data/user.json")
+      .then(res=>res.json())
+      .catch(()=>{})
 
     const point_user = point[member.user.id];
 
@@ -46,7 +51,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "評価",
-            value: point_user||"10.0",
+            value: point[member.user.id]||"10.0",
             inline: true
           },
           {
@@ -62,6 +67,11 @@ module.exports = async(interaction)=>{
           {
             name: "アカウントの種類",
             value: member.user.bot ? "BOT" : "ユーザー",
+            inline: true
+          },
+          {
+            name: "TakasumiBOT Membersへの加入",
+            value: members[member.user.id] ? "加入済み" : "未加入",
             inline: true
           },
           {
