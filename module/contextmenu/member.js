@@ -1,6 +1,6 @@
 module.exports = async(interaction)=>{
   const point = require("../../data/point.json");
-  const fetch = require("https://auth.taka.ml/data/user.json");
+  const fetch = require("node-fetch");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
     const member = await interaction.options.getMember("user");
