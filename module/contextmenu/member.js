@@ -21,8 +21,6 @@ module.exports = async(interaction)=>{
       .then(res=>res.json())
       .catch(()=>{})
 
-    const point_user = point[member.user.id];
-
     await interaction.reply({
       embeds:[{
         color: "GREEN",
@@ -71,8 +69,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "TakasumiBOT Membersへの加入",
-            value: members[member.user.id] ? "加入済み" : "未加入",
-            inline: true
+            value: members[member.user.id] ? "加入済み" : "未加入"
           },
           {
             name:"ロール",
