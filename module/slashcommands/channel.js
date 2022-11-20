@@ -29,6 +29,7 @@ module.exports = async(interaction,client)=>{
                 name: `${channel.name}に${text}を送信しました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
+              description: "このコマンドによるメッセージに関するトラブル等に関して運営は一切責任を負いません\nまた、運営によって勝手にメッセージが送信される等もございませんので注意してください",
               color: "GREEN"
             }],
             ephemeral:true

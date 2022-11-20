@@ -21,10 +21,17 @@ module.exports = async(interaction)=>{
 
     await interaction.channel.send(`${text}`)
       .then(()=>{
-        interaction.deferReply()
-          .then(()=>{
-            interaction.deleteReply()
-          })
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "正常に送信しました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN",
+            description: "このコマンドによるメッセージに関するトラブル等に関して運営は一切責任を負いません\nまた、運営によって勝手にメッセージが送信される等もございませんので注意してください"
+          }],
+          ephemeral:true
+        });
       })
       .catch(()=>{
         interaction.reply({
