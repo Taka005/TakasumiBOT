@@ -4,25 +4,39 @@ module.exports = async(interaction,client)=>{
     const user_id = await interaction.options.getString("id");
 
     if(!user_id){
-      await interaction.reply(interaction.member.user.avatarURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png")
-        .catch((error)=>{
-          interaction.reply({
-            embeds:[{
-              author: {
-                name: "正常に送信できませんでした",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
-              },
-              color: "RED",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }],
-            ephemeral:true
-          })
-        });
+      await interaction.reply({
+        embeds:[{
+          color: "GREEN",
+          author: {
+            name:`${interaction.member.user.tag}のアバター`,
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
+          },
+          image: {
+            url: interaction.member.user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          timestamp: new Date(),
+          footer: {
+            text: "TakasumiBOT"
+          }
+        }]
+      }).catch((error)=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "正常に送信できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
+          }],
+          ephemeral:true
+        })
+      });
       return;
     }
   
@@ -40,10 +54,25 @@ module.exports = async(interaction,client)=>{
     });
 
     try{
-      const users = await client.users.fetch(id[0]);
-      await interaction.reply(users.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png")
+      const user = await client.users.fetch(id[0]);
+      await interaction.reply({
+        embeds:[{
+          color: "GREEN",
+          author: {
+            name:`${user.tag}のアバター`,
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
+          },
+          image: {
+            url: user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          timestamp: new Date(),
+          footer: {
+            text: "TakasumiBOT"
+          }
+        }]
+      });
     }catch{
-      return await interaction.reply({
+      await interaction.reply({
         embeds:[{
           author: {
             name: "取得に失敗しました",
