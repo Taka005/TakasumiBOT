@@ -17,7 +17,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "TakasumiBOT Membersとは?",
-            value: "BOTをDiscordアカウントを紐付けることにより、さまざまなサービスが使いやすくなるシステムです。登録は[ここから](https://auth.taka.ml/)"
+            value: "BOTとDiscordアカウントを紐付けることにより、さまざまなサービスが使いやすくなるシステムです。登録は[ここから](https://auth.taka.ml/)"
           },
           {
             name: "BOTや、その他サービスは何で動かしているの？",
