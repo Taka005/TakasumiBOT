@@ -1,7 +1,7 @@
-[![Build](https://github.com/Taka005/takasumi_bot/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Taka005/takasumi_bot/actions/workflows/build.yml)
-[![Lint](https://github.com/Taka005/takasumi_bot/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/Taka005/takasumi_bot/actions/workflows/lint.yml)
+[![Build](https://github.com/Taka005/TakasumiBOT/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Taka005/TakasumiBOT/actions/workflows/build.yml)
+[![Lint](https://github.com/Taka005/TakasumiBOT/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/Taka005/TakasumiBOT/actions/workflows/lint.yml)
 [![License: GPL](https://img.shields.io/badge/License-GPL-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
-# Takasumi_botについて
+# TakasumiBOTについて
 - これはオープンソース版です
 - このBOTは、他に人が確実に動かせるように開発されていません
 - (このプロジェクトのforkを起動できた人は未だにいません)
@@ -25,7 +25,7 @@
 - member_channel:メンバーに参加をしらせるチャンネルID
 - member_mention:メンバーに参加をしらせるロールID
 # プルリクエストについて
-- プルリクエストの内容はtakasumi_bot/module内のものしか受け付けておりません
+- プルリクエストの内容はTakasumiBOT/module内のものしか受け付けておりません
 - 気をつけて行なってください
 # development
 - development by Taka005#6668

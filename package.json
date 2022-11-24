@@ -1,5 +1,5 @@
 {
-  "name": "takasumi_bot",
+  "name": "takasumibot",
   "description": "TakasumiBOT開発 https://takasumibot.taka.ml/",
   "version": "2.8.1",
   "main": "index.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Taka005/takasumi_bot.git"
+    "url": "git+https://github.com/Taka005/TakasumiBOT.git"
   },
   "keywords": [
     "discordjs",
@@ -24,9 +24,9 @@
   "author": "Taka005",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Taka005/takasumi_bot/issues"
+    "url": "https://github.com/Taka005/TakasumiBOT/issues"
   },
-  "homepage": "https://github.com/Taka005/takasumi_bot#readme",
+  "homepage": "https://github.com/Taka005/TakasumiBOT#readme",
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",

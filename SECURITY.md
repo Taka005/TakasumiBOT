@@ -9,7 +9,7 @@ BOT自体のバージョンはありますが、過去のバージョンのコ�
 
 脆弱性の報告は以下からお願いします
 
-- Github: [Issues](https://github.com/Taka005/takasumi_bot/issues)
+- Github: [Issues](https://github.com/Taka005/TakasumiBOT/issues)
 - Discord: [鷹のすみか](https://discord.taka.ml/)
 - Discord(DM): [Taka005#6668](https://discord.com/users/790489873957781536)
 - Email: [support@taka.ml](mailto:support@taka.ml)
