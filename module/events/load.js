@@ -42,7 +42,7 @@ module.exports = async(client)=>{
         web = 800;
       }
 
-      api.time.push(`${time.getHours()}:${time.getMinutes()}`)
+      api.time.push(`${time.getMonth()+1}/${time.getDate()} ${time.getHours()}:${time.getMinutes()}`)
       api.ping.push(`${ping}`)
       api.web.push(`${web}`)
       api.user.push(`${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}`)
