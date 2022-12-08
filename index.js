@@ -26,7 +26,7 @@ client.login(process.env.DISCORD_BOT_TOKEN)
   .catch(()=> console.error(`\x1b[31mERROR:ログインに失敗しました`))
 
 //エラー回避
-process.on("uncaughtException",async(error) =>{
+process.on("uncaughtException",async(error)=>{
   console.error(`\x1b[31mERROR: ${error.stack}`);
 
   client.channels.cache.get(log_channel).send({
@@ -38,7 +38,7 @@ process.on("uncaughtException",async(error) =>{
   })
 });
 
-process.on("unhandledRejection",async(error) =>{
+process.on("unhandledRejection",async(error)=>{
   console.error(`\x1b[31mERROR: ${error.stack}`);
 
   client.channels.cache.get(log_channel).send({
