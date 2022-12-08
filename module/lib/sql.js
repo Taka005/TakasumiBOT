@@ -10,7 +10,7 @@ module.exports = ()=>{
   });
 
   let res;
-  connection.query(query,(error,results,fields)=>{
+  connection.query(query,(error,results)=>{
     res = results;
   });
   connection.end();
