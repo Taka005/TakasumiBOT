@@ -1,4 +1,4 @@
-module.exports = ()=>{
+module.exports = (query)=>{
   const mysql = require("mysql");
   require("dotenv").config();
 
