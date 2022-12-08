@@ -1,4 +1,4 @@
-module.exports = (query)=>{
+module.exports = async(query)=>{
   const mysql = require("mysql");
   require("dotenv").config();
 
@@ -9,10 +9,7 @@ module.exports = (query)=>{
     database: "b5m4d_"
   });
 
-  let res;
-  connection.query(query,(error,results)=>{
-    res = results;
-  });
+  const res = await connection.query(query);
   connection.end();
 
   return res;
