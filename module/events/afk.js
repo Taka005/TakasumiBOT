@@ -6,7 +6,6 @@ module.exports = async(message)=>{
    if(data[0]){
       await mysql(`DELETE FROM afk WHERE user = ${message.author.id} LIMIT 1;`);
       const time = new Date() - new Date(data[0].time);
-      const format = `${Math.floor(time.getTime()/1000/60/60)%24}時間${Math.floor(time.getTime()/1000/60)%60}分${Math.floor(time.getTime()/1000)%60}秒`
       return message.channel.send({
         embeds:[{
           author: {
@@ -14,7 +13,7 @@ module.exports = async(message)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          description: `メンションは${data[0].mention}件ありました\n${format}間AFKでした`
+          description: `メンションは${data[0].mention}件ありました\n${Math.floor(time*1000)}秒間AFKでした`
         }]
       }); 
    }
