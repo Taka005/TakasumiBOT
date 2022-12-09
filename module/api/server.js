@@ -63,7 +63,7 @@ module.exports = async(client)=>{
     res.end()
   });
 
-  app.get("/v1/date", (req, res) =>{
+  app.get("/v1/date",(req,res)=>{
     res.setHeader("Access-Control-Allow-Origin","*")
     res.json(date);
 

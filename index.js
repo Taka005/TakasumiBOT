@@ -13,11 +13,11 @@ const client = new Client({
 });
 
 const events = require("./module/events");
-const server = require("./module/web/server");
+const api = require("./module/api/server");
 const gateway = require("./module/global/gateway");
 const load = require("./module/events/load");
 events(client);
-server(client);
+api(client);
 gateway(client);
 load(client);
 
