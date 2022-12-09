@@ -18,7 +18,7 @@ module.exports = async(message)=>{
       if(data){
         setTimeout(async()=>{
           await message.channel.send({
-            content: `<@&${data}>`,
+            content: `<@&${data.role}>`,
             embeds:[{
               color: "WHITE",
               title:"BUMP通知",
