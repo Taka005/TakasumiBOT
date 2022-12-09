@@ -68,8 +68,8 @@ module.exports = async(interaction,client)=>{
       fs.readdir("./module/api/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
-          require(`../web/${file}`);
-          delete require.cache[require.resolve(`../web/${file}`)];
+          require(`../api/${file}`);
+          delete require.cache[require.resolve(`../api/${file}`)];
         });
       });
 
