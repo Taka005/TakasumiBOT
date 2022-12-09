@@ -408,8 +408,7 @@ module.exports = async(client)=>{
           { name: "削除", value: "delete" },
           { name: "ブロック/解除(サーバー)", value: "block_server" },
           { name: "ブロック/解除(ユーザー)", value: "block_user" },
-          { name: "DM", value: "dm" },
-          { name: "評価", value: "point" }
+          { name: "DM", value: "dm" }
         ))
     .addStringOption(option =>
       option

@@ -1,6 +1,5 @@
 module.exports = async(interaction,client)=>{
   const { admin } = require("../../config.json");
-  const point_user = require("../../data/point.json");
   const block_user = require("../../data/block_user.json");
   const block_server = require("../../data/block_server.json");
   const main = require("../../data/global/main.json");
@@ -317,36 +316,6 @@ module.exports = async(interaction,client)=>{
           })
         });
 
-    }else if(functions === "point"){
-      try{
-        const user = await client.users.fetch(id_data[0]);
-        point_user[id_data] = message;
-        fs.writeFileSync("./data/point.json", JSON.stringify(point_user), "utf8");
-        delete require.cache[require.resolve("../../data/point.json")];
-  
-        await interaction.reply({
-          embeds:[{
-            author: {
-              name: `${user.tag} の評価を${message}に変更しました`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
-            },
-            color: "GREEN"
-          }],
-          ephemeral:true
-        });
-      }catch{
-        await interaction.reply({
-          embeds:[{
-            author: {
-              name: "指定したユーザーが存在しません",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
-            },
-            color: "RED",
-            description: "指定したIDが無効です"
-          }],
-          ephemeral:true
-        });
-      }
     }
   }
 }
