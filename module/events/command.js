@@ -73,6 +73,10 @@ module.exports = async(client)=>{
     .setDescription("サーバーの設定を変更します")
     .addSubcommand(subcommand =>
       subcommand
+        .setName("help")
+        .setDescription("設定のヘルプ画面を表示します"))
+    .addSubcommand(subcommand =>
+      subcommand
         .setName("bump")
         .setDescription("BUMP時に通知するロールを設定します")
         .addRoleOption(option =>

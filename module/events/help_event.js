@@ -184,7 +184,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "/del",
-            value: "指定された数だけ、メッセージを一括で削除します\n ※二週間前のメッセージは削除できません、\nまたこれを実行するには、`メッセージを管理`の権限が必要です"
+            value: "指定された数だけ、メッセージを一括で削除します\n ※二週間前のメッセージは削除できません\nまた、実行するには、`メッセージを管理`の権限が必要です"
           },
           {
             name: "/role",
@@ -201,6 +201,10 @@ module.exports = async(interaction)=>{
           {
             name: "/slowmode",
             value: "チャンネルに低速モードを設定します"
+          },
+          {
+            name: "/setting",
+            value: "サーバーの各種設定を変更します\n詳しくは`/setting help`を実行してください"
           }
         ]
       }],

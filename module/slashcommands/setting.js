@@ -18,7 +18,24 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(interaction.options.getSubcommand() === "bump"){//BUMPロール設定
+    if(interaction.options.getSubcommand() === "help"){//Help画面
+      await interaction.reply({
+        embeds:[{
+          title: "HELP 設定",
+          color: "GREEN",
+          fields: [
+            {
+              name: "/setting bump",
+              value: "BUMPの時間に通知するロールを設定します\n ※これを実行するには、`ロールを管理 チャンネルの管理`の権限が必要です"
+            },
+            {
+              name: "/setting dissoku",
+              value: "Dissoku UPの時間に通知するロールを設定します\n ※これを実行するには、`ロールを管理 チャンネルの管理`の権限が必要です"
+            }
+          ]
+        }]
+      });
+    }else if(interaction.options.getSubcommand() === "bump"){//BUMPロール設定
       const role = interaction.options.getRole("role");
 
       if(
