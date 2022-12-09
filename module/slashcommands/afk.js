@@ -3,6 +3,17 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "afk"){
     const message = await interaction.options.getString("message");
+    if(message.length > 300) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "メッセージが長すぎます",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description: "300文字未満になるように調整してください"
+      }],
+      ephemeral:true
+    });
 
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
     if(data[0]){
