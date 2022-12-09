@@ -143,8 +143,7 @@ module.exports = async(client)=>{
     .addStringOption(option =>
       option
         .setName("message")
-        .setDescription("代わりに送信するメッセージ")
-        .setRequired(true))
+        .setDescription("代わりに送信するメッセージ"))
 
   const gif = new SlashCommandBuilder()
     .setName("gif")

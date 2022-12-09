@@ -15,12 +15,12 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          description: `メンションは${data[0].mention}件ありました\n${Math.floor(time*1000)}秒間AFKでした`
+          description: `メンションは${data[0].mention}件ありました\n${Math.floor(time/1000)}秒間AFKでした`
         }]
       }); 
     }
 
-    await mysql(`INSERT INTO afk (user, message, mention, time) VALUES(${interaction.member.user.id},"${message}",0,NOW());`);
+    await mysql(`INSERT INTO afk (user, message, mention, time) VALUES(${interaction.member.user.id},"${message||"代わりのメッセージがありません"}",0,NOW());`);
     await interaction.reply({
       embeds:[{
         author: {
