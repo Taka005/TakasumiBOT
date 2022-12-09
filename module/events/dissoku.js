@@ -15,10 +15,10 @@ module.exports = async(message)=>{
         }]  
       }).catch(()=>{})
 
-      if(data.length > 0){
+      if(data[0]){
         setTimeout(async()=>{
           await message.channel.send({
-            content: `<@&${data.role}>`,
+            content: `<@&${data[0].role}>`,
             embeds:[{
               color: "BLUE",
               title:"UP通知",

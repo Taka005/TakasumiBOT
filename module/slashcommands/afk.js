@@ -5,9 +5,9 @@ module.exports = async(interaction)=>{
     const message = await interaction.options.getString("message");
 
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
-    if(data.length > 0){
+    if(data[0]){
       await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
-      const time = new Date() - new Date(data.time);
+      const time = new Date() - new Date(data[0].time);
       const format = `${Math.floor(time/1000/60/60)%24}時間${Math.floor(time/1000/60)%60}分${Math.floor(time/1000)%60}秒`
       return interaction.reply({
         embeds:[{
@@ -16,7 +16,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          description: `メンションは${data.mention}件ありました\n${format}間AFKでした`
+          description: `メンションは${data[0].mention}件ありました\n${format}間AFKでした`
         }]
       }); 
     }
