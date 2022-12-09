@@ -44,7 +44,7 @@ module.exports = async(client)=>{
   client.on("messageUpdate", async (oldMessage,newMessage) =>{
     const dissoku = require("./events/dissoku");
 
-    dissoku(oldMessage,newMessage);
+    dissoku(newMessage);
   });
 
   client.on("messageReactionAdd", async (reaction, user) =>{

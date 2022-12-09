@@ -75,8 +75,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             color: "GREEN"
-          }],
-          ephemeral:true
+          }]
         });
       }
 
@@ -89,8 +88,7 @@ module.exports = async(interaction)=>{
           },
           color: "GREEN",
           description: `Bump通知に<@&${role.id}>に設定しました`
-        }],
-        ephemeral:true
+        }]
       });
 
     }else if(interaction.options.getSubcommand() === "dissoku"){//Dissokuロール設定
@@ -133,13 +131,12 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             color: "GREEN"
-          }],
-          ephemeral:true
+          }]
         });
       }
 
       await mysql(`INSERT INTO dissoku (server, role) VALUES(${interaction.guild.id},${role.id}) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role);`);
-      return await interaction.reply({
+      await interaction.reply({
         embeds:[{
           author: {
             name: "通知ロールを有効にしました",
@@ -147,8 +144,7 @@ module.exports = async(interaction)=>{
           },
           color: "GREEN",
           description: `Dissoku通知に<@&${role.id}>に設定しました`
-        }],
-        ephemeral:true
+        }]
       });
     }
   }
