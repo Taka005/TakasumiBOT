@@ -2,9 +2,10 @@ module.exports = async(interaction)=>{
   const mysql = require("../lib/mysql.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "afk"){
-    const message = interaction.options.getString("message");
+    const message = await interaction.options.getString("message");
 
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
+    console.log(data)
     if(data){
       await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
       const time = new Date() - new Date(data.time);
