@@ -5,7 +5,7 @@ module.exports = async(message)=>{
    let data = await mysql(`SELECT * FROM afk WHERE user = ${message.author.id} LIMIT 1;`);
    if(data[0]){
       await mysql(`DELETE FROM afk WHERE user = ${message.author.id} LIMIT 1;`);
-      const time = new Date() - new Date(data[0].time);
+      const time = new Date(data[0].time) - new Date();
       const format = `${Math.floor(time/1000/60/60)%24}時間${Math.floor(time/1000/60)%60}分${Math.floor(time/1000)%60}秒`
       return message.channel.send({
         embeds:[{
