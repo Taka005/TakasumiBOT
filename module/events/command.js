@@ -566,6 +566,7 @@ module.exports = async(client)=>{
           hiroyuki,
           follow,
           top,
+          setting,
           auth,
           web,
           guideline,
