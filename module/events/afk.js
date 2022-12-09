@@ -23,7 +23,7 @@ module.exports = async(message)=>{
     const id = mention[0].match(/\d{18,19}/g);
     data = await mysql(`SELECT * FROM afk WHERE user = ${id[0]} LIMIT 1;`);
     if(data[0]){
-      await mysql(`UPDATE afk SET mention = ${data[0].mention} WHERE user = ${id[0]}`);
+      await mysql(`UPDATE afk SET mention = ${data[0].mention + 1} WHERE user = ${id[0]}`);
       message.channel.send({
         embeds:[{
           author: {
