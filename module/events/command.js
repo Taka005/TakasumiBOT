@@ -68,6 +68,26 @@ module.exports = async(client)=>{
     .setName("top")
     .setDescription("実行したチャンネルの1番最初のメッセージのリンクを表示します")  
 
+  const setting = new SlashCommandBuilder()
+    .setName("setting")
+    .setDescription("サーバーの設定を変更します")
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName("bump")
+        .setDescription("BUMP時に通知するロールを設定します")
+        .addRoleOption(option =>
+          option
+            .setName("role")
+            .setDescription("通知するロール(無効にする場合は入力しないでください")))
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName("dissoku")
+        .setDescription("Dissoku UP時に通知するロールを設定します")
+        .addRoleOption(option =>
+          option
+            .setName("role")
+            .setDescription("通知するロール(無効にする場合は入力しないでください)")))
+
   const auth = new SlashCommandBuilder()
     .setName("auth")
     .setDescription("簡易的なロール認証機能です")
