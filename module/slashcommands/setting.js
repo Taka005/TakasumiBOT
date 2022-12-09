@@ -48,7 +48,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "このコマンドを実行するには、あなたがこのサーバーの\n`チャンネルの管理`の権限を持っている必要があります"
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```ロールの管理\nチャンネルの管理```"
         }],
         ephemeral:true
       });
