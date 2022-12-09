@@ -22,9 +22,11 @@ module.exports = async(client)=>{
     const bump = require("./events/bump");
     const open = require("./events/open");
     const hiroyuki = require("./events/hiroyuki");
+    const afk = require("./events/afk");
     bump(message);
     open(message,client);
     hiroyuki(message,client);
+    afk(message);
 
     if(!message.channel.type === "GUILD_TEXT" || message.author.bot) return;  
 

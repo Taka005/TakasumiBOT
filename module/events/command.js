@@ -137,6 +137,15 @@ module.exports = async(client)=>{
         .setDescription("認証成功時に付与するロール")
         .setRequired(true))
 
+  const afk = new SlashCommandBuilder()
+    .setName("afk")
+    .setDescription("AFKを設定します(留守電)")
+    .addStringOption(option =>
+      option
+        .setName("message")
+        .setDescription("代わりに送信するメッセージ")
+        .setRequired(true))
+
   const gif = new SlashCommandBuilder()
     .setName("gif")
     .setDescription("GIF画像を検索して、表示します")
@@ -572,6 +581,7 @@ module.exports = async(client)=>{
           ticket,
           panel,
           image,
+          afk,
           gif,
           say,
           npm,

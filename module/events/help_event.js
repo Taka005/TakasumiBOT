@@ -321,6 +321,10 @@ module.exports = async(interaction)=>{
             value: "実行したチャンネルの1番最初のメッセージを表示します"
           },
           {
+            name: "/afk",
+            value: "AFKを設定します(留守電の機能です)"
+          },
+          {
             name: "/npm",
             value: "NPMパッケージを検索、表示します"
           },
