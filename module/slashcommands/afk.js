@@ -7,8 +7,8 @@ module.exports = async(interaction)=>{
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
     if(data[0]){
       await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
-      const time = new Date(data[0].time) - new Date();
-      const format = `${Math.floor(time/1000/60/60)%24}時間${Math.floor(time/1000/60)%60}分${Math.floor(time/1000)%60}秒`
+      const time = new Date() - new Date(data[0].time);
+      const format = `${Math.floor(time.getTime()/1000/60/60)%24}時間${Math.floor(time.getTime()/1000/60)%60}分${Math.floor(time.getTime()/1000)%60}秒`
       return interaction.reply({
         embeds:[{
           author: {
