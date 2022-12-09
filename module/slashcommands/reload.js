@@ -65,7 +65,7 @@ module.exports = async(interaction,client)=>{
         });
       });
       //web
-      fs.readdir("./module/web/", (err,files) =>{ 
+      fs.readdir("./module/api/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;
           require(`../web/${file}`);
