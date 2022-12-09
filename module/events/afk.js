@@ -19,7 +19,7 @@ module.exports = async(message)=>{
   }
 
   const mention = message.content.match(/<@\d{18,19}>/g);
-  if(mention[0]){
+  if(mention){
     const id = mention[0].match(/\d{18,19}/g);
     data = await mysql(`SELECT * FROM afk WHERE user = ${id[0]} LIMIT 1;`);
     if(data[0]){
