@@ -15,7 +15,7 @@ module.exports = async(message)=>{
         }]  
       }).catch(()=>{})
 
-      if(data){
+      if(data.length > 0){
         setTimeout(async()=>{
           await message.channel.send({
             content: `<@&${data.role}>`,

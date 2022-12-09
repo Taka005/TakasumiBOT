@@ -5,8 +5,7 @@ module.exports = async(interaction)=>{
     const message = await interaction.options.getString("message");
 
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
-    console.log(data)
-    if(data){
+    if(data.length > 0){
       await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
       const time = new Date() - new Date(data.time);
       const format = `${Math.floor(time/1000/60/60)%24}時間${Math.floor(time/1000/60)%60}分${Math.floor(time/1000)%60}秒`
