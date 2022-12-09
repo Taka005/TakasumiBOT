@@ -1,5 +1,4 @@
 module.exports = async(interaction,client)=>{
-  const point = require("../../data/point.json");
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
@@ -34,11 +33,6 @@ module.exports = async(interaction,client)=>{
             {
               name: "ニックネーム",
               value: interaction.member.nickname||"未設定",
-              inline: true
-            },
-            {
-              name: "評価",
-              value: point[interaction.member.user.id]||"10.0",
               inline: true
             },
             {
@@ -129,11 +123,6 @@ module.exports = async(interaction,client)=>{
               inline: true
             },
             {
-              name: "評価",
-              value: point[member.user.id]||"10.0",
-              inline: true
-            },
-            {
               name: "作成日時",
               value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.user.createdAt) / 86400000)}日前)`,
               inline: true
@@ -204,11 +193,6 @@ module.exports = async(interaction,client)=>{
               {
                 name: "作成日時",
                 value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
-                inline: true
-              },
-              {
-                name: "評価",
-                value: point[user.id]||"10.0",
                 inline: true
               },
               {
