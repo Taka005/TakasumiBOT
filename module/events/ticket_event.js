@@ -1,8 +1,9 @@
 module.exports = async(interaction)=>{
-  const {MessageButton, MessageActionRow} = require("discord.js");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isButton()) return;
   if(interaction.customId === "ticket"){
-    const user = interaction.user.id
+    const user = interaction.user.id;
+
     if(interaction.guild.channels.cache.find(name => name.name === user)) return await interaction.reply({
       embeds:[{
         author: {
@@ -35,8 +36,8 @@ module.exports = async(interaction)=>{
       }],
       parent: ch.id
     })
-      .then(async(channels) =>{
-        channels.permissionOverwrites.edit(interaction.user.id, {VIEW_CHANNEL: true});
+      .then(async(channels)=>{
+        channels.permissionOverwrites.edit(interaction.user.id,{VIEW_CHANNEL: true});
 
         const ticket_button = new MessageButton()
           .setCustomId("close")
@@ -46,7 +47,7 @@ module.exports = async(interaction)=>{
         channels.send({
           embeds: [{
             color:"GREEN",
-            description: "お問い合わせへようこそ！\nお問い合わせ内容などをご記入ください。\n\n※ 注意 不必要なチケットの作成はおやめ下さい"
+            title: "チケットへようこそ"
           }],
           components: [
             new MessageActionRow()
@@ -74,7 +75,6 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "BOTの権限等を確認し、もう一度実行してください",
             fields: [
               {
                 name: "エラーコード",
@@ -95,7 +95,6 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "BOTの権限等を確認し、もう一度実行してください",
             fields: [
               {
                 name: "エラーコード",
@@ -104,7 +103,7 @@ module.exports = async(interaction)=>{
             ]
           }], 
           ephemeral: true 
-        })
+        });
       })
   }
 }
