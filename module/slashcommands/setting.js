@@ -37,7 +37,6 @@ module.exports = async(interaction)=>{
       });
     }else if(interaction.options.getSubcommand() === "bump"){//BUMPロール設定
       const role = await interaction.options.getRole("role");
-      console.log(role.id)
       if(
         !interaction.member.permissions.has("MANAGE_CHANNELS")||
         !interaction.member.permissions.has("MANAGE_ROLES")
@@ -79,7 +78,7 @@ module.exports = async(interaction)=>{
         });
       }
 
-      await mysql(`INSERT INTO bump (server, role) VALUES(${interaction.guild.id},${role.id}) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role);`);
+      await mysql(`INSERT INTO bump (server, role) VALUES("${interaction.guild.id}","${role.id}") ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role);`);
       return await interaction.reply({
         embeds:[{
           author: {
@@ -135,7 +134,7 @@ module.exports = async(interaction)=>{
         });
       }
 
-      await mysql(`INSERT INTO dissoku (server, role) VALUES(${interaction.guild.id},${role.id}) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role);`);
+      await mysql(`INSERT INTO dissoku (server, role) VALUES("${interaction.guild.id}","${role.id}") ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role);`);
       await interaction.reply({
         embeds:[{
           author: {
