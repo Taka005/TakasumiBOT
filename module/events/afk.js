@@ -15,7 +15,7 @@ module.exports = async(message)=>{
         color: "GREEN",
         description: `メンションは${data[0].mention}件ありました\n${Math.floor(time/1000)}秒間AFKでした`
       }]
-    }); 
+    }).catch(()=>{})
   }
 
   const mention = message.content.match(/<@\d{18,19}>/g);
@@ -33,7 +33,7 @@ module.exports = async(message)=>{
           color: "GREEN",
           description: data[0].message
         }]
-      }); 
+      }).catch(()=>{})
     }
   }
 }
