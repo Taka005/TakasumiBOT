@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "英語に翻訳"){
     const message = await interaction.options.getMessage("message");
-    if(!message.content) return await await interaction.reply({
+    if(!message.content) return await interaction.reply({
       content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{
         author: {
