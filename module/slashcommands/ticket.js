@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
     const ticket_button = new MessageButton()
       .setCustomId("ticket")
       .setStyle("PRIMARY")
-      .setLabel("チケット");
+      .setLabel("作成");
 
     await interaction.channel.send({
       embeds: [{
