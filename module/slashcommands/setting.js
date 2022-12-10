@@ -37,7 +37,7 @@ module.exports = async(interaction)=>{
       });
     }else if(interaction.options.getSubcommand() === "bump"){//BUMPロール設定
       const role = await interaction.options.getRole("role");
-
+      console.log(role.id)
       if(
         !interaction.member.permissions.has("MANAGE_CHANNELS")||
         !interaction.member.permissions.has("MANAGE_ROLES")
