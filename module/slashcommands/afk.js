@@ -31,7 +31,7 @@ module.exports = async(interaction)=>{
       }); 
     }
 
-    await mysql(`INSERT INTO afk (user, message, mention, time) VALUES(${interaction.member.user.id},"${message||"代わりのメッセージがありません"}",0,NOW());`);
+    await mysql(`INSERT INTO afk (user, message, mention, time) VALUES("${interaction.member.user.id}","${message||"代わりのメッセージがありません"}","0",NOW());`);
     await interaction.reply({
       embeds:[{
         author: {
