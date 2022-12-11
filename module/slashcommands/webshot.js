@@ -34,11 +34,10 @@ module.exports = async(interaction)=>{
             url: "attachment://screenshot.png"
           },
         }],
-        files: [new MessageAttachment(shot.stream(), "screenshot.png")],
-        ephemeral:true
+        files: [new MessageAttachment(shot.stream(),"screenshot.png")]
       });
       
-    }catch{
+    }catch(error){
       await interaction.editReply({
         embeds:[{
           author: {
@@ -46,7 +45,12 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "サイトが存在しません"
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
         }],
         ephemeral:true
       });
