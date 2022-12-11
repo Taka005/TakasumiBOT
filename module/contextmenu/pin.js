@@ -88,7 +88,7 @@ module.exports = async(interaction)=>{
       fetchReply: true
     });
 
-    await mysql(`INSERT INTO pin (channel, server, message, count) VALUES("${message.channel.id}","${message.guild.id}","${msg.id}","1");`);
+    await mysql(`INSERT INTO pin (channel, server, message, count, time) VALUES("${message.channel.id}","${message.guild.id}","${msg.id}","1", NOW());`);
     server.forEach(data=>{
       mysql(`UPDATE pin SET count=${Number(data.count)+1} WHERE server=${message.guild.id};`);
     });

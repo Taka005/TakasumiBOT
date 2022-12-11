@@ -78,7 +78,7 @@ module.exports = async(interaction)=>{
         });
       }
 
-      await mysql(`INSERT INTO bump (server, role) VALUES("${interaction.guild.id}","${role.id}") ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role);`);
+      await mysql(`INSERT INTO bump (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
       return await interaction.reply({
         embeds:[{
           author: {
@@ -134,7 +134,7 @@ module.exports = async(interaction)=>{
         });
       }
 
-      await mysql(`INSERT INTO dissoku (server, role) VALUES("${interaction.guild.id}","${role.id}") ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role);`);
+      await mysql(`INSERT INTO dissoku (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
       await interaction.reply({
         embeds:[{
           author: {
