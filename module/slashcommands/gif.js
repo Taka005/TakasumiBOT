@@ -22,10 +22,10 @@ module.exports = async(interaction)=>{
           },
           color: "GREEN",
           image: {
-            url: "attachment://gif.png"
+            url: "attachment://result.gif"
           },
         }],
-        files: [new MessageAttachment(gif_data.stream(),"gif.png")]
+        files: [new MessageAttachment(gif_data.stream(),"result.gif")]
       });
     }catch(error){
       await interaction.reply({
