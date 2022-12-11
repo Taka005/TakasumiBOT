@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
-  const mysql = require("../lib/mysql.js");
+  const mysql = require("../lib/mysql");
+  const time = require("../lib/time");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "afk"){
     const message = await interaction.options.getString("message");
@@ -18,7 +19,6 @@ module.exports = async(interaction)=>{
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
     if(data[0]){
       await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
-      const time = new Date() - new Date(data[0].time);
       return interaction.reply({
         embeds:[{
           author: {
@@ -26,7 +26,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          description: `メンションは${data[0].mention}件ありました\n${Math.floor(time/1000)}秒間AFKでした`
+          description: `メンションは${data[0].mention}件ありました\n${time(new Date()-new Date(data[0].time))}秒間AFKでした`
         }]
       }); 
     }

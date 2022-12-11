@@ -1,11 +1,11 @@
 module.exports = async(message)=>{
-  const mysql = require("../lib/mysql.js");
+  const mysql = require("../lib/mysql");
+  const time = require("../lib/time");
   if(message.author.bot) return;
 
   let data = await mysql(`SELECT * FROM afk WHERE user = ${message.author.id} LIMIT 1;`);
   if(data[0]){
     await mysql(`DELETE FROM afk WHERE user = ${message.author.id} LIMIT 1;`);
-    const time = new Date() - new Date(data[0].time);
     return message.channel.send({
       embeds:[{
         author: {
@@ -13,7 +13,7 @@ module.exports = async(message)=>{
           icon_url: "https://cdn.taka.ml/images/system/success.png",
         },
         color: "GREEN",
-        description: `メンションは${data[0].mention}件ありました\n${Math.floor(time/1000)}秒間AFKでした`
+        description: `メンションは${data[0].mention}件ありました\n${time(new Date()-new Date(data[0].time))}秒間AFKでした`
       }]
     }).catch(()=>{})
   }
