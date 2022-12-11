@@ -11,7 +11,7 @@ module.exports = async(interaction)=>{
       const gif_res = await fetch(`https://g.tenor.com/v1/search?q=${name}&key=${process.env.GIF_KEY}&limit=1&media_filter=minimal`)
         .then(res=>res.json());
 
-      const gif_data = await fetch(gif_data.results[0].media[0].gif.url)
+      const gif_data = await fetch(gif_res.results[0].media[0].gif.url)
         .then(res=>res.blob());
 
       await interaction.editReply({
