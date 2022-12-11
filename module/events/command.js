@@ -549,6 +549,10 @@ module.exports = async(client)=>{
     .setName("Make it a Quote")
     .setType(ApplicationCommandType.Message)
 
+  const pin = new ContextMenuCommandBuilder()
+    .setName("メッセージをピン留め")
+    .setType(ApplicationCommandType.Message)
+
   const to_en = new ContextMenuCommandBuilder()
     .setName("英語に翻訳")
     .setType(ApplicationCommandType.Message)
@@ -611,6 +615,7 @@ module.exports = async(client)=>{
           avatar_2,
           permission,
           quote,
+          pin,
           to_en,
           to_ja
         ]

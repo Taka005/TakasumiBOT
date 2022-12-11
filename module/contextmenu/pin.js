@@ -42,27 +42,38 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```ロールの管理\nチャンネルの管理```"
+        description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```メッセージの管理\nチャンネルの管理```"
       }],
       ephemeral:true
     });
       
-    const data = await mysql(`SELECT * FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);
-    if(data[0]){
-      return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "メッセージをピン留めできませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
-          },
-          color: "RED",
-          description: "既にこのチャンネルにはピン留めされたメッセージが存在します\nピン留めの解除は送信された埋め込みを削除してください"
-        }],
-        ephemeral:true
-      });
-    }
+    const channel = await mysql(`SELECT * FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);
+    const server = await mysql(`SELECT * FROM pin WHERE server = ${message.guild.id};`);
+    if(channel[0]) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "メッセージをピン留めできませんでした",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description: "既にこのチャンネルにはピン留めされたメッセージが存在します\nピン留めの解除は送信された埋め込みを削除してください"
+      }],
+      ephemeral:true
+    });
 
-    const msg = await interaction.reply({
+    if(server[0]?.count > 2) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "メッセージをピン留めできませんでした",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description: "サーバーには最大8個までしかPINは使えません\nピン留めの解除は送信された埋め込みを削除してください"
+      }],
+      ephemeral:true
+    });
+
+    const msg = await interaction.channel.send({
       embeds:[{
         color: "GREEN",
         author: {
@@ -77,6 +88,13 @@ module.exports = async(interaction)=>{
       fetchReply: true
     });
 
-    await mysql(`INSERT INTO pin (channel, message, limit) VALUES("${message.channel.id}","${message.id}","1");`);
+    await mysql(`INSERT INTO pin (channel, server, message, count) VALUES("${message.channel.id}","${message.guild.id}","${msg.id}","0");`);
+    server.forEach(data=>{
+      console.log(Number(data.count)+1)
+      mysql(`UPDATE pin SET count=${Number(data.count)+1} WHERE server=${message.guild.id};`);
+    });
+
+    await interaction.deferReply()
+      .then(()=>interaction.deleteReply())
   }
 }
