@@ -61,14 +61,14 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(server[0]?.count > 2) return await interaction.reply({
+    if(server[0]?.count > 5) return await interaction.reply({
       embeds:[{
         author: {
           name: "メッセージをピン留めできませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "サーバーには最大8個までしかPINは使えません\nピン留めの解除は送信された埋め込みを削除してください"
+        description: "サーバーには最大5個までしかPINは使えません\nピン留めの解除は送信された埋め込みを削除してください"
       }],
       ephemeral:true
     });
@@ -88,9 +88,8 @@ module.exports = async(interaction)=>{
       fetchReply: true
     });
 
-    await mysql(`INSERT INTO pin (channel, server, message, count) VALUES("${message.channel.id}","${message.guild.id}","${msg.id}","0");`);
+    await mysql(`INSERT INTO pin (channel, server, message, count) VALUES("${message.channel.id}","${message.guild.id}","${msg.id}","1");`);
     server.forEach(data=>{
-      console.log(Number(data.count)+1)
       mysql(`UPDATE pin SET count=${Number(data.count)+1} WHERE server=${message.guild.id};`);
     });
 
