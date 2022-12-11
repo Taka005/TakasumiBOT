@@ -34,7 +34,7 @@ module.exports = async(interaction)=>{
             url: "attachment://screenshot.png"
           },
         }],
-        files: [new MessageAttachment(canvas.stream(), "screenshot.png")],
+        files: [new MessageAttachment(shot.stream(), "screenshot.png")],
         ephemeral:true
       });
       
