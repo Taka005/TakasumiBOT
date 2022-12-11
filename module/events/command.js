@@ -281,6 +281,15 @@ module.exports = async(client)=>{
         .setDescription("対象のURL")
         .setRequired(true))
 
+  const webshot = new SlashCommandBuilder()
+    .setName("webshot")
+    .setDescription("Webサイトのスクリーンショットを撮影します")
+    .addStringOption(option =>
+      option
+        .setName("url")
+        .setDescription("対象のURL")
+        .setRequired(true))
+
   const qr = new SlashCommandBuilder()
     .setName("qr")
     .setDescription("QRコードを読み取り又は、生成します")
@@ -600,6 +609,7 @@ module.exports = async(client)=>{
           avatar,
           short,
           safeweb,
+          webshot,
           qr,
           cipher,
           mc,

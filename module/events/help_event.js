@@ -319,6 +319,14 @@ module.exports = async(interaction)=>{
           {
             name: "/top",
             value: "実行したチャンネルの1番最初のメッセージを表示します"
+          },    
+          {
+            name: "/safeweb",
+            value: "Webサイトの安全性を評価します"
+          },
+          {
+            name: "/webshot",
+            value: "Webサイトのスクリーンショットを撮影します"
           },
           {
             name: "/afk",
