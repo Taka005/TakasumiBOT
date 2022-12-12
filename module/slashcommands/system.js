@@ -4,6 +4,7 @@ module.exports = async(interaction,client)=>{
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
+  const fs = require("fs");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "system"){
     const id = await interaction.options.getString("id");
