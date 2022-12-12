@@ -1,11 +1,9 @@
 module.exports = async(interaction,client)=>{
   const { admin } = require("../../config.json");
-  const block_user = require("../../data/block_user.json");
-  const block_server = require("../../data/block_server.json");
+  const mysql = require("../lib/mysql");
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
-  const fs = require("fs");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "system"){
     const id = await interaction.options.getString("id");
@@ -155,73 +153,34 @@ module.exports = async(interaction,client)=>{
       delete require.cache[require.resolve("../../data/global/sub.json")];
       delete require.cache[require.resolve("../../data/global/main.json")];
 
-    }else if(functions === "block_server"){//ブロックサーバーを追加する
-      const guild = client.guilds.cache.get(id_data[0]);
-      if(!guild){
-        if(block_server[id_data[0]]){//登録済み
-          delete block_server[id_data[0]];
-          fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
-          delete require.cache[require.resolve("../../data/block_server.json")];
-    
-          return await interaction.reply({
-            embeds:[{
-              author: {
-                name: `${id_data} のブロックを解除しました`,
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
-              },
-              color: "GREEN"
-            }]
-          });
-        }
-    
-        //登録なし
-        block_server[id_data[0]] = message;
-        fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
-        delete require.cache[require.resolve("../../data/block_server.json")];
+    }else if(functions === "mute_server"){//ミュートサーバーを追加する
+      const data = await mysql(`SELECT * FROM mute_server WHERE id = ${id_data[0]} LIMIT 1;`);
+      if(data[0]){//登録済み
+        await mysql(`DELETE FROM mute_server WHERE id = ${id_data[0]} LIMIT 1;`);
   
-        return await interaction.reply({
+        await interaction.reply({
           embeds:[{
             author: {
-              name: `${id_data} をブロックしました`,
+              name: `${id_data[0]} のミュートを解除しました`,
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }else{//登録なし
+        await mysql(`INSERT INTO mute_server (id, reason, time) VALUES("${id_data[0]}","${message||"なし"}",NOW())`);
+
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: `${id_data[0]} をミュートしました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             color: "GREEN"
           }]
         });
       }
-  
-      if(block_server[id_data[0]]){//登録済み
-        delete block_server[id_data[0]];
-        fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
-        delete require.cache[require.resolve("../../data/block_server.json")];
-  
-        return await interaction.reply({
-          embeds:[{
-            author: {
-              name: `${guild.name} のブロックを解除しました`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
-            },
-            color: "GREEN"
-          }]
-        });
-      }
-  
-      //登録なし
-      block_server[id_data[0]] = message;
-      fs.writeFileSync("./data/block_server.json", JSON.stringify(block_server), "utf8");
-      delete require.cache[require.resolve("../../data/block_server.json")];
-
-      await interaction.reply({
-        embeds:[{
-          author: {
-            name: `${guild.name} をブロックしました`,
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
-          },
-          color: "GREEN"
-        }]
-      });
-
-    }else if(functions === "block_user"){//ブロックユーザーを追加する
+    }else if(functions === "mute_user"){//ミュートユーザーを追加する
       let user
       try{
         user = await client.users.fetch(id_data[0]);
@@ -239,37 +198,32 @@ module.exports = async(interaction,client)=>{
         });
       }
   
-      if(block_user[id_data[0]]){//登録済み
-        delete block_user[id_data[0]];
-        fs.writeFileSync("./data/block_user.json", JSON.stringify(block_user), "utf8");
-        delete require.cache[require.resolve("../../data/block_user.json")];
+      const data = await mysql(`SELECT * FROM mute_user WHERE id = ${id_data[0]} LIMIT 1;`);
+      if(data[0]){//登録済み
+        await mysql(`DELETE FROM mute_user WHERE id = ${id_data[0]} LIMIT 1;`);
   
-        return await interaction.reply({
+        await interaction.reply({
           embeds:[{
             author: {
-              name: `${user.tag} のブロックを解除しました`,
+              name: `${user.tag} のミュートを解除しました`,
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }else{//登録なし
+        await mysql(`INSERT INTO mute_user (id, reason, time) VALUES("${id_data[0]}","${message||"なし"}",NOW())`);
+
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: `${user.tag} をミュートしました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             color: "GREEN"
           }]
         });
       }
-      
-      //登録なし
-      block_user[id_data[0]] = message;
-      fs.writeFileSync("./data/block_user.json", JSON.stringify(block_user), "utf8");
-      delete require.cache[require.resolve("../../data/block_user.json")];
-  
-      await interaction.reply({
-        embeds:[{
-          author: {
-            name: `${user.tag} をブロックしました`,
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
-          },
-          color: "GREEN"
-        }]
-      });
-
     }else if(functions === "dm"){//DMを送信する
       let user
       try{

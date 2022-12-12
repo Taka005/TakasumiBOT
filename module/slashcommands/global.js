@@ -1,14 +1,19 @@
 module.exports = async(interaction)=>{
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
-  const mute_user = require("../../data/block_user.json");
-  const mute_server = require("../../data/block_server.json");
   const fs = require("fs");
+  const mysql = require("../lib/mysql");
   const { WebhookClient } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
 
-    if(mute_server[interaction.guild.id] && !sub[interaction.guild.id] || mute_user[interaction.member.user.id] && !sub[interaction.guild.id]) return await interaction.reply({
+    const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${interaction.guild.id} LIMIT 1;`);
+    const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${interaction.member.user.id} LIMIT 1;`);
+
+    if(
+      mute_server[0]&&!sub[interaction.guild.id]||
+      mute_user[0]&&!sub[interaction.guild.id]
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "登録のできません",

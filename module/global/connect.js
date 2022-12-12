@@ -1,5 +1,5 @@
 module.exports = async(msg,client)=>{
-  const mute_server = require("../../data/block_server.json");
+  const mysql = require("../lib/mysql");
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const convert = require("../lib/convert");
@@ -12,7 +12,8 @@ module.exports = async(msg,client)=>{
     if(!message.attachments.isAttachments){
       Object.keys(main).forEach(async(channels)=>{//添付ファイルなし
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        if(channels === message.channel.id||mute_server[guild]) return;
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
+        if(channels === message.channel.id||mute[0]) return;
   
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -42,7 +43,8 @@ module.exports = async(msg,client)=>{
     }else if(!message.attachments.attachment[0].isFile){//添付ファイルあり(画像)
       Object.keys(main).forEach(async(channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        if(channels === message.channel.id||mute_server[guild]) return;
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
+        if(channels === message.channel.id||mute[0]) return;
   
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -78,7 +80,8 @@ module.exports = async(msg,client)=>{
     }else{//添付ファイルあり(画像以外)
       Object.keys(main).forEach(async(channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        if(channels === message.channel.id||mute_server[guild]) return;
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
+        if(channels === message.channel.id||mute[0]) return;
   
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -116,7 +119,8 @@ module.exports = async(msg,client)=>{
     if(!message.attachments.isAttachments){
       Object.keys(main).forEach(async(channels)=>{//添付ファイルなし
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        if(channels === message.channel.id||mute_server[guild]) return;
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
+        if(channels === message.channel.id||mute[0]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -152,7 +156,8 @@ module.exports = async(msg,client)=>{
     }else if(!message.attachments[0].isFile){//添付ファイルあり(画像)
       Object.keys(main).forEach(async (channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        if(channels === message.channel.id||mute_server[guild]) return;
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
+        if(channels === message.channel.id||mute[0]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({
@@ -194,7 +199,8 @@ module.exports = async(msg,client)=>{
     }else{//添付ファイルあり(画像以外)
       Object.keys(main).forEach(async (channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        if(channels === message.channel.id||mute_server[guild]) return;
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
+        if(channels === message.channel.id||mute[0]) return;
 
         const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
         await webhooks.send({

@@ -81,8 +81,6 @@ module.exports = async(interaction,client)=>{
       delete require.cache[require.resolve("../../package-lock.json")];
 
       delete require.cache[require.resolve("../../data/api.json")];
-      delete require.cache[require.resolve("../../data/block_server.json")];
-      delete require.cache[require.resolve("../../data/block_user.json")];
 
       delete require.cache[require.resolve("../../data/global/main.json")];
       delete require.cache[require.resolve("../../data/global/sub.json")];

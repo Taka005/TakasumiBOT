@@ -1,18 +1,20 @@
 module.exports = async(message)=>{
-  const mute_user = require("../../data/block_user.json");
-  const mute_server = require("../../data/block_server.json");
+  const mysql = require("../lib/mysql");
   const main = require("../../data/global/main.json");
   const fetch = require("node-fetch");
   const { WebhookClient } = require("discord.js");
   require("dotenv").config();
   
+  const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${message.guild.id} LIMIT 1;`);
+  const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${message.author.id} LIMIT 1;`);
+
   if(
     !message.channel.type === "GUILD_TEXT"||
     message.author.bot||
     message.content.length > 300||
     !main[message.channel.id]||
-    mute_server[message.guild.id]||
-    mute_user[message.author.id]
+    mute_server[0]||
+    mute_user[0]
   ) return;
 
   let reference = {
