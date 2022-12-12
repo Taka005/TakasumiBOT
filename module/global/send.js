@@ -2,6 +2,7 @@ module.exports = async(message)=>{
   const mysql = require("../lib/mysql");
   const main = require("../../data/global/main.json");
   const fetch = require("node-fetch");
+  const fs = require("fs");
   const { WebhookClient } = require("discord.js");
   require("dotenv").config();
   
