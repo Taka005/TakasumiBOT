@@ -1,7 +1,7 @@
 module.exports = async(client)=>{
   const fs = require("fs");
 
-  client.once("ready", async (client) =>{
+  client.once("ready",async(client)=>{
     const status = require("./events/status");
     const command = require("./events/command");
 
@@ -9,7 +9,7 @@ module.exports = async(client)=>{
     command(client);
   });
 
-  client.on("messageCreate", async (message) =>{
+  client.on("messageCreate",async(message)=>{
     //globalchat
     const global = require("./global/global");
     const reply = require("./global/reply");
@@ -36,7 +36,7 @@ module.exports = async(client)=>{
     console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
 
     //コマンド
-    fs.readdir("./module/commands/", (err,files) =>{ 
+    fs.readdir("./module/commands/",(err,files)=>{ 
       files.forEach((file) =>{
         if(!file.endsWith(`.js`)) return;
         const event = require(`./commands/${file}`);
@@ -45,24 +45,24 @@ module.exports = async(client)=>{
     });
   });
 
-  client.on("messageUpdate", async (oldMessage,newMessage) =>{
+  client.on("messageUpdate",async(oldMessage,newMessage)=>{
     const dissoku = require("./events/dissoku");
 
     dissoku(newMessage);
   });
 
-  client.on("messageReactionAdd", async (reaction, user) =>{
+  client.on("messageReactionAdd",async(reaction,user)=>{
     if(!reaction.message.channel.type === "GUILD_TEXT" || user.bot) return;  
     return 0;
   });
 
-  client.on("guildCreate", guild =>{
+  client.on("guildCreate",async(guild)=>{
     const invite = require("./events/invite");
 
     invite(guild);
   });
 
-  client.on("interactionCreate", async (interaction) =>{
+  client.on("interactionCreate",async(interaction)=>{
 
     if(!interaction.guild) return await interaction.reply({ 
       embeds:[{
@@ -89,7 +89,6 @@ module.exports = async(client)=>{
     const news_event = require("./events/news_event");
     const image_event = require("./events/image_event");
 
-
     const guideline_role = require("./events/guideline_role");
     const panel_role = require("./events/panel_role");
     const image_role = require("./events/image_role");
@@ -111,7 +110,7 @@ module.exports = async(client)=>{
     image_role(interaction);
 
     //スラッシュコマンド
-    fs.readdir("./module/slashcommands/", (err,files) =>{ 
+    fs.readdir("./module/slashcommands/",(err,files)=>{ 
       files.forEach((file) =>{
         if(!file.endsWith(`.js`)) return;
         const event = require(`./slashcommands/${file}`);
@@ -119,7 +118,7 @@ module.exports = async(client)=>{
       });
     });
     //ContextMenu
-    fs.readdir("./module/contextmenu/", (err,files) =>{ 
+    fs.readdir("./module/contextmenu/",(err,files)=>{ 
       files.forEach((file) =>{
         if(!file.endsWith(`.js`)) return;
         const event = require(`./contextmenu/${file}`);
@@ -128,13 +127,13 @@ module.exports = async(client)=>{
     });
   });
 
-  client.on("guildMemberAdd", member=>{
+  client.on("guildMemberAdd",async(member)=>{
     const join = require("./events/join");
       
     join(member,client);
   });
 
-  client.on("guildMemberRemove", member =>{
+  client.on("guildMemberRemove",async(member)=>{
     const leave = require("./events/leave");
 
     leave(member);
