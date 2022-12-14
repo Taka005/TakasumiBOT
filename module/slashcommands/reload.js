@@ -40,6 +40,22 @@ module.exports = async(interaction,client)=>{
           delete require.cache[require.resolve(`../events/${file}`)];
         });
       });
+      //events/interaction
+      fs.readdir("./module/events/interaction/", (err,files) =>{ 
+        files.forEach((file) =>{
+          if(!file.endsWith(`.js`)) return;
+          require(`../events/interaction/${file}`);
+          delete require.cache[require.resolve(`../events/interaction/${file}`)];
+        });
+      });
+      //events/message
+      fs.readdir("./module/events/message/", (err,files) =>{ 
+        files.forEach((file) =>{
+          if(!file.endsWith(`.js`)) return;
+          require(`../events/message/${file}`);
+          delete require.cache[require.resolve(`../events/message/${file}`)];
+        });
+      });
       //lib
       fs.readdir("./module/lib/", (err,files) =>{ 
         files.forEach((file) =>{

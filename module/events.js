@@ -18,17 +18,14 @@ module.exports = async(client)=>{
     reply(message,client);
     send(message);
 
-    //other
-    const bump = require("./events/bump");
-    const open = require("./events/open");
-    const hiroyuki = require("./events/hiroyuki");
-    const afk = require("./events/afk");
-    const pin = require("./events/pin");
-    bump(message);
-    open(message,client);
-    hiroyuki(message,client);
-    afk(message);
-    pin(message,client);
+    //event/message
+    fs.readdir("./module/events/message/",(err,files)=>{ 
+      files.forEach((file) =>{
+        if(!file.endsWith(`.js`)) return;
+        const event = require(`./events/message/${file}`);
+        event(message,client);
+      });
+    });
 
     if(!message.channel.type === "GUILD_TEXT" || message.author.bot) return;  
 
@@ -76,40 +73,15 @@ module.exports = async(client)=>{
       ephemeral: true 
     });
 
-    //イベント
-    const auth_event = require("./events/auth_event");
-    const web_event = require("./events/web_event");
-    const panel_event = require("./events/panel_event");
-    const ticket_event = require("./events/ticket_event");
-    const embed_event = require("./events/embed_event");
-    const support_event = require("./events/support_event");
-    const help_event = require("./events/help_event");
-    const guideline_event = require("./events/guideline_event");
-    const role_event = require("./events/role_event");
-    const news_event = require("./events/news_event");
-    const image_event = require("./events/image_event");
-
-    const guideline_role = require("./events/guideline_role");
-    const panel_role = require("./events/panel_role");
-    const image_role = require("./events/image_role");
-
-    auth_event(interaction);
-    web_event(interaction);
-    panel_event(interaction);
-    embed_event(interaction);
-    ticket_event(interaction);
-    support_event(interaction,client);
-    help_event(interaction);
-    guideline_event(interaction);
-    role_event(interaction);
-    news_event(interaction);
-    image_event(interaction);
-
-    guideline_role(interaction);
-    panel_role(interaction);
-    image_role(interaction);
-
-    //スラッシュコマンド
+    //event/interaction
+    fs.readdir("./module/events/interaction/",(err,files)=>{ 
+      files.forEach((file) =>{
+        if(!file.endsWith(`.js`)) return;
+        const event = require(`./events/interaction/${file}`);
+        event(interaction,client);
+      });
+    });
+    //slashcommands
     fs.readdir("./module/slashcommands/",(err,files)=>{ 
       files.forEach((file) =>{
         if(!file.endsWith(`.js`)) return;
@@ -117,7 +89,7 @@ module.exports = async(client)=>{
         event(interaction,client);
       });
     });
-    //ContextMenu
+    //contextmenu
     fs.readdir("./module/contextmenu/",(err,files)=>{ 
       files.forEach((file) =>{
         if(!file.endsWith(`.js`)) return;
