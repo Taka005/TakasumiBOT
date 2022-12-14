@@ -133,8 +133,8 @@ module.exports = async(message,client)=>{
 }
 
 function err(message,client,error){
-  const main = require("../../data/hiroyuki/main.json");
-  const sub = require("../../data/hiroyuki/sub.json");
+  const main = require("../../../data/hiroyuki/main.json");
+  const sub = require("../../../data/hiroyuki/sub.json");
   const fs = require("fs");
   
   delete main[message.channel.id];
