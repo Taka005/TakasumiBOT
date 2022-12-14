@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const isUrl = require("../lib/isUrl");
+  const isUrl = require("../../lib/isUrl");
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId === "embed"){
       const title = interaction.fields.getTextInputValue("title");

@@ -1,5 +1,5 @@
 module.exports = async(message,client)=>{
-    const mysql = require("../lib/mysql.js");
+    const mysql = require("../../lib/mysql.js");
     if(message.author.bot) return;
     
     const channel = await mysql(`SELECT * FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);

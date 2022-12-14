@@ -1,6 +1,6 @@
 module.exports = async(message)=>{
-  const mysql = require("../lib/mysql");
-  const time = require("../lib/time");
+  const mysql = require("../../lib/mysql");
+  const time = require("../../lib/time");
   if(message.author.bot) return;
 
   let data = await mysql(`SELECT * FROM afk WHERE user = ${message.author.id} LIMIT 1;`);

@@ -1,7 +1,7 @@
 module.exports = async(message,client)=>{
-  const main = require("../../data/hiroyuki/main.json");
-  const random = require("../lib/random");
-  const rate = require("../lib/rate");
+  const main = require("../../../data/hiroyuki/main.json");
+  const random = require("../../lib/random");
+  const rate = require("../../lib/rate");
   const { WebhookClient } = require("discord.js");
 
   if(
