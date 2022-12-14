@@ -142,8 +142,8 @@ function err(message,client,error){
   delete sub[guild];
   fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
   fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-  delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
-  delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
+  delete require.cache[require.resolve("../../../data/hiroyuki/sub.json")];
+  delete require.cache[require.resolve("../../../data/hiroyuki/main.json")];
 
   client.channels.cache.get(message.channel.id).send({
     embeds:[{
