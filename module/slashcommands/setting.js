@@ -108,9 +108,9 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
 
-      if(!role[0]){
+      if(!role){
         const data = await mysql(`SELECT * FROM dissoku WHERE server = ${interaction.guild.id} LIMIT 1;`);
-        if(!data) return await interaction.reply({
+        if(!data[0]) return await interaction.reply({
           embeds:[{
             author: {
               name: "通知ロールを無効にできませんでした",
