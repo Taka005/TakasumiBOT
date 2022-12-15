@@ -110,7 +110,7 @@ module.exports = async(client)=>{
           fields: [
             {
               name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
+              value: `\`\`\`${error.stack}\`\`\``
             }
           ]
         }], 
