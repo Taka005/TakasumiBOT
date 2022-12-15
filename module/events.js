@@ -73,30 +73,50 @@ module.exports = async(client)=>{
       ephemeral: true 
     });
 
-    //event/interaction
-    fs.readdir("./module/events/interaction/",(err,files)=>{ 
-      files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
-        const event = require(`./events/interaction/${file}`);
-        event(interaction,client);
+    try{
+      //event/interaction
+      fs.readdir("./module/events/interaction/",(err,files)=>{ 
+        files.forEach((file)=>{
+          if(!file.endsWith(`.js`)) return;
+          const event = require(`./events/interaction/${file}`);
+          event(interaction,client);
+        });
       });
-    });
-    //slashcommands
-    fs.readdir("./module/slashcommands/",(err,files)=>{ 
-      files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
-        const event = require(`./slashcommands/${file}`);
-        event(interaction,client);
+      //slashcommands
+      fs.readdir("./module/slashcommands/",(err,files)=>{ 
+        files.forEach((file)=>{
+          if(!file.endsWith(`.js`)) return;
+          const event = require(`./slashcommands/${file}`);
+          event(interaction,client);
+        });
       });
-    });
-    //contextmenu
-    fs.readdir("./module/contextmenu/",(err,files)=>{ 
-      files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
-        const event = require(`./contextmenu/${file}`);
-        event(interaction,client);
+      //contextmenu
+      fs.readdir("./module/contextmenu/",(err,files)=>{ 
+        files.forEach((file)=>{
+          if(!file.endsWith(`.js`)) return;
+          const event = require(`./contextmenu/${file}`);
+          event(interaction,client);
+        });
       });
-    });
+    }catch(error){
+      await interaction.reply({ 
+        embeds:[{
+          author: {
+            name: "エラーが発生しました",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.taka.ml)に報告してください",
+          fields: [
+            {
+              name: "エラーコード",
+              value: `\`\`\`${error}\`\`\``
+            }
+          ]
+        }], 
+        ephemeral: true 
+      });
+    }
   });
 
   client.on("guildMemberAdd",async(member)=>{
