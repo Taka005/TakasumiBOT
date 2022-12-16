@@ -27,5 +27,7 @@ jobs:
     runs-on : ubuntu-latest
     needs: [Build,Lint]
     steps:
+      - run: git config --global user.name "Taka005"
+      - run: git config --global user.email "info@taka.ml"
       - run: git checkout main
       - run: git merge development
