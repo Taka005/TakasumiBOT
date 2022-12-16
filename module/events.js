@@ -75,24 +75,24 @@ module.exports = async(client)=>{
 
     try{
       //event/interaction
-      fs.readdir("./module/events/interaction/",async(err,files)=>{ 
-        files.forEach((file)=>{
+      fs.readdir("./module/events/interaction/",(err,files)=>{ 
+        files.forEach(async(file)=>{
           if(!file.endsWith(`.js`)) return;
           const event = require(`./events/interaction/${file}`);
           await event(interaction,client);
         });
       });
       //slashcommands
-      fs.readdir("./module/slashcommands/",async(err,files)=>{ 
-        files.forEach((file)=>{
+      fs.readdir("./module/slashcommands/",(err,files)=>{ 
+        files.forEach(async(file)=>{
           if(!file.endsWith(`.js`)) return;
           const event = require(`./slashcommands/${file}`);
           await event(interaction,client);
         });
       });
       //contextmenu
-      fs.readdir("./module/contextmenu/",async(err,files)=>{ 
-        files.forEach((file)=>{
+      fs.readdir("./module/contextmenu/",(err,files)=>{ 
+        files.forEach(async(file)=>{
           if(!file.endsWith(`.js`)) return;
           const event = require(`./contextmenu/${file}`);
           await event(interaction,client);
