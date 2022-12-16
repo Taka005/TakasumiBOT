@@ -28,8 +28,7 @@ jobs:
     needs: [Build,Lint]
     steps:
       - uses: actions/checkout@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      - run: |
-        git checkout main
-        git merge origin development
+      - env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - run: git checkout main
+      - run: git merge origin development
