@@ -32,4 +32,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
       - run: git fetch
       - run: git checkout main
-      - run: git merge development
+      - run: git merge --allow-unrelated-histories development
