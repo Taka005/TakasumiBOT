@@ -29,5 +29,6 @@ jobs:
     steps:
       - run: git config --global user.name "Taka005"
       - run: git config --global user.email "info@taka.ml"
+      - run: git init
       - run: git checkout main
       - run: git merge development
