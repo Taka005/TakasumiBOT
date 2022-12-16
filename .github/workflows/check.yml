@@ -31,6 +31,6 @@ jobs:
       - run: git config --global user.email "info@taka.ml"
       - run: git config --global init.defaultBranch main
       - run: git init
-      - run: git fetch
+      - run: git pull
       - run: git checkout main
       - run: git merge development
