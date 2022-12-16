@@ -30,5 +30,6 @@ jobs:
       - uses: actions/checkout@v2
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - run: git fetch
       - run: git checkout main
       - run: git merge origin development
