@@ -12,10 +12,6 @@ module.exports = async(client)=>{
     .setName("help")
     .setDescription("使い方がわかります")
 
-  const support = new SlashCommandBuilder()
-    .setName("support")
-    .setDescription("バグの報告、質問などの報告をします")
-
   const about= new SlashCommandBuilder()
     .setName("about")
     .setDescription("このBOTについての情報や、関連リンクを表示します")
@@ -575,7 +571,6 @@ module.exports = async(client)=>{
       { 
         body: [
           help,
-          support,
           embed,
           faq,
           server,
