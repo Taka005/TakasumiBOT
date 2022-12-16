@@ -15,9 +15,7 @@
 # configについて
 - admin:管理者のユーザーID
 - prefix:コマンドの先頭になる文字(一部のみに有効)
-- servername:メインサーバーの名前
 - serverid:メインサーバーID
-- bump:bump時のメンション
 - hello_message:ようこそメッセージ
 - enter_channel:ようこそメッセージが送信されるチャンネルID
 - member_channel:メンバーに参加をしらせるチャンネルID
