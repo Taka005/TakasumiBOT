@@ -86,7 +86,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "このサーバーにDisboardが参加していません"
+          description: "このサーバーにDisboardが参加していません\nもし参加している場合は少し時間を置いてから実行してください"
         }],
         ephemeral:true
       });
@@ -155,7 +155,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "このサーバーにDissokuが参加していません"
+          description: "このサーバーにDissokuが参加していません\nもし参加している場合は少し時間を置いてから実行してください"
         }],
         ephemeral:true
       });
