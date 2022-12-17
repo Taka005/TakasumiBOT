@@ -1,5 +1,4 @@
 module.exports = async(interaction)=>{
-  const async = require("async");
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
     
@@ -7,13 +6,13 @@ module.exports = async(interaction)=>{
       const add = await interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
       const remove = await interaction.values.filter((role)=>!add.includes(role));
 
-      await async.each(add,async(role)=>{
-        await interaction.member.roles.add(role)
-      })
+      add.forEach(role =>{
+        interaction.member.roles.add(role)
+      });
 
-      await async.each(remove,async(role)=>{
-        await interaction.member.roles.remove(role)
-      })
+      remove.forEach(role =>{
+        interaction.member.roles.remove(role)
+      });
 
       await interaction.reply({
         embeds:[{
