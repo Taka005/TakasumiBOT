@@ -28,10 +28,9 @@ jobs:
     needs: [Build,Lint]
     steps:
       - uses: actions/checkout@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-      - run: git config --global user.email "info@taka.ml"
-      - run: git config --global user.name "Taka005"
-      - run: git fetch
-      - run: git checkout main
-      - run: git merge --allow-unrelated-histories development
+      - uses: everlytic/branch-merge@1.1.2
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          source_ref: 'development'
+          target_branch: 'main'
+          commit_message_template: '[Automated] Merged {source_ref} into target {target_branch}'
