@@ -56,8 +56,8 @@ module.exports = async(interaction)=>{
     });
 
     if(
-      interaction.guild.memberCount < 30||
-      (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 15
+      interaction.guild.memberCount < 25||
+      (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 8
     ) return await interaction.reply({
       embeds:[{
         author: {
@@ -65,7 +65,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "グローバルチャットを利用するには、以下の条件を満たしている必要があります```20人以上のメンバー\n8人以上のユーザー```"
+        description: "グローバルチャットを利用するには、以下の条件を満たしている必要があります```25人以上のメンバー\n8人以上のユーザー```"
       }],
       ephemeral:true
     });
