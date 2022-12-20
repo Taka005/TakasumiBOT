@@ -80,7 +80,15 @@ module.exports = async(interaction,client)=>{
           delete require.cache[require.resolve(`../slashcommands/${file}`)];
         });
       });
-      //web
+      //slashcommands
+      fs.readdir("./module/auth/", (err,files) =>{ 
+        files.forEach((file) =>{
+          if(!file.endsWith(`.js`)) return;
+          require(`../auth/${file}`);
+          delete require.cache[require.resolve(`../auth/${file}`)];
+        });
+      });
+      //api
       fs.readdir("./module/api/", (err,files) =>{ 
         files.forEach((file) =>{
           if(!file.endsWith(`.js`)) return;

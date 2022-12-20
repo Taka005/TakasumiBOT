@@ -82,6 +82,14 @@ module.exports = async(client)=>{
           await event(interaction,client);
         });
       });
+      //auth
+      fs.readdir("./module/auth/",(err,files)=>{ 
+        files.forEach(async(file)=>{
+          if(!file.endsWith(`.js`)) return;
+          const event = require(`./auth/${file}`);
+          await event(interaction,client);
+        });
+      });
       //slashcommands
       fs.readdir("./module/slashcommands/",(err,files)=>{ 
         files.forEach(async(file)=>{
