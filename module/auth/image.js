@@ -1,6 +1,6 @@
 module.exports = async(interaction)=>{
   const { MessageActionRow, MessageSelectMenu } = require("discord.js");
-  const random = require("../../lib/random");
+  const random = require("../lib/random");
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("image_")){
     const role = await interaction.customId.split("_");
