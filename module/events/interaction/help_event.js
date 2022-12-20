@@ -99,15 +99,7 @@ module.exports = async(interaction)=>{
         fields: [
           {
             name: "/auth",
-            value: "簡易的な、メンバー認証機能です\nボタンを押すことで認証ができます"
-          },
-          {
-            name: "/panel",
-            value: "強力なメンバー認証機能です\nボタンを押したら簡単な足し算を行うことで認証ができます"
-          },
-          {
-            name: "/web",
-            value: "TakasumiBOT Membersに登録することで認証できるようになります。一度登録すると2回目は不要です"
+            value: "メンバー認証を設定します\n数種類の認証方式を設定できます"
           },
           {
             name: "/guideline",

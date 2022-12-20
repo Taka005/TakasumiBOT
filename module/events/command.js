@@ -90,16 +90,18 @@ module.exports = async(client)=>{
 
   const auth = new SlashCommandBuilder()
     .setName("auth")
-    .setDescription("簡易的なロール認証機能です")
-    .addRoleOption(option =>
+    .setDescription("メンバー認証を設定します")
+    .addStringOption(option =>
       option
-        .setName("role")
-        .setDescription("認証成功時に付与するロール")
-        .setRequired(true))
-
-  const web = new SlashCommandBuilder()
-    .setName("web")
-    .setDescription("TakasumiBOT Membersの登録によって認証します")
+        .setName("type")
+        .setDescription("認証方式を設定します")
+        .setRequired(true)
+        .addChoices(
+          { name: "標準", value: "normal" },
+          { name: "計算", value: "panel" },
+          { name: "画像", value: "image" },
+          { name: "Web", value: "web" },
+        ))
     .addRoleOption(option =>
       option
         .setName("role")
@@ -113,24 +115,6 @@ module.exports = async(client)=>{
       option
         .setName("role")
         .setDescription("同意時に付与するロール")
-        .setRequired(true))
-
-  const panel = new SlashCommandBuilder()
-    .setName("panel")
-    .setDescription("より強力なロール認証機能です")
-    .addRoleOption(option =>
-      option
-        .setName("role")
-        .setDescription("認証成功時に付与するロール")
-        .setRequired(true))
-
-  const image = new SlashCommandBuilder()
-    .setName("image")
-    .setDescription("認証に画像を使用する機能です")
-    .addRoleOption(option =>
-      option
-        .setName("role")
-        .setDescription("認証成功時に付与するロール")
         .setRequired(true))
 
   const afk = new SlashCommandBuilder()
@@ -573,6 +557,7 @@ module.exports = async(client)=>{
           help,
           embed,
           faq,
+          auth,
           server,
           status,
           draw,
@@ -582,12 +567,8 @@ module.exports = async(client)=>{
           follow,
           top,
           setting,
-          auth,
-          web,
           guideline,
           ticket,
-          panel,
-          image,
           afk,
           gif,
           say,

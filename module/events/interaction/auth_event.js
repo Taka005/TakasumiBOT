@@ -1,6 +1,6 @@
 module.exports = async(interaction)=>{
   if(!interaction.isButton()) return;
-  if(interaction.customId.startsWith("auth_")){
+  if(interaction.customId.startsWith("normal_")){
     const role = interaction.customId.split("_");
 
     if(interaction.member.roles.cache.has(role[1])) return await interaction.reply({
