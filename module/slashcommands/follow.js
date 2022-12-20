@@ -29,7 +29,7 @@ module.exports = async(interaction,client)=>{
       ephemeral:true
     });
 
-    const ch = await client.channels.cache.get("942269941430763550");
+    const ch = await client.channels.cache.get("1049155527214628954");
   
     await ch.addFollower(interaction.channel, "TakasumiBOTアナウンス")
       .then(()=>{
