@@ -88,7 +88,7 @@ module.exports = async(client)=>{
             .setName("role")
             .setDescription("通知するロール(無効にする場合は入力しないでください)")))
     .addSubcommand(subcommand =>
-      subcomman  
+      subcommand  
         .setName("moderate")
         .setDescription("自動モデレート機能を設定します")
         .addStringOption(option =>
