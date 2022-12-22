@@ -1,4 +1,4 @@
-const time = []
+const time = [];
 module.exports = (message)=>{
   if(new Date() - time[message.guild.id] <= 800){
     time[message.guild.id] = new Date();
