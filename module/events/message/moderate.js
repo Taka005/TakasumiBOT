@@ -1,4 +1,4 @@
-const time = [];
+//const time = [];
 
 module.exports = async(message)=>{
   const ngword = require("../../../file/moderate/ngword.json");
@@ -6,6 +6,7 @@ module.exports = async(message)=>{
 
   const data = await mysql(`SELECT * FROM moderate WHERE id = ${message.guild.id} LIMIT 1;`);
   if(data[0]){
+    message.delete().catch(()=>{});
     if(data[0].type === "high"){
       if(ngword.includes(message.content)){
         return message.channel.send({
