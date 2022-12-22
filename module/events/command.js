@@ -87,6 +87,20 @@ module.exports = async(client)=>{
           option
             .setName("role")
             .setDescription("通知するロール(無効にする場合は入力しないでください)")))
+    .addSubcommand(subcommand =>
+      subcomman  
+        .setName("moderate")
+        .setDescription("自動モデレート機能を設定します")
+        .addStringOption(option =>
+          option
+            .setName("type")
+            .setDescription("モデレートの強度")
+            .setRequired(true)
+            .addChoices(
+              { name: "低い", value: "low" },
+              { name: "標準", value: "normal" },
+              { name: "高い", value: "high" }
+            )))
 
   const auth = new SlashCommandBuilder()
     .setName("auth")
