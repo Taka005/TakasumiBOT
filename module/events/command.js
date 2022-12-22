@@ -97,9 +97,10 @@ module.exports = async(client)=>{
             .setDescription("モデレートの強度")
             .setRequired(true)
             .addChoices(
-              { name: "低い", value: "low" },
+              { name: "高い", value: "high" },
               { name: "標準", value: "normal" },
-              { name: "高い", value: "high" }
+              { name: "低い", value: "low" },
+              { name: "オフ", value: "off" }
             )))
 
   const auth = new SlashCommandBuilder()

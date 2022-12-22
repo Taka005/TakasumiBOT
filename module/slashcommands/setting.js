@@ -177,7 +177,28 @@ module.exports = async(interaction)=>{
         }]
       });
     }else if(interaction.options.getSubcommand() === "moderate"){//Moderate
+      const level = {
+        high:"高い",
+        normal:"標準",
+        low:"低い"
+      };
       const type = await interaction.options.getString("type");
+
+      if(
+        !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+        !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+        !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")
+      ) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "BOTに権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "この機能は、BOTに以下の権限が必要です\n```メッセージの管理\nチャンネルの閲覧\nメッセージの送信```"
+        }],
+        ephemeral:true
+      });
 
       if(
         !interaction.member.permissions.has("MANAGE_CHANNELS")||
@@ -194,8 +215,7 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
 
-      const data = await mysql(`SELECT * FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
-      if(data[0]){
+      if(type === "off"){
         await mysql(`DELETE FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
         return await interaction.reply({
           embeds:[{
@@ -216,7 +236,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          description: `${type}に設定しました`
+          description: `${level[type]}に設定しました`
         }]
       });
     }
