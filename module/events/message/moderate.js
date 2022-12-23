@@ -63,7 +63,7 @@ module.exports = async(message)=>{
       }
     }else if(data[0].type === "normal"){
       //文字数制限
-      if(message.content.length > 1300){
+      if(message.content.length > 1200){
         message.delete().catch(()=>{});
         return message.channel.send({
           embeds:[{
@@ -93,7 +93,7 @@ module.exports = async(message)=>{
         }).catch(()=>{})
       }
       //スパム検知
-      if(new Date() - time[message.author.id][0] <= 1500){
+      if(new Date() - time[message.author.id][0] <= 800){
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
@@ -128,7 +128,7 @@ module.exports = async(message)=>{
         }).catch(()=>{})
       }
       //スパム検知
-      if(new Date() - time[message.author.id][0] <= 2000){
+      if(new Date() - time[message.author.id][0] <= 500){
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
