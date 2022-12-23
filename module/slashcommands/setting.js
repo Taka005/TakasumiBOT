@@ -216,6 +216,19 @@ module.exports = async(interaction)=>{
       });
 
       if(type === "off"){
+        const data = await mysql(`SELECT * FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
+        if(!data[0]) return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "自動モデレートを無効にできませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "自動モデレートが設定されていません"
+          }],
+          ephemeral:true
+        });
+        
         await mysql(`DELETE FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
         return await interaction.reply({
           embeds:[{
