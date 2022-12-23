@@ -1,14 +1,35 @@
-//const time = [];
+const time = [];
 
 module.exports = async(message)=>{
   const ngword = require("../../../file/moderate/ngword.json");
   const mysql = require("../../lib/mysql");
 
+  if(message.author.bot) return;
+
   const data = await mysql(`SELECT * FROM moderate WHERE id = ${message.guild.id} LIMIT 1;`);
   if(data[0]){
-    message.delete().catch(()=>{});
+    if(!time[message.author.id]){
+      time[message.author.id] = [null,true];
+    }
     if(data[0].type === "high"){
-      if(ngword.includes(message.content)){
+      //文字数制限
+      if(message.content.length > 1000){
+        message.delete().catch(()=>{});
+        return message.channel.send({
+          embeds:[{
+            author: {
+              name: "自動モデレート",
+              icon_url: "https://cdn.taka.ml/images/system/warn.png"
+              },
+              description: "メッセージの文字数が多すぎたため、メッセージを削除しました",
+              timestamp: new Date(),
+              color: "YELLOW"
+            }]
+        }).catch(()=>{})
+      }
+      //NGワード検知
+      if(ngword.high.find(e=>message.content.match(e))){
+        message.delete().catch(()=>{});
         return message.channel.send({
           embeds:[{
             author: {
@@ -21,8 +42,44 @@ module.exports = async(message)=>{
             }]
         }).catch(()=>{})
       }
+      //スパム検知
+      if(new Date() - time[message.author.id][0] <= 1000){
+        message.delete().catch(()=>{});
+        if(!time[message.author.id][1]) return;
+        message.channel.send({
+          embeds:[{
+            author: {
+              name: "自動モデレート",
+              icon_url: "https://cdn.taka.ml/images/system/warn.png"
+            },
+            description: "スパムを検知したため、メッセージを削除しました",
+            timestamp: new Date(),
+            color: "YELLOW"
+          }]
+        }).catch(()=>{})
+        return time[message.author.id] = [new Date(),false];
+      }else{
+        time[message.author.id] = [new Date(),true];
+      }
     }else if(data[0].type === "normal"){
-      if(ngword.includes(message.content)){
+      //文字数制限
+      if(message.content.length > 1300){
+        message.delete().catch(()=>{});
+        return message.channel.send({
+          embeds:[{
+            author: {
+              name: "自動モデレート",
+              icon_url: "https://cdn.taka.ml/images/system/warn.png"
+              },
+              description: "メッセージの文字数が多すぎたため、メッセージを削除しました",
+              timestamp: new Date(),
+              color: "YELLOW"
+            }]
+        }).catch(()=>{})
+      }
+      //NGワード検知
+      if(ngword.high.find(e=>message.content.match(e))){
+        message.delete().catch(()=>{});
         return message.channel.send({
           embeds:[{
             author: {
@@ -35,19 +92,59 @@ module.exports = async(message)=>{
           }]
         }).catch(()=>{})
       }
-    }else if(data[0].type === "low"){
-      if(ngword.includes(message.content)){
-        return message.channel.send({
+      //スパム検知
+      if(new Date() - time[message.author.id][0] <= 1500){
+        message.delete().catch(()=>{});
+        if(!time[message.author.id][1]) return;
+        message.channel.send({
           embeds:[{
             author: {
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
             },
-            description: "NGワードを検知したため、メッセージを削除しました",
+            description: "スパムを検知したため、メッセージを削除しました",
             timestamp: new Date(),
             color: "YELLOW"
           }]
         }).catch(()=>{})
+        return time[message.author.id] = [new Date(),false];
+      }else{
+        time[message.author.id] = [new Date(),true];
+      }
+    }else if(data[0].type === "low"){
+      //文字数制限
+      if(message.content.length > 1800){
+        message.delete().catch(()=>{});
+        return message.channel.send({
+          embeds:[{
+            author: {
+              name: "自動モデレート",
+              icon_url: "https://cdn.taka.ml/images/system/warn.png"
+              },
+              description: "メッセージの文字数が多すぎたため、メッセージを削除しました",
+              timestamp: new Date(),
+              color: "YELLOW"
+            }]
+        }).catch(()=>{})
+      }
+      //スパム検知
+      if(new Date() - time[message.author.id][0] <= 2000){
+        message.delete().catch(()=>{});
+        if(!time[message.author.id][1]) return;
+        message.channel.send({
+          embeds:[{
+            author: {
+              name: "自動モデレート",
+              icon_url: "https://cdn.taka.ml/images/system/warn.png"
+            },
+            description: "スパムを検知したため、メッセージを削除しました",
+            timestamp: new Date(),
+            color: "YELLOW"
+          }]
+        }).catch(()=>{})
+        return time[message.author.id] = [new Date(),false];
+      }else{
+        time[message.author.id] = [new Date(),true];
       }
     }
   }
