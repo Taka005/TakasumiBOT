@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const fetch = require("node-fetch");
+  const mysql = require("../lib/mysql");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
     const member = await interaction.options.getMember("user");
@@ -16,9 +16,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    const members = await fetch("https://auth.taka.ml/data/user.json")
-      .then(res=>res.json())
-      .catch(()=>{})
+    const members = await mysql(`SELECT * FROM account WHERE id = ${member.user.id} LIMIT 1;`);
 
     await interaction.reply({
       embeds:[{
@@ -63,7 +61,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "TakasumiBOT Membersへの加入",
-            value: members[member.user.id] ? "加入済み" : "未加入"
+            value: members ? "加入済み" : "未加入"
           },
           {
             name:"ロール",

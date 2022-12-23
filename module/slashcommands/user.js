@@ -1,12 +1,10 @@
 module.exports = async(interaction,client)=>{
-  const fetch = require("node-fetch");
+  const mysql = require("../lib/mysql");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
     const user_id = await interaction.options.getString("id");
 
-    const members = await fetch("https://auth.taka.ml/data/user.json")
-      .then(res=>res.json())
-      .catch(()=>{})
+    const members = await mysql(`SELECT * FROM account WHERE id = ${user_id} LIMIT 1;`);
 
     if(!user_id){
       await interaction.reply({
@@ -52,7 +50,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "TakasumiBOT Membersへの加入",
-              value: members[interaction.member.user.id] ? "加入済み" : "未加入"
+              value: members ? "加入済み" : "未加入"
             },
             {
               name:"ロール",
@@ -138,7 +136,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "TakasumiBOT Membersへの加入",
-              value: members[member.user.id] ? "加入済み" : "未加入",
+              value: members ? "加入済み" : "未加入",
               inline: true
             },
             {
@@ -202,7 +200,7 @@ module.exports = async(interaction,client)=>{
               },
               {
                 name: "TakasumiBOT Membersへの加入",
-                value: members[user.id] ? "加入済み" : "未加入"
+                value: members ? "加入済み" : "未加入"
               }
             ]
           }]
