@@ -4,9 +4,9 @@ module.exports = async(interaction,client)=>{
   if(interaction.commandName === "user"){
     const user_id = await interaction.options.getString("id");
 
-    const members = await mysql(`SELECT * FROM account WHERE id = ${user_id} LIMIT 1;`);
-
     if(!user_id){
+      const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
+
       await interaction.reply({
         embeds:[{
           color: "GREEN",
@@ -50,7 +50,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "TakasumiBOT Membersへの加入",
-              value: members ? "加入済み" : "未加入"
+              value: members[0] ? "加入済み" : "未加入"
             },
             {
               name:"ロール",
@@ -94,6 +94,8 @@ module.exports = async(interaction,client)=>{
 
     const member = await interaction.guild.members.cache.get(id[0]);
     if(member){
+      const members = await mysql(`SELECT * FROM account WHERE id = ${member.user.id} LIMIT 1;`);
+
       await interaction.reply({
         embeds:[{
           color: "GREEN",
@@ -136,7 +138,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "TakasumiBOT Membersへの加入",
-              value: members ? "加入済み" : "未加入",
+              value: members[0] ? "加入済み" : "未加入",
               inline: true
             },
             {
@@ -166,6 +168,7 @@ module.exports = async(interaction,client)=>{
     }else{
       try{
         const user = await client.users.fetch(id[0]);
+        const members = await mysql(`SELECT * FROM account WHERE id = ${user.id} LIMIT 1;`);
 
         await interaction.reply({
           embeds:[{
@@ -200,7 +203,7 @@ module.exports = async(interaction,client)=>{
               },
               {
                 name: "TakasumiBOT Membersへの加入",
-                value: members ? "加入済み" : "未加入"
+                value: members[0] ? "加入済み" : "未加入"
               }
             ]
           }]

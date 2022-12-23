@@ -61,7 +61,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "TakasumiBOT Membersへの加入",
-            value: members ? "加入済み" : "未加入"
+            value: members[0] ? "加入済み" : "未加入"
           },
           {
             name:"ロール",
