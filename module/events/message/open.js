@@ -1,5 +1,10 @@
 module.exports = async(message,client)=>{
-  if(message.author.bot) return;  
+  if(
+    message.author.bot||
+    !message.guild.me.permissionsIn(message.channel).has("VIEW_CHANNEL")||
+    !message.guild.me.permissionsIn(message.channel).has("SEND_MESSAGES")
+  ) return;
+  
   if(message.content.match(/https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/\d{18,19}\/\d{18,19}\/\d{18,19}/g)){
     const url = message.content.match(/(https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/)(\d{18,19}\/\d{18,19}\/\d{18,19})/);
 
