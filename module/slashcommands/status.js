@@ -1,5 +1,6 @@
 module.exports = async(interaction,client)=>{
   const os = require("os");
+  const fetch = require("node-fetch");
   const mysql = require("../lib/mysql");
   const global = require("../../data/global/main.json");
   const hiroyuki = require("../../data/hiroyuki/main.json");
