@@ -6,9 +6,9 @@ module.exports = async(message)=>{
 
   if(
     message.author.bot||
-    !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-    !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
-    !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")
+    !message.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+    !message.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+    !message.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")
   ) return;
 
   const data = await mysql(`SELECT * FROM moderate WHERE id = ${message.guild.id} LIMIT 1;`);

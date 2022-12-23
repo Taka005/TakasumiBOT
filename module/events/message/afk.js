@@ -3,8 +3,8 @@ module.exports = async(message)=>{
   const time = require("../../lib/time");
   if(
     message.author.bot||
-    !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-    !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+    !message.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+    !message.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
   ) return;
 
   let data = await mysql(`SELECT * FROM afk WHERE user = ${message.author.id} LIMIT 1;`);

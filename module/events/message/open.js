@@ -1,8 +1,8 @@
 module.exports = async(message,client)=>{
   if(
     message.author.bot||
-    !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-    !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+    !message.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+    !message.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
   ) return;
   
   if(message.content.match(/https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/\d{18,19}\/\d{18,19}\/\d{18,19}/g)){
