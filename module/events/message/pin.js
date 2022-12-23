@@ -1,6 +1,12 @@
 module.exports = async(message,client)=>{
     const mysql = require("../../lib/mysql.js");
-    if(message.author.bot) return;
+    
+    if(
+      message.author.bot||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")
+    ) return;
     
     const channel = await mysql(`SELECT * FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);
     if(channel[0]){
