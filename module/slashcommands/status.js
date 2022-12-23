@@ -1,6 +1,6 @@
 module.exports = async(interaction,client)=>{
   const os = require("os");
-  const fetch = require("node-fetch");
+  const mysql = require("mysql");
   const global = require("../../data/global/main.json");
   const hiroyuki = require("../../data/hiroyuki/main.json");
   if(!interaction.isCommand()) return;
@@ -19,9 +19,7 @@ module.exports = async(interaction,client)=>{
       require("os-utils").cpuUsage(resolve)
     );
 
-    const members = await fetch("https://auth.taka.ml/data/user.json")
-      .then(res=>res.json())
-      .catch(()=>{})
+    const members = await mysql("SELECT * FROM account");
     
     const chat = Object.keys(global).length/client.guilds.cache.size*100
 
@@ -46,7 +44,7 @@ module.exports = async(interaction,client)=>{
           },
           {
             name: "Discord",
-            value: `Ping: ${client.ws.ping}㍉秒\nGC登録数: ${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数: ${Object.keys(hiroyuki).length}\nTakasumiBOT Members: ${Object.keys(members).length}人\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
+            value: `Ping: ${client.ws.ping}㍉秒\nGC登録数: ${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数: ${Object.keys(hiroyuki).length}\nTakasumiBOT Members: ${members.length}人\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
           }
         ]
       }]
