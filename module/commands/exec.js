@@ -5,19 +5,19 @@ module.exports = async(message,client)=>{
     if(message.author.id !== `${config.admin}`) return message.reply("このコマンドは製作者専用です");
     if(message.content === `${config.prefix}exec`) return message.reply("実行するコードが必要です");
       const code = message.content.slice(6);
-      const script = `async function script(message,client){\n  ${code}\n}\n\nmodule.exports = script`;
+      const script = `module.exports = async(message,client)=>{\n  ${code}\n}`;
       try{
-        fs.writeFileSync(`./note/script.js`, `${script}`, "utf8");
+        fs.writeFileSync(`./tmp/script.js`, `${script}`, "utf8");
       }catch(error){
-        return message.reply(`ファイル書き込み中にエラーが発生しました\n[${error.message}]`);
+        return message.reply(`ファイル書き込み中にエラーが発生しました\n[${error}]`);
       }
       try{
-        const run = require("../../note/script");
+        const run = require("../../tmp/script");
         run(message,client);
       }catch(error){
-        return message.reply(`実行中にエラーが発生しました[${error.message}]`);
+        return message.reply(`実行中にエラーが発生しました[${error}]`);
       }finally{
-        delete require.cache[require.resolve('../../note/script')];
+        delete require.cache[require.resolve('../../tmp/script')];
       }
     }
 }
