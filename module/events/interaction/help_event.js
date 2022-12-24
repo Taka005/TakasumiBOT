@@ -342,7 +342,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "/export",
-            value: "サーバーのデータをJSON形式に出力します\n※情報の扱いには注意してください"
+            value: "サーバーのデータをJSON形式に出力します\n※管理者のみ実行できます"
           }
         ]
       }],
