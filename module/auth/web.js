@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const fetch = require("node-fetch");
+  const mysql = require("../lib/mysql");
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("web_")){
@@ -16,16 +16,9 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    const user = await fetch("https://auth.taka.ml/data/user.json")
-      .then(res=>res.json())
-      .catch(()=>{})
+    const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
 
-    const site = new MessageButton()
-      .setLabel("サイトへ飛ぶ")
-      .setURL("https://auth.taka.ml/")
-      .setStyle("LINK")
-
-    if(!user[interaction.member.user.id]) return await interaction.reply({
+    if(!members[0]) return await interaction.reply({
       embeds:[{
         author: {
           name: "認証に失敗しました",
@@ -36,23 +29,12 @@ module.exports = async(interaction)=>{
       }],
       components: [
         new MessageActionRow()
-          .addComponents(site)
-      ],
-      ephemeral:true
-    });
-
-    if(user[interaction.member.user.id].name !== interaction.member.user.username) return await interaction.reply({
-      embeds:[{
-        author: {
-          name: "認証に失敗しました",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
-        },
-        color: "RED",
-        description: "TakasumiBOT Membersに登録されていますが登録時の名前と違うため、認証できません\n以下のリンクから更新してください"
-      }],
-      components: [
-        new MessageActionRow()
-          .addComponents(site)
+          .addComponents( 
+            new MessageButton()
+              .setLabel("サイトへ飛ぶ")
+              .setURL("https://auth.taka.ml/")
+              .setStyle("LINK")
+          )
       ],
       ephemeral:true
     });
