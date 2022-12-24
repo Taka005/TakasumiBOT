@@ -3,6 +3,18 @@ module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "export"){
 
+    if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "権限がありません",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description: "このコマンドを実行するには、あなたがこのサーバーの\n`管理者`の権限を持っている必要があります"
+      }],
+      ephemeral:true
+    });
+
     const invites = await interaction.guild.invites.fetch(); 
     try{
       const data = new Buffer.from(JSON.stringify({
