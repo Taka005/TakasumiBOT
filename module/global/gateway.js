@@ -5,22 +5,21 @@ module.exports = async(client)=>{
   const connect = require("./connect");
 
   function websocket(){
-    const Client = new ws("wss://ugc.renorari.net/api/v1/gateway");
+    const Client = new ws("wss://ugc.renorari.net/api/v2/gateway");
 
-    Client.on("close", (code, reason)=>{
+    Client.on("close",(code,reason)=>{
       setTimeout(() =>{
         websocket();
       }, 10000);
       return console.info(`\x1b[33mUGC:CLOSE ${code}:${reason}`); 
     });
     
-    Client.on("error", (error)=>{
+    Client.on("error",(error)=>{
       return console.info(`\x1b[31mUGC:ERROR ${error}`); 
     });
 
-    Client.on("message", (rawData)=>{
-
-      zlib.inflate(rawData, (err,_data) =>{
+    Client.on("message",(rawData)=>{
+      zlib.inflate(rawData,(err,_data)=>{
         if(err) return console.log(`\x1b[31mUGC:ERROR ${err}`);
         let data = JSON.parse(_data);
         if(data.type === "hello"){
@@ -39,10 +38,15 @@ module.exports = async(client)=>{
 
         }else if(data.type === "identify"){
           if(!data.success) return console.info(`\x1b[31mUGC:ERROR No Ready`); 
-          return console.info(`\x1b[34mUGC:READY!`); 
+          console.info(`\x1b[34mUGC:READY!`); 
 
-        }else if(data.type === "heartbeat"){
-          return 0;
+          setInterval(()=>{
+            Client.send(zlib.deflateSync(JSON.stringify({
+              "type": "heartbeat"
+            }),(err)=>{
+              if(err) return console.info(`\x1b[31mUGC:ERROR ${err}`); 
+            }));
+          },10000);
         }
       });
     });
