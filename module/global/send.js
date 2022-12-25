@@ -35,7 +35,7 @@ module.exports = async(message)=>{
     }
   }
 
-  await fetch("https://ugc.renorari.net/api/v1/messages",{
+  await fetch("https://ugc.renorari.net/api/v2/messages",{
     "method": "POST",
     "headers": {
       "Authorization": `Bearer ${process.env.UGC_KEY}`,
