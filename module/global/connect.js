@@ -4,13 +4,14 @@ module.exports = async(msg,client)=>{
   const sub = require("../../data/global/sub.json");
   const convert = require("../lib/convert");
   const { WebhookClient } = require("discord.js");
+  const async = require("async");
 
   if(main[msg.channel.id]) return;
   const message = await convert(msg);
 
   if(!message.reply.isReply){
     if(!message.attachments.isAttachments){
-      Object.keys(main).forEach(async(channels)=>{//添付ファイルなし
+      async.each(Object.keys(main),async(channels)=>{//添付ファイルなし
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
         const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
         if(channels === message.channel.id||mute[0]) return;
@@ -41,7 +42,7 @@ module.exports = async(msg,client)=>{
         });
       });
     }else if(!message.attachments.attachment[0].isFile){//添付ファイルあり(画像)
-      Object.keys(main).forEach(async(channels)=>{
+      async.each(Object.keys(main),async(channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
         const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
         if(channels === message.channel.id||mute[0]) return;
@@ -78,7 +79,7 @@ module.exports = async(msg,client)=>{
         });
       });
     }else{//添付ファイルあり(画像以外)
-      Object.keys(main).forEach(async(channels)=>{
+      async.each(Object.keys(main),async(channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
         const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
         if(channels === message.channel.id||mute[0]) return;
@@ -117,7 +118,7 @@ module.exports = async(msg,client)=>{
     }
   }else{
     if(!message.attachments.isAttachments){
-      Object.keys(main).forEach(async(channels)=>{//添付ファイルなし
+      async.each(Object.keys(main),async(channels)=>{//添付ファイルなし
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
         const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
         if(channels === message.channel.id||mute[0]) return;
@@ -154,7 +155,7 @@ module.exports = async(msg,client)=>{
         });
       });
     }else if(!message.attachments[0].isFile){//添付ファイルあり(画像)
-      Object.keys(main).forEach(async (channels)=>{
+      async.each(Object.keys(main),async(channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
         const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
         if(channels === message.channel.id||mute[0]) return;
@@ -197,7 +198,7 @@ module.exports = async(msg,client)=>{
         });
       });
     }else{//添付ファイルあり(画像以外)
-      Object.keys(main).forEach(async (channels)=>{
+      async.each(Object.keys(main),async(channels)=>{
         const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
         const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
         if(channels === message.channel.id||mute[0]) return;
