@@ -4,6 +4,7 @@ module.exports = async(message,client)=>{
   const sub = require("../../data/global/sub.json");
   const spam = require("../lib/spam");
   const { WebhookClient } = require("discord.js");
+  const async = require("async");
 
   if(
     !message.channel.type === "GUILD_TEXT"||
@@ -28,8 +29,11 @@ module.exports = async(message,client)=>{
   const content = message.content
     .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[[招待リンク]](https://discord.gg/GPs3npB63m)")
 
+  await message.react("🔄")
+    .catch(()=>{});
+
   if(!message.attachments.first()){
-    Object.keys(main).forEach(async (channels)=>{//添付ファイルなし
+    async.each(Object.keys(main),async(channels)=>{//添付ファイルなし
       const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
       const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
       if(channels === message.channel.id||mute[0]) return;
@@ -59,11 +63,11 @@ module.exports = async(message,client)=>{
         err(channels,client,error);
       });
     });
-    message.react("✅")
+    await message.react("✅")
       .catch(()=>{});
   }else if(message.attachments.first().height && message.attachments.first().width){//添付ファイルあり(画像)
     const attachment = message.attachments.map(attachment => attachment);
-    Object.keys(main).forEach(async (channels)=>{
+    async.each(Object.keys(main),async(channels)=>{
       const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
       const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
       if(channels === message.channel.id||mute[0]) return;
@@ -99,11 +103,11 @@ module.exports = async(message,client)=>{
         err(channels,client,error);
       });
     });
-    message.react("✅")
+    await message.react("✅")
       .catch(()=>{});
   }else{//添付ファイルあり(画像以外)
     const attachment = message.attachments.map(attachment => attachment);
-    Object.keys(main).forEach(async (channels)=>{
+    async.each(Object.keys(main),async(channels)=>{
       const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
       const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
       if(channels === message.channel.id||mute[0]) return;
@@ -139,7 +143,7 @@ module.exports = async(message,client)=>{
         err(channels,client,error);
       });
     });
-    message.react("✅")
+    await message.react("✅")
       .catch(()=>{});
   }
 }
