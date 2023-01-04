@@ -18,9 +18,10 @@ module.exports = async(message)=>{
     }
     if(data[0].type === "high"){
       //文字数制限
-      if(message.content.length > 1000){
+      if(message.content.length > 800){
         message.delete().catch(()=>{});
         return message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
@@ -36,6 +37,7 @@ module.exports = async(message)=>{
       if(ngword.high.find(e=>message.content.match(e))){
         message.delete().catch(()=>{});
         return message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
@@ -52,6 +54,7 @@ module.exports = async(message)=>{
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
@@ -68,9 +71,10 @@ module.exports = async(message)=>{
       }
     }else if(data[0].type === "normal"){
       //文字数制限
-      if(message.content.length > 1200){
+      if(message.content.length > 1000){
         message.delete().catch(()=>{});
         return message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
@@ -86,6 +90,7 @@ module.exports = async(message)=>{
       if(ngword.high.find(e=>message.content.match(e))){
         message.delete().catch(()=>{});
         return message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
@@ -102,6 +107,7 @@ module.exports = async(message)=>{
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
@@ -118,9 +124,10 @@ module.exports = async(message)=>{
       }
     }else if(data[0].type === "low"){
       //文字数制限
-      if(message.content.length > 1800){
+      if(message.content.length > 1500){
         message.delete().catch(()=>{});
         return message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
@@ -137,6 +144,7 @@ module.exports = async(message)=>{
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
+          content:`<@${message.author.id}>`,
           embeds:[{
             author: {
               name: "自動モデレート",
