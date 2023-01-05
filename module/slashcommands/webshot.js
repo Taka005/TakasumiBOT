@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "webshot"){
-    const url = await interaction.options.getString("url");
+    const url = interaction.options.getString("url");
 
     if(!isUrl(url)) return await interaction.reply({
       embeds:[{

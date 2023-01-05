@@ -1,7 +1,7 @@
 module.exports = async(interaction)=>{
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "アバターを表示"){
-    const member = await interaction.options.getMember("user");
+    const member = interaction.options.getMember("user");
 
     if(!member) return await interaction.reply({
       embeds:[{

@@ -7,9 +7,9 @@ module.exports = async(interaction,client)=>{
   const fs = require("fs");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "system"){
-    const id = await interaction.options.getString("id");
-    const functions = await interaction.options.getString("functions");
-    const message = await interaction.options.getString("message") || "なし"
+    const id = interaction.options.getString("id");
+    const functions = interaction.options.getString("functions");
+    const message = interaction.options.getString("message") || "なし"
 
     if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{

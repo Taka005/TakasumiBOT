@@ -1,8 +1,8 @@
 module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "channel"){
-    const text = await interaction.options.getString("text");
-    const channel = await interaction.options.getChannel("channel");
+    const text = interaction.options.getString("text");
+    const channel = interaction.options.getChannel("channel");
 
     if(
       !interaction.member.permissions.has("MANAGE_MESSAGES")||

@@ -3,8 +3,8 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "qr"){
-    const text = await interaction.options.getString("text");
-    const types = await interaction.options.getString("types");
+    const text = interaction.options.getString("text");
+    const types = interaction.options.getString("types");
 
     if(types === "gen"){
       await interaction.deferReply();

@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "英語に翻訳"){
-    const message = await interaction.options.getMessage("message");
+    const message = interaction.options.getMessage("message");
     if(!message.content) return await interaction.reply({
       content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{

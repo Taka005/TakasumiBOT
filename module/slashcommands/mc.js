@@ -2,8 +2,8 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "mc"){
-    const ip = await interaction.options.getString("ip");
-    const edition = await interaction.options.getString("edition");
+    const ip = interaction.options.getString("ip");
+    const edition = interaction.options.getString("edition");
 
     await interaction.deferReply();
     if(edition === "je"){

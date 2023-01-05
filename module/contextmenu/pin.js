@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   const mysql = require("../lib/mysql.js");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メッセージをピン留め"){
-    const message = await interaction.options.getMessage("message");
+    const message = interaction.options.getMessage("message");
     if(!message.content) return await interaction.reply({
       embeds:[{
         author: {

@@ -2,8 +2,8 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "auth"){
-    const type = await interaction.options.getString("type");
-    const role = await interaction.options.getRole("role");
+    const type = interaction.options.getString("type");
+    const role = interaction.options.getRole("role");
 
     if(
       !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_ROLES")||

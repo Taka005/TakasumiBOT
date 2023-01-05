@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   const isUrl = require("../lib/isUrl");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "safeweb"){
-    const url = await interaction.options.getString("url");
+    const url = interaction.options.getString("url");
 
     if(!isUrl(url)) return await interaction.reply({
       embeds:[{

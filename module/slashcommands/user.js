@@ -2,7 +2,7 @@ module.exports = async(interaction,client)=>{
   const mysql = require("../lib/mysql");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
-    const user_id = await interaction.options.getString("id");
+    const user_id = interaction.options.getString("id");
 
     if(!user_id){
       const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
