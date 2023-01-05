@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   const mysql = require("../lib/mysql");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
-    const member = await interaction.options.getMember("user");
+    const member = interaction.options.getMember("user");
 
     if(!member) return await interaction.reply({
       embeds:[{

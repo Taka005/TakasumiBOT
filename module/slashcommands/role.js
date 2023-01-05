@@ -2,16 +2,16 @@ module.exports = async(interaction)=>{
   const {MessageActionRow, MessageSelectMenu} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "role"){
-    const role_1 = await interaction.options.getRole("role_1");
-    const role_2 = await interaction.options.getRole("role_2");
-    const role_3 = await interaction.options.getRole("role_3");
-    const role_4 = await interaction.options.getRole("role_4");
-    const role_5 = await interaction.options.getRole("role_5");
-    const role_6 = await interaction.options.getRole("role_6");
-    const role_7 = await interaction.options.getRole("role_7");
-    const role_8 = await interaction.options.getRole("role_8");
-    const role_9 = await interaction.options.getRole("role_9");
-    const role_10 = await interaction.options.getRole("role_10");
+    const role_1 = interaction.options.getRole("role_1");
+    const role_2 = interaction.options.getRole("role_2");
+    const role_3 = interaction.options.getRole("role_3");
+    const role_4 = interaction.options.getRole("role_4");
+    const role_5 = interaction.options.getRole("role_5");
+    const role_6 = interaction.options.getRole("role_6");
+    const role_7 = interaction.options.getRole("role_7");
+    const role_8 = interaction.options.getRole("role_8");
+    const role_9 = interaction.options.getRole("role_9");
+    const role_10 = interaction.options.getRole("role_10");
 
     const emojis = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯"];
 

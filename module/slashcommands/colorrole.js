@@ -1,8 +1,8 @@
 module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "colorrole"){
-    const name = await interaction.options.getString("name");
-    const color = await interaction.options.getString("color");
+    const name = interaction.options.getString("name");
+    const color = interaction.options.getString("color");
 
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{

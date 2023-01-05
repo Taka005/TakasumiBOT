@@ -1,7 +1,7 @@
 module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "avatar"){
-    const user_id = await interaction.options.getString("id");
+    const user_id = interaction.options.getString("id");
 
     if(!user_id){
       await interaction.reply({

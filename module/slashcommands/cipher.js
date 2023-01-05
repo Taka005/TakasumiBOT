@@ -2,9 +2,9 @@ module.exports = async(interaction)=>{
   const crypto = require("crypto");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "cipher"){
-    const key = await interaction.options.getString("key");
-    const text = await interaction.options.getString("text");
-    const types = await interaction.options.getString("types");
+    const key = interaction.options.getString("key");
+    const text = interaction.options.getString("text");
+    const types = interaction.options.getString("types");
 
     if(types === "cipher"){
       try{

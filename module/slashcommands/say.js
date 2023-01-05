@@ -1,7 +1,7 @@
 module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "say"){
-    const text = await interaction.options.getString("text");
+    const text = interaction.options.getString("text");
 
     if(
       !interaction.member.permissions.has("MANAGE_MESSAGES")||

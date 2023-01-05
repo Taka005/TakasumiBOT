@@ -40,7 +40,7 @@ module.exports = async(interaction)=>{
         }]
       });
     }else if(interaction.options.getSubcommand() === "bump"){//BUMPロール設定
-      const role = await interaction.options.getRole("role");
+      const role = interaction.options.getRole("role");
       if(
         !interaction.member.permissions.has("MANAGE_CHANNELS")||
         !interaction.member.permissions.has("MANAGE_ROLES")
@@ -108,7 +108,7 @@ module.exports = async(interaction)=>{
       });
 
     }else if(interaction.options.getSubcommand() === "dissoku"){//Dissokuロール設定
-      const role = await interaction.options.getRole("role");
+      const role = interaction.options.getRole("role");
 
       if(
         !interaction.member.permissions.has("MANAGE_CHANNELS")||
@@ -182,7 +182,7 @@ module.exports = async(interaction)=>{
         normal:"標準",
         low:"低い"
       };
-      const type = await interaction.options.getString("type");
+      const type = interaction.options.getString("type");
 
       if(
         !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||

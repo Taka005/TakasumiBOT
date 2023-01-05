@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   require("dotenv").config();
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "short"){
-    const url = await interaction.options.getString("url");
+    const url = interaction.options.getString("url");
 
     if(!url.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
       embeds:[{

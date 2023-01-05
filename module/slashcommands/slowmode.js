@@ -1,7 +1,7 @@
 module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "slowmode"){
-    const time = await interaction.options.getInteger("time");
+    const time = interaction.options.getInteger("time");
   
     if(
       !interaction.member.permissions.has("MANAGE_MESSAGES")||

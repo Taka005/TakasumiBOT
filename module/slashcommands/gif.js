@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
   require("dotenv").config();
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "gif"){
-    const name = await interaction.options.getString("name");
+    const name = interaction.options.getString("name");
 
     await interaction.deferReply();
     try{

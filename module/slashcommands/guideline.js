@@ -14,7 +14,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    const role =  await interaction.options.getRole("role");
+    const role =  interaction.options.getRole("role");
 
     const guide = new Modal()
       .setCustomId(`guideline_${role.id}`)

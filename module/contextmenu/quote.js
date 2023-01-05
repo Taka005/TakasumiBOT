@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   const { MessageAttachment } = require("discord.js");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "Make it a Quote"){
-    const message = await interaction.options.getMessage("message");
+    const message = interaction.options.getMessage("message");
     await interaction.deferReply();
     await interaction.editReply("生成中...")
 

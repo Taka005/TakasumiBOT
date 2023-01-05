@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "npm"){
-    const package = await interaction.options.getString("name");
+    const package = interaction.options.getString("name");
 
     await interaction.deferReply();
     const package_data = await fetch(`https://api.npms.io/v2/search?q=${package}`)

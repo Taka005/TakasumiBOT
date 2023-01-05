@@ -1,8 +1,8 @@
 module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "del"){
-    const number = await interaction.options.getInteger("number");
-    const user = await interaction.options.getUser("user");
+    const number = interaction.options.getInteger("number");
+    const user = interaction.options.getUser("user");
 
     if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return await interaction.reply({
       embeds:[{
