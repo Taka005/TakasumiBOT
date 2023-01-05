@@ -52,7 +52,7 @@ module.exports = async(interaction)=>{
       .setMinValues(0)
       .setMaxValues(selects.length)
       .addOptions(
-        selects.map((c,i) =>({
+        selects.map((c,i)=>({
           label: `@${c.name}`,
           value: c.id,
           emoji:{
@@ -72,9 +72,12 @@ module.exports = async(interaction)=>{
           new MessageActionRow()
             .addComponents(roles)
         ]
-      })
+      });
+
+      await interaction.deferReply()
+        .then(()=>interaction.deleteReply())
     }catch(error){
-      await interaction.channel.send({
+      await interaction.reply({
         embeds:[{
           author: {
             name: "作成できませんでした",
@@ -88,10 +91,9 @@ module.exports = async(interaction)=>{
               value: `\`\`\`${error}\`\`\``
             }
           ]
-        }]
+        }],
+        ephemeral:true
       });
     }
-    interaction.deferReply()
-      .then(()=>interaction.deleteReply())
   }
 }
