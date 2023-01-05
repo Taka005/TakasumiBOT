@@ -22,8 +22,11 @@ module.exports = async(interaction)=>{
           name:`${member.user.tag}のアバター`,
           icon_url: "https://cdn.taka.ml/images/system/success.png"
         },
+        thumbnail: {
+          url: member.avatarURL({format:"png",dynamic:true,size:1024})
+        },
         image: {
-          url: member.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+          url: member.user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
         },
         timestamp: new Date(),
         footer: {

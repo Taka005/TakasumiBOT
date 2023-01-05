@@ -11,6 +11,9 @@ module.exports = async(interaction,client)=>{
             name:`${interaction.member.user.tag}のアバター`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
+          thumbnail: {
+            url: interaction.member.avatarURL({format:"png",dynamic:true,size:1024})
+          },
           image: {
             url: interaction.member.user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
@@ -54,13 +57,18 @@ module.exports = async(interaction,client)=>{
     });
 
     try{
+      const member = await interaction.guild.members.cache.get(id[0]);
       const user = await client.users.fetch(id[0]);
+      
       await interaction.reply({
         embeds:[{
           color: "GREEN",
           author: {
             name:`${user.tag}のアバター`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
+          },
+          thumbnail: {
+            url: member.avatarURL({format:"png",dynamic:true,size:1024})
           },
           image: {
             url: user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
