@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
       .setMinValues(1)
       .setMaxValues(1)
       .addOptions(
-        keys.map((c) =>({
+        keys.map(c=>({
           label: `${c.text}`,
           value: c.text,
         }))
