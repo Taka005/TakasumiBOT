@@ -3,8 +3,8 @@ module.exports = async(interaction)=>{
   if(interaction.customId === "role"){
     
     try{
-      const add = await interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
-      const remove = await interaction.values.filter((role)=>!add.includes(role));
+      const add = interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
+      const remove = interaction.values.filter((role)=>!add.includes(role));
 
       add.forEach(role =>{
         interaction.member.roles.add(role)

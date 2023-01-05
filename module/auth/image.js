@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   const random = require("../lib/random");
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("image_")){
-    const role = await interaction.customId.split("_");
+    const role = interaction.customId.split("_");
     const keys = [
       {text:"2daAfg",url:"https://cdn.taka.ml/images/auth/img_1.png"},
       {text:"wad3EF",url:"https://cdn.taka.ml/images/auth/img_2.png"},

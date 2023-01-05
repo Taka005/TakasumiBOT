@@ -1,8 +1,8 @@
 module.exports = async(interaction)=>{
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId.startsWith("imagerole_")){
-    const list = await interaction.customId.split("_");
-    const key = await interaction.values[0];
+    const list = interaction.customId.split("_");
+    const key = interaction.values[0];
 
     if(interaction.member.roles.cache.has(list[1])) return await interaction.reply({
       embeds:[{
