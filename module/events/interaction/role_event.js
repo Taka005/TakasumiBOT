@@ -8,12 +8,12 @@ module.exports = async(interaction)=>{
 
       add.forEach(role =>{
         interaction.member.roles.add(role)
-          .catch(error=>{})
+          .catch(()=>{})
       });
 
       remove.forEach(role =>{
         interaction.member.roles.remove(role)
-          .catch(error=>{})
+          .catch(()=>{})
       });
 
       await interaction.reply({
