@@ -12,6 +12,12 @@ const client = new Client({
   ]
 });
 
+console.log("\x1b[32m*******************************");
+console.log("\x1b[32m          TakasumiBOT          ");
+console.log("\x1b[32m    Created By Taka005#6668    ");
+console.log("\x1b[32m*******************************");
+
+//中核システム読み込み
 const events = require("./module/events");
 const api = require("./module/api/server");
 const gateway = require("./module/global/gateway");
