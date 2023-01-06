@@ -17,18 +17,19 @@ console.log("\x1b[32m          TakasumiBOT          ");
 console.log("\x1b[32m    Created By Taka005#6668    ");
 console.log("\x1b[32m                               ");
 
-//中核システム読み込み
-const events = require("./module/events");
-const api = require("./module/api/server");
-const gateway = require("./module/global/gateway");
-const load = require("./module/events/load");
-events(client);
-api(client);
-gateway(client);
-load(client);
-
 client.login(process.env.DISCORD_BOT_TOKEN)
-  .then(()=> console.log("\x1b[32m          Login Success        "))
+  .then(()=>{
+    console.log("\x1b[32m          Login Success        ")
+  
+    const events = require("./module/events");
+    const api = require("./module/api/server");
+    const gateway = require("./module/global/gateway");
+    const load = require("./module/events/load");
+    events(client);
+    api(client);
+    gateway(client);
+    load(client);
+  })
   .catch(()=> console.log("\x1b[31m         Login Failed          "))
 
 console.log("\x1b[32m*******************************");
