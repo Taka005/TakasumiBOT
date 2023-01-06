@@ -28,7 +28,7 @@ load(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
   .then(()=>{
-    console.log("\x1b[32mINFO: Login Success");
+    console.log("\x1b[34mINFO: Login Success");
   })
   .catch(()=>{
     console.log("\x1b[31mERROR: Login Failed");
