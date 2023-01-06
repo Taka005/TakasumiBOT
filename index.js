@@ -15,7 +15,7 @@ const client = new Client({
 console.log("\x1b[32m*******************************");
 console.log("\x1b[32m          TakasumiBOT          ");
 console.log("\x1b[32m    Created By Taka005#6668    ");
-console.log("\x1b[32m*******************************");
+console.log("\x1b[32m                               ");
 
 //中核システム読み込み
 const events = require("./module/events");
@@ -28,8 +28,10 @@ gateway(client);
 load(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
-  .then(()=> console.info(`\x1b[34mINFO:ログインに成功しました`))
-  .catch(()=> console.error(`\x1b[31mERROR:ログインに失敗しました`))
+  .then(()=> console.log("\x1b[32m          Login Success        "))
+  .catch(()=> console.log("\x1b[31m         Login Failed          "))
+
+console.log("\x1b[32m*******************************");
 
 //エラー回避
 process.on("uncaughtException",async(error)=>{
