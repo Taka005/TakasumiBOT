@@ -11,16 +11,16 @@ module.exports = async(client)=>{
       setTimeout(() =>{
         websocket();
       }, 10000);
-      return console.info(`\x1b[33mUGC:CLOSE ${code}:${reason}`); 
+      return console.log(`\x1b[33mWARN: UGC Close ${code} ${reason}`); 
     });
     
     Client.on("error",(error)=>{
-      return console.info(`\x1b[31mUGC:ERROR ${error}`); 
+      return console.log(`\x1b[31mERROR: ${error}`); 
     });
 
     Client.on("message",(rawData)=>{
       zlib.inflate(rawData,(err,_data)=>{
-        if(err) return console.log(`\x1b[31mUGC:ERROR ${err}`);
+        if(err) return console.log(`\x1b[31mERROR: ${err}`);
         let data = JSON.parse(_data);
         if(data.type === "hello"){
           Client.send(zlib.deflateSync(JSON.stringify({
@@ -29,7 +29,7 @@ module.exports = async(client)=>{
               "token": process.env.UGC_KEY
             }
             }),(err)=>{
-              if(err) return console.info(`\x1b[31mUGC:ERROR ${err}`); 
+              if(err) return console.log(`\x1b[31mERROR: ${err}`); 
             }
           ));
         }else if(data.type === "message"){
@@ -37,14 +37,14 @@ module.exports = async(client)=>{
           return connect(msg,client);
 
         }else if(data.type === "identify"){
-          if(!data.success) return console.info(`\x1b[31mUGC:ERROR No Ready`); 
-          console.info(`\x1b[34mUGC:READY!`); 
+          if(!data.success) return console.log(`\x1b[31mERROR: Connect UGC Failed`); 
+          console.log(`\x1b[34mINFO: Connect UGC`); 
 
           setInterval(()=>{
             Client.send(zlib.deflateSync(JSON.stringify({
               "type": "heartbeat"
             }),(err)=>{
-              if(err) return console.info(`\x1b[31mUGC:ERROR ${err}`); 
+              if(err) return console.log(`\x1b[31mERROR: ${err}`); 
             }));
           },10000);
         }

@@ -37,7 +37,7 @@ client.login(process.env.DISCORD_BOT_TOKEN)
 
 //エラー回避
 process.on("uncaughtException",async(error)=>{
-  console.error(`\x1b[31mERROR: ${error.stack}`);
+  console.log(`\x1b[31mERROR: ${error.stack}`);
 
   client.channels.cache.get(log_channel).send({
     embeds:[{
@@ -49,7 +49,7 @@ process.on("uncaughtException",async(error)=>{
 });
 
 process.on("unhandledRejection",async(error)=>{
-  console.error(`\x1b[31mERROR: ${error.stack}`);
+  console.log(`\x1b[31mERROR: ${error.stack}`);
 
   client.channels.cache.get(log_channel).send({
     embeds:[{

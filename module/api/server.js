@@ -16,7 +16,7 @@ module.exports = async(client)=>{
       console.log(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました`);
     });
   }catch{
-    console.warn(`\x1b[33mWARN: sslを使用せずに起動しました`);
+    console.log(`\x1b[33mWARN: sslを使用せずに起動しました`);
   }
 
   app.listen(80,()=>{
@@ -59,7 +59,7 @@ module.exports = async(client)=>{
       }
     });
     
-    console.info(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`);
+    console.log(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`);
     res.end()
   });
 
@@ -67,7 +67,7 @@ module.exports = async(client)=>{
     res.setHeader("Access-Control-Allow-Origin","*")
     res.json(date);
 
-    console.info(`\x1b[34INFO: [${req.ip}]からAPIにリクエスト`)
+    console.log(`\x1b[34INFO: [${req.ip}]からAPIにリクエスト`)
     res.end()
   });
   //------API------//
