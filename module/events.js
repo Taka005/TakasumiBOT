@@ -29,7 +29,7 @@ module.exports = async(client)=>{
 
     if(!message.channel.type === "GUILD_TEXT" || message.author.bot) return;  
 
-    //console.log
+    //log
     console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
 
     //コマンド

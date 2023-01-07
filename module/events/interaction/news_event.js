@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
 
     const data = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.NEWS_KEY}`)
       .then(res=>res.json())
-      .catch((err)=>{console.log(err)})
+      .catch(()=>{})
   
     const before = new MessageButton()
       .setStyle("PRIMARY")
