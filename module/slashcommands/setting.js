@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const mysql = require("../lib/mysql.js");
+  const mysql = require("../lib/mysql");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "setting"){
 

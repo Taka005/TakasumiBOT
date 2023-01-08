@@ -1,5 +1,5 @@
 module.exports = async(message,client)=>{
-    const mysql = require("../../lib/mysql.js");
+    const mysql = require("../../lib/mysql");
     
     if(
       message.author.bot||

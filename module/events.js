@@ -54,9 +54,15 @@ module.exports = async(client)=>{
   });
 
   client.on("guildCreate",async(guild)=>{
-    const invite = require("./events/invite");
+    const add = require("./events/add");
 
-    invite(guild);
+    add(guild);
+  });
+  
+  client.on("guildDelete",async(guild)=>{
+    const remove = require("./events/remove");
+
+    remove(guild);
   });
 
   client.on("interactionCreate",async(interaction)=>{

@@ -1,5 +1,5 @@
 module.exports = async(message)=>{
-  const mysql = require("../../lib/mysql.js");
+  const mysql = require("../../lib/mysql");
 
   if(message.author.id === "302050872383242240"){
     if(
