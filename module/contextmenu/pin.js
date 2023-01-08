@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const mysql = require("../lib/mysql.js");
+  const mysql = require("../lib/mysql");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メッセージをピン留め"){
     const message = interaction.options.getMessage("message");
