@@ -2,6 +2,7 @@ module.exports = async(interaction)=>{
   const {MessageActionRow, MessageSelectMenu} = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "role"){
+    const title = interaction.options.getString("title");
     const role_1 = interaction.options.getRole("role_1");
     const role_2 = interaction.options.getRole("role_2");
     const role_3 = interaction.options.getRole("role_3");
@@ -64,7 +65,7 @@ module.exports = async(interaction)=>{
     try{
       await interaction.channel.send({
         embeds:[{
-          title: "役職パネル",          
+          title: title,          
           color: "GREEN",
           description: selects.map((c,i)=>`${emojis[i]}<@&${c.id}>`).join("\n")
         }],
