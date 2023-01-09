@@ -493,7 +493,12 @@ module.exports = async(client)=>{
 
   const role = new SlashCommandBuilder()
     .setName("role")
-    .setDescription("役職パネルを作成します")
+    .setDescription("役職パネルを作成します")  
+    .addStringOption(option =>
+      option
+        .setName("title")
+        .setDescription("タイトル")
+        .setRequired(true))
     .addRoleOption(option =>
       option
         .setName("role_1")
