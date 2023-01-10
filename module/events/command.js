@@ -392,8 +392,7 @@ module.exports = async(client)=>{
           { name: "JavaScript", value: "JavaScript" },
           { name: "TypeScript", value: "TypeScript" },
           { name: "Python", value: "Python" },
-          { name: "Bash", value: "Bash" },
-          { name: "PHP", value: "PHP" }
+          { name: "Bash", value: "Bash" }
         ))    
 
   const colorrole = new SlashCommandBuilder()
