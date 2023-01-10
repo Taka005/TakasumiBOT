@@ -380,6 +380,22 @@ module.exports = async(client)=>{
           { name: "ドイツ語", value: "de" }
         ))
 
+  const script = new SlashCommandBuilder()
+    .setName("script")
+    .setDescription("プログラムを実行します")
+    .addStringOption(option =>
+      option
+        .setName("lang")
+        .setDescription("実行する言語")
+        .setRequired(true)
+        .addChoices(
+          { name: "JavaScript", value: "JavaScript" },
+          { name: "TypeScript", value: "TypeScript" },
+          { name: "Python", value: "Python" },
+          { name: "Bash", value: "Bash" },
+          { name: "PHP", value: "PHP" }
+        ))    
+
   const colorrole = new SlashCommandBuilder()
     .setName("colorrole")
     .setDescription("色付きロールを簡単に作成します")
@@ -611,6 +627,7 @@ module.exports = async(client)=>{
           mc,
           ad,
           translate,
+          script,
           colorrole,
           global,
           system,

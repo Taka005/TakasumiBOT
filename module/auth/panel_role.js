@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("panelrole_")){
     const list = interaction.customId.split("_");
-    const code = await interaction.fields.getTextInputValue("code");
+    const code = interaction.fields.getTextInputValue("code");
 
     if(interaction.member.roles.cache.has(list[1])) return await interaction.reply({
       embeds:[{
