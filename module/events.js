@@ -130,7 +130,7 @@ module.exports = async(client)=>{
         }], 
         ephemeral: true 
       }).catch(()=>{
-        await interaction.member.user.send({ 
+        interaction.member.user.send({ 
           embeds:[{
             author: {
               name: `${interaction.guild.name}でエラーが発生しました`,
