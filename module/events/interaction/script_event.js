@@ -28,7 +28,7 @@ module.exports = async(interaction)=>{
           }
         }]
       });
-    },3000);
+    },1000);
 
     const res = await fetch("https://wandbox.org/api/compile.json",{
       method: "POST",
