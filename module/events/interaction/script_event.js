@@ -34,7 +34,7 @@ module.exports = async(interaction)=>{
             name: "正常に実行しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
-          description: `\`\`\`${program_output}\`\`\``,
+          description: `\`\`\`${res.program_output}\`\`\``,
           footer: {
             text:`${lang}||TakasumiBOT`
           }
@@ -48,7 +48,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: `\`\`\`${program_error}\`\`\``,
+          description: `\`\`\`${res.program_error}\`\`\``,
           footer: {
             text:`${lang}||TakasumiBOT`
           }
