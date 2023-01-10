@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
             text:`${lang[1]} || TakasumiBOT`
           }
         }]
-      });
+      }).catch(()=>{})
     },1000);
 
     const res = await fetch("https://wandbox.org/api/compile.json",{
@@ -41,7 +41,9 @@ module.exports = async(interaction)=>{
       })
     })
       .then(res=>res.json())
-      .catch(()=>{})
+      .catch(()=>{
+        timeout = true;
+      })
 
     if(timeout) return;
 
