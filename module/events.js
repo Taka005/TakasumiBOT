@@ -129,6 +129,23 @@ module.exports = async(client)=>{
           ]
         }], 
         ephemeral: true 
+      }).catch(()=>{
+        interaction.member.user.send({ 
+          embeds:[{
+            author: {
+              name: `${interaction.guild.name}でエラーが発生しました`,
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.taka.ml)に報告してください",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error.stack}\`\`\``
+              }
+            ]
+          }]
+        }).catch(()=>{})
       });
     }
   });
