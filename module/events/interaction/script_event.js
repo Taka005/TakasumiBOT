@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
           },
           description: `\`\`\`${res.program_output}\`\`\``,
           footer: {
-            text:`${lang[0]} || TakasumiBOT`
+            text:`${lang[1]} || TakasumiBOT`
           }
         }]
       });
@@ -49,7 +49,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: `\`\`\`${res.program_error}\`\`\``,
           footer: {
-            text:`${lang[0]} || TakasumiBOT`
+            text:`${lang[1]} || TakasumiBOT`
           }
         }]
       });
@@ -63,7 +63,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: "不明なステータスコードです\nもう一度やり直してください",
           footer: {
-            text:`${lang}||TakasumiBOT`
+            text:`${lang[1]} || TakasumiBOT`
           }
         }]
       });
