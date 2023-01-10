@@ -6,8 +6,9 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "gif"){
     const name = interaction.options.getString("name");
 
-    await interaction.deferReply();
     try{
+      await interaction.deferReply();
+
       const gif_res = await fetch(`https://g.tenor.com/v1/search?q=${name}&key=${process.env.GIF_KEY}&limit=1&media_filter=minimal`)
         .then(res=>res.json());
 
