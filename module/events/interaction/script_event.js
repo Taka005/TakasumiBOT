@@ -12,8 +12,6 @@ module.exports = async(interaction)=>{
       "Bash": "bash-5.0.17(1)-release",
       "PHP": "php-8.0.3",
     };
-    console.log(code)
-    console.log(compiler[lang[1]])
 
     const res = await fetch("https://wandbox.org/api/compile.json",{
       method: "POST",
@@ -25,9 +23,10 @@ module.exports = async(interaction)=>{
         "compiler": compiler[lang[1]]
       })
     })
-      .then(res=>res.json())
+      .then(res=>res.text())
       .catch(()=>{})
 
+    console.log(res)
     if(res.status === "0"){
       await interaction.reply({
         embeds:[{
