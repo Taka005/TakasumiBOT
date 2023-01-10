@@ -12,6 +12,24 @@ module.exports = async(interaction)=>{
       "Bash": "bash"
     };
 
+    let timeout = false;
+    setTimeout(async()=>{
+      timeout = true;
+      await interaction.reply({
+        embeds:[{
+          author: {
+            name: "正常に実行できませんでした",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "実行がタイムアウトしました",
+          footer: {
+            text:`${lang[1]} || TakasumiBOT`
+          }
+        }]
+      });
+    },3000);
+
     const res = await fetch("https://wandbox.org/api/compile.json",{
       method: "POST",
       header: {
@@ -24,6 +42,8 @@ module.exports = async(interaction)=>{
     })
       .then(res=>res.json())
       .catch(()=>{})
+
+    if(timeout) return;
 
     if(res.status === "0"){
       await interaction.reply({
