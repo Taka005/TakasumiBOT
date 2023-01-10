@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
       "JavaScript": "nodejs-16.14.0",
       "TypeScript": "typescript-4.2.4",
       "Python": "cpython-3.10.2",
-      "Bash": "bash-5.0.17-release"
+      "Bash": "bash"
     };
 
     const res = await fetch("https://wandbox.org/api/compile.json",{
