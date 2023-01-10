@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
           },
           description: `\`\`\`${res.program_output}\`\`\``,
           footer: {
-            text:`${lang}||TakasumiBOT`
+            text:`${lang[0]} || TakasumiBOT`
           }
         }]
       });
@@ -50,7 +50,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: `\`\`\`${res.program_error}\`\`\``,
           footer: {
-            text:`${lang}||TakasumiBOT`
+            text:`${lang[0]} || TakasumiBOT`
           }
         }]
       });
