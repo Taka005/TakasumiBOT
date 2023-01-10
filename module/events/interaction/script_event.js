@@ -25,7 +25,7 @@ module.exports = async(interaction)=>{
     })
       .then(res=>res.json())
       .catch(()=>{})
-
+console.log(res)
     if(res.status === "0"){
       await interaction.reply({
         embeds:[{
