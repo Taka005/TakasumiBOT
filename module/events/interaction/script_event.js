@@ -6,9 +6,9 @@ module.exports = async(interaction)=>{
     const code = interaction.fields.getTextInputValue("code");
   
     const compiler = {
-      "JavaScript": "Nodejs-16.14.0",
-      "TypeScript": "TypeScript-4.2.4",
-      "Python": "CPython-3.10.2",
+      "JavaScript": "nodejs-16.14.0",
+      "TypeScript": "typescript-4.2.4",
+      "Python": "cpython-3.10.2",
       "Bash": "bash-5.0.17(1)-release",
       "PHP": "php-8.0.3",
     };
@@ -23,10 +23,9 @@ module.exports = async(interaction)=>{
         "compiler": compiler[lang[1]]
       })
     })
-      .then(res=>res.text())
+      .then(res=>res.json())
       .catch(()=>{})
 
-    console.log(res)
     if(res.status === "0"){
       await interaction.reply({
         embeds:[{
