@@ -253,7 +253,7 @@ module.exports = async(client)=>{
   const timeout = new SlashCommandBuilder()
     .setName("timeout")
     .setDescription("ユーザーをタイムアウトします")
-    .addStringOption(option =>
+    .addUserOption(option =>
       option
         .setName("user")
         .setDescription("ユーザーID又はメンション")
