@@ -60,7 +60,7 @@ module.exports = async(interaction)=>{
             content:`${interaction.member}`,
             embeds:[{
               author: {
-                name: `${member.user.tag}を${time}秒タイムアウトしました`,
+                name: `${member.user.tag}を${time||0}秒タイムアウトしました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN"
