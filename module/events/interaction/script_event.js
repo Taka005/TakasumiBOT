@@ -7,7 +7,6 @@ module.exports = async(interaction)=>{
   
     const compiler = {
       "JavaScript": "nodejs-16.14.0",
-      "TypeScript": "typescript-4.2.4",
       "Python": "cpython-3.10.2",
       "Bash": "bash"
     };

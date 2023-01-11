@@ -390,7 +390,6 @@ module.exports = async(client)=>{
         .setRequired(true)
         .addChoices(
           { name: "JavaScript", value: "JavaScript" },
-          { name: "TypeScript", value: "TypeScript" },
           { name: "Python", value: "Python" },
           { name: "Bash", value: "Bash" }
         ))    

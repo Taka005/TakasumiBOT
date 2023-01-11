@@ -333,6 +333,10 @@ module.exports = async(interaction)=>{
             value: "大吉や、凶、吉などのおみくじが引けます"
           },
           {
+            name: "/script",
+            value: "プログラムを実行します"
+          },
+          {
             name: "/qr",
             value: "QRコードを生成、または読み取ります"
           },
