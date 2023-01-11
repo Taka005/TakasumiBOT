@@ -59,7 +59,21 @@ module.exports = async(interaction)=>{
             text:`${lang[1]} || TakasumiBOT`
           }
         }]
-      });
+      }).catch(()=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "正常に実行できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "結果が長すぎます",
+            footer: {
+              text:`${lang[1]} || TakasumiBOT`
+            }
+          }]
+        });
+      })
     }else if(res.status === "1"){
       await interaction.reply({
         embeds:[{
@@ -73,7 +87,21 @@ module.exports = async(interaction)=>{
             text:`${lang[1]} || TakasumiBOT`
           }
         }]
-      });
+      }).catch(()=>{
+        interaction.reply({
+          embeds:[{
+            author: {
+              name: "正常に実行できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "結果が長すぎます",
+            footer: {
+              text:`${lang[1]} || TakasumiBOT`
+            }
+          }]
+        });
+      })
     }else{
       await interaction.reply({
         embeds:[{
