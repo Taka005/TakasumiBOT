@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
     if(interaction.commandName === "timeout"){
       const user = interaction.options.getUser("user");
       const time = interaction.options.getInteger("time");
-      const reason = interaction.options.getString("reason")+`\n実行:${interaction.member.user.tag}`||`${interaction.member.user.tag}によってタイムアウト`;
+      const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってタイムアウト`;
       
       if(!interaction.member.permissions.has("MODERATE_MEMBERS")) return await interaction.reply({
         embeds:[{
@@ -60,7 +60,7 @@ module.exports = async(interaction)=>{
             content:`${interaction.member}`,
             embeds:[{
               author: {
-                name: `${member.user.tag}を${time*1000}秒タイムアウトしました`,
+                name: `${member.user.tag}を${time}秒タイムアウトしました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN"

@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "kick"){
     const user = interaction.options.getUser("user");
-    const reason = interaction.options.getString("reason")+`\n実行:${interaction.member.user.tag}`||`${interaction.member.user.tag}によってKICK`;
+    const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってKICK`;
     
     if(!interaction.member.permissions.has("KICK_MEMBERS")) return await interaction.reply({
       embeds:[{
