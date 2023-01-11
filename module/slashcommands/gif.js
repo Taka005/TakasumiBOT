@@ -6,9 +6,8 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "gif"){
     const name = interaction.options.getString("name");
 
+    await interaction.deferReply();
     try{
-      await interaction.deferReply();
-
       const gif_res = await fetch(`https://g.tenor.com/v1/search?q=${name}&key=${process.env.GIF_KEY}&limit=1&media_filter=minimal`)
         .then(res=>res.json())
         .catch(()=>{});
@@ -31,7 +30,7 @@ module.exports = async(interaction)=>{
         files: [new MessageAttachment(gif_data.stream(),"result.gif")]
       });
     }catch(error){
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author: {
             name: "GIFが取得できませんでした",
@@ -44,8 +43,7 @@ module.exports = async(interaction)=>{
               value: `\`\`\`${error}\`\`\``
             }
           ]
-        }],
-        ephemeral:true
+        }]
       })
     }
   }
