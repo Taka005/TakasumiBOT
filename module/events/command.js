@@ -231,7 +231,7 @@ module.exports = async(client)=>{
     .addStringOption(option =>
       option
         .setName("reason")
-        .setDescription("KCIKした理由"))
+        .setDescription("理由"))
 
   const ban = new SlashCommandBuilder()
     .setName("ban")
@@ -244,12 +244,29 @@ module.exports = async(client)=>{
     .addStringOption(option =>
       option
         .setName("reason")
-        .setDescription("BANした理由"))
+        .setDescription("理由"))
     .addIntegerOption(option =>
       option
         .setName("days")
         .setDescription("メッセージを削除する日数"))
   
+  const timeout = new SlashCommandBuilder()
+    .setName("timeout")
+    .setDescription("ユーザーをタイムアウトします")
+    .addStringOption(option =>
+      option
+        .setName("user")
+        .setDescription("ユーザーID又はメンション")
+        .setRequired(true))
+    .addIntegerOption(option =>
+      option
+        .setName("time")
+        .setDescription("時間(秒)"))
+    .addStringOption(option =>
+      option
+        .setName("reason")
+        .setDescription("理由"))
+
   const avatar = new SlashCommandBuilder()
     .setName("avatar")
     .setDescription("ユーザーのアバターを表示します")
@@ -616,6 +633,7 @@ module.exports = async(client)=>{
           user,
           kick,
           ban,
+          timeout,
           avatar,
           short,
           safeweb,
