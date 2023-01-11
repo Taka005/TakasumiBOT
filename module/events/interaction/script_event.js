@@ -60,7 +60,7 @@ module.exports = async(interaction)=>{
           }
         }]
       }).catch(()=>{
-        await interaction.reply({
+        interaction.reply({
           embeds:[{
             author: {
               name: "正常に実行できませんでした",
@@ -88,7 +88,7 @@ module.exports = async(interaction)=>{
           }
         }]
       }).catch(()=>{
-        await interaction.reply({
+        interaction.reply({
           embeds:[{
             author: {
               name: "正常に実行できませんでした",
