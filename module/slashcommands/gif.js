@@ -10,10 +10,12 @@ module.exports = async(interaction)=>{
       await interaction.deferReply();
 
       const gif_res = await fetch(`https://g.tenor.com/v1/search?q=${name}&key=${process.env.GIF_KEY}&limit=1&media_filter=minimal`)
-        .then(res=>res.json());
+        .then(res=>res.json())
+        .catch(()=>{});
 
       const gif_data = await fetch(gif_res.results[0].media[0].gif.url)
-        .then(res=>res.blob());
+        .then(res=>res.blob())
+        .catch(()=>{});
 
       await interaction.editReply({
         embeds:[{
