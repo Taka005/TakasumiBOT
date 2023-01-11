@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "kick"){
     const user = interaction.options.getUser("user");
-    const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってKICKしました`;
+    const reason = interaction.options.getString("reason")+`\n実行:${interaction.member.user.tag}`||`${interaction.member.user.tag}によってKICK`;
     
     if(!interaction.member.permissions.has("KICK_MEMBERS")) return await interaction.reply({
       embeds:[{
@@ -66,8 +66,8 @@ module.exports = async(interaction)=>{
           }]
         })
       })
-      .catch(async(error)=>{
-        await interaction.reply({
+      .catch((error)=>{
+        interaction.reply({
           embeds:[{
             author: {
               name: "メンバーをKICKできませんでした",

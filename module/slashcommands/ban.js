@@ -2,7 +2,7 @@ module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
     const user = interaction.options.getString("user");
-    const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってBANしました(TakasumiBOT)`;
+    const reason = interaction.options.getString("reason")+`\n実行:${interaction.member.user.tag}`||`${interaction.member.user.tag}によってBAN`;
     const days = interaction.options.getInteger("days");
     
     if(!interaction.member.permissions.has("BAN_MEMBERS")) return await interaction.reply({
