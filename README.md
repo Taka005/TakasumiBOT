@@ -20,10 +20,10 @@
 - serverid:メインサーバーID
 - hello_message:ようこそメッセージ
 - enter_channel:ようこそメッセージが送信されるチャンネルID
-- mem*ber_channel:メンバーに参加をしらせるチャンネルID
+- member_channel:メンバーに参加をしらせるチャンネルID
 - member_mention:メンバーに参加をしらせるロールID
 # Development
 - Development by Taka005#6668
 - Language is JavaScript(Node.js)
-- Discordサーバーにも是非参加してください
+-  サポートサーバーにも是非参加してください
 - https://discord.taka.ml/
