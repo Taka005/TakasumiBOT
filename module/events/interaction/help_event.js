@@ -264,10 +264,6 @@ module.exports = async(interaction)=>{
             value: "このBOTについての情報や、関連リンクを表示します"
           },
           {
-            name: "/support",
-            value: "サポートサーバーにバグや要望等を報告します\n※スパムや、悪質なものはおやめください"
-          },
-          {
             name: "/news",
             value: "最近のニュースを表示します"
           }
