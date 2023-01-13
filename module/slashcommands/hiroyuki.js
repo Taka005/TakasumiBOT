@@ -35,18 +35,6 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
   
-      if(!main[interaction.channel.id] && sub[interaction.guild.id]) return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "既に登録済みです",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
-          },
-          color: "RED",
-          description: "ひろゆきは、一つのサーバーに付き\nひとつまでしか召喚出来ません"
-        }],
-        ephemeral:true
-      });
-  
       if(sub[interaction.guild.id]){//登録済み
         const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
         await webhooks.delete()
