@@ -51,7 +51,7 @@ module.exports = async(interaction)=>{
         const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
         await webhooks.delete()
           .then(async()=>{
-            const channle = sub[interaction.guild.id];
+            const channel = sub[interaction.guild.id];
             delete main[channel];
             delete sub[interaction.guild.id];
             
@@ -69,7 +69,7 @@ module.exports = async(interaction)=>{
             });
           })
           .catch(async()=>{
-            const channle = sub[interaction.guild.id];
+            const channel = sub[interaction.guild.id];
             delete main[channel];
             delete sub[interaction.guild.id];
 
