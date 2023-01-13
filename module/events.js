@@ -130,10 +130,10 @@ module.exports = async(client)=>{
         }], 
         ephemeral: true 
       }).catch(()=>{
-        interaction.member.user.send({ 
+        interaction.channel.send({ 
           embeds:[{
             author: {
-              name: `${interaction.guild.name}でエラーが発生しました`,
+              name: "エラーが発生しました",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
