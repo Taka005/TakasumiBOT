@@ -47,12 +47,14 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
   
-      if(main[interaction.channel.id]){//登録済み
+      if(sub[interaction.guild.id]){//登録済み
         const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
         await webhooks.delete()
           .then(async()=>{
-            delete main[interaction.channel.id];
+            const channle = sub[interaction.guild.id];
+            delete main[channel];
             delete sub[interaction.guild.id];
+            
             fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
             fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
   
@@ -67,8 +69,10 @@ module.exports = async(interaction)=>{
             });
           })
           .catch(async()=>{
-            delete main[interaction.channel.id];
+            const channle = sub[interaction.guild.id];
+            delete main[channel];
             delete sub[interaction.guild.id];
+
             fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
             fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
   
