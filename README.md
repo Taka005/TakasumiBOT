@@ -27,3 +27,19 @@
 - Language is JavaScript(Node.js)
 -  サポートサーバーにも是非参加してください
 - https://discord.taka.ml/
+# 開発ルール
+## コミットメッセージ
+- 種類:説明 
+### 種類一覧
+- feat 新機能
+- fix 修正
+- perf パフォーマンスに関わる変更
+- refactor 整理
+- style コードの形の変更
+- test テスト
+- build ビルドシステム等の変更
+- docs ドキュメントの変更
+- add パッケージの追加
+- delete パッケージの削除
+- update パッケージの更新
+
