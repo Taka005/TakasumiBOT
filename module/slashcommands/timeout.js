@@ -30,7 +30,7 @@ module.exports = async(interaction)=>{
       });
   
       const member = await interaction.guild.members.cache.get(user.id);
-      if(!member) return interaction.reply({
+      if(!member) return await interaction.reply({
         embeds:[{
           author: {
             name: "取得に失敗しました",
@@ -55,8 +55,8 @@ module.exports = async(interaction)=>{
       });
   
       member.timeout(time*1000,reason)
-        .then(()=>{
-          interaction.reply({
+        .then(async()=>{
+          await interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
               author: {
@@ -67,8 +67,8 @@ module.exports = async(interaction)=>{
             }]
           })
         })
-        .catch((error)=>{
-          interaction.reply({
+        .catch(async(error)=>{
+          await interaction.reply({
             embeds:[{
               author: {
                 name: "メンバーをタイムアウトできませんでした",

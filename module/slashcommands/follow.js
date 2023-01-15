@@ -5,7 +5,7 @@ module.exports = async(interaction,client)=>{
     if(
       !interaction.member.permissions.has("MANAGE_MESSAGES")||
       !interaction.member.permissions.has("MANAGE_CHANNELS")
-    ) return interaction.reply({
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
@@ -32,8 +32,8 @@ module.exports = async(interaction,client)=>{
     const ch = await client.channels.cache.get("1049155527214628954");
   
     await ch.addFollower(interaction.channel, "TakasumiBOTアナウンス")
-      .then(()=>{
-        interaction.reply({
+      .then(async()=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: `アナウンスチャンネルを追加しました`,
@@ -44,8 +44,8 @@ module.exports = async(interaction,client)=>{
           }]
         })
       })
-      .catch((error)=>{
-        interaction.reply({
+      .catch(async(error)=>{
+        await interaction.reply({
             embeds:[{
               author: {
                 name: "フォローチャンネルを追加できませんでした",

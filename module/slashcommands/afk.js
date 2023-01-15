@@ -19,7 +19,7 @@ module.exports = async(interaction)=>{
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
     if(data[0]){
       await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
-      return interaction.reply({
+      return await interaction.reply({
         embeds:[{
           author: {
             name: "AFKを無効にしました",

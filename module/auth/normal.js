@@ -15,8 +15,8 @@ module.exports = async(interaction)=>{
     });
 
     await interaction.member.roles.add(role[1])
-      .then(()=>{
-        interaction.reply({
+      .then(async()=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "認証しました",
@@ -27,8 +27,8 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
       })
-      .catch((error)=>{
-        interaction.reply({
+      .catch(async(error)=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "認証に失敗しました",

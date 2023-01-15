@@ -20,8 +20,8 @@ module.exports = async(interaction)=>{
     });
 
     await interaction.channel.send(`${text}`)
-      .then(()=>{
-        interaction.reply({
+      .then(async()=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "正常に送信しました",
@@ -33,8 +33,8 @@ module.exports = async(interaction)=>{
           ephemeral:true
         });
       })
-      .catch(()=>{
-        interaction.reply({
+      .catch(async()=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "権限が不足しています",

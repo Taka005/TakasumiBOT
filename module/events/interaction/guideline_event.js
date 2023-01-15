@@ -25,11 +25,11 @@ module.exports = async(interaction)=>{
       }],
       components: [new MessageActionRow().addComponents(guide_button)]
     })
-    .then(()=>{
-      interaction.deferUpdate({});
+    .then(async()=>{
+      await interaction.deferUpdate({});
     })
-    .catch((error)=>{
-      interaction.reply({ 
+    .catch(async(error)=>{
+      await interaction.reply({ 
         embeds:[{
           author: {
             name: "ガイドライン機能の作成に失敗しました",

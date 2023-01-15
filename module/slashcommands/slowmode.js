@@ -6,7 +6,7 @@ module.exports = async(interaction)=>{
     if(
       !interaction.member.permissions.has("MANAGE_MESSAGES")||
       !interaction.member.permissions.has("MANAGE_CHANNELS")
-    ) return interaction.reply({
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
@@ -30,7 +30,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(time < 0 || time > 21600 ) return interaction.reply({
+    if(time < 0 || time > 21600 ) return await interaction.reply({
       embeds:[{
         author: {
           name: "引数が無効です",
@@ -43,8 +43,8 @@ module.exports = async(interaction)=>{
     });
 
     await interaction.channel.setRateLimitPerUser(time)
-      .then(()=>{
-        interaction.reply({
+      .then(async()=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: `低速モードを設定しました`,
@@ -55,8 +55,8 @@ module.exports = async(interaction)=>{
           }]
         })
       })
-      .catch((error)=>{
-        interaction.reply({
+      .catch(async(error)=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "低速モードが設定できませんでした",

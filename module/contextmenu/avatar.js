@@ -34,8 +34,8 @@ module.exports = async(interaction)=>{
         }
       }]
     })
-    .catch((error)=>{
-      interaction.reply({
+    .catch(async(error)=>{
+      await interaction.reply({
         embeds:[{
           author: {
             name: "正常に送信できませんでした",
