@@ -56,8 +56,8 @@ module.exports = async(interaction)=>{
       });
 
       return await interaction.channel.bulkDelete(msg)
-        .then(()=>{
-          interaction.reply({
+        .then(async()=>{
+          await interaction.reply({
             content:`${interaction.member}`,
             embeds:[{
               author: {
@@ -68,8 +68,8 @@ module.exports = async(interaction)=>{
             }]
           })
         })
-        .catch((error)=>{
-          interaction.reply({
+        .catch(async(error)=>{
+          await interaction.reply({
             embeds:[{
               author: {
                 name: "削除できませんでした",
@@ -91,18 +91,20 @@ module.exports = async(interaction)=>{
 
     const messages = await interaction.channel.messages.fetch({ limit: number })         
     await interaction.channel.bulkDelete(messages)
-      .then(()=>interaction.reply({
-        content:`${interaction.member}`,
-        embeds:[{
-          author: {
-            name: `${number}個のメッセージを削除しました`,
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
-          },
-          color: "GREEN"
-        }]
-      }))
-      .catch((error)=>{
-        interaction.reply({
+      .then(async()=>{
+        await interaction.reply({
+          content:`${interaction.member}`,
+          embeds:[{
+            author: {
+              name: `${number}個のメッセージを削除しました`,
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        })
+      })
+      .catch(async(error)=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "削除できませんでした",

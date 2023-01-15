@@ -5,7 +5,7 @@ module.exports = async(interaction)=>{
     if(
       !interaction.member.permissions.has("MANAGE_MESSAGES")||
       !interaction.member.permissions.has("MANAGE_CHANNELS")
-    ) return interaction.reply({
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",

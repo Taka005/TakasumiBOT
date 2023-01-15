@@ -55,8 +55,8 @@ module.exports = async(interaction,client)=>{
     });
 
     const users = await client.users.fetch(id[0])
-      .catch(()=>{
-        interaction.reply({
+      .catch(async()=>{
+        await interaction.reply({
           embeds:[{
             author: {
               name: "メンバーをBANできませんでした",

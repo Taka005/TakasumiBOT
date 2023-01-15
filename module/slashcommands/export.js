@@ -57,9 +57,8 @@ module.exports = async(interaction,client)=>{
         .setName("SERVER_JSON_FILE.json")
 
       await interaction.reply({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
-        .catch(()=>interaction.reply("JSONの生成に失敗しました..."));
     }catch(error){
-      interaction.reply({ 
+      await interaction.reply({ 
         embeds:[{
           author: {
             name: "出力に失敗しました",

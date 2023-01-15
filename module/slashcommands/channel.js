@@ -8,7 +8,7 @@ module.exports = async(interaction,client)=>{
       !interaction.member.permissions.has("MANAGE_MESSAGES")||
       !interaction.member.permissions.has("MANAGE_ROLES")||
       !interaction.member.permissions.has("MANAGE_CHANNELS")
-    ) return interaction.reply({
+    ) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
@@ -22,8 +22,8 @@ module.exports = async(interaction,client)=>{
 
     try{
       await client.channels.cache.get(channel.id).send(`${text}`)
-        .then(()=>{
-          interaction.reply({
+        .then(async()=>{
+          await interaction.reply({
             embeds:[{
               author: {
                 name: `${channel.name}に${text}を送信しました`,
