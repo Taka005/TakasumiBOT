@@ -16,7 +16,8 @@ module.exports = async(interaction)=>{
       .setStyle("PARAGRAPH");
       
     modal.addComponents(new MessageActionRow().addComponents(code));
-
+    
+    await interaction.deferReply();
     await interaction.showModal(modal);
   }
 }
