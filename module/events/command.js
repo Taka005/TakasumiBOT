@@ -461,7 +461,7 @@ module.exports = async(client)=>{
     .addStringOption(option =>
       option
         .setName("message")
-        .setDescription("メッセージ、理由、評価値(10.0~0.0)"))
+        .setDescription("メッセージ/理由"))
 
   const global = new SlashCommandBuilder()
     .setName("global")
