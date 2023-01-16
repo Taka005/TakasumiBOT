@@ -49,7 +49,7 @@ module.exports = async(interaction)=>{
           ]
       })
         .then(async()=>{
-          interaction.deferReply()
+          await interaction.deferReply()
             .then(()=>interaction.deleteReply())
         })
         .catch(async(error)=>{
@@ -89,7 +89,7 @@ module.exports = async(interaction)=>{
             ]
       })
         .then(async()=>{
-          interaction.deferReply()
+          await interaction.deferReply()
              .then(()=>interaction.deleteReply())
         })
         .catch(async(error)=>{
@@ -128,7 +128,7 @@ module.exports = async(interaction)=>{
             ]
       })
         .then(async()=>{
-          interaction.deferReply()
+          await interaction.deferReply()
              .then(()=>interaction.deleteReply())
         })
         .catch(async(error)=>{
@@ -167,7 +167,7 @@ module.exports = async(interaction)=>{
           ]
       })
         .then(async()=>{
-          interaction.deferReply()
+          await interaction.deferReply()
             .then(()=>interaction.deleteReply())
         })
         .catch(async(error)=>{
