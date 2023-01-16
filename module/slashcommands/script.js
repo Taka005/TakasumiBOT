@@ -18,7 +18,5 @@ module.exports = async(interaction)=>{
     modal.addComponents(new MessageActionRow().addComponents(code));
   
     await interaction.showModal(modal);
-    await interaction.deferReply()
-      .then(()=>interaction.deleteReply());
   }
 }
