@@ -111,6 +111,34 @@ module.exports = async(interaction)=>{
           }]
         });
       })
+    }else if(res.status === "2"){
+      await interaction.reply({
+        embeds:[{
+          author: {
+            name: "正常に実行できませんでした",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n\`\`\`${res.program_error}\`\`\``,
+          footer: {
+            text:`${lang[1]} || TakasumiBOT`
+          }
+        }]
+      }).catch(async()=>{
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "正常に実行できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "結果が長すぎます",
+            footer: {
+              text:`${lang[1]} || TakasumiBOT`
+            }
+          }]
+        });
+      })
     }else{
       await interaction.reply({
         embeds:[{
