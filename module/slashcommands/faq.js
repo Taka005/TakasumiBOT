@@ -5,7 +5,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         title: "FAQ",
         color: "GREEN",
-        description: "よくある質問一覧です。他の質問がある場合は[サポートサーバー](https://discord.taka.ml/)にてよろしくお願いします",
+        description: "よくある質問一覧です。他の質問がある場合は[サポートサーバー](https://discord.gg/NEesRdGQwD/)にてよろしくお願いします",
         fields: [
           {
             name: "何で開発しているの？",

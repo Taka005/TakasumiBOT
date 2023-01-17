@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
 
     const support = new MessageButton()
       .setLabel("サポート")
-      .setURL("https://discord.taka.ml/")
+      .setURL("https://discord.gg/NEesRdGQwD/")
       .setStyle("LINK")
 
     await interaction.reply({

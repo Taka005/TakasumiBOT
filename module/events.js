@@ -120,7 +120,7 @@ module.exports = async(client)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.taka.ml)に報告してください",
+          description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.gg/NEesRdGQwD)に報告してください",
           fields: [
             {
               name: "エラーコード",
@@ -137,7 +137,7 @@ module.exports = async(client)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.taka.ml)に報告してください",
+            description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.gg/NEesRdGQwD)に報告してください",
             fields: [
               {
                 name: "エラーコード",
