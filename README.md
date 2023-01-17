@@ -1,7 +1,7 @@
 [![Build](https://github.com/Taka005/TakasumiBOT/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Taka005/TakasumiBOT/actions/workflows/build.yml)
 [![Lint](https://github.com/Taka005/TakasumiBOT/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/Taka005/TakasumiBOT/actions/workflows/lint.yml)
 [![License: GPL](https://img.shields.io/badge/License-GPL-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
-[![Support](https://img.shields.io/discord/987698915820335124?color=5865f2&label=Discord&logo=Discord&logoColor=ffffff)](https://discord.taka.ml)
+[![Support](https://img.shields.io/discord/987698915820335124?color=5865f2&label=Discord&logo=Discord&logoColor=ffffff)](https://discord.gg/NEesRdGQwD)
 [![Email](https://img.shields.io/badge/email-takasumibot@gmail.com-blue.svg?style=flat)](mailto:takasumibot@gmail.com)
 # TakasumiBOT
 - とても便利な万能BOTです
@@ -26,7 +26,7 @@
 - Development by Taka005#6668
 - Language is JavaScript(Node.js)
 -  サポートサーバーにも是非参加してください
-- https://discord.taka.ml/
+- https://discord.gg/NEesRdGQwD/
 # 開発ルール
 ## コミットメッセージ
 - 種類:説明 
