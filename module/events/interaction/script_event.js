@@ -76,7 +76,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "結果が長すぎます",
+            description: `**コード**\n\`\`\`${language[lang[1]].type}\n**エラー**\n結果が長すぎます`,
             footer: {
               text:`${lang[1]} || TakasumiBOT`
             }
@@ -104,7 +104,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "結果が長すぎます",
+            description: `**コード**\n\`\`\`${language[lang[1]].type}\n**エラー**\n結果が長すぎます`,
             footer: {
               text:`${lang[1]} || TakasumiBOT`
             }
@@ -132,7 +132,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "結果が長すぎます",
+            description: `**コード**\n\`\`\`${language[lang[1]].type}\n**エラー**\n結果が長すぎます`,
             footer: {
               text:`${lang[1]} || TakasumiBOT`
             }
@@ -147,7 +147,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "不明なステータスコードです\nもう一度やり直してください",
+          description: `**コード**\n\`\`\`${language[lang[1]].type}\n**エラー**\n不明なステータスコードです\nもう一度やり直してください`,
           footer: {
             text:`${lang[1]} || TakasumiBOT`
           }
