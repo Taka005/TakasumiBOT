@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
         fields: [
           {
             name: "何で開発しているの？",
-            value: "Node.js(JavaScript)で構築しています。開発環境はVscodeです"
+            value: "Node.js(JavaScript)で構築しています。開発環境はVScodeです"
           },
           {
             name: "どんなサービスを使って運営しているの？",
