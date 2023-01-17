@@ -12,6 +12,7 @@ module.exports = async(interaction)=>{
       .setCustomId("code")
       .setLabel(`${lang}を実行`)
       .setPlaceholder("実行するコードを入力")
+      .setMaxLength(500)
       .setRequired(true)
       .setStyle("PARAGRAPH");
       
