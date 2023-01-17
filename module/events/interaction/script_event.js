@@ -5,10 +5,19 @@ module.exports = async(interaction)=>{
     const lang = interaction.customId.split("_");
     const code = interaction.fields.getTextInputValue("code");
   
-    const compiler = {
-      "JavaScript": "nodejs-16.14.0",
-      "Python": "cpython-3.10.2",
-      "Bash": "bash"
+    const language = {
+      "JavaScript": {
+        "type": "js",
+        "compiler": "nodejs-16.14.0"
+      },
+      "Python": {
+        "type": "py",
+        "compiler": "cpython-3.10.2"
+      },
+      "Bash": {
+        "type": "bash",
+        "compiler": "bash"
+      }
     };
 
     let timeout = false;
@@ -36,7 +45,7 @@ module.exports = async(interaction)=>{
       },
       body: JSON.stringify({
         "code": code,
-        "compiler": compiler[lang[1]]
+        "compiler": language[lang[1]].compiler
       })
     })
       .then(res=>res.json())
@@ -54,7 +63,7 @@ module.exports = async(interaction)=>{
             name: "正常に実行しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
-          description: `\`\`\`${res.program_output}\`\`\``,
+          description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n\n**結果**\n\`\`\`${res.program_output}\`\`\``,
           footer: {
             text:`${lang[1]} || TakasumiBOT`
           }
@@ -82,7 +91,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: `\`\`\`${res.program_error}\`\`\``,
+          description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n\n**エラー**\n\`\`\`${res.program_error}\`\`\``,
           footer: {
             text:`${lang[1]} || TakasumiBOT`
           }
