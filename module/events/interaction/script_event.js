@@ -63,7 +63,7 @@ module.exports = async(interaction)=>{
             name: "正常に実行しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
-          description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n\n**結果**\n\`\`\`${res.program_output}\`\`\``,
+          description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**結果**\n\`\`\`${res.program_output}\`\`\``,
           footer: {
             text:`${lang[1]} || TakasumiBOT`
           }
@@ -91,7 +91,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n\n**エラー**\n\`\`\`${res.program_error}\`\`\``,
+          description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n\`\`\`${res.program_error}\`\`\``,
           footer: {
             text:`${lang[1]} || TakasumiBOT`
           }
