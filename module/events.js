@@ -129,8 +129,8 @@ module.exports = async(client)=>{
           ]
         }], 
         ephemeral: true 
-      }).catch(()=>{
-        interaction.channel.send({ 
+      }).catch(async()=>{
+        await interaction.channel.send({ 
           embeds:[{
             author: {
               name: "エラーが発生しました",
