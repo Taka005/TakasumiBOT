@@ -1,6 +1,7 @@
 module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "server"){
+
     await interaction.reply({
       embeds:[{
         color: "GREEN",
@@ -16,6 +17,11 @@ module.exports = async(interaction)=>{
           {
             name: "ID",
             value: `${interaction.guild.id}`,
+            inline: true
+          },
+          {
+            name: "所有者",
+            value: `<@${interaction.guild.ownerId}>`,
             inline: true
           },
           {
