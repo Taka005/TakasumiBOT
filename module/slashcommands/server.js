@@ -26,7 +26,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "人数",
-            value: `${interaction.guild.memberCount}人`,
+            value: `合計 ${interaction.guild.memberCount}人\nユーザー ${(await interaction.guild.members.fetch()).filter(m=>!m.user.bot).size}人\nBOT ${(await interaction.guild.members.fetch()).filter(m=>m.user.bot).size}人`,
             inline: true
           },
           {
