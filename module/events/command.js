@@ -212,6 +212,25 @@ module.exports = async(client)=>{
         .setDescription("設定する秒数")
         .setRequired(true))
 
+  const invite = new SlashCommandBuilder()
+    .setName("invite")
+    .setDescription("招待リンクを作成します")
+    .addIntegerOption(option =>
+      option
+        .setName("time")
+        .setDescription("有効な秒数(0で無限)")
+        .setRequired(true))  
+    .addIntegerOption(option =>
+      option
+        .setName("use")
+        .setDescription("使用回数(0で無限)")
+        .setRequired(true)) 
+    .addBooleanOption(option =>
+      option
+        .setName("tmp")
+        .setDescription("一時的な招待")
+        .setRequired(true)) 
+
   const user = new SlashCommandBuilder()
     .setName("user")
     .setDescription("指定したユーザーの情報を表示します")
@@ -630,6 +649,7 @@ module.exports = async(client)=>{
           slowmode,
           output,
           about,
+          invite,
           user,
           kick,
           ban,
