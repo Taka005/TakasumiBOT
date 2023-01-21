@@ -201,6 +201,10 @@ module.exports = async(interaction)=>{
           {
             name: "/setting",
             value: "サーバーの各種設定を変更します\n詳しくは`/setting help`を実行してください"
+          },
+          {
+            name: "/export",
+            value: "サーバーのデータをJSON形式に出力します\n※管理者のみ実行できます"
           }
         ]
       }],
@@ -345,8 +349,8 @@ module.exports = async(interaction)=>{
             value: "BOTのアナウンスチャンネルを追加します"
           },
           {
-            name: "/export",
-            value: "サーバーのデータをJSON形式に出力します\n※管理者のみ実行できます"
+            name: "/invite",
+            value: "カスタマイズされた招待リンクを作成します"
           }
         ]
       }],

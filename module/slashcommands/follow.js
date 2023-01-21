@@ -36,7 +36,7 @@ module.exports = async(interaction,client)=>{
         await interaction.reply({
           embeds:[{
             author: {
-              name: `アナウンスチャンネルを追加しました`,
+              name: "アナウンスチャンネルを追加しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             description:"このチャンネルでBOTをお知らせ等を受け取ることができます",

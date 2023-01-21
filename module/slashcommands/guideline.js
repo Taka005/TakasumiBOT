@@ -2,6 +2,8 @@ module.exports = async(interaction)=>{
   const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "guideline"){ 
+    const role =  interaction.options.getRole("role");
+
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{
         author: {
@@ -13,8 +15,6 @@ module.exports = async(interaction)=>{
       }],
       ephemeral:true
     });
-
-    const role =  interaction.options.getRole("role");
 
     const guide = new Modal()
       .setCustomId(`guideline_${role.id}`)
