@@ -225,11 +225,6 @@ module.exports = async(client)=>{
         .setName("use")
         .setDescription("使用回数(0で無限)")
         .setRequired(true)) 
-    .addBooleanOption(option =>
-      option
-        .setName("tmp")
-        .setDescription("一時的な招待")
-        .setRequired(true)) 
 
   const user = new SlashCommandBuilder()
     .setName("user")

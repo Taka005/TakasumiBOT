@@ -3,7 +3,6 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "invite"){
     const time = interaction.options.getInteger("time");
     const use = interaction.options.getInteger("use");
-    const tmp = interaction.options.getBoolean("tmp");
 
     if(!interaction.member.permissions.has("CREATE_INSTANT_INVITE")) return await interaction.reply({
       embeds:[{
@@ -30,7 +29,6 @@ module.exports = async(interaction)=>{
     });
 
     await interaction.channel.createInvite({
-      "temporary": tmp,
       "maxAge": time,
       "maxUses": use,
       "unique": true,
@@ -38,14 +36,7 @@ module.exports = async(interaction)=>{
     })
       .then(async(invite)=>{
         await interaction.reply({
-          content: invite.url,
-          embeds:[{
-            author: {
-              name: "招待リンクを作成しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
-            },
-            color: "GREEN"
-          }]
+          content: invite.url
         })
       })
       .catch(async(error)=>{
