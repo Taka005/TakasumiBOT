@@ -149,15 +149,6 @@ module.exports = async(client)=>{
         .setDescription("検索ワード")
         .setRequired(true))
 
-  const say = new SlashCommandBuilder()
-    .setName("say")
-    .setDescription("BOTにメッセージを表示させます")
-    .addStringOption(option =>
-      option
-        .setName("text")
-        .setDescription("発言内容")
-        .setRequired(true))
-
   const npm = new SlashCommandBuilder()
     .setName("npm")
     .setDescription("NPMパッケージを検索します")
@@ -174,20 +165,6 @@ module.exports = async(client)=>{
       option
         .setName("name")
         .setDescription("検索ワード")
-        .setRequired(true))
-  
-  const channel = new SlashCommandBuilder()
-    .setName("channel")
-    .setDescription("指定したチャンネルにメッセージを表示させます")
-    .addStringOption(option =>
-      option
-        .setName("text")
-        .setDescription("発言内容")
-        .setRequired(true))
-    .addChannelOption(option =>
-      option
-        .setName("channel")
-        .setDescription("送信するチャンネル")
         .setRequired(true))
 
   const del = new SlashCommandBuilder()
@@ -636,10 +613,8 @@ module.exports = async(client)=>{
           ticket,
           afk,
           gif,
-          say,
           npm,
           wiki,
-          channel,
           del,
           slowmode,
           output,
