@@ -5,7 +5,7 @@ module.exports = async(interaction)=>{
     const role = interaction.options.getRole("name");
 
     const permissions = permission(role.permissions)||["なし"];
-
+    console.log(permission(role.permissions))
     await interaction.reply({
       embeds:[{
         color: "GREEN",
