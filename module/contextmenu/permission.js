@@ -18,7 +18,7 @@ module.exports = async(interaction)=>{
 
     try{
       const permissions = permission(member.permissions)||["なし"];
-
+      console.log(permission(member.permissions))
       await interaction.reply({
         embeds:[{
           color: "GREEN",
