@@ -17,7 +17,11 @@ module.exports = async(interaction)=>{
     });
 
     try{
-      const permissions = permission(member.permissions)||["なし"];
+      if(permission(role.permissions).length > 0){
+        const permissions = permission(member.permissions);
+      }else{
+        const permissions = ["なし"];
+      }
       
       await interaction.reply({
         embeds:[{
