@@ -32,11 +32,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "統計情報",
-            value: `チャンネル:${interaction.guild.channels.cache.size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}\nステッカー:${(await interaction.guild.stickers.fetch()).size}`
-          },
-          {
-            name: "Nitro",
-            value: `${interaction.guild.premiumSubscriptionCount}ブースト(${interaction.guild.premiumTier||"0"}レベル)`
+            value: `チャンネル:${interaction.guild.channels.cache.size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}個\nステッカー:${(await interaction.guild.stickers.fetch()).size}個\nNitro:${interaction.guild.premiumSubscriptionCount}ブースト`
           }
         ]
       }]
