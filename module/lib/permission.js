@@ -12,6 +12,7 @@ module.exports = (permissions)=>{
     if(p === "STREAM") return "WEBカメラ";
     if(p === "VIEW_CHANNEL") return "チャンネルを見る";
     if(p === "SEND_MESSAGES") return "メッセージを送信";
+    if(p === "SEND_MESSAGES_IN_THREADS") return "スレッドでメッセージを送信";
     if(p === "SEND_TTS_MESSAGES") return "TTSメッセージを送信";
     if(p === "MANAGE_MESSAGES") return "メッセージの管理";
     if(p === "EMBED_LINKS") return "埋め込みリンク";
@@ -37,7 +38,7 @@ module.exports = (permissions)=>{
     if(p === "CREATE_PUBLIC_THREADS") return "公開スレッドの作成";
     if(p === "CREATE_PRIVATE_THREADS") return "プライベートスレッドの作成";
     if(p === "USE_EXTERNAL_STICKERS") return "外部のステッカーの使用";
-    if(p === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
+    if(p === "USE_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
     if(p === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
   });
 }
