@@ -27,22 +27,18 @@ module.exports = async(interaction)=>{
           {
             name: "人数",
             value: `合計:${interaction.guild.memberCount}人\nユーザー:${(await interaction.guild.members.fetch()).filter(m=>!m.user.bot).size}人\nBOT:${(await interaction.guild.members.fetch()).filter(m=>m.user.bot).size}人`,
-            inline: true
           },
           {
             name: "チャンネル数",
             value: `${interaction.guild.channels.cache.size}`,
-            inline: true
           },
           {
             name: "作成日時",
             value: `${new Date(interaction.guild.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.guild.createdAt) / 86400000)}日前)`,
-            inline: true
           },
           {
             name: "ロール",
             value: `${interaction.guild.roles.cache.size}個`,
-            inline: true
           }
         ]
       }]
