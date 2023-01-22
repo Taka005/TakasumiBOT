@@ -29,7 +29,7 @@ module.exports = async(interaction)=>{
           footer: {
             text: "TakasumiBOT"
           },
-          description:`\`\`\`${permission(member.permissions).join("\n")}\`\`\``
+          description:`\`${permission(member.permissions).join("`,`")}\``
         }]
       })
     }catch(error){
