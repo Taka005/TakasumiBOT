@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const permission = require("../lib/permission");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "role"){
     const role = interaction.options.getRole("name");
@@ -44,6 +45,10 @@ module.exports = async(interaction)=>{
             name: "メンバー数",
             value: `${role.members.size}人`,
             inline: true
+          },
+          {
+            name: "権限",
+            value: `\`${permission(role.permissions).join("`,`")}`
           }
         ]
       }]
