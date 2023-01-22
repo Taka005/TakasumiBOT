@@ -16,29 +16,27 @@ module.exports = async(interaction)=>{
         fields: [
           {
             name: "ID",
-            value: `${interaction.guild.id}`,
-            inline: true
+            value: `${interaction.guild.id}`
           },
           {
             name: "所有者",
-            value: `<@${interaction.guild.ownerId}>`,
-            inline: true
+            value: `<@${interaction.guild.ownerId}>`
           },
           {
             name: "人数",
-            value: `合計:${interaction.guild.memberCount}人\nユーザー:${(await interaction.guild.members.fetch()).filter(m=>!m.user.bot).size}人\nBOT:${(await interaction.guild.members.fetch()).filter(m=>m.user.bot).size}人`,
-          },
-          {
-            name: "チャンネル数",
-            value: `${interaction.guild.channels.cache.size}`,
+            value: `${interaction.guild.memberCount}人(ユーザー:${(await interaction.guild.members.fetch()).filter(m=>!m.user.bot).size}人 BOT:${(await interaction.guild.members.fetch()).filter(m=>m.user.bot).size}人)`
           },
           {
             name: "作成日時",
-            value: `${new Date(interaction.guild.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.guild.createdAt) / 86400000)}日前)`,
+            value: `${new Date(interaction.guild.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.guild.createdAt) / 86400000)}日前)`
           },
           {
-            name: "ロール",
-            value: `${interaction.guild.roles.cache.size}個`,
+            name: "統計情報",
+            value: `チャンネル:${interaction.guild.channels.cache.size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}\nステッカー:${(await interaction.guild.stickers.fetch()).size}`
+          },
+          {
+            name: "Nitro",
+            value: `${interaction.guild.premiumSubscriptionCount}ブースト(${interaction.guild.premiumTier}レベル)`
           }
         ]
       }]
