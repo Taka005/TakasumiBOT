@@ -513,8 +513,8 @@ module.exports = async(client)=>{
         .setName("select_12")
         .setDescription("選択12"))
 
-  const role = new SlashCommandBuilder()
-    .setName("role")
+  const panel = new SlashCommandBuilder()
+    .setName("panel")
     .setDescription("役職パネルを作成します")  
     .addStringOption(option =>
       option
@@ -638,7 +638,7 @@ module.exports = async(client)=>{
           global,
           system,
           poll,
-          role,
+          panel,
           //ContextMenu
           member,
           avatar_2,
