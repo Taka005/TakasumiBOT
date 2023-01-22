@@ -1,7 +1,7 @@
 module.exports = async(interaction)=>{
   const {MessageActionRow, MessageSelectMenu} = require("discord.js");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "role"){
+  if(interaction.commandName === "panel"){
     const title = interaction.options.getString("title");
     const role_1 = interaction.options.getRole("role_1");
     const role_2 = interaction.options.getRole("role_2");
