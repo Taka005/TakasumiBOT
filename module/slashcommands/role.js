@@ -4,10 +4,11 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "role"){
     const role = interaction.options.getRole("name");
 
+    let permissions;
     if(permission(role.permissions).length > 0){
-      const permissions = permission(role.permissions);
+      permissions = permission(role.permissions);
     }else{
-      const permissions = ["なし"];
+      permissions = ["なし"];
     }
 
     await interaction.reply({

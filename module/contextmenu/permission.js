@@ -17,10 +17,11 @@ module.exports = async(interaction)=>{
     });
 
     try{
+      let permissions;
       if(permission(role.permissions).length > 0){
-        const permissions = permission(member.permissions);
+        permissions = permission(member.permissions);
       }else{
-        const permissions = ["なし"];
+        permissions = ["なし"];
       }
       
       await interaction.reply({
