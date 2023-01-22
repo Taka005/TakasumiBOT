@@ -18,7 +18,7 @@ module.exports = async(interaction)=>{
 
     try{
       let permissions;
-      if(permission(role.permissions).length > 0){
+      if(permission(member.permissions).length > 0){
         permissions = permission(member.permissions);
       }else{
         permissions = ["なし"];
