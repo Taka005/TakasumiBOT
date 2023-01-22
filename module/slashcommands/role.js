@@ -14,9 +14,6 @@ module.exports = async(interaction)=>{
         footer: {
           text: "TakasumiBOT"
         },
-        thumbnail: {
-          url: `${role.iconURL()}`
-        },
         fields: [
           {
             name: "ID",
