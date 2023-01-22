@@ -40,7 +40,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "メンバー数",
-            value: `${(await role.members.fetch()).size}人`,
+            value: `${role.members.size}人`,
             inline: true
           }
         ]
