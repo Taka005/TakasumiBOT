@@ -32,7 +32,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "統計情報",
-            value: `チャンネル:${interaction.guild.channels.cache.size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await message.guild.emojis.fetch()).size}\nステッカー:${(await message.guild.stickers.fetch()).size}`
+            value: `チャンネル:${interaction.guild.channels.cache.size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}\nステッカー:${(await interaction.guild.stickers.fetch()).size}`
           },
           {
             name: "Nitro",
