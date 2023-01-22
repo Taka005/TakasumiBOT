@@ -33,6 +33,7 @@ module.exports = (permissions)=>{
     if(p === "MANAGE_EMOJIS_AND_STICKERS") return "絵文字とステッカーの管理";
     if(p === "USE_APPLICATION_COMMANDS") return "アプリケーションコマンドの使用";
     if(p === "REQUEST_TO_SPEAK") return "スピーカー参加をリクエスト";
+    if(p === "MANAGE_EVENTS") return "イベントの管理";
     if(p === "MANAGE_THREADS") return "スレッドの管理";
     if(p === "CREATE_PUBLIC_THREADS") return "公開スレッドの作成";
     if(p === "USE_PUBLIC_THREADS") return "公開スレッドの使用";
@@ -41,6 +42,5 @@ module.exports = (permissions)=>{
     if(p === "USE_EXTERNAL_STICKERS") return "外部のステッカーの使用";
     if(p === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
     if(p === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
-    if(p === "MODERATE_EVENTS") return "イベントの管理";
   });
 }
