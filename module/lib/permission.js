@@ -40,6 +40,7 @@ module.exports = (permissions)=>{
     if(p === "CREATE_PRIVATE_THREADS") return "プライベートスレッドの作成";
     if(p === "USE_PRIVATE_THREADS") return "プライベートスレッドの使用";
     if(p === "USE_EXTERNAL_STICKERS") return "外部のステッカーの使用";
+    if(p === "SEND_MESSAGES_IN_THREADS") return "スレッドでメッセージを送信";
     if(p === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
     if(p === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
   });
