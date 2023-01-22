@@ -132,6 +132,15 @@ module.exports = async(client)=>{
         .setDescription("同意時に付与するロール")
         .setRequired(true))
 
+  const role = new SlashCommandBuilder()
+    .setName("role")
+    .setDescription("役職の内容を表示します")
+    .addRoleOption(option =>
+      option
+        .setName("name")
+        .setDescription("表示するロール")
+        .setRequired(true))
+
   const afk = new SlashCommandBuilder()
     .setName("afk")
     .setDescription("AFKを設定します(留守電)")
@@ -610,6 +619,7 @@ module.exports = async(client)=>{
           top,
           setting,
           guideline,
+          role,
           ticket,
           afk,
           gif,
