@@ -10,6 +10,9 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/success.png",
         },
         timestamp: new Date(),
+        footer: {
+          text: "TakasumiBOT"
+        },
         thumbnail: {
           url: `${interaction.guild.iconURL()}`
         },
@@ -32,7 +35,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "統計情報",
-            value: `チャンネル:${interaction.guild.channels.cache.size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}個\nステッカー:${(await interaction.guild.stickers.fetch()).size}個\nNitro:${interaction.guild.premiumSubscriptionCount}ブースト`
+            value: `チャンネル:${(await interaction.guild.channels.fetch()).size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}個\nステッカー:${(await interaction.guild.stickers.fetch()).size}個\nNitro:${interaction.guild.premiumSubscriptionCount}ブースト`
           }
         ]
       }]
@@ -44,7 +47,6 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "もう一度試してください",
           fields: [
             {
               name: "エラーコード",
