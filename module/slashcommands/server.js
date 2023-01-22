@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "Nitro",
-            value: `${interaction.guild.premiumSubscriptionCount}ブースト(${interaction.guild.premiumTier}レベル)`
+            value: `${interaction.guild.premiumSubscriptionCount}ブースト(${interaction.guild.premiumTier||"0"}レベル)`
           }
         ]
       }]
