@@ -17,6 +17,8 @@ module.exports = async(interaction)=>{
     });
 
     try{
+      const permissions = permission(member.permissions)||["なし"];
+
       await interaction.reply({
         embeds:[{
           color: "GREEN",
@@ -29,7 +31,7 @@ module.exports = async(interaction)=>{
           footer: {
             text: "TakasumiBOT"
           },
-          description:`\`${permission(member.permissions).join("`,`")}\``
+          description:`\`${permissions.join("`,`")}\``
         }]
       })
     }catch(error){
