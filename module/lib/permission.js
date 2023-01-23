@@ -1,5 +1,5 @@
 module.exports = (permissions)=>{
-  return permissions.toArray().map(p=>{
+  const permission = permissions.toArray().map(p=>{
     if(p === "CREATE_INSTANT_INVITE") return "招待を作成";
     if(p === "KICK_MEMBERS") return "メンバーをキック";
     if(p === "BAN_MEMBERS") return "メンバーをBAN";
@@ -43,6 +43,11 @@ module.exports = (permissions)=>{
     if(p === "SEND_MESSAGES_IN_THREADS") return "スレッドでメッセージを送信";
     if(p === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
     if(p === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
-    return "なし";
   });
+
+  if(permission.length>0){
+    return permission;
+  }else{
+    return ["なし"];
+  }
 }
