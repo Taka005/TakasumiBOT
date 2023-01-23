@@ -43,5 +43,6 @@ module.exports = (permissions)=>{
     if(p === "SEND_MESSAGES_IN_THREADS") return "スレッドでメッセージを送信";
     if(p === "START_EMBEDDED_ACTIVITIES") return "アクティビティを開始";
     if(p === "MODERATE_MEMBERS") return "メンバーをタイムアウト";
+    return "なし";
   });
 }

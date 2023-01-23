@@ -4,13 +4,6 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "role"){
     const role = interaction.options.getRole("name");
 
-    let permissions;
-    if(permission(role.permissions).length > 0){
-      permissions = permission(role.permissions);
-    }else{
-      permissions = ["なし"];
-    }
-
     await interaction.reply({
       embeds:[{
         color: "GREEN",
@@ -55,7 +48,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "権限",
-            value: `\`${permissions.join("`,`")}\``
+            value: `\`${permission(role.permissions).join("`,`")}\``
           }
         ]
       }]
