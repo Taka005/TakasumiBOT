@@ -1,6 +1,5 @@
 module.exports = async(client)=>{
-  const package = require("../../package.json");
-
+  
   let stats = 0; 
   setInterval(()=>{
     if(stats === 0){
