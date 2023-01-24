@@ -21,12 +21,12 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
     
-    const translate_data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&dj=1&q=${encodeURIComponent(text)}`)
+    const data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&dj=1&q=${encodeURIComponent(text)}`)
       .then(res => res.json())
       .catch(()=>{})
   
     try{
-      const translated = translate_data.sentences.map((sentence)=>{
+      const translate = data.sentences.map((sentence)=>{
         return sentence.trans
       });
 
@@ -34,9 +34,9 @@ module.exports = async(interaction)=>{
         embeds:[{
           title: "翻訳結果",
           color: "BLUE",
-          description: translated.join(""),
+          description: translate.join(""),
           footer: {
-            text:`Google Translate [${translate_data.src}]->[${lang}]`,
+            text:`Google Translate [${data.src}]->[${lang}]`,
             icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]
