@@ -35,7 +35,6 @@ client.login(process.env.DISCORD_BOT_TOKEN)
     process.exit();
   })
 
-//エラー回避
 process.on("uncaughtException",async(error)=>{
   console.log(`\x1b[31mERROR: ${error.stack}`);
 
