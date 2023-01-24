@@ -25,9 +25,12 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           description: `内容\n\`\`\`${text}\`\`\``,
+          image: {
+            url: "attachment://QRCode.png"
+          },
           color: "GREEN"
         }],
-        files:[new MessageAttachment(Buffer.from(qr_response), `QRCode.png`)]
+        files:[new MessageAttachment(Buffer.from(qr_response),"QRCode.png")]
       });
     }else{
       if(!text.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
