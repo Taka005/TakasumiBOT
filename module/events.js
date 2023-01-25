@@ -129,24 +129,7 @@ module.exports = async(client)=>{
           ]
         }], 
         ephemeral: true 
-      }).catch(async()=>{
-        await interaction.channel.send({ 
-          embeds:[{
-            author: {
-              name: "エラーが発生しました",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
-            },
-            color: "RED",
-            description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.gg/NEesRdGQwD)に報告してください",
-            fields: [
-              {
-                name: "エラーコード",
-                value: `\`\`\`${error.stack}\`\`\``
-              }
-            ]
-          }]
-        }).catch(()=>{})
-      });
+      }).catch(()=>{});
     }
   });
 
