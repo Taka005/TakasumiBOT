@@ -20,5 +20,5 @@ module.exports = async(client)=>{
   client.channels.cache.get("947484748773736538").send("BOT、APIサーバーが再起動されました");
 
   console.log(`\x1b[34mINFO: Account ${client.user.tag}`);
-  console.log(`\x1b[34mINFO: User:${client.guilds.cache.size} Server:${client.guilds.cache.map((g)=>g.memberCount).reduce((a,c)=>a+c)}`)
+  console.log(`\x1b[34mINFO: Server:${client.guilds.cache.size} User:${client.guilds.cache.map((g)=>g.memberCount).reduce((a,c)=>a+c)}`)
 }
