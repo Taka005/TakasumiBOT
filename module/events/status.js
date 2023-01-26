@@ -1,5 +1,7 @@
 module.exports = async(client)=>{
   
+  client.user.setStatus("dnd");
+
   let stats = 0; 
   setInterval(()=>{
     if(stats === 0){
