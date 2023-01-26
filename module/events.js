@@ -48,11 +48,6 @@ module.exports = async(client)=>{
     dissoku(newMessage);
   });
 
-  client.on("messageReactionAdd",async(reaction,user)=>{
-    if(!reaction.message.channel.type === "GUILD_TEXT" || user.bot) return;  
-    return 0;
-  });
-
   client.on("guildCreate",async(guild)=>{
     const add = require("./events/add");
 
