@@ -1,6 +1,6 @@
 module.exports = async(client)=>{
   
-  client.user.setStatus("dnd");
+  client.user.setStatus("online");
 
   let stats = 0; 
   setInterval(()=>{
