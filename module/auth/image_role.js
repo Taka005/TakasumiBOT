@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId.startsWith("imagerole_")){
     const list = interaction.customId.split("_");
@@ -45,6 +46,15 @@ module.exports = async(interaction)=>{
                 }
               ]
             }],
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral:true
           });
         })

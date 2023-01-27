@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         title: "画像認証",          
         color: "GREEN",
-        description: "画像にある文字を選択してください",
+        description: "画像にある文字を選択してください\n※画像が表示されるまで時間がかかる場合があります",
         image: {
           url: `${auth.url}`
         }
