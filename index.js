@@ -9,7 +9,7 @@ const client = new Client({
     Intents.FLAGS.GUILD_INVITES,
     Intents.FLAGS.GUILD_MESSAGES
   ],
-  shards: "auto"
+  shardCount: "2"
 });
 
 console.log("\x1b[32m*******************************");
