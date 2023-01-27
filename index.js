@@ -8,7 +8,8 @@ const client = new Client({
     Intents.FLAGS.GUILD_MEMBERS,
     Intents.FLAGS.GUILD_INVITES,
     Intents.FLAGS.GUILD_MESSAGES
-  ]
+  ],
+  shards: "auto"
 });
 
 console.log("\x1b[32m*******************************");
