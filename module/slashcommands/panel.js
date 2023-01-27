@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const { MessageActionRow, MessageSelectMenu, MessageButton, MessageActionRow } = require("discord.js");
+  const { MessageActionRow, MessageSelectMenu, MessageButton } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "panel"){
     const title = interaction.options.getString("title");
