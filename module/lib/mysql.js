@@ -3,7 +3,7 @@ const connection = mysql.createConnection({
   host: "public.bfv4d.tky1.mdbs.jp",
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: "b5m4d_"
+  database: "bfv4d_"
 });  
 
 module.exports = async(query)=>{
