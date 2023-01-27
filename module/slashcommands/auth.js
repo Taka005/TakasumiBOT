@@ -68,6 +68,15 @@ module.exports = async(interaction)=>{
                 }
               ]
             }], 
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral: true 
           });
         })
@@ -108,6 +117,15 @@ module.exports = async(interaction)=>{
                 }
               ]
             }], 
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral: true 
           });
         })
@@ -146,7 +164,16 @@ module.exports = async(interaction)=>{
                   value: `\`\`\`${error}\`\`\``
                 }
               ]
-            }], 
+            }],
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral: true 
           });
         })
@@ -186,6 +213,15 @@ module.exports = async(interaction)=>{
                 }
               ]
             }], 
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral: true 
           });
         })

@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
   const permission = require("../lib/permission");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "role"){
     const role = interaction.options.getRole("name");
@@ -67,6 +68,15 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ],
         ephemeral:true
       })
     });

@@ -1,4 +1,5 @@
 module.exports = async(interaction,client)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "avatar"){
     const user_id = interaction.options.getString("id");
@@ -37,6 +38,15 @@ module.exports = async(interaction,client)=>{
               }
             ]
           }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK")
+              )
+          ],
           ephemeral:true
         })
       });

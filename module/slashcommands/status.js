@@ -4,6 +4,7 @@ module.exports = async(interaction,client)=>{
   const mysql = require("../lib/mysql");
   const global = require("../../data/global/main.json");
   const hiroyuki = require("../../data/hiroyuki/main.json");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "status"){
 
@@ -63,7 +64,16 @@ module.exports = async(interaction,client)=>{
               value: `\`\`\`${error}\`\`\``
             }
           ]
-        }],
+        }],     
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ],
         ephemeral:true
       })
     });

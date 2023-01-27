@@ -400,6 +400,15 @@ async function err(interaction,error){
         }
       ]
     }],
+    components: [
+      new MessageActionRow()
+        .addComponents( 
+          new MessageButton()
+            .setLabel("サポートサーバー")
+            .setURL("https://discord.gg/NEesRdGQwD")
+            .setStyle("LINK")
+        )
+    ],
     ephemeral:true
   });
 }

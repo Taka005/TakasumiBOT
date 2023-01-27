@@ -5,11 +5,6 @@ module.exports = async(interaction)=>{
     const role = interaction.customId.split("_");
     const temp = interaction.fields.getTextInputValue("temp");
 
-    const guide_button = new MessageButton()
-      .setCustomId(`guide_${role[1]}`)
-      .setStyle("SECONDARY")
-      .setLabel("同意します")
-
     await interaction.channel.send({
       embeds:[{
         color: "GREEN",
@@ -23,7 +18,15 @@ module.exports = async(interaction)=>{
         color:"GREEN",
         description: "続行するにはこのサーバーのガイドラインを守る必要があります。\n[Discord コミュニティガイドライン](https://discord.com/guidelines) も忘れないようにして下さい。"
       }],
-      components: [new MessageActionRow().addComponents(guide_button)]
+      components: [
+        new MessageActionRow()
+          .addComponents(
+            new MessageButton()
+              .setCustomId(`guide_${role[1]}`)
+              .setStyle("SECONDARY")
+              .setLabel("同意します")
+          )
+      ]
     })
     .then(async()=>{
       await interaction.deferUpdate({});
@@ -44,6 +47,15 @@ module.exports = async(interaction)=>{
             }
           ]
         }], 
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ],
         ephemeral: true 
       });
     })

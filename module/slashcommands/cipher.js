@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   const crypto = require("crypto");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "cipher"){
@@ -35,7 +36,16 @@ module.exports = async(interaction)=>{
                 value: `\`\`\`${error}\`\`\``
               }
             ]
-          }]
+          }],     
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK")
+              )
+          ]
         });
       }
     }else{
@@ -68,7 +78,16 @@ module.exports = async(interaction)=>{
                 value: `\`\`\`${error}\`\`\``
               }
             ]
-          }]
+          }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK")
+              )
+          ]
         });
       }
     }

@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
     if(!interaction.isCommand()) return;
     if(interaction.commandName === "timeout"){
       const user = interaction.options.getUser("user");
@@ -83,6 +84,15 @@ module.exports = async(interaction)=>{
                 }
               ]
             }],
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral:true
           })
         })

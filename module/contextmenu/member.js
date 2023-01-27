@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
   const mysql = require("../lib/mysql");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メンバー情報を表示"){
     const member = interaction.options.getMember("user");
@@ -85,6 +86,15 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ],
         ephemeral:true
       })
     });

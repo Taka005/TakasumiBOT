@@ -29,7 +29,7 @@ module.exports = async(interaction)=>{
         }],
         files: [new MessageAttachment(gif_data.stream(),"result.gif")]
       });
-    }catch(error){
+    }catch{
       await interaction.editReply({
         embeds:[{
           author: {
@@ -37,12 +37,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          fields: [
-            {
-              name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
-            }
-          ]
+          description: "違うワードで試してください"
         }]
       })
     }
