@@ -385,6 +385,8 @@ async function check(interaction,id){
 }
 
 async function err(interaction,error){
+  const { MessageButton, MessageActionRow } = require("discord.js");
+  
   await interaction.reply({
     embeds:[{
       author: {
