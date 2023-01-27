@@ -1,4 +1,5 @@
 module.exports = async(interaction,client)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
     const user = interaction.options.getString("user");
@@ -65,6 +66,15 @@ module.exports = async(interaction,client)=>{
             color: "RED",
             description: "指定したユーザーが存在しません"
           }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK")
+              )
+          ],
           ephemeral:true
         })
       });
@@ -99,6 +109,15 @@ module.exports = async(interaction,client)=>{
                 }
               ]
             }],
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral:true
           })
         })
@@ -132,6 +151,15 @@ module.exports = async(interaction,client)=>{
                 }
               ]
             }],
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral:true
           })
         })

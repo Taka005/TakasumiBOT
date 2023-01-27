@@ -385,6 +385,8 @@ async function check(interaction,id){
 }
 
 async function err(interaction,error){
+  const { MessageButton, MessageActionRow } = require("discord.js");
+  
   await interaction.reply({
     embeds:[{
       author: {
@@ -400,6 +402,15 @@ async function err(interaction,error){
         }
       ]
     }],
+    components: [
+      new MessageActionRow()
+        .addComponents( 
+          new MessageButton()
+            .setLabel("サポートサーバー")
+            .setURL("https://discord.gg/NEesRdGQwD")
+            .setStyle("LINK")
+        )
+    ],
     ephemeral:true
   });
 }

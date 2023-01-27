@@ -1,4 +1,5 @@
 module.exports = async(client)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   const fs = require("fs");
 
   client.once("ready",async(client)=>{
@@ -70,8 +71,16 @@ module.exports = async(client)=>{
         },
         color: "RED",
         description: "BOTの操作はDMで実行することができません\nサーバー内で実行してください"
-      }], 
-      ephemeral: true 
+      }],      
+      components: [
+        new MessageActionRow()
+          .addComponents( 
+            new MessageButton()
+              .setLabel("サポートサーバー")
+              .setURL("https://discord.gg/NEesRdGQwD")
+              .setStyle("LINK")
+          )
+      ]
     });
 
     try{
@@ -123,6 +132,15 @@ module.exports = async(client)=>{
             }
           ]
         }], 
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ],
         ephemeral: true 
       }).catch(()=>{});
     }

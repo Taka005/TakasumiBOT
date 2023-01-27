@@ -1,5 +1,6 @@
 module.exports = async(interaction,client)=>{
   const mysql = require("../lib/mysql");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
     const user_id = interaction.options.getString("id");
@@ -162,6 +163,15 @@ module.exports = async(interaction,client)=>{
               }
             ]
           }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK")
+              )
+          ],
           ephemeral:true
         })
       });   
@@ -224,6 +234,15 @@ module.exports = async(interaction,client)=>{
               }
             ]
           }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK")
+              )
+          ],
           ephemeral:true
         });
       }

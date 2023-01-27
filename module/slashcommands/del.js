@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "del"){
     const number = interaction.options.getInteger("number");
@@ -84,6 +85,15 @@ module.exports = async(interaction)=>{
                 }
               ]
             }],
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK")
+                )
+            ],
             ephemeral:true
           })
         });
@@ -119,6 +129,15 @@ module.exports = async(interaction)=>{
               }
             ]
           }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK")
+              )
+          ],
           ephemeral:true
         })
       });

@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "アバターを表示"){
     const member = interaction.options.getMember("user");
@@ -49,6 +50,15 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ],
         ephemeral:true
       })
     });

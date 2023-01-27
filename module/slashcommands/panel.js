@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const {MessageActionRow, MessageSelectMenu} = require("discord.js");
+  const { MessageActionRow, MessageSelectMenu, MessageButton } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "panel"){
     const title = interaction.options.getString("title");
@@ -93,6 +93,15 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ],
         ephemeral:true
       });
     }

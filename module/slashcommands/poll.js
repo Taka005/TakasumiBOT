@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "poll"){
     const title = interaction.options.getString("title");
@@ -56,7 +57,16 @@ module.exports = async(interaction)=>{
               value: `\`\`\`${error}\`\`\``
             }
           ]
-        }]
+        }],
+        components: [
+          new MessageActionRow()
+            .addComponents( 
+              new MessageButton()
+                .setLabel("サポートサーバー")
+                .setURL("https://discord.gg/NEesRdGQwD")
+                .setStyle("LINK")
+            )
+        ]
       });
     }
   }
