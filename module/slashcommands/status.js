@@ -71,8 +71,7 @@ module.exports = async(interaction,client)=>{
               new MessageButton()
                 .setLabel("サポートサーバー")
                 .setURL("https://discord.gg/NEesRdGQwD")
-                .setStyle("LINK")
-            )
+                .setStyle("LINK"))
         ],
         ephemeral:true
       })
