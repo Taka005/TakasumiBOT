@@ -18,7 +18,7 @@ module.exports = async(message,client)=>{
 
   const account = await mysql(`SELECT * FROM account WHERE id = ${message.author.id} LIMIT 1;`);
   if(!account[0]){
-    await message.reply({ 
+    return await message.reply({ 
       embeds:[{
         author: {
           name: "利用規約に同意してください",
