@@ -3,7 +3,7 @@ module.exports = async(message,client)=>{
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const spam = require("../lib/spam");
-  const { WebhookClient } = require("discord.js");
+  const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   const async = require("async");
 
   if(
@@ -15,6 +15,33 @@ module.exports = async(message,client)=>{
 
   const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${message.guild.id} LIMIT 1;`);
   const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${message.author.id} LIMIT 1;`);
+
+  const account = await mysql(`SELECT * FROM account WHERE id = ${message.author.id} LIMIT 1;`);
+  if(!account[0]){
+    await message.reply({ 
+      embeds:[{
+        author: {
+          name: "利用規約に同意してください",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description: "以下のリンクから認証を行うことでグローバリチャットを利用できます\n認証が完了すると[利用規約](https://gc.taka.ml/)に同意したものとみなします",
+      }], 
+      components: [
+        new MessageActionRow()
+          .addComponents( 
+            new MessageButton()
+              .setLabel("サイトへ飛ぶ")
+              .setURL("https://auth.taka.ml/")
+              .setStyle("LINK"))
+          .addComponents( 
+            new MessageButton()
+              .setLabel("サポートサーバー")
+              .setURL("https://discord.gg/NEesRdGQwD")
+              .setStyle("LINK"))
+      ]
+    });
+  }
   
   if(
     mute_server[0]||
