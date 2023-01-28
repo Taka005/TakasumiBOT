@@ -40,7 +40,7 @@ module.exports = async(message,client)=>{
               .setURL("https://discord.gg/NEesRdGQwD")
               .setStyle("LINK"))
       ]
-    });
+    }).catch(()=>{});
   }
   
   if(
