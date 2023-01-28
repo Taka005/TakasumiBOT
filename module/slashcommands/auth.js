@@ -74,8 +74,7 @@ module.exports = async(interaction)=>{
                   new MessageButton()
                     .setLabel("サポートサーバー")
                     .setURL("https://discord.gg/NEesRdGQwD")
-                    .setStyle("LINK")
-                )
+                    .setStyle("LINK"))
             ],
             ephemeral: true 
           });
@@ -123,8 +122,7 @@ module.exports = async(interaction)=>{
                   new MessageButton()
                     .setLabel("サポートサーバー")
                     .setURL("https://discord.gg/NEesRdGQwD")
-                    .setStyle("LINK")
-                )
+                    .setStyle("LINK"))
             ],
             ephemeral: true 
           });
@@ -171,8 +169,7 @@ module.exports = async(interaction)=>{
                   new MessageButton()
                     .setLabel("サポートサーバー")
                     .setURL("https://discord.gg/NEesRdGQwD")
-                    .setStyle("LINK")
-                )
+                    .setStyle("LINK"))
             ],
             ephemeral: true 
           });
@@ -219,8 +216,7 @@ module.exports = async(interaction)=>{
                   new MessageButton()
                     .setLabel("サポートサーバー")
                     .setURL("https://discord.gg/NEesRdGQwD")
-                    .setStyle("LINK")
-                )
+                    .setStyle("LINK"))
             ],
             ephemeral: true 
           });

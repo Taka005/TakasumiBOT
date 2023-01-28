@@ -407,8 +407,7 @@ async function err(interaction,error){
           new MessageButton()
             .setLabel("サポートサーバー")
             .setURL("https://discord.gg/NEesRdGQwD")
-            .setStyle("LINK")
-        )
+            .setStyle("LINK"))
     ],
     ephemeral:true
   });

@@ -78,8 +78,7 @@ module.exports = async(client)=>{
             new MessageButton()
               .setLabel("サポートサーバー")
               .setURL("https://discord.gg/NEesRdGQwD")
-              .setStyle("LINK")
-          )
+              .setStyle("LINK"))
       ]
     });
 
@@ -138,8 +137,7 @@ module.exports = async(client)=>{
               new MessageButton()
                 .setLabel("サポートサーバー")
                 .setURL("https://discord.gg/NEesRdGQwD")
-                .setStyle("LINK")
-            )
+                .setStyle("LINK"))
         ],
         ephemeral: true 
       }).catch(()=>{});
