@@ -33,4 +33,4 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
           source_ref: 'development'
           target_branch: 'main'
-          commit_message_template: '[Merge]正常にチェック完了'
+          commit_message_template: '[Merge]チェック完了'
