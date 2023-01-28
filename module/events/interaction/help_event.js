@@ -2,9 +2,10 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("page")){
-    if(await check(interaction,id[2])) return;
 
     const id = interaction.customId.split("_");
+    if(await check(interaction,id[2])) return;
+
     //1ページ目
     if(interaction.customId.startsWith("page_1")){
 
