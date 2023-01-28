@@ -8,13 +8,16 @@ module.exports = async(message)=>{
   const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${message.guild.id} LIMIT 1;`);
   const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${message.author.id} LIMIT 1;`);
 
+  const account = await mysql(`SELECT * FROM account WHERE id = ${message.author.id} LIMIT 1;`);
+
   if(
     !message.channel.type === "GUILD_TEXT"||
     message.author.bot||
     message.content.length > 300||
     !main[message.channel.id]||
     mute_server[0]||
-    mute_user[0]
+    mute_user[0]||
+    !account[0]
   ) return;
 
   let reference = {
