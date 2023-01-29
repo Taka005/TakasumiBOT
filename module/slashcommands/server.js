@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
+  const boost = require("../lib/boost");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "server"){
 
@@ -36,7 +37,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "統計情報",
-            value: `チャンネル:${(await interaction.guild.channels.fetch()).size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}個\nステッカー:${(await interaction.guild.stickers.fetch()).size}個\nNitro:${interaction.guild.premiumSubscriptionCount}ブースト`
+            value: `チャンネル:${(await interaction.guild.channels.fetch()).size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}個\nステッカー:${(await interaction.guild.stickers.fetch()).size}個\nNitro:${interaction.guild.premiumSubscriptionCount}ブースト(${boost(interaction.guild.premiumSubscriptionCount)})`
           }
         ]
       }]
