@@ -102,6 +102,10 @@ module.exports = async(client)=>{
               { name: "低い", value: "low" },
               { name: "オフ", value: "off" }
             )))
+    .addSubcommand(subcommand =>
+      subcommand
+        .setName("delete")
+        .setDescription("データベースに登録されてるサーバーの情報を全て削除します"))
 
   const auth = new SlashCommandBuilder()
     .setName("auth")

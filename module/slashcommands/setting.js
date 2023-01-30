@@ -36,6 +36,10 @@ module.exports = async(interaction)=>{
               name: "/setting moderate",
               value: "自動モデレート機能を有効にします\n ※これを実行するには、`サーバーの管理 チャンネルの管理`の権限が必要です"
             },
+            {
+              name: "/setting delete",
+              value: "データベースに登録されているサーバーの設定情報を全て削除します **この操作は元に戻せません**\n ※これを実行するには、`管理者`の権限が必要です"
+            }
           ]
         }]
       });
@@ -250,6 +254,37 @@ module.exports = async(interaction)=>{
           },
           color: "GREEN",
           description: `${level[type]}に設定しました`
+        }]
+      });
+    }else if(interaction.options.getSubcommand() === "delete"){//delete
+
+      if(
+        !interaction.member.permissions.has("ADMINISTRATOR")
+      ) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
+        }],
+        ephemeral:true
+      });
+
+      await mysql(`DELETE FROM moderate WHERE id = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM pin WHERE server = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM bump WHERE server = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM dissoku WHERE server = ${interaction.guild.id};`);
+
+      await interaction.reply({
+        content: `<@${interaction.member.user.id}>`,
+        embeds:[{
+          author: {
+            name: "全てのデータを削除しました",
+            icon_url: "https://cdn.taka.ml/images/system/success.png",
+          },
+          color: "GREEN"
         }]
       });
     }
