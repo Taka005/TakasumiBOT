@@ -258,9 +258,7 @@ module.exports = async(interaction)=>{
       });
     }else if(interaction.options.getSubcommand() === "delete"){//delete
 
-      if(
-        !interaction.member.permissions.has("ADMINISTRATOR")
-      ) return await interaction.reply({
+      if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
           author: {
             name: "権限がありません",
