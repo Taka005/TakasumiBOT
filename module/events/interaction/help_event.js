@@ -265,6 +265,10 @@ module.exports = async(interaction)=>{
             {
               name: "/news",
               value: "最近のニュースを表示します"
+            },
+            {
+              name: "/account",
+              value: "登録されているアカウント情報を表示します"
             }
           ]
         }],
