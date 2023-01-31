@@ -60,6 +60,10 @@ module.exports = async(client)=>{
     .setName("follow")
     .setDescription("BOTのアナウンスチャンネルを追加します")  
 
+  const account = new SlashCommandBuilder()
+    .setName("account")
+    .setDescription("登録されているアカウント情報を表示します")  
+
   const top = new SlashCommandBuilder()
     .setName("top")
     .setDescription("実行したチャンネルの1番最初のメッセージのリンクを表示します")  
@@ -621,6 +625,7 @@ module.exports = async(client)=>{
           hiroyuki,
           follow,
           top,
+          account,
           setting,
           guideline,
           role,
