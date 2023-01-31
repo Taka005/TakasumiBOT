@@ -4,17 +4,14 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "slowmode"){
     const time = interaction.options.getInteger("time");
   
-    if(
-      !interaction.member.permissions.has("MANAGE_MESSAGES")||
-      !interaction.member.permissions.has("MANAGE_CHANNELS")
-    ) return await interaction.reply({
+    if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
       embeds:[{
         author: {
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```メッセージを管理\nチャンネルの管理```"
+        description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```チャンネルの管理```"
       }],
       ephemeral:true
     });

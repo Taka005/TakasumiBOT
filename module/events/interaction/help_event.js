@@ -192,7 +192,11 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/slowmode",
-              value: "チャンネルに低速モードを設定します"
+              value: "チャンネルに低速モードを設定します\n※これを実行するには、`チャンネルの管理`の権限が必要です"
+            },
+            {
+              name: "/moderate",
+              value: "モデレート機能を設定します\n※これを実行するには、`サーバーを管理`の権限が必要です"
             },
             {
               name: "/setting",
@@ -200,7 +204,7 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/export",
-              value: "サーバーのデータをJSON形式に出力します\n※管理者のみ実行できます"
+              value: "サーバーのデータをJSON形式に出力します\n※これを実行するには、`管理者`の権限が必要です"
             }
           ]
         }],
