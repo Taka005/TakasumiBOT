@@ -68,6 +68,21 @@ module.exports = async(client)=>{
     .setName("top")
     .setDescription("実行したチャンネルの1番最初のメッセージのリンクを表示します")  
 
+  const moderate = new SlashCommandBuilder()
+    .setName("moderate")
+    .setDescription(" モデレート機能を設定します")  
+    .addStringOption(option =>
+      option
+        .setName("type")
+        .setDescription("モデレートの強度")
+        .setRequired(true)
+        .addChoices(
+          { name: "高い", value: "high" },
+          { name: "標準", value: "normal" },
+          { name: "低い", value: "low" },
+          { name: "オフ", value: "off" }
+        ))
+
   const setting = new SlashCommandBuilder()
     .setName("setting")
     .setDescription("サーバーの設定を変更します")
@@ -91,21 +106,6 @@ module.exports = async(client)=>{
           option
             .setName("role")
             .setDescription("通知するロール(無効にする場合は入力しないでください)")))
-    .addSubcommand(subcommand =>
-      subcommand  
-        .setName("moderate")
-        .setDescription("自動モデレート機能を設定します")
-        .addStringOption(option =>
-          option
-            .setName("type")
-            .setDescription("モデレートの強度")
-            .setRequired(true)
-            .addChoices(
-              { name: "高い", value: "high" },
-              { name: "標準", value: "normal" },
-              { name: "低い", value: "low" },
-              { name: "オフ", value: "off" }
-            )))
     .addSubcommand(subcommand =>
       subcommand
         .setName("delete")
@@ -626,6 +626,7 @@ module.exports = async(client)=>{
           follow,
           top,
           account,
+          moderate,
           setting,
           guideline,
           role,
