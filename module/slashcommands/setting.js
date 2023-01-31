@@ -3,59 +3,58 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "setting"){
 
-    if(
-      !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
-    ) return await interaction.reply({
-      embeds:[{
-        author: {
-          name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
-        },
-        color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
-      }],
-      ephemeral:true
-    });
-
     if(interaction.options.getSubcommand() === "help"){//Help画面
       await interaction.reply({
         embeds:[{
           title: "HELP 設定",
           color: "GREEN",
+          description: "設定の変更には`管理者`の権限が必要です",
           fields: [
             {
               name: "/setting bump",
-              value: "BUMPの時間に通知するロールを設定します\n ※これを実行するには、`ロールの管理 チャンネルの管理`の権限が必要です"
+              value: "BUMPの時間に通知するロールを設定します"
             },
             {
               name: "/setting dissoku",
-              value: "Dissoku UPの時間に通知するロールを設定します\n ※これを実行するには、`ロールの管理 チャンネルの管理`の権限が必要です"
+              value: "Dissoku UPの時間に通知するロールを設定します"
             },
             {
               name: "/setting moderate",
-              value: "自動モデレート機能を有効にします\n ※これを実行するには、`サーバーの管理 チャンネルの管理`の権限が必要です"
+              value: "自動モデレート機能を有効にします"
             },
             {
               name: "/setting delete",
-              value: "データベースに登録されているサーバーの設定情報を全て削除します\n**この操作は元に戻せません**\n ※これを実行するには、`管理者`の権限が必要です"
+              value: "データベースに登録されているサーバーの設定情報を全て削除します\n**この操作は元に戻せません**"
             }
           ]
         }]
       });
     }else if(interaction.options.getSubcommand() === "bump"){//BUMPロール設定
       const role = interaction.options.getRole("role");
-      if(
-        !interaction.member.permissions.has("MANAGE_CHANNELS")||
-        !interaction.member.permissions.has("MANAGE_ROLES")
-      ) return await interaction.reply({
+
+      if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
           author: {
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```ロールの管理\nチャンネルの管理```"
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
+        }],
+        ephemeral:true
+      });
+
+      if(
+        !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+        !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+      ) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "BOTに権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
         }],
         ephemeral:true
       });
@@ -114,17 +113,29 @@ module.exports = async(interaction)=>{
     }else if(interaction.options.getSubcommand() === "dissoku"){//Dissokuロール設定
       const role = interaction.options.getRole("role");
 
-      if(
-        !interaction.member.permissions.has("MANAGE_CHANNELS")||
-        !interaction.member.permissions.has("MANAGE_ROLES")
-      ) return await interaction.reply({
+      if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
           author: {
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```ロールの管理\nチャンネルの管理```"
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
+        }],
+        ephemeral:true
+      });
+
+      if(
+        !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+        !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+      ) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "BOTに権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
         }],
         ephemeral:true
       });
@@ -181,12 +192,13 @@ module.exports = async(interaction)=>{
         }]
       });
     }else if(interaction.options.getSubcommand() === "moderate"){//Moderate
+      const type = interaction.options.getString("type");
+
       const level = {
         high:"高い",
         normal:"標準",
         low:"低い"
       };
-      const type = interaction.options.getString("type");
 
       if(
         !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
@@ -204,17 +216,14 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
 
-      if(
-        !interaction.member.permissions.has("MANAGE_CHANNELS")||
-        !interaction.member.permissions.has("MANAGE_GUILD")
-      ) return await interaction.reply({
+      if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
           author: {
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```サーバーの管理\nチャンネルの管理```"
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
         }],
         ephemeral:true
       });
