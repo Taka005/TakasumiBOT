@@ -142,7 +142,7 @@ module.exports = async(interaction)=>{
       avatar: "https://cdn.taka.ml/images/bot.png",
     })
       .then(async (webhook) =>{
-        interaction.channel.setTopic("ここはTakasumiグローバルチャットです\nこのチャンネルに入力された内容は、登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/)をご確認ください")
+        interaction.channel.setTopic("ここはTakasumiグローバルチャットです\nこのチャンネルに入力された内容は、登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
             .catch(()=>{})
 
         main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
