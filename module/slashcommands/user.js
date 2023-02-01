@@ -36,12 +36,12 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "作成日時",
-              value: `${new Date(interaction.member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.member.user.createdAt) / 86400000)}日前)`,
+              value: `${new Date(interaction.member.user.createdTimestamp).toLocaleString()}\n(${Math.round((Date.now() - interaction.member.user.createdAt) / 86400000)}日前)`,
               inline: true
             },
             {
               name:"参加日時",
-              value: `${new Date(interaction.member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.member.joinedAt) / 86400000)}日前)`,
+              value: `${new Date(interaction.member.joinedTimestamp).toLocaleString()}\n(${Math.round((Date.now() - interaction.member.joinedAt) / 86400000)}日前)`,
               inline: true
             },
             {
@@ -125,12 +125,12 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "作成日時",
-              value: `${new Date(member.user.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.user.createdAt) / 86400000)}日前)`,
+              value: `${new Date(member.user.createdTimestamp).toLocaleString()}\n(${Math.round((Date.now() - member.user.createdAt) / 86400000)}日前)`,
               inline: true
             },
             {
               name:"参加日時",
-              value: `${new Date(member.joinedTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - member.joinedAt) / 86400000)}日前)`,
+              value: `${new Date(member.joinedTimestamp).toLocaleString()}\n(${Math.round((Date.now() - member.joinedAt) / 86400000)}日前)`,
               inline: true
             },
             {
@@ -202,7 +202,7 @@ module.exports = async(interaction,client)=>{
               },
               {
                 name: "作成日時",
-                value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
+                value: `${new Date(user.createdTimestamp).toLocaleString()}`,
                 inline: true
               },
               {
