@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "作成日時",
-            value: `${new Date(interaction.guild.createdTimestamp).toLocaleDateString()}\n(${Math.round((Date.now() - interaction.guild.createdAt) / 86400000)}日前)`
+            value: `${new Date(interaction.guild.createdTimestamp).toLocaleString()}\n(${Math.round((Date.now() - interaction.guild.createdAt) / 86400000)}日前)`
           },
           {
             name: "統計情報",
