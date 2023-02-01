@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          description: `ID\n\`${account[0].id}\`\nIPアドレス\n\`${account[0].ip}\`\n登録日/更新日\n\`${new Date(account[0].time).toLocaleDateString()}\``,
+          description: `ID\n\`${account[0].id}\`\nIPアドレス\n\`${account[0].ip}\`\n登録日/更新日\n\`${new Date(account[0].time).toLocaleString()}\``,
         }],
         ephemeral: true
       })
