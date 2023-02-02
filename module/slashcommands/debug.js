@@ -53,8 +53,7 @@ module.exports = async(interaction)=>{
               name: "削除しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
-            color: "GREEN",
-            description: `\`\`\`json\n${JSON.stringify(msg)}\`\`\``
+            color: "GREEN"
           }]
         });
       }catch{
