@@ -3,6 +3,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("guide_")){
     const role = interaction.customId.split("_");
+    
     if(interaction.member.roles.cache.has(role[1])) return await interaction.reply({
       embeds:[{
         author: {

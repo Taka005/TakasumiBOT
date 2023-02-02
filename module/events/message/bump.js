@@ -1,5 +1,9 @@
 module.exports = async(message)=>{
   const mysql = require("../../lib/mysql");
+  if(
+    !message.guild.me.permissionsIn(message.channel)?.has("VIEW_CHANNEL")||
+    !message.guild.me.permissionsIn(message.channel)?.has("SEND_MESSAGES")
+  ) return;
 
   if(message.author.id === "302050872383242240"){
     if(

@@ -5,6 +5,7 @@ module.exports = async(interaction)=>{
       const title = interaction.fields.getTextInputValue("title");
       const description = interaction.fields.getTextInputValue("description");
       const image = interaction.fields.getTextInputValue("image");
+      
       if(!title && !description && !image) return await interaction.reply({
         embeds:[{
           author: {
