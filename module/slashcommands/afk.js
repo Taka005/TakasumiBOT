@@ -4,6 +4,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "afk"){
     const message = interaction.options.getString("message");
+    
     if(message?.length>300) return await interaction.reply({
       embeds:[{
         author: {
