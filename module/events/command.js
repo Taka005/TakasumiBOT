@@ -83,6 +83,24 @@ module.exports = async(client)=>{
           { name: "オフ", value: "off" }
         ))
 
+  const debug = new SlashCommandBuilder()
+    .setName("debug")
+    .setDescription("デバッグ機能を使用します") 
+    .addStringOption(option =>
+      option
+        .setName("id")
+        .setDescription("メッセージID")
+        .setRequired(true))
+    .addStringOption(option =>
+      option
+        .setName("type")
+        .setDescription("デバッグの種類")
+        .setRequired(true)
+        .addChoices(
+          { name: "内容", value: "content" },
+          { name: "削除", value: "delete" }
+        ))
+
   const setting = new SlashCommandBuilder()
     .setName("setting")
     .setDescription("サーバーの設定を変更します")
@@ -627,6 +645,7 @@ module.exports = async(client)=>{
           top,
           account,
           moderate,
+          debug,
           setting,
           guideline,
           role,
