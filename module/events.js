@@ -11,13 +11,17 @@ module.exports = async(client)=>{
   });
 
   client.on("messageCreate",async(message)=>{
+
     //globalchat
     const global = require("./global/global");
     const reply = require("./global/reply");
     const send = require("./global/send");
-    global(message,client);
-    reply(message,client);
-    send(message);
+    global(message,client)
+      .catch(()=>{});
+    reply(message,client)
+      .catch(()=>{});
+    send(message)
+      .catch(()=>{});
 
     //event/message
     fs.readdir("./module/events/message/",(err,files)=>{ 

@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             color: "GREEN",
-            description: `\`\`\`json\n${JSON.stringify(msg)}\`\`\``
+            description: `\`\`\`json\n${JSON.stringify(msg,null,"  ")}\`\`\``
           }]
         });
       }catch{
