@@ -51,7 +51,7 @@ module.exports = async(interaction,client)=>{
       });
 
       guild.leave()
-        .then(async (g)=>{
+        .then(async(g)=>{
           return await interaction.reply({
             embeds:[{
               author: {
@@ -62,7 +62,7 @@ module.exports = async(interaction,client)=>{
             }]
           })
         })
-        .catch(async (error)=>{
+        .catch(async(error)=>{
           return await interaction.reply({
             embeds:[{
               author: {
@@ -105,7 +105,7 @@ module.exports = async(interaction,client)=>{
 
       const webhooks = new WebhookClient({id: main[channel][0], token: main[channel][1]});
       await webhooks.delete()
-        .then(async ()=>{
+        .then(async()=>{
           delete main[channel];
           delete sub[id_data];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -121,7 +121,7 @@ module.exports = async(interaction,client)=>{
               }]
             });
           })
-        .catch(async ()=>{
+        .catch(async()=>{
           delete main[channel];
           delete sub[id_data];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
@@ -244,7 +244,7 @@ module.exports = async(interaction,client)=>{
       }
 
       user.send(`${message}`)
-        .then(async ()=>{
+        .then(async()=>{
           await interaction.reply({
             embeds:[{
               author: {
@@ -257,7 +257,7 @@ module.exports = async(interaction,client)=>{
             ephemeral:true
           })
         })
-        .catch(async ()=>{
+        .catch(async()=>{
           await interaction.reply({
             embeds:[{
               author: {
