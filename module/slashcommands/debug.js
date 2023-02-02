@@ -1,4 +1,4 @@
-module.exports = async()=>{
+module.exports = async(interaction)=>{
   const { admin } = require("../../config.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "debug"){
