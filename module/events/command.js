@@ -88,11 +88,6 @@ module.exports = async(client)=>{
     .setDescription("デバッグ機能を使用します") 
     .addStringOption(option =>
       option
-        .setName("id")
-        .setDescription("メッセージID")
-        .setRequired(true))
-    .addStringOption(option =>
-      option
         .setName("type")
         .setDescription("デバッグの種類")
         .setRequired(true)
@@ -100,6 +95,15 @@ module.exports = async(client)=>{
           { name: "内容", value: "content" },
           { name: "削除", value: "delete" }
         ))
+    .addStringOption(option =>
+      option
+        .setName("id")
+        .setDescription("メッセージID")
+        .setRequired(true))
+    .addChannelOption(option =>
+      option
+        .setName("channel")
+        .setDescription("取得するチャンネル"))
 
   const setting = new SlashCommandBuilder()
     .setName("setting")
