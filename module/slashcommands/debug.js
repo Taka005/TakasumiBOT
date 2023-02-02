@@ -2,8 +2,9 @@ module.exports = async(interaction)=>{
   const { admin } = require("../../config.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "debug"){
-    const id = interaction.options.getString("id");
     const type = interaction.options.getString("type");
+    const id = interaction.options.getString("id");
+    const channel = interaction.options.getChannel("channel");
 
     if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{
@@ -19,17 +20,31 @@ module.exports = async(interaction)=>{
 
     if(type === "content"){
       try{
-        const msg = await interaction.channel.messages.fetch(id);
-        await interaction.reply({
-          embeds:[{
-            author: {
-              name: "取得しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
-            },
-            color: "GREEN",
-            description: `\`\`\`json\n${JSON.stringify(msg,null,"  ")}\`\`\``
-          }]
-        });
+        if(channel){
+          const msg = await channel.messages.fetch(id);
+          await interaction.reply({
+            embeds:[{
+              author: {
+                name: "取得しました",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+              },
+              color: "GREEN",
+              description: `\`\`\`json\n${JSON.stringify(msg,null,"  ")}\`\`\``
+            }]
+          });
+        }else{
+          const msg = await interaction.channel.messages.fetch(id);
+          await interaction.reply({
+            embeds:[{
+              author: {
+                name: "取得しました",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+              },
+              color: "GREEN",
+              description: `\`\`\`json\n${JSON.stringify(msg,null,"  ")}\`\`\``
+            }]
+          });
+        }
       }catch{
         await interaction.reply({
           embeds:[{
@@ -45,17 +60,31 @@ module.exports = async(interaction)=>{
       }
     }else if(type === "delete"){
       try{
-        const msg = await interaction.channel.messages.fetch(id);
-        msg.delete();
-        await interaction.reply({
-          embeds:[{
-            author: {
-              name: "削除しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
-            },
-            color: "GREEN"
-          }]
-        });
+        if(channel){
+          const msg = await channel.messages.fetch(id);
+          msg.delete();
+          await interaction.reply({
+            embeds:[{
+              author: {
+                name: "削除しました",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+              },
+              color: "GREEN"
+            }]
+          });
+        }else{
+          const msg = await interaction.channel.messages.fetch(id);
+          msg.delete();
+          await interaction.reply({
+            embeds:[{
+              author: {
+                name: "削除しました",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+              },
+              color: "GREEN"
+            }]
+          });
+        }
       }catch{
         await interaction.reply({
           embeds:[{
