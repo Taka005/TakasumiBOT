@@ -5,6 +5,7 @@ module.exports = async(interaction)=>{
     const type = interaction.options.getString("type");
     const id = interaction.options.getString("id");
     const channel = interaction.options.getChannel("channel");
+    const json = interaction.options.getString("json");
 
     if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{
@@ -45,7 +46,7 @@ module.exports = async(interaction)=>{
             }]
           });
         }
-      }catch{
+      }catch(error){
         await interaction.reply({
           embeds:[{
             author: {
@@ -53,7 +54,83 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "メッセージが存在しません"
+            description: "メッセージが存在しません",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
+          }],
+          ephemeral:true
+        });
+      }
+    }else if(type === "send"){
+      try{
+        await interaction.reply(JSON.parse(json));
+      }catch(error){
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "送信できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "メッセージオブジェクトが無効です",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
+          }],
+          ephemeral:true
+        });
+      }
+    }else if(type === "edit"){
+      try{
+        if(channel){
+          const msg = await channel.messages.fetch(id);
+          const m = await msg.edit(JSON.parse(json));
+          await interaction.reply({
+            embeds:[{
+              author: {
+                name: "編集しました",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+              },
+              color: "GREEN",
+              description: `\`\`\`json\n${JSON.stringify(m,null,"  ")}\`\`\``
+            }]
+          });
+        }else{
+          const msg = await interaction.channel.messages.fetch(id);
+          const m = await msg.edit(JSON.parse(json));
+          await interaction.reply({
+            embeds:[{
+              author: {
+                name: "編集しました",
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+              },
+              color: "GREEN",
+              description: `\`\`\`json\n${JSON.stringify(m,null,"  ")}\`\`\``
+            }]
+          });
+        }
+      }catch(error){
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "編集できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "メッセージオブジェクトまたは、メッセージが取得できません",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }],
           ephemeral:true
         });
@@ -85,7 +162,7 @@ module.exports = async(interaction)=>{
             }]
           });
         }
-      }catch{
+      }catch(error){
         await interaction.reply({
           embeds:[{
             author: {
@@ -93,7 +170,13 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "メッセージが存在しません"
+            description: "メッセージが存在しません",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
           }],
           ephemeral:true
         });
