@@ -26,7 +26,7 @@
 - Development by Taka005#6668
 - Language is JavaScript(Node.js)
 -  サポートサーバーにも是非参加してください
-- https://discord.gg/NEesRdGQwD/
+- https://discord.gg/NEesRdGQwD
 # 開発ルール
 ## コミットメッセージ
 - 種類:説明 
