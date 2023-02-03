@@ -23,7 +23,7 @@ module.exports = async(guild)=>{
               .addComponents(
                 new MessageButton()
                   .setLabel("サポートサーバー")
-                  .setURL("https://discord.gg/NEesRdGQwD/")
+                  .setURL("https://discord.gg/NEesRdGQwD")
                   .setStyle("LINK"))
           ]
         });
