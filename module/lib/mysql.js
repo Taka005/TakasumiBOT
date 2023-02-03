@@ -4,7 +4,8 @@ const connection = mysql.createConnection({
   host: "public.bfv4d.tky1.mdbs.jp",
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  database: "bfv4d_"
+  database: "bfv4d_",
+  multipleStatements: true
 });  
 
 module.exports = async(query)=>{
