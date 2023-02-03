@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+require("dotenv").config();
 const connection = mysql.createConnection({
   host: "public.bfv4d.tky1.mdbs.jp",
   user: process.env.DB_USER,
@@ -7,7 +8,6 @@ const connection = mysql.createConnection({
 });  
 
 module.exports = async(query)=>{
-  require("dotenv").config();
   const util = require("util");
 
   connection.query = util.promisify(connection.query);
