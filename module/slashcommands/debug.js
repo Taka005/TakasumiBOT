@@ -91,28 +91,26 @@ module.exports = async(interaction)=>{
       try{
         if(channel){
           const msg = await channel.messages.fetch(id);
-          const m = await msg.edit(JSON.parse(json));
+          await msg.edit(JSON.parse(json));
           await interaction.reply({
             embeds:[{
               author: {
                 name: "編集しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
-              color: "GREEN",
-              description: `\`\`\`json\n${JSON.stringify(m,null,"  ")}\`\`\``
+              color: "GREEN"
             }]
           });
         }else{
           const msg = await interaction.channel.messages.fetch(id);
-          const m = await msg.edit(JSON.parse(json));
+          await msg.edit(JSON.parse(json));
           await interaction.reply({
             embeds:[{
               author: {
                 name: "編集しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
-              color: "GREEN",
-              description: `\`\`\`json\n${JSON.stringify(m,null,"  ")}\`\`\``
+              color: "GREEN"
             }]
           });
         }
