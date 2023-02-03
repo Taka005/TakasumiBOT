@@ -93,17 +93,22 @@ module.exports = async(client)=>{
         .setRequired(true)
         .addChoices(
           { name: "内容", value: "content" },
+          { name: "送信", value: "send" },
+          { name: "編集", value: "edit" },
           { name: "削除", value: "delete" }
         ))
     .addStringOption(option =>
       option
         .setName("id")
-        .setDescription("メッセージID")
-        .setRequired(true))
+        .setDescription("メッセージID"))
     .addChannelOption(option =>
       option
         .setName("channel")
         .setDescription("取得するチャンネル"))
+    .addStringOption(option =>
+      option
+        .setName("json")
+        .setDescription("送信するオブジェクト"))
 
   const setting = new SlashCommandBuilder()
     .setName("setting")
