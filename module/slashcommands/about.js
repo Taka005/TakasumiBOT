@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
       .setStyle("LINK")
 
     const support = new MessageButton()
-      .setLabel("サポート")
+      .setLabel("サポートサーバー")
       .setURL("https://discord.gg/NEesRdGQwD/")
       .setStyle("LINK")
 
