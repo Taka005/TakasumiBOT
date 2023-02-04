@@ -16,16 +16,37 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
+    const account = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
 
-    if(!members[0]) return await interaction.reply({
+    if(!account[0]) return await interaction.reply({
       embeds:[{
         author: {
-          name: "認証に失敗しました",
+          name: "認証してください",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "TakasumiBOT Membersに登録されていないため、認証できません\n以下のリンクから登録してください"
+        description: "以下のリンクから認証を行い、再度認証ボタンを押してください\n認証してから5分を超えるとタイムアウトになります"
+      }],
+      components: [
+        new MessageActionRow()
+          .addComponents( 
+            new MessageButton()
+              .setLabel("サイトへ飛ぶ")
+              .setURL("https://auth.taka.ml/")
+              .setStyle("LINK")
+          )
+      ],
+      ephemeral:true
+    });
+
+    if(new Date()-new Date(account[0].time)>300000) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "認証してください",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description: `前回の認証から5分以上が経過しているため、再度認証を行なってください\n認証してから5分を超えるとタイムアウトになります\n前回の認証日時: ${new Date(account[0].time).toLocaleString()}`
       }],
       components: [
         new MessageActionRow()
