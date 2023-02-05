@@ -39,7 +39,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if((new Date()-new Date(account[0].time))<300000) return await interaction.reply({
+    if((new Date()-new Date(account[0].time)<300000)) return await interaction.reply({
       embeds:[{
         author: {
           name: "認証してください",
