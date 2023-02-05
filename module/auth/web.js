@@ -39,14 +39,14 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(new Date()-new Date(account[0].time)<300000) return await interaction.reply({
+    if(new Date()-new Date(account[0].time)>300000) return await interaction.reply({
       embeds:[{
         author: {
           name: "認証してください",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: `前回の認証から5分以上が経過しているため、再度認証を行なってください\n認証してから5分を超えるとタイムアウトになります\n前回の認証日時: ${new Date(account[0].time).toLocaleString()}`
+        description: `前回の認証から5分以上が経過しているため、再度認証を行なってください\n前回の認証日時: ${new Date(account[0].time).toLocaleString()}`
       }],
       components: [
         new MessageActionRow()
