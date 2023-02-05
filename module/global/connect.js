@@ -189,7 +189,7 @@ module.exports = async(msg,client)=>{
             },
             {
               title: message.attachments.attachment[0].name,
-              description: `[リンク](${message.attachments.attachment[0].url})`,
+              description: `[元ファイルを開く](${message.attachments.attachment[0].url})`,
               image: {
                 url: message.attachments.attachment[0].url
               }
