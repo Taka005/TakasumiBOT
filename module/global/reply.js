@@ -139,6 +139,7 @@ module.exports = async(message,client)=>{
             },
             {
               title: attachment[0].name,
+              description: `[リンク](${attachment[0].url})`,
               image: {
                 url: attachment[0].url
               }
@@ -277,6 +278,7 @@ module.exports = async(message,client)=>{
             },
             {
               title: attachment[0].name,
+              description: `[リンク](${attachment[0].url})`,
               image: {
                 url: attachment[0].url
               }
