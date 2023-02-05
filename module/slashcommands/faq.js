@@ -16,8 +16,8 @@ module.exports = async(interaction)=>{
             value: "Github、CloudFlare、RPS Internet Group等を使用し運営しています"
           },
           {
-            name: "TakasumiBOT Membersとは?",
-            value: "BOTとDiscordアカウントを紐付けることにより、さまざまなサービスが使いやすくなるシステムです。登録は[ここから](https://auth.taka.ml/)"
+            name: "TakasumiBOT Authとは?",
+            value: "TakasumiBOTの認証に用いられる認証サイト、認証システムです"
           },
           {
             name: "BOTや、その他サービスは何で動かしているの？",
