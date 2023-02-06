@@ -11,7 +11,7 @@ module.exports = async(interaction)=>{
         .then(res => res.json())
         .catch(()=>{})
 
-      if(!server.debug.ping && !server.online) return await interaction.editReply({
+      if(!server.debug.ping&&!server.online) return await interaction.editReply({
         embeds:[{
           author: {
             name: "取得できませんでした",
@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
               fields: [
                 {
                   name: "MOTD",
-                  value: `\`\`\`${(server.motd) ? server.motd.clean.join("\n") : "なし"}\`\`\``,
+                  value: `\`\`\`${(server.motd)?server.motd.clean.join("\n"):"なし"}\`\`\``,
                   inline: true
                 },
                 {
@@ -95,7 +95,7 @@ module.exports = async(interaction)=>{
         .then(res => res.json())
         .catch(()=>{})
 
-      if(!server.debug.ping && !server.online) return await interaction.editReply({
+      if(!server.debug.ping&&!server.online) return await interaction.editReply({
         embeds:[{
           author: {
             name: "取得できませんでした",
