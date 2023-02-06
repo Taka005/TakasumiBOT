@@ -2,23 +2,6 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "help"){
-
-    const before = new MessageButton()
-      .setStyle("PRIMARY")
-      .setLabel("前")
-      .setCustomId(`page_5_${interaction.member.user.id}`)
-
-    const next = new MessageButton()
-      .setStyle("PRIMARY")
-      .setLabel("次")
-      .setCustomId(`page_2_${interaction.member.user.id}`)
-
-    const page = new MessageButton()
-      .setStyle("SECONDARY")
-      .setLabel("1ページ")
-      .setCustomId("page")
-      .setDisabled(true)
-
     await interaction.reply({
       embeds:[{
         title: "HELP 便利系",
@@ -56,9 +39,22 @@ module.exports = async(interaction)=>{
       }],
       components: [
         new MessageActionRow()
-          .addComponents(before)
-          .addComponents(page)
-          .addComponents(next)
+          .addComponents(
+            new MessageButton()
+              .setStyle("PRIMARY")
+              .setLabel("前")
+              .setCustomId(`page_5_${interaction.member.user.id}`))
+          .addComponents(
+            new MessageButton()
+              .setStyle("PRIMARY")
+              .setLabel("次")
+              .setCustomId(`page_2_${interaction.member.user.id}`))
+          .addComponents(
+            new MessageButton()
+              .setStyle("SECONDARY")
+              .setLabel("1ページ")
+              .setCustomId("page")
+              .setDisabled(true))
       ]
     });
   }
