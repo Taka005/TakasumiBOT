@@ -52,15 +52,15 @@ module.exports = async(interaction)=>{
                 .setCustomId(`page_5_${id[2]}`))
             .addComponents(
               new MessageButton()
-                .setStyle("PRIMARY")
-                .setLabel("次")
-                .setCustomId(`page_2_${id[2]}`))
-            .addComponents(
-              new MessageButton()
                 .setStyle("SECONDARY")
                 .setLabel("1ページ")
                 .setCustomId("page")
                 .setDisabled(true))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_2_${id[2]}`))
         ]
       })
       .then(async()=>{
@@ -112,15 +112,15 @@ module.exports = async(interaction)=>{
                 .setCustomId(`page_1_${id[2]}`))
             .addComponents(
               new MessageButton()
-                .setStyle("PRIMARY")
-                .setLabel("次")
-                .setCustomId(`page_3_${id[2]}`))
-            .addComponents(
-              new MessageButton()
                 .setStyle("SECONDARY")
                 .setLabel("2ページ")
                 .setCustomId("page")
                 .setDisabled(true))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_3_${id[2]}`))
         ]
       })
       .then(async()=>{
@@ -192,15 +192,15 @@ module.exports = async(interaction)=>{
                 .setCustomId(`page_2_${id[2]}`))
             .addComponents(
               new MessageButton()
-                .setStyle("PRIMARY")
-                .setLabel("次")
-                .setCustomId(`page_4_${id[2]}`))
-            .addComponents(
-              new MessageButton()
                 .setStyle("SECONDARY")
                 .setLabel("3ページ")
                 .setCustomId("page")
                 .setDisabled(true))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_4_${id[2]}`))
         ]
       })
       .then(async()=>{
@@ -256,15 +256,15 @@ module.exports = async(interaction)=>{
                 .setCustomId(`page_3_${id[2]}`))
             .addComponents(
               new MessageButton()
-                .setStyle("PRIMARY")
-                .setLabel("次")
-                .setCustomId(`page_5_${id[2]}`))
-            .addComponents(
-              new MessageButton()
                 .setStyle("SECONDARY")
                 .setLabel("4ページ")
                 .setCustomId("page")
                 .setDisabled(true))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_5_${id[2]}`))
         ]
       })
       .then(async()=>{
@@ -332,15 +332,15 @@ module.exports = async(interaction)=>{
                 .setCustomId(`page_4_${id[2]}`))
             .addComponents(
               new MessageButton()
-                .setStyle("PRIMARY")
-                .setLabel("次")
-                .setCustomId(`page_1_${id[2]}`))
-            .addComponents(
-              new MessageButton()
                 .setStyle("SECONDARY")
                 .setLabel("5ページ")
                 .setCustomId("page")
                 .setDisabled(true))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_1_${id[2]}`))
         ]
       })
       .then(async()=>{
