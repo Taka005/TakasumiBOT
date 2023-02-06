@@ -14,7 +14,7 @@ module.exports = async(message)=>{
   const data = await mysql(`SELECT * FROM moderate WHERE id = ${message.guild.id} LIMIT 1;`);
   if(data[0]){
     if(!time[message.author.id]){
-      time[message.author.id] = [null,true];
+      time[message.author.id] = [0,true];
     }
     if(data[0].type === "high"){
       //文字数制限
