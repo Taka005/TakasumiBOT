@@ -46,15 +46,15 @@ module.exports = async(interaction)=>{
               .setCustomId(`page_5_${interaction.member.user.id}`))
           .addComponents(
             new MessageButton()
-              .setStyle("PRIMARY")
-              .setLabel("次")
-              .setCustomId(`page_2_${interaction.member.user.id}`))
-          .addComponents(
-            new MessageButton()
               .setStyle("SECONDARY")
               .setLabel("1ページ")
               .setCustomId("page")
               .setDisabled(true))
+          .addComponents(
+            new MessageButton()
+              .setStyle("PRIMARY")
+              .setLabel("次")
+              .setCustomId(`page_2_${interaction.member.user.id}`))
       ]
     });
   }
