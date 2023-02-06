@@ -2,16 +2,6 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "about"){
-    const bot = new MessageButton()
-      .setLabel("BOT招待")
-      .setURL("https://discord.com/api/oauth2/authorize?client_id=981314695543783484&permissions=1644971949559&scope=bot%20applications.commands")
-      .setStyle("LINK")
-
-    const support = new MessageButton()
-      .setLabel("サポートサーバー")
-      .setURL("https://discord.gg/NEesRdGQwD")
-      .setStyle("LINK")
-
     await interaction.reply({
       embeds: [{
         color:"GREEN",
@@ -20,8 +10,16 @@ module.exports = async(interaction)=>{
       }],
       components: [
         new MessageActionRow()
-          .addComponents(bot)
-          .addComponents(support)
+          .addComponents(
+            new MessageButton()
+              .setLabel("BOT招待")
+              .setURL("https://discord.com/api/oauth2/authorize?client_id=981314695543783484&permissions=1644971949559&scope=bot%20applications.commands")
+              .setStyle("LINK"))
+          .addComponents(
+            new MessageButton()
+              .setLabel("サポートサーバー")
+              .setURL("https://discord.gg/NEesRdGQwD")
+              .setStyle("LINK"))
       ]
     })
   }

@@ -8,23 +8,6 @@ module.exports = async(interaction)=>{
 
     //1ページ目
     if(interaction.customId.startsWith("page_1")){
-
-      const before = new MessageButton()
-        .setStyle("PRIMARY")
-        .setLabel("前")
-        .setCustomId(`page_5_${id[2]}`)
-
-      const next = new MessageButton()
-        .setStyle("PRIMARY")
-        .setLabel("次")
-        .setCustomId(`page_2_${id[2]}`)
-
-      const page = new MessageButton()
-        .setStyle("SECONDARY")
-        .setLabel("1ページ")
-        .setCustomId("page")
-        .setDisabled(true)
-
       await interaction.message.edit({
         embeds:[{
           title: "HELP 便利系",
@@ -62,9 +45,22 @@ module.exports = async(interaction)=>{
         }],
         components: [
           new MessageActionRow()
-            .addComponents(before)
-            .addComponents(page)
-            .addComponents(next)
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("前")
+                .setCustomId(`page_5_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_2_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("SECONDARY")
+                .setLabel("1ページ")
+                .setCustomId("page")
+                .setDisabled(true))
         ]
       })
       .then(async()=>{
@@ -76,23 +72,6 @@ module.exports = async(interaction)=>{
     }
     //2ページ目
     if(interaction.customId.startsWith("page_2")){
-
-      const before = new MessageButton()
-      .setStyle("PRIMARY")
-      .setLabel("前")
-      .setCustomId(`page_1_${id[2]}`)
-
-      const next = new MessageButton()
-        .setStyle("PRIMARY")
-        .setLabel("次")
-        .setCustomId(`page_3_${id[2]}`)
-
-      const page = new MessageButton()
-        .setStyle("SECONDARY")
-        .setLabel("2ページ")
-        .setCustomId("page")
-        .setDisabled(true)
-
       await interaction.message.edit({
         embeds:[{
           title: "HELP 認証・情報系",
@@ -126,9 +105,22 @@ module.exports = async(interaction)=>{
         }],
         components: [
           new MessageActionRow()
-            .addComponents(before)
-            .addComponents(page)
-            .addComponents(next)
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("前")
+                .setCustomId(`page_1_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_3_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("SECONDARY")
+                .setLabel("2ページ")
+                .setCustomId("page")
+                .setDisabled(true))
         ]
       })
       .then(async()=>{
@@ -140,23 +132,6 @@ module.exports = async(interaction)=>{
     }
     //3ページ目
     if(interaction.customId.startsWith("page_3")){
-
-      const before = new MessageButton()
-      .setStyle("PRIMARY")
-      .setLabel("前")
-      .setCustomId(`page_2_${id[2]}`)
-
-      const next = new MessageButton()
-        .setStyle("PRIMARY")
-        .setLabel("次")
-        .setCustomId(`page_4_${id[2]}`)
-
-      const page = new MessageButton()
-        .setStyle("SECONDARY")
-        .setLabel("3ページ")
-        .setCustomId("page")
-        .setDisabled(true)
-
       await interaction.message.edit({
         embeds:[{
           title: "HELP サーバー管理系",
@@ -210,9 +185,22 @@ module.exports = async(interaction)=>{
         }],
         components: [
           new MessageActionRow()
-            .addComponents(before)
-            .addComponents(page)
-            .addComponents(next)
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("前")
+                .setCustomId(`page_2_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_4_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("SECONDARY")
+                .setLabel("3ページ")
+                .setCustomId("page")
+                .setDisabled(true))
         ]
       })
       .then(async()=>{
@@ -224,23 +212,6 @@ module.exports = async(interaction)=>{
     }
     //4ページ目
     if(interaction.customId.startsWith("page_4")){
-
-      const before = new MessageButton()
-      .setStyle("PRIMARY")
-      .setLabel("前")
-      .setCustomId(`page_3_${id[2]}`)
-
-      const next = new MessageButton()
-        .setStyle("PRIMARY")
-        .setLabel("次")
-        .setCustomId(`page_5_${id[2]}`)
-
-      const page = new MessageButton()
-        .setStyle("SECONDARY")
-        .setLabel("4ページ")
-        .setCustomId("page")
-        .setDisabled(true)
-
       await interaction.message.edit({
         embeds:[{
           title: "HELP エンタメ・BOT系",
@@ -278,9 +249,22 @@ module.exports = async(interaction)=>{
         }],
         components: [
           new MessageActionRow()
-            .addComponents(before)
-            .addComponents(page)
-            .addComponents(next)
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("前")
+                .setCustomId(`page_3_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_5_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("SECONDARY")
+                .setLabel("4ページ")
+                .setCustomId("page")
+                .setDisabled(true))
         ]
       })
       .then(async()=>{
@@ -292,23 +276,6 @@ module.exports = async(interaction)=>{
     }
 
     if(interaction.customId.startsWith("page_5")){
-
-      const before = new MessageButton()
-      .setStyle("PRIMARY")
-      .setLabel("前")
-      .setCustomId(`page_4_${id[2]}`)
-
-      const next = new MessageButton()
-        .setStyle("PRIMARY")
-        .setLabel("次")
-        .setCustomId(`page_1_${id[2]}`)
-
-      const page = new MessageButton()
-        .setStyle("SECONDARY")
-        .setLabel("5ページ")
-        .setCustomId("page")
-        .setDisabled(true)
-
       await interaction.message.edit({
         embeds:[{
           title: "HELP 雑用系",
@@ -358,9 +325,22 @@ module.exports = async(interaction)=>{
         }],
         components: [
           new MessageActionRow()
-            .addComponents(before)
-            .addComponents(page)
-            .addComponents(next)
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("前")
+                .setCustomId(`page_4_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("PRIMARY")
+                .setLabel("次")
+                .setCustomId(`page_1_${id[2]}`))
+            .addComponents(
+              new MessageButton()
+                .setStyle("SECONDARY")
+                .setLabel("5ページ")
+                .setCustomId("page")
+                .setDisabled(true))
         ]
       })
       .then(async()=>{
