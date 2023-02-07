@@ -30,6 +30,7 @@ module.exports = async(message,client)=>{
         }catch{
             const server = await mysql(`SELECT * FROM pin WHERE server = ${message.guild.id};`);
             server.forEach(data=>{
+              if(data.count<1) return;
               mysql(`UPDATE pin SET count=${Number(data.count)-1} WHERE server=${message.guild.id};`);
             });
             await mysql(`DELETE FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);
