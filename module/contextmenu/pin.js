@@ -84,8 +84,7 @@ module.exports = async(interaction)=>{
         footer: {
           text:"TakasumiBOT PIN"
         }
-      }],
-      fetchReply: true
+      }]
     });
 
     await mysql(`INSERT INTO pin (channel, server, message, count, time) VALUES("${message.channel.id}","${message.guild.id}","${msg.id}","1", NOW());`);
