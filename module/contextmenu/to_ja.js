@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "日本語に翻訳"){
     const message = interaction.options.getMessage("message");
     if(!message.content) return await interaction.reply({
-      content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
+      content: `[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{
         author: {
           name: "翻訳できませんでした",
@@ -13,24 +13,24 @@ module.exports = async(interaction)=>{
         color: "RED",
         description: "メッセージの内容が存在しません",
         footer: {
-          text:`Google Translate`,
+          text: "Google Translate",
           icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
       ephemeral:true
     });
 
-    if(message.content > 3000) return await interaction.reply({
-      content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
+    if(message.content > 2000) return await interaction.reply({
+      content: `[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{
         author: {
           name: "翻訳できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "翻訳文字数は、3000文字以下です",
+        description: "翻訳文字数は、2000文字以下です",
         footer: {
-          text:`Google Translate`,
+          text: "Google Translate",
           icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],
@@ -47,7 +47,7 @@ module.exports = async(interaction)=>{
       });
 
       await interaction.reply({
-        content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
+        content: `[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
         embeds:[{
           author: {
             name: `${message.author.tag}`,
@@ -56,14 +56,14 @@ module.exports = async(interaction)=>{
           color: "BLUE",
           description: translated.join(""),
           footer: {
-            text:`Google Translate [${translate_data.src}]->[ja]`,
+            text: `Google Translate [${translate_data.src}]->[ja]`,
             icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]
       });
     }catch{
       await interaction.reply({
-        content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
+        content: `[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
         embeds:[{
           author: {
             name: "翻訳できませんでした",
@@ -72,7 +72,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
-            text:`Google Translate`,
+            text: "Google Translate",
             icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }],
