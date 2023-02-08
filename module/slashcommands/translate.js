@@ -5,16 +5,16 @@ module.exports = async(interaction)=>{
     const text = interaction.options.getString("text");
     const lang = interaction.options.getString("lang");
     
-    if(text > 3000) return await interaction.reply({
+    if(text > 2000) return await interaction.reply({
       embeds:[{
         author: {
           name: "翻訳できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "翻訳文字数は、3000文字以下です",
+        description: "翻訳文字数は、2000文字以下です",
         footer: {
-          text:`Google Translate`,
+          text: "Google Translate",
           icon_url: "https://cdn.taka.ml/images/translate.png"
         }
       }],

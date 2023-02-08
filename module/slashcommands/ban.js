@@ -79,10 +79,10 @@ module.exports = async(interaction,client)=>{
       });
     
     if(days){
-      await interaction.guild.bans.create(id[0],{ reason: reason, days: days })
-        .then(async ()=>{
+      await interaction.guild.bans.create(id[0],{reason: reason,days: days})
+        .then(async()=>{
           await interaction.reply({
-            content:`${interaction.member}`,
+            content: `<@${interaction.member.user.id}>`,
             embeds:[{
               author: {
                 name: `${users.tag} をサーバーからBANしました`,
@@ -92,7 +92,7 @@ module.exports = async(interaction,client)=>{
             }]
           })
         })
-        .catch(async (error)=>{
+        .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
               author: {
@@ -123,7 +123,7 @@ module.exports = async(interaction,client)=>{
       await interaction.guild.bans.create(id[0],{ reason: reason })
         .then(async()=>{
           await interaction.reply({
-            content:`${interaction.member}`,
+            content: `<@${interaction.member.user.id}>`,
             embeds:[{
               author: {
                 name: `${users.tag} をサーバーからBANしました`,

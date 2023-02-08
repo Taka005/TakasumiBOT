@@ -37,7 +37,7 @@ module.exports = async(interaction)=>{
         fields: [
           {
             name: "ID",
-            value: `${member.user.id}`,
+            value: member.user.id,
             inline: true
           },
           {
@@ -66,7 +66,7 @@ module.exports = async(interaction)=>{
           },
           {
             name:"ロール",
-            value: `${member.roles.cache.map(r => r).join("")}`
+            value: member.roles.cache.map(r=>r).join("")
           }
         ]
       }]

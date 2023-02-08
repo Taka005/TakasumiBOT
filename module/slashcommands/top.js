@@ -27,12 +27,7 @@ module.exports = async(interaction)=>{
     });
 
     const msg = await interaction.channel.messages.fetch({after:"0",limit:1})
-      .then(msg => msg.first())
-
-    const link = new MessageButton()
-      .setLabel("メッセージへ飛ぶ")
-      .setURL(`${msg.url}`)
-      .setStyle("LINK")
+      .then(msg=>msg.first())
 
     await interaction.editReply({
       embeds: [{
@@ -42,7 +37,11 @@ module.exports = async(interaction)=>{
       }],
       components: [
         new MessageActionRow()
-          .addComponents(link)
+          .addComponents(
+            new MessageButton()
+              .setLabel("メッセージへ飛ぶ")
+              .setURL(msg.url)
+              .setStyle("LINK"))
       ]
     })
   }

@@ -85,7 +85,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description:"同じロールが選択されているか、BOTの権限が不足しています",
+          description: "同じロールが選択されているか、BOTの権限が不足しています",
           fields: [
             {
               name: "エラーコード",

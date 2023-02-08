@@ -57,7 +57,7 @@ module.exports = async(interaction)=>{
     member.kick({reason:`${reason}`})
       .then(async()=>{
         await interaction.reply({
-          content:`${interaction.member}`,
+          content: `<@${interaction.member.user.id}>`,
           embeds:[{
             author: {
               name: `${member.user.tag}をサーバーからKICKしました`,

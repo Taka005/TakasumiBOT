@@ -26,7 +26,7 @@ module.exports = async(interaction,client)=>{
           fields: [
             {
               name: "ID",
-              value: `${interaction.member.user.id}`,
+              value: interaction.member.user.id,
               inline: true
             },
             {
@@ -55,7 +55,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name:"ロール",
-              value: `${interaction.member.roles.cache.map(r => r).join('')}`
+              value: interaction.member.roles.cache.map(r=>r).join("")
             }
           ]
         }]
@@ -115,7 +115,7 @@ module.exports = async(interaction,client)=>{
           fields: [
             {
               name: "ID",
-              value: `${member.user.id}`,
+              value: member.user.id,
               inline: true
             },
             {
@@ -144,7 +144,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name:"ロール",
-              value: `${member.roles.cache.map(r => r).join('')}`
+              value: member.roles.cache.map(r=>r).join("")
             }
           ]
         }]
@@ -197,7 +197,7 @@ module.exports = async(interaction,client)=>{
             fields: [
               {
                 name: "ID",
-                value: `${user.id}`,
+                value: user.id,
                 inline: true
               },
               {

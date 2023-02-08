@@ -24,7 +24,7 @@ module.exports = async(interaction)=>{
       .setMaxValues(1)
       .addOptions(
         keys.map(c=>({
-          label: `${c.text}`,
+          label: c.text,
           value: c.text,
         }))
       )
@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
         color: "GREEN",
         description: "画像にある文字を選択してください\n※画像が表示されるまで時間がかかる場合があります",
         image: {
-          url: `${auth.url}`
+          url: auth.url
         }
       }],
       components: [     

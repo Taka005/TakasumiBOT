@@ -58,7 +58,7 @@ module.exports = async(interaction)=>{
       member.timeout(time*1000,reason)
         .then(async()=>{
           await interaction.reply({
-            content:`${interaction.member}`,
+            content: `<@${interaction.member.user.id}>`,
             embeds:[{
               author: {
                 name: `${member.user.tag}を${time||0}秒タイムアウトしました`,
