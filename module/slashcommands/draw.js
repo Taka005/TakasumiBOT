@@ -6,7 +6,7 @@ module.exports = async(interaction)=>{
     await interaction.reply({
       embeds:[{
         color: "RANDOM",
-        description: `${result}`
+        description: result
         }]
     });
   }

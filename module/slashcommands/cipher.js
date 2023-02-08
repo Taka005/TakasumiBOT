@@ -10,7 +10,7 @@ module.exports = async(interaction)=>{
     if(types === "cipher"){
       try{
         const cipher = crypto.createCipher("aes-128-cbc", key);
-        cipher.update(text, "utf8", "hex");
+        cipher.update(text,"utf8","hex");
 
         await interaction.reply({
           embeds:[{
