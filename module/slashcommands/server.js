@@ -16,12 +16,12 @@ module.exports = async(interaction)=>{
           text: "TakasumiBOT"
         },
         thumbnail: {
-          url: `${interaction.guild.iconURL()}`
+          url: interaction.guild.iconURL()
         },
         fields: [
           {
             name: "ID",
-            value: `${interaction.guild.id}`
+            value: interaction.guild.id
           },
           {
             name: "所有者",
