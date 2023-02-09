@@ -175,7 +175,6 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
 
-
       await mysql(`INSERT INTO dissoku (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
       await interaction.reply({
         embeds:[{
