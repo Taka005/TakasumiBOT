@@ -10,7 +10,60 @@ module.exports = async(client)=>{
   //スラッシュコマンド
   const help = new SlashCommandBuilder()
     .setName("help")
-    .setDescription("使い方がわかります")
+    .setDescription("使い方を表示します")
+    .addStringOption(option =>
+      option
+        .setName("command")
+        .setDescription("表示するコマンド名")
+        .addChoices(
+          { name: "about", value: "about" },
+          { name: "account", value: "account" },
+          { name: "ad", value: "ad" },
+          { name: "afk", value: "afk" },
+          { name: "auth", value: "auth" },
+          { name: "avatar", value: "avatar" },
+          { name: "ban", value: "ban" },
+          { name: "cipher", value: "cipher" },
+          { name: "colorrole", value: "colorrole" },
+          { name: "debug", value: "debug" },
+          { name: "del", value: "del" },
+          { name: "draw", value: "draw" },
+          { name: "embed", value: "embed" },
+          { name: "export", value: "export" },
+          { name: "faq", value: "faq" },
+          { name: "follow", value: "follow" },
+          { name: "gif", value: "gif" },
+          { name: "global", value: "global" },
+          { name: "guideline", value: "guideline" },
+          { name: "help", value: "help" },
+          { name: "hiroyuki", value: "hiroyuki" },
+          { name: "invite", value: "invite" },
+          { name: "kick", value: "kick" },
+          { name: "mc", value: "mc" },
+          { name: "moderate", value: "moderate" },
+          { name: "news", value: "news" },
+          { name: "npm", value: "npm" },
+          { name: "panel", value: "panel" },
+          { name: "poll", value: "poll" },
+          { name: "qr", value: "qr" },
+          { name: "reload", value: "reload" },
+          { name: "role", value: "role" },
+          { name: "safeweb", value: "safeweb" },
+          { name: "script", value: "script" },
+          { name: "server", value: "server" },
+          { name: "setting", value: "setting" },
+          { name: "short", value: "short" },
+          { name: "slowmode", value: "slowmode" },
+          { name: "status", value: "status" },
+          { name: "system", value: "system" },
+          { name: "ticket", value: "ticket" },
+          { name: "timeout", value: "timeout" },
+          { name: "top", value: "top" },
+          { name: "translate", value: "translate" },
+          { name: "user", value: "user" },
+          { name: "webshot", value: "webshot" },
+          { name: "wiki", value: "wiki" }
+        ))
 
   const about= new SlashCommandBuilder()
     .setName("about")
