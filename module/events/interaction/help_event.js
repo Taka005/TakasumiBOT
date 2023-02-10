@@ -235,7 +235,7 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/about",
-              value: "このBOTについての情報や、関連リンクを表示します"
+              value: "BOTについての情報や、関連リンクを表示します"
             },
             {
               name: "/news",
