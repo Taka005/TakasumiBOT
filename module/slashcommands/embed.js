@@ -2,6 +2,18 @@ module.exports = async(interaction)=>{
   const { MessageActionRow, Modal, TextInputComponent } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "embed"){
+    if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return await interaction.reply({
+      embeds:[{
+        author: {
+          name: "権限がありません",
+          icon_url: "https://cdn.taka.ml/images/system/error.png",
+        },
+        color: "RED",
+        description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
+      }],
+      ephemeral:true
+    });
+
     const embed = new Modal()
       .setCustomId("embed")
       .setTitle("埋め込み作成");
