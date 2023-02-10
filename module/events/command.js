@@ -58,7 +58,7 @@ module.exports = async(client)=>{
 
   const hiroyuki = new SlashCommandBuilder()
     .setName("hiroyuki")
-    .setDescription("ひろゆきを召喚します")  
+    .setDescription("ひろゆきを召喚、退出します")  
 
   const follow = new SlashCommandBuilder()
     .setName("follow")
