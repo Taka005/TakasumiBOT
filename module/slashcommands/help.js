@@ -62,6 +62,18 @@ module.exports = async(interaction)=>{
         ]
       });
     }else{
+      if(!list[command]) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "コマンドが存在しません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "`/help`を実行してコマンド一覧を確認してください"
+        }],
+        ephemeral:true
+      });
+
       await interaction.reply({
         embeds:[{
           title: `/${command}の使用方法`,
