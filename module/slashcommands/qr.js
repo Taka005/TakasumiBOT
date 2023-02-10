@@ -4,9 +4,9 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "qr"){
     const text = interaction.options.getString("text");
-    const types = interaction.options.getString("types");
+    const type = interaction.options.getString("type");
 
-    if(types === "gen"){
+    if(type === "gen"){
       await interaction.deferReply();
       await interaction.editReply({
         embeds:[{
