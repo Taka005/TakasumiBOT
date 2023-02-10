@@ -1,143 +1,284 @@
 {
     "about":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "account":{
-        
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "ad":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "afk":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "auth":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "avatar":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "ban":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "cipher":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "colorrole":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "debug":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "del":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "draw":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "embed":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "export":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "faq":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "follow":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "gif":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "global":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "guideline":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "help":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "hiroyuki":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "invite":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "kick":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "mc":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "moderate":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "news":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "npm":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "panel":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "poll":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "qr":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "reload":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "role":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "safeweb":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "script":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "server":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "setting":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "short":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "slowmode":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "status":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "system":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "ticket":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "timeout":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "top":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "translate":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "user":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "webshot":{
-
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""
     },
     "wiki":{
-        
+        "description":"",
+        "example":"",
+        "permission":[],
+        "note":""     
     }  
 }
