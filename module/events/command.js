@@ -346,7 +346,7 @@ module.exports = async(client)=>{
     .setDescription("QRコードを読み取り又は、生成します")
     .addStringOption(option =>
       option
-        .setName("types")
+        .setName("type")
         .setDescription("処理を選択します")
         .setRequired(true)
         .addChoices(
