@@ -9,7 +9,7 @@
         "description":"登録されているアカウント情報を表示します",
         "example":"`/account`",
         "permission":["なし"],
-        "note":"表示するには既に登録されている必要があります"
+        "note":"アカウント情報の削除は[サポートサーバー](https://discord.gg/NEesRdGQwD)にて連絡してください"
     },
     "ad":{
         "description":"",
