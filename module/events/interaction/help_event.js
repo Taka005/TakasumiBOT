@@ -23,11 +23,11 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/gif",
-              value: "GIF画像を検索し、表示します"
+              value: "GIF画像を検索して表示します"
             },
             {
               name: "/embed",
-              value: "埋め込みを簡単に作成し、表示できます"
+              value: "埋め込みを簡単に作成し、表示できます\n※実行するには`メッセージの管理の権限が必要です`"
             },
             {
               name: "/wiki",
@@ -219,7 +219,11 @@ module.exports = async(interaction)=>{
           fields: [
             {
               name: "/mc",
-              value: "指定したMinecarftサーバーの情報を表示します"
+              value: "指定したアドレスのMinecarftサーバーの情報を表示します"
+            },
+            {
+              name: "/faq",
+              value: "よくある質問一覧を表示します"
             },
             {
               name: "/ad",
