@@ -1,284 +1,284 @@
 {
     "about":{
-        "description":"",
-        "example":"",
-        "permission":[],
-        "note":""
+        "description":"BOTについての情報や、関連リンクを表示します",
+        "example":"`/about`",
+        "permission":["なし"],
+        "note":"なし"
     },
     "account":{
-        "description":"",
-        "example":"",
-        "permission":[],
-        "note":""
+        "description":"登録されているアカウント情報を表示します",
+        "example":"`/account`",
+        "permission":["なし"],
+        "note":"表示するには既に登録されている必要があります"
     },
     "ad":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "afk":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "auth":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["ロールの管理"],
         "note":""
     },
     "avatar":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "ban":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["メンバーをBAN"],
         "note":""
     },
     "cipher":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "colorrole":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["ロールの管理"],
         "note":""
     },
     "debug":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "del":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["メッセージの管理"],
         "note":""
     },
     "draw":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "embed":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "export":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["管理者"],
         "note":""
     },
     "faq":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "follow":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["メッセージの管理","チャンネルの管理"],
         "note":""
     },
     "gif":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "global":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["チャンネルの管理"],
         "note":""
     },
     "guideline":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["ロールの管理"],
         "note":""
     },
     "help":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "hiroyuki":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["チャンネルの管理"],
         "note":""
     },
     "invite":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["招待リンクの作成"],
         "note":""
     },
     "kick":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["メンバーをKICK"],
         "note":""
     },
     "mc":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "moderate":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["サーバーの管理"],
         "note":""
     },
     "news":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "npm":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "panel":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["ロールの管理"],
         "note":""
     },
     "poll":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "qr":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "reload":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "role":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "safeweb":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "script":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "server":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "setting":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["管理者"],
         "note":""
     },
     "short":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "slowmode":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["チャンネルの管理"],
         "note":""
     },
     "status":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "system":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "ticket":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["チャンネルの管理","メッセージの管理"],
         "note":""
     },
     "timeout":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["メンバーをモデレート"],
         "note":""
     },
     "top":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "translate":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "user":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "webshot":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""
     },
     "wiki":{
         "description":"",
         "example":"",
-        "permission":[],
+        "permission":["なし"],
         "note":""     
     }  
 }
