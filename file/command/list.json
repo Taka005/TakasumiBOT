@@ -174,111 +174,111 @@
         "note":"選択肢は最大12個まで設定できます"
     },
     "qr":{
-        "description":"",
-        "example":"",
+        "description":"QRコードを生成、又は読み取ります",
+        "example":"`/qr 生成 text`\n`/qr 読み込む https://example.com/qr.png`",
         "permission":["必要なし"],
-        "note":""
+        "note":"読み込むURLは有効なものである必要があります"
     },
     "reload":{
-        "description":"",
-        "example":"",
-        "permission":["必要なし"],
-        "note":""
+        "description":"関係者以外実行できません",
+        "example":"なし",
+        "permission":["関係者"],
+        "note":"なし"
     },
     "role":{
-        "description":"",
-        "example":"",
+        "description":"指定した役職の情報を表示します",
+        "example":"`/role @Role`",
         "permission":["必要なし"],
-        "note":""
+        "note":"なし"
     },
     "safeweb":{
-        "description":"",
-        "example":"",
+        "description":"Webサイトの安全性を評価します",
+        "example":"`/safeweb https://google.com/`",
         "permission":["必要なし"],
-        "note":""
+        "note":"指定するURLは有効なものである必要があります"
     },
     "script":{
-        "description":"",
-        "example":"",
+        "description":"プログラムを実行します",
+        "example":"`/script`",
         "permission":["必要なし"],
-        "note":""
+        "note":"モーダルを使用しプログラムを記入することで実行ができます"
     },
     "server":{
-        "description":"",
-        "example":"",
+        "description":"サーバーの情報を表示します",
+        "example":"`/server`",
         "permission":["必要なし"],
-        "note":""
+        "note":"なし"
     },
     "setting":{
-        "description":"",
-        "example":"",
+        "description":"サーバーの各種設定を変更します",
+        "example":"`/setting bump @Role`\n`/setting help`",
         "permission":["管理者"],
-        "note":""
+        "note":"詳細は`/setting help`を実行してください"
     },
     "short":{
-        "description":"",
-        "example":"",
+        "description":"短縮URLを作成します",
+        "example":"`/short https://google.com/`",
         "permission":["必要なし"],
-        "note":""
+        "note":"指定するURLは有効なものである必要があります"
     },
     "slowmode":{
-        "description":"",
-        "example":"",
+        "description":"チャンネルに低速モードを設定します",
+        "example":"`/slowmode 100`",
         "permission":["チャンネルの管理"],
-        "note":""
+        "note":"秒単位で低速を設定することができます"
     },
     "status":{
-        "description":"",
-        "example":"",
+        "description":"BOTの情報やサーバーの状態を表示します",
+        "example":"`/status`",
         "permission":["必要なし"],
-        "note":""
+        "note":"なし"
     },
     "system":{
-        "description":"",
-        "example":"",
-        "permission":["必要なし"],
-        "note":""
+        "description":"関係者以外実行できません",
+        "example":"なし",
+        "permission":["関係者"],
+        "note":"なし"
     },
     "ticket":{
-        "description":"",
-        "example":"",
+        "description":"簡易的なチケット機能を作成します",
+        "example":"`/ticket`",
         "permission":["チャンネルの管理","メッセージの管理"],
-        "note":""
+        "note":"この機能は未完成のため使いにくい可能性があります"
     },
     "timeout":{
-        "description":"",
-        "example":"",
+        "description":"指定したメンバーをタイムアウトします",
+        "example":"`/timeout @Arashi 1000 荒らし`\n`/timeout @Arashi`",
         "permission":["メンバーをモデレート"],
-        "note":""
+        "note":"秒単位でタイムアウトすることができます\n秒が指定されない場合デフォルト(30秒)になります"
     },
     "top":{
-        "description":"",
-        "example":"",
+        "description":"実行したチャンネルの1番最初のメッセージリンクを表示します",
+        "example":"`/top`",
         "permission":["必要なし"],
-        "note":""
+        "note":"なし"
     },
     "translate":{
-        "description":"",
-        "example":"",
+        "description":"テキストを翻訳します",
+        "example":"`/translate hello 日本語`\n`/translate こんにちは 英語`",
         "permission":["必要なし"],
-        "note":""
+        "note":"Google翻訳を使用して翻訳されています"
     },
     "user":{
-        "description":"",
-        "example":"",
+        "description":"指定されたユーザーを検索して表示します",
+        "example":"`/user @TakasumiBOT`\n`/user 981314695543783484`",
         "permission":["必要なし"],
-        "note":""
+        "note":"メンバー情報も取得できる場合は詳細情報まで表示します"
     },
     "webshot":{
-        "description":"",
-        "example":"",
+        "description":"Webサイトのスクリーンショットを撮影します",
+        "example":"`/webshot https://google.com/`",
         "permission":["必要なし"],
-        "note":""
+        "note":"指定するURLは有効なものである必要があります\n一部のサイトはスクリーンショットが撮影できない場合があります"
     },
     "wiki":{
-        "description":"",
-        "example":"",
+        "description":"Wikipediaの検索をします",
+        "example":"`/wiki Discord`",
         "permission":["必要なし"],
-        "note":""     
+        "note":"なし"     
     }  
 }
