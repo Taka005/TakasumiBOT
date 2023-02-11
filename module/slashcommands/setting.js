@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/setting ignore",
-              value: "メッセージ展開、Bump通知、Dissoku通知を無効化、有効化を切り替えます\n有効にするとBump通知、Dissoku通知の設定情報は削除されます"
+              value: "メッセージ展開、Bump通知、Dissoku通知の無効化と有効化を切り替えます\n有効にするとBump通知、Dissoku通知の設定情報は削除されます"
             },
             {
               name: "/setting delete",
