@@ -2,12 +2,14 @@ module.exports = async(message,client)=>{
   const main = require("../../../data/hiroyuki/main.json");
   const random = require("../../lib/random");
   const rate = require("../../lib/rate");
+  const ratelimit = require("../../lib/ratelimit");
   const { WebhookClient } = require("discord.js");
 
   if(
     !message.channel.type === "GUILD_TEXT"||
     message.author.bot||
-    !main[message.channel.id]
+    !main[message.channel.id]||
+    ratelimit(message)
   ) return;
 
   const reply_1 = {
