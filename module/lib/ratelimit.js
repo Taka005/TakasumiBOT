@@ -9,7 +9,7 @@ module.exports = (message)=>{
 
   if(new Date() - time[message.guild.id].last <= 180000) return true;
 
-  if(new Date() - time[message.guild.id].time <= 500){
+  if(new Date() - time[message.guild.id].time <= 600){
     message.channel.send({
       embeds:[{
         author: {
