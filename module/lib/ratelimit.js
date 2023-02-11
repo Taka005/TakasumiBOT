@@ -22,8 +22,8 @@ module.exports = (message)=>{
       }]
     }).catch(()=>{})
     time[message.guild.id] = {
-        time: new date(),
-        last: new date()
+        time: new Date(),
+        last: new Date()
     };
     return true;
   }else{
