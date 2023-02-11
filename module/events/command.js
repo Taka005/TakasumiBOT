@@ -492,6 +492,10 @@ module.exports = async(client)=>{
                     .setDescription("通知するロール(無効にする場合は入力しないでください)")))
             .addSubcommand(subcommand =>
               subcommand
+                .setName("ignore")
+                .setDescription("Bump通知、Dissoku通知、メッセージ展開を無効化、有効化を切り替えます"))
+            .addSubcommand(subcommand =>
+              subcommand
                 .setName("delete")
                 .setDescription("データベースに登録されてるサーバーの情報を全て削除します")),
           //short
