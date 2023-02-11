@@ -19,6 +19,10 @@ module.exports = async(interaction)=>{
               value: "Dissoku UPの時間に通知するロールを設定します"
             },
             {
+              name: "/setting ignore",
+              value: "メッセージ展開、Bump通知、Dissoku通知を無効化、有効化を切り替えます\n有効にするとBump通知、Dissoku通知の設定情報は削除されます"
+            },
+            {
               name: "/setting delete",
               value: "データベースに登録されているサーバーの設定情報を全て削除します\n**この操作は元に戻せません**"
             }
@@ -186,6 +190,49 @@ module.exports = async(interaction)=>{
           description: `Dissoku通知に<@&${role.id}>に設定しました`
         }]
       });
+    }else if(interaction.options.getSubcommand() === "ignore"){//ignore
+    
+      if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
+        }],
+        ephemeral:true
+      });
+
+      const data = await mysql(`SELECT * FROM ignore WHERE id = ${interaction.guild.id} LIMIT 1;`);
+      if(!data[0]){
+        await mysql(`INSERT INTO ignore (id, time) VALUES("${interaction.guild.id}",NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),time = VALUES (time);`);
+        await mysql(`DELETE FROM bump WHERE server = ${interaction.guild.id};`);
+        await mysql(`DELETE FROM dissoku WHERE server = ${interaction.guild.id};`);
+
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "有効にしました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }else{
+        await mysql(`DELETE FROM ignore WHERE id = ${interaction.guild.id};`);
+
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "無効にしました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }
+
     }else if(interaction.options.getSubcommand() === "delete"){//delete
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
