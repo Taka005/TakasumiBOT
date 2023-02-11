@@ -1,5 +1,7 @@
 module.exports = async(message,client)=>{
   const mysql = require("../../lib/mysql");
+  const ratelimit = require("../../lib/ratelimit");
+
   if(
     message.author.bot||
     !message.guild.me.permissionsIn(message.channel)?.has("VIEW_CHANNEL")||
@@ -10,7 +12,7 @@ module.exports = async(message,client)=>{
     const url = message.content.match(/(https?:\/\/(?:ptb\.|canary\.)?(?:discord|discordapp)\.com\/channels\/)(\d{18,19}\/\d{18,19}\/\d{18,19})/);
 
     const ignore = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${message.guild.id} LIMIT 1;`);
-    if(ignore[0]) return;
+    if(ignore[0]||ratelimit(message)) return;
 
     const id = url[2].split("/");
     const channel = client.channels.cache.get(id[1]);
