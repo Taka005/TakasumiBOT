@@ -64,7 +64,7 @@ module.exports = async(message,client)=>{
 
   const reply_3 = [
     `僕は子供ができたときには「${message.guild.name}を見せない」というフィルタリングをするのではなく、「${message.guild.name}を見せても大丈夫な教育」をしたいと思っています`,
-    "おいらのトゥイッターが更新されたんでいいねしてもらってもいいですか？\nhttps://mobile.twitter.com/hirox246",
+    "おいらのトゥイッターが更新されたんでいいねしてもらってもいいですか？\nhttps://twitter.com/hirox246",
     'なんだろう、まだ始まってもないのに諦めるのやめてもらっていいですか？',
     "人間って基本死ぬまでの暇つぶしなんですよ", 
     "頭悪い人はそういう思想になりますよね",
