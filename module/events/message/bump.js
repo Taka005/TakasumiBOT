@@ -10,6 +10,9 @@ module.exports = async(message)=>{
       message.embeds[0]?.description.match(/表示順をアップしたよ/)||
       message.embeds[0]?.description.match(/Bump done/)
     ){
+      const ignore = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${message.guild.id} LIMIT 1;`);
+      if(ignore[0]) return;
+
       const data = await mysql(`SELECT * FROM bump WHERE server = ${message.guild.id} LIMIT 1;`);
       await message.channel.send({
         embeds:[{

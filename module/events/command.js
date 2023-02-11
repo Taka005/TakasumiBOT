@@ -493,7 +493,7 @@ module.exports = async(client)=>{
             .addSubcommand(subcommand =>
               subcommand
                 .setName("ignore")
-                .setDescription("Bump通知、Dissoku通知、メッセージ展開を無効化、有効化を切り替えます"))
+                .setDescription("Bump通知、Dissoku通知、メッセージ展開の無効化と有効化を切り替えます"))
             .addSubcommand(subcommand =>
               subcommand
                 .setName("delete")
