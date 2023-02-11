@@ -50,8 +50,8 @@ module.exports = async(interaction,client)=>{
               inline: true
             },
             {
-              name: "TakasumiBOT Membersへの加入",
-              value: members[0] ? "加入済み" : "未加入"
+              name: "TakasumiBOT Accountへの登録",
+              value: members[0] ? "登録済み" : "未登録"
             },
             {
               name:"ロール",
@@ -138,8 +138,8 @@ module.exports = async(interaction,client)=>{
               value: member.user.bot ? "BOT" : "ユーザー"
             },
             {
-              name: "TakasumiBOT Membersへの加入",
-              value: members[0] ? "加入済み" : "未加入",
+              name: "TakasumiBOT Accountへの登録",
+              value: members[0] ? "登録済み" : "未登録",
               inline: true
             },
             {
@@ -211,8 +211,8 @@ module.exports = async(interaction,client)=>{
                 inline: true
               },
               {
-                name: "TakasumiBOT Membersへの加入",
-                value: members[0] ? "加入済み" : "未加入"
+                name: "TakasumiBOT Accountへの登録",
+                value: members[0] ? "登録済み" : "未登録"
               }
             ]
           }]
