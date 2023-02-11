@@ -1,5 +1,5 @@
 const time = {};
-module.exports = (message){
+module.exports = (message)=>{
   if(!time[message.guild.id]){
     time[message.guild.id] = {
         time: 0,
