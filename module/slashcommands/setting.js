@@ -204,9 +204,9 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
 
-      const data = await mysql(`SELECT * FROM "ignore" WHERE id = ${interaction.guild.id} LIMIT 1;`);
+      const data = await mysql(`SELECT * FROM [ignore] WHERE id = ${interaction.guild.id} LIMIT 1;`);
       if(!data[0]){
-        await mysql(`INSERT INTO "ignore" (id, time) VALUES("${interaction.guild.id}",NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),time = VALUES (time);`);
+        await mysql(`INSERT INTO [ignore] (id, time) VALUES("${interaction.guild.id}",NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),time = VALUES (time);`);
         await mysql(`DELETE FROM bump WHERE server = ${interaction.guild.id};`);
         await mysql(`DELETE FROM dissoku WHERE server = ${interaction.guild.id};`);
 
@@ -220,7 +220,7 @@ module.exports = async(interaction)=>{
           }]
         });
       }else{
-        await mysql(`DELETE FROM "ignore" WHERE id = ${interaction.guild.id};`);
+        await mysql(`DELETE FROM [ignore] WHERE id = ${interaction.guild.id};`);
 
         await interaction.reply({
           embeds:[{
