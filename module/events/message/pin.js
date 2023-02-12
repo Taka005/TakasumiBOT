@@ -1,6 +1,6 @@
 module.exports = async(message,client)=>{
     const mysql = require("../../lib/mysql");
-    const ratelimit = require("../../lib/ratelimit");
+    const limit = require("../../lib/limit");
     
     if(
       message.author.bot||
@@ -11,7 +11,7 @@ module.exports = async(message,client)=>{
     
     const channel = await mysql(`SELECT * FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);
     if(channel[0]){
-      if(ratelimit(message)) return;
+      if(limit(message)) return;
       try{
         const before = await client.channels.cache.get(channel[0].channel).messages.fetch(channel[0].message)
         before.delete();
