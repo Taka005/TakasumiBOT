@@ -2,14 +2,14 @@ module.exports = async(interaction,client)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "avatar"){
-    const user_id = interaction.options.getString("id");
+    const id = interaction.options.getString("id");
 
-    if(!user_id){
+    if(!id){
       await interaction.reply({
         embeds:[{
           color: "GREEN",
           author: {
-            name:`${interaction.member.user.tag}のアバター`,
+            name: `${interaction.member.user.tag}のアバター`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           thumbnail: {
@@ -52,8 +52,8 @@ module.exports = async(interaction,client)=>{
       return;
     }
   
-    const id = user_id.match(/\d{18,19}/g);
-    if(!id) return await interaction.reply({
+    const userID = id.match(/\d{18,19}/g);
+    if(!userID) return await interaction.reply({
       embeds:[{
         author: {
           name: "取得に失敗しました",
@@ -66,14 +66,14 @@ module.exports = async(interaction,client)=>{
     });
 
     try{
-      const member = await interaction.guild.members.cache.get(id[0]);
-      const user = await client.users.fetch(id[0]);
+      const member = await interaction.guild.members.cache.get(userID[0]);
+      const user = await client.users.fetch(userID[0]);
       
       await interaction.reply({
         embeds:[{
           color: "GREEN",
           author: {
-            name:`${user.tag}のアバター`,
+            name: `${user.tag}のアバター`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           thumbnail: {

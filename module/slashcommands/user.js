@@ -3,16 +3,16 @@ module.exports = async(interaction,client)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "user"){
-    const user_id = interaction.options.getString("id");
+    const id = interaction.options.getString("id");
 
-    if(!user_id){
+    if(!id){
       const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
 
       await interaction.reply({
         embeds:[{
           color: "GREEN",
           author: {
-            name:`${interaction.member.user.tag}の検索結果`,
+            name: `${interaction.member.user.tag}の検索結果`,
             url: `https://discord.com/users/${interaction.member.user.id}`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
@@ -54,7 +54,7 @@ module.exports = async(interaction,client)=>{
               value: members[0] ? "登録済み" : "未登録"
             },
             {
-              name:"ロール",
+              name: "ロール",
               value: interaction.member.roles.cache.map(r=>r).join("")
             }
           ]
@@ -80,8 +80,8 @@ module.exports = async(interaction,client)=>{
       return;
     }
   
-    const id = user_id.match(/\d{18,19}/g);
-    if(!id) return await interaction.reply({
+    const userID = id.match(/\d{18,19}/g);
+    if(!userID) return await interaction.reply({
       embeds:[{
         author: {
           name: "取得に失敗しました",
@@ -93,7 +93,7 @@ module.exports = async(interaction,client)=>{
       ephemeral:true
     });
 
-    const member = await interaction.guild.members.cache.get(id[0]);
+    const member = await interaction.guild.members.cache.get(userID[0]);
     if(member){
       const members = await mysql(`SELECT * FROM account WHERE id = ${member.user.id} LIMIT 1;`);
 
@@ -101,7 +101,7 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           color: "GREEN",
           author: {
-            name:`${member.user.tag}の検索結果`,
+            name: `${member.user.tag}の検索結果`,
             url: `https://discord.com/users/${member.user.id}`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
@@ -176,14 +176,14 @@ module.exports = async(interaction,client)=>{
       });   
     }else{
       try{
-        const user = await client.users.fetch(id[0]);
+        const user = await client.users.fetch(userID[0]);
         const members = await mysql(`SELECT * FROM account WHERE id = ${user.id} LIMIT 1;`);
 
         await interaction.reply({
           embeds:[{
             color: "GREEN",
             author: {
-              name:`${user.tag}の検索結果`,
+              name: `${user.tag}の検索結果`,
               url: `https://discord.com/users/${user.id}`,
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
