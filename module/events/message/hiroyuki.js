@@ -119,8 +119,6 @@ module.exports = async(message,client)=>{
   let content;
   if(Object.keys(reply_1).find(key=> message.content.match(key))){
     content = reply_1[Object.keys(reply_1).find(key=> message.content.match(key))]
-  }else if(message.content.match("@everyone")||message.content.match("@here")){
-    content = random(["全体メンションする人って相当頭悪いんですよね…", "なんだろう、全体メンションするのやめてもらっていいですか？"])
   }else{
     content = random(rate(reply_2,reply_3,0.1))
   }
