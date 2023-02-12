@@ -1,5 +1,5 @@
 module.exports = (permissions)=>{
-  const permission = permissions.toArray().map(p=>{
+  const permission = permissions.map(p=>{
     if(p === "CREATE_INSTANT_INVITE") return "招待を作成";
     if(p === "KICK_MEMBERS") return "メンバーをキック";
     if(p === "BAN_MEMBERS") return "メンバーをBAN";

@@ -49,7 +49,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "権限",
-            value: `\`${permission(role.permissions).join("`,`")}\``
+            value: `\`${permission(role.permissions.toArray()).join("`,`")}\``
           }
         ]
       }]
