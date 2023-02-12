@@ -167,6 +167,12 @@
         "permission":["ロールの管理"],
         "note":"同じロールは選択できません\n最大10個までロールを選択できます"
     },
+    "permission":{
+        "description":"指定されたユーザーの権限を表示します",
+        "example":"`/permission @TakasumiBOT`",
+        "permission":["必要なし"],
+        "note":"なし"
+    },
     "poll":{
         "description":"アンケートを作成することができます",
         "example":"`/poll title One two Three`",

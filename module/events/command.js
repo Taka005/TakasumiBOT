@@ -353,6 +353,14 @@ module.exports = async(client)=>{
               option
                 .setName("role_10")
                 .setDescription("役職10")),
+          //permission
+          new SlashCommandBuilder()
+            .setName("permission")
+            .setDescription("指定したユーザーの権限を表示します")
+            .addUserOption(option =>
+              option
+                .setName("user")
+                .setDescription("権限を表示するユーザー")),
           //poll
           new SlashCommandBuilder()
             .setName("poll")

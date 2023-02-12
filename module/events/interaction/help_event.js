@@ -102,6 +102,10 @@ module.exports = async(interaction)=>{
               value: "指定されたユーザーのアイコンを表示します\n使い方は`/user`と同じです"
             },
             {
+              name: "/permission",
+              value: "指定されたユーザーの権限を表示します\n使い方は`/user`と同じです"
+            },
+            {
               name: "/translate",
               value: "テキストを翻訳します"
             }
