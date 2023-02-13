@@ -9,7 +9,7 @@ module.exports = async(message,client)=>{
     !message.channel.type === "GUILD_TEXT"||
     message.author.bot||
     !main[message.channel.id]||
-    limit(message.guild.id)
+    limit(message.guild.id,message)
   ) return;
 
   const reply_1 = {

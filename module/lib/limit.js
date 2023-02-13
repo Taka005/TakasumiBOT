@@ -1,5 +1,5 @@
 const time = {};
-module.exports = (id)=>{
+module.exports = (id,message)=>{
   if(!time[id]){
     time[id] = {
         time1: 0,
@@ -12,17 +12,19 @@ module.exports = (id)=>{
 
   if(new Date() - time[id].time1 <= 600){
     if(new Date() - time[id].time2 <= 600){
-      message.channel.send({
-        embeds:[{
-          author: {
-            name: "レートリミット",
-            icon_url: "https://cdn.taka.ml/images/system/warn.png"
-          },
-          description: "メッセージを送信する速度が早すぎます\n3分間はメッセージを応答しなくなります",
-          timestamp: new Date(),
-          color: "YELLOW"
-        }]
-      }).catch(()=>{})
+      if(message){
+        message.channel.send({
+          embeds:[{
+            author: {
+              name: "レートリミット",
+              icon_url: "https://cdn.taka.ml/images/system/warn.png"
+            },
+            description: "メッセージを送信する速度が早すぎます\n3分間はメッセージを応答しなくなります",
+            timestamp: new Date(),
+            color: "YELLOW"
+          }]
+        }).catch(()=>{})
+      }
       time[id].last = new Date();
       return true;
     }else{

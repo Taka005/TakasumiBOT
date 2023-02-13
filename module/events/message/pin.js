@@ -11,7 +11,7 @@ module.exports = async(message,client)=>{
     
     const channel = await mysql(`SELECT * FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);
     if(channel[0]){
-      if(limit(message.guild.id)) return;
+      if(limit(message.guild.id,message)) return;
       try{
         const before = await client.channels.cache.get(channel[0].channel).messages.fetch(channel[0].message)
         before.delete();

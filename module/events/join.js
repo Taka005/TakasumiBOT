@@ -4,7 +4,7 @@ module.exports = async(member)=>{
 
   const data = await mysql(`SELECT * FROM \`join\` WHERE server = ${member.guild.id} LIMIT 1;`);
   if(data[0]){
-    if(limit(meber.guild.id)) return;
+    if(limit(member.guild.id)) return;
     
     const msg = data[0].message
     .replace("[User]",`<@${member.user.id}>`)
