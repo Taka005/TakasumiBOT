@@ -1,17 +1,17 @@
 const time = {};
-module.exports = (message)=>{
-  if(!time[message.guild.id]){
-    time[message.guild.id] = {
+module.exports = (id)=>{
+  if(!time[id]){
+    time[id] = {
         time1: 0,
         time2: 0,
         last: 0
     };
   }
 
-  if(new Date() - time[message.guild.id].last <= 180000) return true;
+  if(new Date() - time[id].last <= 180000) return true;
 
-  if(new Date() - time[message.guild.id].time1 <= 600){
-    if(new Date() - time[message.guild.id].time2 <= 600){
+  if(new Date() - time[id].time1 <= 600){
+    if(new Date() - time[id].time2 <= 600){
       message.channel.send({
         embeds:[{
           author: {
@@ -23,15 +23,15 @@ module.exports = (message)=>{
           color: "YELLOW"
         }]
       }).catch(()=>{})
-      time[message.guild.id].last = new Date();
+      time[id].last = new Date();
       return true;
     }else{
-      time[message.guild.id].time1 = new Date();
-      time[message.guild.id].time2 = new Date();
+      time[id].time1 = new Date();
+      time[id].time2 = new Date();
       return false;
     }
   }else{
-    time[message.guild.id].time1 = new Date();
+    time[id].time1 = new Date();
     return false;
   }
 }

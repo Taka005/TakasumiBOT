@@ -29,7 +29,7 @@ module.exports = async(message)=>{
     const id = mention[0].match(/\d{18,19}/g);
     data = await mysql(`SELECT * FROM afk WHERE user = ${id[0]} LIMIT 1;`);
     if(data[0]){
-      if(limit(message)) return;
+      if(limit(message.guild.id)) return;
       await mysql(`UPDATE afk SET mention = ${Number(data[0].mention)+1} WHERE user = ${id[0]}`);
       message.channel.send({
         embeds:[{
