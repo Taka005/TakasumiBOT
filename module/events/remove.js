@@ -5,4 +5,7 @@ module.exports = async(guild)=>{
   mysql(`DELETE FROM dissoku WHERE server = ${guild.id};`);
   mysql(`DELETE FROM moderate WHERE id = ${guild.id};`);
   mysql(`DELETE FROM pin WHERE server = ${guild.id};`);
+  mysql(`DELETE FROM \`ignore\` WHERE id = ${guild.id};`);
+  mysql(`DELETE FROM \`join\` WHERE server = ${guild.id};`);
+  mysql(`DELETE FROM \`leave\` WHERE server = ${guild.id};`);
 }

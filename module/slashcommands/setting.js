@@ -410,6 +410,9 @@ module.exports = async(interaction)=>{
       await mysql(`DELETE FROM pin WHERE server = ${interaction.guild.id};`);
       await mysql(`DELETE FROM bump WHERE server = ${interaction.guild.id};`);
       await mysql(`DELETE FROM dissoku WHERE server = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM \`ignore\` WHERE id = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM \`join\` WHERE server = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM \`leave\` WHERE server = ${interaction.guild.id};`);
 
       await interaction.reply({
         content: `<@${interaction.member.user.id}>`,
