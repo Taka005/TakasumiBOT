@@ -1,4 +1,5 @@
 module.exports = async(client)=>{
+  const { log } = require("../../config.json"); 
   require("dotenv").config();
   const { SlashCommandBuilder, ContextMenuCommandBuilder } = require("@discordjs/builders");
   const { REST } = require("@discordjs/rest");
@@ -684,5 +685,5 @@ module.exports = async(client)=>{
       },
   );
 
-  client.channels.cache.get("947484748773736538").send("スラッシュコマンドをリロードしました");
+  client.channels.cache.get(log).send("スラッシュコマンドをリロードしました");
 }

@@ -1,6 +1,6 @@
 const { Client, Intents } = require("discord.js");
 require("dotenv").config();
-const { log_channel } = require("./config.json"); 
+const { log } = require("./config.json"); 
 
 const client = new Client({
   intents: [
@@ -38,7 +38,7 @@ client.login(process.env.DISCORD_BOT_TOKEN)
 process.on("uncaughtException",async(error)=>{
   console.log(`\x1b[31mERROR: ${error.stack}`);
 
-  client.channels.cache.get(log_channel).send({
+  client.channels.cache.get(log).send({
     embeds:[{
       color: "RED",
       description: `\`\`\`js\n${error.stack}\`\`\``,
@@ -50,7 +50,7 @@ process.on("uncaughtException",async(error)=>{
 process.on("unhandledRejection",async(error)=>{
   console.log(`\x1b[31mERROR: ${error.stack}`);
 
-  client.channels.cache.get(log_channel).send({
+  client.channels.cache.get(log).send({
     embeds:[{
       color: "ORANGE",
       description: `\`\`\`js\n${error.stack}\`\`\``,
