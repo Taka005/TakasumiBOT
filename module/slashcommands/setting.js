@@ -82,7 +82,7 @@ module.exports = async(interaction)=>{
         });
 
         await mysql(`DELETE FROM bump WHERE server = ${interaction.guild.id} LIMIT 1;`);
-        return await interaction.reply({
+        await interaction.reply({
           embeds:[{
             author: {
               name: "通知ロールを無効にしました",
@@ -91,32 +91,32 @@ module.exports = async(interaction)=>{
             color: "GREEN"
           }]
         });
+      }else{
+        const bot = interaction.guild.members.cache.get("302050872383242240");
+        if(!bot) return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "通知ロールを有効にできませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "このサーバーにDisboardが参加していません\nもし参加している場合は少し時間を置いてから実行してください"
+          }],
+          ephemeral:true
+        });
+  
+        await mysql(`INSERT INTO bump (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "通知ロールを有効にしました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN",
+            description: `Bump通知に<@&${role.id}>に設定しました`
+          }]
+        });
       }
-
-      const bot = interaction.guild.members.cache.get("302050872383242240");
-      if(!bot) return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "通知ロールを有効にできませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
-          },
-          color: "RED",
-          description: "このサーバーにDisboardが参加していません\nもし参加している場合は少し時間を置いてから実行してください"
-        }],
-        ephemeral:true
-      });
-
-      await mysql(`INSERT INTO bump (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
-      return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "通知ロールを有効にしました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
-          },
-          color: "GREEN",
-          description: `Bump通知に<@&${role.id}>に設定しました`
-        }]
-      });
 
     }else if(interaction.options.getSubcommand() === "dissoku"){//Dissokuロール設定
       const role = interaction.options.getRole("role");
@@ -163,7 +163,7 @@ module.exports = async(interaction)=>{
         });
 
         await mysql(`DELETE FROM dissoku WHERE server = ${interaction.guild.id} LIMIT 1;`);
-        return await interaction.reply({
+        await interaction.reply({
           embeds:[{
             author: {
               name: "通知ロールを無効にしました",
@@ -172,32 +172,32 @@ module.exports = async(interaction)=>{
             color: "GREEN"
           }]
         });
+      }else{
+        const bot = interaction.guild.members.cache.get("761562078095867916");
+        if(!bot) return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "通知ロールを有効にできませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "このサーバーにDissokuが参加していません\nもし参加している場合は少し時間を置いてから実行してください"
+          }],
+          ephemeral:true
+        });
+  
+        await mysql(`INSERT INTO dissoku (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "通知ロールを有効にしました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN",
+            description: `Dissoku通知に<@&${role.id}>に設定しました`
+          }]
+        });
       }
-
-      const bot = interaction.guild.members.cache.get("761562078095867916");
-      if(!bot) return await interaction.reply({
-        embeds:[{
-          author: {
-            name: "通知ロールを有効にできませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
-          },
-          color: "RED",
-          description: "このサーバーにDissokuが参加していません\nもし参加している場合は少し時間を置いてから実行してください"
-        }],
-        ephemeral:true
-      });
-
-      await mysql(`INSERT INTO dissoku (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
-      await interaction.reply({
-        embeds:[{
-          author: {
-            name: "通知ロールを有効にしました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
-          },
-          color: "GREEN",
-          description: `Dissoku通知に<@&${role.id}>に設定しました`
-        }]
-      });
     }else if(interaction.options.getSubcommand() === "join"){//join
       const channel = interaction.options.getChannel("channel");
       const message = interaction.options.getString("message");
@@ -270,7 +270,8 @@ module.exports = async(interaction)=>{
               name: "参加メッセージを設定しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
-            color: "GREEN"
+            color: "GREEN",
+            description: `送信チャンネル: <#${channel.id}>\n送信メッセージ: ${message}`
           }]
         });
       }
@@ -346,7 +347,8 @@ module.exports = async(interaction)=>{
               name: "退出メッセージを設定しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
-            color: "GREEN"
+            color: "GREEN",
+            description: `送信チャンネル: <#${channel.id}>\n送信メッセージ: ${message}`
           }]
         });
       }
