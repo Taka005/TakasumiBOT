@@ -500,6 +500,30 @@ module.exports = async(client)=>{
                     .setDescription("通知するロール(無効にする場合は入力しないでください)")))
             .addSubcommand(subcommand =>
               subcommand
+                .setName("join")
+                .setDescription("参加メッセージを設定します")
+                .addChannelOption(option =>
+                  option
+                    .setName("channel")
+                    .setDescription("メッセージを送信するチャンネル"))
+                .addStringOption(option =>
+                    option
+                      .setName("message")
+                      .setDescription("送信するメッセージ")))
+            .addSubcommand(subcommand =>
+              subcommand
+                .setName("leave")
+                .setDescription("退出メッセージを設定します")
+                .addChannelOption(option =>
+                  option
+                    .setName("channel")
+                    .setDescription("メッセージを送信するチャンネル"))
+                .addStringOption(option =>
+                    option
+                      .setName("message")
+                      .setDescription("送信するメッセージ")))
+            .addSubcommand(subcommand =>
+              subcommand
                 .setName("ignore")
                 .setDescription("Bump通知、Dissoku通知、メッセージ展開の無効化と有効化を切り替えます"))
             .addSubcommand(subcommand =>

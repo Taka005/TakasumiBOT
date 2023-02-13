@@ -19,6 +19,14 @@ module.exports = async(interaction)=>{
               value: "Dissoku UPの時間に通知するロールを設定します"
             },
             {
+              name: "/setting join",
+              value: "参加メッセージの設定をします"
+            },
+            {
+              name: "/setting leave",
+              value: "退出メッセージの設定をします"
+            },
+            {
               name: "/setting ignore",
               value: "メッセージ展開、Bump通知、Dissoku通知の無効化と有効化を切り替えます\n有効にするとBump通知、Dissoku通知の設定情報は削除されます"
             },
@@ -190,6 +198,158 @@ module.exports = async(interaction)=>{
           description: `Dissoku通知に<@&${role.id}>に設定しました`
         }]
       });
+    }else if(interaction.options.getSubcommand() === "join"){//join
+      const channel = interaction.options.getChannel("channel");
+      const message = interaction.options.getString("message");
+
+      if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
+        }],
+        ephemeral:true
+      });
+
+      if(!channel||!message){
+        const data = await mysql(`SELECT * FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
+        if(!data[0]) return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "参加メッセージを無効にできませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "参加メッセージが設定されていません"
+          }],
+          ephemeral:true
+        });
+
+        await mysql(`DELETE FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "参加メッセージを無効にしました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }else{
+        if(message.length > 150) return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "参加メッセージを設定できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "メッセージは150文字以内にしてください"
+          }],
+          ephemeral:true
+        });
+
+        if(!channel.type === "GUILD_TEXT") return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "参加メッセージを設定できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "メッセージを送信するチャンネルはテキストチャンネルにしてください"
+          }],
+          ephemeral:true
+        });
+
+        await mysql(`INSERT INTO \`join\` (server, channel, message, time) VALUES("${interaction.guild.id}","${channel.id}","${message}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),time = VALUES (time);`);
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "参加メッセージを設定しました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }
+    }else if(interaction.options.getSubcommand() === "leave"){//leave
+      const channel = interaction.options.getChannel("channel");
+      const message = interaction.options.getString("message");
+
+      if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
+        }],
+        ephemeral:true
+      });
+
+      if(!channel||!message){
+        const data = await mysql(`SELECT * FROM \`leave\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
+        if(!data[0]) return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "退出メッセージを無効にできませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "退出メッセージが設定されていません"
+          }],
+          ephemeral:true
+        });
+
+        await mysql(`DELETE FROM \`leave\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "退出メッセージを無効にしました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }else{
+        if(message.length > 150) return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "退出メッセージを設定できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "メッセージは150文字以内にしてください"
+          }],
+          ephemeral:true
+        });
+
+        if(!channel.type === "GUILD_TEXT") return await interaction.reply({
+          embeds:[{
+            author: {
+              name: "退出メッセージを設定できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            description: "メッセージを送信するチャンネルはテキストチャンネルにしてください"
+          }],
+          ephemeral:true
+        });
+
+        await mysql(`INSERT INTO \`leave\` (server, channel, message, time) VALUES("${interaction.guild.id}","${channel.id}","${message}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),time = VALUES (time);`);
+        await interaction.reply({
+          embeds:[{
+            author: {
+              name: "退出メッセージを設定しました",
+              icon_url: "https://cdn.taka.ml/images/system/success.png",
+            },
+            color: "GREEN"
+          }]
+        });
+      }
     }else if(interaction.options.getSubcommand() === "ignore"){//ignore
     
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
@@ -232,7 +392,6 @@ module.exports = async(interaction)=>{
           }]
         });
       }
-
     }else if(interaction.options.getSubcommand() === "delete"){//delete
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
