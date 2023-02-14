@@ -36,7 +36,7 @@ module.exports = async(message,client)=>{
         }]
       });
     }else if(msg.attachments?.first().height && msg.attachments?.first().width){
-      const attachment = msg.attachments.map(attachment => attachment.url)
+      const attachment = msg.attachments.map(attachment=>attachment.url)
       message.channel.send({//添付ファイルあり(画像)
         embeds:[{
           color: msg.member?.displayHexColor||"WHITE",
@@ -55,7 +55,7 @@ module.exports = async(message,client)=>{
         }]
       });
     }else{
-      const attachment = msg.attachments.map(attachment => attachment?.url)
+      const attachment = msg.attachments.map(attachment=>attachment?.url)
       message.channel.send({//添付ファイルあり(画像以外)
         embeds:[{
           color: msg.member?.displayHexColor||"WHITE",

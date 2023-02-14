@@ -28,10 +28,7 @@ module.exports = async(interaction)=>{
       .setValue("` 1 ` **１つ目のガイドライン**\n\n` 2 ` **２つ目のガイドライン**\n\n` 3 ` **３つ目のガイドライン**\n\n` 4 ` **４つ目のガイドライン**\n")
       .setStyle("PARAGRAPH");
       
-    guide.addComponents(
-      new MessageActionRow()
-        .addComponents(temp)
-    );
+    guide.addComponents(new MessageActionRow().addComponents(temp));
   
     await interaction.showModal(guide);
   }
