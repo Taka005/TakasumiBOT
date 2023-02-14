@@ -65,12 +65,6 @@
         "permission":["メッセージの管理"],
         "note":"2週間前又は100個までメッセージを削除できます"
     },
-    "draw":{
-        "description":"おみくじを引きます",
-        "example":"`/draw`",
-        "permission":["必要なし"],
-        "note":"なし"
-    },
     "embed":{
         "description":"埋め込みを簡単に作成し表示できます",
         "example":"`/embed`",
@@ -158,6 +152,12 @@
     "npm":{
         "description":"NPMパッケージを検索して表示します",
         "example":"`/npm discord.js`",
+        "permission":["必要なし"],
+        "note":"なし"
+    },
+    "omikuji":{
+        "description":"おみくじを引きます",
+        "example":"`/omikuji`",
         "permission":["必要なし"],
         "note":"なし"
     },
