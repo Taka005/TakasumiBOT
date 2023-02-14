@@ -15,8 +15,8 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    const ch = interaction.guild.channels.cache.find(name => name.name === "ticket")
-    if(!ch) return await interaction.reply({
+    const channel = interaction.guild.channels.cache.find(name => name.name === "ticket")
+    if(!channel) return await interaction.reply({
       embeds:[{
         author: {
           name: "作成できませんでした",
@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
         id: interaction.guild.roles.everyone,
         deny: ["VIEW_CHANNEL"]
       }],
-      parent: ch.id
+      parent: channel.id
     })
       .then(async(channels)=>{
         await channels.permissionOverwrites.edit(interaction.member.user.id,{VIEW_CHANNEL: true});
