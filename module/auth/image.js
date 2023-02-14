@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
-  const { MessageActionRow, MessageSelectMenu } = require("discord.js");
+  const fetch = require("node-fetch");
+  const { MessageActionRow, MessageSelectMenu, MessageAttachment } = require("discord.js");
   const random = require("../lib/random");
   if(!interaction.isButton()) return;
   if(interaction.customId.startsWith("image_")){
@@ -16,6 +17,9 @@ module.exports = async(interaction)=>{
     ];
 
     const auth = random(keys);
+    const image = await fetch(auth.url)
+      .then(res=>res.blob())
+      .catch(()=>{});
 
     const selects = new MessageSelectMenu()
       .setCustomId(`imagerole_${role[1]}_${auth.text}`)
@@ -35,9 +39,10 @@ module.exports = async(interaction)=>{
         color: "GREEN",
         description: "画像にある文字を選択してください\n※画像が表示されるまで時間がかかる場合があります",
         image: {
-          url: auth.url
+          url: "attachment://code.png"
         }
       }],
+      files: [new MessageAttachment(image.stream(),"code.png")],
       components: [     
         new MessageActionRow()
           .addComponents(selects)
