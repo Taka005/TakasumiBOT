@@ -214,6 +214,21 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
 
+      if(
+        !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+        !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+      ) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "BOTに権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
+        }],
+        ephemeral:true
+      });
+
       if(!channel||!message){
         const data = await mysql(`SELECT * FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         if(!data[0]) return await interaction.reply({
@@ -287,6 +302,21 @@ module.exports = async(interaction)=>{
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
+        }],
+        ephemeral:true
+      });
+
+      if(
+        !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+        !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+      ) return await interaction.reply({
+        embeds:[{
+          author: {
+            name: "BOTに権限がありません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png",
+          },
+          color: "RED",
+          description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
         }],
         ephemeral:true
       });
