@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
     const main = require("../../data/hiroyuki/main.json");
     const sub = require("../../data/hiroyuki/sub.json");
     const fs = require("fs");
-    const { WebhookClient } = require("discord.js");
+    const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
     if(!interaction.isCommand()) return;
     if(interaction.commandName === "hiroyuki"){
   
@@ -77,50 +77,56 @@ module.exports = async(interaction)=>{
   
         delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
         delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
-        return;
-      }
-      
-      //登録なし
-      await interaction.deferReply();
-      await interaction.channel.createWebhook("ひろゆき",{
-        avatar: "https://cdn.taka.ml/images/hiroyuki.png",
-      })
-        .then(async (webhook) =>{
-          main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
-          sub[interaction.guild.id] = interaction.channel.id;
-          fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-
-          await interaction.editReply({
-            embeds:[{
-              color: "GREEN",
-              author: {
-                name: "ひろゆきの召喚に成功しました",
-                icon_url: "https://cdn.taka.ml/images/system/success.png"
-              }
-            }]
-          }).catch(()=>{})
+      }else{//登録なし
+        await interaction.deferReply();
+        await interaction.channel.createWebhook("ひろゆき",{
+          avatar: "https://cdn.taka.ml/images/hiroyuki.png",
         })
-        .catch(async(error)=>{
-          await interaction.editReply({
-            embeds:[{
-              author: {
-                name: "ひろゆきの召喚に失敗しました",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
-              },
-              color: "RED",
-              description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`,
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
+          .then(async(webhook)=>{
+            main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
+            sub[interaction.guild.id] = interaction.channel.id;
+            fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
+            fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
+
+            await interaction.editReply({
+              embeds:[{
+                color: "GREEN",
+                author: {
+                  name: "ひろゆきの召喚に成功しました",
+                  icon_url: "https://cdn.taka.ml/images/system/success.png"
                 }
+              }]
+            });
+          })
+          .catch(async(error)=>{
+            await interaction.editReply({
+              embeds:[{
+                author: {
+                  name: "ひろゆきの召喚に失敗しました",
+                  icon_url: "https://cdn.taka.ml/images/system/error.png",
+                },
+                color: "RED",
+                description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`,
+                fields: [
+                  {
+                    name: "エラーコード",
+                    value: `\`\`\`${error}\`\`\``
+                  }
+                ]
+              }],
+              components: [
+                new MessageActionRow()
+                  .addComponents( 
+                    new MessageButton()
+                      .setLabel("サポートサーバー")
+                      .setURL("https://discord.gg/NEesRdGQwD")
+                      .setStyle("LINK"))
               ]
-            }]
-          }).catch(()=>{})
-        });
+            });
+          });
   
         delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
         delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
+      }
   }
 }

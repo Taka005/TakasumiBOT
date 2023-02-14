@@ -38,12 +38,12 @@ module.exports = async(interaction)=>{
             },
             {
               name: "パッケージ保有者",
-              value: pkg.maintainers ? pkg.maintainers.map(e => e.username).join(', ') : "なし",
+              value: pkg.maintainers ? pkg.maintainers.map(e => e.username).join(", ") : "なし",
               inline: true
             },
             {
               name: "キーワード",
-              value: pkg.keywords ? pkg.keywords.join(', ') : "なし",
+              value: pkg.keywords ? pkg.keywords.join(", ") : "なし",
               inline: true
             }
           ],

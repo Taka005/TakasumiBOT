@@ -177,10 +177,6 @@ module.exports = async(client)=>{
               option
                 .setName("user")
                 .setDescription("削除するユーザー")),
-          //draw
-          new SlashCommandBuilder()
-            .setName("draw")
-            .setDescription("おみくじを引きます"),
           //embed
           new SlashCommandBuilder()
             .setName("embed")
@@ -304,6 +300,10 @@ module.exports = async(client)=>{
                 .setName("name")
                 .setDescription("検索ワード")
                 .setRequired(true)),
+          //omikuji
+          new SlashCommandBuilder()
+            .setName("omikuji")
+            .setDescription("おみくじを引きます"),
           //panel
           new SlashCommandBuilder()
             .setName("panel")

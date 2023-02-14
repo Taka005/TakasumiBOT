@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
-  const { MessageAttachment } = require("discord.js")
+  const isUrl = require("../lib/isUrl");
+  const { MessageAttachment } = require("discord.js");
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "qr"){
@@ -33,7 +34,7 @@ module.exports = async(interaction)=>{
         files:[new MessageAttachment(Buffer.from(qr_response),"QRCode.png")]
       });
     }else{
-      if(!text.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
+      if(!isUrl(text)) return await interaction.reply({
         embeds:[{
           author: {
             name: "入力されたテキストが無効です",

@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   const sub = require("../../data/global/sub.json");
   const fs = require("fs");
   const mysql = require("../lib/mysql");
-  const { WebhookClient } = require("discord.js");
+  const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
 
@@ -16,7 +16,7 @@ module.exports = async(interaction)=>{
     ) return await interaction.reply({
       embeds:[{
         author: {
-          name: "登録のできません",
+          name: "登録できません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         description: "このサーバーもしくは、あなたはブラックリストに登録されているため、登録、利用はできません",
@@ -70,7 +70,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(!main[interaction.channel.id] && sub[interaction.guild.id]) return await interaction.reply({
+    if(!main[interaction.channel.id]&&sub[interaction.guild.id]) return await interaction.reply({
       embeds:[{
         author: {
           name: "既に登録済みです",
@@ -127,71 +127,67 @@ module.exports = async(interaction)=>{
 
       delete require.cache[require.resolve("../../data/global/sub.json")];
       delete require.cache[require.resolve("../../data/global/main.json")];
-      return;
-    }
-    
-    //登録なし
-    await interaction.deferReply();
-    await interaction.editReply({
-      embeds:[{
-        color: "GREY",
-        description: "登録情報を確認、登録中....",
-      }]
-    })
-    await interaction.channel.createWebhook("TakasumiBOT",{
-      avatar: "https://cdn.taka.ml/images/bot.png",
-    })
-      .then(async (webhook) =>{
-        interaction.channel.setTopic("ここはTakasumiグローバルチャットです\nこのチャンネルに入力された内容は、登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
+    }else{//登録なし
+      await interaction.deferReply();
+      await interaction.editReply({
+        embeds:[{
+          color: "GREY",
+          description: "登録情報を確認、登録中....",
+        }]
+      });
+      await interaction.channel.createWebhook("TakasumiBOT",{
+        avatar: "https://cdn.taka.ml/images/bot.png",
+      })
+        .then(async(webhook)=>{
+          interaction.channel.setTopic("ここはTakasumiグローバルチャットです\nこのチャンネルに入力された内容は、登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
             .catch(()=>{})
 
-        main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
-        sub[interaction.guild.id] = interaction.channel.id;
-        fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-        fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+          main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
+          sub[interaction.guild.id] = interaction.channel.id;
+          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
-        Object.keys(main).forEach(async(channels)=>{
-          
-          const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-          if(channels === interaction.channel.id||mute_server[guild]) return;
+          Object.keys(main).forEach(async(channels)=>{
+            const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+            if(channels === interaction.channel.id||mute_server[guild]) return;
 
-          const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
-          await webhooks.send({
+            const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+            await webhooks.send({
+              embeds:[{
+                color: "GREEN",
+                title: `${interaction.guild.name}<${interaction.guild.id}>`,
+                thumbnail: {
+                  url: interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+                },
+                description: "グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!",
+                footer: {
+                  text: `登録数:${Object.keys(main).length}`
+                },
+                timestamp: new Date()
+              }]
+            }).catch(()=>{
+              delete main[channels];
+              const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
+              delete sub[guild];
+
+              fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
+              fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+              delete require.cache[require.resolve("../../data/global/sub.json")];
+              delete require.cache[require.resolve("../../data/global/main.json")];
+            })
+          });
+
+          await interaction.editReply({
             embeds:[{
               color: "GREEN",
-              title: `${interaction.guild.name}<${interaction.guild.id}>`,
-              thumbnail: {
-                url: interaction.guild.iconURL({ format: 'png', dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+              author: {
+                name: `${interaction.guild.name}`,
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
-              description: "グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!",
-              footer: {
-                text: `登録数:${Object.keys(main).length}`
-              },
+              description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\nこのチャンネルに入力された内容は、登録チャンネル全てに送信されます\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
               timestamp: new Date()
             }]
-          }).catch(()=>{
-            delete main[channels];
-            const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-            delete sub[guild];
-
-            fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-            fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-            delete require.cache[require.resolve("../../data/global/sub.json")];
-            delete require.cache[require.resolve("../../data/global/main.json")];
-          })
-        });
-
-        await interaction.editReply({
-          embeds:[{
-            color: "GREEN",
-            author: {
-              name: `${interaction.guild.name}`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png"
-            },
-            description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\nこのチャンネルに入力された内容は、登録チャンネル全てに送信されます\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
-            timestamp: new Date()
-          }]
-        }).catch(()=>{})
+          });
       })
       .catch(async(error)=>{
         await interaction.editReply({
@@ -208,11 +204,20 @@ module.exports = async(interaction)=>{
                 value: `\`\`\`${error}\`\`\``
               }
             ]
-          }]
-        }).catch(()=>{})
+          }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK"))
+          ]
+        });
       });
 
       delete require.cache[require.resolve("../../data/global/main.json")];
       delete require.cache[require.resolve("../../data/global/sub.json")];
+    }
   }
 }
