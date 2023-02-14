@@ -33,11 +33,6 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    const ticket_button = new MessageButton()
-      .setCustomId("ticket")
-      .setStyle("PRIMARY")
-      .setLabel("作成");
-
     await interaction.channel.send({
       embeds: [{
         color:"GREEN",
@@ -46,7 +41,11 @@ module.exports = async(interaction)=>{
       }],
       components: [
         new MessageActionRow()
-          .addComponents(ticket_button)
+          .addComponents(
+            new MessageButton()
+              .setCustomId("ticket")
+              .setStyle("PRIMARY")
+              .setLabel("作成"))
       ]
       }).catch(async(error)=>{
         await interaction.reply({
