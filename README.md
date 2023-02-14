@@ -17,11 +17,8 @@
 # Configについて
 - admin:管理者のユーザーID
 - prefix:コマンドの先頭になる文字(一部のみに有効)
-- serverid:メインサーバーID
-- hello_message:ようこそメッセージ
-- enter_channel:ようこそメッセージが送信されるチャンネルID
-- member_channel:メンバーに参加をしらせるチャンネルID
-- member_mention:メンバーに参加をしらせるロールID
+- log:ログを送るチャンネルID
+- error:エラーメッセージを送るチャンネルID
 # Development
 - Development by Taka005#6668
 - Language is JavaScript(Node.js)
