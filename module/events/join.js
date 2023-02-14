@@ -10,6 +10,9 @@ module.exports = async(member)=>{
       .replace("[ServerName]",`${member.guild.name}`)
       .replace("[ServerID]",`${member.guild.id}`)
       .replace("[Count]",`${member.guild.memberCount}`)
+      .replace("@everyone","everyone")
+      .replace("@here","here")
+      .replace(".","｡")
 
     member.guild.channels.cache.get(`${data[0].channel}`).send(`${msg}`)
       .catch(()=>{});
