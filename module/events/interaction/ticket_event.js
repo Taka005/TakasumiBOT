@@ -2,9 +2,8 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isButton()) return;
   if(interaction.customId === "ticket"){
-    const user = interaction.user.id;
 
-    if(interaction.guild.channels.cache.find(name => name.name === user)) return await interaction.reply({
+    if(interaction.guild.channels.cache.find(name => name.name === interaction.member.user.id)) return await interaction.reply({
       embeds:[{
         author: {
           name: "作成できませんでした",
@@ -29,7 +28,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    await interaction.guild.channels.create(user,{
+    await interaction.guild.channels.create(interaction.member.user.id,{
       permissionOverwrites: [{
         id: interaction.guild.roles.everyone,
         deny: ["VIEW_CHANNEL"]
@@ -37,21 +36,19 @@ module.exports = async(interaction)=>{
       parent: ch.id
     })
       .then(async(channels)=>{
-        channels.permissionOverwrites.edit(interaction.user.id,{VIEW_CHANNEL: true});
-
-        const ticket_button = new MessageButton()
-          .setCustomId("close")
-          .setStyle("PRIMARY")
-          .setLabel("閉じる");
-
-        channels.send({
+        await channels.permissionOverwrites.edit(interaction.member.user.id,{VIEW_CHANNEL: true});
+        await channels.send({
           embeds: [{
             color:"GREEN",
             title: "チケットへようこそ"
           }],
           components: [
             new MessageActionRow()
-              .addComponents(ticket_button)
+              .addComponents(
+                new MessageButton()
+                  .setCustomId("close")
+                  .setStyle("PRIMARY")
+                  .setLabel("閉じる"))
           ]
         });
 
