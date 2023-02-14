@@ -77,7 +77,6 @@ module.exports = async(interaction)=>{
   
         delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
         delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
-        return;
       }else{//登録なし
         await interaction.deferReply();
         await interaction.channel.createWebhook("ひろゆき",{
