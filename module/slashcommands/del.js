@@ -29,7 +29,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(number < 1||number > 100) return await interaction.reply({
+    if(number < 2||number > 99) return await interaction.reply({
       embeds:[{
         author: {
           name: "引数が無効です",
