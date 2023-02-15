@@ -37,11 +37,13 @@ module.exports = async(interaction)=>{
       "https://cdn.taka.ml/images/omikuji/tyuukiti_4.png"
     ];
 
+    await interaction.deferReply();
+
     const image = await fetch(random(draws))
       .then(res=>res.blob())
       .catch(()=>{});
 
-    await interaction.reply({
+    await interaction.editReply({
       embeds:[{
         color: "RANDOM",
         image: {
