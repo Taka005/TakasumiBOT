@@ -266,14 +266,14 @@ module.exports = async(interaction)=>{
           ephemeral:true
         });
 
-        if(message.length > 150) return await interaction.reply({
+        if(message.length > 100) return await interaction.reply({
           embeds:[{
             author: {
               name: "参加メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "メッセージは150文字以内にしてください"
+            description: "メッセージは100文字以内にしてください"
           }],
           ephemeral:true
         });
@@ -370,14 +370,14 @@ module.exports = async(interaction)=>{
           ephemeral:true
         });
 
-        if(message.length > 150) return await interaction.reply({
+        if(message.length > 100) return await interaction.reply({
           embeds:[{
             author: {
               name: "退出メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            description: "メッセージは150文字以内にしてください"
+            description: "メッセージは100文字以内にしてください"
           }],
           ephemeral:true
         });
