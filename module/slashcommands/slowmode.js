@@ -45,7 +45,7 @@ module.exports = async(interaction)=>{
         await interaction.reply({
           embeds:[{
             author: {
-              name: `低速モードを設定しました`,
+              name: "低速モードを設定しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
             description:`低速モードは現在${time}秒です`,

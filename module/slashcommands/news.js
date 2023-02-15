@@ -4,6 +4,7 @@ module.exports = async(interaction)=>{
   require("dotenv").config();
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "news"){
+    
     const data = await fetch(`https://newsapi.org/v2/top-headlines?country=jp&apiKey=${process.env.NEWS_KEY}`)
       .then(res=>res.json())
       .catch(()=>{})

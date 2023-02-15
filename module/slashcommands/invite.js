@@ -36,9 +36,7 @@ module.exports = async(interaction)=>{
       "reason": `${interaction.member.user.tag}により作成`
     })
       .then(async(invite)=>{
-        await interaction.reply({
-          content: invite.url
-        })
+        await interaction.reply(invite.url)
       })
       .catch(async(error)=>{
         await interaction.reply({

@@ -22,6 +22,7 @@ module.exports = async(interaction)=>{
     try{
       const shot = await fetch(`https://api.popcat.xyz/screenshot?url=${url}`)
         .then(res=>res.blob())
+        .catch(()=>{})
 
       await interaction.editReply({
         embeds:[{
@@ -36,7 +37,6 @@ module.exports = async(interaction)=>{
         }],
         files: [new MessageAttachment(shot.stream(),"screenshot.png")]
       });
-      
     }catch(error){
       await interaction.editReply({
         embeds:[{

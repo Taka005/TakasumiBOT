@@ -5,7 +5,7 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "afk"){
     const message = interaction.options.getString("message");
     
-    if(message?.length>300) return await interaction.reply({
+    if(message.length>300) return await interaction.reply({
       embeds:[{
         author: {
           name: "メッセージが長すぎます",
@@ -32,7 +32,7 @@ module.exports = async(interaction)=>{
       }); 
     }
 
-    await mysql(`INSERT INTO afk (user, message, mention, time) VALUES("${interaction.member.user.id}","${message||"代わりのメッセージがありません"}","0",NOW());`);
+    await mysql(`INSERT INTO afk (user, message, mention, time) VALUES("${interaction.member.user.id}","${message}","0",NOW());`);
     await interaction.reply({
       embeds:[{
         author: {

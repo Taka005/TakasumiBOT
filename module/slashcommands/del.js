@@ -29,7 +29,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(number < 2 || number > 99 ) return await interaction.reply({
+    if(number < 1||number > 100) return await interaction.reply({
       embeds:[{
         author: {
           name: "引数が無効です",
@@ -59,7 +59,7 @@ module.exports = async(interaction)=>{
       return await interaction.channel.bulkDelete(msg)
         .then(async()=>{
           await interaction.reply({
-            content:`${interaction.member}`,
+            content:`<@${interaction.member.user.id}>`,
             embeds:[{
               author: {
                 name: `${user.tag} のメッセージを${number}個削除しました`,

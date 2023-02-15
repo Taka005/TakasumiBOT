@@ -2,18 +2,19 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "wiki"){
-    const wiki_name = interaction.options.getString("name");
-    const wiki_data = await fetch(`https://ja.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wiki_name)}`)
+    const name = interaction.options.getString("name");
+
+    const data = await fetch(`https://ja.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`)
       .then(res => res.json())
       .catch(()=>{})
 
     try{
       await interaction.reply({
         embeds:[{
-          title: wiki_data.title,
-          url: wiki_data.content_urls.desktop.page,
+          title: data.title,
+          url: data.content_urls.desktop.page,
           color: "GREEN",
-          description: wiki_data.extract,
+          description: data.extract,
           footer: {
             text: "TakasumiBOT"
           }

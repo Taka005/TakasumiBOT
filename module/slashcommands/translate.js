@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
           color: "BLUE",
           description: translate.join(""),
           footer: {
-            text:`Google Translate [${data.src}]->[${lang}]`,
+            text: `Google Translate [${data.src}]->[${lang}]`,
             icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]
@@ -51,7 +51,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",
           footer: {
-            text:`Google Translate`,
+            text: "Google Translate",
             icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }],
