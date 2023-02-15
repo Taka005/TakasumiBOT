@@ -4,6 +4,7 @@ module.exports = async(interaction)=>{
   const random = require("../lib/random");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "omikuji"){
+    
     const draws = [
       //大吉
       "https://cdn.taka.ml/images/omikuji/daikiti_1.png",

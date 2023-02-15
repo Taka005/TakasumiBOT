@@ -16,48 +16,55 @@ module.exports = async(interaction,client)=>{
       ephemeral:true
     });
 
-    const invites = await interaction.guild.invites.fetch(); 
     try{
       const data = new Buffer.from(JSON.stringify({
         "guild":{
-          "name":interaction.guild.name,
-          "id":interaction.guild.id,
-          "count":interaction.guild.memberCount,
-          "icon":interaction.guild.iconURL(),
-          "invite":{
-            "url":invites.map(invite => invite.url),
-            "code":invites.map(invite => invite.code)
-          },
-          "channels":{
-            "name":interaction.guild.channels.cache.map(channel => channel.name),
-            "id":interaction.guild.channels.cache.map(channel => channel.id),
-            "topic":interaction.guild.channels.cache.map(channel => channel.topic),
-            "type":interaction.guild.channels.cache.map(channel => channel.type),
-            "count":interaction.guild.channels.cache.size
-          },
-          "members":{
-            "name":interaction.guild.members.cache.map(member => member.user.tag),
-            "id:":interaction.guild.members.cache.map(member => member.user.id),
-            "color":interaction.guild.members.cache.map(member =>member.displayHexColor),
-            "avatar":interaction.guild.members.cache.map(member =>member.user.avatarURL())
-          },
-          "roles":{
-            "name":interaction.guild.roles.cache.map(role => role.name),
-            "id":interaction.guild.roles.cache.map(role => role.id)
-          }
+          "name": interaction.guild.name,
+          "id": interaction.guild.id,
+          "count": interaction.guild.memberCount,
+          "icon": interaction.guild.iconURL(),
+          "time": new Date(interaction.guild.createdTimestamp).toLocaleString(),
+          "invites": (await interaction.guild.invites.fetch()).map(invite=>({
+            "url": invite.url,
+            "code": invite.code
+          })),
+          "channels": interaction.guild.channels.cache.map(channel=>({
+            "name": channel.name,
+            "id": channel.id,
+            "topic": channel.topic,
+            "type": channel.type,
+            "time": new Date(channel.createdTimestamp).toLocaleString()
+          })),
+          "members": interaction.guild.members.cache.map(member=>({
+            "name": member.user.tag,
+            "id": member.user.id,
+            "color": member.displayHexColor,
+            "avatar": member.user.avatarURL(),
+            "join": new Date(member.joinedTimestamp).toLocaleString(),
+            "time": new Date(member.user.createdTimestamp).toLocaleString()
+          })),
+          "roles": interaction.guild.roles.cache.map(role=>({
+            "name": role.name,
+            "id": role.id,
+            "color": role.hexColor,
+            "time": new Date(role.createdTimestamp).toLocaleString()
+          }))
         },
         "bot":{
-          "user":client.user.tag,
-          "ping":client.ws.ping
+          "user": client.user.tag,
+          "ping": client.ws.ping
         }
-      },null,"　 "),"UTF-8");
+      },null,"　"),"UTF-8");
 
-      const attachment = new MessageAttachment()
-        .setDescription("データは慎重に扱ってください") 
-        .setFile(data) 
-        .setName("SERVER_JSON_FILE.json")
-
-      await interaction.reply({content:"サーバーのデータをJSON形式に出力しました", files: [attachment] })
+      await interaction.reply({
+        content:"サーバーのデータをJSON形式に出力しました",
+        files: [
+          new MessageAttachment()
+            .setDescription("データは慎重に扱ってください") 
+            .setFile(data) 
+            .setName("SERVER_JSON_FILE.json")
+        ] 
+      });
     }catch(error){
       await interaction.reply({ 
         embeds:[{
