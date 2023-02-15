@@ -43,7 +43,6 @@ module.exports = async(interaction)=>{
 
     await interaction.reply({
       embeds:[{
-        title: "おみくじ", 
         color: "RANDOM",
         image: {
           url: "attachment://omikuji.png"
