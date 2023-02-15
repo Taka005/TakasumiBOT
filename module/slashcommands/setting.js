@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/setting join",
-              value: "参加メッセージの設定をします\n利用可能な変数\n[User] ユーザーメンション\n[UserName] ユーザーの名前\n[UserID] ユーザーID\n[ServerName] サーバーの名前\n[ServerID] サーバーID\n[Count] メンバー数\n「@everyone」「@here」「.」は自動的に置き換わります"
+              value: "参加メッセージの設定をします\n\n利用可能な変数\n[User] ユーザーメンション\n[UserName] ユーザーの名前\n[UserID] ユーザーID\n[ServerName] サーバーの名前\n[ServerID] サーバーID\n[Count] メンバー数"
             },
             {
               name: "/setting leave",
