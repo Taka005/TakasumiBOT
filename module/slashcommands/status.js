@@ -49,7 +49,15 @@ module.exports = async(interaction,client)=>{
             value: `Ping: ${client.ws.ping}㍉秒\nGC登録数: ${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数: ${Object.keys(hiroyuki).length}\nTakasumiBOT Account: ${members.length}人\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
           }
         ]
-      }]
+      }],
+      components: [
+        new MessageActionRow()
+          .addComponents( 
+            new MessageButton()
+              .setLabel("サポートサーバー")
+              .setURL("https://discord.gg/NEesRdGQwD")
+              .setStyle("LINK"))
+      ]
     }).catch((error)=>{
       interaction.editReply({
         embeds:[{
