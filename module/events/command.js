@@ -41,7 +41,8 @@ module.exports = async(client)=>{
             .addStringOption(option =>
               option
                 .setName("message")
-                .setDescription("代わりに送信するメッセージ")),
+                .setDescription("代わりに送信するメッセージ")
+                .setRequired(true)),
           //auth
           new SlashCommandBuilder()
             .setName("auth")

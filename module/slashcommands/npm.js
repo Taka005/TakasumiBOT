@@ -2,15 +2,15 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "npm"){
-    const package = interaction.options.getString("name");
+    const name = interaction.options.getString("name");
 
     await interaction.deferReply();
-    const package_data = await fetch(`https://api.npms.io/v2/search?q=${package}`)
+    const data = await fetch(`https://api.npms.io/v2/search?q=${name}`)
       .then(res => res.json())
       .catch(()=>{})
 
     try{
-      const pkg = package_data.results[0].package
+      const pkg = data.results[0].package
       await interaction.editReply({
         embeds:[{
           title: pkg.name,

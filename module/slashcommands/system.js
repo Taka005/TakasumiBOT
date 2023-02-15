@@ -52,7 +52,7 @@ module.exports = async(interaction,client)=>{
 
       guild.leave()
         .then(async(g)=>{
-          return await interaction.reply({
+          await interaction.reply({
             embeds:[{
               author: {
                 name: `${g.name} から脱退しました`,
@@ -63,7 +63,7 @@ module.exports = async(interaction,client)=>{
           })
         })
         .catch(async(error)=>{
-          return await interaction.reply({
+          await interaction.reply({
             embeds:[{
               author: {
                 name: "サーバーから脱退できませんでした",
@@ -148,8 +148,7 @@ module.exports = async(interaction,client)=>{
           color: "RED",
           description: "グローバルチャットは、管理者によって強制的に切断されました\n再度登録するには`/global`を使用してください"
         }]
-      })
-      .catch(()=>{})
+      }).catch(()=>{});
 
       delete require.cache[require.resolve("../../data/global/sub.json")];
       delete require.cache[require.resolve("../../data/global/main.json")];
