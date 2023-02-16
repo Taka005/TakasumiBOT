@@ -44,7 +44,7 @@ process.on("uncaughtException",async(error)=>{
       description: `\`\`\`js\n${error.stack}\`\`\``,
       timestamp: new Date()
     }]
-  });
+  }).catch(()=>{});
 });
 
 process.on("unhandledRejection",async(error)=>{
@@ -56,5 +56,5 @@ process.on("unhandledRejection",async(error)=>{
       description: `\`\`\`js\n${error.stack}\`\`\``,
       timestamp: new Date()
     }]
-  });
+  }).catch(()=>{});
 });
