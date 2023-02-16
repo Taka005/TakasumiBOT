@@ -10,14 +10,14 @@ module.exports = async(interaction)=>{
         embeds:[{
           color: "GREEN",
           author: {
-            name:`${interaction.member.user.tag}の権限`,
+            name: `${interaction.member.user.tag}の権限`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
           footer: {
             text: "TakasumiBOT"
           },
-          description:`\`${permission(interaction.member.permissions.toArray()).join("`,`")}\``
+          description: `\`${permission(interaction.member.permissions.toArray()).join("`,`")}\``
         }]
       }).catch(async(error)=>{
         await interaction.reply({

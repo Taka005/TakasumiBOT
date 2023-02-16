@@ -15,8 +15,8 @@ module.exports = async(interaction)=>{
           title: "生成中..."
         }]
       });
-      const qr_response = await fetch(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURI(text)}&size=256x256&format=png`)
-        .then(res =>res.arrayBuffer()) 
+      const data = await fetch(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURI(text)}&size=256x256&format=png`)
+        .then(res=>res.blob()) 
         .catch(()=>{})
 
       await interaction.editReply({
@@ -31,7 +31,7 @@ module.exports = async(interaction)=>{
           },
           color: "GREEN"
         }],
-        files:[new MessageAttachment(Buffer.from(qr_response),"QRCode.png")]
+        files:[new MessageAttachment(data.stream(),"QRCode.png")]
       });
     }else{
       if(!isUrl(text)) return await interaction.reply({
@@ -53,11 +53,11 @@ module.exports = async(interaction)=>{
           title: "読み取り中..."
         }]
       });
-      const qr_response = await fetch(`https://api.qrserver.com/v1/read-qr-code/?fileurl=${encodeURI(text)}`)
+      const data = await fetch(`https://api.qrserver.com/v1/read-qr-code/?fileurl=${encodeURI(text)}`)
         .then(res =>res.json()) 
         .catch(()=>{})
 
-      if(qr_response[0].symbol[0].error) return await interaction.editReply({
+      if(data[0].symbol[0].error) return await interaction.editReply({
         embeds:[{
           author: {
             name: "QRコードが読み取れません",
@@ -74,7 +74,7 @@ module.exports = async(interaction)=>{
             name: "QRコードを読み取りました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
-          description: `内容\n\`\`\`${qr_response[0].symbol[0].data}\`\`\``,
+          description: `内容\n\`\`\`${data[0].symbol[0].data}\`\`\``,
           color: "GREEN"
         }]
       });

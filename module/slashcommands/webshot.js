@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
 
     await interaction.deferReply();
     try{
-      const shot = await fetch(`https://api.popcat.xyz/screenshot?url=${url}`)
+      const data = await fetch(`https://api.popcat.xyz/screenshot?url=${url}`)
         .then(res=>res.blob())
         .catch(()=>{})
 
@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
             url: "attachment://screenshot.png"
           },
         }],
-        files: [new MessageAttachment(shot.stream(),"screenshot.png")]
+        files: [new MessageAttachment(data.stream(),"screenshot.png")]
       });
     }catch(error){
       await interaction.editReply({

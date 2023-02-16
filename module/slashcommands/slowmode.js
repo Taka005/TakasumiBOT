@@ -28,7 +28,7 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    if(time < 0 || time > 21600 ) return await interaction.reply({
+    if(time < 0 || time > 21600) return await interaction.reply({
       embeds:[{
         author: {
           name: "引数が無効です",

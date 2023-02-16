@@ -17,10 +17,10 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
 
-    const short_response = await fetch(`https://is.gd/create.php?format=simple&url=${encodeURI(url)}`)
+    const data = await fetch(`https://is.gd/create.php?format=simple&url=${encodeURI(url)}`)
       .then(res=>res.text())
       .catch(()=>{})
       
-    await interaction.reply(short_response);
+    await interaction.reply(data);
   }
 }

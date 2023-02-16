@@ -8,14 +8,14 @@ module.exports = async(interaction)=>{
     await interaction.channel.send({
       embeds:[{
         color: "GREEN",
-        title:"このサーバーのガイドライン",
-        description: `${temp}`,
+        title: "このサーバーのガイドライン",
+        description: temp,
         thumbnail: {
           url: "https://cdn.taka.ml/images/system/guideline.png"
         }
       },
       {
-        color:"GREEN",
+        color: "GREEN",
         description: "続行するにはこのサーバーのガイドラインを守る必要があります。\n[Discord コミュニティガイドライン](https://discord.com/guidelines) も忘れないようにして下さい。"
       }],
       components: [

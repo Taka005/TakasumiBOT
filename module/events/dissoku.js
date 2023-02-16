@@ -17,8 +17,8 @@ module.exports = async(message)=>{
       await message.channel.send({
         embeds:[{
           color: "BLUE",
-          title:"UP通知",
-          description:"UPを受信しました\n1時間後に通知します"
+          title: "UP通知",
+          description: "UPを受信しました\n1時間後に通知します"
         }]  
       }).catch(()=>{})
 
@@ -28,21 +28,21 @@ module.exports = async(message)=>{
             content: `<@&${data[0].role}>`,
             embeds:[{
               color: "BLUE",
-              title:"UP通知",
-              description:"DISSOKUの時間です\n`/dissoku up`でサーバーの表示順位を上げよう！"
+              title: "UP通知",
+              description: "DISSOKUの時間です\n`/dissoku up`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000 * 60)
+        },60000*60)
       }else{
         setTimeout(async()=>{
           await message.channel.send({
             embeds:[{
               color: "BLUE",
-              title:"UP通知",
-              description:"DISSOKUの時間です\n`/dissoku up`でサーバーの表示順位を上げよう！"
+              title: "UP通知",
+              description: "DISSOKUの時間です\n`/dissoku up`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000 * 60)
+        },60000*60)
       }
     }
   }

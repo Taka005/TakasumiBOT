@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   const time = require("../lib/time");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "afk"){
-    const message = interaction.options.getString("message");
+    const message = interaction.options.getString("message")||"なし";
     
     if(message.length>300) return await interaction.reply({
       embeds:[{
