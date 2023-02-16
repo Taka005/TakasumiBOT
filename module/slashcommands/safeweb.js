@@ -24,7 +24,7 @@ module.exports = async(interaction)=>{
         .then(async(norton)=>{
 
         if(norton.indexOf("［注意］") !== -1){
-          await interaction.followUp({
+          await interaction.editReply({
             embeds:[{
               author: {
                 name: "このサイトは注意が必要です",
@@ -39,7 +39,7 @@ module.exports = async(interaction)=>{
             }]
           });
         }else if(norton.indexOf("警告") !== -1){
-          await interaction.followUp({
+          await interaction.editReply({
             embeds:[{
               author: {
                 name: "このサイトは危険です",
@@ -54,7 +54,7 @@ module.exports = async(interaction)=>{
             }]
           })
         }else if(norton.indexOf("未評価") !== -1){
-          await interaction.followUp({
+          await interaction.editReply({
             embeds:[{
               author: {
                 name: "このサイトは評価されていません",
@@ -69,7 +69,7 @@ module.exports = async(interaction)=>{
             }]
           })
         }else{
-          await interaction.followUp({
+          await interaction.editReply({
             embeds:[{
               author: {
                 name: "このサイトは安全です",
@@ -86,7 +86,7 @@ module.exports = async(interaction)=>{
         }
       });
     }catch{
-      await interaction.followUp({
+      await interaction.editReply({
         embeds:[{
           author: {
             name: "安全性を評価できませんでした",
