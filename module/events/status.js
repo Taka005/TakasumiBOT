@@ -22,3 +22,4 @@ module.exports = async(client)=>{
 
   console.log(`\x1b[34mINFO: Account ${client.user.tag}`);
   console.log(`\x1b[34mINFO: Server:${client.guilds.cache.size} User:${client.guilds.cache.map((g)=>g.memberCount).reduce((a,c)=>a+c)}`)
+  

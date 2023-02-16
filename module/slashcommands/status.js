@@ -13,7 +13,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         color: "BLUE",
         description: "計測中...",
-        timestamp: new Date(),
+        timestamp: new Date()
       }]
     });
 
@@ -21,7 +21,7 @@ module.exports = async(interaction,client)=>{
       require("os-utils").cpuUsage(resolve)
     );
 
-    const members = await mysql("SELECT * FROM account");
+    const account = await mysql("SELECT * FROM account");
     
     const chat = Object.keys(global).length/client.guilds.cache.size*100
 
@@ -46,7 +46,7 @@ module.exports = async(interaction,client)=>{
           },
           {
             name: "Discord",
-            value: `Ping: ${client.ws.ping}㍉秒\nGC登録数: ${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数: ${Object.keys(hiroyuki).length}\nTakasumiBOT Account: ${members.length}人\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
+            value: `Ping: ${client.ws.ping}㍉秒\nGC登録数: ${Object.keys(global).length} / ${client.guilds.cache.size} (${Math.round(chat)}%)\nひろゆき登録数: ${Object.keys(hiroyuki).length}\nTakasumiBOT Account: ${account.length}人\nServer Uptime: ${Math.round(os.uptime() / 60)}分(BOT: ${Math.round(process.uptime() / 60)}分)`
           }
         ]
       }],
