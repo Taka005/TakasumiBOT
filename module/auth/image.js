@@ -21,18 +21,6 @@ module.exports = async(interaction)=>{
       .then(res=>res.blob())
       .catch(()=>{});
 
-    const selects = new MessageSelectMenu()
-      .setCustomId(`imagerole_${role[1]}_${auth.text}`)
-      .setPlaceholder("正しいものを選択")
-      .setMinValues(1)
-      .setMaxValues(1)
-      .addOptions(
-        keys.map(c=>({
-          label: c.text,
-          value: c.text,
-        }))
-      )
-
     await interaction.reply({
       embeds:[{
         title: "画像認証",          
@@ -45,7 +33,18 @@ module.exports = async(interaction)=>{
       files: [new MessageAttachment(image.stream(),"code.png")],
       components: [     
         new MessageActionRow()
-          .addComponents(selects)
+          .addComponents(
+            new MessageSelectMenu()
+              .setCustomId(`imagerole_${role[1]}_${auth.text}`)
+              .setPlaceholder("正しいものを選択")
+              .setMinValues(1)
+              .setMaxValues(1)
+              .addOptions(
+                keys.map(c=>({
+                  label: c.text,
+                  value: c.text,
+                }))
+              ))
       ],
       ephemeral:true
     });
