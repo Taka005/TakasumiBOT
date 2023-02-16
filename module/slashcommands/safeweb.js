@@ -20,8 +20,8 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
     try{
       await fetch(`https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`)
-        .then(res => res.text())
-        .then(async(norton) =>{
+        .then(res=>res.text())
+        .then(async(norton)=>{
 
         if(norton.indexOf("［注意］") !== -1){
           await interaction.followUp({
