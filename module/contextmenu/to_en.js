@@ -38,7 +38,7 @@ module.exports = async(interaction)=>{
     });
       
     const data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&dj=1&q=${encodeURIComponent(message.content)}`)
-      .then(res => res.json())
+      .then(res=>res.json())
       .catch(()=>{})
     
     try{
@@ -56,7 +56,7 @@ module.exports = async(interaction)=>{
           color: "BLUE",    
           description: translated.join(""),
           footer: {
-            text: `Google Translate [${translate_data.src}]->[en]`,
+            text: `Google Translate [${data.src}]->[en]`,
             icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]
