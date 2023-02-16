@@ -93,7 +93,7 @@ module.exports = async(interaction)=>{
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
           await interaction.reply({
-            content:`${interaction.member}`,
+            content:`<@${interaction.member.user.id}>`,
             embeds:[{
               author: {
                 name: "登録の削除が完了しました",
@@ -110,7 +110,7 @@ module.exports = async(interaction)=>{
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
 
           await interaction.reply({
-            content:`${interaction.member}`,
+            content:`<@${interaction.member.user.id}>`,
             embeds:[{
               author: {
                 name: "登録の削除が完了しました",

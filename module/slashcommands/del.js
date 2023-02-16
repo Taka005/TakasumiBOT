@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description: "削除するメッセージの数は`2`以上`100`以下にする必要があります"
+        description: "削除するメッセージの数は`2`以上`99`以下にする必要があります"
       }],
       ephemeral:true
     });
@@ -56,7 +56,7 @@ module.exports = async(interaction)=>{
         ephemeral:true
       });
 
-      return await interaction.channel.bulkDelete(msg)
+      await interaction.channel.bulkDelete(msg)
         .then(async()=>{
           await interaction.reply({
             content:`<@${interaction.member.user.id}>`,
@@ -96,48 +96,48 @@ module.exports = async(interaction)=>{
             ephemeral:true
           })
         });
+    }else{
+      const messages = await interaction.channel.messages.fetch({ limit: number })         
+      await interaction.channel.bulkDelete(messages)
+        .then(async()=>{
+          await interaction.reply({
+            content: `<@${interaction.member.user.id}>`,
+            embeds:[{
+              author: {
+                name: `${number}個のメッセージを削除しました`,
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+              },
+              color: "GREEN"
+            }]
+          })
+        })
+        .catch(async(error)=>{
+          await interaction.reply({
+            embeds:[{
+              author: {
+                name: "削除できませんでした",
+                icon_url: "https://cdn.taka.ml/images/system/error.png",
+              },
+              color: "RED",
+              description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,
+              fields: [
+                {
+                  name: "エラーコード",
+                  value: `\`\`\`${error}\`\`\``
+                }
+              ]
+            }],
+            components: [
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK"))
+            ],
+            ephemeral:true
+          })
+        });
     }
-
-    const messages = await interaction.channel.messages.fetch({ limit: number })         
-    await interaction.channel.bulkDelete(messages)
-      .then(async()=>{
-        await interaction.reply({
-          content:`${interaction.member}`,
-          embeds:[{
-            author: {
-              name: `${number}個のメッセージを削除しました`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
-            },
-            color: "GREEN"
-          }]
-        })
-      })
-      .catch(async(error)=>{
-        await interaction.reply({
-          embeds:[{
-            author: {
-              name: "削除できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
-            },
-            color: "RED",
-            description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,
-            fields: [
-              {
-                name: "エラーコード",
-                value: `\`\`\`${error}\`\`\``
-              }
-            ]
-          }],
-          components: [
-            new MessageActionRow()
-              .addComponents( 
-                new MessageButton()
-                  .setLabel("サポートサーバー")
-                  .setURL("https://discord.gg/NEesRdGQwD")
-                  .setStyle("LINK"))
-          ],
-          ephemeral:true
-        })
-      });
   }
 }
