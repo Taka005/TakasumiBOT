@@ -4,26 +4,26 @@ module.exports = async(client)=>{
   require("dotenv").config();
   const connect = require("./connect");
 
-  function websocket(){
-    const Client = new ws("wss://ugc.renorari.net/api/v2/gateway");
+  function connection(){
+    const websocket = new ws("wss://ugc.renorari.net/api/v2/gateway");
 
-    Client.on("close",(code,reason)=>{
-      setTimeout(() =>{
-        websocket();
-      }, 10000);
-      return console.log(`\x1b[33mWARN: UGC Close ${code} ${reason}`); 
+    websocket.on("close",(code,reason)=>{
+      console.log(`\x1b[33mWARN: UGC Close ${code} ${reason}`); 
+      setTimeout(()=>{
+        connection();
+      },10000);
     });
     
-    Client.on("error",(error)=>{
-      return console.log(`\x1b[31mERROR: ${error}`); 
+    websocket.on("error",(error)=>{
+      console.log(`\x1b[31mERROR: ${error}`); 
     });
 
-    Client.on("message",(rawData)=>{
+    websocket.on("message",(rawData)=>{
       zlib.inflate(rawData,(err,_data)=>{
         if(err) return console.log(`\x1b[31mERROR: ${err}`);
         let data = JSON.parse(_data);
         if(data.type === "hello"){
-          Client.send(zlib.deflateSync(JSON.stringify({
+          websocket.send(zlib.deflateSync(JSON.stringify({
             "type": "identify",
             "data": {
               "token": process.env.UGC_KEY
@@ -41,7 +41,7 @@ module.exports = async(client)=>{
           console.log(`\x1b[34mINFO: Connect UGC`); 
 
           setInterval(()=>{
-            Client.send(zlib.deflateSync(JSON.stringify({
+            websocket.send(zlib.deflateSync(JSON.stringify({
               "type": "heartbeat"
             }),(err)=>{
               if(err) return console.log(`\x1b[31mERROR: ${err}`); 
@@ -51,5 +51,5 @@ module.exports = async(client)=>{
       });
     });
   }
-  websocket()
+  connection()
 }
