@@ -21,7 +21,7 @@ module.exports = async(client)=>{
     websocket.on("message",(rawData)=>{
       zlib.inflate(rawData,(err,_data)=>{
         if(err) return console.log(`\x1b[31mERROR: ${err}`);
-        let data = JSON.parse(_data);
+        const data = JSON.parse(_data);
         if(data.type === "hello"){
           websocket.send(zlib.deflateSync(JSON.stringify({
             "type": "identify",
@@ -33,9 +33,7 @@ module.exports = async(client)=>{
             }
           ));
         }else if(data.type === "message"){
-          const msg = data.data.data
-          return connect(msg,client);
-
+          connect(data.data.data,client);
         }else if(data.type === "identify"){
           if(!data.success) return console.log(`\x1b[31mERROR: Connect UGC Failed`); 
           console.log(`\x1b[34mINFO: Connect UGC`); 
