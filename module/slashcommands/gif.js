@@ -8,11 +8,11 @@ module.exports = async(interaction)=>{
 
     await interaction.deferReply();
     try{
-      const gif_res = await fetch(`https://g.tenor.com/v1/search?q=${name}&key=${process.env.GIF_KEY}&limit=1&media_filter=minimal`)
+      const data = await fetch(`https://g.tenor.com/v1/search?q=${name}&key=${process.env.GIF_KEY}&limit=1&media_filter=minimal`)
         .then(res=>res.json())
         .catch(()=>{});
 
-      const gif_data = await fetch(gif_res.results[0].media[0].gif.url)
+      const image = await fetch(data.results[0].media[0].gif.url)
         .then(res=>res.blob())
         .catch(()=>{});
 
@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
             url: "attachment://result.gif"
           },
         }],
-        files: [new MessageAttachment(gif_data.stream(),"result.gif")]
+        files: [new MessageAttachment(image.stream(),"result.gif")]
       });
     }catch{
       await interaction.editReply({
