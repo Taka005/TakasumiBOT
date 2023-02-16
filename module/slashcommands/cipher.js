@@ -50,7 +50,7 @@ module.exports = async(interaction)=>{
     }else{
       try{
         const decipher = crypto.createDecipher("aes-128-cbc", key);
-        decipher.update(text, "hex", "utf8");
+        decipher.update(text,"hex","utf8");
 
         await interaction.reply({
           embeds:[{

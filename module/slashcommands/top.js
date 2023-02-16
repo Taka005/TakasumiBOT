@@ -21,7 +21,7 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
     await interaction.editReply({
       embeds: [{
-        color:"GREEN",
+        color: "GREEN",
         description: "取得中..."
       }]
     });
@@ -31,8 +31,8 @@ module.exports = async(interaction)=>{
 
     await interaction.editReply({
       embeds: [{
-        color:"GREEN",
-        title:"最初のメッセージ",
+        color: "GREEN",
+        title: "最初のメッセージ",
         description: "下のリンクから飛べます"
       }],
       components: [

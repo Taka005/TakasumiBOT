@@ -12,7 +12,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description:"指定したユーザーが存在していないか、サーバーから退出しています"
+        description: "指定したユーザーが存在していないか、サーバーから退出しています"
       }],
       ephemeral:true
     });
@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         color: "GREEN",
         author: {
-          name:`${member.user.tag}の検索結果`,
+          name: `${member.user.tag}の検索結果`,
           url: `https://discord.com/users/${member.user.id}`,
           icon_url: "https://cdn.taka.ml/images/system/success.png"
         },

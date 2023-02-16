@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         color: "GREEN",
         author: {
-          name:`${member.user.tag}のアバター`,
+          name: `${member.user.tag}のアバター`,
           icon_url: "https://cdn.taka.ml/images/system/success.png"
         },
         thumbnail: {

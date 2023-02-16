@@ -62,7 +62,7 @@ module.exports = async(message,client)=>{
   try{
     const reply_webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
     const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
-    const author = msg.embeds[0].author.name
+    const author = msg.embeds[0].author.name;
 
     if(!message.attachments.first()){
       async.each(Object.keys(main),async(channels)=>{//添付ファイルなし
@@ -88,8 +88,8 @@ module.exports = async(message,client)=>{
                 }
               ],
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>`,
-                icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+                text: `${message.guild.name}<${message.guild.id}>`,
+                icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
               image: {
                 url: `https://${message.id}.ugc`
@@ -130,7 +130,7 @@ module.exports = async(message,client)=>{
               ],
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
-                icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+                icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
               image: {
                 url: `https://${message.id}.ugc`
@@ -172,8 +172,8 @@ module.exports = async(message,client)=>{
               },
               description: `${content}`,
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>` ,
-                icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+                text: `${message.guild.name}<${message.guild.id}>` ,
+                icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
               fields: [
                 {
@@ -228,8 +228,8 @@ module.exports = async(message,client)=>{
                 }
               ],
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>`,
-                icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+                text: `${message.guild.name}<${message.guild.id}>`,
+                icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
               image: {
                 url: `https://${message.id}.ugc`
@@ -269,7 +269,7 @@ module.exports = async(message,client)=>{
               ],
               footer: {
                 text: `${message.guild.name}<${message.guild.id}>`,
-                icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+                icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
               image: {
                 url: `https://${message.id}.ugc`
@@ -310,8 +310,8 @@ module.exports = async(message,client)=>{
               },
               description: `${content}`,
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>` ,
-                icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+                text: `${message.guild.name}<${message.guild.id}>` ,
+                icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
               fields: [
                 {
@@ -368,5 +368,5 @@ function err(channels,client,error){
       ]
     }]
   })
-  .catch(()=>{})
+  .catch(()=>{});
 }

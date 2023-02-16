@@ -28,21 +28,21 @@ module.exports = async(message)=>{
             content: `<@&${data[0].role}>`,
             embeds:[{
               color: "WHITE",
-              title:"BUMP通知",
-              description:"BUMPの時間です\n`/bump`でサーバーの表示順位を上げよう！"
+              title: "BUMP通知",
+              description: "BUMPの時間です\n`/bump`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000 * 120)
+        },60000*120)
       }else{
         setTimeout(async()=>{
           await message.channel.send({
             embeds:[{
               color: "WHITE",
-              title:"BUMP通知",
-              description:"BUMPの時間です\n`/bump`でサーバーの表示順位を上げよう！"
+              title: "BUMP通知",
+              description: "BUMPの時間です\n`/bump`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000 * 120)
+        },60000*120)
       }
     }
   }

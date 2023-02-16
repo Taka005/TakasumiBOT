@@ -112,7 +112,7 @@ module.exports = async(message,client)=>{
             description: content,
             footer: {
               text: `${message.guild.name}<${message.guild.id}>`,
-              icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+              icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
             },
             image: {
               url: `https://${message.id}.ugc`
@@ -152,8 +152,8 @@ module.exports = async(message,client)=>{
             },
             description: content,
             footer: {
-              text:`${message.guild.name}<${message.guild.id}>` ,
-              icon_url:message.guild.iconURL() ||"https://cdn.discordapp.com/embed/avatars/0.png"
+              text: `${message.guild.name}<${message.guild.id}>` ,
+              icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
             },
             fields: [
               {
@@ -205,5 +205,5 @@ function err(channels,client,error){
       ]
     }]
   })
-  .catch(()=>{})
+  .catch(()=>{});
 }

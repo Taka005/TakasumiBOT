@@ -41,8 +41,7 @@ module.exports = async(client)=>{
             .addStringOption(option =>
               option
                 .setName("message")
-                .setDescription("代わりに送信するメッセージ")
-                .setRequired(true)),
+                .setDescription("代わりに送信するメッセージ")),
           //auth
           new SlashCommandBuilder()
             .setName("auth")
@@ -683,7 +682,7 @@ module.exports = async(client)=>{
             .setName("日本語に翻訳")
             .setType(ApplicationCommandType.Message)
         ]
-      },
+      }
   );
 
   client.channels.cache.get(config.log).send("スラッシュコマンドをリロードしました");

@@ -7,12 +7,12 @@ module.exports = async(interaction)=>{
       const add = interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
       const remove = interaction.values.filter((role)=>!add.includes(role));
 
-      add.forEach(role =>{
+      add.forEach(role=>{
         interaction.member.roles.add(role)
           .catch(()=>{})
       });
 
-      remove.forEach(role =>{
+      remove.forEach(role=>{
         interaction.member.roles.remove(role)
           .catch(()=>{})
       });

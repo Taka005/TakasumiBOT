@@ -83,7 +83,7 @@ module.exports = async(interaction)=>{
     }else if(type === "panel"){
       await interaction.channel.send({
         embeds: [{
-          color:"BLUE",
+          color: "BLUE",
             description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
           }],
           components: [

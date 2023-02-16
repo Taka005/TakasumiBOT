@@ -106,7 +106,7 @@ module.exports = async(interaction)=>{
                   icon_url: "https://cdn.taka.ml/images/system/error.png",
                 },
                 color: "RED",
-                description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`,
+                description: "BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています",
                 fields: [
                   {
                     name: "エラーコード",

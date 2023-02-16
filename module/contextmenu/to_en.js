@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "英語に翻訳"){
     const message = interaction.options.getMessage("message");
     if(!message.content) return await interaction.reply({
-      content:`[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
+      content: `[翻訳元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id}/)`,
       embeds:[{
         author: {
           name: "翻訳できませんでした",
@@ -37,12 +37,12 @@ module.exports = async(interaction)=>{
       ephemeral:true
     });
       
-    const translate_data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&dj=1&q=${encodeURIComponent(message.content)}`)
-      .then(res => res.json())
+    const data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&dj=1&q=${encodeURIComponent(message.content)}`)
+      .then(res=>res.json())
       .catch(()=>{})
     
     try{
-      const translated = translate_data.sentences.map((sentence)=>{
+      const translated = data.sentences.map((sentence)=>{
         return sentence.trans
       });
 
@@ -56,7 +56,7 @@ module.exports = async(interaction)=>{
           color: "BLUE",    
           description: translated.join(""),
           footer: {
-            text: `Google Translate [${translate_data.src}]->[en]`,
+            text: `Google Translate [${data.src}]->[en]`,
             icon_url: "https://cdn.taka.ml/images/translate.png"
           }
         }]

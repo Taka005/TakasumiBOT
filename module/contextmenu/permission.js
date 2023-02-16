@@ -22,7 +22,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           color: "GREEN",
           author: {
-            name:`${member.user.tag}の権限`,
+            name: `${member.user.tag}の権限`,
             url: `https://discord.com/users/${member.user.id}`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
@@ -30,7 +30,7 @@ module.exports = async(interaction)=>{
           footer: {
             text: "TakasumiBOT"
           },
-          description:`\`${permission(member.permissions.toArray()).join("`,`")}\``
+          description: `\`${permission(member.permissions.toArray()).join("`,`")}\``
         }]
       })
     }catch(error){

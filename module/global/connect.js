@@ -28,7 +28,7 @@ module.exports = async(msg,client)=>{
               },
               description: message.content,
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>`,
+                text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL
               },
               image: {
@@ -97,7 +97,7 @@ module.exports = async(msg,client)=>{
               },
               description: message.content,
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>` ,
+                text: `${message.guild.name}<${message.guild.id}>` ,
                 icon_url: message.guild.iconURL
               },
               fields: [
@@ -142,7 +142,7 @@ module.exports = async(msg,client)=>{
                 }
               ],
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>`,
+                text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL
               },
               image: {
@@ -217,7 +217,7 @@ module.exports = async(msg,client)=>{
               },
               description: message.content,
               footer: {
-                text:`${message.guild.name}<${message.guild.id}>` ,
+                text: `${message.guild.name}<${message.guild.id}>` ,
                 icon_url: message.guild.iconURL
               },
               fields: [
@@ -273,5 +273,5 @@ function err(channels,client,error){
       ]
     }]
   })
-  .catch(()=>{})
+  .catch(()=>{});
 }

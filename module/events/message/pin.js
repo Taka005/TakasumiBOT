@@ -20,7 +20,7 @@ module.exports = async(message,client)=>{
             color: "GREEN",
             author: {
               name: before.embeds[0].author.name,
-              icon_url:before.embeds[0].author.iconURL,
+              icon_url: before.embeds[0].author.iconURL,
             },
             description: before.embeds[0].description,
             footer: {

@@ -39,13 +39,13 @@ module.exports = async(client)=>{
         bot:client.user.tag,
         ping:client.ws.ping,
         guild:client.guilds.cache.size,
-        user:client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)
+        user:client.guilds.cache.map((g)=>g.memberCount).reduce((a,c)=>a+c)
       },
       system:{
         ram:{   
           total:os.totalmem(),
           free:os.freemem(),
-          use:os.totalmem() - os.freemem()
+          use:os.totalmem()-os.freemem()
         },
         uptime:{
           os:os.uptime(),

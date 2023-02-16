@@ -31,10 +31,11 @@ module.exports = async(interaction)=>{
           ephemeral:true
         });
       }
+
       await interaction.reply({
         embeds:[{
           color: "RANDOM",
-          title:`${title}`,
+          title: `${title}`,
           description: `${description}`,
           image: {
             url: `${image}`

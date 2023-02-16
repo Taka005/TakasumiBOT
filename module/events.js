@@ -25,7 +25,7 @@ module.exports = async(client)=>{
 
     //event/message
     fs.readdir("./module/events/message/",(err,files)=>{ 
-      files.forEach((file) =>{
+      files.forEach((file)=>{
         if(!file.endsWith(`.js`)) return;
         const event = require(`./events/message/${file}`);
         event(message,client);
@@ -39,7 +39,7 @@ module.exports = async(client)=>{
 
     //コマンド
     fs.readdir("./module/commands/",(err,files)=>{ 
-      files.forEach((file) =>{
+      files.forEach((file)=>{
         if(!file.endsWith(`.js`)) return;
         const event = require(`./commands/${file}`);
         event(message,client);

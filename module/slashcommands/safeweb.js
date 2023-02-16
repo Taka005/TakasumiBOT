@@ -20,8 +20,8 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
     try{
       await fetch(`https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`)
-        .then(res => res.text())
-        .then(async(norton) =>{
+        .then(res=>res.text())
+        .then(async(norton)=>{
 
         if(norton.indexOf("［注意］") !== -1){
           await interaction.followUp({
@@ -46,7 +46,7 @@ module.exports = async(interaction)=>{
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
                 url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
               },
-              description: `これは既知の危険な Web サイトです。\nこのページを表示**しない**ことを推奨します。`,
+              description: "これは既知の危険な Web サイトです。\nこのページを表示**しない**ことを推奨します。",
               footer: {
                 text: "Powered by Norton Safeweb"
               },
@@ -61,7 +61,7 @@ module.exports = async(interaction)=>{
                 icon_url: "https://cdn.taka.ml/images/system/config.png",
                 url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
               },
-              description: `サイトは未評価のため、接続には注意が必要な可能性があります`,
+              description: "サイトは未評価のため、接続には注意が必要な可能性があります",
               footer: {
                 text: "Powered by Norton Safeweb"
               },
@@ -76,7 +76,7 @@ module.exports = async(interaction)=>{
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
                 url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
               },
-              description: `サイトからは脅威が確認されませんでした。\n安全に接続が可能です`,
+              description: "サイトからは脅威が確認されませんでした。\n安全に接続が可能です",
               footer: {
                 text: "Powered by Norton Safeweb"
               },

@@ -32,7 +32,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: "実行がタイムアウトしました",
           footer: {
-            text:`${lang[1]} || TakasumiBOT`
+            text: `${lang[1]} || TakasumiBOT`
           }
         }]
       }).catch(()=>{})
@@ -65,7 +65,7 @@ module.exports = async(interaction)=>{
           },
           description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**結果**\n\`\`\`${res.program_output||"なし"}\`\`\``,
           footer: {
-            text:`${lang[1]} || TakasumiBOT`
+            text: `${lang[1]} || TakasumiBOT`
           }
         }]
       }).catch(async()=>{
@@ -78,7 +78,7 @@ module.exports = async(interaction)=>{
             color: "RED",
             description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,
             footer: {
-              text:`${lang[1]} || TakasumiBOT`
+              text: `${lang[1]} || TakasumiBOT`
             }
           }]
         });
@@ -93,7 +93,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n\`\`\`${res.program_error}\`\`\``,
           footer: {
-            text:`${lang[1]} || TakasumiBOT`
+            text: `${lang[1]} || TakasumiBOT`
           }
         }]
       }).catch(async()=>{
@@ -106,7 +106,7 @@ module.exports = async(interaction)=>{
             color: "RED",
             description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,
             footer: {
-              text:`${lang[1]} || TakasumiBOT`
+              text: `${lang[1]} || TakasumiBOT`
             }
           }]
         });

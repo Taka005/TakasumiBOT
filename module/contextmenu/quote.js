@@ -5,7 +5,7 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "Make it a Quote"){
     const message = interaction.options.getMessage("message");
     await interaction.deferReply();
-    await interaction.editReply("生成中...")
+    await interaction.editReply("生成中...");
 
     Canvas.registerFont('./file/quote/nijimi.ttf',{ family: "nijimi" });
     const canvas = Canvas.createCanvas(1200, 600);
@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
     }
     context.putImageData(dst, 0, 0);
 
-    const msg = message.cleanContent.replace(/(.{15})/g, "$1\n")
+    const msg = message.cleanContent.replace(/(.{15})/g, "$1\n");
 
     context.font = "45px nijimi";
     context.fillStyle = '#ffffff';
@@ -50,7 +50,7 @@ module.exports = async(interaction)=>{
      
     interaction.editReply({ 
       content: `[生成元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`,
-      files: [new MessageAttachment(canvas.toBuffer(), "Takasumi_Quote.png")]
+      files: [new MessageAttachment(canvas.toBuffer(),"Takasumi_Quote.png")]
     }); 
   }
 }

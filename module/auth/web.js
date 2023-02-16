@@ -17,7 +17,6 @@ module.exports = async(interaction)=>{
     });
 
     const account = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
-
     if(!account[0]) return await interaction.reply({
       embeds:[{
         author: {
