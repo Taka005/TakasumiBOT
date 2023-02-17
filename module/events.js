@@ -25,12 +25,10 @@ module.exports = async(client)=>{
       .catch(()=>{});
 
     //event/message
-    fs.readdir("./module/events/message/",(err,files)=>{ 
-      files.forEach((file)=>{
-        if(!file.endsWith(`.js`)) return;
-        const event = require(`./events/message/${file}`);
-        event(message,client);
-      });
+    async.each(fs.readdirSync("./module/events/message/"),async(file)=>{
+      if(!file.endsWith(".js")) return;
+      const event = require(`./events/message/${file}`);
+      await event(message,client);
     });
 
     if(message.channel.type !== "GUILD_TEXT"||message.author.bot) return;  
@@ -38,12 +36,10 @@ module.exports = async(client)=>{
     console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
 
     //コマンド
-    fs.readdir("./module/commands/",(err,files)=>{ 
-      files.forEach((file)=>{
-        if(!file.endsWith(`.js`)) return;
-        const event = require(`./commands/${file}`);
-        event(message,client);
-      });
+    async.each(fs.readdirSync("./module/commands/"),async(file)=>{
+      if(!file.endsWith(".js")) return;
+      const event = require(`./commands/${file}`);
+      await event(message,client);
     });
   });
 
