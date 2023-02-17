@@ -649,7 +649,7 @@ module.exports = async(client)=>{
             .setDescription("wikipediaで検索して、表示します")
             .addStringOption(option =>
               option
-                .setName("name")
+                .setName("word")
                 .setDescription("検索ワード")
                 .setRequired(true)),
           //ContextMenu

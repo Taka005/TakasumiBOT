@@ -2,9 +2,9 @@ module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "wiki"){
-    const name = interaction.options.getString("name");
+    const word = interaction.options.getString("word");
 
-    const data = await fetch(`https://ja.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(name)}`)
+    const data = await fetch(`https://ja.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(word)}`)
       .then(res=>res.json())
       .catch(()=>{})
 

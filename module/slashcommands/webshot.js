@@ -1,7 +1,7 @@
 module.exports = async(interaction)=>{
   const isUrl = require("../lib/isUrl");
   const fetch = require("node-fetch");
-  const { MessageAttachment, MessageButton, MessageActionRow } = require("discord.js");
+  const { MessageAttachment } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "webshot"){
     const url = interaction.options.getString("url");
@@ -45,21 +45,8 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          fields: [
-            {
-              name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
-            }
-          ]
+          description: "URLを変えてやり直してください"
         }],
-        components: [
-          new MessageActionRow()
-            .addComponents( 
-              new MessageButton()
-                .setLabel("サポートサーバー")
-                .setURL("https://discord.gg/NEesRdGQwD")
-                .setStyle("LINK"))
-        ],
         ephemeral:true
       });
     }
