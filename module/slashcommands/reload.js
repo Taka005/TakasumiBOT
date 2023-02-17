@@ -1,6 +1,5 @@
 module.exports = async(interaction,client)=>{
   const fs = require("fs");
-  const async = require("async");
   const { admin } = require("../../config.json");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "reload"){
