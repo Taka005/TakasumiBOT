@@ -1,7 +1,6 @@
 module.exports = async(client)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   const fs = require("fs");
-  const async = require("async");
 
   client.once("ready",async(client)=>{
     const status = require("./events/status");
@@ -25,21 +24,25 @@ module.exports = async(client)=>{
       .catch(()=>{});
 
     //event/message
-    async.each(fs.readdirSync("./module/events/message/"),async(file)=>{
-      if(!file.endsWith(".js")) return;
-      const event = require(`./events/message/${file}`);
-      await event(message,client);
+    fs.readdir("./module/events/message/",(err,files)=>{ 
+      files.forEach((file)=>{
+        if(!file.endsWith(`.js`)) return;
+        const event = require(`./events/message/${file}`);
+        event(message,client);
+      });
     });
-
+    
     if(message.channel.type !== "GUILD_TEXT"||message.author.bot) return;  
 
     console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
 
     //コマンド
-    async.each(fs.readdirSync("./module/commands/"),async(file)=>{
-      if(!file.endsWith(".js")) return;
-      const event = require(`./commands/${file}`);
-      await event(message,client);
+    fs.readdir("./module/commands/",(err,files)=>{ 
+      files.forEach((file)=>{
+        if(!file.endsWith(`.js`)) return;
+        const event = require(`./commands/${file}`);
+        event(message,client);
+      });
     });
   });
 
@@ -82,58 +85,38 @@ module.exports = async(client)=>{
       ]
     });
 
-    try{
-      //event/interaction
-      async.each(fs.readdirSync("./module/events/interaction/"),async(file)=>{
-        if(!file.endsWith(".js")) return;
+    //event/interaction
+    fs.readdir("./module/events/interaction/",(err,files)=>{ 
+      files.forEach(async(file)=>{
+        if(!file.endsWith(`.js`)) return;
         const event = require(`./events/interaction/${file}`);
         await event(interaction,client);
       });
-      //auth
-      async.each(fs.readdirSync("./module/auth/"),async(file)=>{
-        if(!file.endsWith(".js")) return;
+    });
+    //auth
+    fs.readdir("./module/auth/",(err,files)=>{ 
+      files.forEach(async(file)=>{
+        if(!file.endsWith(`.js`)) return;
         const event = require(`./auth/${file}`);
         await event(interaction,client);
       });
-      //slashcommands
-      async.each(fs.readdirSync("./module/slashcommands/"),async(file)=>{
-        if(!file.endsWith(".js")) return;
+    });
+    //slashcommands
+    fs.readdir("./module/slashcommands/",(err,files)=>{ 
+      files.forEach(async(file)=>{
+        if(!file.endsWith(`.js`)) return;
         const event = require(`./slashcommands/${file}`);
         await event(interaction,client);
       });
-      //contextmenu
-      async.each(fs.readdirSync("./module/contextmenu/"),async(file)=>{
-        if(!file.endsWith(".js")) return;
+    });
+    //contextmenu
+    fs.readdir("./module/contextmenu/",(err,files)=>{ 
+      files.forEach(async(file)=>{
+        if(!file.endsWith(`.js`)) return;
         const event = require(`./contextmenu/${file}`);
         await event(interaction,client);
       });
-    }catch(error){
-      await interaction.reply({ 
-        embeds:[{
-          author: {
-            name: "エラーが発生しました",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
-          },
-          color: "RED",
-          description: "複数回実行しても発生する場合はサポートサーバーに報告してください",
-          fields: [
-            {
-              name: "エラーコード",
-              value: `\`\`\`${error.stack}\`\`\``
-            }
-          ]
-        }], 
-        components: [
-          new MessageActionRow()
-            .addComponents( 
-              new MessageButton()
-                .setLabel("サポートサーバー")
-                .setURL("https://discord.gg/NEesRdGQwD")
-                .setStyle("LINK"))
-        ],
-        ephemeral: true 
-      });
-    }
+    });
   });
 
   client.on("guildMemberAdd",async(member)=>{
