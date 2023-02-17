@@ -74,6 +74,14 @@ module.exports = async(interaction,client)=>{
               }
             ]
           }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK"))
+          ],
           ephemeral:true
         })
       });
