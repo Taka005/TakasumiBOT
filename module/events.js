@@ -1,6 +1,7 @@
 module.exports = async(client)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   const fs = require("fs");
+  const async = require("async");
 
   client.once("ready",async(client)=>{
     const status = require("./events/status");
@@ -34,7 +35,6 @@ module.exports = async(client)=>{
 
     if(message.channel.type !== "GUILD_TEXT"||message.author.bot) return;  
 
-    //log
     console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
 
     //コマンド
@@ -88,36 +88,28 @@ module.exports = async(client)=>{
 
     try{
       //event/interaction
-      fs.readdir("./module/events/interaction/",(err,files)=>{ 
-        files.forEach(async(file)=>{
-          if(!file.endsWith(`.js`)) return;
-          const event = require(`./events/interaction/${file}`);
-          await event(interaction,client);
-        });
+      async.each(fs.readdirSync("./module/events/interaction/"),async(file)=>{
+        if(!file.endsWith(".js")) return;
+        const event = require(`./events/interaction/${file}`);
+        await event(interaction,client);
       });
       //auth
-      fs.readdir("./module/auth/",(err,files)=>{ 
-        files.forEach(async(file)=>{
-          if(!file.endsWith(`.js`)) return;
-          const event = require(`./auth/${file}`);
-          await event(interaction,client);
-        });
+      async.each(fs.readdirSync("./module/auth/"),async(file)=>{
+        if(!file.endsWith(".js")) return;
+        const event = require(`./auth/${file}`);
+        await event(interaction,client);
       });
       //slashcommands
-      fs.readdir("./module/slashcommands/",(err,files)=>{ 
-        files.forEach(async(file)=>{
-          if(!file.endsWith(`.js`)) return;
-          const event = require(`./slashcommands/${file}`);
-          await event(interaction,client);
-        });
+      async.each(fs.readdirSync("./module/slashcommands/"),async(file)=>{
+        if(!file.endsWith(".js")) return;
+        const event = require(`./slashcommands/${file}`);
+        await event(interaction,client);
       });
       //contextmenu
-      fs.readdir("./module/contextmenu/",(err,files)=>{ 
-        files.forEach(async(file)=>{
-          if(!file.endsWith(`.js`)) return;
-          const event = require(`./contextmenu/${file}`);
-          await event(interaction,client);
-        });
+      async.each(fs.readdirSync("./module/contextmenu/"),async(file)=>{
+        if(!file.endsWith(".js")) return;
+        const event = require(`./contextmenu/${file}`);
+        await event(interaction,client);
       });
     }catch(error){
       await interaction.reply({ 
@@ -127,7 +119,7 @@ module.exports = async(client)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          description: "複数回実行しても発生する場合は[サポートサーバー](https://discord.gg/NEesRdGQwD)に報告してください",
+          description: "複数回実行しても発生する場合はサポートサーバーに報告してください",
           fields: [
             {
               name: "エラーコード",
@@ -144,7 +136,7 @@ module.exports = async(client)=>{
                 .setStyle("LINK"))
         ],
         ephemeral: true 
-      }).catch(()=>{});
+      });
     }
   });
 
