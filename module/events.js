@@ -26,7 +26,7 @@ module.exports = async(client)=>{
     //event/message
     fs.readdir("./module/events/message/",(err,files)=>{ 
       files.forEach((file)=>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         const event = require(`./events/message/${file}`);
         event(message,client);
       });
@@ -39,7 +39,7 @@ module.exports = async(client)=>{
     //コマンド
     fs.readdir("./module/commands/",(err,files)=>{ 
       files.forEach((file)=>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         const event = require(`./commands/${file}`);
         event(message,client);
       });
@@ -88,7 +88,7 @@ module.exports = async(client)=>{
     //event/interaction
     fs.readdir("./module/events/interaction/",(err,files)=>{ 
       files.forEach(async(file)=>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         const event = require(`./events/interaction/${file}`);
         await event(interaction,client);
       });
@@ -96,7 +96,7 @@ module.exports = async(client)=>{
     //auth
     fs.readdir("./module/auth/",(err,files)=>{ 
       files.forEach(async(file)=>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         const event = require(`./auth/${file}`);
         await event(interaction,client);
       });
@@ -104,7 +104,7 @@ module.exports = async(client)=>{
     //slashcommands
     fs.readdir("./module/slashcommands/",(err,files)=>{ 
       files.forEach(async(file)=>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         const event = require(`./slashcommands/${file}`);
         await event(interaction,client);
       });
@@ -112,7 +112,7 @@ module.exports = async(client)=>{
     //contextmenu
     fs.readdir("./module/contextmenu/",(err,files)=>{ 
       files.forEach(async(file)=>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         const event = require(`./contextmenu/${file}`);
         await event(interaction,client);
       });
