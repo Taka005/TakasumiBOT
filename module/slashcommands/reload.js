@@ -17,81 +17,81 @@ module.exports = async(interaction,client)=>{
     });
     
     //commands
-    fs.readdir("./module/commands/", (err,files) =>{ 
+    fs.readdir("./module/commands/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../commands/${file}`);
         delete require.cache[require.resolve(`../commands/${file}`)];
       });
     });
     //ContextMenu
-    fs.readdir("./module/contextmenu/", (err,files) =>{ 
+    fs.readdir("./module/contextmenu/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../contextmenu/${file}`);
         delete require.cache[require.resolve(`../contextmenu/${file}`)];
       });
     });
     //events
-    fs.readdir("./module/events/", (err,files) =>{ 
+    fs.readdir("./module/events/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../events/${file}`);
         delete require.cache[require.resolve(`../events/${file}`)];
       });
     });
     //events/interaction
-    fs.readdir("./module/events/interaction/", (err,files) =>{ 
+    fs.readdir("./module/events/interaction/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../events/interaction/${file}`);
         delete require.cache[require.resolve(`../events/interaction/${file}`)];
       });
     });
     //events/message
-    fs.readdir("./module/events/message/", (err,files) =>{ 
+    fs.readdir("./module/events/message/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../events/message/${file}`);
         delete require.cache[require.resolve(`../events/message/${file}`)];
       });
     });
     //lib
-    fs.readdir("./module/lib/", (err,files) =>{ 
+    fs.readdir("./module/lib/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../lib/${file}`);
         delete require.cache[require.resolve(`../lib/${file}`)];
       });
     });
     //global
-    fs.readdir("./module/global/", (err,files) =>{ 
+    fs.readdir("./module/global/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../global/${file}`);
         delete require.cache[require.resolve(`../global/${file}`)];
       });
     });
     //slashcommands
-    fs.readdir("./module/slashcommands/", (err,files) =>{ 
+    fs.readdir("./module/slashcommands/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../slashcommands/${file}`);
         delete require.cache[require.resolve(`../slashcommands/${file}`)];
       });
     });
     //slashcommands
-    fs.readdir("./module/auth/", (err,files) =>{ 
+    fs.readdir("./module/auth/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../auth/${file}`);
         delete require.cache[require.resolve(`../auth/${file}`)];
       });
     });
     //api
-    fs.readdir("./module/api/", (err,files) =>{ 
+    fs.readdir("./module/api/",(err,files)=>{ 
       files.forEach((file) =>{
-        if(!file.endsWith(`.js`)) return;
+        if(!file.endsWith(".js")) return;
         require(`../api/${file}`);
         delete require.cache[require.resolve(`../api/${file}`)];
       });
