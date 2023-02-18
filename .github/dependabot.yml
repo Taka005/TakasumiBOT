@@ -5,3 +5,6 @@ updates:
     schedule:
       interval: "weekly"
     target-branch: "development"
+    update_types:
+      - "semver:patch"
+      - "semver:minor"
