@@ -3,7 +3,9 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
+      time: "18:00"
+      timezone: "Asia/Tokyo"
     target-branch: "development"
     ignore:
       - dependency-name: "*"
