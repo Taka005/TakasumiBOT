@@ -2,6 +2,7 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "about"){
+    
     await interaction.reply({
       embeds: [{
         color: "GREEN",

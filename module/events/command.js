@@ -27,7 +27,7 @@ module.exports = async(client)=>{
             .setDescription("BOTの広告を表示します")
             .addStringOption(option =>
               option
-                .setName("types")
+                .setName("type")
                 .setDescription("表示内容を変更します")
                 .setRequired(true)
                 .addChoices(
@@ -93,7 +93,7 @@ module.exports = async(client)=>{
             .setDescription("暗号を生成や、復号化をします")
             .addStringOption(option =>
               option
-                .setName("types")
+                .setName("type")
                 .setDescription("処理を選択します")
                 .setRequired(true)
                 .addChoices(

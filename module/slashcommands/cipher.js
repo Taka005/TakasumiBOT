@@ -5,9 +5,9 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "cipher"){
     const key = interaction.options.getString("key");
     const text = interaction.options.getString("text");
-    const types = interaction.options.getString("types");
+    const type = interaction.options.getString("type");
 
-    if(types === "cipher"){
+    if(type === "cipher"){
       try{
         const cipher = crypto.createCipher("aes-128-cbc", key);
         cipher.update(text,"utf8","hex");
