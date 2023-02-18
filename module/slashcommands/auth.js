@@ -35,11 +35,11 @@ module.exports = async(interaction)=>{
     
     if(type === "normal"){
       await interaction.channel.send({
-        embeds: [{
-          color:"WHITE",
+        embeds:[{
+          color: "WHITE",
           description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
@@ -68,7 +68,7 @@ module.exports = async(interaction)=>{
                 }
               ]
             }], 
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -82,19 +82,18 @@ module.exports = async(interaction)=>{
 
     }else if(type === "panel"){
       await interaction.channel.send({
-        embeds: [{
+        embeds:[{
           color: "BLUE",
-            description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
-          }],
-          components: [
-            new MessageActionRow()
-              .addComponents(
-                new MessageButton()
-                  .setCustomId(`panel_${role.id}`)
-                  .setStyle("PRIMARY")
-                  .setLabel("認証")
-              )
-            ]
+          description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
+        }],
+        components:[
+          new MessageActionRow()
+            .addComponents(
+              new MessageButton()
+                .setCustomId(`panel_${role.id}`)
+                .setStyle("PRIMARY")
+                .setLabel("認証"))
+        ]
       })
         .then(async()=>{
           await interaction.deferReply()
@@ -116,7 +115,7 @@ module.exports = async(interaction)=>{
                 }
               ]
             }], 
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -129,19 +128,18 @@ module.exports = async(interaction)=>{
         })
     }else if(type === "image"){
       await interaction.channel.send({
-        embeds: [{
-          color:"GREEN",
-            description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
-          }],
-          components: [
-            new MessageActionRow()
-              .addComponents(
-                new MessageButton()
-                  .setCustomId(`image_${role.id}`)
-                  .setStyle("PRIMARY")
-                  .setLabel("認証")
-              )
-            ]
+        embeds:[{
+          color: "GREEN",
+          description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
+        }],
+        components:[
+          new MessageActionRow()
+            .addComponents(
+              new MessageButton()
+                .setCustomId(`image_${role.id}`)
+                .setStyle("PRIMARY")
+                .setLabel("認証"))
+          ]
       })
         .then(async()=>{
           await interaction.deferReply()
@@ -163,7 +161,7 @@ module.exports = async(interaction)=>{
                 }
               ]
             }],
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -176,19 +174,18 @@ module.exports = async(interaction)=>{
         })
     }else if(type === "web"){
       await interaction.channel.send({
-        embeds: [{
-          color:"YELLOW",
+        embeds:[{
+          color: "YELLOW",
           description: `<@&${role.id}>を貰うには、認証ボタンを押してください`
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
                 .setCustomId(`web_${role.id}`)
                 .setStyle("PRIMARY")
-                .setLabel("認証")
-            )
-          ]
+                .setLabel("認証"))
+        ]
       })
         .then(async()=>{
           await interaction.deferReply()
@@ -210,7 +207,7 @@ module.exports = async(interaction)=>{
                 }
               ]
             }], 
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
