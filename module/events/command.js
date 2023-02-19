@@ -557,7 +557,7 @@ module.exports = async(client)=>{
               option
                 .setName("id")
                 .setDescription("解析するID")
-                .setRequired(true))
+                .setRequired(true)),
           //status
           new SlashCommandBuilder()
             .setName("status")
