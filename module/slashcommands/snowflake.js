@@ -25,7 +25,7 @@ module.exports = async(interaction)=>{
             name: "解析しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
-          description:`タイムスタンプ: ${snowflake.timestamp}\n日付: ${snowflake.date||"なし"}\nワーカーID: ${snowflake.workerId}\nプロセスID: ${snowflake.processId}\nインクリメント: ${snowflake.increment}\nバイナリー: ${snowflake.binary}`,
+          description:`タイムスタンプ: ${snowflake.timestamp}\n日付: ${snowflake.date}\nワーカーID: ${snowflake.workerId}\nプロセスID: ${snowflake.processId}\nインクリメント: ${snowflake.increment}\nバイナリー: ${snowflake.binary}`,
           color: "GREEN"
         }]
       })
