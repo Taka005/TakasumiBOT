@@ -37,7 +37,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "統計情報",
-            value: `チャンネル:${(await interaction.guild.channels.fetch()).size}個\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}個\nステッカー:${(await interaction.guild.stickers.fetch()).size}個\nNitro:${interaction.guild.premiumSubscriptionCount}ブースト(${boost(interaction.guild.premiumSubscriptionCount)}レベル)`
+            value: `チャンネル:${interaction.guild.channels.cache.size}個\n  テキスト:${interaction.guild.channels.cache.filter(ch=>ch.type==="GUILD_TEXT")}\n  ボイス:${interaction.guild.channels.cache.filter(ch=>ch.type==="GUILD_VOICE")}\n  カテゴリー:${interaction.guild.channels.cache.filter(ch=>ch.type==="GUILD_CATEGORY")}\nロール:${(await interaction.guild.roles.fetch()).size}個\n絵文字:${(await interaction.guild.emojis.fetch()).size}個\nステッカー:${(await interaction.guild.stickers.fetch()).size}個\nNitro:${interaction.guild.premiumSubscriptionCount}ブースト(${boost(interaction.guild.premiumSubscriptionCount)}レベル)`
           }
         ]
       }]
