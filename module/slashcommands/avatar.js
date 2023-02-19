@@ -5,7 +5,7 @@ module.exports = async(interaction,client)=>{
     const id = interaction.options.getString("id");
 
     if(!id){
-      await interaction.reply({
+      return await interaction.reply({
         embeds:[{
           color: "GREEN",
           author: {
@@ -49,7 +49,6 @@ module.exports = async(interaction,client)=>{
           ephemeral:true
         })
       });
-      return;
     }
   
     const userID = id.match(/\d{18,19}/g);

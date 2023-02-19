@@ -30,7 +30,7 @@ module.exports = async(interaction,client)=>{
       ephemeral:true
     });
 
-    const ch = await client.channels.cache.get("1049155527214628954");
+    const ch = client.channels.cache.get("1049155527214628954");
   
     await ch.addFollower(interaction.channel, "TakasumiBOTアナウンス")
       .then(async()=>{
@@ -47,28 +47,28 @@ module.exports = async(interaction,client)=>{
       })
       .catch(async(error)=>{
         await interaction.reply({
-            embeds:[{
-              author: {
-                name: "フォローチャンネルを追加できませんでした",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
-              },
-              color: "RED",
-              fields: [
-                {
-                  name: "エラーコード",
-                  value: `\`\`\`${error}\`\`\``
-                }
-              ]
-            }],
-            components: [
-              new MessageActionRow()
-                .addComponents( 
-                  new MessageButton()
-                    .setLabel("サポートサーバー")
-                    .setURL("https://discord.gg/NEesRdGQwD")
-                    .setStyle("LINK"))
-            ],
-            ephemeral:true
+          embeds:[{
+            author: {
+              name: "フォローチャンネルを追加できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png",
+            },
+            color: "RED",
+            fields: [
+              {
+                name: "エラーコード",
+                value: `\`\`\`${error}\`\`\``
+              }
+            ]
+          }],
+          components: [
+            new MessageActionRow()
+              .addComponents( 
+                new MessageButton()
+                  .setLabel("サポートサーバー")
+                  .setURL("https://discord.gg/NEesRdGQwD")
+                  .setStyle("LINK"))
+          ],
+          ephemeral:true
         });
       })
   }

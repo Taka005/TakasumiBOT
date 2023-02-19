@@ -8,7 +8,7 @@ module.exports = async(interaction,client)=>{
     if(!id){
       const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
 
-      await interaction.reply({
+      return await interaction.reply({
         embeds:[{
           color: "GREEN",
           author: {
@@ -85,7 +85,6 @@ module.exports = async(interaction,client)=>{
           ephemeral:true
         })
       });
-      return;
     }
   
     const userID = id.match(/\d{18,19}/g);
@@ -226,7 +225,7 @@ module.exports = async(interaction,client)=>{
           }]
         });
       }catch(error){
-        return await interaction.reply({
+        await interaction.reply({
           embeds:[{
             author: {
               name: "取得に失敗しました",
