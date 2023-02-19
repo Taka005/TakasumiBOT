@@ -233,6 +233,12 @@
         "permission":["チャンネルの管理"],
         "note":"秒単位で低速を設定することができます"
     },
+    "snowflake":{
+        "description":"Snowflakeを解析します",
+        "example":"`/snowflake 987698915820335124`",
+        "permission":["なし"],
+        "note":"有効な[Snowflake](https://discord.com/developers/docs/reference#snowflakes)である必要があります"
+    },
     "status":{
         "description":"BOTの情報やサーバーの状態を表示します",
         "example":"`/status`",
