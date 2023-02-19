@@ -549,6 +549,15 @@ module.exports = async(client)=>{
                 .setName("time")
                 .setDescription("設定する秒数")
                 .setRequired(true)),
+          //snowflake
+          new SlashCommandBuilder()
+            .setName("snowflake")
+            .setDescription("Snowflakeを解析します")
+            .addStringOption(option =>
+              option
+                .setName("id")
+                .setDescription("解析するID")
+                .setRequired(true)),
           //status
           new SlashCommandBuilder()
             .setName("status")

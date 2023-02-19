@@ -332,6 +332,10 @@ module.exports = async(interaction)=>{
             {
               name: "/invite",
               value: "カスタマイズされた招待リンクを作成します"
+            },
+            {
+              name: "/snowflake",
+              value: "[Snowflake](https://discord.com/developers/docs/reference#snowflakes)を解析します"
             }
           ]
         }],
