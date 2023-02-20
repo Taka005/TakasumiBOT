@@ -51,7 +51,7 @@ module.exports = async(interaction)=>{
             inline: true
           },
           {
-            name:"参加日時",
+            name: "参加日時",
             value: `${new Date(member.joinedTimestamp).toLocaleString()}\n(${Math.round((Date.now() - member.joinedAt) / 86400000)}日前)`,
             inline: true
           },
@@ -65,7 +65,7 @@ module.exports = async(interaction)=>{
             value: members[0] ? "登録済み" : "未登録"
           },
           {
-            name:"ロール",
+            name: "ロール",
             value: member.roles.cache.map(r=>r).join("")
           }
         ]

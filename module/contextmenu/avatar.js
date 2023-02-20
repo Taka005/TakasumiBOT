@@ -11,7 +11,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
-        description:"指定したユーザーが存在していないか、サーバーから退出しています"
+        description: "指定したユーザーが存在していないか、サーバーから退出しています"
       }],
       ephemeral: true
     });

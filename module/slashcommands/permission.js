@@ -55,14 +55,14 @@ module.exports = async(interaction)=>{
         embeds:[{
           color: "GREEN",
           author:{
-            name:`${member.user.tag}の権限`,
+            name: `${member.user.tag}の権限`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
           footer:{
             text: "TakasumiBOT"
           },
-          description:`\`${permission(member.permissions.toArray()).join("`,`")}\``
+          description: `\`${permission(member.permissions.toArray()).join("`,`")}\``
         }]
       });
     }catch{

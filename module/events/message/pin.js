@@ -24,7 +24,7 @@ module.exports = async(message,client)=>{
             },
             description: before.embeds[0].description,
             footer:{
-              text:"TakasumiBOT PIN"
+              text: "TakasumiBOT PIN"
             }
           }]
         });

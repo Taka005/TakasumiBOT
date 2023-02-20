@@ -48,7 +48,7 @@ module.exports = async(interaction)=>{
               name: "低速モードを設定しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
-            description:`低速モードは現在${time}秒です`,
+            description: `低速モードは現在${time}秒です`,
             color: "GREEN"
           }]
         })

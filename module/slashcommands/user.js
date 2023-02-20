@@ -40,7 +40,7 @@ module.exports = async(interaction,client)=>{
               inline: true
             },
             {
-              name:"参加日時",
+              name: "参加日時",
               value: `${new Date(interaction.member.joinedTimestamp).toLocaleString()}\n(${Math.round((Date.now() - interaction.member.joinedAt) / 86400000)}日前)`,
               inline: true
             },
@@ -136,7 +136,7 @@ module.exports = async(interaction,client)=>{
               inline: true
             },
             {
-              name:"参加日時",
+              name: "参加日時",
               value: `${new Date(member.joinedTimestamp).toLocaleString()}\n(${Math.round((Date.now() - member.joinedAt) / 86400000)}日前)`,
               inline: true
             },
@@ -150,7 +150,7 @@ module.exports = async(interaction,client)=>{
               inline: true
             },
             {
-              name:"ロール",
+              name: "ロール",
               value: member.roles.cache.map(r=>r).join("")
             }
           ]
