@@ -5,31 +5,31 @@ module.exports = async(interaction)=>{
 
     if(interaction.guild.channels.cache.find(name => name.name === interaction.member.user.id)) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "作成できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "既にチケットが発行済みです"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const channel = interaction.guild.channels.cache.find(name => name.name === "ticket")
     if(!channel) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "作成できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "ticketカテゴリーが存在していないため、作成できません"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     await interaction.guild.channels.create(interaction.member.user.id,{
-      permissionOverwrites: [{
+      permissionOverwrites:[{
         id: interaction.guild.roles.everyone,
         deny: ["VIEW_CHANNEL"]
       }],
@@ -38,11 +38,11 @@ module.exports = async(interaction)=>{
       .then(async(channels)=>{
         await channels.permissionOverwrites.edit(interaction.member.user.id,{VIEW_CHANNEL: true});
         await channels.send({
-          embeds: [{
+          embeds:[{
             color:"GREEN",
             title: "チケットへようこそ"
           }],
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents(
                 new MessageButton()
@@ -54,11 +54,11 @@ module.exports = async(interaction)=>{
 
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: `チケットを生成しました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
-            description:`${channels}を作成しました`,
+            description: `${channels}を作成しました`,
             color: "GREEN"
           }],
           ephemeral: true
@@ -67,19 +67,19 @@ module.exports = async(interaction)=>{
       .catch(async(error)=>{
         await interaction.reply({ 
           embeds:[{
-            author: {
+            author:{
               name: "チケットを作成できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }], 
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()
@@ -95,19 +95,19 @@ module.exports = async(interaction)=>{
       .catch(async(error)=>{
         await interaction.reply({ 
           embeds:[{
-            author: {
+            author:{
               name: "チケットを削除できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }], 
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()

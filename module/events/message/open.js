@@ -24,12 +24,12 @@ module.exports = async(message,client)=>{
       message.channel.send({//添付ファイルなし
         embeds:[{
           color: msg.member?.displayHexColor||"WHITE",
-          author: {
+          author:{
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: msg.content || "メッセージ内容がありません",
-          footer: {
+          footer:{
             text: `#${msg.channel.name}`
           },
           timestamp: msg.createdAt
@@ -40,15 +40,15 @@ module.exports = async(message,client)=>{
       message.channel.send({//添付ファイルあり(画像)
         embeds:[{
           color: msg.member?.displayHexColor||"WHITE",
-          author: {
+          author:{
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: msg.content || "メッセージ内容がありません",
-          image: {
+          image:{
             url: attachment[0]
           },
-          footer: {
+          footer:{
             text: `#${msg.channel.name}`
           },
           timestamp: msg.createdAt
@@ -59,15 +59,15 @@ module.exports = async(message,client)=>{
       message.channel.send({//添付ファイルあり(画像以外)
         embeds:[{
           color: msg.member?.displayHexColor||"WHITE",
-          author: {
+          author:{
             name: msg.author.tag,
             icon_url: msg.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
           },
           description: msg.content || "メッセージ内容がありません",
-          footer: {
+          footer:{
             text: `#${msg.channel.name}`
           },
-          fields: [
+          fields:[
             {
               name: "添付ファイル",
               value: `${attachment[0]||"エラー"}`

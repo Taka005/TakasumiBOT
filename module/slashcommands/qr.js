@@ -22,12 +22,12 @@ module.exports = async(interaction)=>{
 
       await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "QRコードを作成しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           description: `内容\n\`\`\`${text}\`\`\``,
-          image: {
+          image:{
             url: "attachment://QRCode.png"
           },
           color: "GREEN"
@@ -37,14 +37,14 @@ module.exports = async(interaction)=>{
     }else{
       if(!isUrl(text)) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "入力されたテキストが無効です",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "QRコードはURLで指定する必要があります"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       await interaction.deferReply();
@@ -61,7 +61,7 @@ module.exports = async(interaction)=>{
 
       if(data[0].symbol[0].error) return await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "QRコードが読み取れません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
@@ -72,7 +72,7 @@ module.exports = async(interaction)=>{
 
       await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "QRコードを読み取りました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },

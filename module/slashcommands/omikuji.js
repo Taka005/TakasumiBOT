@@ -46,7 +46,7 @@ module.exports = async(interaction)=>{
     await interaction.editReply({
       embeds:[{
         color: "RANDOM",
-        image: {
+        image:{
           url: "attachment://omikuji.png"
         }
       }],

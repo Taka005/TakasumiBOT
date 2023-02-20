@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
           title: "HELP 設定",
           color: "GREEN",
           description: "設定の変更には`管理者`の権限が必要です",
-          fields: [
+          fields:[
             {
               name: "/setting bump",
               value: "BUMPの時間に通知するロールを設定します"
@@ -42,14 +42,14 @@ module.exports = async(interaction)=>{
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(
@@ -57,34 +57,34 @@ module.exports = async(interaction)=>{
         !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
       ) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "BOTに権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(!role){
         const data = await mysql(`SELECT * FROM bump WHERE server = ${interaction.guild.id} LIMIT 1;`);
         if(!data[0]) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを無効にできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "通知ロールが設定されていません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         await mysql(`DELETE FROM bump WHERE server = ${interaction.guild.id} LIMIT 1;`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを無効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -95,20 +95,20 @@ module.exports = async(interaction)=>{
         const bot = interaction.guild.members.cache.get("302050872383242240");
         if(!bot) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを有効にできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "このサーバーにDisboardが参加していません\nもし参加している場合はDisboardを操作してみてください"
           }],
-          ephemeral:true
+          ephemeral: true
         });
   
         await mysql(`INSERT INTO bump (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを有効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -123,14 +123,14 @@ module.exports = async(interaction)=>{
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(
@@ -138,34 +138,34 @@ module.exports = async(interaction)=>{
         !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
       ) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "BOTに権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(!role){
         const data = await mysql(`SELECT * FROM dissoku WHERE server = ${interaction.guild.id} LIMIT 1;`);
         if(!data[0]) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを無効にできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "通知ロールが設定されていません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         await mysql(`DELETE FROM dissoku WHERE server = ${interaction.guild.id} LIMIT 1;`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを無効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -176,20 +176,20 @@ module.exports = async(interaction)=>{
         const bot = interaction.guild.members.cache.get("761562078095867916");
         if(!bot) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを有効にできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "このサーバーにDissokuが参加していません\nもし参加している場合はDissokuを操作してみてください"
           }],
-          ephemeral:true
+          ephemeral: true
         });
   
         await mysql(`INSERT INTO dissoku (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "通知ロールを有効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -204,14 +204,14 @@ module.exports = async(interaction)=>{
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(
@@ -219,34 +219,34 @@ module.exports = async(interaction)=>{
         !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
       ) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "BOTに権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(!channel||!message){
         const data = await mysql(`SELECT * FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         if(!data[0]) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "参加メッセージを無効にできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "参加メッセージが設定されていません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         await mysql(`DELETE FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "参加メッセージを無効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -256,44 +256,44 @@ module.exports = async(interaction)=>{
       }else{
         if(interaction.guild.memberCount > 100) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "参加メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "この機能は試験的なため人数が100人以上のサーバーでは設定できません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         if(message.length > 100) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "参加メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージは100文字以内にしてください"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         if(channel.type !== "GUILD_TEXT") return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "参加メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージを送信するチャンネルはテキストチャンネルにしてください"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         await mysql(`INSERT INTO \`join\` (server, channel, message, time) VALUES("${interaction.guild.id}","${channel.id}","${message}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),time = VALUES (time);`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "参加メッセージを設定しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -308,14 +308,14 @@ module.exports = async(interaction)=>{
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(
@@ -323,34 +323,34 @@ module.exports = async(interaction)=>{
         !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
       ) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "BOTに権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(!channel||!message){
         const data = await mysql(`SELECT * FROM \`leave\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         if(!data[0]) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "退出メッセージを無効にできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "退出メッセージが設定されていません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         await mysql(`DELETE FROM \`leave\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "退出メッセージを無効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -360,44 +360,44 @@ module.exports = async(interaction)=>{
       }else{
         if(interaction.guild.memberCount > 100) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "退出メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "この機能は試験的なため人数が100人以上のサーバーでは設定できません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         if(message.length > 100) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "退出メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージは100文字以内にしてください"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         if(!channel.type === "GUILD_TEXT") return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "退出メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージを送信するチャンネルはテキストチャンネルにしてください"
           }],
-          ephemeral:true
+          ephemeral: true
         });
 
         await mysql(`INSERT INTO \`leave\` (server, channel, message, time) VALUES("${interaction.guild.id}","${channel.id}","${message}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),time = VALUES (time);`);
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "退出メッセージを設定しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -410,14 +410,14 @@ module.exports = async(interaction)=>{
     
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       const data = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${interaction.guild.id} LIMIT 1;`);
@@ -428,7 +428,7 @@ module.exports = async(interaction)=>{
 
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "有効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -440,7 +440,7 @@ module.exports = async(interaction)=>{
 
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "無効にしました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -452,14 +452,14 @@ module.exports = async(interaction)=>{
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       await mysql(`DELETE FROM moderate WHERE id = ${interaction.guild.id};`);
@@ -473,7 +473,7 @@ module.exports = async(interaction)=>{
       await interaction.reply({
         content: `<@${interaction.member.user.id}>`,
         embeds:[{
-          author: {
+          author:{
             name: "全てのデータを削除しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },

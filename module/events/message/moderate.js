@@ -23,7 +23,7 @@ module.exports = async(message)=>{
         return message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
               },
@@ -39,7 +39,7 @@ module.exports = async(message)=>{
         return message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
               },
@@ -56,7 +56,7 @@ module.exports = async(message)=>{
         message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
             },
@@ -76,7 +76,7 @@ module.exports = async(message)=>{
         return message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
               },
@@ -92,7 +92,7 @@ module.exports = async(message)=>{
         return message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
             },
@@ -109,7 +109,7 @@ module.exports = async(message)=>{
         message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
             },
@@ -129,7 +129,7 @@ module.exports = async(message)=>{
         return message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
               },
@@ -146,7 +146,7 @@ module.exports = async(message)=>{
         message.channel.send({
           content: `<@${message.author.id}>`,
           embeds:[{
-            author: {
+            author:{
               name: "自動モデレート",
               icon_url: "https://cdn.taka.ml/images/system/warn.png"
             },

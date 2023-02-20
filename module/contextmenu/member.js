@@ -7,14 +7,14 @@ module.exports = async(interaction)=>{
 
     if(!member) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "メンバーを取得できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "指定したユーザーが存在していないか、サーバーから退出しています"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const members = await mysql(`SELECT * FROM account WHERE id = ${member.user.id} LIMIT 1;`);
@@ -22,19 +22,19 @@ module.exports = async(interaction)=>{
     await interaction.reply({
       embeds:[{
         color: "GREEN",
-        author: {
+        author:{
           name: `${member.user.tag}の検索結果`,
           url: `https://discord.com/users/${member.user.id}`,
           icon_url: "https://cdn.taka.ml/images/system/success.png"
         },
         timestamp: new Date(),
-        footer: {
+        footer:{
           text: "TakasumiBOT"
         },
-        thumbnail: {
-          url: member.user.avatarURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+        thumbnail:{
+          url: member.user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
         },
-        fields: [
+        fields:[
           {
             name: "ID",
             value: member.user.id,
@@ -74,19 +74,19 @@ module.exports = async(interaction)=>{
     .catch(async(error)=>{
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "正常に送信できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()
@@ -94,7 +94,7 @@ module.exports = async(interaction)=>{
                 .setURL("https://discord.gg/NEesRdGQwD")
                 .setStyle("LINK"))
         ],
-        ephemeral:true
+        ephemeral: true
       })
     });
   }

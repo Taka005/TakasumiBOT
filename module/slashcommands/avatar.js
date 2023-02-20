@@ -8,37 +8,37 @@ module.exports = async(interaction,client)=>{
       return await interaction.reply({
         embeds:[{
           color: "GREEN",
-          author: {
+          author:{
             name: `${interaction.member.user.tag}のアバター`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
-          thumbnail: {
+          thumbnail:{
             url: interaction.member.avatarURL({format:"png",dynamic:true,size:1024})
           },
-          image: {
+          image:{
             url: interaction.member.user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
           timestamp: new Date(),
-          footer: {
+          footer:{
             text: "TakasumiBOT"
           }
         }]
       }).catch(async(error)=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "正常に送信できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()
@@ -46,7 +46,7 @@ module.exports = async(interaction,client)=>{
                   .setURL("https://discord.gg/NEesRdGQwD")
                   .setStyle("LINK"))
           ],
-          ephemeral:true
+          ephemeral: true
         })
       });
     }
@@ -54,14 +54,14 @@ module.exports = async(interaction,client)=>{
     const userID = id.match(/\d{18,19}/g);
     if(!userID) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "取得に失敗しました",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "正確にIDまたは、メンションをしてください"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     try{
@@ -71,18 +71,18 @@ module.exports = async(interaction,client)=>{
       await interaction.reply({
         embeds:[{
           color: "GREEN",
-          author: {
+          author:{
             name: `${user.tag}のアバター`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
-          thumbnail: {
+          thumbnail:{
             url: member.avatarURL({format:"png",dynamic:true,size:1024})
           },
-          image: {
+          image:{
             url: user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
           },
           timestamp: new Date(),
-          footer: {
+          footer:{
             text: "TakasumiBOT"
           }
         }]
@@ -90,14 +90,14 @@ module.exports = async(interaction,client)=>{
     }catch{
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "取得に失敗しました",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "指定されたユーザーは存在しないか、間違っています"
         }],
-        ephemeral:true
+        ephemeral: true
       });
     }
   }

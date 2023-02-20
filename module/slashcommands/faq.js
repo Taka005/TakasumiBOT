@@ -6,7 +6,7 @@ module.exports = async(interaction)=>{
         title: "FAQ",
         color: "GREEN",
         description: "よくある質問一覧です。他の質問がある場合は[サポートサーバー](https://discord.gg/NEesRdGQwD)にてよろしくお願いします",
-        fields: [
+        fields:[
           {
             name: "何で開発しているの？",
             value: "Node.js(JavaScript)で構築しています。開発環境はVScodeです"

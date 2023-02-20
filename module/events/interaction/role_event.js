@@ -19,7 +19,7 @@ module.exports = async(interaction)=>{
 
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "ロールを変更しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
@@ -31,20 +31,20 @@ module.exports = async(interaction)=>{
     }catch(error){
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "ロールの付与に失敗しました",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }],      
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()
@@ -52,7 +52,7 @@ module.exports = async(interaction)=>{
                 .setURL("https://discord.gg/NEesRdGQwD")
                 .setStyle("LINK"))
         ],
-        ephemeral:true
+        ephemeral: true
       })
     }
   }

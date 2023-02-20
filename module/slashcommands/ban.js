@@ -8,65 +8,65 @@ module.exports = async(interaction,client)=>{
     
     if(!interaction.member.permissions.has("BAN_MEMBERS")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをBAN`の権限を持っている必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(!interaction.guild.me.permissionsIn(interaction.channel).has("BAN_MEMBERS")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをBAN```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const id = user.match(/\d{18,19}/g);
     if(!id) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "取得に失敗しました",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "正確にIDまたは、メンションをしてください"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(id === interaction.member.user.id) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "メンバーをBANできませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "自分自身をBANすることはできません"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const users = await client.users.fetch(id[0])
       .catch(async()=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "メンバーをBANできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "指定したユーザーが存在しません"
           }],
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()
@@ -74,7 +74,7 @@ module.exports = async(interaction,client)=>{
                   .setURL("https://discord.gg/NEesRdGQwD")
                   .setStyle("LINK"))
           ],
-          ephemeral:true
+          ephemeral: true
         })
       });
     
@@ -84,7 +84,7 @@ module.exports = async(interaction,client)=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
-              author: {
+              author:{
                 name: `${users.tag} をサーバーからBANしました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -95,20 +95,20 @@ module.exports = async(interaction,client)=>{
         .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "メンバーをBANできませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
-              fields: [
+              fields:[
                 {
                   name: "エラーコード",
                   value: `\`\`\`${error}\`\`\``
                 }
               ]
             }],
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -116,7 +116,7 @@ module.exports = async(interaction,client)=>{
                     .setURL("https://discord.gg/NEesRdGQwD")
                     .setStyle("LINK"))
             ],
-            ephemeral:true
+            ephemeral: true
           })
         })
     }else{
@@ -125,7 +125,7 @@ module.exports = async(interaction,client)=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
-              author: {
+              author:{
                 name: `${users.tag} をサーバーからBANしました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -136,20 +136,20 @@ module.exports = async(interaction,client)=>{
         .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "メンバーをBANできませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
-              fields: [
+              fields:[
                 {
                   name: "エラーコード",
                   value: `\`\`\`${error}\`\`\``
                 }
               ]
             }],
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -157,7 +157,7 @@ module.exports = async(interaction,client)=>{
                     .setURL("https://discord.gg/NEesRdGQwD")
                     .setStyle("LINK"))
             ],
-            ephemeral:true
+            ephemeral: true
           })
         })
     }

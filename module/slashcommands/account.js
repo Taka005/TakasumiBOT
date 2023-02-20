@@ -8,14 +8,14 @@ module.exports = async(interaction)=>{
     if(!account[0]){
       await interaction.reply({ 
         embeds:[{
-          author: {
+          author:{
             name: "登録されていません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "以下のリンクから登録を行うことができます\n登録が完了すると[グローバルチャット利用規約](https://gc.taka.ml/)にも同意したものとみなします",
         }], 
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()
@@ -28,7 +28,7 @@ module.exports = async(interaction)=>{
     }else{
       await interaction.reply({ 
         embeds:[{
-          author: {
+          author:{
             name: "登録情報",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },

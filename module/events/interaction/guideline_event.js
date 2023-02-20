@@ -6,19 +6,21 @@ module.exports = async(interaction)=>{
     const temp = interaction.fields.getTextInputValue("temp");
 
     await interaction.channel.send({
-      embeds:[{
-        color: "GREEN",
-        title: "このサーバーのガイドライン",
-        description: temp,
-        thumbnail: {
-          url: "https://cdn.taka.ml/images/system/guideline.png"
+      embeds:[
+        {
+          color: "GREEN",
+          title: "このサーバーのガイドライン",
+          description: temp,
+          thumbnail:{
+            url: "https://cdn.taka.ml/images/system/guideline.png"
+          }
+        },
+        {
+          color: "GREEN",
+          description: "続行するにはこのサーバーのガイドラインを守る必要があります。\n[Discord コミュニティガイドライン](https://discord.com/guidelines) も忘れないようにして下さい。"
         }
-      },
-      {
-        color: "GREEN",
-        description: "続行するにはこのサーバーのガイドラインを守る必要があります。\n[Discord コミュニティガイドライン](https://discord.com/guidelines) も忘れないようにして下さい。"
-      }],
-      components: [
+      ],
+      components:[
         new MessageActionRow()
           .addComponents(
             new MessageButton()
@@ -34,20 +36,20 @@ module.exports = async(interaction)=>{
     .catch(async(error)=>{
       await interaction.reply({ 
         embeds:[{
-          author: {
+          author:{
             name: "ガイドライン機能の作成に失敗しました",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "BOTの権限等を確認し、もう一度実行してください",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }], 
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()

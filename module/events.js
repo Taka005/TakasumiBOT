@@ -68,14 +68,14 @@ module.exports = async(client)=>{
 
     if(!interaction.guild) return await interaction.reply({ 
       embeds:[{
-        author: {
+        author:{
           name: "コマンドが実行できません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "BOTの操作はDMで実行することができません\nサーバー内で実行してください"
       }],      
-      components: [
+      components:[
         new MessageActionRow()
           .addComponents( 
             new MessageButton()

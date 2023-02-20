@@ -22,14 +22,14 @@ module.exports = async(interaction)=>{
 
     if(!interaction.guild.me.permissionsIn(interaction.channel).has("ADD_REACTIONS")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```リアクションの追加```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const msg = await interaction.reply({
@@ -46,19 +46,19 @@ module.exports = async(interaction)=>{
     }catch(error){
       await msg.edit({
         embeds:[{
-          author: {
+          author:{
             name: "アンケートを作成できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()

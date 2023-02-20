@@ -18,26 +18,26 @@ module.exports = async(interaction)=>{
       !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
     ) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```ロールの管理\nメッセージの送信\nチャンネルの閲覧```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`ロールの管理`の権限を持っている必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
     
     await interaction.channel.send({
@@ -61,13 +61,13 @@ module.exports = async(interaction)=>{
       .catch(async(error)=>{
         await interaction.reply({ 
           embeds:[{
-            author: {
+            author:{
               name: "認証機能の作成に失敗しました",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "BOTの権限等を確認し、もう一度実行してください",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``

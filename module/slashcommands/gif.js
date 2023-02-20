@@ -18,12 +18,12 @@ module.exports = async(interaction)=>{
 
       await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "GIFを取得しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          image: {
+          image:{
             url: "attachment://result.gif"
           },
         }],
@@ -32,7 +32,7 @@ module.exports = async(interaction)=>{
     }catch{
       await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "GIFが取得できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },

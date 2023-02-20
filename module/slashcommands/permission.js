@@ -9,12 +9,12 @@ module.exports = async(interaction)=>{
       await interaction.reply({
         embeds:[{
           color: "GREEN",
-          author: {
+          author:{
             name: `${interaction.member.user.tag}の権限`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
-          footer: {
+          footer:{
             text: "TakasumiBOT"
           },
           description: `\`${permission(interaction.member.permissions.toArray()).join("`,`")}\``
@@ -22,19 +22,19 @@ module.exports = async(interaction)=>{
       }).catch(async(error)=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "権限を取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()
@@ -42,7 +42,7 @@ module.exports = async(interaction)=>{
                   .setURL("https://discord.gg/NEesRdGQwD")
                   .setStyle("LINK"))
           ],
-          ephemeral:true
+          ephemeral: true
         })
       });
       return;
@@ -54,12 +54,12 @@ module.exports = async(interaction)=>{
       await interaction.reply({
         embeds:[{
           color: "GREEN",
-          author: {
+          author:{
             name:`${member.user.tag}の権限`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
-          footer: {
+          footer:{
             text: "TakasumiBOT"
           },
           description:`\`${permission(member.permissions.toArray()).join("`,`")}\``
@@ -68,14 +68,14 @@ module.exports = async(interaction)=>{
     }catch{
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限を取得できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "ユーザーが存在しないか、時間を置いてから実行してくださ"
         }],
-        ephemeral:true
+        ephemeral: true
       });
     }
   }

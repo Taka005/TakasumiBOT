@@ -16,46 +16,46 @@ module.exports = async(interaction)=>{
       !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")
     ) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```メッセージの管理\nチャンネルの閲覧\nメッセージの送信```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(!interaction.member.permissions.has("MANAGE_GUILD")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```サーバーの管理```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(type === "off"){
       const data = await mysql(`SELECT * FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
       if(!data[0]) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "自動モデレートを無効にできませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "自動モデレートが設定されていません"
         }],
-        ephemeral:true
+        ephemeral: true
       });
       
       await mysql(`DELETE FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
       return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "自動モデレート機能を無効にしました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
@@ -67,7 +67,7 @@ module.exports = async(interaction)=>{
     await mysql(`INSERT INTO moderate (id, type, time) VALUES("${interaction.guild.id}","${type}",NOW()) ON DUPLICATE KEY UPDATE id = VALUES (id),type = VALUES (type),time = VALUES (time);`);
     await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "自動モデレート機能を有効にしました",
           icon_url: "https://cdn.taka.ml/images/system/success.png",
         },

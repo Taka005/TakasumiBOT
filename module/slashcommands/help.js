@@ -10,7 +10,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           title: "HELP 便利系",
           color: "GREEN",
-          fields: [
+          fields:[
             {
               name: "/poll",
               value: "アンケートを作成することができます\n最大で選択肢は12個までです"
@@ -41,7 +41,7 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
@@ -64,14 +64,14 @@ module.exports = async(interaction)=>{
     }else{
       if(!list[command]) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "コマンドが存在しません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "`/help`を実行してコマンド一覧を確認してください"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       await interaction.reply({
@@ -79,7 +79,7 @@ module.exports = async(interaction)=>{
           title: `/${command}の使用方法`,
           color: "GREEN",
           description: list[command].description,
-          fields: [
+          fields:[
             {
               name: "使用例",
               value: list[command].example

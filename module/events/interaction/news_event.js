@@ -33,14 +33,14 @@ module.exports = async(interaction)=>{
           url: data.articles[pages[1]].url,
           color: "GREEN",
           description: data.articles[pages[1]].description,
-          image: {
+          image:{
             url: data.articles[pages[1]].urlToImage
           },
-          footer: {
+          footer:{
             text: `${data.articles[pages[1]].publishedAt} | ${data.articles[pages[1]].source.name}`
-          },
+          }
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(before)
             .addComponents(page)
@@ -50,21 +50,20 @@ module.exports = async(interaction)=>{
     }catch{
       await interaction.message.edit({
         embeds:[{
-          author: {
+          author:{
             name: "ページが存在しません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "前のページに戻ってください"
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(before)
             .addComponents(page)
             .addComponents(next)
         ]
-      }) 
-      .catch(()=>{})
+      }).catch(()=>{})
       
       await interaction.deferUpdate({});
     }

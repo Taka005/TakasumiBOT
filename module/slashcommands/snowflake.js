@@ -6,14 +6,14 @@ module.exports = async(interaction)=>{
 
     if(isNaN(id)) return interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "解析できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "Snowflakeは数字で指定する必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     try{
@@ -21,7 +21,7 @@ module.exports = async(interaction)=>{
 
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "解析しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
@@ -32,19 +32,19 @@ module.exports = async(interaction)=>{
     }catch(error){
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "解析できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()
@@ -52,7 +52,7 @@ module.exports = async(interaction)=>{
                 .setURL("https://discord.gg/NEesRdGQwD")
                 .setStyle("LINK"))
         ],
-        ephemeral:true
+        ephemeral: true
       });
     }
   }

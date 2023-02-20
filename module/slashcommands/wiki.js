@@ -15,7 +15,7 @@ module.exports = async(interaction)=>{
           url: data.content_urls.desktop.page,
           color: "GREEN",
           description: data.extract,
-          footer: {
+          footer:{
             text: "TakasumiBOT"
           }
         }]
@@ -23,14 +23,14 @@ module.exports = async(interaction)=>{
     }catch{
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "検索内容を取得できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "検索ワードを変えて、もう一度実行してください"
         }],
-        ephemeral:true
+        ephemeral: true
       });
     }
   }

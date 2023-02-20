@@ -50,7 +50,9 @@ module.exports = async(interaction)=>{
      
     interaction.editReply({ 
       content: `[生成元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`,
-      files: [new MessageAttachment(canvas.toBuffer(),"Takasumi_Quote.png")]
+      files: [
+        new MessageAttachment(canvas.toBuffer(),"Takasumi_Quote.png")
+      ]
     }); 
   }
 }

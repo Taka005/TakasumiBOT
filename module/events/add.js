@@ -9,16 +9,16 @@ module.exports = async(guild)=>{
         guild.me.permissionsIn(channel).has("SEND_MESSAGES")
       ){
         channel.send({
-          embeds: [{
+          embeds:[{
             color:"GREEN",
-            thumbnail: {
+            thumbnail:{
               url: "https://cdn.taka.ml/images/bot.png"
             },
-            title:"BOT導入ありがとうございます!",
+            title: "BOT導入ありがとうございます!",
             description: "やっほー。TakasumiBOTだよ\n便利な機能を備えた万能BOTです\n\nグローバルチャット、役職パネル、認証機能などいろいろあるよ!\nコマンドのhelpを表示する時は`/help`を実行してね\n`/follow`を実行するとBOTのアナウンスチャンネルが追加できます",
             timestamp: new Date()
           }],
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents(
                 new MessageButton()

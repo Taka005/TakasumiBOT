@@ -8,19 +8,19 @@ module.exports = async(interaction)=>{
       !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")
     ) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```テキストチャンネルの閲覧\nメッセージ履歴を読む```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     await interaction.deferReply();
     await interaction.editReply({
-      embeds: [{
+      embeds:[{
         color: "GREEN",
         description: "取得中..."
       }]
@@ -30,12 +30,12 @@ module.exports = async(interaction)=>{
       .then(msg=>msg.first())
 
     await interaction.editReply({
-      embeds: [{
+      embeds:[{
         color: "GREEN",
         title: "最初のメッセージ",
         description: "下のリンクから飛べます"
       }],
-      components: [
+      components:[
         new MessageActionRow()
           .addComponents(
             new MessageButton()

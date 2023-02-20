@@ -21,14 +21,14 @@ module.exports = async(interaction)=>{
 
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`ロールの管理`の権限を持っている必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(
@@ -37,14 +37,14 @@ module.exports = async(interaction)=>{
       !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_ROLES")
     ) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信\nロールの管理```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const roles = new MessageSelectMenu()
@@ -69,7 +69,7 @@ module.exports = async(interaction)=>{
           color: "GREEN",
           description: selects.map((c,i)=>`${emojis[i]}<@&${c.id}>`).join("\n")
         }],
-        components: [     
+        components:[     
           new MessageActionRow()
             .addComponents(roles)
         ]
@@ -80,20 +80,20 @@ module.exports = async(interaction)=>{
     }catch(error){
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "作成できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "同じロールが選択されているか、BOTの権限が不足しています",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()
@@ -101,7 +101,7 @@ module.exports = async(interaction)=>{
                 .setURL("https://discord.gg/NEesRdGQwD")
                 .setStyle("LINK"))
         ],
-        ephemeral:true
+        ephemeral: true
       });
     }
   }
