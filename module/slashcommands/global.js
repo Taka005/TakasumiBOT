@@ -157,7 +157,7 @@ module.exports = async(interaction)=>{
                 color: "GREEN",
                 title: `${interaction.guild.name}<${interaction.guild.id}>`,
                 thumbnail:{
-                  url: interaction.guild.iconURL({ format: png, dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
+                  url: interaction.guild.iconURL({ format: "png", dynamic: true, size: 1024 }) || "https://cdn.discordapp.com/embed/avatars/0.png"
                 },
                 description: "グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!",
                 footer:{
