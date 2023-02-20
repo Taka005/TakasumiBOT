@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
 
     await interaction.channel.send({
       embeds:[{
-        color:"GREEN",
+        color: "GREEN",
         title:"チケット",
         description: "チケットの発行は下のボタンを押してください"
       }],

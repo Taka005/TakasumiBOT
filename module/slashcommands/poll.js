@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         title: title,          
         color: interaction.member.displayHexColor,
-        description: selects.map((c,i)=>`${emojis[i]}${c}`).join('\n'),
+        description: selects.map((c,i)=>`${emojis[i]}${c}`).join("\n"),
         timestamp: new Date()
       }],
       fetchReply: true

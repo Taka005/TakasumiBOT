@@ -10,7 +10,7 @@ module.exports = async(guild)=>{
       ){
         channel.send({
           embeds:[{
-            color:"GREEN",
+            color: "GREEN",
             thumbnail:{
               url: "https://cdn.taka.ml/images/bot.png"
             },

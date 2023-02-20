@@ -39,7 +39,7 @@ module.exports = async(interaction)=>{
         await channels.permissionOverwrites.edit(interaction.member.user.id,{VIEW_CHANNEL: true});
         await channels.send({
           embeds:[{
-            color:"GREEN",
+            color: "GREEN",
             title: "チケットへようこそ"
           }],
           components:[

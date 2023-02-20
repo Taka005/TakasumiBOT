@@ -82,7 +82,7 @@ module.exports = async(interaction)=>{
         },
         description: message.content,
         footer:{
-          text:"TakasumiBOT PIN"
+          text: "TakasumiBOT PIN"
         }
       }]
     });
