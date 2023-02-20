@@ -114,7 +114,7 @@ module.exports = async(message,client)=>{
     }).catch((error)=>{
       err(message,client,error);
     })
-  }else if(rate(false,true,0.5)){
+  }else if(rate(false,true,0.005)){
     return await webhooks.send({
       content: "すいません。3色チーズ牛丼の特盛に温玉付きをお願いします",
       username: "チー牛",
