@@ -7,7 +7,7 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
     await interaction.editReply("生成中...");
 
-    Canvas.registerFont(./file/quote/nijimi.ttf,{ family: "nijimi" });
+    Canvas.registerFont("./file/quote/nijimi.ttf",{ family: "nijimi" });
     const canvas = Canvas.createCanvas(1200, 600);
     const context = canvas.getContext("2d"); 
 
@@ -36,15 +36,15 @@ module.exports = async(interaction)=>{
     const msg = message.cleanContent.replace(/(.{15})/g, "$1\n");
 
     context.font = "45px nijimi";
-    context.fillStyle = #ffffff;
+    context.fillStyle = "#ffffff";
     context.fillText(msg, 500, 180);
 
     context.font = "30px nijimi";
-    context.fillStyle = #ffffff;
+    context.fillStyle = "#ffffff";
     context.fillText(`-${message.author.tag}`, 650, 510);
     
     //文字 TakasumiBOT
-    context.fillStyle = #696969;
+    context.fillStyle = "#696969";
     context.font = "20px nijimi";
     context.fillText("TakasumiBOT#7189",1005, 595);
      
