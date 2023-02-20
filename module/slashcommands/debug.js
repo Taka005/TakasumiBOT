@@ -9,14 +9,14 @@ module.exports = async(interaction)=>{
 
     if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、関係者以外実行できません"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(type === "content"){
@@ -25,7 +25,7 @@ module.exports = async(interaction)=>{
           const msg = await channel.messages.fetch(id);
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "取得しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -37,7 +37,7 @@ module.exports = async(interaction)=>{
           const msg = await interaction.channel.messages.fetch(id);
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "取得しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -49,20 +49,20 @@ module.exports = async(interaction)=>{
       }catch(error){
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージが存在しません",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          ephemeral:true
+          ephemeral: true
         });
       }
     }else if(type === "send"){
@@ -71,20 +71,20 @@ module.exports = async(interaction)=>{
       }catch(error){
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "送信できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージオブジェクトが無効です",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          ephemeral:true
+          ephemeral: true
         });
       }
     }else if(type === "edit"){
@@ -94,7 +94,7 @@ module.exports = async(interaction)=>{
           await msg.edit(JSON.parse(json));
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "編集しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -106,7 +106,7 @@ module.exports = async(interaction)=>{
           await msg.edit(JSON.parse(json));
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "編集しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -117,20 +117,20 @@ module.exports = async(interaction)=>{
       }catch(error){
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "編集できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージオブジェクトまたは、メッセージが取得できません",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          ephemeral:true
+          ephemeral: true
         });
       }
     }else if(type === "delete"){
@@ -140,7 +140,7 @@ module.exports = async(interaction)=>{
           msg.delete();
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "削除しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -152,7 +152,7 @@ module.exports = async(interaction)=>{
           msg.delete();
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "削除しました",
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -163,20 +163,20 @@ module.exports = async(interaction)=>{
       }catch(error){
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "メッセージが存在しません",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          ephemeral:true
+          ephemeral: true
         });
       }
     } 

@@ -6,14 +6,14 @@ module.exports = async(interaction,client)=>{
     
     if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、関係者以外実行できません"
       }],
-      ephemeral:true
+      ephemeral: true
     });
     
     //commands

@@ -8,14 +8,14 @@ module.exports = async(interaction)=>{
   
       if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーの\n`チャンネルを管理`の権限を持っている必要があります"
         }],
-        ephemeral:true
+        ephemeral: true
       });
   
       if(
@@ -25,14 +25,14 @@ module.exports = async(interaction)=>{
         !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_CHANNELS")
       ) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "BOTに権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "ひろゆきの召喚は、BOTに以下の権限が必要です\n```テキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
   
       if(sub[interaction.guild.id]){//登録済み
@@ -48,7 +48,7 @@ module.exports = async(interaction)=>{
   
             await interaction.reply({
               embeds:[{
-                author: {
+                author:{
                   name: "ひろゆきの退出が完了しました",
                   icon_url: "https://cdn.taka.ml/images/system/success.png",
                 },
@@ -65,7 +65,7 @@ module.exports = async(interaction)=>{
   
             await interaction.reply({
               embeds:[{
-                author: {
+                author:{
                   name: "ひろゆきの退出が完了しました",
                   icon_url: "https://cdn.taka.ml/images/system/success.png",
                 },
@@ -91,7 +91,7 @@ module.exports = async(interaction)=>{
             await interaction.editReply({
               embeds:[{
                 color: "GREEN",
-                author: {
+                author:{
                   name: "ひろゆきの召喚に成功しました",
                   icon_url: "https://cdn.taka.ml/images/system/success.png"
                 }
@@ -101,20 +101,20 @@ module.exports = async(interaction)=>{
           .catch(async(error)=>{
             await interaction.editReply({
               embeds:[{
-                author: {
+                author:{
                   name: "ひろゆきの召喚に失敗しました",
                   icon_url: "https://cdn.taka.ml/images/system/error.png",
                 },
                 color: "RED",
                 description: "BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています",
-                fields: [
+                fields:[
                   {
                     name: "エラーコード",
                     value: `\`\`\`${error}\`\`\``
                   }
                 ]
               }],
-              components: [
+              components:[
                 new MessageActionRow()
                   .addComponents( 
                     new MessageButton()

@@ -35,7 +35,7 @@ module.exports = async(interaction,client)=>{
         color: "BLUE",
         title: "ステータス",
         timestamp: new Date(),
-        fields: [
+        fields:[
           {
             name: "API",
             value: `Ping: ${Math.floor(end - start)}㍉秒`
@@ -50,7 +50,7 @@ module.exports = async(interaction,client)=>{
           }
         ]
       }],
-      components: [
+      components:[
         new MessageActionRow()
           .addComponents( 
             new MessageButton()
@@ -61,19 +61,19 @@ module.exports = async(interaction,client)=>{
     }).catch((error)=>{
       interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "正常に送信できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }],     
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()
@@ -81,7 +81,7 @@ module.exports = async(interaction,client)=>{
                 .setURL("https://discord.gg/NEesRdGQwD")
                 .setStyle("LINK"))
         ],
-        ephemeral:true
+        ephemeral: true
       })
     });
   }

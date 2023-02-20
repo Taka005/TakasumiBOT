@@ -14,7 +14,7 @@ module.exports = (message)=>{
     if(new Date() - time[message.guild.id].time2 <= 600){
       message.channel.send({
         embeds:[{
-          author: {
+          author:{
             name: "レートリミット",
             icon_url: "https://cdn.taka.ml/images/system/warn.png"
           },

@@ -7,14 +7,14 @@ module.exports = async(interaction)=>{
     
     if(message.length>300) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "メッセージが長すぎます",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "300文字未満になるように調整してください"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
@@ -22,7 +22,7 @@ module.exports = async(interaction)=>{
       await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "AFKを無効にしました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
@@ -34,7 +34,7 @@ module.exports = async(interaction)=>{
       await mysql(`INSERT INTO afk (user, message, mention, time) VALUES("${interaction.member.user.id}","${message}","0",NOW());`);
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "AFKを有効にしました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },

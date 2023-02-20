@@ -6,14 +6,14 @@ module.exports = async(interaction,client)=>{
 
     if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`管理者`の権限を持っている必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     try{
@@ -68,20 +68,20 @@ module.exports = async(interaction,client)=>{
     }catch(error){
       await interaction.reply({ 
         embeds:[{
-          author: {
+          author:{
             name: "出力に失敗しました",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "BOTの権限が不足しているため正しく出力できません",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }], 
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()

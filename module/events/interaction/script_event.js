@@ -6,15 +6,15 @@ module.exports = async(interaction)=>{
     const code = interaction.fields.getTextInputValue("code");
   
     const language = {
-      "JavaScript": {
+      "JavaScript":{
         "type": "js",
         "compiler": "nodejs-16.14.0"
       },
-      "Python": {
+      "Python":{
         "type": "py",
         "compiler": "cpython-3.10.2"
       },
-      "Bash": {
+      "Bash":{
         "type": "bash",
         "compiler": "bash"
       }
@@ -25,13 +25,13 @@ module.exports = async(interaction)=>{
       timeout = true;
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "正常に実行できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "実行がタイムアウトしました",
-          footer: {
+          footer:{
             text: `${lang[1]} || TakasumiBOT`
           }
         }]
@@ -59,25 +59,25 @@ module.exports = async(interaction)=>{
       await interaction.reply({
         embeds:[{
           color: "GREEN",
-          author: {
+          author:{
             name: "正常に実行しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**結果**\n\`\`\`${res.program_output||"なし"}\`\`\``,
-          footer: {
+          footer:{
             text: `${lang[1]} || TakasumiBOT`
           }
         }]
       }).catch(async()=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "正常に実行できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,
-            footer: {
+            footer:{
               text: `${lang[1]} || TakasumiBOT`
             }
           }]
@@ -86,26 +86,26 @@ module.exports = async(interaction)=>{
     }else{
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "正常に実行できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n\`\`\`${res.program_error}\`\`\``,
-          footer: {
+          footer:{
             text: `${lang[1]} || TakasumiBOT`
           }
         }]
       }).catch(async()=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "正常に実行できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,
-            footer: {
+            footer:{
               text: `${lang[1]} || TakasumiBOT`
             }
           }]

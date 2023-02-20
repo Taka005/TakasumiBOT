@@ -17,10 +17,10 @@ module.exports = async(interaction)=>{
           url: pkg.links.npm,
           color: "GREEN",
           description: pkg.description,
-          thumbnail: {
+          thumbnail:{
             url: "https://cdn.taka.ml/images/npm.png",
           },
-          fields: [
+          fields:[
             {
               name: "作者",
               value: pkg.author ? pkg.author.name : "なし",
@@ -47,7 +47,7 @@ module.exports = async(interaction)=>{
               inline: true
             }
           ],
-          footer: {
+          footer:{
             text: "TakasumiBOT"
           }
         }]
@@ -55,14 +55,14 @@ module.exports = async(interaction)=>{
     }catch{
       await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "パッケージが取得できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "検索ワードを変えて、もう一度実行してください"
         }],
-        ephemeral:true
+        ephemeral: true
       });
     }
   }

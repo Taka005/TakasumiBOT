@@ -8,15 +8,15 @@ module.exports = async(interaction)=>{
     await interaction.reply({
       embeds:[{
         color: "GREEN",
-        author: {
+        author:{
           name: `${role.name}の情報`,
           icon_url: "https://cdn.taka.ml/images/system/success.png",
         },
         timestamp: new Date(),
-        footer: {
+        footer:{
           text: "TakasumiBOT"
         },
-        fields: [
+        fields:[
           {
             name: "ID",
             value: `${role.id}`,
@@ -56,19 +56,19 @@ module.exports = async(interaction)=>{
     }).catch(async(error)=>{
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "エラーが発生しました",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
-          fields: [
+          fields:[
             {
               name: "エラーコード",
               value: `\`\`\`${error}\`\`\``
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents( 
               new MessageButton()
@@ -76,7 +76,7 @@ module.exports = async(interaction)=>{
                 .setURL("https://discord.gg/NEesRdGQwD")
                 .setStyle("LINK"))
         ],
-        ephemeral:true
+        ephemeral: true
       })
     });
   }

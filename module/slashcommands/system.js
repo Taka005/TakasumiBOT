@@ -13,48 +13,48 @@ module.exports = async(interaction,client)=>{
 
     if(interaction.member.user.id !== admin) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、関係者以外実行できません"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const id_data = id.match(/\d{18,19}/g);
     if(!id_data) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "引数が無効です",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "ユーザー又はサーバーIDを指定する必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(functions === "leave"){//サーバーから脱退する
       const guild = client.guilds.cache.get(id_data[0]);
       if(!guild) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "サーバーから脱退できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "指定したサーバーが存在しません"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       guild.leave()
         .then(async(g)=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: `${g.name} から脱退しました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -65,14 +65,14 @@ module.exports = async(interaction,client)=>{
         .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "サーバーから脱退できませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: `\`\`\`${error}\`\`\``
             }],
-            ephemeral:true
+            ephemeral: true
           });
         });
 
@@ -80,26 +80,26 @@ module.exports = async(interaction,client)=>{
       const guild = client.guilds.cache.get(id_data[0]);
       if(!guild) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "登録情報を削除できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "指定したサーバーが存在しません"
         }],
-        ephemeral:true
+        ephemeral: true
       });
   
       if(!sub[id_data]) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "登録情報を削除できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "指定されたサーバーは登録されていません"
         }],
-        ephemeral:true
+        ephemeral: true
       });
       const channel = sub[id_data];
 
@@ -113,7 +113,7 @@ module.exports = async(interaction,client)=>{
   
           await interaction.reply({
             embeds:[{
-                author: {
+                author:{
                   name: `${guild.name} の登録の削除が完了しました`,
                   icon_url: "https://cdn.taka.ml/images/system/success.png",
                 },
@@ -129,7 +129,7 @@ module.exports = async(interaction,client)=>{
   
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: `${guild.name} の登録の削除が完了しました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -141,7 +141,7 @@ module.exports = async(interaction,client)=>{
 
       client.channels.cache.get(channel).send({
         embeds:[{
-          author: {
+          author:{
             name: "登録情報が削除されました",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
@@ -160,7 +160,7 @@ module.exports = async(interaction,client)=>{
   
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: `${id_data[0]} のミュートを解除しました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -172,7 +172,7 @@ module.exports = async(interaction,client)=>{
 
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: `${id_data[0]} をミュートしました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -187,14 +187,14 @@ module.exports = async(interaction,client)=>{
       }catch{
         return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "ユーザーをミュートできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "指定したユーザーが存在しません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
       }
   
@@ -204,7 +204,7 @@ module.exports = async(interaction,client)=>{
   
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: `${user.tag} のミュートを解除しました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -216,7 +216,7 @@ module.exports = async(interaction,client)=>{
 
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: `${user.tag} をミュートしました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -231,14 +231,14 @@ module.exports = async(interaction,client)=>{
       }catch{
         return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "ユーザーにDMを送信できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "指定したユーザーが存在しません"
           }],
-          ephemeral:true
+          ephemeral: true
         });
       }
 
@@ -246,27 +246,27 @@ module.exports = async(interaction,client)=>{
         .then(async()=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: `${user.tag} にDMを送信しました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
               color: "GREEN",
               description: `内容:${message}`
             }],
-            ephemeral:true
+            ephemeral: true
           })
         })
         .catch(async()=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "送信に失敗しました",
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: "ユーザーがDMを有効にしていません"
             }],
-            ephemeral:true
+            ephemeral: true
           })
         });
 

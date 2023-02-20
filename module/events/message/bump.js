@@ -17,8 +17,8 @@ module.exports = async(message)=>{
       await message.channel.send({
         embeds:[{
           color: "WHITE",
-          title:"BUMP通知",
-          description:"UPを受信しました\n2時間後に通知します"
+          title: "BUMP通知",
+          description: "UPを受信しました\n2時間後に通知します"
         }]  
       }).catch(()=>{})
 

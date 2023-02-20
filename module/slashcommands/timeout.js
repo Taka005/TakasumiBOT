@@ -8,51 +8,51 @@ module.exports = async(interaction)=>{
       
       if(!interaction.member.permissions.has("MODERATE_MEMBERS")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをモデレート`の権限を持っている必要があります"
         }],
-        ephemeral:true
+        ephemeral: true
       });
   
       if(!interaction.guild.me.permissionsIn(interaction.channel).has("MODERATE_MEMBERS")) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "BOTに権限がありません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをモデレート```"
         }],
-        ephemeral:true
+        ephemeral: true
       });
   
       const member = await interaction.guild.members.cache.get(user.id);
       if(!member) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "取得に失敗しました",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "ユーザーが取得できないためタイムアウトできませんでした"
         }],
-        ephemeral:true
+        ephemeral: true
       });
   
       if(member.user.id === interaction.member.user.id) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "メンバーをタイムアウトできませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "自分自身をタイムアウトすることはできません"
         }],
-        ephemeral:true
+        ephemeral: true
       });
   
       member.timeout(time*1000,reason)
@@ -60,7 +60,7 @@ module.exports = async(interaction)=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
-              author: {
+              author:{
                 name: `${member.user.tag}を${time||0}秒タイムアウトしました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -71,20 +71,20 @@ module.exports = async(interaction)=>{
         .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "メンバーをタイムアウトできませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
-              fields: [
+              fields:[
                 {
                   name: "エラーコード",
                   value: `\`\`\`${error}\`\`\``
                 }
               ]
             }],
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -92,7 +92,7 @@ module.exports = async(interaction)=>{
                     .setURL("https://discord.gg/NEesRdGQwD")
                     .setStyle("LINK"))
             ],
-            ephemeral:true
+            ephemeral: true
           })
         })
     }

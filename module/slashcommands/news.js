@@ -32,14 +32,14 @@ module.exports = async(interaction)=>{
           url: data.articles[0].url,
           color: "GREEN",
           description: data.articles[0].description,
-          image: {
+          image:{
             url: data.articles[0].urlToImage
           },
-          footer: {
+          footer:{
             text: `${data.articles[0].publishedAt} | ${data.articles[0].source.name}`
           },
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(before)
             .addComponents(page)
@@ -49,14 +49,14 @@ module.exports = async(interaction)=>{
     }catch{
       await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "ページが存在しません",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "前のページに戻ってください"
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(before)
             .addComponents(page)

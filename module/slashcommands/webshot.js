@@ -8,14 +8,14 @@ module.exports = async(interaction)=>{
 
     if(!isUrl(url)) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "スクリーンショットできませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "URLを指定する必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     await interaction.deferReply();
@@ -26,12 +26,12 @@ module.exports = async(interaction)=>{
 
       await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "スクリーンショットを撮りました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
           color: "GREEN",
-          image: {
+          image:{
             url: "attachment://screenshot.png"
           },
         }],
@@ -40,14 +40,14 @@ module.exports = async(interaction)=>{
     }catch(error){
       await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "スクリーンショットできませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "URLを変えてやり直してください"
         }],
-        ephemeral:true
+        ephemeral: true
       });
     }
   }

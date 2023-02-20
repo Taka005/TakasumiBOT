@@ -6,14 +6,14 @@ module.exports = async(interaction)=>{
 
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`ロールの管理`の権限を持っている必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const guide = new Modal()

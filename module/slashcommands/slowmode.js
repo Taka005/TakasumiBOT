@@ -6,45 +6,45 @@ module.exports = async(interaction)=>{
   
     if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```チャンネルの管理```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
    
     if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_CHANNELS")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```チャンネルの管理```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(time < 0 || time > 21600) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "引数が無効です",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "削除するメッセージの数は0秒以上、21600秒以下にする必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     await interaction.channel.setRateLimitPerUser(time)
       .then(async()=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "低速モードを設定しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -56,19 +56,19 @@ module.exports = async(interaction)=>{
       .catch(async(error)=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "低速モードが設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],      
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()
@@ -76,7 +76,7 @@ module.exports = async(interaction)=>{
                   .setURL("https://discord.gg/NEesRdGQwD")
                   .setStyle("LINK"))
           ],
-          ephemeral:true
+          ephemeral: true
         });
       })
   }

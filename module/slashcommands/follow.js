@@ -8,26 +8,26 @@ module.exports = async(interaction,client)=>{
       !interaction.member.permissions.has("MANAGE_CHANNELS")
     ) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```メッセージを管理\nチャンネルの管理```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
  
     if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_CHANNELS")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```チャンネルの管理```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     const ch = client.channels.cache.get("1049155527214628954");
@@ -36,7 +36,7 @@ module.exports = async(interaction,client)=>{
       .then(async()=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "アナウンスチャンネルを追加しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -48,19 +48,19 @@ module.exports = async(interaction,client)=>{
       .catch(async(error)=>{
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "フォローチャンネルを追加できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()
@@ -68,7 +68,7 @@ module.exports = async(interaction,client)=>{
                   .setURL("https://discord.gg/NEesRdGQwD")
                   .setStyle("LINK"))
           ],
-          ephemeral:true
+          ephemeral: true
         });
       })
   }

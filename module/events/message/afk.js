@@ -14,7 +14,7 @@ module.exports = async(message)=>{
     await mysql(`DELETE FROM afk WHERE user = ${message.author.id} LIMIT 1;`);
     message.channel.send({
       embeds:[{
-        author: {
+        author:{
           name: "AFKを無効にしました",
           icon_url: "https://cdn.taka.ml/images/system/success.png",
         },
@@ -32,7 +32,7 @@ module.exports = async(message)=>{
         await mysql(`UPDATE afk SET mention = ${Number(data[0].mention)+1} WHERE user = ${id[0]}`);
         message.channel.send({
           embeds:[{
-            author: {
+            author:{
               name: "AFK中です",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },

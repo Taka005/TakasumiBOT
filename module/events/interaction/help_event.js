@@ -12,7 +12,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           title: "HELP 便利系",
           color: "GREEN",
-          fields: [
+          fields:[
             {
               name: "/poll",
               value: "アンケートを作成することができます\n最大で選択肢は12個までです"
@@ -43,7 +43,7 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
@@ -76,7 +76,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           title: "HELP 認証・情報系",
           color: "GREEN",
-          fields: [
+          fields:[
             {
               name: "/auth",
               value: "メンバー認証を設定します\n数種類の認証方式を設定できます"
@@ -111,7 +111,7 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
@@ -144,7 +144,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           title: "HELP サーバー管理系",
           color: "GREEN",
-          fields: [
+          fields:[
             {
               name: "/ban",
               value: "指定されたメンバーをサーバーからBANすることができます\n ※これを実行するには、`メンバーをBAN`の権限が必要です"
@@ -191,7 +191,7 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
@@ -224,7 +224,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           title: "HELP エンタメ・BOT系",
           color: "GREEN",
-          fields: [
+          fields:[
             {
               name: "/mc",
               value: "指定したアドレスのMinecarftサーバーの情報を表示します"
@@ -259,7 +259,7 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
@@ -292,7 +292,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           title: "HELP 雑用系",
           color: "GREEN",
-          fields: [
+          fields:[
             {
               name: "/top",
               value: "実行したチャンネルの1番最初のメッセージを表示します"
@@ -339,7 +339,7 @@ module.exports = async(interaction)=>{
             }
           ]
         }],
-        components: [
+        components:[
           new MessageActionRow()
             .addComponents(
               new MessageButton()
@@ -373,14 +373,14 @@ async function check(interaction,id){
   if(id !== interaction.member.user.id){
     await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "ページを更新できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは別の人が操作しています"
       }],
-      ephemeral:true
+      ephemeral: true
     });
     return true
   }
@@ -392,20 +392,20 @@ async function err(interaction,error){
   
   await interaction.reply({
     embeds:[{
-      author: {
+      author:{
         name: "ページを更新できませんでした",
         icon_url: "https://cdn.taka.ml/images/system/error.png",
       },
       color: "RED",
       description: "BOTの権限が不足しています",
-      fields: [
+      fields:[
         {
           name: "エラーコード",
           value: `\`\`\`${error}\`\`\``
         }
       ]
     }],
-    components: [
+    components:[
       new MessageActionRow()
         .addComponents( 
           new MessageButton()
@@ -413,6 +413,6 @@ async function err(interaction,error){
             .setURL("https://discord.gg/NEesRdGQwD")
             .setStyle("LINK"))
     ],
-    ephemeral:true
+    ephemeral: true
   });
 }

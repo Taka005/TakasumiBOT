@@ -14,7 +14,7 @@ module.exports = async(interaction)=>{
 
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "暗号を生成しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -25,19 +25,19 @@ module.exports = async(interaction)=>{
       }catch(error){
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "暗号が生成できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],     
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()
@@ -54,7 +54,7 @@ module.exports = async(interaction)=>{
 
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "暗号を復号しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png",
             },
@@ -65,20 +65,20 @@ module.exports = async(interaction)=>{
       }catch(error){
         await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "暗号が復号できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "復号鍵が間違っている可能性があります",
-            fields: [
+            fields:[
               {
                 name: "エラーコード",
                 value: `\`\`\`${error}\`\`\``
               }
             ]
           }],
-          components: [
+          components:[
             new MessageActionRow()
               .addComponents( 
                 new MessageButton()

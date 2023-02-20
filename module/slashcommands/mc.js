@@ -13,7 +13,7 @@ module.exports = async(interaction)=>{
 
       if(!server.debug.ping&&!server.online) return await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "取得できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
@@ -29,11 +29,11 @@ module.exports = async(interaction)=>{
               title: ip,
               url: `https://mcsrvstat.us/server/${ip}`,
               color: "GREEN",
-              thumbnail: {
+              thumbnail:{
                 url: `https://api.mcsrvstat.us/icon/${ip}`,
               },
               description: ":green_circle: オンライン",
-              fields: [
+              fields:[
                 {
                   name: "MOTD",
                   value: `\`\`\`${(server.motd)?server.motd.clean.join("\n"):"なし"}\`\`\``,
@@ -56,7 +56,7 @@ module.exports = async(interaction)=>{
                 }
               ],
               timestamp: new Date(),
-              footer: {
+              footer:{
                 text: "TakasumiBOT"
               }
             }]
@@ -67,12 +67,12 @@ module.exports = async(interaction)=>{
               title: ip,
               url: `https://mcsrvstat.us/server/${ip}`,
               color: "GREEN",
-              thumbnail: {
+              thumbnail:{
                 url: `https://api.mcsrvstat.us/icon/${ip}`,
               },
               description: "red_circle: オフライン",
               timestamp: new Date(),
-              footer: {
+              footer:{
                 text: "TakasumiBOT"
               }
             }]
@@ -81,7 +81,7 @@ module.exports = async(interaction)=>{
       }catch{
         await interaction.editReply({
           embeds:[{
-            author: {
+            author:{
               name: "検索内容を取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
@@ -97,7 +97,7 @@ module.exports = async(interaction)=>{
 
       if(!server.debug.ping&&!server.online) return await interaction.editReply({
         embeds:[{
-          author: {
+          author:{
             name: "取得できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
@@ -113,11 +113,11 @@ module.exports = async(interaction)=>{
               title: ip,
               url: `https://mcsrvstat.us/bedrock/${ip}`,
               color: "GREEN",
-              thumbnail: {
+              thumbnail:{
                 url: `https://api.mcsrvstat.us/icon/${ip}`,
               },
               description: ":green_circle: オンライン",
-              fields: [
+              fields:[
                 {
                   name: "MOTD",
                   value: `\`\`\`${(server.motd) ? server.motd.clean.join("\n") : "なし"}\`\`\``,
@@ -145,7 +145,7 @@ module.exports = async(interaction)=>{
                 }
               ],
               timestamp: new Date(),
-              footer: {
+              footer:{
                 text: "TakasumiBOT"
               }
             }]
@@ -156,12 +156,12 @@ module.exports = async(interaction)=>{
               title: ip,
               url: `https://mcsrvstat.us/server/${ip}`,
               color: "GREEN",
-              thumbnail: {
+              thumbnail:{
                 url: `https://api.mcsrvstat.us/icon/${ip}`,
               },
               description: "red_circle: オフライン",
               timestamp: new Date(),
-              footer: {
+              footer:{
                 text: "TakasumiBOT"
               }
             }]
@@ -170,7 +170,7 @@ module.exports = async(interaction)=>{
       }catch{
         await interaction.editReply({
           embeds:[{
-            author: {
+            author:{
               name: "検索内容を取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },

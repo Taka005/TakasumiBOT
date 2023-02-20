@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   if(interaction.customId.startsWith("auth_")){
     await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "認証できません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },

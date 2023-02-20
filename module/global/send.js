@@ -40,29 +40,29 @@ module.exports = async(message)=>{
 
   await fetch("https://ugc.renorari.net/api/v2/messages",{
     "method": "POST",
-    "headers": {
+    "headers":{
       "Authorization": `Bearer ${process.env.UGC_KEY}`,
       "Content-Type": "application/json"
     },
     "body": JSON.stringify(
       {
-        "channel": {
+        "channel":{
           "name": message.channel.name,
           "id": message.channel.id
         },
-        "author": {
+        "author":{
           "username": message.author.username,
           "discriminator": message.author.discriminator,
           "id": message.author.id,
           "avatarURL": message.author.avatarURL({"dynamic":true,"format":"png","size": 512}),
           "bot": message.author.bot
         },
-        "guild": {
+        "guild":{
           "name": message.guild.name,
           "id": message.guild.id,
           "iconURL": message.guild.iconURL({"dynamic":true,"format":"png","size":256})
         },
-        "message": {
+        "message":{
           "content": message.content,
           "id": message.id,
           "clean_content": message.cleanContent,

@@ -6,39 +6,39 @@ module.exports = async(interaction)=>{
       const description = interaction.fields.getTextInputValue("description");
       const image = interaction.fields.getTextInputValue("image");
       
-      if(!title && !description && !image) return await interaction.reply({
+      if(!title&&!description&&!image) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "入力箇所が不足しています",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "記入欄を全て空にはできません"
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       if(image){
         if(!isUrl(image)) return await interaction.reply({
           embeds:[{
-            author: {
+            author:{
               name: "入力された画像が無効です",
               icon_url: "https://cdn.taka.ml/images/system/error.png",
             },
             color: "RED",
             description: "画像はURLで指定する必要があります"
           }],
-          ephemeral:true
+          ephemeral: true
         });
       }
 
       await interaction.reply({
         embeds:[{
           color: "RANDOM",
-          title: `${title}`,
-          description: `${description}`,
-          image: {
-            url: `${image}`
+          title: title,
+          description: description,
+          image:{
+            url: image
           }
         }]
       })

@@ -26,12 +26,14 @@ module.exports = async(interaction)=>{
         title: "画像認証",          
         color: "GREEN",
         description: "画像にある文字を選択してください\n※画像が表示されるまで時間がかかる場合があります",
-        image: {
+        image:{
           url: "attachment://code.png"
         }
       }],
-      files: [new MessageAttachment(image.stream(),"code.png")],
-      components: [     
+      files:[
+        new MessageAttachment(image.stream(),"code.png")
+      ],
+      components:[     
         new MessageActionRow()
           .addComponents(
             new MessageSelectMenu()
@@ -46,7 +48,7 @@ module.exports = async(interaction)=>{
                 }))
               ))
       ],
-      ephemeral:true
+      ephemeral: true
     });
   }
 }

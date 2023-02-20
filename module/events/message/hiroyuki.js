@@ -58,7 +58,7 @@ module.exports = async(message,client)=>{
     "なんか言いました？",
     "そうなんですねw",
     "反論ありますか？",
-    "へぇー・・",
+    "へぇー...",
     "それってあなたの想像ですよね？"
   ];
 
@@ -100,7 +100,7 @@ module.exports = async(message,client)=>{
 
   if(rate(false,true,0.01)){
     return await webhooks.send({
-      content: `${random(koizumi)}`,
+      content: random(koizumi),
       username: "小泉進次郎",
       avatarURL: "https://cdn.taka.ml/images/koizumi.png"
     }).catch((error)=>{
@@ -108,7 +108,7 @@ module.exports = async(message,client)=>{
     })
   }else if(rate(false,true,0.01)){
     return await webhooks.send({
-      content: `${random(kinnikun)}`,
+      content: random(kinnikun),
       username: "なかやまきんに君",
       avatarURL: "https://cdn.taka.ml/images/kinnikun.png"
     }).catch((error)=>{
@@ -124,7 +124,7 @@ module.exports = async(message,client)=>{
   }
 
   await webhooks.send({
-    content: `${content}`,
+    content: content,
     username: "ひろゆき",
     avatarURL: "https://cdn.taka.ml/images/hiroyuki.png"
   }).catch((error)=>{
@@ -147,13 +147,13 @@ function err(message,client,error){
 
   client.channels.cache.get(message.channel.id).send({
     embeds:[{
-      author: {
+      author:{
         name: "ひろゆきの体調が悪化しました",
         icon_url: "https://cdn.taka.ml/images/system/error.png",
       },
       color: "RED",
       description: "エラーが発生したため、強制的に退出されました\n再度登録するには`/hiroyuki`を使用してください",
-      fields: [
+      fields:[
         {
           name: "エラーコード",
           value: `\`\`\`${error}\`\`\``

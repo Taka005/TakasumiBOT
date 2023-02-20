@@ -20,14 +20,14 @@ module.exports = async(message,client)=>{
   if(!account[0]){
     return await message.reply({ 
       embeds:[{
-        author: {
+        author:{
           name: "利用規約に同意してください",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "以下のリンクから認証を行うことでグローバルチャットを利用できます\n認証が完了すると[利用規約](https://gc.taka.ml/)に同意したものとみなします",
       }], 
-      components: [
+      components:[
         new MessageActionRow()
           .addComponents( 
             new MessageButton()
@@ -75,23 +75,23 @@ module.exports = async(message,client)=>{
           embeds:[
             {
               color: (await message.author.fetch()).hexAccentColor || "RANDOM",
-              author: {
+              author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
-              fields: [
+              fields:[
                 {
                   name: "\u200b",
                   value: `**${author}>>** ${msg.embeds[0].description || "なし"}`
                 }
               ],
-              footer: {
+              footer:{
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
-              image: {
+              image:{
                 url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
@@ -116,23 +116,23 @@ module.exports = async(message,client)=>{
           embeds:[
             {
               color: (await message.author.fetch()).hexAccentColor || "RANDOM",
-              author: {
+              author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
-              fields: [
+              fields:[
                 {
                   name: "\u200b",
                   value: `**${author}>>** ${msg.embeds[0].description || "なし"}`
                 }
               ],
-              footer: {
+              footer:{
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
-              image: {
+              image:{
                 url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
@@ -140,7 +140,7 @@ module.exports = async(message,client)=>{
             {
               title: attachment[0].name,
               description: `[元ファイルを開く](${attachment[0].url})`,
-              image: {
+              image:{
                 url: attachment[0].url
               }
             }
@@ -165,17 +165,17 @@ module.exports = async(message,client)=>{
           embeds:[
             {
               color: (await message.author.fetch()).hexAccentColor || "RANDOM",
-              author: {
+              author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
-              footer: {
+              footer:{
                 text: `${message.guild.name}<${message.guild.id}>` ,
                 icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
-              fields: [
+              fields:[
                 {
                   name: "添付ファイル",
                   value: `[${attachment[0].name}](${attachment[0].url})`
@@ -185,7 +185,7 @@ module.exports = async(message,client)=>{
                   value: `**${author}>>** ${msg.embeds[0].description || "なし"}`
                 }
               ],       
-              image: {
+              image:{
                 url: `https://${message.id}.ugc`
               },
 
@@ -215,23 +215,23 @@ module.exports = async(message,client)=>{
           embeds:[
             {
               color: (await message.author.fetch()).hexAccentColor || "RANDOM",
-              author: {
+              author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
-              fields: [
+              fields:[
                 {
                   name: "\u200b",
                   value: `**${msg.author.tag}>>** ${msg.content || "なし"}`
                 }
               ],
-              footer: {
+              footer:{
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
-              image: {
+              image:{
                 url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
@@ -255,23 +255,23 @@ module.exports = async(message,client)=>{
           embeds:[
             {
               color: (await message.author.fetch()).hexAccentColor || "RANDOM",
-              author: {
+              author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
-              fields: [
+              fields:[
                 {
                   name: "\u200b",
                   value: `**${msg.author.tag}>>** ${msg.content || "なし"}`
                 }
               ],
-              footer: {
+              footer:{
                 text: `${message.guild.name}<${message.guild.id}>`,
                 icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
-              image: {
+              image:{
                 url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
@@ -279,7 +279,7 @@ module.exports = async(message,client)=>{
             {
               title: attachment[0].name,
               description: `[元ファイルを開く](${attachment[0].url})`,
-              image: {
+              image:{
                 url: attachment[0].url
               }
             }
@@ -303,17 +303,17 @@ module.exports = async(message,client)=>{
           embeds:[
             {
               color: (await message.author.fetch()).hexAccentColor || "RANDOM",
-              author: {
+              author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
                 icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
               },
               description: `${content}`,
-              footer: {
+              footer:{
                 text: `${message.guild.name}<${message.guild.id}>` ,
                 icon_url: message.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
               },
-              fields: [
+              fields:[
                 {
                   name: "添付ファイル",
                   value: `[${attachment[0].name}](${attachment[0].url})`
@@ -323,7 +323,7 @@ module.exports = async(message,client)=>{
                   value: `**${msg.author.tag}>>** ${msg.content || "なし"}`
                 }
               ],
-              image: {
+              image:{
                 url: `https://${message.id}.ugc`
               },
               timestamp: new Date()
@@ -354,13 +354,13 @@ function err(channels,client,error){
 
   client.channels.cache.get(channels).send({
     embeds:[{
-      author: {
+      author:{
         name: "グローバルチャットでエラーが発生しました",
         icon_url: "https://cdn.taka.ml/images/system/error.png",
       },
       color: "RED",
       description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",
-      fields: [
+      fields:[
         {
           name: "エラーコード",
           value: `\`\`\`${error}\`\`\``

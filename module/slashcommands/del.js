@@ -7,38 +7,38 @@ module.exports = async(interaction)=>{
 
     if(!interaction.member.permissions.has("MANAGE_MESSAGES")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```メッセージの管理```"
       }],
-      ephemeral:true
+      ephemeral: true
     });
 
     if(number < 2||number > 99) return await interaction.reply({
       embeds:[{
-        author: {
+        author:{
           name: "引数が無効です",
           icon_url: "https://cdn.taka.ml/images/system/error.png",
         },
         color: "RED",
         description: "削除するメッセージの数は`2`以上`99`以下にする必要があります"
       }],
-      ephemeral:true
+      ephemeral: true
     });
     
     if(user){
@@ -46,14 +46,14 @@ module.exports = async(interaction)=>{
       const msg = await messages.filter(msg => user.id === msg.author.id);
       if(!msg) return await interaction.reply({
         embeds:[{
-          author: {
+          author:{
             name: "削除できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png",
           },
           color: "RED",
           description: "メッセージに指定したユーザーが含まれていませんでした",
         }],
-        ephemeral:true
+        ephemeral: true
       });
 
       await interaction.channel.bulkDelete(msg)
@@ -61,7 +61,7 @@ module.exports = async(interaction)=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
-              author: {
+              author:{
                 name: `${user.tag} のメッセージを${number}個削除しました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -72,20 +72,20 @@ module.exports = async(interaction)=>{
         .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "削除できませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,
-              fields: [
+              fields:[
                 {
                   name: "エラーコード",
                   value: `\`\`\`${error}\`\`\``
                 }
               ]
             }],
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -93,7 +93,7 @@ module.exports = async(interaction)=>{
                     .setURL("https://discord.gg/NEesRdGQwD")
                     .setStyle("LINK"))
             ],
-            ephemeral:true
+            ephemeral: true
           })
         });
     }else{
@@ -103,7 +103,7 @@ module.exports = async(interaction)=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
-              author: {
+              author:{
                 name: `${number}個のメッセージを削除しました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png",
               },
@@ -114,20 +114,20 @@ module.exports = async(interaction)=>{
         .catch(async(error)=>{
           await interaction.reply({
             embeds:[{
-              author: {
+              author:{
                 name: "削除できませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png",
               },
               color: "RED",
               description: `二週間より前のメッセージが含まれていたか、\nBOTの権限が不足しています`,
-              fields: [
+              fields:[
                 {
                   name: "エラーコード",
                   value: `\`\`\`${error}\`\`\``
                 }
               ]
             }],
-            components: [
+            components:[
               new MessageActionRow()
                 .addComponents( 
                   new MessageButton()
@@ -135,7 +135,7 @@ module.exports = async(interaction)=>{
                     .setURL("https://discord.gg/NEesRdGQwD")
                     .setStyle("LINK"))
             ],
-            ephemeral:true
+            ephemeral: true
           })
         });
     }
