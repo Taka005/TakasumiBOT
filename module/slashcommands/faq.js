@@ -17,7 +17,7 @@ module.exports = async(interaction)=>{
           },
           {
             name: "TakasumiBOT Authとは?",
-            value: "TakasumiBOTの認証に用いられる認証サイト、認証システムです"
+            value: "TakasumiBOTの認証に用いられるWeb認証システムです"
           },
           {
             name: "BOTや、その他サービスは何で動かしているの？",
