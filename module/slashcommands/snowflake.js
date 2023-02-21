@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "snowflake"){
     const id = interaction.options.getString("id");
 
-    if(isNaN(id)) return interaction.reply({
+    if(isNaN(id)) return await interaction.reply({
       embeds:[{
         author:{
           name: "解析できませんでした",
