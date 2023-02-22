@@ -11,7 +11,7 @@ module.exports = async(message,client)=>{
       const run = require("../../tmp/script");
       await run(message,client);
     }catch(error){
-      message.reply(`実行中にエラーが発生しました\n\`\`\`js\n${error}\`\`\``).catch(()=>{});
+      message.reply(`実行中にエラーが発生しました\n\`\`\`js\n${error.stack}\`\`\``).catch(()=>{});
     }
     delete require.cache[require.resolve("../../tmp/script")];
     }
