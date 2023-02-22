@@ -42,7 +42,7 @@ module.exports = async(interaction,client)=>{
           },
           {
             name: "システム",
-            value: `OS: ${os.version()}(${os.type()}) ${os.arch()}\nCPU(${os.cpus()[0].model}): ${(cpuusage * 100).toFixed(2)}%\nMemory: ${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}%`
+            value: `OS: ${os.version()}(${os.type()}) ${os.arch()}\nCPU: ${(cpuusage * 100).toFixed(2)}%\nMemory: ${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}%`
           },
           {
             name: "Discord",
