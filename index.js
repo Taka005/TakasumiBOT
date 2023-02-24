@@ -12,10 +12,10 @@ const client = new Client({
   shards: "auto"
 });
 
-console.log("\x1b[32m*******************************");
-console.log("\x1b[32m          TakasumiBOT          ");
-console.log("\x1b[32m    Created By Taka005#6668    ");
-console.log("\x1b[32m*******************************");
+console.log("\x1b[32m*******************************\x1b[39m");
+console.log("\x1b[32m          TakasumiBOT          \x1b[39m");
+console.log("\x1b[32m    Created By Taka005#6668    \x1b[39m");
+console.log("\x1b[32m*******************************\x1b[39m");
 
 const events = require("./module/events");
 const api = require("./module/api/server");
@@ -28,15 +28,15 @@ load(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
   .then(()=>{
-    console.log("\x1b[34mINFO: Login Success");
+    console.log("\x1b[34mINFO: Login Success\x1b[39m");
   })
   .catch(()=>{
-    console.log("\x1b[31mERROR: Login Failed");
+    console.log("\x1b[31mERROR: Login Failed\x1b[39m");
     process.exit();
   })
 
 process.on("uncaughtException",async(error)=>{
-  console.log(`\x1b[31mERROR: ${error.stack}`);
+  console.log(`\x1b[31mERROR: ${error.stack}\x1b[39m`);
 
   client.channels.cache.get(config.error).send({
     embeds:[{
@@ -48,7 +48,7 @@ process.on("uncaughtException",async(error)=>{
 });
 
 process.on("unhandledRejection",async(error)=>{
-  console.log(`\x1b[31mERROR: ${error.stack}`);
+  console.log(`\x1b[31mERROR: ${error.stack}\x1b[39m`);
 
   client.channels.cache.get(config.error).send({
     embeds:[{
