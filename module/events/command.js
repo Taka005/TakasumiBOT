@@ -308,10 +308,6 @@ module.exports = async(client)=>{
           new SlashCommandBuilder()
             .setName("panel")
             .setDescription("役職パネルを作成します")  
-            .addStringOption(option =>
-              option
-                .setName("title")
-                .setDescription("タイトル"))
             .addRoleOption(option =>
               option
                 .setName("role_1")
@@ -352,7 +348,11 @@ module.exports = async(client)=>{
             .addRoleOption(option =>
               option
                 .setName("role_10")
-                .setDescription("役職10")),
+                .setDescription("役職10"))
+            .addStringOption(option =>
+              option
+                .setName("title")
+                .setDescription("タイトル")),
           //permission
           new SlashCommandBuilder()
             .setName("permission")
