@@ -29,7 +29,7 @@ module.exports = async(interaction)=>{
               author:{
                 name: "このサイトは注意が必要です",
                 icon_url: "https://cdn.taka.ml/images/system/warn.png",
-                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
+                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`
               },
               description: `注意の評価を受けた Web サイトは少数の脅威または迷惑を伴いますが、\n警告に相当するほど危険とは見なされません。サイトにアクセスする場合には注意が必要です。\n\n※注意の評価は、誤判定の可能性があります`,
               footer:{
@@ -43,8 +43,8 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "このサイトは危険です",
-                icon_url: "https://cdn.taka.ml/images/system/error.png"
-                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
+                icon_url: "https://cdn.taka.ml/images/system/error.png",
+                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`
               },
               description: "これは既知の危険な Web サイトです。\nこのページを表示**しない**ことを推奨します。",
               footer:{
@@ -59,7 +59,7 @@ module.exports = async(interaction)=>{
               author:{
                 name: "このサイトは評価されていません",
                 icon_url: "https://cdn.taka.ml/images/system/config.png",
-                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
+                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`
               },
               description: "サイトは未評価のため、接続には注意が必要な可能性があります",
               footer:{
@@ -73,8 +73,8 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "このサイトは安全です",
-                icon_url: "https://cdn.taka.ml/images/system/success.png"
-                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
+                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`
               },
               description: "サイトからは脅威が確認されませんでした。\n安全に接続が可能です",
               footer:{
