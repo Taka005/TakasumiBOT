@@ -11,7 +11,7 @@ module.exports = async(interaction)=>{
 
 
       let error;
-      error = async.map(add,async(role)=>{
+      error = await async.map(add,async(role)=>{
         try{
           await interaction.member.roles.add(role);
         }catch{
@@ -19,7 +19,7 @@ module.exports = async(interaction)=>{
         }
       });
 
-      error = async.map(remove,async(role)=>{
+      error = await async.map(remove,async(role)=>{
         try{
           await interaction.member.roles.remove(role);
         }catch{
