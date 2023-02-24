@@ -3,33 +3,42 @@ module.exports = async(interaction)=>{
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
     
+    await interaction.deferReply({ephemeral: true});
     try{
-      const add = interaction.values.filter((role)=>!interaction.member.roles.cache.has(role))
-      const remove = interaction.values.filter((role)=>!add.includes(role));
+      const add = interaction.values.filter(role=>!interaction.member.roles.cache.has(role))
+      const remove = interaction.values.filter(role=>!add.includes(role));
 
-      add.forEach(role=>{
-        interaction.member.roles.add(role)
-          .catch(()=>{})
+
+      let error;
+      error = add.map(async(role)=>{
+        try{
+          await interaction.member.roles.add(role);
+        }catch{
+          return role;
+        }
       });
 
-      remove.forEach(role=>{
-        interaction.member.roles.remove(role)
-          .catch(()=>{})
+      error = remove.map(async(role)=>{
+        try{
+          await interaction.member.roles.remove(role);
+        }catch{
+          return role;
+        }
       });
 
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author:{
             name: "ロールを変更しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png",
           },
-          description: `**付与したロール**\n${add.map(role=>`<@&${role}>`).join("\n")||"なし"}\n**削除したロール**\n${remove.map(role=>`<@&${role}>`).join("\n")||"なし"}`,
+          description: `**付与したロール**\n${add.map(role=>`<@&${role}>`).join("\n")||"なし"}\n**削除したロール**\n${remove.map(role=>`<@&${role}>`).join("\n")||"なし"}\n**付与に失敗したロール**\n${error.map(role=>`<@&${role}>`).join("\n")||"なし"}`,
           color: "GREEN"
         }],
         ephemeral: true
       });
     }catch(error){
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author:{
             name: "ロールの付与に失敗しました",
