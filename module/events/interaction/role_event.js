@@ -5,12 +5,10 @@ module.exports = async(interaction)=>{
     
     await interaction.deferReply({ephemeral: true});
     try{
-      const add = interaction.values.filter(role=>!interaction.member.roles.cache.has(role))
-      const remove = interaction.values.filter(role=>!add.includes(role));
+      let add = interaction.values.filter(role=>!interaction.member.roles.cache.has(role))
+      let remove = interaction.values.filter(role=>!add.includes(role));
 
-
-      let error;
-      error = add.map(async(role)=>{
+      const add_err = await add.map(async(role)=>{
         try{
           await interaction.member.roles.add(role);
         }catch{
@@ -18,14 +16,18 @@ module.exports = async(interaction)=>{
         }
       });
 
-      error = remove.map(async(role)=>{
+      const remove_err = await remove.map(async(role)=>{
         try{
           await interaction.member.roles.remove(role);
         }catch{
           return role;
         }
       });
-console.log(error)
+
+      const error = add_err.concat(remove_err);
+      add = add.filter(role=>!error.includes(role));
+      remove = interaction.values.filter(role=>!error.includes(role));
+
       await interaction.editReply({
         embeds:[{
           author:{
