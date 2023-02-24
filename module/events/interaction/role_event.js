@@ -26,7 +26,7 @@ module.exports = async(interaction)=>{
           return role;
         }
       });
-
+console.log(error)
       await interaction.editReply({
         embeds:[{
           author:{
