@@ -13,19 +13,19 @@ module.exports = async(client)=>{
     },app);
 
     server.listen(443,()=>{
-      console.log(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました`);
+      console.log(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました\x1b[39m`);
     });
   }catch{
-    console.log(`\x1b[33mWARN: sslを使用せずに起動しました`);
+    console.log(`\x1b[33mWARN: sslを使用せずに起動しました\x1b[39m`);
   }
 
   app.listen(80,()=>{
-    console.log(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました`);
+    console.log(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました\x1b[39m`);
   });
    
   app.get("/",(req,res)=>{
     res.send("<h1>TakasumiBOT API Server</h1>");
-    console.log(`\x1b[34mINFO: [${req.ip}]からの接続`);
+    console.log(`\x1b[34mINFO: [${req.ip}]からの接続\x1b[39m`);
     res.end()
   });
 
@@ -59,7 +59,7 @@ module.exports = async(client)=>{
       }
     });
     
-    console.log(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト`);
+    console.log(`\x1b[34mINFO: [${req.ip}]からAPIにリクエスト\x1b[39m`);
     res.end()
   });
 
@@ -67,7 +67,7 @@ module.exports = async(client)=>{
     res.setHeader("Access-Control-Allow-Origin","*")
     res.json(date);
 
-    console.log(`\x1b[34INFO: [${req.ip}]からAPIにリクエスト`)
+    console.log(`\x1b[34INFO: [${req.ip}]からAPIにリクエスト\x1b[39m`)
     res.end()
   });
   //------API------//
