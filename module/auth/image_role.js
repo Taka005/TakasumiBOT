@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "既に認証済みです",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
       }],
@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "認証しました",
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               color: "GREEN"
             }],
@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "認証に失敗しました",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png"
               },
               color: "RED",
               description: "BOTの権限が不足しているか、付与するロールがBOTより上の可能性があります",
@@ -62,7 +62,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "選択した値が間違っています",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "画像に表示される文字を選択してください"

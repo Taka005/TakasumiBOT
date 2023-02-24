@@ -16,7 +16,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "暗号を生成しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
           description: `暗号: \`\`\`${cipher.final("hex")}\`\`\`\n復号鍵: ||\`${key}\`||`,
             color: "GREEN"
@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "暗号が生成できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             fields:[
@@ -56,7 +56,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "暗号を復号しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
           description: `復号: \`\`\`${decipher.final("utf8")}\`\`\`\n復号鍵: ||\`${key}\`||`,
             color: "GREEN"
@@ -67,7 +67,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "暗号が復号できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "復号鍵が間違っている可能性があります",

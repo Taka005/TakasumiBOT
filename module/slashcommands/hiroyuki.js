@@ -10,7 +10,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーの\n`チャンネルを管理`の権限を持っている必要があります"
@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "BOTに権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "ひろゆきの召喚は、BOTに以下の権限が必要です\n```テキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理```"
@@ -50,7 +50,7 @@ module.exports = async(interaction)=>{
               embeds:[{
                 author:{
                   name: "ひろゆきの退出が完了しました",
-                  icon_url: "https://cdn.taka.ml/images/system/success.png",
+                  icon_url: "https://cdn.taka.ml/images/system/success.png"
                 },
                 color: "GREEN"
               }]
@@ -67,7 +67,7 @@ module.exports = async(interaction)=>{
               embeds:[{
                 author:{
                   name: "ひろゆきの退出が完了しました",
-                  icon_url: "https://cdn.taka.ml/images/system/success.png",
+                  icon_url: "https://cdn.taka.ml/images/system/success.png"
                 },
                 description: "※webhookは既に削除済みのため、\n登録情報のみ削除しました",
                 color: "GREEN"
@@ -103,7 +103,7 @@ module.exports = async(interaction)=>{
               embeds:[{
                 author:{
                   name: "ひろゆきの召喚に失敗しました",
-                  icon_url: "https://cdn.taka.ml/images/system/error.png",
+                  icon_url: "https://cdn.taka.ml/images/system/error.png"
                 },
                 color: "RED",
                 description: "BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています",

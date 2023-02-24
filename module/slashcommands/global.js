@@ -17,7 +17,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "登録できません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         description: "このサーバーもしくは、あなたはブラックリストに登録されているため、登録、利用はできません",
         color: "RED"
@@ -29,7 +29,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーの\n`チャンネルを管理`の権限を持っている必要があります"
@@ -47,7 +47,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "グローバルチャットは、BOTに以下の権限が必要です\n```リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理```"
@@ -62,7 +62,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "参加条件を満たしていません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "グローバルチャットを利用するには、以下の条件を満たしている必要があります```25人以上のメンバー\n8人以上のユーザー```"
@@ -74,7 +74,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "既に登録済みです",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "グローバルチャットは、一つのサーバーに付き\nひとつまでしか設定出来ません"
@@ -97,7 +97,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "登録の削除が完了しました",
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               color: "GREEN"
             }]
@@ -114,7 +114,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "登録の削除が完了しました",
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               description: "※webhookは既に削除済みのため、\n登録情報のみ削除しました",
               color: "GREEN"
@@ -194,7 +194,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "作成に失敗しました",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`,

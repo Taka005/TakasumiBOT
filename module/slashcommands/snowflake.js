@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "解析できませんでした",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "Snowflakeは数字で指定する必要があります"
@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "解析しました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           description: `タイムスタンプ: ${snowflake.timestamp}\n日付: ${snowflake.date}\nワーカーID: ${snowflake.workerId}\nプロセスID: ${snowflake.processId}\nインクリメント: ${snowflake.increment}\nバイナリー: ${snowflake.binary}`,
           color: "GREEN"
@@ -34,7 +34,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "解析できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           fields:[

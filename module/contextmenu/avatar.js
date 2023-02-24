@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "メンバーを取得できませんでした",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "指定したユーザーが存在していないか、サーバーから退出しています"
@@ -40,7 +40,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "正常に送信できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           fields:[

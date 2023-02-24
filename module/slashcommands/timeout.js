@@ -10,7 +10,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをモデレート`の権限を持っている必要があります"
@@ -22,7 +22,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "BOTに権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをモデレート```"
@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "取得に失敗しました",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "ユーザーが取得できないためタイムアウトできませんでした"
@@ -47,7 +47,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "メンバーをタイムアウトできませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "自分自身をタイムアウトすることはできません"
@@ -62,7 +62,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: `${member.user.tag}を${time||0}秒タイムアウトしました`,
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               color: "GREEN"
             }]
@@ -73,7 +73,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "メンバーをタイムアウトできませんでした",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png"
               },
               color: "RED",
               description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",

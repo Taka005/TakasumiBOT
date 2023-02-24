@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
         color: "GREEN",
         author:{
           name: `${interaction.guild.name}の情報`,
-          icon_url: "https://cdn.taka.ml/images/system/success.png",
+          icon_url: "https://cdn.taka.ml/images/system/success.png"
         },
         timestamp: new Date(),
         footer:{
@@ -46,7 +46,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "エラーが発生しました",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           fields:[

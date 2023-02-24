@@ -24,7 +24,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "権限を取得できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             fields:[
@@ -70,7 +70,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限を取得できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "ユーザーが存在しないか、時間を置いてから実行してくださ"

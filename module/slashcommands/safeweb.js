@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "安全性を評価できませんでした",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "URLを指定する必要があります"
@@ -43,7 +43,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "このサイトは危険です",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png"
                 url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
               },
               description: "これは既知の危険な Web サイトです。\nこのページを表示**しない**ことを推奨します。",
@@ -73,7 +73,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               author:{
                 name: "このサイトは安全です",
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
                 url: `https://safeweb.norton.com/report/show?url=${encodeURI(url)}&ulang=jpn`,
               },
               description: "サイトからは脅威が確認されませんでした。\n安全に接続が可能です",
@@ -90,7 +90,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "安全性を評価できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "サイトの取得に失敗しました"

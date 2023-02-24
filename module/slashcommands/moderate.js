@@ -18,7 +18,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```メッセージの管理\nチャンネルの閲覧\nメッセージの送信```"
@@ -30,7 +30,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```サーバーの管理```"
@@ -44,7 +44,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "自動モデレートを無効にできませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "自動モデレートが設定されていません"
@@ -57,7 +57,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "自動モデレート機能を無効にしました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN"
         }]
@@ -69,7 +69,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "自動モデレート機能を有効にしました",
-          icon_url: "https://cdn.taka.ml/images/system/success.png",
+          icon_url: "https://cdn.taka.ml/images/system/success.png"
         },
         color: "GREEN",
         description: `${level[type]}に設定しました`

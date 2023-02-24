@@ -15,7 +15,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author:{
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "このコマンドは、関係者以外実行できません"
@@ -28,7 +28,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author:{
           name: "引数が無効です",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "ユーザー又はサーバーIDを指定する必要があります"
@@ -42,7 +42,7 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           author:{
             name: "サーバーから脱退できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "指定したサーバーが存在しません"
@@ -56,7 +56,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author:{
                 name: `${g.name} から脱退しました`,
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               color: "GREEN"
             }]
@@ -67,7 +67,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author:{
                 name: "サーバーから脱退できませんでした",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png"
               },
               color: "RED",
               description: `\`\`\`${error}\`\`\``
@@ -82,7 +82,7 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           author:{
             name: "登録情報を削除できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "指定したサーバーが存在しません"
@@ -94,7 +94,7 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           author:{
             name: "登録情報を削除できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "指定されたサーバーは登録されていません"
@@ -115,7 +115,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
                 author:{
                   name: `${guild.name} の登録の削除が完了しました`,
-                  icon_url: "https://cdn.taka.ml/images/system/success.png",
+                  icon_url: "https://cdn.taka.ml/images/system/success.png"
                 },
                 color: "GREEN"
               }]
@@ -131,7 +131,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author:{
                 name: `${guild.name} の登録の削除が完了しました`,
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               description: "※webhookは既に削除済みのため、\n登録情報のみ削除しました",
               color: "GREEN"
@@ -143,7 +143,7 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           author:{
             name: "登録情報が削除されました",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "グローバルチャットは、管理者によって強制的に切断されました\n再度登録するには`/global`を使用してください"
@@ -162,7 +162,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: `${id_data[0]} のミュートを解除しました`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -174,7 +174,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: `${id_data[0]} をミュートしました`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -189,7 +189,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: "ユーザーをミュートできませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "指定したユーザーが存在しません"
@@ -206,7 +206,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: `${user.tag} のミュートを解除しました`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -218,7 +218,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: `${user.tag} をミュートしました`,
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -233,7 +233,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: "ユーザーにDMを送信できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "指定したユーザーが存在しません"
@@ -248,7 +248,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author:{
                 name: `${user.tag} にDMを送信しました`,
-                icon_url: "https://cdn.taka.ml/images/system/success.png",
+                icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               color: "GREEN",
               description: `内容:${message}`
@@ -261,7 +261,7 @@ module.exports = async(interaction,client)=>{
             embeds:[{
               author:{
                 name: "送信に失敗しました",
-                icon_url: "https://cdn.taka.ml/images/system/error.png",
+                icon_url: "https://cdn.taka.ml/images/system/error.png"
               },
               color: "RED",
               description: "ユーザーがDMを有効にしていません"
