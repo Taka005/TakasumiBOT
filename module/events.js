@@ -12,7 +12,7 @@ module.exports = async(client)=>{
 
   client.on("messageCreate",async(message)=>{
 
-    //globalchat
+    //Globalchat
     const global = require("./global/global");
     const reply = require("./global/reply");
     const send = require("./global/send");
