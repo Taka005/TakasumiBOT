@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "正常に実行できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "実行がタイムアウトしました",
@@ -61,7 +61,7 @@ module.exports = async(interaction)=>{
           color: "GREEN",
           author:{
             name: "正常に実行しました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**結果**\n\`\`\`${res.program_output||"なし"}\`\`\``,
           footer:{
@@ -73,7 +73,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "正常に実行できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,
@@ -88,7 +88,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "正常に実行できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n\`\`\`${res.program_error}\`\`\``,
@@ -101,7 +101,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "正常に実行できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,

@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```チャンネルの管理```"
@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```チャンネルの管理```"
@@ -32,7 +32,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "引数が無効です",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "削除するメッセージの数は0秒以上、21600秒以下にする必要があります"
@@ -46,7 +46,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "低速モードを設定しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             description: `低速モードは現在${time}秒です`,
             color: "GREEN"
@@ -58,7 +58,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "低速モードが設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             fields:[

@@ -22,7 +22,7 @@ module.exports = async(message,client)=>{
       embeds:[{
         author:{
           name: "利用規約に同意してください",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "以下のリンクから認証を行うことでグローバルチャットを利用できます\n認証が完了すると[利用規約](https://gc.taka.ml/)に同意したものとみなします",
@@ -356,7 +356,7 @@ function err(channels,client,error){
     embeds:[{
       author:{
         name: "グローバルチャットでエラーが発生しました",
-        icon_url: "https://cdn.taka.ml/images/system/error.png",
+        icon_url: "https://cdn.taka.ml/images/system/error.png"
       },
       color: "RED",
       description: "エラーが発生したため、強制的に切断されました\n再度登録するには`/global`を使用してください",

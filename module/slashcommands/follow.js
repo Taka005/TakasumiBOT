@@ -10,7 +10,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author:{
           name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```メッセージを管理\nチャンネルの管理```"
@@ -22,7 +22,7 @@ module.exports = async(interaction,client)=>{
       embeds:[{
         author:{
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "この機能は、BOTに以下の権限が必要です\n```チャンネルの管理```"
@@ -38,7 +38,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: "アナウンスチャンネルを追加しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             description: "このチャンネルでBOTをお知らせ等を受け取ることができます",
             color: "GREEN"
@@ -50,7 +50,7 @@ module.exports = async(interaction,client)=>{
           embeds:[{
             author:{
               name: "フォローチャンネルを追加できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             fields:[

@@ -20,7 +20,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "GIFを取得しました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN",
           image:{
@@ -34,7 +34,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "GIFが取得できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "違うワードで試してください"

@@ -10,7 +10,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "スクリーンショットできませんでした",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "URLを指定する必要があります"
@@ -28,7 +28,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "スクリーンショットを撮りました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN",
           image:{
@@ -42,7 +42,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "スクリーンショットできませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "URLを変えてやり直してください"

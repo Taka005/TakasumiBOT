@@ -24,7 +24,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "このコマンドは、BOTに以下の権限が必要です\n```リアクションの追加```"
@@ -48,7 +48,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "アンケートを作成できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           fields:[

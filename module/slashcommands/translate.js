@@ -9,7 +9,7 @@ module.exports = async(interaction)=>{
       embeds:[{
         author:{
           name: "翻訳できませんでした",
-          icon_url: "https://cdn.taka.ml/images/system/error.png",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
         description: "翻訳文字数は、2000文字以下です",
@@ -46,7 +46,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "翻訳できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "翻訳文字を変えて、もう一度実行してください",

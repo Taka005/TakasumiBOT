@@ -44,7 +44,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
@@ -59,7 +59,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "BOTに権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
@@ -73,7 +73,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを無効にできませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "通知ロールが設定されていません"
@@ -86,7 +86,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを無効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -97,7 +97,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを有効にできませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "このサーバーにDisboardが参加していません\nもし参加している場合はDisboardを操作してみてください"
@@ -110,7 +110,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを有効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN",
             description: `Bump通知に<@&${role.id}>に設定しました`
@@ -125,7 +125,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
@@ -140,7 +140,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "BOTに権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
@@ -154,7 +154,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを無効にできませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "通知ロールが設定されていません"
@@ -167,7 +167,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを無効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -178,7 +178,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを有効にできませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "このサーバーにDissokuが参加していません\nもし参加している場合はDissokuを操作してみてください"
@@ -191,7 +191,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "通知ロールを有効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN",
             description: `Dissoku通知に<@&${role.id}>に設定しました`
@@ -206,7 +206,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
@@ -221,7 +221,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "BOTに権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
@@ -235,7 +235,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "参加メッセージを無効にできませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "参加メッセージが設定されていません"
@@ -248,7 +248,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "参加メッセージを無効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -258,7 +258,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "参加メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "この機能は試験的なため人数が100人以上のサーバーでは設定できません"
@@ -270,7 +270,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "参加メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "メッセージは100文字以内にしてください"
@@ -282,7 +282,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "参加メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "メッセージを送信するチャンネルはテキストチャンネルにしてください"
@@ -295,7 +295,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "参加メッセージを設定しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN",
             description: `送信チャンネル: <#${channel.id}>\n送信メッセージ: ${message}`
@@ -310,7 +310,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
@@ -325,7 +325,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "BOTに権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信```"
@@ -339,7 +339,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "退出メッセージを無効にできませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "退出メッセージが設定されていません"
@@ -352,7 +352,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "退出メッセージを無効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -362,7 +362,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "退出メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "この機能は試験的なため人数が100人以上のサーバーでは設定できません"
@@ -374,7 +374,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "退出メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "メッセージは100文字以内にしてください"
@@ -386,7 +386,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "退出メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
             description: "メッセージを送信するチャンネルはテキストチャンネルにしてください"
@@ -399,7 +399,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "退出メッセージを設定しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN",
             description: `送信チャンネル: <#${channel.id}>\n送信メッセージ: ${message}`
@@ -412,7 +412,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
@@ -430,7 +430,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "有効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -442,7 +442,7 @@ module.exports = async(interaction)=>{
           embeds:[{
             author:{
               name: "無効にしました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png",
+              icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
@@ -454,7 +454,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "権限がありません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```管理者```"
@@ -475,7 +475,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "全てのデータを削除しました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN"
         }]

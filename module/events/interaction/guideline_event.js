@@ -38,7 +38,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "ガイドライン機能の作成に失敗しました",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "BOTの権限等を確認し、もう一度実行してください",

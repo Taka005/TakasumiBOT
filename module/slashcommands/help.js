@@ -66,7 +66,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "コマンドが存在しません",
-            icon_url: "https://cdn.taka.ml/images/system/error.png",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
           description: "`/help`を実行してコマンド一覧を確認してください"
