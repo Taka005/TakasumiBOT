@@ -1,6 +1,5 @@
 module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
-  const async = require("async");
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
     
@@ -11,7 +10,7 @@ module.exports = async(interaction)=>{
 
 
       let error;
-      error = await async.map(add,async(role)=>{
+      error = add.map(async(role)=>{
         try{
           await interaction.member.roles.add(role);
         }catch{
@@ -19,7 +18,7 @@ module.exports = async(interaction)=>{
         }
       });
 
-      error = await async.map(remove,async(role)=>{
+      error = remove.map(async(role)=>{
         try{
           await interaction.member.roles.remove(role);
         }catch{
