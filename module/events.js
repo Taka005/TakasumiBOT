@@ -34,7 +34,7 @@ module.exports = async(client)=>{
     
     if(message.channel.type !== "GUILD_TEXT"||message.author.bot) return;  
 
-    console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]`);
+    console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]\x1b[39m`);
 
     //コマンド
     fs.readdir("./module/commands/",(err,files)=>{ 
