@@ -5,37 +5,36 @@ module.exports = async(interaction)=>{
     
     await interaction.deferReply({ephemeral: true});
     try{
-      let add = interaction.values.filter(role=>!interaction.member.roles.cache.has(role))
-      let remove = interaction.values.filter(role=>!add.includes(role));
+      const add = interaction.values.filter(role=>!interaction.member.roles.cache.has(role))
+      const remove = interaction.values.filter(role=>!add.includes(role));
 
-      const add_err = await add.map(async(role)=>{
-        try{
-          await interaction.member.roles.add(role);
-        }catch{
-          return role;
-        }
+      add.forEach(role=>{
+        interaction.member.roles.add(role)
+          .catch(()=>{})
       });
 
-      const remove_err = await remove.map(async(role)=>{
-        try{
-          await interaction.member.roles.remove(role);
-        }catch{
-          return role;
-        }
+      remove.forEach(role=>{
+        interaction.member.roles.remove(role)
+          .catch(()=>{})
       });
-
-      const error = add_err.concat(remove_err);
-      add = add.filter(role=>!error.includes(role));
-      remove = interaction.values.filter(role=>!error.includes(role));
 
       await interaction.editReply({
         embeds:[{
           author:{
             name: "ロールを変更しました",
-            icon_url: "https://cdn.taka.ml/images/system/success.png",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
-          description: `**付与したロール**\n${add.map(role=>`<@&${role}>`).join("\n")||"なし"}\n**削除したロール**\n${remove.map(role=>`<@&${role}>`).join("\n")||"なし"}\n**付与に失敗したロール**\n${error.map(role=>`<@&${role}>`).join("\n")||"なし"}`,
-          color: "GREEN"
+          color: "GREEN",
+          fields:[
+            {
+              name: "付与したロール",
+              value: add.map(role=>`<@&${role}>`).join("\n")||"なし"
+            },     
+            {
+              name: "削除したロール",
+              value: remove.map(role=>`<@&${role}>`).join("\n")||"なし"
+            }
+          ]
         }],
         ephemeral: true
       });
