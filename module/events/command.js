@@ -311,8 +311,7 @@ module.exports = async(client)=>{
             .addStringOption(option =>
               option
                 .setName("title")
-                .setDescription("タイトル")
-                .setRequired(true))
+                .setDescription("タイトル"))
             .addRoleOption(option =>
               option
                 .setName("role_1")

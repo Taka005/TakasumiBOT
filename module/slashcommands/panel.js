@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   const { MessageActionRow, MessageSelectMenu, MessageButton } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "panel"){
-    const title = interaction.options.getString("title");
+    const title = interaction.options.getString("title")||"役職パネル";
     const role_1 = interaction.options.getRole("role_1");
     const role_2 = interaction.options.getRole("role_2");
     const role_3 = interaction.options.getRole("role_3");
@@ -47,21 +47,6 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    const roles = new MessageSelectMenu()
-      .setCustomId("role")
-      .setPlaceholder("ロールが選択されていません")
-      .setMinValues(0)
-      .setMaxValues(selects.length)
-      .addOptions(
-        selects.map((c,i)=>({
-          label: `@${c.name}`,
-          value: c.id,
-          emoji:{
-            name: emojis[i]
-          }
-        }))
-      )
-
     try{
       await interaction.channel.send({
         embeds:[{
@@ -71,7 +56,21 @@ module.exports = async(interaction)=>{
         }],
         components:[     
           new MessageActionRow()
-            .addComponents(roles)
+            .addComponents(
+              new MessageSelectMenu()
+                .setCustomId("role")
+                .setPlaceholder("ロールが選択されていません")
+                .setMinValues(0)
+                .setMaxValues(selects.length)
+                .addOptions(
+                  selects.map((c,i)=>({
+                    label: `@${c.name}`,
+                    value: c.id,
+                    emoji:{
+                      name: emojis[i]
+                    }
+                  }))
+                ))
         ]
       });
 
