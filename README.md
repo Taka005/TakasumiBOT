@@ -8,6 +8,7 @@
 - https://takasumibot.taka.ml/
 - **このレポジトリはGPL-3.0ライセンスの元で公開されています**
 - **これを使って出来たコードは同じライセンスで公開する必要があるためご注意下さい**
+- **このプロジェクトに貢献したコードは全てTaka005に帰属します**
 # 使い方
 - 同じディレクトリに.envファイルを作成
 - .example.envを.envに貼り付ける
@@ -19,9 +20,9 @@
 - prefix:コマンドの先頭になる文字(一部のみに有効)
 - log:ログを送るチャンネルID
 - error:エラーメッセージを送るチャンネルID
-# Development
-- Development by Taka005#6668
-- Language is JavaScript(Node.js)
+# Developer
+- 開発 Taka005#6668
+- JavaScript(Node.js)により作成
 -  サポートサーバーにも是非参加してください
 - https://discord.gg/NEesRdGQwD
 # 開発ルール
