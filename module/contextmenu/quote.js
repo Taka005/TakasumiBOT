@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
   const Canvas = require("canvas"); 
+  const { fillTextWithTwemoji } = require('@miq4d/canvas-with-discord-content');
   const { MessageAttachment } = require("discord.js");
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "Make it a Quote"){
@@ -37,7 +38,7 @@ module.exports = async(interaction)=>{
 
     context.font = "45px nijimi";
     context.fillStyle = "#ffffff";
-    context.fillText(msg, 500, 180);
+    await fillTextWithTwemoji(context, msg, 500, 180);
 
     context.font = "30px nijimi";
     context.fillStyle = "#ffffff";
