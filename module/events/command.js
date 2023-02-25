@@ -341,14 +341,6 @@ module.exports = async(client)=>{
               option
                 .setName("role_8")
                 .setDescription("役職8"))
-            .addRoleOption(option =>
-              option
-                .setName("role_9")
-                .setDescription("役職9"))
-            .addRoleOption(option =>
-              option
-                .setName("role_10")
-                .setDescription("役職10"))
             .addStringOption(option =>
               option
                 .setName("title")
@@ -403,19 +395,7 @@ module.exports = async(client)=>{
             .addStringOption(option =>
               option
                 .setName("select_8")
-                .setDescription("選択8"))
-            .addStringOption(option =>
-              option
-                .setName("select_9")
-                .setDescription("選択10"))
-            .addStringOption(option =>
-              option
-                .setName("select_11")
-                .setDescription("選択11"))
-            .addStringOption(option =>
-              option
-                .setName("select_12")
-                .setDescription("選択12")),
+                .setDescription("選択8")),
           //qr
           new SlashCommandBuilder()
             .setName("qr")
