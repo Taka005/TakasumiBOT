@@ -53,7 +53,7 @@ module.exports = async(interaction,client)=>{
           "user": client.user.tag,
           "ping": client.ws.ping
         }
-      },null,"　"),"UTF-8");
+      },null,"  "),"UTF-8");
 
       await interaction.reply({
         content:"サーバーのデータをJSON形式に出力しました",

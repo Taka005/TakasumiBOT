@@ -11,12 +11,10 @@ module.exports = async(interaction)=>{
     const role_6 = interaction.options.getRole("role_6");
     const role_7 = interaction.options.getRole("role_7");
     const role_8 = interaction.options.getRole("role_8");
-    const role_9 = interaction.options.getRole("role_9");
-    const role_10 = interaction.options.getRole("role_10");
 
-    const emojis = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭","🇮","🇯"];
+    const emojis = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭"];
 
-    const selects = [role_1,role_2,role_3,role_4,role_5,role_6,role_7,role_8,role_9,role_10]
+    const selects = [role_1,role_2,role_3,role_4,role_5,role_6,role_7,role_8]
       .filter(role=>role!==null)
 
     if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
