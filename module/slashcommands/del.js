@@ -83,8 +83,8 @@ module.exports = async(interaction)=>{
                 },
                 color: "GREEN"
               }]
-            })
-          });
+            });
+          })
       }
     }catch(error){
       await interaction.reply({

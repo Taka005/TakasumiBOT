@@ -63,7 +63,7 @@ module.exports = async(interaction)=>{
                 .setStyle("LINK"))
         ],
         ephemeral: true
-      })
+      });
     }
   }
 }

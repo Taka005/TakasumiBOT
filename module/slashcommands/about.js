@@ -22,6 +22,6 @@ module.exports = async(interaction)=>{
               .setURL("https://discord.gg/NEesRdGQwD")
               .setStyle("LINK"))
       ]
-    })
+    });
   }
 }

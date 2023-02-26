@@ -35,7 +35,7 @@ module.exports = async(interaction)=>{
             text: `${lang[1]} || TakasumiBOT`
           }
         }]
-      }).catch(()=>{})
+      });
     },2500);
 
     const res = await fetch("https://wandbox.org/api/compile.json",{

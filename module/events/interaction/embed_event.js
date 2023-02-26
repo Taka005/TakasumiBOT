@@ -41,6 +41,6 @@ module.exports = async(interaction)=>{
             url: image
           }
         }]
-      })
+      });
     }
 }

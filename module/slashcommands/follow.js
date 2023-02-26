@@ -43,7 +43,7 @@ module.exports = async(interaction,client)=>{
             description: "このチャンネルでBOTをお知らせ等を受け取ることができます",
             color: "GREEN"
           }]
-        })
+        });
       })
       .catch(async(error)=>{
         await interaction.reply({

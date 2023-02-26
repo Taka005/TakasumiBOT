@@ -4,6 +4,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "Make it a Quote"){
     const message = interaction.options.getMessage("message");
+    
     await interaction.deferReply();
     await interaction.editReply("生成中...");
 
@@ -48,7 +49,7 @@ module.exports = async(interaction)=>{
     context.font = "20px nijimi";
     context.fillText("TakasumiBOT#7189",1005, 595);
      
-    interaction.editReply({ 
+    await interaction.editReply({ 
       content: `[生成元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`,
       files: [
         new MessageAttachment(canvas.toBuffer(),"Takasumi_Quote.png")

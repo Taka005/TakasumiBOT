@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
   
     try{
       const translate = data.sentences.map((sentence)=>{
-        return sentence.trans
+        return sentence.trans;
       });
 
       await interaction.reply({

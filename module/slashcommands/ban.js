@@ -90,7 +90,7 @@ module.exports = async(interaction,client)=>{
               },
               color: "GREEN"
             }]
-          })
+          });
         })
         .catch(async(error)=>{
           await interaction.reply({
@@ -131,7 +131,7 @@ module.exports = async(interaction,client)=>{
               },
               color: "GREEN"
             }]
-          })
+          });
         })
         .catch(async(error)=>{
           await interaction.reply({
@@ -158,7 +158,7 @@ module.exports = async(interaction,client)=>{
                     .setStyle("LINK"))
             ],
             ephemeral: true
-          })
+          });
         })
     }
   }

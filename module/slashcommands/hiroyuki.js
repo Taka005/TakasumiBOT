@@ -72,8 +72,8 @@ module.exports = async(interaction)=>{
                 description: "※webhookは既に削除済みのため、\n登録情報のみ削除しました",
                 color: "GREEN"
               }]
-            })
-          });
+            });
+          })
   
         delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
         delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
@@ -123,7 +123,7 @@ module.exports = async(interaction)=>{
                       .setStyle("LINK"))
               ]
             });
-          });
+          })
   
         delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
         delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];

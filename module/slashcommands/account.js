@@ -24,7 +24,7 @@ module.exports = async(interaction)=>{
                 .setStyle("LINK"))
         ],
         ephemeral: true
-      })
+      });
     }else{
       await interaction.reply({ 
         embeds:[{
@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
           description: `ID\n\`${account[0].id}\`\nIPアドレス\n\`${account[0].ip}\`\n登録日時/更新日時\n\`${new Date(account[0].time).toLocaleString()}\``,
         }],
         ephemeral: true
-      })
+      });
     }
   }
 }
