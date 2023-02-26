@@ -2,6 +2,7 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ticket"){
+    
     if(
       !interaction.member.permissions.has("MANAGE_MESSAGES")||
       !interaction.member.permissions.has("MANAGE_CHANNELS")
