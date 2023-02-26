@@ -46,7 +46,7 @@ module.exports = async(interaction)=>{
           description: `作成したロール:${role}`,
           color: "GREEN"
         }]
-      })
+      });
     })
     .catch(async(error)=>{
       await interaction.reply({
@@ -72,7 +72,7 @@ module.exports = async(interaction)=>{
                 .setStyle("LINK"))
         ],
         ephemeral: true
-      })
+      });
     })
   }
 }

@@ -32,7 +32,7 @@ module.exports = async(interaction)=>{
           },
           description: `\`${permission(member.permissions.toArray()).join("`,`")}\``
         }]
-      })
+      });
     }catch(error){
       await interaction.reply({
         embeds:[{

@@ -39,7 +39,7 @@ module.exports = async(interaction)=>{
           color: "RED",
           description: "違うワードで試してください"
         }]
-      })
+      });
     }
   }
 }
