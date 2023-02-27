@@ -23,8 +23,10 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
 
     let timeout = false;
+    let returned = false;
     setTimeout(async()=>{
       timeout = true;
+      if(returned) return;
       await interaction.editReply({
         embeds:[{
           author:{
@@ -38,7 +40,7 @@ module.exports = async(interaction)=>{
           }
         }]
       });
-    },2500);
+    },3000);
 
     const res = await fetch("https://wandbox.org/api/compile.json",{
       method: "POST",
@@ -56,7 +58,8 @@ module.exports = async(interaction)=>{
       })
 
     if(timeout) return;
-
+    returned = true;
+    
     if(res.status === "0"){
       await interaction.editReply({
         embeds:[{
