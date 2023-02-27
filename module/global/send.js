@@ -38,6 +38,12 @@ module.exports = async(message)=>{
     }
   }
 
+  const content = message.content
+    .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[招待リンク]")
+  
+  const cleanContent = message.cleanContent
+    .replace(/(?:https?:\/\/)?(?:discord\.(?:gg|io|me|li)|(?:discord|discordapp)\.com\/invite)\/(\w+)/g,"[招待リンク]")
+
   await fetch("https://ugc.renorari.net/api/v2/messages",{
     "method": "POST",
     "headers":{
@@ -63,9 +69,9 @@ module.exports = async(message)=>{
           "iconURL": message.guild.iconURL({"dynamic":true,"format":"png","size":256})
         },
         "message":{
-          "content": message.content,
+          "content": content,
           "id": message.id,
-          "clean_content": message.cleanContent,
+          "clean_content": cleanContent,
           "reference": reference,
           "attachments": message.attachments.map((attachment)=>({
             "name": attachment.name,
