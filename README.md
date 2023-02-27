@@ -20,6 +20,8 @@
 - prefix:コマンドの先頭になる文字(一部のみに有効)
 - log:ログを送るチャンネルID
 - error:エラーメッセージを送るチャンネルID
+# Make it a Quote
+- この機能を使用するには[Taka005/miq](https://github.com/Taka005/miq)を構築する必要があります
 # Developer
 - 開発 Taka005#6668
 - JavaScript(Node.js)により作成
