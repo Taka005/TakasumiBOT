@@ -8,7 +8,7 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
     await interaction.editReply("生成中...");
 
-    const image = await fetch(`http://192.168.0.13:3000/?name=${message.author.tag}&id=${message.author.id}&content=${message.content}&icon=${message.author.avatarURL({format:"png",size:1024})}`)
+    const image = await fetch(`http://192.168.0.13:3000/?name=${message.author.username}&tag=${message.author.discriminator}&id=${message.author.id}&content=${message.content}&icon=${message.author.avatarURL({format:"png",size:1024})}`)
       .then(res=>res.blob())
       .catch(()=>{});
     
