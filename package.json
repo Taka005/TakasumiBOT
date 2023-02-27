@@ -43,11 +43,11 @@
   },
   "devDependencies": {
     "esbuild": "^0.17.10",
-    "eslint": "^8.34.0",
+    "eslint": "^8.35.0",
     "eslint-plugin-node": "^11.1.0"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.7",
-    "utf-8-validate": "^6.0.1"
+    "utf-8-validate": "^6.0.3"
   }
 }
