@@ -254,14 +254,14 @@ module.exports = async(interaction)=>{
           }]
         });
       }else{
-        if(interaction.guild.memberCount > 100) return await interaction.reply({
+        if(interaction.guild.memberCount > 300) return await interaction.reply({
           embeds:[{
             author:{
               name: "参加メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
-            description: "この機能は試験的なため人数が100人以上のサーバーでは設定できません"
+            description: "この機能は試験的なため人数が300人以上のサーバーでは設定できません"
           }],
           ephemeral: true
         });
@@ -358,14 +358,14 @@ module.exports = async(interaction)=>{
           }]
         });
       }else{
-        if(interaction.guild.memberCount > 100) return await interaction.reply({
+        if(interaction.guild.memberCount > 300) return await interaction.reply({
           embeds:[{
             author:{
               name: "退出メッセージを設定できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
-            description: "この機能は試験的なため人数が100人以上のサーバーでは設定できません"
+            description: "この機能は試験的なため人数が300人以上のサーバーでは設定できません"
           }],
           ephemeral: true
         });
