@@ -20,10 +20,12 @@ module.exports = async(interaction)=>{
       }
     };
 
+    await interaction.deferReply();
+
     let timeout = false;
     setTimeout(async()=>{
       timeout = true;
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author:{
             name: "正常に実行できませんでした",
@@ -56,7 +58,7 @@ module.exports = async(interaction)=>{
     if(timeout) return;
 
     if(res.status === "0"){
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           color: "GREEN",
           author:{
@@ -69,7 +71,7 @@ module.exports = async(interaction)=>{
           }
         }]
       }).catch(async()=>{
-        await interaction.reply({
+        await interaction.editReply({
           embeds:[{
             author:{
               name: "正常に実行できませんでした",
@@ -84,7 +86,7 @@ module.exports = async(interaction)=>{
         });
       })
     }else{
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author:{
             name: "正常に実行できませんでした",
@@ -97,7 +99,7 @@ module.exports = async(interaction)=>{
           }
         }]
       }).catch(async()=>{
-        await interaction.reply({
+        await interaction.editReply({
           embeds:[{
             author:{
               name: "正常に実行できませんでした",
