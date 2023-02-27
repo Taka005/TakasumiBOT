@@ -5,10 +5,26 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "Make it a Quote"){
     const message = interaction.options.getMessage("message");
     
+    if(!message.cleanContent) return await interaction.reply({
+      embeds:[{
+        author:{
+          name: "生成できませんでした",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
+        },
+        color: "RED",
+        description: "メッセージの内容が存在しません",
+        footer:{
+          text: "Google Translate",
+          icon_url: "https://cdn.taka.ml/images/translate.png"
+        }
+      }],
+      ephemeral: true
+    });
+
     await interaction.deferReply();
     await interaction.editReply("生成中...");
 
-    const image = await fetch(`http://localhost:3000/?name=${message.author.username}&tag=${message.author.discriminator}&id=${message.author.id}&content=${message.content}&icon=${message.author.avatarURL({format:"png",size:1024})}`)
+    const image = await fetch(`http://localhost:3000/?name=${message.author.username}&tag=${message.author.discriminator}&id=${message.author.id}&content=${message.cleanContent}&icon=${message.author.avatarURL({format:"png",size:1024})}`)
       .then(res=>res.blob())
       .catch(()=>{});
     
