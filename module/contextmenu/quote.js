@@ -12,11 +12,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "メッセージの内容が存在しません",
-        footer:{
-          text: "Google Translate",
-          icon_url: "https://cdn.taka.ml/images/translate.png"
-        }
+        description: "メッセージの内容が存在しません"
       }],
       ephemeral: true
     });
