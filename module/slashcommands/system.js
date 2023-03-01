@@ -18,7 +18,7 @@ module.exports = async(interaction,client)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドは、関係者以外実行できません"
+        description: "このコマンドは関係者以外実行できません"
       }],
       ephemeral: true
     });

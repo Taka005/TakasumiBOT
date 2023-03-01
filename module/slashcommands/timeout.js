@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
     if(!interaction.isCommand()) return;
     if(interaction.commandName === "timeout"){
       const user = interaction.options.getUser("user");
-      const time = interaction.options.getInteger("time");
+      const time = interaction.options.getInteger("time")||30
       const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってタイムアウト`;
       
       if(!interaction.member.permissions.has("MODERATE_MEMBERS")) return await interaction.reply({
@@ -13,7 +13,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをモデレート`の権限を持っている必要があります"
+          description: "このコマンドを実行するには以下の権限を持っている必要があります\n```メンバーをモデレート```"
         }],
         ephemeral: true
       });
@@ -25,7 +25,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをモデレート```"
+          description: "このコマンドはBOTに以下の権限が必要です\n```メンバーをモデレート```"
         }],
         ephemeral: true
       });
@@ -34,11 +34,11 @@ module.exports = async(interaction)=>{
       if(!member) return await interaction.reply({
         embeds:[{
           author:{
-            name: "取得に失敗しました",
+            name: "メンバーをタイムアウトできませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: "ユーザーが取得できないためタイムアウトできませんでした"
+          description: "ユーザーが取得できません"
         }],
         ephemeral: true
       });
@@ -61,7 +61,7 @@ module.exports = async(interaction)=>{
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
               author:{
-                name: `${member.user.tag}を${time||0}秒タイムアウトしました`,
+                name: `${member.user.tag}を${time}秒タイムアウトしました`,
                 icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               color: "GREEN"

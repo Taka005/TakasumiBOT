@@ -76,7 +76,7 @@ module.exports = async(client)=>{
             .setDescription("ユーザーをサーバーからBANします")
             .addStringOption(option =>
               option
-                .setName("user")
+                .setName("id")
                 .setDescription("ユーザーID又はメンション")
                 .setRequired(true))
             .addStringOption(option =>

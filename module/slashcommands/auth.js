@@ -12,6 +12,18 @@ module.exports = async(interaction)=>{
       "web": "YELLOW"
     };
 
+    if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
+      embeds:[{
+        author:{
+          name: "権限がありません",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
+        },
+        color: "RED",
+        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```ロールの管理```"
+      }],
+      ephemeral: true
+    });
+
     if(
       !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_ROLES")||
       !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
@@ -23,19 +35,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```ロールの管理\nメッセージの送信\nチャンネルの閲覧```"
-      }],
-      ephemeral: true
-    });
-
-    if(!interaction.member.permissions.has("MANAGE_ROLES")) return await interaction.reply({
-      embeds:[{
-        author:{
-          name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png"
-        },
-        color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`ロールの管理`の権限を持っている必要があります"
+        description: "このコマンドはBOTに以下の権限が必要です\n```ロールの管理\nメッセージの送信\nチャンネルの閲覧```"
       }],
       ephemeral: true
     });

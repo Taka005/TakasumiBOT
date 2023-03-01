@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```リアクションの追加```"
+        description: "このコマンドはBOTに以下の権限が必要です\n```リアクションの追加```"
       }],
       ephemeral: true
     });

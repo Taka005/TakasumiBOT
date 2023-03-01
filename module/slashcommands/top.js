@@ -13,7 +13,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "この機能は、BOTに以下の権限が必要です\n```テキストチャンネルの閲覧\nメッセージ履歴を読む```"
+        description: "この機能はBOTに以下の権限が必要です\n```テキストチャンネルの閲覧\nメッセージ履歴を読む```"
       }],
       ephemeral: true
     });

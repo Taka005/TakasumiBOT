@@ -10,7 +10,7 @@ module.exports = async(interaction,client)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`管理者`の権限を持っている必要があります"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```管理者```"
       }],
       ephemeral: true
     });

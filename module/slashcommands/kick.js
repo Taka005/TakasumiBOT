@@ -12,7 +12,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`メンバーをKICK`の権限を持っている必要があります"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```メンバーをBAN```"
       }],
       ephemeral: true
     });
@@ -24,7 +24,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```メンバーをKICK```"
+        description: "このコマンドはBOTに以下の権限が必要です\n```メンバーをKICK```"
       }],
       ephemeral: true
     });

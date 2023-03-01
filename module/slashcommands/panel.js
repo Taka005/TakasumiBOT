@@ -24,7 +24,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`ロールの管理`の権限を持っている必要があります"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```ロールの管理```"
       }],
       ephemeral: true
     });
@@ -40,7 +40,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信\nロールの管理```"
+        description: "このコマンドはBOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの送信\nロールの管理```"
       }],
       ephemeral: true
     });
