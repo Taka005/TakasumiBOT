@@ -31,7 +31,7 @@ module.exports = async(interaction,client)=>{
     });
 
     const userID = id.match(/\d{18,19}/g);
-    if(!userID[0]) return await interaction.reply({
+    if(!userID) return await interaction.reply({
       embeds:[{
         author:{
           name: "取得に失敗しました",
