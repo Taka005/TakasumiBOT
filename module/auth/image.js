@@ -16,12 +16,14 @@ module.exports = async(interaction)=>{
       {text:"Hsdgs1",url:"https://cdn.taka.ml/images/auth/img_8.png"}
     ];
 
+    await interaction.deferReply({ephemeral: true});
+
     const auth = random(keys);
     const image = await fetch(auth.url)
       .then(res=>res.blob())
       .catch(()=>{});
 
-    await interaction.reply({
+    await interaction.editReply({
       embeds:[{
         title: "画像認証",          
         color: "GREEN",

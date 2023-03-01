@@ -12,19 +12,22 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`メッセージを管理`の権限を持っている必要があります"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```メッセージの管理```"
       }],
       ephemeral: true
     });
 
-    if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")) return await interaction.reply({
+    if(
+      !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+      !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")
+    ) return await interaction.reply({
       embeds:[{
         author:{
           name: "BOTに権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドは、BOTに以下の権限が必要です\n```メッセージの管理```"
+        description: "このコマンドはBOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージの管理```"
       }],
       ephemeral: true
     });

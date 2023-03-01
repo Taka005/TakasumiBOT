@@ -3,6 +3,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isContextMenu()) return;
   if(interaction.commandName === "メッセージをピン留め"){
     const message = interaction.options.getMessage("message");
+
     if(!message.content) return await interaction.reply({
       embeds:[{
         author:{
@@ -11,6 +12,21 @@ module.exports = async(interaction)=>{
         },
         color: "RED",
         description: "メッセージの内容が存在しません"
+      }],
+      ephemeral: true
+    });
+
+    if(
+      !interaction.member.permissions.has("MANAGE_CHANNELS")||
+      !interaction.member.permissions.has("MANAGE_MESSAGES")
+    ) return await interaction.reply({
+      embeds:[{
+        author:{
+          name: "権限がありません",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
+        },
+        color: "RED",
+        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```メッセージの管理\nチャンネルの管理```"
       }],
       ephemeral: true
     });
@@ -27,22 +43,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "グローバルチャットは、BOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージを送信\nメッセージの管理\nチャンネルの管理```"
-      }],
-      ephemeral: true
-    });
-
-    if(
-      !interaction.member.permissions.has("MANAGE_CHANNELS")||
-      !interaction.member.permissions.has("MANAGE_MESSAGES")
-    ) return await interaction.reply({
-      embeds:[{
-        author:{
-          name: "権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png"
-        },
-        color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーで以下の権限を持っている必要があります\n```メッセージの管理\nチャンネルの管理```"
+        description: "この機能はBOTに以下の権限が必要です\n```チャンネルの閲覧\nメッセージを送信\nメッセージの管理\nチャンネルの管理```"
       }],
       ephemeral: true
     });
