@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: "このコマンドはBOTに以下の権限が必要です"
+          description: "このコマンドはBOTに以下の権限が必要です",
           fields:[
             {
               name: "必要な権限",
