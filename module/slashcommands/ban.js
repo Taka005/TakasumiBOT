@@ -13,7 +13,13 @@ module.exports = async(interaction,client)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには以下の権限を持ってる必要があります\n```メンバーをBAN```"
+        description: "このコマンドを実行するには以下の権限を持ってる必要があります",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```メンバーをBAN```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -25,7 +31,13 @@ module.exports = async(interaction,client)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドはBOTに以下の権限が必要です\n```メンバーをBAN```"
+        description: "このコマンドはBOTに以下の権限が必要です\n```メンバーをBAN```",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```メンバーをBAN```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -34,11 +46,11 @@ module.exports = async(interaction,client)=>{
     if(!userID) return await interaction.reply({
       embeds:[{
         author:{
-          name: "取得に失敗しました",
+          name: "BANできませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "正確にIDまたは、メンションをしてください"
+        description: "正確にID又は、メンションをしてください"
       }],
       ephemeral: true
     });
@@ -46,7 +58,7 @@ module.exports = async(interaction,client)=>{
     if(userID[0] === interaction.member.user.id) return await interaction.reply({
       embeds:[{
         author:{
-          name: "メンバーをBANできませんでした",
+          name: "BANできませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
@@ -62,7 +74,7 @@ module.exports = async(interaction,client)=>{
       return await interaction.reply({
         embeds:[{
           author:{
-            name: "メンバーをBANできませんでした",
+            name: "BANできませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
@@ -90,7 +102,7 @@ module.exports = async(interaction,client)=>{
           await interaction.reply({
             embeds:[{
               author:{
-                name: "メンバーをBANできませんでした",
+                name: "BANできませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png"
               },
               color: "RED",
@@ -131,7 +143,7 @@ module.exports = async(interaction,client)=>{
           await interaction.reply({
             embeds:[{
               author:{
-                name: "メンバーをBANできませんでした",
+                name: "BANできませんでした",
                 icon_url: "https://cdn.taka.ml/images/system/error.png"
               },
               color: "RED",

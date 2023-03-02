@@ -3,17 +3,20 @@ module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "follow"){
 
-    if(
-      !interaction.member.permissions.has("MANAGE_MESSAGES")||
-      !interaction.member.permissions.has("MANAGE_CHANNELS")
-    ) return await interaction.reply({
+    if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
       embeds:[{
         author:{
           name: "権限がありません",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```メッセージを管理\nチャンネルの管理```"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```チャンネルの管理```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -25,7 +28,13 @@ module.exports = async(interaction,client)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "この機能はBOTに以下の権限が必要です\n```チャンネルの管理```"
+        description: "この機能はBOTに以下の権限が必要です",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```チャンネルの管理```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -40,7 +49,7 @@ module.exports = async(interaction,client)=>{
               name: "アナウンスチャンネルを追加しました",
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
-            description: "このチャンネルでBOTをお知らせ等を受け取ることができます",
+            description: "このチャンネルでBOTをお知らせを受け取ることができます",
             color: "GREEN"
           }]
         });

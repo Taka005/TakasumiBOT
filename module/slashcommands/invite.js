@@ -12,7 +12,13 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```招待リンクの作成```"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```招待リンクの作成```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -24,7 +30,13 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドはBOTに以下の権限が必要です\n```招待リンクの作成```"
+        description: "このコマンドはBOTに以下の権限が必要です",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```招待リンクの作成```"
+          }
+        ]
       }],
       ephemeral: true
     });

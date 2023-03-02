@@ -10,7 +10,13 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```メッセージの管理```"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```メッセージの管理```"
+          }
+        ]
       }],
       ephemeral: true
     });
