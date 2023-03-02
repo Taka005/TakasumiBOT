@@ -19,7 +19,7 @@ module.exports = async(interaction)=>{
           name: "登録できません",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
-        description: "このサーバーもしくは、あなたはブラックリストに登録されているため、登録、利用はできません",
+        description: "このサーバーもしくは、あなたはブラックリストに登録されているため、ご利用できません",
         color: "RED"
       }],
       ephemeral: true
@@ -32,7 +32,13 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには、あなたがこのサーバーの\n`チャンネルを管理`の権限を持っている必要があります"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```チャンネルの管理```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -50,13 +56,19 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "グローバルチャットは、BOTに以下の権限が必要です\n```リアクションの追加\nテキストチャンネルの閲覧\nメッセージを送信\nウェブフックの管理\nチャンネルの管理```"
+        description: "このコマンドはBOTに以下の権限が必要です",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```リアクションの追加\nチャンネルの閲覧\nメッセージの送信\nウェブフックの管理\nチャンネルの管理```"
+          }
+        ]
       }],
       ephemeral: true
     });
 
     if(
-      interaction.guild.memberCount < 25||
+      interaction.guild.memberCount < 20||
       (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 8
     ) return await interaction.reply({
       embeds:[{
@@ -65,7 +77,13 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "グローバルチャットを利用するには、以下の条件を満たしている必要があります```25人以上のメンバー\n8人以上のユーザー```"
+        description: "グローバルチャットを利用するには以下の条件を満たしている必要があります",
+        fields:[
+          {
+            name: "必要な条件",
+            value: "```20人以上のメンバー\n8人以上のユーザー```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -77,7 +95,7 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "グローバルチャットは、一つのサーバーに付き\nひとつまでしか設定出来ません"
+        description: "グローバルチャットは、一つのサーバーに付き\nひとつまでしか登録出来ません"
       }],
       ephemeral: true
     });

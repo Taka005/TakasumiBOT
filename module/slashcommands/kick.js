@@ -12,7 +12,13 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドを実行するには以下の権限を持っている必要があります\n```メンバーをBAN```"
+        description: "このコマンドを実行するには以下の権限を持っている必要があります",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```メンバーをKICK```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -24,7 +30,13 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "このコマンドはBOTに以下の権限が必要です\n```メンバーをKICK```"
+        description: "このコマンドはBOTに以下の権限が必要です",
+        fields:[
+          {
+            name: "必要な権限",
+            value: "```メンバーをKICK```"
+          }
+        ]
       }],
       ephemeral: true
     });
@@ -33,11 +45,11 @@ module.exports = async(interaction)=>{
     if(!member) return await interaction.reply({
       embeds:[{
         author:{
-          name: "取得に失敗しました",
+          name: "KICKできませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "ユーザーが取得できないためKICKできませんでした"
+        description: "指定したユーザーが取得できません"
       }],
       ephemeral: true
     });
@@ -45,7 +57,7 @@ module.exports = async(interaction)=>{
     if(member.user.id === interaction.member.user.id) return await interaction.reply({
       embeds:[{
         author:{
-          name: "メンバーをKICKできませんでした",
+          name: "KICKできませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
@@ -71,7 +83,7 @@ module.exports = async(interaction)=>{
         await interaction.reply({
           embeds:[{
             author:{
-              name: "メンバーをKICKできませんでした",
+              name: "KICKできませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
