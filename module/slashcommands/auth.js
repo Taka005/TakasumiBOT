@@ -22,7 +22,7 @@ module.exports = async(interaction)=>{
         description: "このコマンドを実行するには以下の権限を持っている必要があります",
         fields:[
           {
-            name: "必要な権限",
+            name: "\u200b",
             value: "```ロールの管理```"
           }
         ]
@@ -44,7 +44,7 @@ module.exports = async(interaction)=>{
         description: "このコマンドはBOTに以下の権限が必要です",
         fields:[
           {
-            name: "必要な権限",
+            name: "\u200b",
             value: "```ロールの管理\nメッセージの送信\nチャンネルの閲覧```"
           }
         ]
