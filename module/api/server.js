@@ -3,28 +3,14 @@ module.exports = async(client)=>{
   const app = express();
   const os = require("os");
   const fs = require("fs");
-  const https = require("https");
   const date = require("../../data/api.json");
 
-  try{
-    const server = https.createServer({
-      key: fs.readFileSync("/home/taka/discordbot/ssl/server.key"),
-      cert: fs.readFileSync("/home/taka/discordbot/ssl/server.pem")
-    },app);
-
-    server.listen(443,()=>{
-      console.log(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました\x1b[39m`);
-    });
-  }catch{
-    console.log(`\x1b[33mWARN: sslを使用せずに起動しました\x1b[39m`);
-  }
-
   app.listen(80,()=>{
-    console.log(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました\x1b[39m`);
+    console.log(`\x1b[34mINFO: WEBサーバーが起動しました\x1b[39m`);
   });
    
   app.get("/",(req,res)=>{
-    res.send("<h1>TakasumiBOT API Server</h1>");
+    res.send("<h1>API Server</h1>");
     console.log(`\x1b[34mINFO: [${req.ip}]からの接続\x1b[39m`);
     res.end()
   });
