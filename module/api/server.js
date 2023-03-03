@@ -2,7 +2,6 @@ module.exports = async(client)=>{
   const express = require("express");
   const app = express();
   const os = require("os");
-  const fs = require("fs");
   const date = require("../../data/api.json");
 
   app.listen(80,()=>{
