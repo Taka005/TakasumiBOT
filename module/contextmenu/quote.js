@@ -22,7 +22,6 @@ module.exports = async(interaction)=>{
 
     const image = await fetch(`https://miq-api.tuna2134.jp/?name=${message.author.username}&tag=${message.author.discriminator}&id=${message.author.id}&content=${message.cleanContent}&icon=${message.author.avatarURL({format:"png",size:1024})}`)
       .then(res=>res.blob())
-      .catch(()=>{});
     
     await interaction.editReply({ 
       content: `[生成元](https://discord.com/channels/${message.guild.id}/${message.channel.id}/${message.id})`,

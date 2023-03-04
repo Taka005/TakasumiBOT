@@ -17,8 +17,7 @@ module.exports = async(msg)=>{
       }
     })
     .then(res=>res.json())
-    .catch(()=>{})
-    
+
     if(!ugc.data?.message){
       reply = {
         "isReply": true,

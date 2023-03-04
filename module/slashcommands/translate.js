@@ -22,8 +22,7 @@ module.exports = async(interaction)=>{
     });
     
     const data = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${lang}&dt=t&dj=1&q=${encodeURIComponent(text)}`)
-      .then(res => res.json())
-      .catch(()=>{})
+      .then(res=>res.json())
   
     try{
       const translate = data.sentences.map((sentence)=>{

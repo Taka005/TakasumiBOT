@@ -27,7 +27,6 @@ module.exports = async(interaction,client)=>{
 
     const start = performance.now(); 
     await fetch("https://api.taka.ml/v1/status")
-      .catch(()=>{})
     const end = performance.now(); 
 
     await interaction.editReply({

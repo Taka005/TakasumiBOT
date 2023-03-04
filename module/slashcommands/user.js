@@ -87,8 +87,8 @@ module.exports = async(interaction,client)=>{
       });
     }
   
-    const userID = id.match(/\d{18,19}/g);
-    if(!userID) return await interaction.reply({
+    const ID = id.match(/\d{18,19}/g);
+    if(!ID) return await interaction.reply({
       embeds:[{
         author:{
           name: "取得に失敗しました",
@@ -100,7 +100,7 @@ module.exports = async(interaction,client)=>{
       ephemeral: true
     });
 
-    const member = await interaction.guild.members.cache.get(userID[0]);
+    const member = await interaction.guild.members.cache.get(ID[0]);
     if(member){
       const members = await mysql(`SELECT * FROM account WHERE id = ${member.user.id} LIMIT 1;`);
 
@@ -183,7 +183,7 @@ module.exports = async(interaction,client)=>{
       });   
     }else{
       try{
-        const user = await client.users.fetch(userID[0]);
+        const user = await client.users.fetch(ID[0]);
         const members = await mysql(`SELECT * FROM account WHERE id = ${user.id} LIMIT 1;`);
 
         await interaction.reply({

@@ -42,8 +42,8 @@ module.exports = async(interaction,client)=>{
       ephemeral: true
     });
 
-    const userID = id.match(/\d{18,19}/g);
-    if(!userID) return await interaction.reply({
+    const ID = id.match(/\d{18,19}/g);
+    if(!ID) return await interaction.reply({
       embeds:[{
         author:{
           name: "BANできませんでした",
@@ -55,7 +55,7 @@ module.exports = async(interaction,client)=>{
       ephemeral: true
     });
 
-    if(userID[0] === interaction.member.user.id) return await interaction.reply({
+    if(ID[0] === interaction.member.user.id) return await interaction.reply({
       embeds:[{
         author:{
           name: "BANできませんでした",
@@ -69,7 +69,7 @@ module.exports = async(interaction,client)=>{
 
     let user;
     try{
-      user = await client.users.fetch(userID[0]);
+      user = await client.users.fetch(ID[0]);
     }catch{
       return await interaction.reply({
         embeds:[{
@@ -85,7 +85,7 @@ module.exports = async(interaction,client)=>{
     }
     
     if(days){
-      await interaction.guild.bans.create(userID[0],{reason: reason,days: days})
+      await interaction.guild.bans.create(ID[0],{reason: reason,days: days})
         .then(async()=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
@@ -126,7 +126,7 @@ module.exports = async(interaction,client)=>{
           })
         })
     }else{
-      await interaction.guild.bans.create(userID[0],{ reason: reason })
+      await interaction.guild.bans.create(ID[0],{ reason: reason })
         .then(async()=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,

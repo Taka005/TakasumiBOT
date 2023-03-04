@@ -547,7 +547,7 @@ module.exports = async(client)=>{
             .setDescription("BOTの管理をします")
             .addStringOption(option =>
               option
-                .setName("functions")
+                .setName("type")
                 .setDescription("操作")
                 .setRequired(true)
                 .addChoices(

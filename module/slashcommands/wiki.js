@@ -6,7 +6,6 @@ module.exports = async(interaction)=>{
 
     const data = await fetch(`https://ja.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(word)}`)
       .then(res=>res.json())
-      .catch(()=>{})
 
     try{
       await interaction.reply({

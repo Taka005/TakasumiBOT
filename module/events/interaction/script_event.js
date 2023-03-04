@@ -51,11 +51,7 @@ module.exports = async(interaction)=>{
         "code": code,
         "compiler": language[lang[1]].compiler
       })
-    })
-      .then(res=>res.json())
-      .catch(()=>{
-        timeout = true;
-      })
+    }).then(res=>res.json())
 
     if(timeout) return;
     returned = true;

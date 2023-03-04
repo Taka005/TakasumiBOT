@@ -13,7 +13,6 @@ module.exports = async(interaction)=>{
     const role_8 = interaction.options.getRole("role_8");
 
     const emojis = ["🇦","🇧","🇨","🇩","🇪","🇫","🇬","🇭"];
-
     const selects = [role_1,role_2,role_3,role_4,role_5,role_6,role_7,role_8]
       .filter(role=>role!==null)
 
