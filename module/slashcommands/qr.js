@@ -18,7 +18,6 @@ module.exports = async(interaction)=>{
 
       const data = await fetch(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURI(text)}&size=256x256&format=png`)
         .then(res=>res.blob()) 
-        .catch(()=>{})
 
       await interaction.editReply({
         embeds:[{
@@ -57,7 +56,6 @@ module.exports = async(interaction)=>{
       
       const data = await fetch(`https://api.qrserver.com/v1/read-qr-code/?fileurl=${encodeURI(text)}`)
         .then(res =>res.json()) 
-        .catch(()=>{})
 
       if(data[0].symbol[0].error) return await interaction.editReply({
         embeds:[{

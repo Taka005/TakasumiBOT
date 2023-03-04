@@ -10,7 +10,6 @@ module.exports = async(interaction)=>{
     try{
       const data = await fetch(`https://g.tenor.com/v1/search?q=${name}&key=${process.env.GIF_KEY}&limit=1&media_filter=minimal`)
         .then(res=>res.json())
-        .catch(()=>{});
 
       const image = await fetch(data.results[0].media[0].gif.url)
         .then(res=>res.blob())

@@ -7,7 +7,6 @@ module.exports = async(interaction)=>{
     await interaction.deferReply();
     const data = await fetch(`https://api.npms.io/v2/search?q=${name}`)
       .then(res => res.json())
-      .catch(()=>{})
 
     try{
       const pkg = data.results[0].package

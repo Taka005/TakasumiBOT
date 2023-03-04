@@ -41,7 +41,6 @@ module.exports = async(interaction)=>{
 
     const image = await fetch(random(draws))
       .then(res=>res.blob())
-      .catch(()=>{});
 
     await interaction.editReply({
       embeds:[{

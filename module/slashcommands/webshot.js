@@ -22,7 +22,6 @@ module.exports = async(interaction)=>{
     try{
       const data = await fetch(`https://api.popcat.xyz/screenshot?url=${url}`)
         .then(res=>res.blob())
-        .catch(()=>{})
 
       await interaction.editReply({
         embeds:[{

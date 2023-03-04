@@ -51,8 +51,8 @@ module.exports = async(interaction,client)=>{
       });
     }
   
-    const userID = id.match(/\d{18,19}/g);
-    if(!userID) return await interaction.reply({
+    const ID = id.match(/\d{18,19}/g);
+    if(!ID) return await interaction.reply({
       embeds:[{
         author:{
           name: "取得に失敗しました",
@@ -65,8 +65,8 @@ module.exports = async(interaction,client)=>{
     });
 
     try{
-      const member = await interaction.guild.members.cache.get(userID[0]);
-      const user = await client.users.fetch(userID[0]);
+      const member = await interaction.guild.members.cache.get(ID[0]);
+      const user = await client.users.fetch(ID[0]);
       
       await interaction.reply({
         embeds:[{

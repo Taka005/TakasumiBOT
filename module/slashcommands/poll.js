@@ -1,5 +1,4 @@
 module.exports = async(interaction)=>{
-  const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "poll"){
     const title = interaction.options.getString("title");
@@ -43,32 +42,11 @@ module.exports = async(interaction)=>{
       }],
       fetchReply: true
     });
-    try{
-      await emojis.slice(0, selects.length).forEach(emoji => msg.react(emoji))
-    }catch(error){
-      await msg.edit({
-        embeds:[{
-          author:{
-            name: "アンケートを作成できませんでした",
-            icon_url: "https://cdn.taka.ml/images/system/error.png"
-          },
-          color: "RED",
-          fields:[
-            {
-              name: "エラーコード",
-              value: `\`\`\`${error}\`\`\``
-            }
-          ]
-        }],
-        components:[
-          new MessageActionRow()
-            .addComponents( 
-              new MessageButton()
-                .setLabel("サポートサーバー")
-                .setURL("https://discord.gg/NEesRdGQwD")
-                .setStyle("LINK"))
-        ]
+
+    emojis.slice(0,selects.length)
+      .forEach(emoji=>{
+        msg.react(emoji)
+          .catch(()=>{})
       });
-    }
   }
 }

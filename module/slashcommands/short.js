@@ -1,11 +1,12 @@
 module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
+  const isUrl = require("../lib/isUrl");
   require("dotenv").config();
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "short"){
     const url = interaction.options.getString("url");
 
-    if(!url.match(/https?:\/\/[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+/g)) return await interaction.reply({
+    if(!isUrl(url)) return await interaction.reply({
       embeds:[{
         author:{
           name: "短縮URLにできませんでした",
@@ -19,7 +20,6 @@ module.exports = async(interaction)=>{
 
     const data = await fetch(`https://is.gd/create.php?format=simple&url=${encodeURI(url)}`)
       .then(res=>res.text())
-      .catch(()=>{})
       
     await interaction.reply(data);
   }

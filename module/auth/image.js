@@ -21,7 +21,6 @@ module.exports = async(interaction)=>{
     const auth = random(keys);
     const image = await fetch(auth.url)
       .then(res=>res.blob())
-      .catch(()=>{});
 
     await interaction.editReply({
       embeds:[{

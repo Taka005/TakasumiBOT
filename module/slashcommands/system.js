@@ -8,7 +8,7 @@ module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "system"){
     const id = interaction.options.getString("id");
-    const functions = interaction.options.getString("functions");
+    const type = interaction.options.getString("type");
     const message = interaction.options.getString("message") || "なし"
 
     if(interaction.member.user.id !== admin) return await interaction.reply({
@@ -23,8 +23,8 @@ module.exports = async(interaction,client)=>{
       ephemeral: true
     });
 
-    const id_data = id.match(/\d{18,19}/g);
-    if(!id_data) return await interaction.reply({
+    const ID = id.match(/\d{18,19}/g);
+    if(!ID) return await interaction.reply({
       embeds:[{
         author:{
           name: "引数が無効です",
@@ -36,8 +36,8 @@ module.exports = async(interaction,client)=>{
       ephemeral: true
     });
 
-    if(functions === "leave"){//サーバーから脱退する
-      const guild = client.guilds.cache.get(id_data[0]);
+    if(type === "leave"){//サーバーから脱退する
+      const guild = client.guilds.cache.get(ID[0]);
       if(!guild) return await interaction.reply({
         embeds:[{
           author:{
@@ -76,8 +76,8 @@ module.exports = async(interaction,client)=>{
           });
         });
 
-    }else if(functions === "delete"){//グローバルチャットの登録情報を削除
-      const guild = client.guilds.cache.get(id_data[0]);
+    }else if(type === "delete"){//グローバルチャットの登録情報を削除
+      const guild = client.guilds.cache.get(ID[0]);
       if(!guild) return await interaction.reply({
         embeds:[{
           author:{
@@ -90,7 +90,7 @@ module.exports = async(interaction,client)=>{
         ephemeral: true
       });
   
-      if(!sub[id_data]) return await interaction.reply({
+      if(!sub[ID]) return await interaction.reply({
         embeds:[{
           author:{
             name: "登録情報を削除できませんでした",
@@ -101,13 +101,13 @@ module.exports = async(interaction,client)=>{
         }],
         ephemeral: true
       });
-      const channel = sub[id_data];
+      const channel = sub[ID];
 
       const webhooks = new WebhookClient({id: main[channel][0], token: main[channel][1]});
       await webhooks.delete()
         .then(async()=>{
           delete main[channel];
-          delete sub[id_data];
+          delete sub[ID];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
   
@@ -123,7 +123,7 @@ module.exports = async(interaction,client)=>{
           })
         .catch(async()=>{
           delete main[channel];
-          delete sub[id_data];
+          delete sub[ID];
           fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
           fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
   
@@ -139,7 +139,7 @@ module.exports = async(interaction,client)=>{
           })
         });
 
-      client.channels.cache.get(channel).send({
+      await client.channels.cache.get(channel).send({
         embeds:[{
           author:{
             name: "登録情報が削除されました",
@@ -153,37 +153,37 @@ module.exports = async(interaction,client)=>{
       delete require.cache[require.resolve("../../data/global/sub.json")];
       delete require.cache[require.resolve("../../data/global/main.json")];
 
-    }else if(functions === "mute_server"){//ミュートサーバーを追加する
-      const data = await mysql(`SELECT * FROM mute_server WHERE id = ${id_data[0]} LIMIT 1;`);
+    }else if(type === "mute_server"){//ミュートサーバーを追加する
+      const data = await mysql(`SELECT * FROM mute_server WHERE id = ${ID[0]} LIMIT 1;`);
       if(data[0]){//登録済み
-        await mysql(`DELETE FROM mute_server WHERE id = ${id_data[0]} LIMIT 1;`);
+        await mysql(`DELETE FROM mute_server WHERE id = ${ID[0]} LIMIT 1;`);
   
         await interaction.reply({
           embeds:[{
             author:{
-              name: `${id_data[0]} のミュートを解除しました`,
+              name: `${ID[0]} のミュートを解除しました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
         });
       }else{//登録なし
-        await mysql(`INSERT INTO mute_server (id, reason, time) VALUES("${id_data[0]}","${message||"なし"}",NOW())`);
+        await mysql(`INSERT INTO mute_server (id, reason, time) VALUES("${ID[0]}","${message||"なし"}",NOW())`);
 
         await interaction.reply({
           embeds:[{
             author:{
-              name: `${id_data[0]} をミュートしました`,
+              name: `${ID[0]} をミュートしました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN"
           }]
         });
       }
-    }else if(functions === "mute_user"){//ミュートユーザーを追加する
+    }else if(type === "mute_user"){//ミュートユーザーを追加する
       let user
       try{
-        user = await client.users.fetch(id_data[0]);
+        user = await client.users.fetch(ID[0]);
       }catch{
         return await interaction.reply({
           embeds:[{
@@ -198,9 +198,9 @@ module.exports = async(interaction,client)=>{
         });
       }
   
-      const data = await mysql(`SELECT * FROM mute_user WHERE id = ${id_data[0]} LIMIT 1;`);
+      const data = await mysql(`SELECT * FROM mute_user WHERE id = ${ID[0]} LIMIT 1;`);
       if(data[0]){//登録済み
-        await mysql(`DELETE FROM mute_user WHERE id = ${id_data[0]} LIMIT 1;`);
+        await mysql(`DELETE FROM mute_user WHERE id = ${ID[0]} LIMIT 1;`);
   
         await interaction.reply({
           embeds:[{
@@ -212,7 +212,7 @@ module.exports = async(interaction,client)=>{
           }]
         });
       }else{//登録なし
-        await mysql(`INSERT INTO mute_user (id, reason, time) VALUES("${id_data[0]}","${message||"なし"}",NOW())`);
+        await mysql(`INSERT INTO mute_user (id, reason, time) VALUES("${ID[0]}","${message||"なし"}",NOW())`);
 
         await interaction.reply({
           embeds:[{
@@ -224,10 +224,10 @@ module.exports = async(interaction,client)=>{
           }]
         });
       }
-    }else if(functions === "dm"){//DMを送信する
+    }else if(type === "dm"){//DMを送信する
       let user
       try{
-        user = await client.users.fetch(id_data[0]);
+        user = await client.users.fetch(ID[0]);
       }catch{
         return await interaction.reply({
           embeds:[{
@@ -242,7 +242,7 @@ module.exports = async(interaction,client)=>{
         });
       }
 
-      user.send(`${message}`)
+      await user.send(`${message}`)
         .then(async()=>{
           await interaction.reply({
             embeds:[{
@@ -269,7 +269,6 @@ module.exports = async(interaction,client)=>{
             ephemeral: true
           })
         });
-
     }
   }
 }
