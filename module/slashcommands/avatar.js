@@ -27,7 +27,7 @@ module.exports = async(interaction,client)=>{
         await interaction.reply({
           embeds:[{
             author:{
-              name: "正常に送信できませんでした",
+              name: "取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
