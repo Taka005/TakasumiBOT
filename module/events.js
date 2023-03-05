@@ -1,7 +1,7 @@
 module.exports = async(client)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   const fs = require("fs");
-  const mysql = require("../lib/mysql");
+  const mysql = require("./lib/mysql");
 
   client.once("ready",async(client)=>{
     const status = require("./events/status");
