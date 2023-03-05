@@ -61,7 +61,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           color: "GREEN",
           author:{
-            name: "正常に実行しました",
+            name: "実行しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**結果**\n\`\`\`${res.program_output||"なし"}\`\`\``,
@@ -73,7 +73,7 @@ module.exports = async(interaction)=>{
         await interaction.editReply({
           embeds:[{
             author:{
-              name: "正常に実行できませんでした",
+              name: "実行できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
@@ -88,7 +88,7 @@ module.exports = async(interaction)=>{
       await interaction.editReply({
         embeds:[{
           author:{
-            name: "正常に実行できませんでした",
+            name: "実行できませんでした",
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
@@ -101,7 +101,7 @@ module.exports = async(interaction)=>{
         await interaction.editReply({
           embeds:[{
             author:{
-              name: "正常に実行できませんでした",
+              name: "実行できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",

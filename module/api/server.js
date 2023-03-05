@@ -13,14 +13,14 @@ module.exports = async(client)=>{
     },app);
 
     server.listen(443,()=>{
-      console.log(`\x1b[34mINFO: WEB(https)サーバーが正常に起動しました\x1b[39m`);
+      console.log(`\x1b[34mINFO: WEB(https)サーバーが起動しました\x1b[39m`);
     });
   }catch{
     console.log(`\x1b[33mWARN: sslを使用せずに起動しました\x1b[39m`);
   }
 
   app.listen(80,()=>{
-    console.log(`\x1b[34mINFO: WEB(http)サーバーが正常に起動しました\x1b[39m`);
+    console.log(`\x1b[34mINFO: WEB(http)サーバーが起動しました\x1b[39m`);
   });
    
   app.get("/",(req,res)=>{
