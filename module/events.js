@@ -1,6 +1,7 @@
 module.exports = async(client)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   const fs = require("fs");
+  const mysql = require("./lib/mysql");
 
   client.once("ready",async(client)=>{
     const status = require("./events/status");
@@ -74,6 +75,28 @@ module.exports = async(client)=>{
         },
         color: "RED",
         description: "BOTの操作はDMで実行することができません\nサーバー内で実行してください"
+      }],      
+      components:[
+        new MessageActionRow()
+          .addComponents( 
+            new MessageButton()
+              .setLabel("サポートサーバー")
+              .setURL("https://discord.gg/NEesRdGQwD")
+              .setStyle("LINK"))
+      ]
+    });
+
+    const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${interaction.guild.id} LIMIT 1;`);
+    const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${interaction.author.id} LIMIT 1;`);
+
+    if(mute_server||mute_user) return await interaction.reply({ 
+      embeds:[{
+        author:{
+          name: "コマンドが実行できません",
+          icon_url: "https://cdn.taka.ml/images/system/error.png"
+        },
+        color: "RED",
+        description: "あなた、又はこのサーバーはブラックリストに登録されているため実行できません"
       }],      
       components:[
         new MessageActionRow()
