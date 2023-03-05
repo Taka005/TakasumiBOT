@@ -2,28 +2,9 @@ module.exports = async(interaction)=>{
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const fs = require("fs");
-  const mysql = require("../lib/mysql");
   const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
-
-    const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${interaction.guild.id} LIMIT 1;`);
-    const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${interaction.member.user.id} LIMIT 1;`);
-
-    if(
-      mute_server[0]&&!sub[interaction.guild.id]||
-      mute_user[0]&&!sub[interaction.guild.id]
-    ) return await interaction.reply({
-      embeds:[{
-        author:{
-          name: "登録できません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png"
-        },
-        description: "このサーバーもしくは、あなたはブラックリストに登録されているため、ご利用できません",
-        color: "RED"
-      }],
-      ephemeral: true
-    });
 
     if(!interaction.member.permissions.has("MANAGE_CHANNELS")) return await interaction.reply({
       embeds:[{
