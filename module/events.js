@@ -96,7 +96,7 @@ module.exports = async(client)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "あなた、又はこのサーバーはブラックリストに登録されているため実行できません"
+        description: "あなた又はこのサーバーはブラックリストに登録されているため実行できません"
       }],      
       components:[
         new MessageActionRow()
@@ -105,7 +105,8 @@ module.exports = async(client)=>{
               .setLabel("サポートサーバー")
               .setURL("https://discord.gg/NEesRdGQwD")
               .setStyle("LINK"))
-      ]
+      ],
+      ephemeral: true
     });
 
     //event/interaction
