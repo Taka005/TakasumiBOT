@@ -2,6 +2,7 @@ module.exports = async(interaction)=>{
   const main = require("../../data/global/main.json");
   const sub = require("../../data/global/sub.json");
   const fs = require("fs");
+  const mysql = require("../lib/mysql");
   const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "global"){
@@ -81,6 +82,8 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
+    const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${interaction.guild.id} LIMIT 1;`);
+  
     if(main[interaction.channel.id]){//登録済み
       const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
       await webhooks.delete()
