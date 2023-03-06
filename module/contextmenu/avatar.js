@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
           url: member.avatarURL({format:"png",dynamic:true,size:1024})
         },
         image:{
-          url: member.user.avatarURL({format:"png",dynamic:true,size:1024})||"https://cdn.discordapp.com/embed/avatars/0.png"
+          url: member.user.avatarURL({format:"png",dynamic:true,size:1024})||member.user.defaultAvatarURL
         },
         timestamp: new Date(),
         footer:{
