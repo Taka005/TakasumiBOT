@@ -1,7 +1,4 @@
 module.exports = async(interaction)=>{
-  const main = require("../../data/global/main.json");
-  const sub = require("../../data/global/sub.json");
-  const fs = require("fs");
   const mysql = require("../lib/mysql");
   const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
@@ -70,30 +67,15 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    if(!main[interaction.channel.id]&&sub[interaction.guild.id]) return await interaction.reply({
-      embeds:[{
-        author:{
-          name: "既に登録済みです",
-          icon_url: "https://cdn.taka.ml/images/system/error.png"
-        },
-        color: "RED",
-        description: "グローバルチャットは、一つのサーバーに付き\nひとつまでしか登録出来ません"
-      }],
-      ephemeral: true
-    });
-
+    const data = await mysql(`SELECT * FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
     const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${interaction.guild.id} LIMIT 1;`);
   
-    if(main[interaction.channel.id]){//登録済み
-      const webhooks = new WebhookClient({id: main[interaction.channel.id][0], token: main[interaction.channel.id][1]});
+    if(data[0]){//登録済み
+      const webhooks = new WebhookClient({id: data[0].id, token: data[0].token});
+
+      await mysql(`DELETE FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
       await webhooks.delete()
         .then(async()=>{
-
-          delete main[interaction.channel.id];
-          delete sub[interaction.guild.id];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
@@ -106,11 +88,6 @@ module.exports = async(interaction)=>{
           });
         })
         .catch(async()=>{
-          delete main[interaction.channel.id];
-          delete sub[interaction.guild.id];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,
             embeds:[{
@@ -126,10 +103,7 @@ module.exports = async(interaction)=>{
 
       interaction.channel.setTopic("")
         .catch(()=>{})
-
-      delete require.cache[require.resolve("../../data/global/sub.json")];
-      delete require.cache[require.resolve("../../data/global/main.json")];
-    }else{//登録なし
+    }else{
       await interaction.deferReply();
       await interaction.editReply({
         embeds:[{
@@ -137,23 +111,21 @@ module.exports = async(interaction)=>{
           description: "登録情報を確認、登録中....",
         }]
       });
+
       await interaction.channel.createWebhook("TakasumiBOT",{
         avatar: "https://cdn.taka.ml/images/bot.png",
       })
         .then(async(webhook)=>{
-          interaction.channel.setTopic("ここはTakasumiグローバルチャットです\nこのチャンネルに入力された内容は、登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
+          await interaction.channel.setTopic("ここはTakasumiBOTグローバルチャットです\nこのチャンネルに入力された内容は登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
             .catch(()=>{})
 
-          main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
-          sub[interaction.guild.id] = interaction.channel.id;
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
+          await mysql(`INSERT INTO global (server, id, token, time) VALUES("${interaction.guild.id}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
+          
+        const global = await mysql(`SELECT * FROM global;`);
+          global.forEach(async(data)=>{
+            if(data.server === interaction.guild.id||mute_server[data.server]) return;
 
-          Object.keys(main).forEach(async(channels)=>{
-            const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-            if(channels === interaction.channel.id||mute_server[guild]) return;
-
-            const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+            const webhooks = new WebhookClient({id: data[0].id, token: data[0].token});
             await webhooks.send({
               embeds:[{
                 color: "GREEN",
@@ -163,19 +135,12 @@ module.exports = async(interaction)=>{
                 },
                 description: "グローバルチャットに新しいサーバーが参加しました！\nみんなで挨拶してみましょう!",
                 footer:{
-                  text: `登録数:${Object.keys(main).length}`
+                  text: `登録数:${global.length}`
                 },
                 timestamp: new Date()
               }]
-            }).catch(()=>{
-              delete main[channels];
-              const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-              delete sub[guild];
-
-              fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-              fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-              delete require.cache[require.resolve("../../data/global/sub.json")];
-              delete require.cache[require.resolve("../../data/global/main.json")];
+            }).catch(async()=>{
+              await mysql(`DELETE FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
             })
           });
 
@@ -183,7 +148,7 @@ module.exports = async(interaction)=>{
             embeds:[{
               color: "GREEN",
               author:{
-                name: `${interaction.guild.name}`,
+                name: interaction.guild.name,
                 icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
               description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\nこのチャンネルに入力された内容は、登録チャンネル全てに送信されます\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
@@ -217,9 +182,6 @@ module.exports = async(interaction)=>{
           ]
         });
       });
-
-      delete require.cache[require.resolve("../../data/global/main.json")];
-      delete require.cache[require.resolve("../../data/global/sub.json")];
     }
   }
 }
