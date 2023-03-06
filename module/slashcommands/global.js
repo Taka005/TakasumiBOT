@@ -121,7 +121,7 @@ module.exports = async(interaction)=>{
 
           await mysql(`INSERT INTO global (server, id, token, time) VALUES("${interaction.guild.id}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
           
-        const global = await mysql(`SELECT * FROM global;`);
+          const global = await mysql(`SELECT * FROM global;`);
           global.forEach(async(data)=>{
             if(data.server === interaction.guild.id||mute_server[data.server]) return;
 
