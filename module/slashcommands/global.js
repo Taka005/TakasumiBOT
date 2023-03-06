@@ -1,5 +1,4 @@
 module.exports = async(interaction)=>{
-  const fs = require("fs");
   const mysql = require("../lib/mysql");
   const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
