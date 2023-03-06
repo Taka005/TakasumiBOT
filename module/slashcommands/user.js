@@ -21,7 +21,7 @@ module.exports = async(interaction,client)=>{
             text: "TakasumiBOT"
           },
           thumbnail:{
-            url: interaction.member.user.avatarURL({format:"png",dynamic:true,size:1024})||`https://cdn.discordapp.com/embed/avatars/${Number(interaction.member.user.discriminator) % 5}.png`
+            url: interaction.member.user.avatarURL({format:"png",dynamic:true,size:1024})|| interaction.member.user.defaultAvatarURL
           },
           fields:[
             {
@@ -117,7 +117,7 @@ module.exports = async(interaction,client)=>{
             text: "TakasumiBOT"
           },
           thumbnail:{
-            url: member.user.avatarURL({format:"png",dynamic:true,size:1024})||`https://cdn.discordapp.com/embed/avatars/${Number(member.user.discriminator) % 5}.png`
+            url: member.user.avatarURL({format:"png",dynamic:true,size:1024})||member.user.defaultAvatarURL
           },
           fields:[
             {
@@ -199,7 +199,7 @@ module.exports = async(interaction,client)=>{
               text: "TakasumiBOT"
             },
             thumbnail:{
-              url: user.avatarURL({format:"png",dynamic:true,size:1024})||`https://cdn.discordapp.com/embed/avatars/${Number(user.discriminator) % 5}.png`
+              url: user.avatarURL({format:"png",dynamic:true,size:1024})||user.defaultAvatarURL
             },
             fields:[
               {
