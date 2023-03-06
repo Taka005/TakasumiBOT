@@ -140,7 +140,7 @@ module.exports = async(interaction)=>{
                 },
                 timestamp: new Date()
               }]
-            }).catch(()=>{
+            }).catch(async()=>{
               await mysql(`DELETE FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
             })
           });
