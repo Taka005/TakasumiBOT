@@ -1,22 +1,22 @@
 module.exports = async(msg,client)=>{
   const mysql = require("../lib/mysql");
-  const main = require("../../data/global/main.json");
-  const sub = require("../../data/global/sub.json");
   const convert = require("../lib/convert");
   const { WebhookClient } = require("discord.js");
   const async = require("async");
 
-  if(main[msg.channel.id]) return;
+  const data = await mysql(`SELECT * FROM global WHERE channel = ${msg.channel.id} LIMIT 1;`);
+  if(!data[0]) return;
   const message = await convert(msg);
+
+  const global = await mysql("SELECT * FROM global;");
 
   if(!message.reply.isReply){
     if(!message.attachments.isAttachments){
-      async.each(Object.keys(main),async(channels)=>{//添付ファイルなし
-        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
-        if(channels === message.channel.id||mute[0]) return;
+      async.each(global,async(data)=>{
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${data.server} LIMIT 1;`);
+        if(data.server === message.guild.id||mute[0]) return;
   
-        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        const webhooks = new WebhookClient({id: data.id, token: data.token});
         await webhooks.send({
           embeds:[
             {
@@ -38,16 +38,15 @@ module.exports = async(msg,client)=>{
             }
           ]      
         }).catch((error)=>{
-          err(channels,client,error);
+          err(data.channel,client,error);
         });
       });
     }else if(!message.attachments.attachment[0].isFile){//添付ファイルあり(画像)
-      async.each(Object.keys(main),async(channels)=>{
-        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
-        if(channels === message.channel.id||mute[0]) return;
+      async.each(global,async(data)=>{
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${data.server} LIMIT 1;`);
+        if(data.server === message.guild.id||mute[0]) return;
   
-        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        const webhooks = new WebhookClient({id: data.id, token: data.token});
         await webhooks.send({
           embeds:[
             {
@@ -76,16 +75,15 @@ module.exports = async(msg,client)=>{
             }
           ]
         }).catch((error)=>{
-          err(channels,client,error);
+          err(data.channel,client,error);
         });
       });
     }else{//添付ファイルあり(画像以外)
-      async.each(Object.keys(main),async(channels)=>{
-        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
-        if(channels === message.channel.id||mute[0]) return;
+      async.each(global,async(data)=>{
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${data.server} LIMIT 1;`);
+        if(data.server === message.guild.id||mute[0]) return;
   
-        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+        const webhooks = new WebhookClient({id: data.id, token: data.token});
         await webhooks.send({
           embeds:[
             {
@@ -113,18 +111,17 @@ module.exports = async(msg,client)=>{
             }
           ]
         }).catch((error)=>{
-          err(channels,client,error);
+          err(data.channel,client,error);
         });
       });
     }
   }else{
     if(!message.attachments.isAttachments){
-      async.each(Object.keys(main),async(channels)=>{//添付ファイルなし
-        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
-        if(channels === message.channel.id||mute[0]) return;
-
-        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+      async.each(global,async(data)=>{
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${data.server} LIMIT 1;`);
+        if(data.server === message.guild.id||mute[0]) return;
+  
+        const webhooks = new WebhookClient({id: data.id, token: data.token});
         await webhooks.send({
           embeds:[
             {
@@ -138,7 +135,7 @@ module.exports = async(msg,client)=>{
               fields:[
                 {
                   name: "\u200b",
-                  value: `**${message.reply.user.tag}>>** ${message.reply.content || "なし"}`
+                  value: `**${message.reply.user.tag}>>** ${message.reply.content||"なし"}`
                 }
               ],
               footer:{
@@ -152,16 +149,15 @@ module.exports = async(msg,client)=>{
             }
           ]      
         }).catch((error)=>{
-          err(channels,client,error);
+          err(data.channel,client,error);
         });
       });
     }else if(!message.attachments[0].isFile){//添付ファイルあり(画像)
-      async.each(Object.keys(main),async(channels)=>{
-        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
-        if(channels === message.channel.id||mute[0]) return;
-
-        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+      async.each(global,async(data)=>{
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${data.server} LIMIT 1;`);
+        if(data.server === message.guild.id||mute[0]) return;
+  
+        const webhooks = new WebhookClient({id: data.id, token: data.token});
         await webhooks.send({
           embeds:[
             {
@@ -175,7 +171,7 @@ module.exports = async(msg,client)=>{
               fields:[
                 {
                   name: "\u200b",
-                  value: `**${message.reply.user.tag}>>** ${message.reply.content || "なし"}`
+                  value: `**${message.reply.user.tag}>>** ${message.reply.content||"なし"}`
                 }
               ],
               footer:{
@@ -196,16 +192,15 @@ module.exports = async(msg,client)=>{
             }
           ]
         }).catch((error)=>{
-          err(channels,client,error);
+          err(data.channel,client,error);
         });
       });
     }else{//添付ファイルあり(画像以外)
-      async.each(Object.keys(main),async(channels)=>{
-        const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${guild} LIMIT 1;`);
-        if(channels === message.channel.id||mute[0]) return;
-
-        const webhooks = new WebhookClient({id: main[channels][0], token: main[channels][1]});
+      async.each(global,async(data)=>{
+        const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${data.server} LIMIT 1;`);
+        if(data.server === message.guild.id||mute[0]) return;
+  
+        const webhooks = new WebhookClient({id: data.id, token: data.token});
         await webhooks.send({
           embeds:[
             {
@@ -227,7 +222,7 @@ module.exports = async(msg,client)=>{
                 },
                 {
                   name: "\u200b",
-                  value: `**${message.reply.user.tag}>>** ${message.reply.content || "なし"}`
+                  value: `**${message.reply.user.tag}>>** ${message.reply.content||"なし"}`
                 }
               ],
               image:{
@@ -237,27 +232,18 @@ module.exports = async(msg,client)=>{
             }
           ]
         }).catch((error)=>{
-          err(channels,client,error);
+          err(data.channel,client,error);
         });
       });
     }
   }
 }
 
-function err(channels,client,error){
-  const main = require("../../data/global/main.json");
-  const sub = require("../../data/global/sub.json");
-  const fs = require("fs");
-  
-  delete main[channels];
-  const guild = Object.keys(sub).filter((key)=> sub[key] === channels);
-  delete sub[guild];
-  fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-  fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-  delete require.cache[require.resolve("../../data/global/sub.json")];
-  delete require.cache[require.resolve("../../data/global/main.json")];
+function err(channel,client,error){
+  const mysql = require("../lib/mysql");
 
-  client.channels.cache.get(channels).send({
+  mysql(`DELETE FROM global WHERE channel = ${channel} LIMIT 1;`);
+  client.channels.cache.get(channel).send({
     embeds:[{
       author:{
         name: "グローバルチャットでエラーが発生しました",

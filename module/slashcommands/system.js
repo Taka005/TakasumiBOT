@@ -1,10 +1,7 @@
 module.exports = async(interaction,client)=>{
   const { admin } = require("../../config.json");
   const mysql = require("../lib/mysql");
-  const main = require("../../data/global/main.json");
-  const sub = require("../../data/global/sub.json");
   const { WebhookClient } = require("discord.js");
-  const fs = require("fs");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "system"){
     const id = interaction.options.getString("id");
@@ -89,8 +86,10 @@ module.exports = async(interaction,client)=>{
         }],
         ephemeral: true
       });
+
+      const data = await mysql(`SELECT * FROM global WHERE server = ${guild.id} LIMIT 1;`);
   
-      if(!sub[ID]) return await interaction.reply({
+      if(!data[0]) return await interaction.reply({
         embeds:[{
           author:{
             name: "登録情報を削除できませんでした",
@@ -101,16 +100,10 @@ module.exports = async(interaction,client)=>{
         }],
         ephemeral: true
       });
-      const channel = sub[ID];
 
-      const webhooks = new WebhookClient({id: main[channel][0], token: main[channel][1]});
+      const webhooks = new WebhookClient({id: data[0].id, token: data[0].token});
       await webhooks.delete()
         .then(async()=>{
-          delete main[channel];
-          delete sub[ID];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-  
           await interaction.reply({
             embeds:[{
                 author:{
@@ -122,11 +115,6 @@ module.exports = async(interaction,client)=>{
             });
           })
         .catch(async()=>{
-          delete main[channel];
-          delete sub[ID];
-          fs.writeFileSync("./data/global/main.json", JSON.stringify(main), "utf8");
-          fs.writeFileSync("./data/global/sub.json", JSON.stringify(sub), "utf8");
-  
           await interaction.reply({
             embeds:[{
               author:{
@@ -139,7 +127,7 @@ module.exports = async(interaction,client)=>{
           })
         });
 
-      await client.channels.cache.get(channel).send({
+      await client.channels.cache.get(data.channel).send({
         embeds:[{
           author:{
             name: "登録情報が削除されました",
@@ -149,9 +137,6 @@ module.exports = async(interaction,client)=>{
           description: "グローバルチャットは、管理者によって強制的に切断されました\n再度登録するには`/global`を使用してください"
         }]
       }).catch(()=>{});
-
-      delete require.cache[require.resolve("../../data/global/sub.json")];
-      delete require.cache[require.resolve("../../data/global/main.json")];
 
     }else if(type === "mute_server"){//ミュートサーバーを追加する
       const data = await mysql(`SELECT * FROM mute_server WHERE id = ${ID[0]} LIMIT 1;`);

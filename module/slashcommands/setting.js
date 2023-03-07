@@ -430,7 +430,7 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
-        if(!channel.type === "GUILD_TEXT") return await interaction.reply({
+        if(channel.type !== "GUILD_TEXT") return await interaction.reply({
           embeds:[{
             author:{
               name: "退出メッセージを設定できませんでした",

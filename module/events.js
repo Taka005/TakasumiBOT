@@ -12,18 +12,6 @@ module.exports = async(client)=>{
   });
 
   client.on("messageCreate",async(message)=>{
-
-    //Globalchat
-    const global = require("./global/global");
-    const reply = require("./global/reply");
-    const send = require("./global/send");
-    global(message,client)
-      .catch(()=>{});
-    reply(message,client)
-      .catch(()=>{});
-    send(message)
-      .catch(()=>{});
-
     //event/message
     fs.readdir("./module/events/message/",(err,files)=>{ 
       files.forEach((file)=>{
@@ -36,6 +24,17 @@ module.exports = async(client)=>{
     if(message.channel.type !== "GUILD_TEXT"||message.author.bot) return;  
 
     console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]\x1b[39m`);
+
+   //Globalchat
+    const global = require("./global/global");
+    const reply = require("./global/reply");
+    const send = require("./global/send");
+    global(message,client)
+      .catch(()=>{});
+    reply(message,client)
+      .catch(()=>{});
+    send(message)
+      .catch(()=>{});
 
     //コマンド
     fs.readdir("./module/commands/",(err,files)=>{ 
