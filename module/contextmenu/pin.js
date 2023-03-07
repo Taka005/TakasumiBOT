@@ -32,10 +32,10 @@ module.exports = async(interaction)=>{
     });
 
     if(
-      !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-      !interaction.guild.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
-      !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")||
-      !interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_CHANNELS")
+      !interaction.guild.members.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+      !interaction.guild.members.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+      !interaction.guild.members.me.permissionsIn(interaction.channel).has("MANAGE_MESSAGES")||
+      !interaction.guild.members.me.permissionsIn(interaction.channel).has("MANAGE_CHANNELS")
     ) return await interaction.reply({
       embeds:[{
         author:{

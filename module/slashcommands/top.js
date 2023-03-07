@@ -4,8 +4,8 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "top"){
 
     if(
-      !interaction.guild.me.permissionsIn(interaction.channel).has("READ_MESSAGE_HISTORY")||
-      !interaction.guild.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")
+      !interaction.guild.members.me.permissionsIn(interaction.channel).has("READ_MESSAGE_HISTORY")||
+      !interaction.guild.members.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")
     ) return await interaction.reply({
       embeds:[{
         author:{

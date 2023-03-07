@@ -4,9 +4,9 @@ module.exports = async(message,client)=>{
     
     if(
       message.author.bot||
-      !message.guild.me.permissionsIn(message.channel)?.has("VIEW_CHANNEL")||
-      !message.guild.me.permissionsIn(message.channel)?.has("SEND_MESSAGES")||
-      !message.guild.me.permissionsIn(message.channel)?.has("MANAGE_MESSAGES")
+      !message.guild.members.me.permissionsIn(message.channel)?.has("VIEW_CHANNEL")||
+      !message.guild.members.me.permissionsIn(message.channel)?.has("SEND_MESSAGES")||
+      !message.guild.members.me.permissionsIn(message.channel)?.has("MANAGE_MESSAGES")
     ) return;
     
     const channel = await mysql(`SELECT * FROM pin WHERE channel = ${message.channel.id} LIMIT 1;`);

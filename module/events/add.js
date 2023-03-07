@@ -5,8 +5,8 @@ module.exports = async(guild)=>{
     if(find === 0){
       if(
         channel.type === "GUILD_TEXT"&&
-        guild.me.permissionsIn(channel).has("VIEW_CHANNEL")&&
-        guild.me.permissionsIn(channel).has("SEND_MESSAGES")
+        guild.members.me.permissionsIn(channel).has("VIEW_CHANNEL")&&
+        guild.members.me.permissionsIn(channel).has("SEND_MESSAGES")
       ){
         channel.send({
           embeds:[{
