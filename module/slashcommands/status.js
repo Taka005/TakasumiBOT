@@ -26,7 +26,7 @@ module.exports = async(interaction,client)=>{
     const chat = global.length/client.guilds.cache.size*100
 
     const start = performance.now(); 
-    await fetch("https://api.taka.ml/v1/status")
+    await fetch("https://api.taka.ml/v1/status");
     const end = performance.now(); 
 
     await interaction.editReply({
