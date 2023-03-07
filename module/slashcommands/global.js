@@ -68,8 +68,7 @@ module.exports = async(interaction)=>{
     });
 
     const data = await mysql(`SELECT * FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
-    const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${interaction.guild.id} LIMIT 1;`);
-  
+
     if(data[0]){//登録済み
       const webhooks = new WebhookClient({id: data[0].id, token: data[0].token});
 
@@ -119,13 +118,15 @@ module.exports = async(interaction)=>{
           await interaction.channel.setTopic("ここはTakasumiBOTグローバルチャットです\nこのチャンネルに入力された内容は登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
             .catch(()=>{})
 
-          await mysql(`INSERT INTO global (server, channel, id, token, time) VALUES("${interaction.guild.id}","${interaction.channel.id}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
+          await mysql(`INSERT INTO global (server, channel, id, token, time) VALUES("${interaction.guild.id}","${interaction.channel.id}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
           
           const global = await mysql("SELECT * FROM global;");
+  
           global.forEach(async(data)=>{
-            if(data.server === interaction.guild.id||mute_server[data.server]) return;
+            const mute = await mysql(`SELECT * FROM mute_server WHERE id = ${data.server} LIMIT 1;`);
+            if(data.server === interaction.guild.id||mute[0]) return;
 
-            const webhooks = new WebhookClient({id: data[0].id, token: data[0].token});
+            const webhooks = new WebhookClient({id: data.id, token: data.token});
             await webhooks.send({
               embeds:[{
                 color: "GREEN",
