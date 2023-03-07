@@ -2,7 +2,6 @@ module.exports = async(interaction,client)=>{
   const { admin } = require("../../config.json");
   const mysql = require("../lib/mysql");
   const { WebhookClient } = require("discord.js");
-  const fs = require("fs");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "system"){
     const id = interaction.options.getString("id");

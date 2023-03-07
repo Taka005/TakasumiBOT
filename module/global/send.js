@@ -13,7 +13,7 @@ module.exports = async(message)=>{
   if(
     message.channel.type !== "GUILD_TEXT"||
     message.content.length > 300||
-    !daat[0]||
+    !data[0]||
     mute_server[0]||
     mute_user[0]||
     !account[0]

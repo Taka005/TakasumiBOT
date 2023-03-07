@@ -2,6 +2,7 @@ module.exports = async(interaction,client)=>{
   const os = require("os");
   const fetch = require("node-fetch");
   const mysql = require("../lib/mysql");
+  const hiroyuki = require("../../data/hiroyuki/main.json");
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "status"){

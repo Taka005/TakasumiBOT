@@ -334,7 +334,7 @@ module.exports = async(message,client)=>{
 function err(channel,client,error){
   const mysql = require("../lib/mysql");
 
-  await mysql(`DELETE FROM global WHERE channel = ${channel} LIMIT 1;`);
+  mysql(`DELETE FROM global WHERE channel = ${channel} LIMIT 1;`);
   client.channels.cache.get(channel).send({
     embeds:[{
       author:{
