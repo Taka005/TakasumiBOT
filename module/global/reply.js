@@ -77,7 +77,7 @@ module.exports = async(message,client)=>{
               author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
-                icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+                icon_url: message.author.avatarURL()||message.author.defaultAvatarURL,
               },
               description: `${content}`,
               fields:[
@@ -117,7 +117,7 @@ module.exports = async(message,client)=>{
               author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
-                icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+                icon_url: message.author.avatarURL()||message.author.defaultAvatarURL,
               },
               description: `${content}`,
               fields:[
@@ -164,7 +164,7 @@ module.exports = async(message,client)=>{
               author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
-                icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+                icon_url: message.author.avatarURL()||message.author.defaultAvatarURL,
               },
               description: `${content}`,
               footer:{
@@ -213,7 +213,7 @@ module.exports = async(message,client)=>{
               author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
-                icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+                icon_url: message.author.avatarURL()||message.author.defaultAvatarURL,
               },
               description: `${content}`,
               fields:[
@@ -252,7 +252,7 @@ module.exports = async(message,client)=>{
               author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
-                icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+                icon_url: message.author.avatarURL()||message.author.defaultAvatarURL,
               },
               description: `${content}`,
               fields:[
@@ -298,7 +298,7 @@ module.exports = async(message,client)=>{
               author:{
                 name: `${message.author.tag}`,
                 url: `https://discord.com/users/${message.author.id}`,
-                icon_url: message.author.avatarURL()||"https://cdn.discordapp.com/embed/avatars/0.png",
+                icon_url: message.author.avatarURL()||message.author.defaultAvatarURL,
               },
               description: `${content}`,
               footer:{
