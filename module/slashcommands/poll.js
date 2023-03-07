@@ -15,7 +15,7 @@ module.exports = async(interaction)=>{
     const selects = [select_1,select_2,select_3,select_4,select_5,select_6,select_7,select_8]
       .filter(select=>select!==null)
 
-    if(!interaction.guild.me.permissionsIn(interaction.channel).has("ADD_REACTIONS")) return await interaction.reply({
+    if(!interaction.guild.members.me.permissionsIn(interaction.channel).has("ADD_REACTIONS")) return await interaction.reply({
       embeds:[{
         author:{
           name: "BOTに権限がありません",

@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
   
-    if(!interaction.guild.me.permissionsIn(interaction.channel).has("CREATE_INSTANT_INVITE")) return await interaction.reply({
+    if(!interaction.guild.members.me.permissionsIn(interaction.channel).has("CREATE_INSTANT_INVITE")) return await interaction.reply({
       embeds:[{
         author:{
           name: "BOTに権限がありません",

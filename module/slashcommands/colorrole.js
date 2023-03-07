@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    if(!interaction.guild.me.permissionsIn(interaction.channel).has("MANAGE_ROLES")) return await interaction.reply({
+    if(!interaction.guild.members.me.permissionsIn(interaction.channel).has("MANAGE_ROLES")) return await interaction.reply({
       embeds:[{
         author:{
           name: "BOTに権限がありません",
@@ -44,7 +44,7 @@ module.exports = async(interaction)=>{
     await interaction.guild.roles.create({
       name: name,
       color: color,
-      position: interaction.guild.me.roles.highest.position,
+      position: interaction.guild.members.me.roles.highest.position,
       mentionable: false,
       reason: "色付きロールの作成",
     })
