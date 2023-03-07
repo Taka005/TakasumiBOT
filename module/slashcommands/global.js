@@ -118,7 +118,7 @@ module.exports = async(interaction)=>{
           await interaction.channel.setTopic("ここはTakasumiBOTグローバルチャットです\nこのチャンネルに入力された内容は登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
             .catch(()=>{})
 
-          await mysql(`INSERT INTO global (server, channel, id, token, time) VALUES("${interaction.guild.id}","${interaction.channel.id}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
+          await mysql(`INSERT INTO global (channel, server, id, token, time) VALUES("${interaction.channel.id}","${interaction.guild.id}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE channel = VALUES (channel),server = VALUES (server),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
           
           const global = await mysql("SELECT * FROM global;");
   
@@ -152,7 +152,7 @@ module.exports = async(interaction)=>{
                 name: interaction.guild.name,
                 icon_url: "https://cdn.taka.ml/images/system/success.png"
               },
-              description: `グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\nこのチャンネルに入力された内容は、登録チャンネル全てに送信されます\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください`,
+              description: "グローバルチャットに新しいサーバーを追加しました\nみんなに挨拶してみましょう!\nこのチャンネルに入力された内容は、登録チャンネル全てに送信されます\n\n※チャットを利用した場合、[利用規約](http://taka.ml/bot/takasumi.html)に同意されたことになります。必ずご確認ください",
               timestamp: new Date()
             }]
           });
@@ -165,7 +165,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
-            description: `BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています`,
+            description: "BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています",
             fields:[
               {
                 name: "エラーコード",
