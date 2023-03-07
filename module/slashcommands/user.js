@@ -63,7 +63,7 @@ module.exports = async(interaction,client)=>{
         await interaction.reply({
           embeds:[{
             author:{
-              name: "正常に送信できませんでした",
+              name: "取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
@@ -91,7 +91,7 @@ module.exports = async(interaction,client)=>{
     if(!ID) return await interaction.reply({
       embeds:[{
         author:{
-          name: "取得に失敗しました",
+          name: "取得できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
@@ -159,7 +159,7 @@ module.exports = async(interaction,client)=>{
         await interaction.reply({
           embeds:[{
             author:{
-              name: "正常に送信できませんでした",
+              name: "取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
@@ -228,7 +228,7 @@ module.exports = async(interaction,client)=>{
         await interaction.reply({
           embeds:[{
             author:{
-              name: "取得に失敗しました",
+              name: "取得できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
