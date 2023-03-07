@@ -35,10 +35,10 @@ module.exports = async(client)=>{
 
       let ping = client.ws.ping;
       let web = Math.floor(end - start);
-      if(ping > 800){
-        ping = 800;
-      }else if(web > 800){
-        web = 800;
+      if(ping > 500){
+        ping = 500;
+      }else if(web > 500){
+        web = 500;
       }
 
       const global = await mysql(`SELECT * FROM global;`);
