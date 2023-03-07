@@ -1,6 +1,5 @@
 module.exports = async(message)=>{
   const mysql = require("../lib/mysql");
-  const main = require("../../data/global/main.json");
   const fetch = require("node-fetch");
   const { WebhookClient } = require("discord.js");
   require("dotenv").config();
@@ -8,28 +7,30 @@ module.exports = async(message)=>{
   const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${message.guild.id} LIMIT 1;`);
   const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${message.author.id} LIMIT 1;`);
 
+  const data = await mysql(`SELECT * FROM global WHERE server = ${message.guild.id} LIMIT 1;`);
   const account = await mysql(`SELECT * FROM account WHERE id = ${message.author.id} LIMIT 1;`);
 
   if(
-    !message.channel.type === "GUILD_TEXT"||
-    message.author.bot||
+    message.channel.type !== "GUILD_TEXT"||
     message.content.length > 300||
-    !main[message.channel.id]||
+    !daat[0]||
     mute_server[0]||
     mute_user[0]||
     !account[0]
   ) return;
 
   let reference = {
-    "channel_id": (message.reference?.channelId || null),
-    "guild_id": (message.reference?.guildId || null),
-    "message_id": (message.reference?.messageId || null)
+    "channel_id": (message.reference.channelId || null),
+    "guild_id": (message.reference.guildId || null),
+    "message_id": (message.reference.messageId || null)
   };
 
-  if(message.reference?.messageId&&message.reference?.channelId){
+  if(message.reference.messageId&&message.reference.channelId){
     try{
-      const reply_webhooks = new WebhookClient({id: main[message.reference.channelId][0], token: main[message.reference.channelId][1]});
-      const msg = await reply_webhooks.fetchMessage(message.reference.messageId);
+      const ref = await mysql(`SELECT * FROM global WHERE channel = ${message.reference.channelId} LIMIT 1;`);
+
+      const reply_webhook = new WebhookClient({id: ref[0].id, token: ref[0].token});
+      const msg = await reply_webhook.fetchMessage(message.reference.messageId);
       reference["message_id"] = msg.embeds[0].image.url.match(/\d{18,19}/g)[0];
     }catch{
       const msg = await message.channel.messages.fetch(message.reference.messageId)

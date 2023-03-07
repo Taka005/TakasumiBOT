@@ -6,7 +6,7 @@ module.exports = async(message,client)=>{
   const { WebhookClient } = require("discord.js");
 
   if(
-    !message.channel.type === "GUILD_TEXT"||
+    message.channel.type !== "GUILD_TEXT"||
     message.author.bot||
     !main[message.channel.id]||
     limit(message)

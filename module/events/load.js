@@ -1,6 +1,6 @@
 module.exports = async(client)=>{
   const api = require("../../data/api.json");
-  const global = require("../../data/global/main.json");
+  const mysql = require("../lib/mysql");
   const fs = require("fs");
   const os = require("os");
   const fetch = require("node-fetch");
@@ -41,12 +41,14 @@ module.exports = async(client)=>{
         web = 800;
       }
 
+      const global = await mysql(`SELECT * FROM global;`);
+
       api.time.push(`${time.getMonth()+1}/${time.getDate()} ${time.getHours()}:${time.getMinutes()}`)
       api.ping.push(`${ping}`)
       api.web.push(`${web}`)
       api.user.push(`${client.guilds.cache.map((g) => g.memberCount).reduce((a, c) => a + c)}`)
       api.guild.push(`${client.guilds.cache.size}`)
-      api.gc.push(`${Object.keys(global).length}`)
+      api.gc.push(`${global.length}`)
       api.cpu.push(`${(cpuusage * 100).toFixed(2)}`)
       api.ram.push(`${100 - Math.floor((os.freemem() / os.totalmem()) * 100)}`)
     }
