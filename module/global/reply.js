@@ -4,7 +4,7 @@ module.exports = async(message,client)=>{
   const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   const async = require("async");
   
-  const data = await mysql(`SELECT * FROM global WHERE server = ${message.guild.id} LIMIT 1;`);
+  const data = await mysql(`SELECT * FROM global WHERE channel = ${message.channel.id} LIMIT 1;`);
 
   if(
     !message.reference.messageId||

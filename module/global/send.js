@@ -7,7 +7,7 @@ module.exports = async(message)=>{
   const mute_server = await mysql(`SELECT * FROM mute_server WHERE id = ${message.guild.id} LIMIT 1;`);
   const mute_user = await mysql(`SELECT * FROM mute_user WHERE id = ${message.author.id} LIMIT 1;`);
 
-  const data = await mysql(`SELECT * FROM global WHERE server = ${message.guild.id} LIMIT 1;`);
+  const data = await mysql(`SELECT * FROM global WHERE channel = ${message.channel.id} LIMIT 1;`);
   const account = await mysql(`SELECT * FROM account WHERE id = ${message.author.id} LIMIT 1;`);
 
   if(
