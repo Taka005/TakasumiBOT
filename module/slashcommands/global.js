@@ -139,7 +139,9 @@ module.exports = async(interaction)=>{
                   text: `登録数:${global.length}`
                 },
                 timestamp: new Date()
-              }]
+              }],
+              username: "TakasumiBOT Global",
+              avatarURL: "https://cdn.taka.ml/images/icon.png"
             }).catch(async()=>{
               await mysql(`DELETE FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
             })
