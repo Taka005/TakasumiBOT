@@ -38,7 +38,7 @@ module.exports = async(msg,client)=>{
             }
           ],
           username: "TakasumiBOT Global",
-          avatar: "https://cdn.taka.ml/images/bot.png"
+          avatarURL: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -77,7 +77,7 @@ module.exports = async(msg,client)=>{
             }
           ],
           username: "TakasumiBOT Global",
-          avatar: "https://cdn.taka.ml/images/bot.png"
+          avatarURL: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -115,7 +115,7 @@ module.exports = async(msg,client)=>{
             }
           ],
           username: "TakasumiBOT Global",
-          avatar: "https://cdn.taka.ml/images/bot.png"
+          avatarURL: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -155,7 +155,7 @@ module.exports = async(msg,client)=>{
             }
           ],
           username: "TakasumiBOT Global",
-          avatar: "https://cdn.taka.ml/images/bot.png"
+          avatarURL: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -200,7 +200,7 @@ module.exports = async(msg,client)=>{
             }
           ],
           username: "TakasumiBOT Global",
-          avatar: "https://cdn.taka.ml/images/bot.png"
+          avatarURL: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -242,7 +242,7 @@ module.exports = async(msg,client)=>{
             }
           ],
           username: "TakasumiBOT Global",
-          avatar: "https://cdn.taka.ml/images/bot.png"
+          avatarURL: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
