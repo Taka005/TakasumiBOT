@@ -70,10 +70,10 @@ module.exports = async(interaction)=>{
     const data = await mysql(`SELECT * FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
 
     if(data[0]){//登録済み
-      const webhooks = new WebhookClient({id: data[0].id, token: data[0].token});
+      const webhook = new WebhookClient({id: data[0].id, token: data[0].token});
 
       await mysql(`DELETE FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
-      await webhooks.delete()
+      await webhook.delete()
         .then(async()=>{
           await interaction.reply({
             content: `<@${interaction.member.user.id}>`,

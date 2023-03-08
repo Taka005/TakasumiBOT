@@ -106,9 +106,6 @@ module.exports = async(interaction,client)=>{
 
     delete require.cache[require.resolve("../../data/api.json")];
 
-    delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
-    delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
-
     const command = require("../events/command");
     command(client);
 
