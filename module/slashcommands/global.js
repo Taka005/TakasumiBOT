@@ -111,9 +111,8 @@ module.exports = async(interaction)=>{
         }]
       });
 
-      await interaction.channel.createWebhook({
-        name: "TakasumiBOT",
-        avatar: "https://cdn.taka.ml/images/bot.png",
+      await interaction.channel.createWebhook("TakasumiBOT Global",{
+        avatar: "https://cdn.taka.ml/images/icon.png",
       })
         .then(async(webhook)=>{
           await interaction.channel.setTopic("ここはTakasumiBOTグローバルチャットです\nこのチャンネルに入力された内容は登録チャンネル全部に送信されます\n\nチャットを利用する前に\n[利用規約](https://gc.taka.ml/ )をご確認ください")
