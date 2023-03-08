@@ -100,7 +100,7 @@ module.exports = async(interaction)=>{
           })
         });
 
-      interaction.channel.setTopic("")
+      await interaction.channel.setTopic("")
         .catch(()=>{})
     }else{
       await interaction.deferReply();

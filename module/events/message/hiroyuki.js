@@ -159,6 +159,5 @@ function err(message,error){
         }
       ]
     }]
-  })
-  .catch(()=>{})
+  }).catch(()=>{})
 }
