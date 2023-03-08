@@ -147,7 +147,7 @@ function err(message,error){
   message.channel.send({
     embeds:[{
       author:{
-        name: "ひろゆきの体調が悪化しました",
+        name: "ひろゆき機能でエラーが発生しました",
         icon_url: "https://cdn.taka.ml/images/system/error.png"
       },
       color: "RED",
