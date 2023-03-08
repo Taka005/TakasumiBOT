@@ -1,7 +1,5 @@
 module.exports = async(interaction)=>{
-    const main = require("../../data/hiroyuki/main.json");
-    const sub = require("../../data/hiroyuki/sub.json");
-    const fs = require("fs");
+    const mysql = require("../lib/mysql");
     const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
     if(!interaction.isCommand()) return;
     if(interaction.commandName === "hiroyuki"){
@@ -47,17 +45,14 @@ module.exports = async(interaction)=>{
         ephemeral: true
       });
   
-      if(sub[interaction.guild.id]){//登録済み
-        const channel = sub[interaction.guild.id];
-        const webhooks = new WebhookClient({id: main[channel][0], token: main[channel][1]});
-        await webhooks.delete()
+      const data = await mysql(`SELECT * FROM hiroyuki WHERE server = ${interaction.guild.id} LIMIT 1;`);
+
+      if(data[0]){//登録済み
+        const webhook = new WebhookClient({id: data[0].id, token: data[0].token});
+
+        await mysql(`DELETE FROM hiroyuki WHERE server = ${interaction.guild.id} LIMIT 1;`);
+        await webhook.delete()
           .then(async()=>{
-            delete main[channel];
-            delete sub[interaction.guild.id];
-            
-            fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-            fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-  
             await interaction.reply({
               embeds:[{
                 author:{
@@ -69,12 +64,6 @@ module.exports = async(interaction)=>{
             });
           })
           .catch(async()=>{
-            delete main[channel];
-            delete sub[interaction.guild.id];
-
-            fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-            fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-  
             await interaction.reply({
               embeds:[{
                 author:{
@@ -86,19 +75,14 @@ module.exports = async(interaction)=>{
               }]
             });
           })
-  
-        delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
-        delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
       }else{//登録なし
         await interaction.deferReply();
+
         await interaction.channel.createWebhook("ひろゆき",{
           avatar: "https://cdn.taka.ml/images/hiroyuki.png",
         })
           .then(async(webhook)=>{
-            main[interaction.channel.id] = [webhook.id,webhook.token,interaction.guild.id];
-            sub[interaction.guild.id] = interaction.channel.id;
-            fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-            fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
+            await mysql(`INSERT INTO hiroyuki (channel, server, id, token, time) VALUES("${interaction.channel.id}","${interaction.guild.id}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE channel = VALUES (channel),server = VALUES (server),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
 
             await interaction.editReply({
               embeds:[{
@@ -136,9 +120,6 @@ module.exports = async(interaction)=>{
               ]
             });
           })
-  
-        delete require.cache[require.resolve("../../data/hiroyuki/main.json")];
-        delete require.cache[require.resolve("../../data/hiroyuki/sub.json")];
       }
   }
 }

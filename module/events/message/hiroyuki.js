@@ -1,15 +1,15 @@
-module.exports = async(message,client)=>{
-  const main = require("../../../data/hiroyuki/main.json");
+module.exports = async(message)=>{
+  const mysql = require("../../lib/mysql");
   const random = require("../../lib/random");
   const rate = require("../../lib/rate");
-  const limit = require("../../lib/limit");
   const { WebhookClient } = require("discord.js");
+
+  const data = await mysql(`SELECT * FROM hiroyuki WHERE channel = ${message.channel.id} LIMIT 1;`);
 
   if(
     message.channel.type !== "GUILD_TEXT"||
     message.author.bot||
-    !main[message.channel.id]||
-    limit(message)
+    !data[0]
   ) return;
 
   const reply_1 = {
@@ -96,31 +96,31 @@ module.exports = async(message,client)=>{
     "つらいことは必ずあるが、経験することで必ず成長する。"
   ];
 
-  const webhooks = new WebhookClient({id: main[message.channel.id][0], token: main[message.channel.id][1]});
+  const webhook = new WebhookClient({id: data[0].id, token:data[0].token});
 
   if(rate(false,true,0.01)){
-    return await webhooks.send({
+    return await webhook.send({
       content: random(koizumi),
       username: "小泉進次郎",
       avatarURL: "https://cdn.taka.ml/images/koizumi.png"
     }).catch((error)=>{
-      err(message,client,error);
+      err(message,error);
     })
   }else if(rate(false,true,0.01)){
-    return await webhooks.send({
+    return await webhook.send({
       content: random(kinnikun),
       username: "なかやまきんに君",
       avatarURL: "https://cdn.taka.ml/images/kinnikun.png"
     }).catch((error)=>{
-      err(message,client,error);
+      err(message,error);
     })
-  }else if(rate(false,true,0.005)){
-    return await webhooks.send({
+  }else if(rate(false,true,0.008)){
+    return await webhook.send({
       content: "すいません。3色チーズ牛丼の特盛に温玉付きをお願いします",
       username: "チー牛",
       avatarURL: "https://cdn.taka.ml/images/tigyuu.png"
     }).catch((error)=>{
-      err(message,client,error);
+      err(message,error);
     })
   }
 
@@ -131,29 +131,20 @@ module.exports = async(message,client)=>{
     content = random(rate(reply_2,reply_3,0.1))
   }
 
-  await webhooks.send({
+  await webhook.send({
     content: content,
     username: "ひろゆき",
     avatarURL: "https://cdn.taka.ml/images/hiroyuki.png"
   }).catch((error)=>{
-    err(message,client,error);
+    err(message,error);
   })
 }
 
-function err(message,client,error){
-  const main = require("../../../data/hiroyuki/main.json");
-  const sub = require("../../../data/hiroyuki/sub.json");
-  const fs = require("fs");
-  
-  delete main[message.channel.id];
-  const guild = Object.keys(sub).filter((key)=> sub[key] === message.channel.id);
-  delete sub[guild];
-  fs.writeFileSync("./data/hiroyuki/main.json", JSON.stringify(main), "utf8");
-  fs.writeFileSync("./data/hiroyuki/sub.json", JSON.stringify(sub), "utf8");
-  delete require.cache[require.resolve("../../../data/hiroyuki/sub.json")];
-  delete require.cache[require.resolve("../../../data/hiroyuki/main.json")];
+function err(message,error){
+  const mysql = require("../lib/mysql");
 
-  client.channels.cache.get(message.channel.id).send({
+  mysql(`DELETE FROM hiroyuki WHERE channel = ${message.channel.id} LIMIT 1;`);
+  message.channel.send({
     embeds:[{
       author:{
         name: "ひろゆきの体調が悪化しました",
