@@ -141,7 +141,7 @@ module.exports = async(message)=>{
 }
 
 function err(message,error){
-  const mysql = require("../lib/mysql");
+  const mysql = require("../../lib/mysql");
 
   mysql(`DELETE FROM hiroyuki WHERE channel = ${message.channel.id} LIMIT 1;`);
   message.channel.send({
