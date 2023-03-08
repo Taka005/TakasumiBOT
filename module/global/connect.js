@@ -36,7 +36,9 @@ module.exports = async(msg,client)=>{
               },
               timestamp: new Date()
             }
-          ]      
+          ],
+          username: "TakasumiBOT Global",
+          avatar: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -73,7 +75,9 @@ module.exports = async(msg,client)=>{
                 url: message.attachments.attachment[0].url
               }
             }
-          ]
+          ],
+          username: "TakasumiBOT Global",
+          avatar: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -109,7 +113,9 @@ module.exports = async(msg,client)=>{
               },
               timestamp: new Date()
             }
-          ]
+          ],
+          username: "TakasumiBOT Global",
+          avatar: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -147,7 +153,9 @@ module.exports = async(msg,client)=>{
               },
               timestamp: new Date()
             }
-          ]      
+          ],
+          username: "TakasumiBOT Global",
+          avatar: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -190,7 +198,9 @@ module.exports = async(msg,client)=>{
                 url: message.attachments.attachment[0].url
               }
             }
-          ]
+          ],
+          username: "TakasumiBOT Global",
+          avatar: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
@@ -230,7 +240,9 @@ module.exports = async(msg,client)=>{
               },
               timestamp: new Date()
             }
-          ]
+          ],
+          username: "TakasumiBOT Global",
+          avatar: "https://cdn.taka.ml/images/bot.png"
         }).catch((error)=>{
           err(data.channel,client,error);
         });
