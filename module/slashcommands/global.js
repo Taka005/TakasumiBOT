@@ -111,7 +111,7 @@ module.exports = async(interaction)=>{
         }]
       });
 
-      await interaction.channel.createWebhook("TakasumiBOT",{
+      await interaction.channel.createWebhook("TakasumiBOT Global",{
         avatar: "https://cdn.taka.ml/images/bot.png",
       })
         .then(async(webhook)=>{

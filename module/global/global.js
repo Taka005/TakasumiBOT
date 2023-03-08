@@ -84,7 +84,9 @@ module.exports = async(message,client)=>{
             },
             timestamp: new Date()
           }
-        ]      
+        ],
+        username: "TakasumiBOT Global",
+        avatar: "https://cdn.taka.ml/images/bot.png"
       }).catch((error)=>{
         err(data.channel,client,error);
       });
@@ -124,7 +126,9 @@ module.exports = async(message,client)=>{
               url: attachment[0].url
             }
           }
-        ]
+        ],
+        username: "TakasumiBOT Global",
+        avatar: "https://cdn.taka.ml/images/bot.png"
       }).catch((error)=>{
         err(data.channel,client,error);
       });
@@ -163,7 +167,9 @@ module.exports = async(message,client)=>{
             },
             timestamp: new Date()
           }
-        ]
+        ],
+        username: "TakasumiBOT Global",
+        avatar: "https://cdn.taka.ml/images/bot.png"
       }).catch((error)=>{
         err(data.channel,client,error);
       });
