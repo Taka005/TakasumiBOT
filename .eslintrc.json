@@ -21,6 +21,7 @@
       "no-unreachable":"error",
       "no-useless-return":"error",
       "no-implicit-coercion":"error",
+      "no-self-compare":"error",
       "no-extra-semi":"error",
       "no-unused-vars":"error",
       "no-irregular-whitespace":"error",
