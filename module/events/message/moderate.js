@@ -163,8 +163,8 @@ module.exports = async(message)=>{
     }
     //Token削除
     if(
-      message.content.match(/[0-9a-zA-Z_\-]{24}\.[0-9a-zA-Z_\-]{6}\.[0-9a-zA-Z_\-]{38}/)||
-      message.content.match(/[0-9a-zA-Z_\-]{24}\.[0-9a-zA-Z_\-]{6}\.[0-9a-zA-Z_\-]{27}/)
+      message.content.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{38}/)||
+      message.content.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{27}/)
     ){
       message.delete().catch(()=>{});
       return message.channel.send({
