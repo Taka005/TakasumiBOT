@@ -5,8 +5,8 @@ module.exports = async(message)=>{
 
   if(
     message.author.bot||
-    !message.guild.members.me.permissionsIn(message.channel)?.has("VIEW_CHANNEL")||
-    !message.guild.members.me.permissionsIn(message.channel)?.has("SEND_MESSAGES")
+    !message.guild.members.me.permissionsIn(message.channel).has("VIEW_CHANNEL")||
+    !message.guild.members.me.permissionsIn(message.channel).has("SEND_MESSAGES")
   ) return;
 
   let data = await mysql(`SELECT * FROM afk WHERE user = ${message.author.id} LIMIT 1;`);
