@@ -16,6 +16,7 @@ module.exports = async(message)=>{
     if(!time[message.author.id]){
       time[message.author.id] = [0,true];
     }
+
     if(data[0].type === "high"){
       //文字数制限
       if(message.content.length > 800){
@@ -159,6 +160,25 @@ module.exports = async(message)=>{
       }else{
         time[message.author.id] = [new Date(),true];
       }
+    }
+    //Token削除
+    if(
+      message.content.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{38}/)||
+      message.content.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{27}/)
+    ){
+      message.delete().catch(()=>{});
+      return message.channel.send({
+        content: `<@${message.author.id}>`,
+        embeds:[{
+          author:{
+            name: "自動モデレート",
+            icon_url: "https://cdn.taka.ml/images/system/warn.png"
+          },
+          description: "メッセージの文字数が多すぎたため、メッセージを削除しました",
+          timestamp: new Date(),
+          color: "YELLOW"
+        }]
+      }).catch(()=>{})
     }
   }
 }
