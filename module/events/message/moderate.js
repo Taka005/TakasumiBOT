@@ -174,7 +174,7 @@ module.exports = async(message)=>{
             name: "自動モデレート",
             icon_url: "https://cdn.taka.ml/images/system/warn.png"
           },
-          description: "メッセージの文字数が多すぎたため、メッセージを削除しました",
+          description: "メッセージにトークンが含まれていたため、メッセージを削除しました",
           timestamp: new Date(),
           color: "YELLOW"
         }]
