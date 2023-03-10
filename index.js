@@ -38,7 +38,7 @@ client.login(process.env.DISCORD_BOT_TOKEN)
 process.on("uncaughtException",async(error)=>{
   console.log(`\x1b[31mERROR: ${error.stack}\x1b[39m`);
 
-  client.channels.cache.get(config.error).send({
+  await client.channels.cache.get(config.error).send({
     embeds:[{
       color: "RED",
       description: `\`\`\`js\n${error.stack}\`\`\``,
@@ -50,7 +50,7 @@ process.on("uncaughtException",async(error)=>{
 process.on("unhandledRejection",async(error)=>{
   console.log(`\x1b[31mERROR: ${error.stack}\x1b[39m`);
 
-  client.channels.cache.get(config.error).send({
+  await client.channels.cache.get(config.error).send({
     embeds:[{
       color: "ORANGE",
       description: `\`\`\`js\n${error.stack}\`\`\``,

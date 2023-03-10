@@ -12,6 +12,7 @@ module.exports = async(client)=>{
   });
 
   client.on("messageCreate",async(message)=>{
+    if(!message.guild.members.me) return;
     //event/message
     fs.readdir("./module/events/message/",(err,files)=>{ 
       files.forEach((file)=>{
