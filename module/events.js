@@ -114,7 +114,7 @@ module.exports = async(client)=>{
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
         const event = require(`./events/interaction/${file}`);
-        await event(interaction,client);
+        event(interaction,client);
       });
     });
     //auth
@@ -122,7 +122,7 @@ module.exports = async(client)=>{
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
         const event = require(`./auth/${file}`);
-        await event(interaction,client);
+        event(interaction,client);
       });
     });
     //slashcommands
@@ -130,7 +130,7 @@ module.exports = async(client)=>{
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
         const event = require(`./slashcommands/${file}`);
-        await event(interaction,client);
+        event(interaction,client);
       });
     });
     //contextmenu
@@ -138,7 +138,7 @@ module.exports = async(client)=>{
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
         const event = require(`./contextmenu/${file}`);
-        await event(interaction,client);
+        event(interaction,client);
       });
     });
   });
