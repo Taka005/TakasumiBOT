@@ -272,6 +272,15 @@ module.exports = async(client)=>{
                 .setName("ip")
                 .setDescription("検索するサーバーのアドレス")
                 .setRequired(true)),
+          //miq
+          new SlashCommandBuilder()
+            .setName("miq")
+            .setDescription("Make it a Quoteを生成します")
+            .addStringOption(option =>
+              option
+                .setName("text")
+                .setDescription("表示するテキスト")
+                .setRequired(true)),
           //moderate
           new SlashCommandBuilder()
             .setName("moderate")

@@ -137,6 +137,12 @@
         "permission":["必要なし"],
         "note":"なし"
     },
+    "miq":{
+        "description":"Make it a Quoteを生成します",
+        "example":"`/miq これはテストです`",
+        "permission":["必要なし"],
+        "note":"なし"
+    },
     "moderate":{
         "description":"モデレート機能を設定します",
         "example":"`/moderate`",

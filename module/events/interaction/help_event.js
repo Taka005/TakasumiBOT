@@ -230,6 +230,10 @@ module.exports = async(interaction)=>{
               value: "指定したアドレスのMinecarftサーバーの情報を表示します"
             },
             {
+              name: "/miq",
+              value: "Make it a Quoteを生成します"
+            },
+            {
               name: "/faq",
               value: "よくある質問一覧を表示します"
             },
