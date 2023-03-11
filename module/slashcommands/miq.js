@@ -1,4 +1,4 @@
-module.exports = async()=>{
+module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   const { MessageAttachment } = require("discord.js");
   if(!interaction.isCommand()) return;
