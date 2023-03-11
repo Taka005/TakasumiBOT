@@ -9,14 +9,14 @@ module.exports = async(interaction,client)=>{
         embeds:[{
           color: "GREEN",
           author:{
-            name: `${interaction.member.user.tag}のアバター`,
+            name: `${interaction.user.tag}のアバター`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           thumbnail:{
             url: interaction.member.avatarURL({format:"png",dynamic:true,size:1024})
           },
           image:{
-            url: interaction.member.user.avatarURL({format:"png",dynamic:true,size:1024})||interaction.member.user.defaultAvatarURL
+            url: interaction.user.avatarURL({format:"png",dynamic:true,size:1024})||interaction.user.defaultAvatarURL
           },
           timestamp: new Date(),
           footer:{

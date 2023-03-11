@@ -75,7 +75,7 @@ module.exports = async(interaction)=>{
         await interaction.channel.bulkDelete(msg)
           .then(async()=>{
             await interaction.reply({
-              content: `<@${interaction.member.user.id}>`,
+              content: `<@${interaction.user.id}>`,
               embeds:[{
                 author:{
                   name: `${user.tag} のメッセージを${number}個削除しました`,
@@ -90,7 +90,7 @@ module.exports = async(interaction)=>{
         await interaction.channel.bulkDelete(messages)
           .then(async()=>{
             await interaction.reply({
-              content: `<@${interaction.member.user.id}>`,
+              content: `<@${interaction.user.id}>`,
               embeds:[{
                 author:{
                   name: `${number}個のメッセージを削除しました`,

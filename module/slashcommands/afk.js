@@ -17,9 +17,9 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
+    const data = await mysql(`SELECT * FROM afk WHERE user = ${interaction.user.id} LIMIT 1;`);
     if(data[0]){
-      await mysql(`DELETE FROM afk WHERE user = ${interaction.member.user.id} LIMIT 1;`);
+      await mysql(`DELETE FROM afk WHERE user = ${interaction.user.id} LIMIT 1;`);
       await interaction.reply({
         embeds:[{
           author:{
@@ -31,7 +31,7 @@ module.exports = async(interaction)=>{
         }]
       }); 
     }else{
-      await mysql(`INSERT INTO afk (user, message, mention, time) VALUES("${interaction.member.user.id}","${message}","0",NOW());`);
+      await mysql(`INSERT INTO afk (user, message, mention, time) VALUES("${interaction.user.id}","${message}","0",NOW());`);
       await interaction.reply({
         embeds:[{
           author:{

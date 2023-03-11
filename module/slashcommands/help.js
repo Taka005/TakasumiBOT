@@ -47,7 +47,7 @@ module.exports = async(interaction)=>{
               new MessageButton()
                 .setStyle("PRIMARY")
                 .setLabel("前")
-                .setCustomId(`page_5_${interaction.member.user.id}`))
+                .setCustomId(`page_5_${interaction.user.id}`))
             .addComponents(
               new MessageButton()
                 .setStyle("SECONDARY")
@@ -58,7 +58,7 @@ module.exports = async(interaction)=>{
               new MessageButton()
                 .setStyle("PRIMARY")
                 .setLabel("次")
-                .setCustomId(`page_2_${interaction.member.user.id}`))
+                .setCustomId(`page_2_${interaction.user.id}`))
         ]
       });
     }else{

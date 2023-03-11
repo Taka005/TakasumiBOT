@@ -45,7 +45,7 @@ module.exports = async(interaction)=>{
       "maxAge": time,
       "maxUses": use,
       "unique": true,
-      "reason": `${interaction.member.user.tag}により作成`
+      "reason": `${interaction.user.tag}により作成`
     })
       .then(async(invite)=>{
         await interaction.reply(invite.url)

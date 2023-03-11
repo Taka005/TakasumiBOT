@@ -374,7 +374,7 @@ module.exports = async(interaction)=>{
 }
 
 async function check(interaction,id){
-  if(id !== interaction.member.user.id){
+  if(id !== interaction.user.id){
     await interaction.reply({
       embeds:[{
         author:{

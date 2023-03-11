@@ -76,7 +76,7 @@ module.exports = async(interaction)=>{
       await webhook.delete()
         .then(async()=>{
           await interaction.reply({
-            content: `<@${interaction.member.user.id}>`,
+            content: `<@${interaction.user.id}>`,
             embeds:[{
               author:{
                 name: "登録の削除が完了しました",
@@ -88,7 +88,7 @@ module.exports = async(interaction)=>{
         })
         .catch(async()=>{
           await interaction.reply({
-            content: `<@${interaction.member.user.id}>`,
+            content: `<@${interaction.user.id}>`,
             embeds:[{
               author:{
                 name: "登録の削除が完了しました",

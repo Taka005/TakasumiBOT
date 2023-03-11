@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "kick"){
     const user = interaction.options.getUser("user");
-    const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってKICK`;
+    const reason = interaction.options.getString("reason")||`${interaction.user.tag}によってKICK`;
     
     if(!interaction.member.permissions.has("KICK_MEMBERS")) return await interaction.reply({
       embeds:[{
@@ -54,7 +54,7 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    if(member.user.id === interaction.member.user.id) return await interaction.reply({
+    if(member.user.id === interaction.user.id) return await interaction.reply({
       embeds:[{
         author:{
           name: "KICKできませんでした",
@@ -69,7 +69,7 @@ module.exports = async(interaction)=>{
     member.kick({reason:`${reason}`})
       .then(async()=>{
         await interaction.reply({
-          content: `<@${interaction.member.user.id}>`,
+          content: `<@${interaction.user.id}>`,
           embeds:[{
             author:{
               name: `${member.user.tag}をサーバーからKICKしました`,

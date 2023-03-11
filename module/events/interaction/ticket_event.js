@@ -3,7 +3,7 @@ module.exports = async(interaction)=>{
   if(!interaction.isButton()) return;
   if(interaction.customId === "ticket"){
 
-    if(interaction.guild.channels.cache.find(name => name.name === interaction.member.user.id)) return await interaction.reply({
+    if(interaction.guild.channels.cache.find(name => name.name === interaction.user.id)) return await interaction.reply({
       embeds:[{
         author:{
           name: "作成できませんでした",
@@ -28,7 +28,7 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    await interaction.guild.channels.create(interaction.member.user.id,{
+    await interaction.guild.channels.create(interaction.user.id,{
       permissionOverwrites:[{
         id: interaction.guild.roles.everyone,
         deny: ["VIEW_CHANNEL"]
@@ -36,7 +36,7 @@ module.exports = async(interaction)=>{
       parent: channel.id
     })
       .then(async(channels)=>{
-        await channels.permissionOverwrites.edit(interaction.member.user.id,{VIEW_CHANNEL: true});
+        await channels.permissionOverwrites.edit(interaction.user.id,{VIEW_CHANNEL: true});
         await channels.send({
           embeds:[{
             color: "GREEN",
