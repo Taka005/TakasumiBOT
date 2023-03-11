@@ -6,14 +6,14 @@ module.exports = async(interaction,client)=>{
     const id = interaction.options.getString("id");
 
     if(!id){
-      const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
+      const members = await mysql(`SELECT * FROM account WHERE id = ${interaction.user.id} LIMIT 1;`);
 
       return await interaction.reply({
         embeds:[{
           color: "GREEN",
           author:{
-            name: `${interaction.member.user.tag}の検索結果`,
-            url: `https://discord.com/users/${interaction.member.user.id}`,
+            name: `${interaction.user.tag}の検索結果`,
+            url: `https://discord.com/users/${interaction.user.id}`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),
@@ -21,12 +21,12 @@ module.exports = async(interaction,client)=>{
             text: "TakasumiBOT"
           },
           thumbnail:{
-            url: interaction.member.user.avatarURL({format:"png",dynamic:true,size:1024})|| interaction.member.user.defaultAvatarURL
+            url: interaction.user.avatarURL({format:"png",dynamic:true,size:1024})|| interaction.user.defaultAvatarURL
           },
           fields:[
             {
               name: "ID",
-              value: interaction.member.user.id,
+              value: interaction.user.id,
               inline: true
             },
             {
@@ -36,7 +36,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "作成日時",
-              value: `${new Date(interaction.member.user.createdTimestamp).toLocaleString()}\n(${Math.round((Date.now() - interaction.member.user.createdAt) / 86400000)}日前)`,
+              value: `${new Date(interaction.user.createdTimestamp).toLocaleString()}\n(${Math.round((Date.now() - interaction.user.createdAt) / 86400000)}日前)`,
               inline: true
             },
             {
@@ -46,7 +46,7 @@ module.exports = async(interaction,client)=>{
             },
             {
               name: "アカウントの種類",
-              value: interaction.member.user.bot ? "BOT" : "ユーザー",
+              value: interaction.user.bot ? "BOT" : "ユーザー",
               inline: true
             },
             {

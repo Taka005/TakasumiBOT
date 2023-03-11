@@ -16,7 +16,7 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    const account = await mysql(`SELECT * FROM account WHERE id = ${interaction.member.user.id} LIMIT 1;`);
+    const account = await mysql(`SELECT * FROM account WHERE id = ${interaction.user.id} LIMIT 1;`);
     if(!account[0]) return await interaction.reply({
       embeds:[{
         author:{

@@ -13,7 +13,6 @@ module.exports = async(interaction)=>{
 
       const image = await fetch(data.results[0].media[0].gif.url)
         .then(res=>res.blob())
-        .catch(()=>{});
 
       await interaction.editReply({
         embeds:[{

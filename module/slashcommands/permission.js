@@ -10,7 +10,7 @@ module.exports = async(interaction)=>{
         embeds:[{
           color: "GREEN",
           author:{
-            name: `${interaction.member.user.tag}の権限`,
+            name: `${interaction.user.tag}の権限`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           timestamp: new Date(),

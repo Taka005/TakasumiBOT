@@ -531,7 +531,7 @@ module.exports = async(interaction)=>{
       await mysql(`DELETE FROM \`leave\` WHERE server = ${interaction.guild.id};`);
 
       await interaction.reply({
-        content: `<@${interaction.member.user.id}>`,
+        content: `<@${interaction.user.id}>`,
         embeds:[{
           author:{
             name: "全てのデータを削除しました",

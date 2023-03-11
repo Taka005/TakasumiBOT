@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
     if(interaction.commandName === "timeout"){
       const user = interaction.options.getUser("user");
       const time = interaction.options.getInteger("time")||30
-      const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってタイムアウト`;
+      const reason = interaction.options.getString("reason")||`${interaction.user.tag}によってタイムアウト`;
       
       if(!interaction.member.permissions.has("MODERATE_MEMBERS")) return await interaction.reply({
         embeds:[{
@@ -55,7 +55,7 @@ module.exports = async(interaction)=>{
         ephemeral: true
       });
   
-      if(member.user.id === interaction.member.user.id) return await interaction.reply({
+      if(member.user.id === interaction.user.id) return await interaction.reply({
         embeds:[{
           author:{
             name: "タイムアウトできませんでした",
@@ -70,7 +70,7 @@ module.exports = async(interaction)=>{
       member.timeout(time*1000,reason)
         .then(async()=>{
           await interaction.reply({
-            content: `<@${interaction.member.user.id}>`,
+            content: `<@${interaction.user.id}>`,
             embeds:[{
               author:{
                 name: `${member.user.tag}を${time}秒タイムアウトしました`,

@@ -8,7 +8,7 @@ module.exports = async(interaction,client)=>{
     const type = interaction.options.getString("type");
     const message = interaction.options.getString("message") || "なし"
 
-    if(interaction.member.user.id !== admin) return await interaction.reply({
+    if(interaction.user.id !== admin) return await interaction.reply({
       embeds:[{
         author:{
           name: "権限がありません",

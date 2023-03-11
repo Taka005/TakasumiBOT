@@ -3,7 +3,7 @@ module.exports = async(interaction,client)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "ban"){
     const id = interaction.options.getString("id");
-    const reason = interaction.options.getString("reason")||`${interaction.member.user.tag}によってBAN`;
+    const reason = interaction.options.getString("reason")||`${interaction.user.tag}によってBAN`;
     const days = interaction.options.getInteger("days");
     
     if(!interaction.member.permissions.has("BAN_MEMBERS")) return await interaction.reply({
@@ -55,7 +55,7 @@ module.exports = async(interaction,client)=>{
       ephemeral: true
     });
 
-    if(ID[0] === interaction.member.user.id) return await interaction.reply({
+    if(ID[0] === interaction.user.id) return await interaction.reply({
       embeds:[{
         author:{
           name: "BANできませんでした",
@@ -88,7 +88,7 @@ module.exports = async(interaction,client)=>{
       await interaction.guild.bans.create(ID[0],{reason: reason,days: days})
         .then(async()=>{
           await interaction.reply({
-            content: `<@${interaction.member.user.id}>`,
+            content: `<@${interaction.user.id}>`,
             embeds:[{
               author:{
                 name: `${user.tag} をサーバーからBANしました`,
@@ -129,7 +129,7 @@ module.exports = async(interaction,client)=>{
       await interaction.guild.bans.create(ID[0],{ reason: reason })
         .then(async()=>{
           await interaction.reply({
-            content: `<@${interaction.member.user.id}>`,
+            content: `<@${interaction.user.id}>`,
             embeds:[{
               author:{
                 name: `${user.tag} をサーバーからBANしました`,
