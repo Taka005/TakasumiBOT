@@ -74,8 +74,8 @@ module.exports = async(interaction)=>{
             description: `理由: ${reason}`,
             color: "GREEN"
           }]
-          })
         });
+      })
       .catch(async(error)=>{
         await interaction.reply({
           embeds:[{
