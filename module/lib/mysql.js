@@ -14,6 +14,7 @@ module.exports = async(query)=>{
 
   try{
     const res = await connection.query(query);
+    return res;
   }catch{
     return [];
   }
