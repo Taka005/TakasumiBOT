@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 require("dotenv").config();
-const connection = mysql.createPool({
+const connection = mysql.createConnection({
   host: "public.bfv4d.tky1.mdbs.jp",
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -12,6 +12,10 @@ module.exports = async(query)=>{
   const util = require("util");
   connection.query = util.promisify(connection.query);
 
-  const res = await connection.query(query);
-  return res;
+  try{
+    const res = await connection.query(query);
+    return res;
+  }catch{
+    return [];
+  }
 }
