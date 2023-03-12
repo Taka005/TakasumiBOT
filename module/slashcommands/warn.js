@@ -71,7 +71,7 @@ module.exports = async(interaction)=>{
               name: `${member.user.tag}を警告しました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
-            description: `理由: ${reason}`
+            description: `理由: ${reason}`,
             color: "GREEN"
           }]
           })
