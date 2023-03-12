@@ -10,9 +10,12 @@ const connection = mysql.createConnection({
 
 module.exports = async(query)=>{
   const util = require("util");
-
   connection.query = util.promisify(connection.query);
-  const res = await connection.query(query);
 
-  return res;
+  try{
+    const res = await connection.query(query);
+    return res;
+  }catch{
+    return [];
+  }
 }
