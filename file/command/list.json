@@ -289,7 +289,7 @@
     },
     "warn":{
         "description":"指定されたユーザーを警告します",
-        "example":"`/user @Arashi`\n`/user 282859044593598464`",
+        "example":"`/warn @Arashi`",
         "permission":["サーバーの管理"],
         "note":"メンバーがDMを拒否している場合警告できません"
     },

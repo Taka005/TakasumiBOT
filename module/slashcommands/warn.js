@@ -56,7 +56,7 @@ module.exports = async(interaction)=>{
         },
         description: reason,
         footer:{
-          text: `${interaction.guild.name}<${interaction.guild.id}>`,
+          text: `${interaction.guild.name}(${interaction.guild.id})`,
           icon_url: interaction.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
         },
         timestamp: new Date(),
