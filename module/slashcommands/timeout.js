@@ -67,7 +67,7 @@ module.exports = async(interaction)=>{
         ephemeral: true
       });
   
-      member.timeout(time*1000,reason)
+      await member.timeout(time*1000,reason)
         .then(async()=>{
           await interaction.reply({
             content: `<@${interaction.user.id}>`,

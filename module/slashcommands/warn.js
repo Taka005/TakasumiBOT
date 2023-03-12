@@ -1,11 +1,11 @@
 module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "kick"){
+  if(interaction.commandName === "warn"){
     const user = interaction.options.getUser("user");
-    const reason = interaction.options.getString("reason")||`${interaction.user.tag}によってKICK`;
-    
-    if(!interaction.member.permissions.has("KICK_MEMBERS")) return await interaction.reply({
+    const reason = interaction.options.getString("reason");
+      
+    if(!interaction.member.permissions.has("MANAGE_GUILD")) return await interaction.reply({
       embeds:[{
         author:{
           name: "権限がありません",
@@ -16,36 +16,18 @@ module.exports = async(interaction)=>{
         fields:[
           {
             name: "必要な権限",
-            value: "```メンバーをKICK```"
+            value: "```サーバーの管理```"
           }
         ]
       }],
       ephemeral: true
     });
-
-    if(!interaction.guild.members.me.permissionsIn(interaction.channel).has("KICK_MEMBERS")) return await interaction.reply({
-      embeds:[{
-        author:{
-          name: "BOTに権限がありません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png"
-        },
-        color: "RED",
-        description: "このコマンドはBOTに以下の権限が必要です",
-        fields:[
-          {
-            name: "必要な権限",
-            value: "```メンバーをKICK```"
-          }
-        ]
-      }],
-      ephemeral: true
-    });
-
+  
     const member = await interaction.guild.members.cache.get(user.id);
     if(!member) return await interaction.reply({
       embeds:[{
         author:{
-          name: "KICKできませんでした",
+          name: "警告できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
@@ -53,41 +35,56 @@ module.exports = async(interaction)=>{
       }],
       ephemeral: true
     });
-
+  
     if(member.user.id === interaction.user.id) return await interaction.reply({
       embeds:[{
         author:{
-          name: "KICKできませんでした",
+          name: "警告できませんでした",
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "自分自身をKICKすることはできません"
+        description: "自分自身を警告することはできません"
       }],
       ephemeral: true
     });
-
-    await member.kick({reason:`${reason}`})
+  
+    await member.user.send({
+      embeds:[{
+        author:{
+          name: "警告されました",
+          icon_url: "https://cdn.taka.ml/images/system/warn.png"
+        },
+        description: reason,
+        footer:{
+          text: `${interaction.guild.name}<${interaction.guild.id}>`,
+          icon_url: interaction.guild.iconURL()||"https://cdn.discordapp.com/embed/avatars/0.png"
+        },
+        timestamp: new Date(),
+        color: "YELLOW"
+      }]
+    })
       .then(async()=>{
         await interaction.reply({
           content: `<@${interaction.user.id}>`,
           embeds:[{
             author:{
-              name: `${member.user.tag}をサーバーからKICKしました`,
+              name: `${member.user.tag}を警告しました`,
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
+            description: `理由: ${reason}`,
             color: "GREEN"
           }]
-        })
+        });
       })
       .catch(async(error)=>{
         await interaction.reply({
           embeds:[{
             author:{
-              name: "KICKできませんでした",
+              name: "警告できませんでした",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
-            description: "BOTの権限が不足しているか、メンバーが正しく指定されていません",
+            description: "ユーザーがDMを拒否しているか、メンバーが正しく指定されていません",
             fields:[
               {
                 name: "エラーコード",
@@ -104,7 +101,7 @@ module.exports = async(interaction)=>{
                   .setStyle("LINK"))
           ],
           ephemeral: true
-        })
+        });
       })
   }
 }

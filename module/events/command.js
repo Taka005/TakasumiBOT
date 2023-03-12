@@ -631,6 +631,20 @@ module.exports = async(client)=>{
               option
                 .setName("id")
                 .setDescription("ユーザーID又はメンション")),
+          //warn
+          new SlashCommandBuilder()
+            .setName("warn")
+            .setDescription("指定したメンバーを警告します")
+            .addUserOption(option =>
+              option
+                .setName("user")
+                .setDescription("警告対象のメンバー")
+                .setRequired(true))
+            .addStringOption(option =>
+              option
+                .setName("reason")
+                .setDescription("理由")
+                .setRequired(true)),
           //webshot
           new SlashCommandBuilder()
             .setName("webshot")
