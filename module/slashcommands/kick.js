@@ -66,7 +66,7 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    member.kick({reason:`${reason}`})
+    await member.kick({reason:`${reason}`})
       .then(async()=>{
         await interaction.reply({
           content: `<@${interaction.user.id}>`,
