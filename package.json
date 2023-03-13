@@ -32,17 +32,17 @@
     "@discordjs/rest": "^0.5.0",
     "async": "^3.2.4",
     "discord-api-types": "^0.37.35",
-    "discord.js": "^13.13.1",
+    "discord.js": "^13.14.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mysql": "^2.18.1",
     "node-fetch": "^2.6.8",
     "os-utils": "^0.0.14",
-    "ws": "^8.12.1"
+    "ws": "^8.13.0"
   },
   "devDependencies": {
     "esbuild": "^0.17.11",
-    "eslint": "^8.35.0",
+    "eslint": "^8.36.0",
     "eslint-plugin-node": "^11.1.0"
   },
   "optionalDependencies": {
