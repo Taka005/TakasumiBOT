@@ -38,7 +38,7 @@
     "mysql": "^2.18.1",
     "node-fetch": "^2.6.8",
     "os-utils": "^0.0.14",
-    "ws": "^8.12.1"
+    "ws": "^8.13.0"
   },
   "devDependencies": {
     "esbuild": "^0.17.11",
