@@ -1,8 +1,26 @@
+const time = [];
 module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isSelectMenu()) return;
   if(interaction.customId === "role"){
     
+    if(new Date() - time[interaction.guild.id] <= 5000){
+      time[interaction.guild.id] = new Date();
+      return await interaction.reply({
+        embeds:[{
+          author:{
+            name: "ロールの付与に失敗しました",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
+          },
+          color: "RED",
+          description: "現在他の人に付与しているため5秒間待ってください"
+        }],
+        ephemeral: true
+      });
+    }else{
+      time[interaction.guild.id] = new Date();
+    }
+
     await interaction.deferReply({ephemeral: true});
     try{
       const add = interaction.values.filter(role=>!interaction.member.roles.cache.has(role))
