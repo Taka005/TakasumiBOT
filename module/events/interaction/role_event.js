@@ -13,7 +13,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: "現在他の人に付与しているため5秒間待ってください"
+          description: "ロールの付与速度が速すぎるため5秒間待ってください"
         }],
         ephemeral: true
       });
