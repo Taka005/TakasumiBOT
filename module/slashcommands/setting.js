@@ -245,8 +245,8 @@ module.exports = async(interaction)=>{
       });
 
       if(
-        !interaction.guild.members.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-        !interaction.guild.members.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+        !interaction.guild.members.me.permissionsIn(channel).has("VIEW_CHANNEL")||
+        !interaction.guild.members.me.permissionsIn(channel).has("SEND_MESSAGES")
       ) return await interaction.reply({
         embeds:[{
           author:{
@@ -326,6 +326,21 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
+        if(
+          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{38}/)||
+          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{27}/)
+        ) return await interaction.reply({
+          embeds:[{
+            author:{
+              name: "参加メッセージを設定できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
+            },
+            color: "RED",
+            description: "Discord認証トークンを送信することはできません"
+          }],
+          ephemeral: true
+        });
+
         await mysql(`INSERT INTO \`join\` (server, channel, message, time) VALUES("${interaction.guild.id}","${channel.id}","${message}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),time = VALUES (time);`);
         await interaction.reply({
           embeds:[{
@@ -361,8 +376,8 @@ module.exports = async(interaction)=>{
       });
 
       if(
-        !interaction.guild.members.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
-        !interaction.guild.members.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")
+        !interaction.guild.members.me.permissionsIn(channel).has("VIEW_CHANNEL")||
+        !interaction.guild.members.me.permissionsIn(channel).has("SEND_MESSAGES")
       ) return await interaction.reply({
         embeds:[{
           author:{
@@ -438,6 +453,21 @@ module.exports = async(interaction)=>{
             },
             color: "RED",
             description: "メッセージを送信するチャンネルはテキストチャンネルにしてください"
+          }],
+          ephemeral: true
+        });
+
+        if(
+          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{38}/)||
+          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{27}/)
+        ) return await interaction.reply({
+          embeds:[{
+            author:{
+              name: "退出メッセージを設定できませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
+            },
+            color: "RED",
+            description: "Discord認証トークンを送信することはできません"
           }],
           ephemeral: true
         });
