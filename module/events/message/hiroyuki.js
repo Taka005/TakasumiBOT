@@ -96,6 +96,15 @@ module.exports = async(message)=>{
     "つらいことは必ずあるが、経験することで必ず成長する。"
   ];
 
+  const kisida = [
+    "慎重に検討していく",
+    "検討に検討を重ねていきたい",
+    "検討を加速させたい",
+    "緊張感を持って対応する",
+    `${message.guild.name}についてあらゆる選択肢を排除しない`,
+    "検討に検討を重ね検討を加速させていきたい"
+  ];
+
   const webhook = new WebhookClient({id: data[0].id, token:data[0].token});
 
   if(rate(false,true,0.01)){
@@ -111,6 +120,14 @@ module.exports = async(message)=>{
       content: random(kinnikun),
       username: "なかやまきんに君",
       avatarURL: "https://cdn.taka.ml/images/kinnikun.png"
+    }).catch((error)=>{
+      err(message,error);
+    })
+  }else if(rate(false,true,0.01)){
+    return await webhook.send({
+      content: random(kisida),
+      username: "岸田総理",
+      avatarURL: "https://cdn.taka.ml/images/kisida.png"
     }).catch((error)=>{
       err(message,error);
     })
