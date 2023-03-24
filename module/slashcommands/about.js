@@ -14,7 +14,7 @@ module.exports = async(interaction)=>{
           .addComponents(
             new MessageButton()
               .setLabel("BOT招待")
-              .setURL("https://discord.com/api/oauth2/authorize?client_id=981314695543783484&permissions=1644971949559&scope=bot%20applications.commands")
+              .setURL("https://discord.com/api/oauth2/authorize?client_id=981314695543783484&permissions=8796093022199&scope=bot%20applications.commands")
               .setStyle("LINK"))
           .addComponents(
             new MessageButton()
