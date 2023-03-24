@@ -51,7 +51,7 @@ module.exports = async(message)=>{
         }).catch(()=>{})
       }
       //スパム検知
-      if(new Date() - time[message.author.id][0] <= 1200){
+      if(new Date() - time[message.author.id][0] <= 900){
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
@@ -104,7 +104,7 @@ module.exports = async(message)=>{
         }).catch(()=>{})
       }
       //スパム検知
-      if(new Date() - time[message.author.id][0] <= 1000){
+      if(new Date() - time[message.author.id][0] <= 600){
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
@@ -141,7 +141,7 @@ module.exports = async(message)=>{
         }).catch(()=>{})
       }
       //スパム検知
-      if(new Date() - time[message.author.id][0] <= 600){
+      if(new Date() - time[message.author.id][0] <= 300){
         message.delete().catch(()=>{});
         if(!time[message.author.id][1]) return;
         message.channel.send({
