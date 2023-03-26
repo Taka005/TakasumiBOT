@@ -319,12 +319,13 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
+        await interaction.deferReply();
         await interaction.channel.createWebhook("TakasumiBOT",{
           avatar: "https://cdn.taka.ml/images/icon.png",
         })
           .then(async(webhook)=>{
             await mysql(`INSERT INTO \`join\` (server, channel, message, id, token, time) VALUES("${interaction.guild.id}","${interaction.channel.id}","${message}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
-            await interaction.reply({
+            await interaction.editReply({
               embeds:[{
                 author:{
                   name: "参加メッセージを設定しました",
@@ -336,7 +337,7 @@ module.exports = async(interaction)=>{
             });
           })
           .catch(async(error)=>{
-            await interaction.reply({
+            await interaction.editReply({
               embeds:[{
                 author:{
                   name: "参加メッセージを設定できませんでした",
@@ -458,12 +459,13 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
+        await interaction.deferReply();
         await interaction.channel.createWebhook("TakasumiBOT",{
           avatar: "https://cdn.taka.ml/images/icon.png",
         })
           .then(async(webhook)=>{
             await mysql(`INSERT INTO \`leave\` (server, channel, message, id, token, time) VALUES("${interaction.guild.id}","${interaction.channel.id}","${message}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
-            await interaction.reply({
+            await interaction.editReply({
               embeds:[{
                 author:{
                   name: "退出メッセージを設定しました",
@@ -475,7 +477,7 @@ module.exports = async(interaction)=>{
             });
           })
           .catch(async(error)=>{
-            await interaction.reply({
+            await interaction.editReply({
               embeds:[{
                 author:{
                   name: "退出メッセージを設定できませんでした",
