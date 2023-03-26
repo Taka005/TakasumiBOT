@@ -1,5 +1,5 @@
 module.exports = async(member,client)=>{
-  const { WebhookClient } = require("discord.js");
+  const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   const mysql = require("../lib/mysql");
 
   const data = await mysql(`SELECT * FROM \`leave\` WHERE server = ${member.guild.id} LIMIT 1;`);
@@ -36,7 +36,15 @@ module.exports = async(member,client)=>{
                   value: `\`\`\`${error}\`\`\``
                 }
               ]
-            }]
+            }],
+            components:[
+              new MessageActionRow()
+                .addComponents( 
+                  new MessageButton()
+                    .setLabel("サポートサーバー")
+                    .setURL("https://discord.gg/NEesRdGQwD")
+                    .setStyle("LINK"))
+            ]
           }).catch(()=>{});
         });
   }

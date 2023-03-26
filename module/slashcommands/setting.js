@@ -37,7 +37,7 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/setting delete",
-              value: "データベースに登録されているサーバーの設定情報を全て削除します\n**この操作は元に戻せません**"
+              value: "サーバーの設定情報を**全て**削除します\n**この操作は元に戻せません**"
             }
           ]
         }]
@@ -656,7 +656,7 @@ module.exports = async(interaction)=>{
         content: `<@${interaction.user.id}>`,
         embeds:[{
           author:{
-            name: "全てのデータを削除しました",
+            name: "全ての設定情報を削除しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN"

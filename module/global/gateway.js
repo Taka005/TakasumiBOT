@@ -49,5 +49,5 @@ module.exports = async(client)=>{
       });
     });
   }
-  connection()
+  connection();
 }
