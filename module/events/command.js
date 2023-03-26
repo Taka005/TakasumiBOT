@@ -509,6 +509,10 @@ module.exports = async(client)=>{
                 .setDescription("Bump通知、Dissoku通知、メッセージ展開の無効化と有効化を切り替えます"))
             .addSubcommand(subcommand =>
               subcommand
+                .setName("info")
+                .setDescription("データベースの設定状況を表示します"))
+            .addSubcommand(subcommand =>
+              subcommand
                 .setName("delete")
                 .setDescription("データベースに登録されてるサーバーの情報を全て削除します")),
           //short
