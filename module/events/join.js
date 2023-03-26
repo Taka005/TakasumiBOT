@@ -25,7 +25,7 @@ module.exports = async(member,client)=>{
         await client.channels.cache.get(data[0].channel).send({
           embeds:[{
             author:{
-              name: "入室メッセージでエラーが発生しました",
+              name: "参加メッセージでエラーが発生しました",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
