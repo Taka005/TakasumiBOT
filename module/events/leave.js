@@ -17,7 +17,7 @@ module.exports = async(member,client)=>{
       const webhook = new WebhookClient({id: data[0].id, token: data[0].token});
       await webhook.send({
         content: msg,
-        username: "TakasumiBOT",
+        username: "TakasumiBOT Leave",
         avatarURL: "https://cdn.taka.ml/images/icon.png"
       })
         .catch(async(error)=>{

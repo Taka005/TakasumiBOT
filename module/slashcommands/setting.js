@@ -324,7 +324,7 @@ module.exports = async(interaction)=>{
         });
 
         await interaction.deferReply();
-        await interaction.channel.createWebhook("TakasumiBOT",{
+        await interaction.channel.createWebhook("TakasumiBOT Join",{
           avatar: "https://cdn.taka.ml/images/icon.png",
         })
           .then(async(webhook)=>{
@@ -464,7 +464,7 @@ module.exports = async(interaction)=>{
         });
 
         await interaction.deferReply();
-        await interaction.channel.createWebhook("TakasumiBOT",{
+        await interaction.channel.createWebhook("TakasumiBOT Leave",{
           avatar: "https://cdn.taka.ml/images/icon.png",
         })
           .then(async(webhook)=>{
