@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
+  const { MessageButton, MessageActionRow } = require("discord.js");
   const mysql = require("../lib/mysql");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "setting"){
@@ -438,7 +438,7 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
-        if(channel.type !== "GUILD_TEXT") return await interaction.reply({
+        if(interaction.channel.type !== "GUILD_TEXT") return await interaction.reply({
           embeds:[{
             author:{
               name: "退出メッセージを設定できませんでした",
