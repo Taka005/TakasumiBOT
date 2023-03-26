@@ -566,7 +566,7 @@ module.exports = async(interaction)=>{
       const moderate = await mysql(`SELECT * FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
       const pin = await mysql(`SELECT * FROM pin WHERE server = ${interaction.guild.id};`);
 
-      await interaction.editReply({
+      await interaction.reply({
         embeds:[{
           author:{
             name: "データベース設定状況",
