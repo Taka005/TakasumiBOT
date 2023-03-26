@@ -253,6 +253,7 @@ module.exports = async(msg,client)=>{
 
 function err(channel,client,error){
   const mysql = require("../lib/mysql");
+  const { MessageButton, MessageActionRow } = require("discord.js");
 
   mysql(`DELETE FROM global WHERE channel = ${channel} LIMIT 1;`);
   client.channels.cache.get(channel).send({
@@ -269,7 +270,15 @@ function err(channel,client,error){
           value: `\`\`\`${error}\`\`\``
         }
       ]
-    }]
+    }],
+    components:[
+      new MessageActionRow()
+        .addComponents( 
+          new MessageButton()
+            .setLabel("サポートサーバー")
+            .setURL("https://discord.gg/NEesRdGQwD")
+            .setStyle("LINK"))
+    ]
   })
   .catch(()=>{});
 }

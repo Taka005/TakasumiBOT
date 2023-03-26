@@ -159,6 +159,7 @@ module.exports = async(message)=>{
 
 function err(message,error){
   const mysql = require("../../lib/mysql");
+  const { MessageButton, MessageActionRow } = require("discord.js");
 
   mysql(`DELETE FROM hiroyuki WHERE channel = ${message.channel.id} LIMIT 1;`);
   message.channel.send({
@@ -175,6 +176,14 @@ function err(message,error){
           value: `\`\`\`${error}\`\`\``
         }
       ]
-    }]
+    }],
+    components:[
+      new MessageActionRow()
+        .addComponents( 
+          new MessageButton()
+            .setLabel("サポートサーバー")
+            .setURL("https://discord.gg/NEesRdGQwD")
+            .setStyle("LINK"))
+    ]
   }).catch(()=>{})
 }
