@@ -576,39 +576,48 @@ module.exports = async(interaction)=>{
           fields:[
             {
               name: "Bump通知",
-              value: bump[0] ? "設定済み":"未設定"
+              value: bump[0] ? "設定済み":"未設定",
+              inline: true
             },
             {
               name: "Dissoku通知",
-              value: dissoku[0] ? "設定済み":"未設定"
+              value: dissoku[0] ? "設定済み":"未設定",
+              inline: true
             },
             {
               name: "グローバルチャット",
-              value: global[0] ? "設定済み":"未設定"
+              value: global[0] ? "設定済み":"未設定",
+              inline: true
             },
             {
               name: "ひろゆき",
-              value: hiroyuki[0] ? "設定済み":"未設定"
+              value: hiroyuki[0] ? "設定済み":"未設定",
+              inline: true
             },
             {
               name: "メッセージ無視",
-              value: ignore[0] ? "設定済み":"未設定"
+              value: ignore[0] ? "設定済み":"未設定",
+              inline: true
             },
             {
               name: "参加メッセージ",
-              value: join[0] ? "設定済み":"未設定"
+              value: join[0] ? "設定済み":"未設定",
+              inline: true
             },
             {
               name: "退出メッセージ",
-              value: leave[0] ? "設定済み":"未設定"
+              value: leave[0] ? "設定済み":"未設定",
+              inline: true
             },    
             {
               name: "モデレート",
-              value: moderate[0] ? "設定済み":"未設定"
+              value: moderate[0] ? "設定済み":"未設定",
+              inline: true
             },
             {
               name: "ピン",
-              value: `${pin.length}個設定済み`
+              value: `${pin.length}個設定済み`,
+              inline: true
             },
           ]
         }]
