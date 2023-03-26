@@ -152,6 +152,6 @@ module.exports = async(client)=>{
   client.on("guildMemberRemove",async(member)=>{
     const leave = require("./events/leave");
 
-    leave(member);
+    leave(member,client);
   });
 }

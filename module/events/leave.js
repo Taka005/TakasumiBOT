@@ -1,4 +1,4 @@
-module.exports = async(member)=>{
+module.exports = async(member,client)=>{
   const { WebhookClient } = require("discord.js");
   const mysql = require("../lib/mysql");
 
@@ -20,7 +20,7 @@ module.exports = async(member)=>{
         username: "TakasumiBOT",
         avatarURL: "https://cdn.taka.ml/images/icon.png"
       })
-        .catch(async()=>{
+        .catch(async(error)=>{
           await mysql(`DELETE FROM \`leave\` WHERE channel = ${data[0].channel} LIMIT 1;`);
           await client.channels.cache.get(data[0].channel).send({
             embeds:[{
