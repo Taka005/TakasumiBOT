@@ -1,5 +1,5 @@
 module.exports = async(interaction)=>{
-  const { MessageButton, MessageActionRow } = require("discord.js");
+  const { WebhookClient, MessageButton, MessageActionRow } = require("discord.js");
   const mysql = require("../lib/mysql");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "setting"){
@@ -280,6 +280,10 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
+        const webhook = new WebhookClient({id: data[0].id, token: data[0].token});
+        await webhook.delete()
+          .catch(()=>{});
+
         await mysql(`DELETE FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         await interaction.reply({
           embeds:[{
@@ -414,6 +418,10 @@ module.exports = async(interaction)=>{
           }],
           ephemeral: true
         });
+
+        const webhook = new WebhookClient({id: data[0].id, token: data[0].token});
+        await webhook.delete()
+          .catch(()=>{});
 
         await mysql(`DELETE FROM \`leave\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         await interaction.reply({
