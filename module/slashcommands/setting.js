@@ -331,7 +331,7 @@ module.exports = async(interaction)=>{
               }]
             });
           })
-          .catch((error)=>{
+          .catch(async(error)=>{
             await interaction.reply({
               embeds:[{
                 author:{
@@ -466,7 +466,7 @@ module.exports = async(interaction)=>{
               }]
             });
           })
-          .catch((error)=>{
+          .catch(async(error)=>{
             await interaction.reply({
               embeds:[{
                 author:{
