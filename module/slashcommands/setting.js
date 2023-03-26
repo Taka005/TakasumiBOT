@@ -1,4 +1,5 @@
 module.exports = async(interaction)=>{
+  const { MessageButton, MessageActionRow } = require("discord.js");
   const mysql = require("../lib/mysql");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "setting"){
@@ -24,7 +25,7 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/setting leave",
-              value: "退出メッセージの設定をします\n利用可能な変数は`/setting join`と同じです"
+              value: "退出メッセージの設定をします\n`/setting join`と同じ変数を利用できます"
             },
             {
               name: "/setting ignore",
@@ -223,7 +224,6 @@ module.exports = async(interaction)=>{
         });
       }
     }else if(interaction.options.getSubcommand() === "join"){//join
-      const channel = interaction.options.getChannel("channel");
       const message = interaction.options.getString("message");
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
@@ -245,8 +245,9 @@ module.exports = async(interaction)=>{
       });
 
       if(
-        !interaction.guild.members.me.permissionsIn(channel).has("VIEW_CHANNEL")||
-        !interaction.guild.members.me.permissionsIn(channel).has("SEND_MESSAGES")
+        !interaction.guild.members.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+        !interaction.guild.members.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+        !interaction.guild.members.me.permissionsIn(interaction.channel).has("MANAGE_WEBHOOKS")
       ) return await interaction.reply({
         embeds:[{
           author:{
@@ -258,14 +259,14 @@ module.exports = async(interaction)=>{
           fields:[
             {
               name: "必要な権限",
-              value: "```チャンネルの閲覧\nメッセージの送信```"
+              value: "```チャンネルの閲覧\nメッセージの送信\nWebhookの管理```"
             }
           ]
         }],
         ephemeral: true
       });
 
-      if(!channel||!message){
+      if(!message){
         const data = await mysql(`SELECT * FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         if(!data[0]) return await interaction.reply({
           embeds:[{
@@ -290,18 +291,6 @@ module.exports = async(interaction)=>{
           }]
         });
       }else{
-        if(interaction.guild.memberCount > 300) return await interaction.reply({
-          embeds:[{
-            author:{
-              name: "参加メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png"
-            },
-            color: "RED",
-            description: "この機能は試験的なため人数が300人以上のサーバーでは設定できません"
-          }],
-          ephemeral: true
-        });
-
         if(message.length > 100) return await interaction.reply({
           embeds:[{
             author:{
@@ -314,7 +303,7 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
-        if(channel.type !== "GUILD_TEXT") return await interaction.reply({
+        if(interaction.channel.type !== "GUILD_TEXT") return await interaction.reply({
           embeds:[{
             author:{
               name: "参加メッセージを設定できませんでした",
@@ -326,35 +315,50 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
-        if(
-          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{38}/)||
-          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{27}/)
-        ) return await interaction.reply({
-          embeds:[{
-            author:{
-              name: "参加メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png"
-            },
-            color: "RED",
-            description: "Discord認証トークンを送信することはできません"
-          }],
-          ephemeral: true
-        });
-
-        await mysql(`INSERT INTO \`join\` (server, channel, message, time) VALUES("${interaction.guild.id}","${channel.id}","${message}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),time = VALUES (time);`);
-        await interaction.reply({
-          embeds:[{
-            author:{
-              name: "参加メッセージを設定しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png"
-            },
-            color: "GREEN",
-            description: `送信チャンネル: <#${channel.id}>\n送信メッセージ: ${message}`
-          }]
-        });
+        await interaction.channel.createWebhook("TakasumiBOT",{
+          avatar: "https://cdn.taka.ml/images/icon.png",
+        })
+          .then(async(webhook)=>{
+            await mysql(`INSERT INTO \`join\` (server, channel, message, id, token, time) VALUES("${interaction.guild.id}","${interaction.channel.id}","${message}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
+            await interaction.reply({
+              embeds:[{
+                author:{
+                  name: "参加メッセージを設定しました",
+                  icon_url: "https://cdn.taka.ml/images/system/success.png"
+                },
+                color: "GREEN",
+                description: `送信メッセージ: ${message}`
+              }]
+            });
+          })
+          .catch(async(error)=>{
+            await interaction.reply({
+              embeds:[{
+                author:{
+                  name: "参加メッセージを設定できませんでした",
+                  icon_url: "https://cdn.taka.ml/images/system/error.png"
+                },
+                color: "RED",
+                description: "BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています",
+                fields:[
+                  {
+                    name: "エラーコード",
+                    value: `\`\`\`${error}\`\`\``
+                  }
+                ]
+              }],
+              components:[
+                new MessageActionRow()
+                  .addComponents( 
+                    new MessageButton()
+                      .setLabel("サポートサーバー")
+                      .setURL("https://discord.gg/NEesRdGQwD")
+                      .setStyle("LINK"))
+              ]
+            });
+          })
       }
     }else if(interaction.options.getSubcommand() === "leave"){//leave
-      const channel = interaction.options.getChannel("channel");
       const message = interaction.options.getString("message");
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
@@ -376,8 +380,9 @@ module.exports = async(interaction)=>{
       });
 
       if(
-        !interaction.guild.members.me.permissionsIn(channel).has("VIEW_CHANNEL")||
-        !interaction.guild.members.me.permissionsIn(channel).has("SEND_MESSAGES")
+        !interaction.guild.members.me.permissionsIn(interaction.channel).has("VIEW_CHANNEL")||
+        !interaction.guild.members.me.permissionsIn(interaction.channel).has("SEND_MESSAGES")||
+        !interaction.guild.members.me.permissionsIn(interaction.channel).has("MANAGE_WEBHOOKS")
       ) return await interaction.reply({
         embeds:[{
           author:{
@@ -389,14 +394,14 @@ module.exports = async(interaction)=>{
           fields:[
             {
               name: "必要な権限",
-              value: "```チャンネルの閲覧\nメッセージの送信```"
+              value: "```チャンネルの閲覧\nメッセージの送信\nWebhookの管理```"
             }
           ]
         }],
         ephemeral: true
       });
 
-      if(!channel||!message){
+      if(!message){
         const data = await mysql(`SELECT * FROM \`leave\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
         if(!data[0]) return await interaction.reply({
           embeds:[{
@@ -421,18 +426,6 @@ module.exports = async(interaction)=>{
           }]
         });
       }else{
-        if(interaction.guild.memberCount > 300) return await interaction.reply({
-          embeds:[{
-            author:{
-              name: "退出メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png"
-            },
-            color: "RED",
-            description: "この機能は試験的なため人数が300人以上のサーバーでは設定できません"
-          }],
-          ephemeral: true
-        });
-
         if(message.length > 100) return await interaction.reply({
           embeds:[{
             author:{
@@ -445,7 +438,7 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
-        if(channel.type !== "GUILD_TEXT") return await interaction.reply({
+        if(interaction.channel.type !== "GUILD_TEXT") return await interaction.reply({
           embeds:[{
             author:{
               name: "退出メッセージを設定できませんでした",
@@ -457,32 +450,48 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
 
-        if(
-          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{38}/)||
-          message.match(/[0-9a-zA-Z_-]{24}\.[0-9a-zA-Z_-]{6}\.[0-9a-zA-Z_-]{27}/)
-        ) return await interaction.reply({
-          embeds:[{
-            author:{
-              name: "退出メッセージを設定できませんでした",
-              icon_url: "https://cdn.taka.ml/images/system/error.png"
-            },
-            color: "RED",
-            description: "Discord認証トークンを送信することはできません"
-          }],
-          ephemeral: true
-        });
-
-        await mysql(`INSERT INTO \`leave\` (server, channel, message, time) VALUES("${interaction.guild.id}","${channel.id}","${message}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),time = VALUES (time);`);
-        await interaction.reply({
-          embeds:[{
-            author:{
-              name: "退出メッセージを設定しました",
-              icon_url: "https://cdn.taka.ml/images/system/success.png"
-            },
-            color: "GREEN",
-            description: `送信チャンネル: <#${channel.id}>\n送信メッセージ: ${message}`
-          }]
-        });
+        await interaction.channel.createWebhook("TakasumiBOT",{
+          avatar: "https://cdn.taka.ml/images/icon.png",
+        })
+          .then(async(webhook)=>{
+            await mysql(`INSERT INTO \`leave\` (server, channel, message, id, token, time) VALUES("${interaction.guild.id}","${interaction.channel.id}","${message}","${webhook.id}","${webhook.token}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),channel = VALUES (channel),message = VALUES (message),id = VALUES (id),token = VALUES (token),time = VALUES (time);`);
+            await interaction.reply({
+              embeds:[{
+                author:{
+                  name: "退出メッセージを設定しました",
+                  icon_url: "https://cdn.taka.ml/images/system/success.png"
+                },
+                color: "GREEN",
+                description: `送信メッセージ: ${message}`
+              }]
+            });
+          })
+          .catch(async(error)=>{
+            await interaction.reply({
+              embeds:[{
+                author:{
+                  name: "退出メッセージを設定できませんでした",
+                  icon_url: "https://cdn.taka.ml/images/system/error.png"
+                },
+                color: "RED",
+                description: "BOTの権限が不足しているか,\n既にwebhookの作成回数が上限に達しています",
+                fields:[
+                  {
+                    name: "エラーコード",
+                    value: `\`\`\`${error}\`\`\``
+                  }
+                ]
+              }],
+              components:[
+                new MessageActionRow()
+                  .addComponents( 
+                    new MessageButton()
+                      .setLabel("サポートサーバー")
+                      .setURL("https://discord.gg/NEesRdGQwD")
+                      .setStyle("LINK"))
+              ]
+            });
+          })
       }
     }else if(interaction.options.getSubcommand() === "ignore"){//ignore
     
@@ -556,6 +565,8 @@ module.exports = async(interaction)=>{
       await mysql(`DELETE FROM pin WHERE server = ${interaction.guild.id};`);
       await mysql(`DELETE FROM bump WHERE server = ${interaction.guild.id};`);
       await mysql(`DELETE FROM dissoku WHERE server = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM hiroyuki WHERE server = ${interaction.guild.id};`);
+      await mysql(`DELETE FROM global WHERE server = ${interaction.guild.id};`);
       await mysql(`DELETE FROM \`ignore\` WHERE id = ${interaction.guild.id};`);
       await mysql(`DELETE FROM \`join\` WHERE server = ${interaction.guild.id};`);
       await mysql(`DELETE FROM \`leave\` WHERE server = ${interaction.guild.id};`);

@@ -491,10 +491,6 @@ module.exports = async(client)=>{
               subcommand
                 .setName("join")
                 .setDescription("参加メッセージを設定します")
-                .addChannelOption(option =>
-                  option
-                    .setName("channel")
-                    .setDescription("メッセージを送信するチャンネル"))
                 .addStringOption(option =>
                     option
                       .setName("message")
@@ -503,10 +499,6 @@ module.exports = async(client)=>{
               subcommand
                 .setName("leave")
                 .setDescription("退出メッセージを設定します")
-                .addChannelOption(option =>
-                  option
-                    .setName("channel")
-                    .setDescription("メッセージを送信するチャンネル"))
                 .addStringOption(option =>
                     option
                       .setName("message")
