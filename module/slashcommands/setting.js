@@ -21,15 +21,19 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/setting join",
-              value: "参加メッセージの設定をします\n\n利用可能な変数\n[User] ユーザーメンション\n[UserName] ユーザーの名前\n[UserID] ユーザーID\n[ServerName] サーバーの名前\n[ServerID] サーバーID\n[Count] メンバー数"
+              value: "実行したチャンネルに参加メッセージの設定をします\n\n利用可能な変数\n[User] ユーザーメンション\n[UserName] ユーザーの名前\n[UserID] ユーザーID\n[ServerName] サーバーの名前\n[ServerID] サーバーID\n[Count] メンバー数"
             },
             {
               name: "/setting leave",
-              value: "退出メッセージの設定をします\n`/setting join`と同じ変数を利用できます"
+              value: "実行したチャンネルに退出メッセージの設定をします\n`/setting join`と同じ変数を利用できます"
             },
             {
               name: "/setting ignore",
               value: "メッセージ展開、Bump通知、Dissoku通知の無効化と有効化を切り替えます\n有効にするとBump通知、Dissoku通知の設定情報は削除されます"
+            },
+            {
+              name: "/setting info",
+              value: "データベースの設定状況を表示します"
             },
             {
               name: "/setting delete",
@@ -551,6 +555,64 @@ module.exports = async(interaction)=>{
           }]
         });
       }
+    }else if(interaction.options.getSubcommand() === "info"){//info
+      const bump = await mysql(`SELECT * FROM bump WHERE server = ${interaction.guild.id} LIMIT 1;`);
+      const dissoku = await mysql(`SELECT * FROM dissoku WHERE server = ${interaction.guild.id} LIMIT 1;`);
+      const global = await mysql(`SELECT * FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
+      const hiroyuki = await mysql(`SELECT * FROM hiroyuki WHERE server = ${interaction.guild.id} LIMIT 1;`);
+      const ignore = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${interaction.guild.id} LIMIT 1;`);
+      const join = await mysql(`SELECT * FROM \`join\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
+      const leave = await mysql(`SELECT * FROM \`leave\` WHERE server = ${interaction.guild.id} LIMIT 1;`);
+      const moderate = await mysql(`SELECT * FROM moderate WHERE id = ${interaction.guild.id} LIMIT 1;`);
+      const pin = await mysql(`SELECT * FROM pin WHERE server = ${interaction.guild.id};`);
+
+      await interaction.editReply({
+        embeds:[{
+          author:{
+            name: "データベース設定状況",
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
+          },
+          color: "GREEN",
+          fields:[
+            {
+              name: "Bump通知",
+              value: bump[0] ? "設定済み":"未設定"
+            },
+            {
+              name: "Dissoku通知",
+              value: dissoku[0] ? "設定済み":"未設定"
+            },
+            {
+              name: "グローバルチャット",
+              value: global[0] ? "設定済み":"未設定"
+            },
+            {
+              name: "ひろゆき",
+              value: hiroyuki[0] ? "設定済み":"未設定"
+            },
+            {
+              name: "メッセージ無視",
+              value: ignore[0] ? "設定済み":"未設定"
+            },
+            {
+              name: "参加メッセージ",
+              value: join[0] ? "設定済み":"未設定"
+            },
+            {
+              name: "退出メッセージ",
+              value: leave[0] ? "設定済み":"未設定"
+            },    
+            {
+              name: "モデレート",
+              value: moderate[0] ? "設定済み":"未設定"
+            },
+            {
+              name: "ピン",
+              value: `${pin.length}個設定済み`
+            },
+          ]
+        }]
+      });
     }else if(interaction.options.getSubcommand() === "delete"){//delete
 
       if(!interaction.member.permissions.has("ADMINISTRATOR")) return await interaction.reply({
