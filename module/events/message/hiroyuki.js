@@ -28,7 +28,7 @@ module.exports = async(message)=>{
   const reply_2 = [
     `嘘は嘘であると見抜ける人でないと(${message.guild.name}を使うのは)難しい`,
     `嘘を嘘と見抜けない人は、${message.guild.name}を使うのは難しいでしょう`,
-    `「${message.content}」？なんすか「${message.content}」って...`,
+    `「${message.cleanContent}」？なんすか「${message.cleanContent}」って...`,
     "なんかそういうのって頭悪いか、嘘つきかのどちらかですよ",
     "それで勝った気になってるんですか？だったら相当頭悪いっすね",
     "それってほぼ詐欺ですよね",
