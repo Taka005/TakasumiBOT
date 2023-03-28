@@ -33,7 +33,7 @@ module.exports = async(interaction)=>{
         files:[new MessageAttachment(data.stream(),"QRCode.png")]
       });
     }else{
-      if(text.match(/^(http(s?):\/\/)([^\s/]+\/)([^\s]+\.(jpg|jpeg|png|gif))$/i)) return await interaction.reply({
+      if(!text.match(/^(http(s?):\/\/)([^\s/]+\/)([^\s]+\.(jpg|jpeg|png|gif))$/i)) return await interaction.reply({
         embeds:[{
           author:{
             name: "入力された画像が無効です",
