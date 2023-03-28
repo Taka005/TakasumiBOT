@@ -32,7 +32,7 @@ module.exports = async(message)=>{
               description: "BUMPの時間です\n`/bump`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000*120)
+        },7200000);
       }else{
         setTimeout(async()=>{
           await message.channel.send({
@@ -42,7 +42,7 @@ module.exports = async(message)=>{
               description: "BUMPの時間です\n`/bump`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000*120)
+        },7200000);
       }
     }
   }
