@@ -1,5 +1,4 @@
 module.exports = async(interaction)=>{
-  const isUrl = require("../lib/isUrl");
   const { MessageAttachment } = require("discord.js");
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
@@ -34,14 +33,14 @@ module.exports = async(interaction)=>{
         files:[new MessageAttachment(data.stream(),"QRCode.png")]
       });
     }else{
-      if(!isUrl(text)) return await interaction.reply({
+      if(text.match(/^(http(s?):\/\/)([^\s/]+\/)([^\s]+\.(jpg|jpeg|png|gif))$/i)) return await interaction.reply({
         embeds:[{
           author:{
-            name: "入力されたテキストが無効です",
+            name: "入力された画像が無効です",
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: "QRコードはURLで指定する必要があります"
+          description: "QRコードは画像のURLで指定する必要があります"
         }],
         ephemeral: true
       });
