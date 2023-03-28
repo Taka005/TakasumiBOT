@@ -5,7 +5,7 @@ module.exports = async(client)=>{
   const { REST } = require("@discordjs/rest");
   const { Routes, ApplicationCommandType } = require("discord-api-types/v10");
     
-  const rest = new REST({ version: "10" })
+  const rest = new REST({version:"10"})
     .setToken(process.env.DISCORD_BOT_TOKEN);
             
   await rest.put(
@@ -692,5 +692,5 @@ module.exports = async(client)=>{
       }
   );
 
-  client.channels.cache.get(config.log).send("スラッシュコマンドをリロードしました");
+  await client.channels.cache.get(config.log).send("スラッシュコマンドをリロードしました");
 }

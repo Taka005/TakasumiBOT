@@ -1,5 +1,6 @@
 module.exports = async(message)=>{
   const mysql = require("../lib/mysql");
+
   if(
     !message.guild.members.me.permissionsIn(message.channel).has("VIEW_CHANNEL")||
     !message.guild.members.me.permissionsIn(message.channel).has("SEND_MESSAGES")
@@ -32,7 +33,7 @@ module.exports = async(message)=>{
               description: "DISSOKUの時間です\n`/dissoku up`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000*60)
+        },3600000);
       }else{
         setTimeout(async()=>{
           await message.channel.send({
@@ -42,7 +43,7 @@ module.exports = async(message)=>{
               description: "DISSOKUの時間です\n`/dissoku up`でサーバーの表示順位を上げよう！"
             }]  
           }).catch(()=>{})
-        },60000*60)
+        },3600000);
       }
     }
   }

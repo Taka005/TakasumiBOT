@@ -18,7 +18,7 @@ module.exports = async(client)=>{
     }
   },5000)
 
-  client.channels.cache.get(config.log).send("システムが再起動されました");
+  await client.channels.cache.get(config.log).send("システムが再起動されました");
 
   console.log(`\x1b[34mINFO: Account ${client.user.tag}\x1b[39m`);
   console.log(`\x1b[34mINFO: Server:${client.guilds.cache.size} User:${client.guilds.cache.map((g)=>g.memberCount).reduce((a,c)=>a+c)}\x1b[39m`);
