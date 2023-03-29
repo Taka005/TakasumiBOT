@@ -11,54 +11,49 @@ module.exports = async(interaction)=>{
           icon_url: "https://cdn.taka.ml/images/system/error.png"
         },
         color: "RED",
-        description: "絵文字を指定してください"
+        description: "サーバー上のカスタム絵文字を指定してください"
       }],
       ephemeral: true
     });
 
-    const emoji = interaction.guild.emojis.cache.get(name.match(/\d{18,19}/g));
-    if(!emoji) return await interaction.reply({
-      embeds:[{
-        author:{
-          name: "取得に失敗しました",
-          icon_url: "https://cdn.taka.ml/images/system/error.png"
-        },
-        color: "RED",
-        description: "指定した絵文字は存在していません"
-      }],
-      ephemeral: true
-    });
+    try{
+      const emoji = await interaction.guild.emojis.fetch(name.match(/\d{18,19}/g));
 
-    await interaction.reply({
-      embeds:[{
-        color: "GREEN",
-        author:{
-          name: `${emoji.name}の情報`,
-          icon_url: "https://cdn.taka.ml/images/system/success.png"
-        },
-        timestamp: new Date(),
-        footer:{
-          text: "TakasumiBOT"
-        },
-        thumbnail:{
-          url: emoji.url
-        },
-        fields:[
-          {
-            name: "ID",
-            value: emoji.id
+      await interaction.reply({
+        embeds:[{
+          color: "GREEN",
+          author:{
+            name: `${emoji.name}の情報`,
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
-          {
-            name: "種類",
-            value: emoji.animated ? "アニメーション画像" : "静止画像"
+          timestamp: new Date(),
+          footer:{
+            text: "TakasumiBOT"
           },
-          {
-            name: "作成日時",
-            value: `${new Date(emoji.createdTimestamp).toLocaleString()}\n(${Math.round((Date.now() - emoji.createdAt) / 86400000)}日前)`
-          }
-        ]
-      }]
-    }).catch(async(error)=>{
+          thumbnail:{
+            url: emoji.url
+          },
+          fields:[
+            {
+              name: "ID",
+              value: emoji.id
+            },
+            {
+              name: "作成者",
+              value: `<@${emoji.author.id}>`
+            },
+            {
+              name: "種類",
+              value: emoji.animated ? "アニメーション画像" : "静止画像"
+            },
+            {
+              name: "作成日時",
+              value: `${new Date(emoji.createdTimestamp).toLocaleString()}\n(${Math.round((Date.now() - emoji.createdAt) / 86400000)}日前)`
+            }
+          ]
+        }]
+      });
+    }catch(error){
       await interaction.reply({
         embeds:[{
           author:{
@@ -82,7 +77,7 @@ module.exports = async(interaction)=>{
                 .setStyle("LINK"))
         ],
         ephemeral: true
-      })
-    });
+      });
+    }
   }
 }
