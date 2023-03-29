@@ -46,27 +46,6 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    if(
-      interaction.guild.memberCount < 20||
-      (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 8
-    ) return await interaction.reply({
-      embeds:[{
-        author:{
-          name: "参加条件を満たしていません",
-          icon_url: "https://cdn.taka.ml/images/system/error.png"
-        },
-        color: "RED",
-        description: "グローバルチャットを利用するには以下の条件を満たしている必要があります",
-        fields:[
-          {
-            name: "必要な条件",
-            value: "```20人以上のメンバー\n8人以上のユーザー```"
-          }
-        ]
-      }],
-      ephemeral: true
-    });
-
     const data = await mysql(`SELECT * FROM global WHERE server = ${interaction.guild.id} LIMIT 1;`);
 
     if(data[0]){//登録済み
@@ -103,6 +82,39 @@ module.exports = async(interaction)=>{
       await interaction.channel.setTopic("")
         .catch(()=>{})
     }else{
+      if(
+        interaction.guild.memberCount < 20||
+        (await interaction.guild.members.fetch()).filter(m => !m.user.bot).size < 8
+      ) return await interaction.reply({
+        embeds:[{
+          author:{
+            name: "参加条件を満たしていません",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
+          },
+          color: "RED",
+          description: "グローバルチャットを利用するには以下の条件を満たしている必要があります",
+          fields:[
+            {
+              name: "必要な条件",
+              value: "```20人以上のメンバー\n8人以上のユーザー```"
+            }
+          ]
+        }],
+        ephemeral: true
+      });
+
+      if(interaction.channel.type !== "GUILD_TEXT") return await interaction.reply({
+        embeds:[{
+          author:{
+            name: "グローバルチャットに参加できませんでした",
+            icon_url: "https://cdn.taka.ml/images/system/error.png"
+          },
+          color: "RED",
+          description: "設定するチャンネルはテキストチャンネルにしてください"
+        }],
+        ephemeral: true
+      });
+
       await interaction.deferReply();
       await interaction.editReply({
         embeds:[{
@@ -163,7 +175,7 @@ module.exports = async(interaction)=>{
         await interaction.editReply({
           embeds:[{
             author:{
-              name: "作成に失敗しました",
+              name: "Webhookの作成に失敗しました",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
