@@ -41,7 +41,7 @@ module.exports = async(interaction)=>{
             {
               name: "作成者",
               value: `<@${emoji.author.id}>`
-            }
+            },
             {
               name: "種類",
               value: emoji.animated ? "アニメーション画像" : "静止画像"
