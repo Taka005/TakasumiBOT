@@ -123,7 +123,7 @@ module.exports = async(message)=>{
     }).catch((error)=>{
       err(message,error);
     })
-  }else if(rate(false,true,0.005)){
+  }else if(rate(false,true,0.007)){
     return await webhook.send({
       content: random(kisida),
       username: "岸田総理",
@@ -131,7 +131,7 @@ module.exports = async(message)=>{
     }).catch((error)=>{
       err(message,error);
     })
-  }else if(rate(false,true,0.005)){
+  }else if(rate(false,true,0.003)){
     return await webhook.send({
       content: "すいません。3色チーズ牛丼の特盛に温玉付きをお願いします",
       username: "チー牛",
