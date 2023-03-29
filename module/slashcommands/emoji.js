@@ -16,7 +16,7 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
 
-    const emoji = interaction.guild.emojis.cache.get(name.match(/\d{17,18,19}/g));
+    const emoji = interaction.guild.emojis.cache.get(name.match(/\d{18,19}/g));
     if(!emoji) return await interaction.reply({
       embeds:[{
         author:{
