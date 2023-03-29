@@ -56,11 +56,12 @@ module.exports = async(interaction)=>{
       ephemeral: true
     });
     
+    await interaction.deferReply();
     try{
       if(user){
         const messages = await interaction.channel.messages.fetch({ limit: number });
         const msg = await messages.filter(msg => user.id === msg.author.id);
-        if(!msg) return await interaction.reply({
+        if(!msg) return await interaction.editReply({
           embeds:[{
             author:{
               name: "削除できませんでした",
@@ -74,7 +75,7 @@ module.exports = async(interaction)=>{
 
         await interaction.channel.bulkDelete(msg)
           .then(async()=>{
-            await interaction.reply({
+            await interaction.editReply({
               content: `<@${interaction.user.id}>`,
               embeds:[{
                 author:{
@@ -89,7 +90,7 @@ module.exports = async(interaction)=>{
         const messages = await interaction.channel.messages.fetch({ limit: number })         
         await interaction.channel.bulkDelete(messages)
           .then(async()=>{
-            await interaction.reply({
+            await interaction.editReply({
               content: `<@${interaction.user.id}>`,
               embeds:[{
                 author:{
@@ -102,7 +103,7 @@ module.exports = async(interaction)=>{
           })
       }
     }catch(error){
-      await interaction.reply({
+      await interaction.editReply({
         embeds:[{
           author:{
             name: "削除できませんでした",
