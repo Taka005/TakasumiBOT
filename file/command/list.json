@@ -71,6 +71,12 @@
         "permission":["メッセージの管理"],
         "note":"モーダルを使用し埋め込みの内容を設定します"
     },
+    "emoji":{
+        "description":"指定した絵文字の情報を表示します",
+        "example":"`/emoji 🤔`",
+        "permission":["なし"],
+        "note":"サーバー上のカスタム絵文字を指定する必要があります"
+    },
     "export":{
         "description":"サーバーのデータをJSON形式に出力します",
         "example":"`/export`",

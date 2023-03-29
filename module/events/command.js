@@ -181,6 +181,15 @@ module.exports = async(client)=>{
           new SlashCommandBuilder()
             .setName("embed")
             .setDescription("簡単に埋め込みメッセージを作成します"),
+          //emoji
+          new SlashCommandBuilder()
+            .setName("emoji")
+            .setDescription("指定した絵文字の情報を表示します")
+            .addStringOption(option =>
+              option
+                .setName("name")
+                .setDescription("表示する絵文字")
+                .setRequired(true)),
           //export
           new SlashCommandBuilder()
             .setName("export")

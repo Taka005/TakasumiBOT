@@ -98,6 +98,10 @@ module.exports = async(interaction)=>{
               value: "指定した役職の情報を表示します"
             },
             {
+              name: "/emoji",
+              value: "指定した絵文字の情報を表示します"
+            },
+            {
               name: "/avatar",
               value: "指定されたユーザーのアイコンを表示します\n使い方は`/user`と同じです"
             },
