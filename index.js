@@ -17,14 +17,10 @@ console.log("\x1b[32m          TakasumiBOT          \x1b[39m");
 console.log("\x1b[32m    Created By Taka005#6668    \x1b[39m");
 console.log("\x1b[32m*******************************\x1b[39m");
 
-const events = require("./module/events");
-const api = require("./module/api/server");
-const gateway = require("./module/global/gateway");
-const load = require("./module/events/load");
-events(client);
-api(client);
-gateway(client);
-load(client);
+require("./module/events")(client);
+require("./module/api/server")(client);
+require("./module/global/gateway")(client);
+require("./module/events/load")(client);
 
 client.login(process.env.DISCORD_BOT_TOKEN)
   .then(()=>{

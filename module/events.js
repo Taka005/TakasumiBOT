@@ -4,11 +4,8 @@ module.exports = async(client)=>{
   const mysql = require("./lib/mysql");
 
   client.once("ready",async(client)=>{
-    const status = require("./events/status");
-    const command = require("./events/command");
-
-    status(client);
-    command(client);
+    require("./events/status")(client);
+    require("./events/command")(client);
   });
 
   client.on("messageCreate",async(message)=>{
@@ -17,8 +14,7 @@ module.exports = async(client)=>{
     fs.readdir("./module/events/message/",(err,files)=>{ 
       files.forEach((file)=>{
         if(!file.endsWith(".js")) return;
-        const event = require(`./events/message/${file}`);
-        event(message,client);
+        require(`./events/message/${file}`)(message,client);
       });
     });
     
@@ -27,42 +23,29 @@ module.exports = async(client)=>{
     console.log(`\x1b[37mLOG:(${message.author.tag}[${message.guild.id}])${message.content} PING[${client.ws.ping}ms]\x1b[39m`);
 
    //Globalchat
-    const global = require("./global/global");
-    const reply = require("./global/reply");
-    const send = require("./global/send");
-    global(message,client)
-      .catch(()=>{});
-    reply(message,client)
-      .catch(()=>{});
-    send(message)
-      .catch(()=>{});
+    require("./global/global")(message,client).catch(()=>{});
+    require("./global/reply")(message,client).catch(()=>{});
+    require("./global/send")(message,client).catch(()=>{});
 
     //コマンド
     fs.readdir("./module/commands/",(err,files)=>{ 
       files.forEach((file)=>{
         if(!file.endsWith(".js")) return;
-        const event = require(`./commands/${file}`);
-        event(message,client);
+        require(`./commands/${file}`)(message,client);
       });
     });
   });
 
   client.on("messageUpdate",async(oldMessage,newMessage)=>{
-    const dissoku = require("./events/dissoku");
-
-    dissoku(newMessage);
+    require("./events/dissoku")(newMessage);
   });
 
   client.on("guildCreate",async(guild)=>{
-    const add = require("./events/add");
-
-    add(guild);
+    require("./events/add")(guild);
   });
   
   client.on("guildDelete",async(guild)=>{
-    const remove = require("./events/remove");
-
-    remove(guild);
+    require("./events/remove")(guild);
   });
 
   client.on("interactionCreate",async(interaction)=>{
@@ -113,45 +96,37 @@ module.exports = async(client)=>{
     fs.readdir("./module/events/interaction/",(err,files)=>{ 
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
-        const event = require(`./events/interaction/${file}`);
-        event(interaction,client);
+        require(`./events/interaction/${file}`)(interaction,client);
       });
     });
     //auth
     fs.readdir("./module/auth/",(err,files)=>{ 
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
-        const event = require(`./auth/${file}`);
-        event(interaction,client);
+        require(`./auth/${file}`)(interaction,client);
       });
     });
     //slashcommands
     fs.readdir("./module/slashcommands/",(err,files)=>{ 
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
-        const event = require(`./slashcommands/${file}`);
-        event(interaction,client);
+        require(`./slashcommands/${file}`)(interaction,client);
       });
     });
     //contextmenu
     fs.readdir("./module/contextmenu/",(err,files)=>{ 
       files.forEach(async(file)=>{
         if(!file.endsWith(".js")) return;
-        const event = require(`./contextmenu/${file}`);
-        event(interaction,client);
+        require(`./contextmenu/${file}`)(interaction,client);
       });
     });
   });
 
   client.on("guildMemberAdd",async(member)=>{
-    const join = require("./events/join");
-      
-    join(member,client);
+    require("./events/join")(member,client);
   });
 
   client.on("guildMemberRemove",async(member)=>{
-    const leave = require("./events/leave");
-
-    leave(member,client);
+    require("./events/leave")(member,client);
   });
 }
