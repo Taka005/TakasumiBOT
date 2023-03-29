@@ -19,7 +19,7 @@ module.exports = async(interaction)=>{
         fields:[
           {
             name: "ID",
-            value: `${role.id}`,
+            value: role.id,
             inline: true
           },
           {
