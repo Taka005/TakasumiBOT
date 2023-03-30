@@ -191,6 +191,12 @@
         "permission":["必要なし"],
         "note":"選択肢は最大12個まで設定できます"
     },
+    "pypi":{
+        "description":"PIPパッケージを検索して表示します",
+        "example":"`/pypi discord.py`",
+        "permission":["必要なし"],
+        "note":"なし"
+    },
     "qr":{
         "description":"QRコードを生成、又は読み取ります",
         "example":"`/qr 生成 text`\n`/qr 読み込む https://example.com/qr.png`",

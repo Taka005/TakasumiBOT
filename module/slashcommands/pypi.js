@@ -1,48 +1,47 @@
 module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "npm"){
+  if(interaction.commandName === "pypi"){
     const name = interaction.options.getString("name");
 
     await interaction.deferReply();
     try{
-      const res = await fetch(`https://api.npms.io/v2/search?q=${name}`)
+      const pkg = await fetch(`https://pypi.org/pypi/${name}/json`)
         .then(res=>res.json())
 
-      const pkg = res.results[0].package;
       await interaction.editReply({
         embeds:[{
-          title: pkg.name,
-          url: pkg.links.npm,
+          title: pkg.info.name,
+          url: pkg.info.package_url,
           color: "GREEN",
-          description: pkg.description,
+          description: pkg.info.summary,
           thumbnail:{
             url: "https://cdn.taka.ml/images/npm.png",
           },
           fields:[
             {
               name: "作者",
-              value: pkg.author ? pkg.author.name : "なし",
+              value: pkg.info.author ? pkg.info.author : "なし",
               inline: true
             },
             {
               name: "バージョン",
-              value: pkg.version,
+              value: pkg.info.version,
               inline: true
             },
             {
               name: "リポジトリ",
-              value: pkg.links.repository ? pkg.links.repository : "なし",
+              value: pkg.info.project_urls.Home ? pkg.info.project_urls.Home : "なし",
               inline: true
             },
             {
-              name: "保有者",
-              value: pkg.maintainers ? pkg.maintainers.map(e=>e.username).join(", ") : "なし",
+              name: "ライセンス",
+              value: pkg.info.license ? pkg.info.license : "なし",
               inline: true
             },
             {
               name: "キーワード",
-              value: pkg.keywords ? pkg.keywords.join(", ") : "なし",
+              value: pkg.info.keywords ? pkg.info.keywords : "なし",
               inline: true
             }
           ],

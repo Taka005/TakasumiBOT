@@ -414,6 +414,15 @@ module.exports = async(client)=>{
               option
                 .setName("select_8")
                 .setDescription("選択8")),
+          //pypi
+          new SlashCommandBuilder()
+            .setName("pypi")
+            .setDescription("PIPパッケージを検索します")
+            .addStringOption(option =>
+              option
+                .setName("name")
+                .setDescription("検索ワード")
+                .setRequired(true)),
           //qr
           new SlashCommandBuilder()
             .setName("qr")
