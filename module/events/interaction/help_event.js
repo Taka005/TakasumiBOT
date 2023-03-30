@@ -242,6 +242,10 @@ module.exports = async(interaction)=>{
               value: "Make it a Quoteを生成します"
             },
             {
+              name: "/5000",
+              value: "5000兆円ジェネレーター"
+            },
+            {
               name: "/faq",
               value: "よくある質問一覧を表示します"
             },
