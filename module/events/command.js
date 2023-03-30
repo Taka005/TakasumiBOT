@@ -245,7 +245,18 @@ module.exports = async(client)=>{
               option
                 .setName("text")
                 .setDescription("ハッシュ化するテキスト")
-                .setRequired(true)),
+                .setRequired(true))
+            .addStringOption(option =>
+              option
+                .setName("type")
+                .setDescription("ハッシュの種類")
+                .setRequired(true)
+                .addChoices(
+                  { name: "SHA224", value: "sha224" },
+                  { name: "SHA256", value: "sha256" },
+                  { name: "SHA384", value: "sha384" },
+                  { name: "SHA512", value: "sha512" }
+                )),
           //help
           new SlashCommandBuilder()
             .setName("help")

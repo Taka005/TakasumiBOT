@@ -259,7 +259,7 @@ module.exports = async(interaction)=>{
             },
             {
               name: "/hash",
-              value: "SHA256でテキストをハッシュ化します"
+              value: "指定した方式でテキストをハッシュ化します"
             },
             {
               name: "/status",

@@ -4,9 +4,10 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "hash"){
     const text = interaction.options.getString("text");
+    const type = interaction.options.getString("type");
 
     try{
-      const hash = crypto.createHash("sha256");
+      const hash = crypto.createHash(type);
       hash.update(text);
 
       await interaction.reply({
