@@ -13,6 +13,19 @@ module.exports = async(client)=>{
       { 
         body: [
           //Slashcommand
+          //5000
+          new SlashCommandBuilder()
+            .setName("5000")
+            .setDescription("5000兆円ジェネレーター")
+            .addStringOption(option =>
+              option
+                .setName("top")
+                .setDescription("上部文字列")
+                .setRequired(true))
+            .addStringOption(option =>
+              option
+                .setName("bottom")
+                .setDescription("下部文字列")),
           //about
           new SlashCommandBuilder()
             .setName("about")
