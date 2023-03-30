@@ -120,8 +120,8 @@
         "note":"なし"
     },
     "hash":{
-        "description":"SHA256でテキストをハッシュ化します",
-        "example":"`/sha256 テキスト`",
+        "description":"指定した方式でテキストをハッシュ化します",
+        "example":"`/hash テキスト SHA256`",
         "permission":["必要なし"],
         "note":"なし"
     },
