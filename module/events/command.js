@@ -240,7 +240,7 @@ module.exports = async(client)=>{
           //hash
           new SlashCommandBuilder()
             .setName("hash")
-            .setDescription("SHA256でテキストをハッシュ化します")
+            .setDescription("指定した方式でテキストをハッシュ化します")
             .addStringOption(option =>
               option
                 .setName("text")
