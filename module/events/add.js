@@ -1,4 +1,4 @@
-module.exports = async(guild)=>{
+module.exports = async(guild,client)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   let find = 0;
   guild.channels.cache.map((channel)=>{
