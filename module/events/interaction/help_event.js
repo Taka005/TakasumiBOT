@@ -326,6 +326,10 @@ module.exports = async(interaction)=>{
               value: "NPMパッケージを検索、表示します"
             },
             {
+              name: "/pypi",
+              value: "PIPパッケージを検索、表示します"
+            },
+            {
               name: "/omikuji",
               value: "大吉や、凶、吉などのおみくじが引けます"
             },
