@@ -258,6 +258,10 @@ module.exports = async(interaction)=>{
               value: "文字列の暗号化、復号化します"
             },
             {
+              name: "/sha256",
+              value: "SHA256でテキストをハッシュ化します"
+            },
+            {
               name: "/status",
               value: "BOTのサーバーの状態を表示します\n※異常かもと思った場合は、早急に報告してください"
             },
