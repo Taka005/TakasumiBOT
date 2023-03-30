@@ -41,11 +41,11 @@ module.exports = async(client)=>{
   });
 
   client.on("guildCreate",async(guild)=>{
-    require("./events/add")(guild);
+    require("./events/add")(guild,client);
   });
   
   client.on("guildDelete",async(guild)=>{
-    require("./events/remove")(guild);
+    require("./events/remove")(guild,client);
   });
 
   client.on("interactionCreate",async(interaction)=>{
