@@ -546,6 +546,15 @@ module.exports = async(client)=>{
               subcommand
                 .setName("delete")
                 .setDescription("データベースに登録されてるサーバーの情報を全て削除します")),
+          //sha256
+          new SlashCommandBuilder()
+            .setName("sha256")
+            .setDescription("SHA256でテキストをハッシュ化します")
+            .addStringOption(option =>
+              option
+                .setName("text")
+                .setDescription("ハッシュ化するテキスト")
+                .setRequired(true)),
           //short
           new SlashCommandBuilder()
             .setName("short")

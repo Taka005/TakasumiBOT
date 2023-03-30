@@ -245,6 +245,12 @@
         "permission":["管理者"],
         "note":"詳細は`/setting help`を実行してください"
     },
+    "sha256":{
+        "description":"SHA256でテキストをハッシュ化します",
+        "example":"`/sha256 テキスト`",
+        "permission":["必要なし"],
+        "note":"なし"
+    },
     "short":{
         "description":"短縮URLを作成します",
         "example":"`/short https://google.com/`",
