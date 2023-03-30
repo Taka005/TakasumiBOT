@@ -2,7 +2,7 @@ module.exports = async(interaction)=>{
   const { MessageButton, MessageActionRow } = require("discord.js");
   const crypto = require("crypto");
   if(!interaction.isCommand()) return;
-  if(interaction.commandName === "sha256"){
+  if(interaction.commandName === "hash"){
     const text = interaction.options.getString("text");
 
     try{

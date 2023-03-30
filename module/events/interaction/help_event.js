@@ -258,7 +258,7 @@ module.exports = async(interaction)=>{
               value: "文字列の暗号化、復号化します"
             },
             {
-              name: "/sha256",
+              name: "/hash",
               value: "SHA256でテキストをハッシュ化します"
             },
             {
