@@ -27,7 +27,7 @@ module.exports = async(interaction)=>{
         const invites = (await interaction.guild.invites.fetch()).toJSON()
           .filter(invite=>invite.inviterId===user.id);
 
-        if(!invites) return await interaction.reply({
+        if(!invites[0]) return await interaction.reply({
           embeds:[{
             author:{
               name: "招待を取得できません",
@@ -46,7 +46,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN",
-            description: invites.map((invite)=>`\`${invite.code}\`   ${invite.uses}回`).join("\n")
+            description: invites.map((invite)=>`\`${invite.code}\` ${invite.uses}回`).join("\n")
           }]
         });
       }else{
@@ -60,7 +60,7 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/success.png"
             },
             color: "GREEN",
-            description: invites.map((invite)=>`\`${invite.code}\`   ${invite.uses}回(<@${invite.inviterId}>)`).join("\n")
+            description: invites.map((invite)=>`\`${invite.code}\` ${invite.uses}回(<@${invite.inviterId}>)`).join("\n")
           }]
         });
       }
