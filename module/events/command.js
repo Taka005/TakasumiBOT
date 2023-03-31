@@ -283,6 +283,10 @@ module.exports = async(client)=>{
                 .setName("use")
                 .setDescription("使用回数(0で無限)")
                 .setRequired(true)),
+          //inviter
+          new SlashCommandBuilder()
+            .setName("inviter")
+            .setDescription("招待ランキングを表示します"),
           //kick
           new SlashCommandBuilder()
             .setName("kick")

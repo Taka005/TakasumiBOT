@@ -143,6 +143,12 @@
         "permission":["招待リンクの作成"],
         "note":"なし"
     },
+    "inviter":{
+        "description":"招待ランキングを表示します",
+        "example":"`/inviter`",
+        "permission":["なし"],
+        "note":"なし"
+    },
     "kick":{
         "description":"指定されたメンバーをサーバーからKICKします",
         "example":"`/kick @Arashi`",
