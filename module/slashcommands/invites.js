@@ -25,7 +25,7 @@ module.exports = async(interaction)=>{
     try{
       if(user){
         const invites = (await interaction.guild.invites.fetch()).toJSON()
-          .map(invite=>invite.inviterId===user.id);
+          .filter(invite=>invite.inviterId===user.id);
 
         if(!invites) return await interaction.reply({
           embeds:[{
