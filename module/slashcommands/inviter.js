@@ -38,7 +38,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: invites.map((invite,i)=>`${i}位 <@${invite.inviterId}>(${invite.uses}回)\n`)
+          description: invites.map((invite,i)=>`${i}位 <@${invite.inviterId}>(${invite.uses}回)`).join("\n")
         }]
       });
     }catch(error){
