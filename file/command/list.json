@@ -149,6 +149,12 @@
         "permission":["なし"],
         "note":"なし"
     },
+    "invites":{
+        "description":"サーバー又は指定したユーザーの招待一覧を表示します",
+        "example":"`/invites`\n`/invites @TakasumiBOT`",
+        "permission":["なし"],
+        "note":"なし"
+    },
     "kick":{
         "description":"指定されたメンバーをサーバーからKICKします",
         "example":"`/kick @Arashi`",

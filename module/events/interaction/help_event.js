@@ -114,6 +114,10 @@ module.exports = async(interaction)=>{
               value: "招待ランキングを表示します"
             },
             {
+              name: "/invites",
+              value: "サーバー又は指定したユーザーの招待一覧を表示します"
+            },
+            {
               name: "/translate",
               value: "テキストを翻訳します"
             }
@@ -196,6 +200,10 @@ module.exports = async(interaction)=>{
             {
               name: "/setting",
               value: "サーバーの各種設定を変更します\n詳しくは`/setting help`を実行してください"
+            },
+            {
+              name: "/invite",
+              value: "カスタマイズされた招待リンクを作成します"
             },
             {
               name: "/export",
@@ -356,10 +364,6 @@ module.exports = async(interaction)=>{
             {
               name: "/follow",
               value: "BOTのアナウンスチャンネルを追加します"
-            },
-            {
-              name: "/invite",
-              value: "カスタマイズされた招待リンクを作成します"
             },
             {
               name: "/snowflake",
