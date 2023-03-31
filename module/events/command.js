@@ -287,6 +287,14 @@ module.exports = async(client)=>{
           new SlashCommandBuilder()
             .setName("inviter")
             .setDescription("招待ランキングを表示します"),
+          //invites
+          new SlashCommandBuilder()
+            .setName("invites")
+            .setDescription("サーバー又は指定したユーザーの招待一覧を表示します")
+            .addUserOption(option =>
+              option
+                .setName("user")
+                .setDescription("表示するユーザー")),
           //kick
           new SlashCommandBuilder()
             .setName("kick")
