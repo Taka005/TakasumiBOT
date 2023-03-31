@@ -35,9 +35,9 @@ module.exports = async(interaction)=>{
         embeds:[{
           author:{
             name: "招待ランキング",
-            icon_url: "https://cdn.taka.ml/images/system/error.png"
+            icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
-          color: "RED",
+          color: "GREEN",
           description: invites.map((invite,i)=>`${i}位 <@${invite.inviterId}>(${invite.uses}回)`).join("\n")
         }]
       });
