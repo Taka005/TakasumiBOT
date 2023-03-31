@@ -16,7 +16,7 @@ module.exports = async(interaction)=>{
           color: "GREEN",
           description: pkg.info.summary,
           thumbnail:{
-            url: "https://cdn.taka.ml/images/npm.png",
+            url: "https://cdn.taka.ml/images/pypi.png",
           },
           fields:[
             {
