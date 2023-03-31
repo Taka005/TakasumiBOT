@@ -16,7 +16,7 @@ module.exports = async(interaction)=>{
             name: "ハッシュを生成しました",
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
-        description: `${hash.digest("hex")}`,
+          description: `${hash.digest("hex")}`,
           color: "GREEN"
         }]
       });
@@ -34,7 +34,8 @@ module.exports = async(interaction)=>{
               value: `\`\`\`${error}\`\`\``
             }
           ]
-        }],     
+        }], 
+        ephemeral: true,   
         components:[
           new MessageActionRow()
             .addComponents( 
