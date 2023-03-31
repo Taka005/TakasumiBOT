@@ -23,7 +23,7 @@ module.exports = async(interaction)=>{
 
     try{
       const invites = (await interaction.guild.invites.fetch()).toJSON()
-        .filter(invite=>invite.uses!==0||invite.inviterId)
+        .filter(invite=>invite.uses!==0&&invite.inviterId)
         .reduce((user,invite)=>{
           if(!user[invite.inviterId]) user[invite.inviterId] = [];
           user[invite.inviterId].push(invite);
