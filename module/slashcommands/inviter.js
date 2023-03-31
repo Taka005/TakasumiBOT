@@ -22,14 +22,27 @@ module.exports = async(interaction)=>{
     });
 
     try{
-      const invites = (await interaction.guild.invites.fetch()).toJSON();
-      invites.sort((a,b)=>{
-        if(a.uses > b.uses){
-          return 1;
-        }else{
-          return -1;
-        }
-      });
+      const invites = (await interaction.guild.invites.fetch()).toJSON()
+        .filter(invite=>invite.uses!==0 && invite.inviterId)
+        .reduce((user,invite)=>{
+          if(!user[invite.inviterId]) user[invite.inviterId] = [];
+          user[invite.inviterId].push(invite);
+          return user;
+        },{});
+
+      const count = Object.keys(invites)
+        .map(user=>{
+          let invite = invites[user][0];
+          invite.uses = invites[user].reduce((total,invite)=>total + invite.uses,0);
+          return invite;
+        })
+        .sort((a,b)=>{
+          if(a.uses < b.uses){
+            return 1;
+          }else{
+            return -1;
+          }
+        });
 
       await interaction.reply({
         embeds:[{
@@ -38,7 +51,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN",
-          description: invites.map((invite,i)=>`${i}位 <@${invite.inviterId}>(${invite.uses}回)`).join("\n")
+          description: count.map((invite,i)=>`${i+1}位 <@${invite.inviterId}>(${invite.uses}回)`).join("\n")
         }]
       });
     }catch(error){
