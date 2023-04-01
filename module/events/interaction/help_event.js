@@ -10,36 +10,32 @@ module.exports = async(interaction)=>{
     if(interaction.customId.startsWith("page_1")){
       await interaction.message.edit({
         embeds:[{
-          title: "HELP 便利系",
+          title: "HELP 基本コマンド",
           color: "GREEN",
           fields:[
             {
               name: "/poll",
-              value: "アンケートを作成することができます\n最大で選択肢は12個までです"
+              value: "アンケートを作成することができます\n最大で選択肢は8個までです"
             },
             {
               name: "/global",
               value: "色々なサーバーと繋がるグローバルチャットを有効、無効にします\n[利用規約](https://gc.taka.ml/)を読んでから使用してください"
             },
             {
-              name: "/gif",
-              value: "GIF画像を検索して表示します"
+              name: "/about",
+              value: "BOTについての情報や、関連リンクを表示します"
             },
             {
               name: "/embed",
               value: "埋め込みを簡単に作成し、表示できます\n※実行するには`メッセージの管理の権限が必要です`"
             },
             {
-              name: "/wiki",
-              value: "Wikipediaの検索をします"
-            },
-            {
               name: "/hiroyuki",
               value: "ひろゆきを召喚します"
             },
             {
-              name: "/short",
-              value: "短縮URLを作成します"
+              name: "/top",
+              value: "実行したチャンネルの1番最初のメッセージを表示します"
             }
           ]
         }],
@@ -74,7 +70,7 @@ module.exports = async(interaction)=>{
     if(interaction.customId.startsWith("page_2")){
       await interaction.message.edit({
         embeds:[{
-          title: "HELP 認証・情報系",
+          title: "HELP 認証・情報コマンド",
           color: "GREEN",
           fields:[
             {
@@ -116,10 +112,6 @@ module.exports = async(interaction)=>{
             {
               name: "/invites",
               value: "サーバー又は指定したユーザーの招待一覧を表示します"
-            },
-            {
-              name: "/translate",
-              value: "テキストを翻訳します"
             }
           ]
         }],
@@ -154,7 +146,7 @@ module.exports = async(interaction)=>{
     if(interaction.customId.startsWith("page_3")){
       await interaction.message.edit({
         embeds:[{
-          title: "HELP サーバー管理系",
+          title: "HELP サーバー管理コマンド",
           color: "GREEN",
           fields:[
             {
@@ -242,28 +234,36 @@ module.exports = async(interaction)=>{
     if(interaction.customId.startsWith("page_4")){
       await interaction.message.edit({
         embeds:[{
-          title: "HELP エンタメ・BOT系",
+          title: "HELP ツールコマンド",
           color: "GREEN",
           fields:[
+            {
+              name: "/wiki",
+              value: "Wikipediaの検索をします"
+            },
+            {
+              name: "/gif",
+              value: "GIF画像を検索して表示します"
+            },
+            {
+              name: "/translate",
+              value: "テキストを翻訳します"
+            },
             {
               name: "/mc",
               value: "指定したアドレスのMinecarftサーバーの情報を表示します"
             },
             {
-              name: "/miq",
-              value: "Make it a Quoteを生成します"
+              name: "/news",
+              value: "最近のニュースを表示します"
             },
             {
-              name: "/5000",
-              value: "5000兆円ジェネレーター"
+              name: "/safeweb",
+              value: "Webサイトの安全性を評価します"
             },
             {
-              name: "/faq",
-              value: "よくある質問一覧を表示します"
-            },
-            {
-              name: "/ad",
-              value: "BOTの広告文を表示します"
+              name: "/webshot",
+              value: "Webサイトのスクリーンショットを撮影します"
             },
             {
               name: "/cipher",
@@ -274,20 +274,28 @@ module.exports = async(interaction)=>{
               value: "指定した方式でテキストをハッシュ化します"
             },
             {
-              name: "/status",
-              value: "BOTのサーバーの状態を表示します\n※異常かもと思った場合は、早急に報告してください"
+              name: "/short",
+              value: "短縮URLを作成します"
             },
             {
-              name: "/about",
-              value: "BOTについての情報や、関連リンクを表示します"
+              name: "/nslookup",
+              value: "DNS情報を取得します"
             },
             {
-              name: "/news",
-              value: "最近のニュースを表示します"
+              name: "/script",
+              value: "プログラムを実行します"
             },
             {
-              name: "/account",
-              value: "登録されているアカウント情報を表示します"
+              name: "/qr",
+              value: "QRコードを生成、または読み取ります"
+            },
+            {
+              name: "/npm",
+              value: "NPMパッケージを検索、表示します"
+            },
+            {
+              name: "/pypi",
+              value: "PIPパッケージを検索、表示します"
             }
           ]
         }],
@@ -322,52 +330,44 @@ module.exports = async(interaction)=>{
     if(interaction.customId.startsWith("page_5")){
       await interaction.message.edit({
         embeds:[{
-          title: "HELP 雑用系",
+          title: "HELP ネタ・その他のコマンド",
           color: "GREEN",
-          fields:[
+          fields:[ 
             {
-              name: "/top",
-              value: "実行したチャンネルの1番最初のメッセージを表示します"
-            },    
-            {
-              name: "/safeweb",
-              value: "Webサイトの安全性を評価します"
+              name: "/miq",
+              value: "Make it a Quoteを生成します"
             },
             {
-              name: "/webshot",
-              value: "Webサイトのスクリーンショットを撮影します"
+              name: "/5000",
+              value: "5000兆円ジェネレーター"
             },
             {
               name: "/afk",
               value: "AFKを設定します(留守電の機能です)"
             },
             {
-              name: "/npm",
-              value: "NPMパッケージを検索、表示します"
-            },
-            {
-              name: "/pypi",
-              value: "PIPパッケージを検索、表示します"
+              name: "/follow",
+              value: "BOTのアナウンスチャンネルを追加します"
             },
             {
               name: "/omikuji",
               value: "大吉や、凶、吉などのおみくじが引けます"
             },
             {
-              name: "/nslookup",
-              value: "DNS情報を取得します"
+              name: "/faq",
+              value: "よくある質問一覧を表示します"
             },
             {
-              name: "/script",
-              value: "プログラムを実行します"
+              name: "/ad",
+              value: "BOTの広告文を表示します"
             },
             {
-              name: "/qr",
-              value: "QRコードを生成、または読み取ります"
+              name: "/status",
+              value: "BOTのサーバーの状態を表示します\n※異常かもと思った場合は、早急に報告してください"
             },
             {
-              name: "/follow",
-              value: "BOTのアナウンスチャンネルを追加します"
+              name: "/account",
+              value: "登録されているアカウント情報を表示します"
             },
             {
               name: "/snowflake",
