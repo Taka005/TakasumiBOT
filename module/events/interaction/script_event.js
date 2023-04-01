@@ -1,5 +1,6 @@
 module.exports = async(interaction)=>{
   const fetch = require("node-fetch");
+  const { MessageAttachment } = require("discord.js");
   if(!interaction.isModalSubmit()) return;
   if(interaction.customId.startsWith("script_")){
     const lang = interaction.customId.split("_");
@@ -77,11 +78,16 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
-            description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,
+            description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**結果**\n結果が長すぎた為添付ファイルに出力しました`,
             footer:{
               text: `${lang[1]} || TakasumiBOT`
             }
-          }]
+          }],
+          files:[
+            new MessageAttachment() 
+              .setFile(new Buffer.form(res.program_output)) 
+              .setName("data.txt")
+          ] 
         });
       })
     }else{
@@ -105,11 +111,16 @@ module.exports = async(interaction)=>{
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
             color: "RED",
-            description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\n結果が長すぎます`,
+            description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**エラー**\nエラーが長すぎる為添付ファイルに出力しました`,
             footer:{
               text: `${lang[1]} || TakasumiBOT`
             }
-          }]
+          }],
+          files: [
+            new MessageAttachment() 
+              .setFile(new Buffer.form(res.program_error)) 
+              .setName("error.txt")
+          ] 
         });
       })
     }
