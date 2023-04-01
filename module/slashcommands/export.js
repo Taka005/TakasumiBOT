@@ -63,7 +63,7 @@ module.exports = async(interaction,client)=>{
 
       await interaction.reply({
         content:"サーバーのデータをJSON形式に出力しました",
-        files: [
+        files:[
           new MessageAttachment()
             .setDescription("データは慎重に扱ってください") 
             .setFile(data) 
