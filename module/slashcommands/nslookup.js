@@ -4,12 +4,11 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "nslookup"){
     const name = interaction.options.getString("name");
 
-    await interaction.deferReply({ephemeral: true});
     try{
       const data = await fetch(`https://dns.google/resolve?name=${name}`)
         .then(res=>res.json());
 
-      if(!data.Answer) return await interaction.editReply({
+      if(!data.Answer) return await interaction.reply({
         embeds:[{
           author:{
             name: "DNS情報が取得できませんでした",
@@ -21,22 +20,21 @@ module.exports = async(interaction)=>{
         ephemeral: true
       });
 
-      await interaction.editReply({
+      await interaction.reply({
         embeds:[{
           author:{
             name: `${name}の結果`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN",
-          description: `\`\`\`${data.Answer.map(address=>address.data).join("\n\n")}\`\`\``,
+          description: `\`${data.Answer.map(address=>address.data).join("\n")}\``,
           footer:{
             text: "TakasumiBOT"
           }
-        }],
-        ephemeral: false
+        }]
       })
     }catch{
-      await interaction.editReply({
+      await interaction.reply({
         embeds:[{
           author:{
             name: "DNS情報が取得できませんでした",
