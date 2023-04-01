@@ -13,31 +13,31 @@ module.exports = async(interaction)=>{
           fields:[
             {
               name: "/poll",
-              value: "アンケートを作成することができます\n最大で選択肢は12個までです"
+              value: "アンケートを作成することができます\n最大で選択肢は8個までです"
             },
             {
               name: "/global",
               value: "色々なサーバーと繋がるグローバルチャットを有効、無効にします\n[利用規約](https://gc.taka.ml/)を読んでから使用してください"
             },
             {
-              name: "/gif",
-              value: "GIF画像を検索し、表示します"
+              name: "/about",
+              value: "BOTについての情報や、関連リンクを表示します"
             },
             {
-              name: "/embed",
-              value: "埋め込みを簡単に作成し、表示できます"
+              name: "/afk",
+              value: "AFKを設定します(留守電の機能です)"
             },
             {
-              name: "/wiki",
-              value: "Wikipediaの検索をします"
+              name: "/follow",
+              value: "BOTのアナウンスチャンネルを追加します"
             },
             {
               name: "/hiroyuki",
               value: "ひろゆきを召喚します"
             },
             {
-              name: "/short",
-              value: "短縮URLを作成します"
+              name: "/top",
+              value: "実行したチャンネルの1番最初のメッセージを表示します"
             }
           ]
         }],
