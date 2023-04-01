@@ -363,6 +363,15 @@ module.exports = async(client)=>{
                 .setName("name")
                 .setDescription("検索ワード")
                 .setRequired(true)),
+          //nslookup
+          new SlashCommandBuilder()
+            .setName("nslookup")
+            .setDescription("DNS情報を取得します")
+            .addStringOption(option =>
+              option
+                .setName("name")
+                .setDescription("取得するアドレス")
+                .setRequired(true)),
           //omikuji
           new SlashCommandBuilder()
             .setName("omikuji")

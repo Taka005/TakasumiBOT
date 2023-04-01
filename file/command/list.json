@@ -191,6 +191,12 @@
         "permission":["必要なし"],
         "note":"なし"
     },
+    "nslookup":{
+        "description":"DNS情報を取得します",
+        "example":"`/nslookup google.com`",
+        "permission":["必要なし"],
+        "note":"なし"
+    },
     "omikuji":{
         "description":"おみくじを引きます",
         "example":"`/omikuji`",
