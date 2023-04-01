@@ -74,10 +74,10 @@ module.exports = async(interaction)=>{
         await interaction.editReply({
           embeds:[{
             author:{
-              name: "実行できませんでした",
+              name: "実行しました",
               icon_url: "https://cdn.taka.ml/images/system/error.png"
             },
-            color: "RED",
+            color: "GREEN",
             description: `**コード**\n\`\`\`${language[lang[1]].type}\n${code}\`\`\`\n**結果**\n結果が長すぎた為添付ファイルに出力しました`,
             footer:{
               text: `${lang[1]} || TakasumiBOT`
