@@ -26,8 +26,12 @@ module.exports = async(interaction)=>{
               value: "BOTについての情報や、関連リンクを表示します"
             },
             {
-              name: "/embed",
-              value: "埋め込みを簡単に作成し、表示できます\n※実行するには`メッセージの管理の権限が必要です`"
+              name: "/afk",
+              value: "AFKを設定します(留守電の機能です)"
+            },
+            {
+              name: "/follow",
+              value: "BOTのアナウンスチャンネルを追加します"
             },
             {
               name: "/hiroyuki",
@@ -162,12 +166,16 @@ module.exports = async(interaction)=>{
               value: "指定されたメンバーをタイムアウトすることができます"
             },
             {
+              name: "/warn",
+              value: "指定されたメンバーを警告します\n ※メンバーがDMを拒否している場合警告できません"
+            },
+            {
               name: "/del",
               value: "指定された数だけ、メッセージを一括で削除します\n ※二週間前かつ、100個以上のメッセージは削除できません"
             },
             {
-              name: "/warn",
-              value: "指定されたメンバーを警告します\n ※メンバーがDMを拒否している場合警告できません"
+              name: "/embed",
+              value: "埋め込みを簡単に作成し、表示できます\n※実行するには`メッセージの管理の権限が必要です`"
             },
             {
               name: "/panel",
@@ -254,10 +262,6 @@ module.exports = async(interaction)=>{
               value: "指定したアドレスのMinecarftサーバーの情報を表示します"
             },
             {
-              name: "/news",
-              value: "最近のニュースを表示します"
-            },
-            {
               name: "/safeweb",
               value: "Webサイトの安全性を評価します"
             },
@@ -342,16 +346,12 @@ module.exports = async(interaction)=>{
               value: "5000兆円ジェネレーター"
             },
             {
-              name: "/afk",
-              value: "AFKを設定します(留守電の機能です)"
-            },
-            {
-              name: "/follow",
-              value: "BOTのアナウンスチャンネルを追加します"
-            },
-            {
               name: "/omikuji",
               value: "大吉や、凶、吉などのおみくじが引けます"
+            },
+            {
+              name: "/news",
+              value: "最近のニュースを表示します"
             },
             {
               name: "/faq",
