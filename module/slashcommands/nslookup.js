@@ -28,11 +28,12 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN",
-          description: `\`\`\`${data.Answer.map(address=>address.data).join("\n")}\`\`\``,
+          description: `\`\`\`${data.Answer.map(address=>address.data).join("\n\n")}\`\`\``,
           footer:{
             text: "TakasumiBOT"
           }
-        }]
+        }],
+        ephemeral: false
       })
     }catch{
       await interaction.editReply({
