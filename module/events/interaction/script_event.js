@@ -85,7 +85,7 @@ module.exports = async(interaction)=>{
           }],
           files:[
             new MessageAttachment() 
-              .setFile(new Buffer.form(res.program_output,"UTF-8")) 
+              .setFile(new Buffer.from(res.program_output,"UTF-8")) 
               .setName("data.txt")
           ] 
         });
@@ -118,7 +118,7 @@ module.exports = async(interaction)=>{
           }],
           files: [
             new MessageAttachment() 
-              .setFile(new Buffer.form(res.program_error,"UTF-8")) 
+              .setFile(new Buffer.from(res.program_error,"UTF-8")) 
               .setName("error.txt")
           ] 
         });
