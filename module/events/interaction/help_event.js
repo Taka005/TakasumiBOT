@@ -354,6 +354,10 @@ module.exports = async(interaction)=>{
               value: "大吉や、凶、吉などのおみくじが引けます"
             },
             {
+              name: "/nslookup",
+              value: "DNS情報を取得します"
+            },
+            {
               name: "/script",
               value: "プログラムを実行します"
             },

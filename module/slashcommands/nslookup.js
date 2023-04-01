@@ -3,11 +3,10 @@ module.exports = async(interaction)=>{
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "nslookup"){
     const name = interaction.options.getString("name");
-    const type = interaction.options.getString("type");
 
     await interaction.deferReply();
     try{
-      const data = await fetch(`https://dns.google/resolve?name=${name}&type=${type}`)
+      const data = await fetch(`https://dns.google/resolve?name=${name}`)
         .then(res=>res.json());
 
       if(!data.Answer) return await interaction.editReply({
@@ -17,7 +16,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/error.png"
           },
           color: "RED",
-          description: "指定したタイプで取得出来ませんでした"
+          description: "違うアドレスで試してください"
         }],
         ephemeral: true
       });
@@ -25,18 +24,11 @@ module.exports = async(interaction)=>{
       await interaction.editReply({
         embeds:[{
           author:{
-            name: `${data.Question[0].name}レコードを取得しました`,
+            name: `${name}の結果`,
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN",
-          fields:[
-            data.Answer.map(a=>(
-              {
-                name: "作者",
-                value: "なし"
-              }
-            ))
-          ],
+          description: `\`\`\`${data.Answer.join("\n")}\`\`\``,
           footer:{
             text: "TakasumiBOT"
           }
