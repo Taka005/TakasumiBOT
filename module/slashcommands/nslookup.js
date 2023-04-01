@@ -4,7 +4,7 @@ module.exports = async(interaction)=>{
   if(interaction.commandName === "nslookup"){
     const name = interaction.options.getString("name");
 
-    await interaction.deferReply();
+    await interaction.deferReply({ephemeral: true});
     try{
       const data = await fetch(`https://dns.google/resolve?name=${name}`)
         .then(res=>res.json());
@@ -28,7 +28,7 @@ module.exports = async(interaction)=>{
             icon_url: "https://cdn.taka.ml/images/system/success.png"
           },
           color: "GREEN",
-          description: `\`\`\`${data.Answer.join("\n")}\`\`\``,
+          description: `\`\`\`${data.Answer.map(address=>address.data).join("\n")}\`\`\``,
           footer:{
             text: "TakasumiBOT"
           }
