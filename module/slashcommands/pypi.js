@@ -59,8 +59,7 @@ module.exports = async(interaction)=>{
           },
           color: "RED",
           description: "検索ワードを変えて、もう一度実行してください"
-        }],
-        ephemeral: true
+        }]
       });
     }
   }

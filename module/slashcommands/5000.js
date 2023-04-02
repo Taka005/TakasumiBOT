@@ -10,10 +10,10 @@ module.exports = async(interaction)=>{
     try{
       let image;
       if(bottom){
-        image = await fetch(`https://gsapi.cbrx.io/image?top=${top}&bottom=${bottom}&type=png&noalpha=true`)
+        image = await fetch(`https://gsapi.cbrx.io/image?top=${top}&bottom=${bottom}&type=png`)
           .then(res=>res.blob())
       }else{
-        image = await fetch(`https://gsapi.cbrx.io/image?top=${top}&bottom=${bottom||"欲しい!"}&hoshii=true&type=png&noalpha=true`)
+        image = await fetch(`https://gsapi.cbrx.io/image?top=${top}&bottom=欲しい!&hoshii=true&type=png`)
           .then(res=>res.blob())
       }    
 
