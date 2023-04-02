@@ -39,9 +39,7 @@ module.exports = async(interaction,client)=>{
       ephemeral: true
     });
 
-    const ch = client.channels.cache.get("1049155527214628954");
-  
-    await ch.addFollower(interaction.channel, "TakasumiBOTアナウンス")
+    await client.channels.cache.get("1049155527214628954").addFollower(interaction.channel,"TakasumiBOTアナウンス")
       .then(async()=>{
         await interaction.reply({
           embeds:[{
