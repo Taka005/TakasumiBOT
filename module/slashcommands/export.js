@@ -54,10 +54,6 @@ module.exports = async(interaction,client)=>{
             "color": role.hexColor,
             "time": new Date(role.createdTimestamp).toLocaleString()
           }))
-        },
-        "bot":{
-          "user": client.user.tag,
-          "ping": client.ws.ping
         }
       },null,"  "),"UTF-8");
 
