@@ -1,4 +1,4 @@
-module.exports = async(interaction,client)=>{
+module.exports = async(interaction)=>{
   const { MessageAttachment ,MessageButton, MessageActionRow } = require("discord.js");
   if(!interaction.isCommand()) return;
   if(interaction.commandName === "export"){
@@ -54,10 +54,6 @@ module.exports = async(interaction,client)=>{
             "color": role.hexColor,
             "time": new Date(role.createdTimestamp).toLocaleString()
           }))
-        },
-        "bot":{
-          "user": client.user.tag,
-          "ping": client.ws.ping
         }
       },null,"  "),"UTF-8");
 
