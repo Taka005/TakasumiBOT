@@ -121,7 +121,20 @@ module.exports = async(interaction)=>{
           }],
           ephemeral: true
         });
-  
+
+        const ignore = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${interaction.guild.id} LIMIT 1;`);
+        if(ignore) return await interaction.reply({
+          embeds:[{
+            author:{
+              name: "通知ロールを有効にできませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
+            },
+            color: "RED",
+            description: "このサーバーではメッセージ無視機能が有効化されています\n無効にすることでBump通知を設定できます"
+          }],
+          ephemeral: true
+        });
+
         await mysql(`INSERT INTO bump (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
         await interaction.reply({
           embeds:[{
@@ -215,6 +228,19 @@ module.exports = async(interaction)=>{
           ephemeral: true
         });
   
+        const ignore = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${interaction.guild.id} LIMIT 1;`);
+        if(ignore) return await interaction.reply({
+          embeds:[{
+            author:{
+              name: "通知ロールを有効にできませんでした",
+              icon_url: "https://cdn.taka.ml/images/system/error.png"
+            },
+            color: "RED",
+            description: "このサーバーではメッセージ無視機能が有効化されています\n無効にすることでDissoku通知を設定できます"
+          }],
+          ephemeral: true
+        });
+
         await mysql(`INSERT INTO dissoku (server, role, time) VALUES("${interaction.guild.id}","${role.id}",NOW()) ON DUPLICATE KEY UPDATE server = VALUES (server),role = VALUES (role),time = VALUES (time);`);
         await interaction.reply({
           embeds:[{
