@@ -123,7 +123,7 @@ module.exports = async(interaction)=>{
         });
 
         const ignore = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${interaction.guild.id} LIMIT 1;`);
-        if(ignore) return await interaction.reply({
+        if(ignore[0]) return await interaction.reply({
           embeds:[{
             author:{
               name: "通知ロールを有効にできませんでした",
@@ -229,7 +229,7 @@ module.exports = async(interaction)=>{
         });
   
         const ignore = await mysql(`SELECT * FROM \`ignore\` WHERE id = ${interaction.guild.id} LIMIT 1;`);
-        if(ignore) return await interaction.reply({
+        if(ignore[0]) return await interaction.reply({
           embeds:[{
             author:{
               name: "通知ロールを有効にできませんでした",
